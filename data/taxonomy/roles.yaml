@@ -1,0 +1,287 @@
+# Elsewhere role vocabulary — v1
+#
+# A role is what a place *does in local life*, not what it sells. This is the
+# layer that distinguishes H-E-B → Mariano's (both "the good one people are
+# loyal to") from H-E-B → Jewel-Osco (both "a grocery store").
+#
+# Fixed vocabulary on purpose: a bad match has to be debuggable, and it can't
+# be if the words shift every generation call. Add roles deliberately.
+#
+# Exemplars steer the model far harder than definitions do. Keep them real,
+# keep them recognizable, and span regions so no single city anchors a role.
+
+# ─── Grocery & food retail ────────────────────────────────────────────────
+- id: regional_grocery_cult
+  definition: >
+    Regional grocery chain locals are actively loyal to and identify with —
+    not merely the nearest option. Leaving its footprint is a real loss.
+  exemplars: ["H-E-B (Austin)", "Wegmans (Rochester)", "Publix (Atlanta)"]
+
+- id: grocery_utilitarian
+  definition: >
+    The grocery you use because it's there. Adequate, unloved, no identity
+    attached. The default when nothing better is close.
+  exemplars: ["Jewel-Osco (Chicago)", "Safeway (Denver)", "Kroger (Cincinnati)"]
+
+- id: upscale_grocery_destination
+  definition: >
+    Grocery treated as an outing — prepared foods, cheese counter, wine bar.
+    People drive past two closer stores to shop here.
+  exemplars: ["Central Market (Austin)", "Mariano's (Chicago)", "Bristol Farms (Los Angeles)"]
+
+- id: discount_grocery_staple
+  definition: >
+    Where price-conscious locals actually shop, without stigma. Limited
+    selection traded for cost.
+  exemplars: ["Aldi (Chicago)", "WinCo (Boise)", "Grocery Outlet (Oakland)"]
+
+- id: ethnic_grocery_anchor
+  definition: >
+    Large grocery anchoring a specific immigrant community, drawing shoppers
+    citywide including well outside that community.
+  exemplars: ["Fiesta Mart (Houston)", "H Mart (Chicago)", "Patel Brothers (Edison)"]
+
+- id: convenience_store_icon
+  definition: >
+    Gas-station-adjacent chain elevated to a genuine cultural object —
+    people plan stops around it and buy the merch.
+  exemplars: ["Buc-ee's (Texas)", "Wawa (Philadelphia)", "Sheetz (Pittsburgh)"]
+
+- id: corner_store_staple
+  definition: >
+    Small neighborhood shop covering last-minute needs, open late, known by
+    a local generic name.
+  exemplars: ["bodega (New York)", "party store (Detroit)", "packie (Boston)"]
+
+# ─── Restaurants ──────────────────────────────────────────────────────────
+- id: local_fast_casual_chain
+  definition: >
+    Home-grown fast-casual with a handful to a few dozen locations, strong
+    local identity, and menu items people name specifically.
+  exemplars: ["Torchy's Tacos (Austin)", "Portillo's (Chicago)", "Zaxby's (Athens)"]
+
+- id: regional_burger_icon
+  definition: >
+    Burger chain functioning as a regional identity marker. Expats have
+    opinions about it and visit on trips home.
+  exemplars: ["Whataburger (Texas)", "In-N-Out (California)", "Culver's (Wisconsin)"]
+
+- id: regional_cuisine_flagship
+  definition: >
+    The restaurant outsiders are told to visit for the city's defining dish.
+    Often has a line; locals are ambivalent but concede it's the real thing.
+  exemplars: ["Franklin Barbecue (Austin)", "Lou Malnati's (Chicago)", "Cochon (New Orleans)"]
+
+- id: late_night_default
+  definition: >
+    Where you end up after 1am. Quality is beside the point; being open and
+    absorbing a drunk crowd is the whole function.
+  exemplars: ["Kerbey Lane (Austin)", "Golden Nugget (Chicago)", "Ihop (everywhere)"]
+
+- id: breakfast_institution
+  definition: >
+    Weekend breakfast with a wait, no reservations, and multi-generational
+    regulars. A ritual more than a meal.
+  exemplars: ["Magnolia Cafe (Austin)", "Lou Mitchell's (Chicago)", "Pann's (Los Angeles)"]
+
+- id: cheap_eats_student
+  definition: >
+    Sustains students on very little money. Near campus, open late,
+    remembered fondly and disproportionately.
+  exemplars: ["Cabo Bob's (Austin)", "The Wieners Circle (Chicago)", "Fat Sal's (Los Angeles)"]
+
+- id: old_guard_fine_dining
+  definition: >
+    The decades-old special-occasion restaurant. Where locals take visiting
+    parents and mark anniversaries.
+  exemplars: ["Jeffrey's (Austin)", "The Berghoff (Chicago)", "Bern's (Tampa)"]
+
+- id: new_wave_tasting_room
+  definition: >
+    Current critical darling — chef-driven, hard to book, the place food
+    people are arguing about right now.
+  exemplars: ["Olamaie (Austin)", "Alinea (Chicago)", "Saison (San Francisco)"]
+
+# ─── Bars & nightlife ─────────────────────────────────────────────────────
+- id: dive_bar_default
+  definition: >
+    Unpretentious, cheap, and beloved. The reliable answer to "where should
+    we go" when nobody wants to decide.
+  exemplars: ["Deep Eddy Cabaret (Austin)", "Old Town Ale House (Chicago)", "Ship (Detroit)"]
+
+- id: craft_beer_flagship
+  definition: >
+    The local brewery whose taproom functions as a gathering place, whose
+    cans signal local identity in other cities' bottle shops.
+  exemplars: ["Live Oak (Austin)", "Half Acre (Chicago)", "Russian River (Santa Rosa)"]
+
+- id: cocktail_bar_serious
+  definition: >
+    Deliberate cocktail program, low light, no TVs. Where you take a date
+    or an out-of-town colleague you want to impress quietly.
+  exemplars: ["Small Victory (Austin)", "The Violet Hour (Chicago)", "Attaboy (New York)"]
+
+- id: music_venue_legendary
+  definition: >
+    Historic room central to the city's musical identity. Its bookings are
+    part of the civic story.
+  exemplars: ["Antone's (Austin)", "Metro (Chicago)", "First Avenue (Minneapolis)"]
+
+- id: music_venue_midsize
+  definition: >
+    The 500–1500 capacity room touring bands play. Defines what "seeing a
+    show" means locally without the historical weight.
+  exemplars: ["Mohawk (Austin)", "Thalia Hall (Chicago)", "The Fillmore (San Francisco)"]
+
+- id: nightlife_district
+  definition: >
+    The concentrated strip locals send visitors to and then avoid
+    themselves. Dense, loud, somewhat embarrassing.
+  exemplars: ["Sixth Street (Austin)", "Division Street (Chicago)", "Bourbon Street (New Orleans)"]
+
+# ─── Coffee ───────────────────────────────────────────────────────────────
+- id: local_coffee_roaster_flagship
+  definition: >
+    Roaster-café that set the local coffee standard. Its beans appear in
+    other cafés around town.
+  exemplars: ["Cuvée (Austin)", "Intelligentsia (Chicago)", "Stumptown (Portland)"]
+
+- id: study_coffee_shop
+  definition: >
+    Laptop-tolerant, outlets, long sits without pressure. The de facto
+    third place for students and remote workers.
+  exemplars: ["Epoch (Austin)", "Kopi (Chicago)", "Trident (Boston)"]
+
+- id: drive_thru_coffee_chain
+  definition: >
+    Regional drive-through coffee serving commuters. Speed and loyalty
+    program over craft.
+  exemplars: ["Summer Moon (Austin)", "Dutch Bros (Grants Pass)", "Biggby (Lansing)"]
+
+# ─── Fitness & recreation ─────────────────────────────────────────────────
+- id: premium_big_box_gym
+  definition: >
+    Large full-service club — pools, courts, classes, childcare — at a
+    price that signals membership as lifestyle.
+  exemplars: ["Lifetime Fitness (Austin)", "East Bank Club (Chicago)", "Equinox (New York)"]
+
+- id: budget_gym_chain
+  definition: >
+    Low monthly fee, minimal amenities, long hours. Function over identity.
+  exemplars: ["Planet Fitness (everywhere)", "Gold's Gym (Venice)", "Crunch (New York)"]
+
+- id: boutique_fitness_local
+  definition: >
+    Single-discipline studio with a tight community and instructors people
+    follow between locations.
+  exemplars: ["Castle Hill (Austin)", "Studio Three (Chicago)", "Barry's (Los Angeles)"]
+
+- id: outdoor_ritual_spot
+  definition: >
+    Outdoor place woven into weekly routine — swimming, running, walking.
+    Free or nearly so, and central to how locals describe living there.
+  exemplars: ["Barton Springs (Austin)", "The 606 (Chicago)", "Town Lake Trail (Austin)"]
+
+- id: signature_public_park
+  definition: >
+    The park that hosts the festivals and appears in every establishing
+    shot. Genuinely used, not just photographed.
+  exemplars: ["Zilker Park (Austin)", "Millennium Park (Chicago)", "Golden Gate Park (San Francisco)"]
+
+# ─── Retail ───────────────────────────────────────────────────────────────
+- id: outdoor_gear_institution
+  definition: >
+    Where locals buy gear for the region's specific outdoor activity, with
+    staff who actually do it.
+  exemplars: ["Whole Earth Provision (Austin)", "Uncle Dan's (Chicago)", "Feathered Friends (Seattle)"]
+
+- id: independent_bookstore_landmark
+  definition: >
+    Independent bookstore functioning as civic institution — author events,
+    staff picks people trust, decades of continuity.
+  exemplars: ["BookPeople (Austin)", "Seminary Co-op (Chicago)", "Powell's (Portland)"]
+
+- id: record_store_institution
+  definition: >
+    Long-running record shop tied to the local scene, where the staff have
+    been there twenty years.
+  exemplars: ["Waterloo Records (Austin)", "Reckless Records (Chicago)", "Amoeba (Los Angeles)"]
+
+- id: vintage_thrift_destination
+  definition: >
+    Curated secondhand clothing people travel across town for. The find
+    matters more than the price.
+  exemplars: ["Uncommon Objects (Austin)", "Knee Deep (Chicago)", "Wasteland (Los Angeles)"]
+
+- id: local_hardware_store
+  definition: >
+    Neighborhood hardware where someone finds the part for you. Survives
+    next to big-box because of that.
+  exemplars: ["Breed & Co (Austin)", "Clark-Devon (Chicago)", "Cole (San Francisco)"]
+
+- id: regional_department_store
+  definition: >
+    Department store carrying regional identity, often long-since acquired
+    but still called by its old name.
+  exemplars: ["Dillard's (Little Rock)", "Marshall Field's (Chicago)", "Von Maur (Davenport)"]
+
+# ─── Civic & services ─────────────────────────────────────────────────────
+- id: farmers_market_signature
+  definition: >
+    The weekend market that is a social event as much as grocery shopping.
+  exemplars: ["SFC Farmers' Market (Austin)", "Green City Market (Chicago)", "Pike Place (Seattle)"]
+
+- id: flagship_public_library
+  definition: >
+    Central library branch used as workspace, event venue, and architectural
+    landmark.
+  exemplars: ["Austin Central Library (Austin)", "Harold Washington (Chicago)", "Central Library (Seattle)"]
+
+- id: regional_bank_credit_union
+  definition: >
+    Locally-headquartered bank or credit union people choose over nationals
+    out of regional preference.
+  exemplars: ["Frost Bank (San Antonio)", "Byline Bank (Chicago)", "Umpqua (Roseburg)"]
+
+- id: art_museum_flagship
+  definition: >
+    The principal art museum — the default answer to "we have a free
+    afternoon."
+  exemplars: ["Blanton Museum (Austin)", "Art Institute (Chicago)", "LACMA (Los Angeles)"]
+
+- id: independent_cinema
+  definition: >
+    Repertory or arthouse theater with programming as the draw. Often
+    food and drink service, always a specific crowd.
+  exemplars: ["Alamo Drafthouse (Austin)", "Music Box (Chicago)", "Vidiots (Los Angeles)"]
+
+# ─── Landmarks & neighborhoods ────────────────────────────────────────────
+- id: weird_local_landmark
+  definition: >
+    Oddity locals are genuinely affectionate about and bring visitors to,
+    with no real tourist-industry apparatus around it.
+  exemplars: ["Cathedral of Junk (Austin)", "The Bean (Chicago)", "Watts Towers (Los Angeles)"]
+
+- id: tourist_trap_locals_avoid
+  definition: >
+    Heavily promoted to visitors and quietly disowned by residents. Useful
+    to match so travelers can recognize and skip it.
+  exemplars: ["Sixth Street (Austin)", "Navy Pier (Chicago)", "Fisherman's Wharf (San Francisco)"]
+
+- id: gentrified_main_drag
+  definition: >
+    Formerly cheap commercial strip now dense with boutiques and brunch.
+    Locals narrate its decline while still going.
+  exemplars: ["South Congress (Austin)", "Wicker Park (Chicago)", "Abbot Kinney (Los Angeles)"]
+
+- id: arts_warehouse_district
+  definition: >
+    Post-industrial area holding studios, galleries, and venues, usually
+    mid-transition.
+  exemplars: ["East Austin (Austin)", "Pilsen (Chicago)", "Bushwick (New York)"]
+
+- id: old_money_neighborhood
+  definition: >
+    Established wealthy residential area with mature trees, low turnover,
+    and a country club.
+  exemplars: ["Tarrytown (Austin)", "Lake Forest (Chicago)", "Brookline (Boston)"]

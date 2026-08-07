@@ -1,0 +1,36 @@
+[project]
+name = "elsewhere"
+version = "0.1.0"
+description = "Find the parallel places in an unfamiliar city"
+readme = "../README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "anthropic>=0.40.0",
+    "pydantic>=2.9.0",
+    "pyyaml>=6.0",
+    "duckdb>=1.1.0",
+    "typer>=0.15.0",
+    "rich>=13.9.0",
+]
+
+[project.optional-dependencies]
+resolve = ["sentence-transformers>=3.3.0"]
+
+[project.scripts]
+elsewhere = "elsewhere.cli:app"
+
+[dependency-groups]
+dev = [
+    "pytest>=8.3.0",
+    "ruff>=0.8.0",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.ruff]
+line-length = 100
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

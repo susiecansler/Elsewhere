@@ -8,6 +8,17 @@ node_modules/
 venv/
 .venv/
 __pycache__/
+.pytest_cache/
+.ruff_cache/
+
+# Large derived data — rebuildable via `elsewhere places build`.
+# Seeds, taxonomy, matches, and eval sets ARE tracked; they're the corpus.
+data/places/
+*.duckdb
+*.parquet
+
+# Batch API job state (contains request ids, not results)
+data/matches/*.batch.json
 
 # Build output
 dist/
