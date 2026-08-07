@@ -29,12 +29,26 @@ the same *role* for locals. Dimensions that matter:
 
 ## Status
 
-Early. Nothing built yet — defining the matching model first.
+Planning. Nothing built yet — the matching model and data strategy are
+settled, implementation starts next.
 
-## Roadmap
+- [MVP implementation plan](docs/mvp-plan.md) — phases, success criteria, risks
 
-- [ ] Decide on the place-data source (Google Places, Foursquare, OSM, curated)
-- [ ] Define the similarity model across the dimensions above
-- [ ] Seed a hand-curated Austin ↔ Chicago set as ground truth
-- [ ] Thin API: `GET /equivalent?place=...&city=...`
-- [ ] Minimal web UI
+## Approach in brief
+
+- **Place data:** Foursquare OS Places (Apache 2.0) as the stored substrate.
+  Google Places can't be a database — only `place_id` is storable indefinitely.
+- **Matching:** place → *role* → place, against a fixed role vocabulary. This
+  is what rules out "H-E-B → Jewel-Osco": both are groceries, only one carries
+  the loyalty.
+- **Generation:** an LLM proposes matches and reasoning offline in batch; the
+  places dataset verifies they exist. Serving is a lookup, not a model call.
+- **Ground truth:** mined from local subreddits, where people ask this exact
+  question unprompted.
+
+## MVP scope
+
+Austin ↔ Chicago, ~120 named institutions per side, scored against ground
+truth, queryable from a CLI. Target: top-1 ≥ 60%, top-3 ≥ 85%.
+
+Web app comes after the numbers say the matching model works.
