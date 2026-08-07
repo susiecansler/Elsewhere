@@ -36,8 +36,10 @@ settled, implementation starts next.
 
 ## Approach in brief
 
-- **Place data:** Foursquare OS Places (Apache 2.0) as the stored substrate.
-  Google Places can't be a database — only `place_id` is storable indefinitely.
+- **Place data:** Overture Maps (CDLA-Permissive) as the stored substrate.
+  Foursquare OS Places was the original pick but has moved behind a token;
+  Google Places can't be a database at all — only `place_id` is storable
+  indefinitely.
 - **Matching:** place → *role* → place, against a fixed role vocabulary. This
   is what rules out "H-E-B → Jewel-Osco": both are groceries, only one carries
   the loyalty.
@@ -45,6 +47,18 @@ settled, implementation starts next.
   places dataset verifies they exist. Serving is a lookup, not a model call.
 - **Ground truth:** mined from local subreddits, where people ask this exact
   question unprompted.
+
+## Running it
+
+```bash
+cd pipeline && make setup && make places && make seeds
+```
+
+`make help` lists the rest. The virtualenv is created **outside** the repo
+(`~/.venvs/elsewhere`) because this checkout lives under `~/Documents`, which
+iCloud Drive syncs — iCloud leaves conflict copies inside `.venv` that break
+the editable install with a confusing `No module named 'elsewhere'`. Override
+`UV_PROJECT_ENVIRONMENT` if your checkout isn't in a synced folder.
 
 ## MVP scope
 

@@ -2,7 +2,6 @@
 name = "elsewhere"
 version = "0.1.0"
 description = "Find the parallel places in an unfamiliar city"
-readme = "../README.md"
 requires-python = ">=3.11"
 dependencies = [
     "anthropic>=0.40.0",
@@ -11,6 +10,7 @@ dependencies = [
     "duckdb>=1.1.0",
     "typer>=0.15.0",
     "rich>=13.9.0",
+    "numpy>=2.4.6",
 ]
 
 [project.optional-dependencies]
@@ -29,8 +29,20 @@ dev = [
 requires = ["hatchling"]
 build-backend = "hatchling.build"
 
+[tool.hatch.build.targets.wheel]
+packages = ["elsewhere"]
+
 [tool.ruff]
 line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
+
+[tool.ruff.lint.per-file-ignores]
+# typer.Option()/Argument() in defaults is the framework's required idiom.
+"elsewhere/cli.py" = ["B008"]
+# Tests reach into internals deliberately.
+"tests/*" = ["SLF001"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

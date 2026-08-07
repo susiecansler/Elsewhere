@@ -1,0 +1,393 @@
+# Chicago seed corpus — the candidate pool.
+#
+# These are the *answers*: what an Austin query gets matched against.
+# Breadth matters more here than in austin.yaml, because a role with no
+# plausible Chicago candidate caps recall no matter how good the taxonomy is.
+# When top-3 underperforms, widen this file before touching the taxonomy.
+#
+# Same conventions as austin.yaml: no pre-assigned roles, aliases are how
+# people actually type it, closures get caught by verification.
+
+city: chicago
+places:
+  # ─── Grocery & food retail ──────────────────────────────────────────
+  - name: Mariano's
+    category: grocery
+    aliases: [Marianos, "Mariano's Fresh Market"]
+  - name: Jewel-Osco
+    category: grocery
+    aliases: [Jewel, "Jewel Osco", jewels]
+  - name: Pete's Fresh Market
+    category: grocery
+    aliases: ["Petes Fresh Market", "Pete's"]
+  - name: Aldi
+    category: grocery
+    aliases: [aldi]
+  - name: H Mart
+    category: grocery
+    aliases: [HMart, "H-Mart"]
+  - name: Joong Boo Market
+    category: grocery
+    aliases: ["Joong Boo", "Chicago Food Corp"]
+  - name: Dill Pickle Food Co-op
+    category: grocery
+    aliases: ["Dill Pickle", "dill pickle coop"]
+  - name: Gene's Sausage Shop
+    category: grocery
+    aliases: ["Genes Sausage Shop", "Gene's"]
+  - name: Eataly Chicago
+    category: grocery
+    aliases: [Eataly]
+
+  # ─── Pizza & Italian beef ───────────────────────────────────────────
+  - name: Lou Malnati's
+    category: restaurant_pizza
+    aliases: [Lou Malnatis, "Lou's", Malnatis]
+  - name: Pequod's Pizza
+    category: restaurant_pizza
+    aliases: [Pequods, "Pequod's"]
+  - name: Giordano's
+    category: restaurant_pizza
+    aliases: [Giordanos]
+  - name: Spacca Napoli
+    category: restaurant_pizza
+    aliases: ["Spacca Napoli Pizzeria"]
+  - name: Pizzeria Bebu
+    category: restaurant_pizza
+    aliases: [Bebu]
+  - name: Al's Beef
+    category: restaurant_casual
+    aliases: ["Als Beef", "Al's #1 Italian Beef"]
+  - name: Mr. Beef
+    category: restaurant_casual
+    aliases: ["Mr Beef", "Mr. Beef on Orleans"]
+  - name: Johnnie's Beef
+    category: restaurant_casual
+    aliases: [Johnnies Beef, "Johnnie's"]
+
+  # ─── Hot dogs & late night ──────────────────────────────────────────
+  - name: Portillo's
+    category: restaurant_casual
+    aliases: [Portillos, "Portillo's Hot Dogs"]
+  - name: Superdawg Drive-In
+    category: restaurant_casual
+    aliases: [Superdawg, "Super Dawg"]
+  - name: Gene & Jude's
+    category: restaurant_casual
+    aliases: ["Gene and Judes", "Gene & Judes"]
+  - name: The Wieners Circle
+    category: restaurant_casual
+    aliases: ["Wieners Circle", "Weiners Circle"]
+
+  # ─── Tacos & Mexican ────────────────────────────────────────────────
+  - name: Big Star
+    category: restaurant_tacos
+    aliases: ["Big Star Wicker Park", "Big Star Tacos"]
+  - name: Carnitas Uruapan
+    category: restaurant_tacos
+    aliases: ["Carnitas Uruapan"]
+  - name: Birrieria Zaragoza
+    category: restaurant_tacos
+    aliases: ["Birrieria Zaragoza"]
+  - name: Taqueria Chingon
+    category: restaurant_tacos
+    aliases: ["Taqueria Chingón", Chingon]
+  - name: 5 Rabanitos
+    category: restaurant_tacos
+    aliases: ["Cinco Rabanitos"]
+
+  # ─── Breakfast, diners & cheap eats ─────────────────────────────────
+  - name: Lou Mitchell's
+    category: restaurant_breakfast
+    aliases: [Lou Mitchells, "Lou Mitchell's Restaurant"]
+  - name: Valois Cafeteria
+    category: restaurant_breakfast
+    aliases: [Valois, "Valois Restaurant"]
+  - name: Manny's Cafeteria & Delicatessen
+    category: restaurant_casual
+    aliases: [Mannys, "Manny's Deli"]
+  - name: Margie's Candies
+    category: dessert
+    aliases: [Margies, "Margie's"]
+  - name: Kuma's Corner
+    category: restaurant_burger
+    aliases: [Kumas, "Kuma's"]
+  - name: Small Cheval
+    category: restaurant_burger
+    aliases: ["Small Cheval"]
+  - name: Au Cheval
+    category: restaurant_burger
+    aliases: ["Au Cheval"]
+  - name: Smoque BBQ
+    category: restaurant_bbq
+    aliases: [Smoque, "Smoque BBQ"]
+  - name: Green Street Smoked Meats
+    category: restaurant_bbq
+    aliases: ["Green Street Smoked Meats"]
+
+  # ─── Fine dining & new wave ─────────────────────────────────────────
+  - name: The Berghoff
+    category: restaurant_fine
+    aliases: [Berghoff, "Berghoff Restaurant"]
+  - name: Alinea
+    category: restaurant_fine
+    aliases: [Alinea]
+  - name: Girl & the Goat
+    category: restaurant_fine
+    aliases: ["Girl and the Goat"]
+  - name: Kasama
+    category: restaurant_fine
+    aliases: [Kasama]
+  - name: Monteverde
+    category: restaurant_fine
+    aliases: ["Monteverde Restaurant"]
+  - name: Oriole
+    category: restaurant_fine
+    aliases: [Oriole]
+
+  # ─── Bars & dives ───────────────────────────────────────────────────
+  - name: Old Town Ale House
+    category: bar_dive
+    aliases: ["Old Town Ale House"]
+  - name: Delilah's
+    category: bar_dive
+    aliases: [Delilahs, "Delilah's Chicago"]
+  - name: Rainbo Club
+    category: bar_dive
+    aliases: ["Rainbo", "Rainbow Club"]
+  - name: Simon's Tavern
+    category: bar_dive
+    aliases: [Simons, "Simon's"]
+  - name: Marie's Riptide Lounge
+    category: bar_dive
+    aliases: ["Maries Riptide", "Riptide Lounge"]
+  - name: Skylark
+    category: bar_dive
+    aliases: ["The Skylark"]
+  - name: The Violet Hour
+    category: bar_cocktail
+    aliases: ["Violet Hour"]
+  - name: Billy Sunday
+    category: bar_cocktail
+    aliases: ["Billy Sunday"]
+  - name: Map Room
+    category: bar_beer
+    aliases: ["The Map Room"]
+  - name: Cindy's Rooftop
+    category: bar_rooftop
+    aliases: ["Cindys", "Cindy's"]
+
+  # ─── Breweries ──────────────────────────────────────────────────────
+  - name: Half Acre Beer Company
+    category: brewery
+    aliases: ["Half Acre", "Half Acre Brewing"]
+  - name: Revolution Brewing
+    category: brewery
+    aliases: [Revolution, "Rev Brewing"]
+  - name: Goose Island
+    category: brewery
+    aliases: ["Goose Island Brewery", Goose]
+  - name: Maplewood Brewery
+    category: brewery
+    aliases: ["Maplewood Brewing"]
+  - name: Off Color Brewing
+    category: brewery
+    aliases: ["Off Color"]
+
+  # ─── Music venues ───────────────────────────────────────────────────
+  - name: The Green Mill
+    category: music_venue
+    aliases: ["Green Mill", "Green Mill Cocktail Lounge"]
+  - name: Metro
+    category: music_venue
+    aliases: ["Metro Chicago", "The Metro"]
+  - name: Thalia Hall
+    category: music_venue
+    aliases: ["Thalia Hall"]
+  - name: Empty Bottle
+    category: music_venue
+    aliases: ["The Empty Bottle"]
+  - name: Lincoln Hall
+    category: music_venue
+    aliases: ["Lincoln Hall"]
+  - name: Schubas Tavern
+    category: music_venue
+    aliases: [Schubas, "Schuba's"]
+  - name: The Hideout
+    category: music_venue
+    aliases: [Hideout]
+  - name: Kingston Mines
+    category: music_venue
+    aliases: ["Kingston Mines"]
+  - name: Buddy Guy's Legends
+    category: music_venue
+    aliases: ["Buddy Guys", "Legends"]
+
+  # ─── Coffee ─────────────────────────────────────────────────────────
+  - name: Intelligentsia Coffee
+    category: coffee
+    aliases: [Intelligentsia, "Intelli"]
+  - name: Metropolis Coffee
+    category: coffee
+    aliases: ["Metropolis Coffee Company"]
+  - name: Dark Matter Coffee
+    category: coffee
+    aliases: ["Dark Matter"]
+  - name: Kopi Cafe
+    category: coffee
+    aliases: [Kopi, "Kopi A Traveler's Cafe"]
+  - name: Sawada Coffee
+    category: coffee
+    aliases: [Sawada]
+  - name: Big Shoulders Coffee
+    category: coffee
+    aliases: ["Big Shoulders"]
+
+  # ─── Fitness & outdoors ─────────────────────────────────────────────
+  - name: East Bank Club
+    category: gym
+    aliases: ["East Bank", EBC]
+  - name: Studio Three
+    category: gym
+    aliases: ["Studio 3"]
+  - name: Lakefront Trail
+    category: outdoor_trail
+    aliases: ["The Lakefront Trail", "lakefront path", "the lakefront"]
+  - name: The 606
+    category: outdoor_trail
+    aliases: ["606", "Bloomingdale Trail"]
+  - name: Millennium Park
+    category: park
+    aliases: ["Millenium Park"]
+  - name: Lincoln Park
+    category: park
+    aliases: ["Lincoln Park"]
+  - name: Grant Park
+    category: park
+    aliases: ["Grant Park"]
+  - name: North Avenue Beach
+    category: outdoor_swim
+    aliases: ["North Ave Beach"]
+  - name: Montrose Beach
+    category: outdoor_swim
+    aliases: ["Montrose Beach"]
+  - name: Promontory Point
+    category: outdoor_swim
+    aliases: ["The Point", "Promontory Point"]
+
+  # ─── Retail ─────────────────────────────────────────────────────────
+  - name: Uncle Dan's
+    category: retail_outdoor
+    aliases: ["Uncle Dans", "Uncle Dan's Outfitters"]
+  - name: Seminary Co-op Bookstore
+    category: retail_books
+    aliases: ["Seminary Coop", "Sem Co-op", "Seminary Co-op"]
+  - name: Myopic Books
+    category: retail_books
+    aliases: [Myopic]
+  - name: Unabridged Bookstore
+    category: retail_books
+    aliases: [Unabridged]
+  - name: Reckless Records
+    category: retail_records
+    aliases: [Reckless]
+  - name: Dusty Groove
+    category: retail_records
+    aliases: ["Dusty Groove Records"]
+  - name: Knee Deep Vintage
+    category: retail_vintage
+    aliases: ["Knee Deep"]
+  - name: Buffalo Exchange
+    category: retail_vintage
+    aliases: ["Buffalo Exchange"]
+  - name: Clark-Devon Hardware
+    category: retail_hardware
+    aliases: ["Clark Devon Hardware"]
+  - name: Macy's on State Street
+    category: retail_department
+    aliases: ["Marshall Field's", "Marshall Fields", "Macy's State Street"]
+  - name: Alcala's Western Wear
+    category: retail_apparel
+    aliases: [Alcalas, "Alcala's"]
+
+  # ─── Civic & culture ────────────────────────────────────────────────
+  - name: Green City Market
+    category: farmers_market
+    aliases: ["Green City Market"]
+  - name: Harold Washington Library Center
+    category: library
+    aliases: ["Harold Washington Library", "the Harold Washington"]
+  - name: Art Institute of Chicago
+    category: museum_art
+    aliases: ["The Art Institute", AIC, "Art Institute"]
+  - name: Museum of Contemporary Art Chicago
+    category: museum_art
+    aliases: [MCA, "MCA Chicago"]
+  - name: Field Museum
+    category: museum_history
+    aliases: ["The Field Museum", "Field Museum of Natural History"]
+  - name: Museum of Science and Industry
+    category: museum_history
+    aliases: [MSI, "Museum of Science & Industry"]
+  - name: Chicago History Museum
+    category: museum_history
+    aliases: ["Chicago Historical Society"]
+  - name: Music Box Theatre
+    category: cinema
+    aliases: ["The Music Box", "Music Box"]
+  - name: Gene Siskel Film Center
+    category: cinema
+    aliases: ["Siskel Film Center", "The Siskel"]
+  - name: Chicago Cultural Center
+    category: theater
+    aliases: ["Cultural Center"]
+  - name: Steppenwolf Theatre
+    category: theater
+    aliases: [Steppenwolf]
+  - name: The Second City
+    category: theater
+    aliases: ["Second City"]
+  - name: Symphony Center
+    category: theater
+    aliases: ["Chicago Symphony Orchestra", CSO, "Orchestra Hall"]
+  - name: Byline Bank
+    category: bank
+    aliases: [Byline]
+
+  # ─── Landmarks & neighborhoods ──────────────────────────────────────
+  - name: Cloud Gate
+    category: landmark_oddity
+    aliases: ["The Bean", "the bean", "Cloud Gate sculpture"]
+  - name: Navy Pier
+    category: landmark_tourist
+    aliases: ["Navy Pier"]
+  - name: Wicker Park
+    category: neighborhood_commercial
+    aliases: ["Wicker Park"]
+  - name: Division Street
+    category: neighborhood_nightlife
+    aliases: ["Division", "the Viagra Triangle"]
+  - name: Wrigleyville
+    category: neighborhood_nightlife
+    aliases: [Wrigleyville, "Lakeview East"]
+  - name: Pilsen
+    category: neighborhood_arts
+    aliases: [Pilsen]
+  - name: Logan Square
+    category: neighborhood_commercial
+    aliases: ["Logan Square"]
+  - name: Andersonville
+    category: neighborhood_commercial
+    aliases: [Andersonville]
+  - name: Fulton Market
+    category: neighborhood_commercial
+    aliases: ["Fulton Market District", "West Loop"]
+  - name: Hyde Park
+    category: neighborhood_residential
+    aliases: ["Hyde Park Chicago"]
+  - name: Lake Forest
+    category: neighborhood_residential
+    aliases: ["Lake Forest"]
+  - name: Lincoln Square
+    category: neighborhood_commercial
+    aliases: ["Lincoln Square"]

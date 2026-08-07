@@ -1,0 +1,394 @@
+# Austin seed corpus — named institutions locals would miss.
+#
+# Curated by hand. These are the *queries*: the places someone leaving Austin
+# would want an equivalent for. Roles are deliberately NOT pre-assigned — the
+# model tags both sides, and hand-tagging the source would make the tagging
+# step untestable.
+#
+# `aliases` is how people actually type it, and feeds phase 5 entity
+# resolution. Include the abbreviation, the misspelling, and the shorthand.
+#
+# Closed or relocated entries are expected and fine — the Foursquare join in
+# `elsewhere seeds build` and the phase 3 verification pass exist to catch
+# them. Curate confidently; let verification do its job.
+
+city: austin
+places:
+  # ─── Grocery & food retail ──────────────────────────────────────────
+  - name: H-E-B
+    category: grocery
+    aliases: [HEB, heb, "H-E-B Grocery", "HEB grocery"]
+  - name: Central Market
+    category: grocery
+    aliases: ["central market", CM]
+  - name: Wheatsville Food Co-op
+    category: grocery
+    aliases: [Wheatsville, "wheatsville coop"]
+  - name: Randalls
+    category: grocery
+    aliases: [randalls]
+  - name: Fiesta Mart
+    category: grocery
+    aliases: [Fiesta]
+  - name: MT Supermarket
+    category: grocery
+    aliases: ["MT Market", "MT supermarket"]
+  - name: Royal Blue Grocery
+    category: convenience
+    aliases: ["Royal Blue"]
+  - name: Buc-ee's
+    category: convenience
+    aliases: [Bucees, "Buccees", "bucky's"]
+
+  # ─── Tacos & Tex-Mex ────────────────────────────────────────────────
+  - name: Torchy's Tacos
+    category: restaurant_tacos
+    aliases: [Torchys, "Torchy's", torchies]
+  - name: Tacodeli
+    category: restaurant_tacos
+    aliases: [Taco Deli, tacodeli]
+  - name: Veracruz All Natural
+    category: restaurant_tacos
+    aliases: [Veracruz, "Veracruz Tacos"]
+  - name: El Chilito
+    category: restaurant_tacos
+    aliases: [Chilito]
+  - name: Matt's El Rancho
+    category: restaurant_texmex
+    aliases: [Matts El Rancho, "Matt's"]
+  - name: Chuy's
+    category: restaurant_texmex
+    aliases: [Chuys]
+  - name: Juan in a Million
+    category: restaurant_texmex
+    aliases: ["Juan in a Million", Juans]
+
+  # ─── Barbecue ───────────────────────────────────────────────────────
+  - name: Franklin Barbecue
+    category: restaurant_bbq
+    aliases: [Franklin, "Franklin BBQ", franklins]
+  - name: la Barbecue
+    category: restaurant_bbq
+    aliases: ["La Barbecue", "la bbq"]
+  - name: Terry Black's Barbecue
+    category: restaurant_bbq
+    aliases: ["Terry Blacks", "Terry Black's BBQ"]
+  - name: Salt Lick BBQ
+    category: restaurant_bbq
+    aliases: ["The Salt Lick", "Salt Lick"]
+  - name: Micklethwait Craft Meats
+    category: restaurant_bbq
+    aliases: [Micklethwait]
+
+  # ─── Burgers & casual ───────────────────────────────────────────────
+  - name: Whataburger
+    category: restaurant_burger
+    aliases: [whataburger, "what a burger"]
+  - name: P. Terry's
+    category: restaurant_burger
+    aliases: ["P Terrys", "PTerrys", "P. Terry's Burger Stand"]
+  - name: Hopdoddy Burger Bar
+    category: restaurant_burger
+    aliases: [Hopdoddy]
+  - name: Cabo Bob's
+    category: restaurant_casual
+    aliases: ["Cabo Bobs"]
+  - name: Home Slice Pizza
+    category: restaurant_pizza
+    aliases: ["Home Slice"]
+  - name: Thundercloud Subs
+    category: restaurant_casual
+    aliases: [Thundercloud]
+  - name: Amy's Ice Creams
+    category: dessert
+    aliases: ["Amys Ice Cream", "Amy's"]
+  - name: Gourdough's
+    category: dessert
+    aliases: [Gourdoughs, "Gourdough's Public House"]
+  - name: Ramen Tatsu-ya
+    category: restaurant_casual
+    aliases: ["Tatsuya", "Ramen Tatsuya"]
+
+  # ─── Breakfast & late night ─────────────────────────────────────────
+  - name: Kerbey Lane Cafe
+    category: restaurant_breakfast
+    aliases: [Kerbey Lane, Kerbey]
+  - name: Magnolia Cafe
+    category: restaurant_breakfast
+    aliases: [Magnolia, "Magnolia Cafe South"]
+  - name: Bouldin Creek Cafe
+    category: restaurant_breakfast
+    aliases: [Bouldin Creek, Bouldin]
+  - name: Counter Cafe
+    category: restaurant_breakfast
+    aliases: ["Counter Cafe"]
+
+  # ─── Fine dining & new wave ─────────────────────────────────────────
+  - name: Jeffrey's
+    category: restaurant_fine
+    aliases: [Jeffreys]
+  - name: Uchi
+    category: restaurant_fine
+    aliases: [Uchi Austin]
+  - name: Olamaie
+    category: restaurant_fine
+    aliases: [Olamaie]
+  - name: Suerte
+    category: restaurant_fine
+    aliases: [Suerte]
+  - name: Odd Duck
+    category: restaurant_fine
+    aliases: ["Odd Duck"]
+  - name: Dai Due
+    category: restaurant_fine
+    aliases: ["Dai Due Butcher Shop"]
+  - name: Justine's Brasserie
+    category: restaurant_fine
+    aliases: [Justines, "Justine's"]
+  - name: Elizabeth Street Cafe
+    category: restaurant_fine
+    aliases: ["Elizabeth Street"]
+
+  # ─── Bars & dives ───────────────────────────────────────────────────
+  - name: Deep Eddy Cabaret
+    category: bar_dive
+    aliases: ["Deep Eddy Bar", "Deep Eddy Cabaret"]
+  - name: The White Horse
+    category: bar_honkytonk
+    aliases: ["White Horse"]
+  - name: The Broken Spoke
+    category: bar_honkytonk
+    aliases: ["Broken Spoke"]
+  - name: Donn's Depot
+    category: bar_dive
+    aliases: ["Donns Depot", "Donn's"]
+  - name: Ego's
+    category: bar_dive
+    aliases: [Egos, "Ego's Lounge"]
+  - name: Hole in the Wall
+    category: bar_dive
+    aliases: ["Hole In The Wall"]
+  - name: Nickel City
+    category: bar_dive
+    aliases: ["Nickel City"]
+  - name: Cheer Up Charlies
+    category: bar_queer
+    aliases: ["Cheer Ups", "Cheer Up Charlie's"]
+  - name: Small Victory
+    category: bar_cocktail
+    aliases: ["Small Victory"]
+  - name: Half Step
+    category: bar_cocktail
+    aliases: ["Half Step"]
+  - name: Elephant Room
+    category: bar_jazz
+    aliases: ["The Elephant Room"]
+  - name: Scholz Garten
+    category: bar_beergarden
+    aliases: ["Scholz Beer Garten", Scholz]
+
+  # ─── Breweries ──────────────────────────────────────────────────────
+  - name: Live Oak Brewing
+    category: brewery
+    aliases: ["Live Oak", "Live Oak Brewery"]
+  - name: Jester King Brewery
+    category: brewery
+    aliases: ["Jester King"]
+  - name: Austin Beerworks
+    category: brewery
+    aliases: [Beerworks, ABW]
+  - name: Zilker Brewing
+    category: brewery
+    aliases: ["Zilker Brewing Co"]
+  - name: St. Elmo Brewing
+    category: brewery
+    aliases: ["St Elmo Brewing", "St. Elmo"]
+
+  # ─── Music venues ───────────────────────────────────────────────────
+  - name: Antone's
+    category: music_venue
+    aliases: [Antones, "Antone's Nightclub"]
+  - name: The Continental Club
+    category: music_venue
+    aliases: ["Continental Club"]
+  - name: Mohawk
+    category: music_venue
+    aliases: ["The Mohawk", "Mohawk Austin"]
+  - name: Stubb's
+    category: music_venue
+    aliases: [Stubbs, "Stubb's Bar-B-Q"]
+  - name: Emo's
+    category: music_venue
+    aliases: [Emos, "Emo's Austin"]
+  - name: Austin City Limits Live
+    category: music_venue
+    aliases: [ACL Live, "Moody Theater", "ACL Live at the Moody Theater"]
+  - name: Skylark Lounge
+    category: music_venue
+    aliases: [Skylark]
+  - name: Saxon Pub
+    category: music_venue
+    aliases: ["The Saxon Pub"]
+
+  # ─── Coffee ─────────────────────────────────────────────────────────
+  - name: Cuvée Coffee
+    category: coffee
+    aliases: [Cuvee, "Cuvee Coffee Bar"]
+  - name: Houndstooth Coffee
+    category: coffee
+    aliases: [Houndstooth]
+  - name: Epoch Coffee
+    category: coffee
+    aliases: [Epoch]
+  - name: Radio Coffee & Beer
+    category: coffee
+    aliases: ["Radio Coffee", Radio]
+  - name: Summer Moon Coffee
+    category: coffee
+    aliases: ["Summer Moon"]
+  - name: Jo's Coffee
+    category: coffee
+    aliases: [Joes Coffee, "Jos Coffee"]
+  - name: Mozart's Coffee Roasters
+    category: coffee
+    aliases: [Mozarts, "Mozart's"]
+  - name: Bennu Coffee
+    category: coffee
+    aliases: [Bennu]
+
+  # ─── Fitness & outdoors ─────────────────────────────────────────────
+  - name: Lifetime Fitness
+    category: gym
+    aliases: [Life Time, "Life Time Fitness", lifetime]
+  - name: Castle Hill Fitness
+    category: gym
+    aliases: ["Castle Hill"]
+  - name: Barton Springs Pool
+    category: outdoor_swim
+    aliases: ["Barton Springs", barton springs pool]
+  - name: Deep Eddy Pool
+    category: outdoor_swim
+    aliases: ["Deep Eddy"]
+  - name: Zilker Park
+    category: park
+    aliases: [Zilker]
+  - name: Lady Bird Lake Hike-and-Bike Trail
+    category: outdoor_trail
+    aliases: ["Town Lake Trail", "Lady Bird Lake Trail", "the hike and bike"]
+  - name: Barton Creek Greenbelt
+    category: outdoor_trail
+    aliases: ["The Greenbelt", greenbelt]
+  - name: Mount Bonnell
+    category: landmark
+    aliases: ["Mt Bonnell"]
+  - name: McKinney Falls State Park
+    category: park
+    aliases: ["McKinney Falls"]
+
+  # ─── Retail ─────────────────────────────────────────────────────────
+  - name: Whole Earth Provision Co.
+    category: retail_outdoor
+    aliases: ["Whole Earth", "Whole Earth Provision"]
+  - name: BookPeople
+    category: retail_books
+    aliases: ["Book People"]
+  - name: Waterloo Records
+    category: retail_records
+    aliases: [Waterloo]
+  - name: End of an Ear
+    category: retail_records
+    aliases: ["End Of An Ear"]
+  - name: Uncommon Objects
+    category: retail_vintage
+    aliases: ["Uncommon Objects"]
+  - name: Buffalo Exchange
+    category: retail_vintage
+    aliases: ["Buffalo Exchange"]
+  - name: Breed & Co.
+    category: retail_hardware
+    aliases: ["Breed and Co", "Breed & Company"]
+  - name: Allens Boots
+    category: retail_apparel
+    aliases: ["Allen's Boots", "Allens"]
+  - name: Dillard's
+    category: retail_department
+    aliases: [Dillards]
+
+  # ─── Civic & culture ────────────────────────────────────────────────
+  - name: SFC Farmers' Market
+    category: farmers_market
+    aliases: ["Downtown Farmers Market", "SFC Farmers Market"]
+  - name: Austin Central Library
+    category: library
+    aliases: ["Central Library", "the new library"]
+  - name: Blanton Museum of Art
+    category: museum_art
+    aliases: [Blanton, "The Blanton"]
+  - name: The Contemporary Austin
+    category: museum_art
+    aliases: [Contemporary Austin, "Laguna Gloria"]
+  - name: Bullock Texas State History Museum
+    category: museum_history
+    aliases: [Bullock Museum, "The Bullock"]
+  - name: LBJ Presidential Library
+    category: museum_history
+    aliases: ["LBJ Library"]
+  - name: Alamo Drafthouse Cinema
+    category: cinema
+    aliases: ["Alamo Drafthouse", "The Alamo", Drafthouse]
+  - name: Paramount Theatre
+    category: theater
+    aliases: ["The Paramount"]
+  - name: Long Center for the Performing Arts
+    category: theater
+    aliases: ["The Long Center"]
+  - name: Texas State Capitol
+    category: landmark
+    aliases: ["The Capitol", "State Capitol"]
+  - name: Frost Bank
+    category: bank
+    aliases: [Frost]
+  - name: University Federal Credit Union
+    category: bank
+    aliases: [UFCU]
+
+  # ─── Landmarks & neighborhoods ──────────────────────────────────────
+  - name: Cathedral of Junk
+    category: landmark_oddity
+    aliases: ["Cathedral Of Junk"]
+  - name: Congress Avenue Bridge Bats
+    category: landmark_oddity
+    aliases: ["the bats", "Congress Bridge bats", "Ann Richards Bridge"]
+  - name: South Congress
+    category: neighborhood_commercial
+    aliases: [SoCo, "South Congress Avenue"]
+  - name: Rainey Street
+    category: neighborhood_nightlife
+    aliases: ["Rainey", "Rainey Street District"]
+  - name: Sixth Street
+    category: neighborhood_nightlife
+    aliases: ["6th Street", "Dirty Sixth"]
+  - name: East Austin
+    category: neighborhood_arts
+    aliases: ["East Side", "the east side"]
+  - name: The Domain
+    category: neighborhood_commercial
+    aliases: [Domain]
+  - name: Tarrytown
+    category: neighborhood_residential
+    aliases: [Tarrytown]
+  - name: Westlake
+    category: neighborhood_residential
+    aliases: ["West Lake Hills", Westlake]
+  - name: Hyde Park
+    category: neighborhood_residential
+    aliases: ["Hyde Park Austin"]
+  - name: Clarksville
+    category: neighborhood_residential
+    aliases: [Clarksville]
+  - name: Mueller
+    category: neighborhood_residential
+    aliases: ["Mueller District"]
+  - name: Travis Heights
+    category: neighborhood_residential
+    aliases: ["Travis Heights"]

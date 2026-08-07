@@ -1,0 +1,118 @@
+{"name":"Mariano's","city":"chicago","category":"grocery","aliases":["Marianos","Mariano's Fresh Market"],"fsq_place_id":"93634160-005f-4af2-ac11-d5790424819d","notes":null}
+{"name":"Jewel-Osco","city":"chicago","category":"grocery","aliases":["Jewel","Jewel Osco","jewels"],"fsq_place_id":"2c59d8e0-955f-49b4-b4e2-77b1ffcac1cd","notes":null}
+{"name":"Pete's Fresh Market","city":"chicago","category":"grocery","aliases":["Petes Fresh Market","Pete's"],"fsq_place_id":"5d0ce5ab-0a09-4db6-b63f-299dbe112142","notes":null}
+{"name":"Aldi","city":"chicago","category":"grocery","aliases":["aldi"],"fsq_place_id":"8da09775-f47d-4b77-a9ce-61721f6fda39","notes":null}
+{"name":"H Mart","city":"chicago","category":"grocery","aliases":["HMart","H-Mart"],"fsq_place_id":"c2950d46-aab9-4174-a50d-dc7b37fb66ca","notes":null}
+{"name":"Joong Boo Market","city":"chicago","category":"grocery","aliases":["Joong Boo","Chicago Food Corp"],"fsq_place_id":"a8ebed39-b6d7-47d8-94a9-856a7c011065","notes":null}
+{"name":"Dill Pickle Food Co-op","city":"chicago","category":"grocery","aliases":["Dill Pickle","dill pickle coop"],"fsq_place_id":"8be6f1d4-86fe-40a1-8200-dd5215998470","notes":null}
+{"name":"Gene's Sausage Shop","city":"chicago","category":"grocery","aliases":["Genes Sausage Shop","Gene's"],"fsq_place_id":null,"notes":null}
+{"name":"Eataly Chicago","city":"chicago","category":"grocery","aliases":["Eataly"],"fsq_place_id":"7288e3d7-5fb8-4b56-ae0b-1df170c72755","notes":null}
+{"name":"Lou Malnati's","city":"chicago","category":"restaurant_pizza","aliases":["Lou Malnatis","Lou's","Malnatis"],"fsq_place_id":"10c72c5c-99fd-4b28-84ba-52d6954f4451","notes":null}
+{"name":"Pequod's Pizza","city":"chicago","category":"restaurant_pizza","aliases":["Pequods","Pequod's"],"fsq_place_id":"36b660c5-496d-47ef-8227-41c2381b5306","notes":null}
+{"name":"Giordano's","city":"chicago","category":"restaurant_pizza","aliases":["Giordanos"],"fsq_place_id":"ad7f9d6e-87e0-4417-9895-4b697f06452a","notes":null}
+{"name":"Spacca Napoli","city":"chicago","category":"restaurant_pizza","aliases":["Spacca Napoli Pizzeria"],"fsq_place_id":"4a800803-0539-428a-8176-e76e60e68b2c","notes":null}
+{"name":"Pizzeria Bebu","city":"chicago","category":"restaurant_pizza","aliases":["Bebu"],"fsq_place_id":"ae9609c2-0ff1-427b-8177-39bded96f21d","notes":null}
+{"name":"Al's Beef","city":"chicago","category":"restaurant_casual","aliases":["Als Beef","Al's #1 Italian Beef"],"fsq_place_id":"74931ff7-2ab2-4f9c-bead-8515457d6577","notes":null}
+{"name":"Mr. Beef","city":"chicago","category":"restaurant_casual","aliases":["Mr Beef","Mr. Beef on Orleans"],"fsq_place_id":"f944cfe3-8af0-4e21-9abd-b023ec45dfb9","notes":null}
+{"name":"Johnnie's Beef","city":"chicago","category":"restaurant_casual","aliases":["Johnnies Beef","Johnnie's"],"fsq_place_id":"513cb703-eb8a-4433-8872-1b103d421b80","notes":null}
+{"name":"Portillo's","city":"chicago","category":"restaurant_casual","aliases":["Portillos","Portillo's Hot Dogs"],"fsq_place_id":"b4323164-c219-4ca8-82c1-b237d89ebf08","notes":null}
+{"name":"Superdawg Drive-In","city":"chicago","category":"restaurant_casual","aliases":["Superdawg","Super Dawg"],"fsq_place_id":"f9839385-05bf-44cc-b122-256e2b90ea11","notes":null}
+{"name":"Gene & Jude's","city":"chicago","category":"restaurant_casual","aliases":["Gene and Judes","Gene & Judes"],"fsq_place_id":"cec186bc-a4c4-432c-850d-cca002ddf82f","notes":null}
+{"name":"The Wieners Circle","city":"chicago","category":"restaurant_casual","aliases":["Wieners Circle","Weiners Circle"],"fsq_place_id":"3bb34dbf-805b-4f36-9e97-1e25187e4db6","notes":null}
+{"name":"Big Star","city":"chicago","category":"restaurant_tacos","aliases":["Big Star Wicker Park","Big Star Tacos"],"fsq_place_id":"e5960576-a2cc-41f5-8fc9-72d372ae81c5","notes":null}
+{"name":"Carnitas Uruapan","city":"chicago","category":"restaurant_tacos","aliases":["Carnitas Uruapan"],"fsq_place_id":"51980b72-fc88-44e7-bfed-41b9c5c84b0e","notes":null}
+{"name":"Birrieria Zaragoza","city":"chicago","category":"restaurant_tacos","aliases":["Birrieria Zaragoza"],"fsq_place_id":"83f5ffaa-0e24-43a9-9563-6767b0ca1d14","notes":null}
+{"name":"Taqueria Chingon","city":"chicago","category":"restaurant_tacos","aliases":["Taqueria Chingón","Chingon"],"fsq_place_id":"f0a3e6f9-84f2-4e28-adad-f6afdd28abe4","notes":null}
+{"name":"5 Rabanitos","city":"chicago","category":"restaurant_tacos","aliases":["Cinco Rabanitos"],"fsq_place_id":"71a6f575-08ad-4119-b5f7-4dbc89974d73","notes":null}
+{"name":"Lou Mitchell's","city":"chicago","category":"restaurant_breakfast","aliases":["Lou Mitchells","Lou Mitchell's Restaurant"],"fsq_place_id":"6b423e37-5c7c-445e-ad4e-a96fd775ec67","notes":null}
+{"name":"Valois Cafeteria","city":"chicago","category":"restaurant_breakfast","aliases":["Valois","Valois Restaurant"],"fsq_place_id":"1aa12f36-2b0a-4ab9-ae37-d656ac58901c","notes":null}
+{"name":"Manny's Cafeteria & Delicatessen","city":"chicago","category":"restaurant_casual","aliases":["Mannys","Manny's Deli"],"fsq_place_id":"36f3572b-9dbd-4edc-9acc-e350740fab08","notes":null}
+{"name":"Margie's Candies","city":"chicago","category":"dessert","aliases":["Margies","Margie's"],"fsq_place_id":"0a1c3749-7a7f-4b6a-94c6-0f2cffbfefad","notes":null}
+{"name":"Kuma's Corner","city":"chicago","category":"restaurant_burger","aliases":["Kumas","Kuma's"],"fsq_place_id":"34d55a87-81ce-464c-bdd1-661126daa3ac","notes":null}
+{"name":"Small Cheval","city":"chicago","category":"restaurant_burger","aliases":["Small Cheval"],"fsq_place_id":"1c34432d-e19b-402c-9a57-a7d22d4c74bb","notes":null}
+{"name":"Au Cheval","city":"chicago","category":"restaurant_burger","aliases":["Au Cheval"],"fsq_place_id":"c14ad71e-4779-4501-9248-75d2a9e60484","notes":null}
+{"name":"Smoque BBQ","city":"chicago","category":"restaurant_bbq","aliases":["Smoque","Smoque BBQ"],"fsq_place_id":"f123e3dc-8342-4c60-bc54-1ed8ce655f1a","notes":null}
+{"name":"Green Street Smoked Meats","city":"chicago","category":"restaurant_bbq","aliases":["Green Street Smoked Meats"],"fsq_place_id":"21664d99-798b-4080-a3b6-55ef79c1a1b5","notes":null}
+{"name":"The Berghoff","city":"chicago","category":"restaurant_fine","aliases":["Berghoff","Berghoff Restaurant"],"fsq_place_id":"feea9a7e-3e37-4278-a1eb-451fa6d0d71f","notes":null}
+{"name":"Alinea","city":"chicago","category":"restaurant_fine","aliases":["Alinea"],"fsq_place_id":"ee4e3c56-f81a-4234-bc84-5925b91c8389","notes":null}
+{"name":"Girl & the Goat","city":"chicago","category":"restaurant_fine","aliases":["Girl and the Goat"],"fsq_place_id":"ede9959e-0504-4596-b5c3-2f140d748aca","notes":null}
+{"name":"Kasama","city":"chicago","category":"restaurant_fine","aliases":["Kasama"],"fsq_place_id":"dd0f2af8-f453-488b-9a1b-d71c8f155fd2","notes":null}
+{"name":"Monteverde","city":"chicago","category":"restaurant_fine","aliases":["Monteverde Restaurant"],"fsq_place_id":null,"notes":null}
+{"name":"Oriole","city":"chicago","category":"restaurant_fine","aliases":["Oriole"],"fsq_place_id":"5f8d8a1d-996c-4800-b006-4368f828bc4a","notes":null}
+{"name":"Old Town Ale House","city":"chicago","category":"bar_dive","aliases":["Old Town Ale House"],"fsq_place_id":"5bcc629f-a5d1-4692-b4e0-0a7f3a2ce662","notes":null}
+{"name":"Delilah's","city":"chicago","category":"bar_dive","aliases":["Delilahs","Delilah's Chicago"],"fsq_place_id":"7523f8a3-523e-4106-acf5-78e5f82220e1","notes":null}
+{"name":"Rainbo Club","city":"chicago","category":"bar_dive","aliases":["Rainbo","Rainbow Club"],"fsq_place_id":"79be456d-4dc3-4fd7-b630-1c1fd827969a","notes":null}
+{"name":"Simon's Tavern","city":"chicago","category":"bar_dive","aliases":["Simons","Simon's"],"fsq_place_id":"97965efc-c0fb-4a61-bb4c-c04a8aabe23a","notes":null}
+{"name":"Marie's Riptide Lounge","city":"chicago","category":"bar_dive","aliases":["Maries Riptide","Riptide Lounge"],"fsq_place_id":null,"notes":null}
+{"name":"Skylark","city":"chicago","category":"bar_dive","aliases":["The Skylark"],"fsq_place_id":"beae8da0-fb63-4169-a04b-e0c3717ace46","notes":null}
+{"name":"The Violet Hour","city":"chicago","category":"bar_cocktail","aliases":["Violet Hour"],"fsq_place_id":"a944f347-13c7-4116-a63b-153d53637337","notes":null}
+{"name":"Billy Sunday","city":"chicago","category":"bar_cocktail","aliases":["Billy Sunday"],"fsq_place_id":"1b32d91e-63bf-404a-8c28-daafb846534d","notes":null}
+{"name":"Map Room","city":"chicago","category":"bar_beer","aliases":["The Map Room"],"fsq_place_id":"ab016741-d3dd-4cd5-9d4f-cf88e3c3c398","notes":null}
+{"name":"Cindy's Rooftop","city":"chicago","category":"bar_rooftop","aliases":["Cindys","Cindy's"],"fsq_place_id":"f8a94f9e-071d-4ceb-8ae8-f86342e56394","notes":null}
+{"name":"Half Acre Beer Company","city":"chicago","category":"brewery","aliases":["Half Acre","Half Acre Brewing"],"fsq_place_id":"8f453cbf-5760-403b-a03c-6651b24e03e7","notes":null}
+{"name":"Revolution Brewing","city":"chicago","category":"brewery","aliases":["Revolution","Rev Brewing"],"fsq_place_id":"28b0d72a-dc42-4b28-9d52-57378bb3baef","notes":null}
+{"name":"Goose Island","city":"chicago","category":"brewery","aliases":["Goose Island Brewery","Goose"],"fsq_place_id":"b06516c7-a2dc-46a8-b785-d75c180ae554","notes":null}
+{"name":"Maplewood Brewery","city":"chicago","category":"brewery","aliases":["Maplewood Brewing"],"fsq_place_id":null,"notes":null}
+{"name":"Off Color Brewing","city":"chicago","category":"brewery","aliases":["Off Color"],"fsq_place_id":"bb07edd1-b6bc-4693-913d-cd43fbca7c4e","notes":null}
+{"name":"The Green Mill","city":"chicago","category":"music_venue","aliases":["Green Mill","Green Mill Cocktail Lounge"],"fsq_place_id":"8dfc9c3f-e731-4497-ba73-33f2e0ea686a","notes":null}
+{"name":"Metro","city":"chicago","category":"music_venue","aliases":["Metro Chicago","The Metro"],"fsq_place_id":"9be8d8a6-b05b-4ba4-a7a5-93f55d8d8826","notes":null}
+{"name":"Thalia Hall","city":"chicago","category":"music_venue","aliases":["Thalia Hall"],"fsq_place_id":"094bd191-7590-4440-b12d-a9558feedbb5","notes":null}
+{"name":"Empty Bottle","city":"chicago","category":"music_venue","aliases":["The Empty Bottle"],"fsq_place_id":"b7b2006b-2e77-4ccd-a5d1-3aa734e91407","notes":null}
+{"name":"Lincoln Hall","city":"chicago","category":"music_venue","aliases":["Lincoln Hall"],"fsq_place_id":"a66291b3-bca5-4f60-ab7f-bc7f4a8442ff","notes":null}
+{"name":"Schubas Tavern","city":"chicago","category":"music_venue","aliases":["Schubas","Schuba's"],"fsq_place_id":"c6e16165-01be-408b-9b1c-c76a00d056b3","notes":null}
+{"name":"The Hideout","city":"chicago","category":"music_venue","aliases":["Hideout"],"fsq_place_id":"6b89f608-3a63-4d07-91ff-3bb5b0a3cdd7","notes":null}
+{"name":"Kingston Mines","city":"chicago","category":"music_venue","aliases":["Kingston Mines"],"fsq_place_id":"384f4e07-1e13-47a4-acaf-b19d2e1465bc","notes":null}
+{"name":"Buddy Guy's Legends","city":"chicago","category":"music_venue","aliases":["Buddy Guys","Legends"],"fsq_place_id":"35542b2d-5130-4b0c-8be4-6eb33ba70638","notes":null}
+{"name":"Intelligentsia Coffee","city":"chicago","category":"coffee","aliases":["Intelligentsia","Intelli"],"fsq_place_id":"bf025330-d398-42b6-9c23-c716f008480b","notes":null}
+{"name":"Metropolis Coffee","city":"chicago","category":"coffee","aliases":["Metropolis Coffee Company"],"fsq_place_id":"05f14d61-64af-42f9-93ad-2b071b7cbb97","notes":null}
+{"name":"Dark Matter Coffee","city":"chicago","category":"coffee","aliases":["Dark Matter"],"fsq_place_id":"4a90d2e5-7369-4cb8-9d6c-63a97e371323","notes":null}
+{"name":"Kopi Cafe","city":"chicago","category":"coffee","aliases":["Kopi","Kopi A Traveler's Cafe"],"fsq_place_id":"16c2135a-54d3-40c1-ae11-d429d090f74d","notes":null}
+{"name":"Sawada Coffee","city":"chicago","category":"coffee","aliases":["Sawada"],"fsq_place_id":"ff340059-0975-421c-a6e2-a1b771126236","notes":null}
+{"name":"Big Shoulders Coffee","city":"chicago","category":"coffee","aliases":["Big Shoulders"],"fsq_place_id":"9a6d490f-89a0-4960-b7d2-d813933e3ece","notes":null}
+{"name":"East Bank Club","city":"chicago","category":"gym","aliases":["East Bank","EBC"],"fsq_place_id":null,"notes":null}
+{"name":"Studio Three","city":"chicago","category":"gym","aliases":["Studio 3"],"fsq_place_id":"f2d95a3f-cbdd-4657-a6c6-c7b04326bdc3","notes":null}
+{"name":"Lakefront Trail","city":"chicago","category":"outdoor_trail","aliases":["The Lakefront Trail","lakefront path","the lakefront"],"fsq_place_id":"0ee6e606-1efb-4867-b52d-974b84bb8f21","notes":null}
+{"name":"The 606","city":"chicago","category":"outdoor_trail","aliases":["606","Bloomingdale Trail"],"fsq_place_id":"8e5e7a0e-e7fa-4375-892e-1e5480bfbaae","notes":null}
+{"name":"Millennium Park","city":"chicago","category":"park","aliases":["Millenium Park"],"fsq_place_id":"ac079463-48f8-4965-8494-b8c7802fad90","notes":null}
+{"name":"Lincoln Park","city":"chicago","category":"park","aliases":["Lincoln Park"],"fsq_place_id":"57003e09-7705-4ee4-aee0-d9f7ad017a04","notes":null}
+{"name":"Grant Park","city":"chicago","category":"park","aliases":["Grant Park"],"fsq_place_id":"eb3518a2-fe36-45b3-b642-ed13b8a20a8e","notes":null}
+{"name":"North Avenue Beach","city":"chicago","category":"outdoor_swim","aliases":["North Ave Beach"],"fsq_place_id":"2d7df4c3-3c9d-4d4e-96e2-99ccb7af7250","notes":null}
+{"name":"Montrose Beach","city":"chicago","category":"outdoor_swim","aliases":["Montrose Beach"],"fsq_place_id":"e5b3d3cf-dbbe-490f-80de-bcf89377eadb","notes":null}
+{"name":"Promontory Point","city":"chicago","category":"outdoor_swim","aliases":["The Point","Promontory Point"],"fsq_place_id":"3f63ff56-9f6c-4355-a34d-cae736b71180","notes":null}
+{"name":"Uncle Dan's","city":"chicago","category":"retail_outdoor","aliases":["Uncle Dans","Uncle Dan's Outfitters"],"fsq_place_id":"1470e311-0a75-4476-8382-e0b8fbabf39d","notes":null}
+{"name":"Seminary Co-op Bookstore","city":"chicago","category":"retail_books","aliases":["Seminary Coop","Sem Co-op","Seminary Co-op"],"fsq_place_id":null,"notes":null}
+{"name":"Myopic Books","city":"chicago","category":"retail_books","aliases":["Myopic"],"fsq_place_id":"0a4bb978-adb3-42d2-9b5c-be651b83a397","notes":null}
+{"name":"Unabridged Bookstore","city":"chicago","category":"retail_books","aliases":["Unabridged"],"fsq_place_id":"a280f451-d529-4d8d-841c-51a281b07602","notes":null}
+{"name":"Reckless Records","city":"chicago","category":"retail_records","aliases":["Reckless"],"fsq_place_id":"c84cf066-fd6c-4c04-b3cc-4d6e75f52839","notes":null}
+{"name":"Dusty Groove","city":"chicago","category":"retail_records","aliases":["Dusty Groove Records"],"fsq_place_id":"348ab688-4ff9-4230-8c5a-79b499129117","notes":null}
+{"name":"Knee Deep Vintage","city":"chicago","category":"retail_vintage","aliases":["Knee Deep"],"fsq_place_id":"e0a84741-3d68-46e0-9c35-d5585e8c062b","notes":null}
+{"name":"Buffalo Exchange","city":"chicago","category":"retail_vintage","aliases":["Buffalo Exchange"],"fsq_place_id":"e6184678-40db-4d4e-a547-abcfa76c4db8","notes":null}
+{"name":"Clark-Devon Hardware","city":"chicago","category":"retail_hardware","aliases":["Clark Devon Hardware"],"fsq_place_id":"e98f428e-e3eb-4b18-86be-e5e130d33177","notes":null}
+{"name":"Macy's on State Street","city":"chicago","category":"retail_department","aliases":["Marshall Field's","Marshall Fields","Macy's State Street"],"fsq_place_id":"ca921006-c432-4d51-bed4-c472712606f6","notes":null}
+{"name":"Alcala's Western Wear","city":"chicago","category":"retail_apparel","aliases":["Alcalas","Alcala's"],"fsq_place_id":"467cdff7-96e0-4d47-a793-0720b66fb7ea","notes":null}
+{"name":"Green City Market","city":"chicago","category":"farmers_market","aliases":["Green City Market"],"fsq_place_id":"8e27d885-4da1-4d5c-b2ae-829bbfc27a8a","notes":null}
+{"name":"Harold Washington Library Center","city":"chicago","category":"library","aliases":["Harold Washington Library","the Harold Washington"],"fsq_place_id":"33a90b54-b64a-4872-811d-b8fcfde5c712","notes":null}
+{"name":"Art Institute of Chicago","city":"chicago","category":"museum_art","aliases":["The Art Institute","AIC","Art Institute"],"fsq_place_id":"577fbbea-a5ab-42f6-a01e-7e277396f79b","notes":null}
+{"name":"Museum of Contemporary Art Chicago","city":"chicago","category":"museum_art","aliases":["MCA","MCA Chicago"],"fsq_place_id":"4105a7a6-f3bc-4a26-b1b4-b09d8ba2ce91","notes":null}
+{"name":"Field Museum","city":"chicago","category":"museum_history","aliases":["The Field Museum","Field Museum of Natural History"],"fsq_place_id":"a12cc22c-6f39-4612-b4e4-3389bb34f01f","notes":null}
+{"name":"Museum of Science and Industry","city":"chicago","category":"museum_history","aliases":["MSI","Museum of Science & Industry"],"fsq_place_id":"c4a14e92-4ca0-4c63-ad3c-6d4bba547630","notes":null}
+{"name":"Chicago History Museum","city":"chicago","category":"museum_history","aliases":["Chicago Historical Society"],"fsq_place_id":"ff868c6f-b6bf-4aac-80d4-04d649fd056e","notes":null}
+{"name":"Music Box Theatre","city":"chicago","category":"cinema","aliases":["The Music Box","Music Box"],"fsq_place_id":"debef141-9573-4bfe-8be7-3ae205768220","notes":null}
+{"name":"Gene Siskel Film Center","city":"chicago","category":"cinema","aliases":["Siskel Film Center","The Siskel"],"fsq_place_id":"c765f658-7247-4c13-9baa-7a36a8f41972","notes":null}
+{"name":"Chicago Cultural Center","city":"chicago","category":"theater","aliases":["Cultural Center"],"fsq_place_id":"039308f3-0669-43b2-ba2d-1eb512eb669d","notes":null}
+{"name":"Steppenwolf Theatre","city":"chicago","category":"theater","aliases":["Steppenwolf"],"fsq_place_id":"92d84061-0e58-4cef-8ef3-b0b11f4ee63c","notes":null}
+{"name":"The Second City","city":"chicago","category":"theater","aliases":["Second City"],"fsq_place_id":"f529fe9b-ea18-46b2-8559-c8968ae0a157","notes":null}
+{"name":"Symphony Center","city":"chicago","category":"theater","aliases":["Chicago Symphony Orchestra","CSO","Orchestra Hall"],"fsq_place_id":"7ca6d71c-28ab-441f-82c2-ced18ebb54fd","notes":null}
+{"name":"Byline Bank","city":"chicago","category":"bank","aliases":["Byline"],"fsq_place_id":"2a2c3440-bba9-419a-a819-80278949d958","notes":null}
+{"name":"Cloud Gate","city":"chicago","category":"landmark_oddity","aliases":["The Bean","the bean","Cloud Gate sculpture"],"fsq_place_id":"57b31810-44d1-4db1-b323-c81f93a0a2b3","notes":null}
+{"name":"Navy Pier","city":"chicago","category":"landmark_tourist","aliases":["Navy Pier"],"fsq_place_id":"fbe3e345-9b22-4627-848a-9fa5ff46f000","notes":null}
+{"name":"Wicker Park","city":"chicago","category":"neighborhood_commercial","aliases":["Wicker Park"],"fsq_place_id":"2fc37a66-2324-4fac-9cda-483a49f05272","notes":null}
+{"name":"Division Street","city":"chicago","category":"neighborhood_nightlife","aliases":["Division","the Viagra Triangle"],"fsq_place_id":"8c78608e-87be-4586-aca7-885bfe4e2edf","notes":null}
+{"name":"Wrigleyville","city":"chicago","category":"neighborhood_nightlife","aliases":["Wrigleyville","Lakeview East"],"fsq_place_id":null,"notes":null}
+{"name":"Pilsen","city":"chicago","category":"neighborhood_arts","aliases":["Pilsen"],"fsq_place_id":null,"notes":null}
+{"name":"Logan Square","city":"chicago","category":"neighborhood_commercial","aliases":["Logan Square"],"fsq_place_id":"d47a9611-c504-479b-b8af-20e015e79a75","notes":null}
+{"name":"Andersonville","city":"chicago","category":"neighborhood_commercial","aliases":["Andersonville"],"fsq_place_id":null,"notes":null}
+{"name":"Fulton Market","city":"chicago","category":"neighborhood_commercial","aliases":["Fulton Market District","West Loop"],"fsq_place_id":null,"notes":null}
+{"name":"Hyde Park","city":"chicago","category":"neighborhood_residential","aliases":["Hyde Park Chicago"],"fsq_place_id":"1b928a35-97c8-47e0-bd0f-dfac15a252ce","notes":null}
+{"name":"Lake Forest","city":"chicago","category":"neighborhood_residential","aliases":["Lake Forest"],"fsq_place_id":null,"notes":null}
+{"name":"Lincoln Square","city":"chicago","category":"neighborhood_commercial","aliases":["Lincoln Square"],"fsq_place_id":null,"notes":null}

@@ -103,12 +103,25 @@ them.
 - Hand-curate **~120 Chicago** institutions the same way. These are the
   *candidate pool* — they make the model's job tractable and give verification
   something to check against.
-- Download Foursquare OS Places (Apache 2.0, free), filter to the two metro
-  bounding boxes, load into DuckDB at `data/places/`.
-- Join each seed to an FSQ place ID where one exists.
+- Pull **Overture Maps** places for the two metro bounding boxes into DuckDB
+  at `data/places/`.
+- Join each seed to a place id where one exists.
+
+> **Substrate changed: Foursquare → Overture.** Foursquare retired its public
+> S3 parquet path in favour of the token-gated Places Portal, and its Hugging
+> Face mirror is gated too (`401` anonymous). Overture Maps is genuinely
+> unauthenticated, carries the Foursquare-derived places under Apache 2.0
+> within its CDLA-Permissive release, and refreshes monthly. Queried directly
+> over HTTPS with bbox predicate pushdown — no bulk download.
 
 **Done when:** `elsewhere seeds build` writes `austin.jsonl` and
-`chicago.jsonl`; every seed carries an FSQ ID or an explicit `unmatched` flag.
+`chicago.jsonl`; every seed carries a place id or an explicit unmatched flag.
+
+**Actual:** 117 Austin / 118 Chicago seeds; 88% / 90% joined. The misses are
+almost entirely neighborhoods, which Overture's POI theme correctly doesn't
+contain. An earlier 99% was false — a prefix match was joining *Tarrytown* to
+"Tarrytown Cafe" and *Lake Forest* to "Lake Forest College". See the
+regression tests in `tests/test_places.py`.
 
 ---
 

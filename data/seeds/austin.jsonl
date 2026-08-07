@@ -1,0 +1,117 @@
+{"name":"H-E-B","city":"austin","category":"grocery","aliases":["HEB","heb","H-E-B Grocery","HEB grocery"],"fsq_place_id":"1c234f7e-8689-430a-b333-2341fa8731f8","notes":null}
+{"name":"Central Market","city":"austin","category":"grocery","aliases":["central market","CM"],"fsq_place_id":"6b0c7a65-248c-4569-9be4-a7aea7595795","notes":null}
+{"name":"Wheatsville Food Co-op","city":"austin","category":"grocery","aliases":["Wheatsville","wheatsville coop"],"fsq_place_id":"0952997f-e511-4dff-b52f-020cc8fe95c6","notes":null}
+{"name":"Randalls","city":"austin","category":"grocery","aliases":["randalls"],"fsq_place_id":"eed1e945-6736-4b83-a99d-f513de3a7c46","notes":null}
+{"name":"Fiesta Mart","city":"austin","category":"grocery","aliases":["Fiesta"],"fsq_place_id":"9e8f106c-315c-4f4d-b944-8ca5204ae328","notes":null}
+{"name":"MT Supermarket","city":"austin","category":"grocery","aliases":["MT Market","MT supermarket"],"fsq_place_id":"ed9b6d4f-5ebe-467a-ac6b-967da7017c88","notes":null}
+{"name":"Royal Blue Grocery","city":"austin","category":"convenience","aliases":["Royal Blue"],"fsq_place_id":"2369e28e-41a4-4339-86e8-4c4f57a988c7","notes":null}
+{"name":"Buc-ee's","city":"austin","category":"convenience","aliases":["Bucees","Buccees","bucky's"],"fsq_place_id":"a5980720-0ac7-4e5e-9805-8676af7035d9","notes":null}
+{"name":"Torchy's Tacos","city":"austin","category":"restaurant_tacos","aliases":["Torchys","Torchy's","torchies"],"fsq_place_id":"571ff21f-26a7-4515-9cda-a23e3ea307b8","notes":null}
+{"name":"Tacodeli","city":"austin","category":"restaurant_tacos","aliases":["Taco Deli","tacodeli"],"fsq_place_id":"f4276437-6354-4485-a4ee-5d420262b2eb","notes":null}
+{"name":"Veracruz All Natural","city":"austin","category":"restaurant_tacos","aliases":["Veracruz","Veracruz Tacos"],"fsq_place_id":"75ea2a24-d1d8-4e5e-b938-ff07554d9584","notes":null}
+{"name":"El Chilito","city":"austin","category":"restaurant_tacos","aliases":["Chilito"],"fsq_place_id":"7e3f78af-a045-49af-be4e-5143eba38949","notes":null}
+{"name":"Matt's El Rancho","city":"austin","category":"restaurant_texmex","aliases":["Matts El Rancho","Matt's"],"fsq_place_id":"83cceb8b-fe1a-42db-be70-4a2090438b33","notes":null}
+{"name":"Chuy's","city":"austin","category":"restaurant_texmex","aliases":["Chuys"],"fsq_place_id":"bc63f95f-87b3-4259-a117-06f1a75b23ed","notes":null}
+{"name":"Juan in a Million","city":"austin","category":"restaurant_texmex","aliases":["Juan in a Million","Juans"],"fsq_place_id":"b3f19d52-f667-45d1-b772-e9cc212fc618","notes":null}
+{"name":"Franklin Barbecue","city":"austin","category":"restaurant_bbq","aliases":["Franklin","Franklin BBQ","franklins"],"fsq_place_id":"4b47a9cd-50a2-4ec2-bcb2-6afaf8781a55","notes":null}
+{"name":"la Barbecue","city":"austin","category":"restaurant_bbq","aliases":["La Barbecue","la bbq"],"fsq_place_id":"f04d5bac-8bea-4715-ab05-29c225045bd0","notes":null}
+{"name":"Terry Black's Barbecue","city":"austin","category":"restaurant_bbq","aliases":["Terry Blacks","Terry Black's BBQ"],"fsq_place_id":"1511e6fe-16c6-4aed-9931-fc12986fb90b","notes":null}
+{"name":"Salt Lick BBQ","city":"austin","category":"restaurant_bbq","aliases":["The Salt Lick","Salt Lick"],"fsq_place_id":"482b6219-36de-4ca1-bd76-660c90106726","notes":null}
+{"name":"Micklethwait Craft Meats","city":"austin","category":"restaurant_bbq","aliases":["Micklethwait"],"fsq_place_id":null,"notes":null}
+{"name":"Whataburger","city":"austin","category":"restaurant_burger","aliases":["whataburger","what a burger"],"fsq_place_id":"19d61077-42ae-4736-ae85-c3e2d2a43496","notes":null}
+{"name":"P. Terry's","city":"austin","category":"restaurant_burger","aliases":["P Terrys","PTerrys","P. Terry's Burger Stand"],"fsq_place_id":"d78c0818-9213-4801-b148-23c0bdcfdebb","notes":null}
+{"name":"Hopdoddy Burger Bar","city":"austin","category":"restaurant_burger","aliases":["Hopdoddy"],"fsq_place_id":"cd3875f4-7ecc-4d10-b53e-6a3c8e766948","notes":null}
+{"name":"Cabo Bob's","city":"austin","category":"restaurant_casual","aliases":["Cabo Bobs"],"fsq_place_id":null,"notes":null}
+{"name":"Home Slice Pizza","city":"austin","category":"restaurant_pizza","aliases":["Home Slice"],"fsq_place_id":"6161d81b-3e99-48da-a497-c162a4d02cd4","notes":null}
+{"name":"Thundercloud Subs","city":"austin","category":"restaurant_casual","aliases":["Thundercloud"],"fsq_place_id":"04e453b7-4fab-49bd-8810-9bc860a34720","notes":null}
+{"name":"Amy's Ice Creams","city":"austin","category":"dessert","aliases":["Amys Ice Cream","Amy's"],"fsq_place_id":"ca84966a-58c2-4e73-9dbc-6190b59cf3cf","notes":null}
+{"name":"Gourdough's","city":"austin","category":"dessert","aliases":["Gourdoughs","Gourdough's Public House"],"fsq_place_id":"00c8086a-d05d-43a9-8c30-2b0cac2b5b41","notes":null}
+{"name":"Ramen Tatsu-ya","city":"austin","category":"restaurant_casual","aliases":["Tatsuya","Ramen Tatsuya"],"fsq_place_id":"8fbfbcda-b5c8-47d0-a83b-5fc078c74ed3","notes":null}
+{"name":"Kerbey Lane Cafe","city":"austin","category":"restaurant_breakfast","aliases":["Kerbey Lane","Kerbey"],"fsq_place_id":"253c9128-427a-4377-b59e-499f18a32cae","notes":null}
+{"name":"Magnolia Cafe","city":"austin","category":"restaurant_breakfast","aliases":["Magnolia","Magnolia Cafe South"],"fsq_place_id":"1c242e1a-f534-4ff5-9000-120a43ec7a55","notes":null}
+{"name":"Bouldin Creek Cafe","city":"austin","category":"restaurant_breakfast","aliases":["Bouldin Creek","Bouldin"],"fsq_place_id":"bb768930-0c14-4912-98ed-86cad909f466","notes":null}
+{"name":"Counter Cafe","city":"austin","category":"restaurant_breakfast","aliases":["Counter Cafe"],"fsq_place_id":"1c7b0ec4-b39a-43fc-90cf-d6af42033bfb","notes":null}
+{"name":"Jeffrey's","city":"austin","category":"restaurant_fine","aliases":["Jeffreys"],"fsq_place_id":"e33e27f3-b9c5-466e-8877-ec5a1b465a1b","notes":null}
+{"name":"Uchi","city":"austin","category":"restaurant_fine","aliases":["Uchi Austin"],"fsq_place_id":"276f18cc-ae13-41ef-9de9-f3036fefbe4e","notes":null}
+{"name":"Olamaie","city":"austin","category":"restaurant_fine","aliases":["Olamaie"],"fsq_place_id":"83543f48-ba94-42e3-bd24-c2f7921ff058","notes":null}
+{"name":"Suerte","city":"austin","category":"restaurant_fine","aliases":["Suerte"],"fsq_place_id":"72c76aa6-b48d-4938-b182-2d9aa52ce041","notes":null}
+{"name":"Odd Duck","city":"austin","category":"restaurant_fine","aliases":["Odd Duck"],"fsq_place_id":"e18a03fd-04fb-47ae-97cd-5e1b17ce8f22","notes":null}
+{"name":"Dai Due","city":"austin","category":"restaurant_fine","aliases":["Dai Due Butcher Shop"],"fsq_place_id":"1ad0c78e-f19b-407a-8bd1-9ba570970a02","notes":null}
+{"name":"Justine's Brasserie","city":"austin","category":"restaurant_fine","aliases":["Justines","Justine's"],"fsq_place_id":"7fc9faae-9a03-4eaf-aa6c-2f9c948d7375","notes":null}
+{"name":"Elizabeth Street Cafe","city":"austin","category":"restaurant_fine","aliases":["Elizabeth Street"],"fsq_place_id":"99f15fc0-beee-4a09-83dc-5371fe541f3b","notes":null}
+{"name":"Deep Eddy Cabaret","city":"austin","category":"bar_dive","aliases":["Deep Eddy Bar","Deep Eddy Cabaret"],"fsq_place_id":"edb14b2e-a79d-4547-b02d-093804201773","notes":null}
+{"name":"The White Horse","city":"austin","category":"bar_honkytonk","aliases":["White Horse"],"fsq_place_id":"929d6e67-71f1-40c2-8d7e-b9bf62edf823","notes":null}
+{"name":"The Broken Spoke","city":"austin","category":"bar_honkytonk","aliases":["Broken Spoke"],"fsq_place_id":"04db0d39-3f3d-4dbc-959a-a12ef8c9d5a4","notes":null}
+{"name":"Donn's Depot","city":"austin","category":"bar_dive","aliases":["Donns Depot","Donn's"],"fsq_place_id":"bfb678d0-0bc5-4cf9-84e9-db34321fa4b3","notes":null}
+{"name":"Ego's","city":"austin","category":"bar_dive","aliases":["Egos","Ego's Lounge"],"fsq_place_id":"44f6379d-9529-4f48-8a53-a17cacbb7229","notes":null}
+{"name":"Hole in the Wall","city":"austin","category":"bar_dive","aliases":["Hole In The Wall"],"fsq_place_id":"e0cc18b8-7de1-49bc-b05e-beeee8c17645","notes":null}
+{"name":"Nickel City","city":"austin","category":"bar_dive","aliases":["Nickel City"],"fsq_place_id":"fc91229e-83fd-4198-baec-4dbd1344eafd","notes":null}
+{"name":"Cheer Up Charlies","city":"austin","category":"bar_queer","aliases":["Cheer Ups","Cheer Up Charlie's"],"fsq_place_id":"edcfad8a-5636-4374-a41e-f24dcdd190ba","notes":null}
+{"name":"Small Victory","city":"austin","category":"bar_cocktail","aliases":["Small Victory"],"fsq_place_id":"1de3b3b2-1515-448a-9a0c-513b1192d573","notes":null}
+{"name":"Half Step","city":"austin","category":"bar_cocktail","aliases":["Half Step"],"fsq_place_id":"c549e3f9-d6d0-4dc9-8906-79c1a6a3995a","notes":null}
+{"name":"Elephant Room","city":"austin","category":"bar_jazz","aliases":["The Elephant Room"],"fsq_place_id":"8f13806c-4caa-437a-a5a1-1ab3c3f6aed5","notes":null}
+{"name":"Scholz Garten","city":"austin","category":"bar_beergarden","aliases":["Scholz Beer Garten","Scholz"],"fsq_place_id":"21f7e71c-ee7d-4e35-8d4f-a9716d7c4355","notes":null}
+{"name":"Live Oak Brewing","city":"austin","category":"brewery","aliases":["Live Oak","Live Oak Brewery"],"fsq_place_id":"d01ce0be-51ff-4da1-85f3-8f7b40d02eab","notes":null}
+{"name":"Jester King Brewery","city":"austin","category":"brewery","aliases":["Jester King"],"fsq_place_id":"8da05228-08e4-42c2-97fb-9bad41aba1f6","notes":null}
+{"name":"Austin Beerworks","city":"austin","category":"brewery","aliases":["Beerworks","ABW"],"fsq_place_id":"385cadc2-91ed-46be-8b91-4d48393e22d5","notes":null}
+{"name":"Zilker Brewing","city":"austin","category":"brewery","aliases":["Zilker Brewing Co"],"fsq_place_id":"c08fbfef-ae59-4efe-a144-521085ef89c8","notes":null}
+{"name":"St. Elmo Brewing","city":"austin","category":"brewery","aliases":["St Elmo Brewing","St. Elmo"],"fsq_place_id":"af1675ef-a0d0-447b-ad5b-bcc0ccfc7cc7","notes":null}
+{"name":"Antone's","city":"austin","category":"music_venue","aliases":["Antones","Antone's Nightclub"],"fsq_place_id":"fcf12926-8cfc-42c5-8583-7ef5e4fb63e6","notes":null}
+{"name":"The Continental Club","city":"austin","category":"music_venue","aliases":["Continental Club"],"fsq_place_id":"d4c18e5d-2d72-40f2-8d4c-4679dbcffacc","notes":null}
+{"name":"Mohawk","city":"austin","category":"music_venue","aliases":["The Mohawk","Mohawk Austin"],"fsq_place_id":"b91052f6-a095-4619-aa42-5f307397ab5a","notes":null}
+{"name":"Stubb's","city":"austin","category":"music_venue","aliases":["Stubbs","Stubb's Bar-B-Q"],"fsq_place_id":"df92df2e-0c73-4d08-8978-119c450b3009","notes":null}
+{"name":"Emo's","city":"austin","category":"music_venue","aliases":["Emos","Emo's Austin"],"fsq_place_id":"407c1c20-1d13-4527-ab27-31628f8254e8","notes":null}
+{"name":"Austin City Limits Live","city":"austin","category":"music_venue","aliases":["ACL Live","Moody Theater","ACL Live at the Moody Theater"],"fsq_place_id":"1baa23a2-b822-4890-bfc1-45fbd38f1d90","notes":null}
+{"name":"Skylark Lounge","city":"austin","category":"music_venue","aliases":["Skylark"],"fsq_place_id":"7d43b2f8-eafd-4c46-a872-dd4625255251","notes":null}
+{"name":"Saxon Pub","city":"austin","category":"music_venue","aliases":["The Saxon Pub"],"fsq_place_id":"2aa07854-e765-46bf-bb7b-bcc1be677211","notes":null}
+{"name":"Cuvée Coffee","city":"austin","category":"coffee","aliases":["Cuvee","Cuvee Coffee Bar"],"fsq_place_id":"abf1ccbf-db1f-4a5c-bf1a-52ebace983b1","notes":null}
+{"name":"Houndstooth Coffee","city":"austin","category":"coffee","aliases":["Houndstooth"],"fsq_place_id":"80bff1fa-8110-402a-aff1-36a9b25cda40","notes":null}
+{"name":"Epoch Coffee","city":"austin","category":"coffee","aliases":["Epoch"],"fsq_place_id":"7c28f2bc-01d1-4b6d-ae6a-47314a7dd64e","notes":null}
+{"name":"Radio Coffee & Beer","city":"austin","category":"coffee","aliases":["Radio Coffee","Radio"],"fsq_place_id":"9c7c675b-1dbf-4744-8801-16b033b4e5ce","notes":null}
+{"name":"Summer Moon Coffee","city":"austin","category":"coffee","aliases":["Summer Moon"],"fsq_place_id":"87b0160b-aba8-4a49-bdc8-b56925b98380","notes":null}
+{"name":"Jo's Coffee","city":"austin","category":"coffee","aliases":["Joes Coffee","Jos Coffee"],"fsq_place_id":"e109f9dc-d8f8-4125-8d71-6fcf0e467ace","notes":null}
+{"name":"Mozart's Coffee Roasters","city":"austin","category":"coffee","aliases":["Mozarts","Mozart's"],"fsq_place_id":"4f393baf-43a3-41bc-b6f4-0af9a96f013d","notes":null}
+{"name":"Bennu Coffee","city":"austin","category":"coffee","aliases":["Bennu"],"fsq_place_id":"1adf3c3e-47af-4cdc-bcdf-1588b9ae99f3","notes":null}
+{"name":"Lifetime Fitness","city":"austin","category":"gym","aliases":["Life Time","Life Time Fitness","lifetime"],"fsq_place_id":"0a13fb06-334b-4136-ac43-d6839dfa1f20","notes":null}
+{"name":"Castle Hill Fitness","city":"austin","category":"gym","aliases":["Castle Hill"],"fsq_place_id":"0adccebd-5e92-4033-bd2d-f11cb0045e92","notes":null}
+{"name":"Barton Springs Pool","city":"austin","category":"outdoor_swim","aliases":["Barton Springs","barton springs pool"],"fsq_place_id":"5930b639-e539-4871-837e-b168d53dc8ce","notes":null}
+{"name":"Deep Eddy Pool","city":"austin","category":"outdoor_swim","aliases":["Deep Eddy"],"fsq_place_id":"2d8ea1ee-b799-47e9-9471-0e4763ea4b8e","notes":null}
+{"name":"Zilker Park","city":"austin","category":"park","aliases":["Zilker"],"fsq_place_id":"85fff559-613e-49f0-bdc1-d84edb2db05a","notes":null}
+{"name":"Lady Bird Lake Hike-and-Bike Trail","city":"austin","category":"outdoor_trail","aliases":["Town Lake Trail","Lady Bird Lake Trail","the hike and bike"],"fsq_place_id":"a3e996ab-1752-4925-9efb-4dbda47595c4","notes":null}
+{"name":"Barton Creek Greenbelt","city":"austin","category":"outdoor_trail","aliases":["The Greenbelt","greenbelt"],"fsq_place_id":"bde06cd5-99a9-44e7-a31c-97a833da7127","notes":null}
+{"name":"Mount Bonnell","city":"austin","category":"landmark","aliases":["Mt Bonnell"],"fsq_place_id":null,"notes":null}
+{"name":"McKinney Falls State Park","city":"austin","category":"park","aliases":["McKinney Falls"],"fsq_place_id":"91d2f9f3-dd6d-4f1b-bedf-45795d693e47","notes":null}
+{"name":"Whole Earth Provision Co.","city":"austin","category":"retail_outdoor","aliases":["Whole Earth","Whole Earth Provision"],"fsq_place_id":"199026bb-e500-4a7e-a88c-7dc52b8a1cca","notes":null}
+{"name":"BookPeople","city":"austin","category":"retail_books","aliases":["Book People"],"fsq_place_id":"12de3b3f-b510-496d-af30-8e141223545b","notes":null}
+{"name":"Waterloo Records","city":"austin","category":"retail_records","aliases":["Waterloo"],"fsq_place_id":"0b0ea030-acd2-488d-9689-8b7f11cd4b39","notes":null}
+{"name":"End of an Ear","city":"austin","category":"retail_records","aliases":["End Of An Ear"],"fsq_place_id":"10e9038a-617a-4a4c-b043-fef517eac849","notes":null}
+{"name":"Uncommon Objects","city":"austin","category":"retail_vintage","aliases":["Uncommon Objects"],"fsq_place_id":"9e020988-2b7d-402d-a5a9-5e56041df725","notes":null}
+{"name":"Buffalo Exchange","city":"austin","category":"retail_vintage","aliases":["Buffalo Exchange"],"fsq_place_id":"d2b0baad-a9b1-4cf9-a264-dc0bef3501e1","notes":null}
+{"name":"Breed & Co.","city":"austin","category":"retail_hardware","aliases":["Breed and Co","Breed & Company"],"fsq_place_id":"e1ec4986-07bf-4f72-a01a-963b68ccb39f","notes":null}
+{"name":"Allens Boots","city":"austin","category":"retail_apparel","aliases":["Allen's Boots","Allens"],"fsq_place_id":"8ea52aa1-3ebb-447d-bc67-22dd6e8d5558","notes":null}
+{"name":"Dillard's","city":"austin","category":"retail_department","aliases":["Dillards"],"fsq_place_id":"a6d85a00-0de5-4fc2-8305-8c8b65cfcb12","notes":null}
+{"name":"SFC Farmers' Market","city":"austin","category":"farmers_market","aliases":["Downtown Farmers Market","SFC Farmers Market"],"fsq_place_id":"402b877b-935d-43d9-b6ac-709f2e33b619","notes":null}
+{"name":"Austin Central Library","city":"austin","category":"library","aliases":["Central Library","the new library"],"fsq_place_id":"4b8c3c92-1b6f-4cc3-97a2-b4a74c2f3a7c","notes":null}
+{"name":"Blanton Museum of Art","city":"austin","category":"museum_art","aliases":["Blanton","The Blanton"],"fsq_place_id":"487849dd-215c-4ad3-b03e-edd49402dfeb","notes":null}
+{"name":"The Contemporary Austin","city":"austin","category":"museum_art","aliases":["Contemporary Austin","Laguna Gloria"],"fsq_place_id":"f3e18963-22a4-4f02-93d9-5d2159f29b88","notes":null}
+{"name":"Bullock Texas State History Museum","city":"austin","category":"museum_history","aliases":["Bullock Museum","The Bullock"],"fsq_place_id":"2575f465-0435-4893-b404-edf99ef187bf","notes":null}
+{"name":"LBJ Presidential Library","city":"austin","category":"museum_history","aliases":["LBJ Library"],"fsq_place_id":"fd8c3363-435e-4f9b-a900-2f35b49ba127","notes":null}
+{"name":"Alamo Drafthouse Cinema","city":"austin","category":"cinema","aliases":["Alamo Drafthouse","The Alamo","Drafthouse"],"fsq_place_id":"eb5727b9-2f02-4ec0-8984-0351221a382f","notes":null}
+{"name":"Paramount Theatre","city":"austin","category":"theater","aliases":["The Paramount"],"fsq_place_id":"8b9eef16-a7aa-46d2-83b5-13251658f2d6","notes":null}
+{"name":"Long Center for the Performing Arts","city":"austin","category":"theater","aliases":["The Long Center"],"fsq_place_id":"a8743e59-648d-462a-9cca-00e5676768a8","notes":null}
+{"name":"Texas State Capitol","city":"austin","category":"landmark","aliases":["The Capitol","State Capitol"],"fsq_place_id":"46c7060f-fe92-4d28-9028-db65a964120e","notes":null}
+{"name":"Frost Bank","city":"austin","category":"bank","aliases":["Frost"],"fsq_place_id":"7673cd58-21d6-4638-8364-a53a28d09017","notes":null}
+{"name":"University Federal Credit Union","city":"austin","category":"bank","aliases":["UFCU"],"fsq_place_id":"67ec8ff1-04c4-4d6a-bbbc-26bf09680765","notes":null}
+{"name":"Cathedral of Junk","city":"austin","category":"landmark_oddity","aliases":["Cathedral Of Junk"],"fsq_place_id":"8fae54e6-01fa-4f56-8cab-1ad36412a487","notes":null}
+{"name":"Congress Avenue Bridge Bats","city":"austin","category":"landmark_oddity","aliases":["the bats","Congress Bridge bats","Ann Richards Bridge"],"fsq_place_id":"9202ba06-c431-4e73-a937-75cc7779178a","notes":null}
+{"name":"South Congress","city":"austin","category":"neighborhood_commercial","aliases":["SoCo","South Congress Avenue"],"fsq_place_id":null,"notes":null}
+{"name":"Rainey Street","city":"austin","category":"neighborhood_nightlife","aliases":["Rainey","Rainey Street District"],"fsq_place_id":null,"notes":null}
+{"name":"Sixth Street","city":"austin","category":"neighborhood_nightlife","aliases":["6th Street","Dirty Sixth"],"fsq_place_id":null,"notes":null}
+{"name":"East Austin","city":"austin","category":"neighborhood_arts","aliases":["East Side","the east side"],"fsq_place_id":null,"notes":null}
+{"name":"The Domain","city":"austin","category":"neighborhood_commercial","aliases":["Domain"],"fsq_place_id":null,"notes":null}
+{"name":"Tarrytown","city":"austin","category":"neighborhood_residential","aliases":["Tarrytown"],"fsq_place_id":null,"notes":null}
+{"name":"Westlake","city":"austin","category":"neighborhood_residential","aliases":["West Lake Hills","Westlake"],"fsq_place_id":null,"notes":null}
+{"name":"Hyde Park","city":"austin","category":"neighborhood_residential","aliases":["Hyde Park Austin"],"fsq_place_id":null,"notes":null}
+{"name":"Clarksville","city":"austin","category":"neighborhood_residential","aliases":["Clarksville"],"fsq_place_id":null,"notes":null}
+{"name":"Mueller","city":"austin","category":"neighborhood_residential","aliases":["Mueller District"],"fsq_place_id":null,"notes":null}
+{"name":"Travis Heights","city":"austin","category":"neighborhood_residential","aliases":["Travis Heights"],"fsq_place_id":null,"notes":null}
