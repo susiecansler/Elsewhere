@@ -12,6 +12,8 @@ dependencies = [
     "rich>=13.9.0",
     "numpy>=2.4.6",
     "python-dotenv>=1.2.2",
+    "fastapi>=0.141.1",
+    "uvicorn>=0.52.1",
 ]
 
 [project.optional-dependencies]
@@ -22,6 +24,7 @@ elsewhere = "elsewhere.cli:app"
 
 [dependency-groups]
 dev = [
+    "httpx2>=2.9.1",
     "pytest>=8.3.0",
     "ruff>=0.8.0",
 ]
@@ -42,6 +45,9 @@ select = ["E", "F", "I", "B", "UP"]
 [tool.ruff.lint.per-file-ignores]
 # typer.Option()/Argument() in defaults is the framework's required idiom.
 "elsewhere/cli.py" = ["B008"]
+# Mostly an embedded HTML/CSS/JS asset. Rewrapping CSS rules at the Python
+# line limit makes them harder to read, not easier.
+"elsewhere/web.py" = ["E501"]
 # Tests reach into internals deliberately.
 "tests/*" = ["SLF001"]
 

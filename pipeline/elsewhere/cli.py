@@ -474,6 +474,53 @@ def ask_cmd(
         console.print(f"     [dim]{cand.reasoning}[/dim]")
 
 
+@app.command("serve")
+def serve_cmd(
+    source: str = typer.Option("austin", "--from"),
+    target: str = typer.Option("chicago", "--to"),
+    port: int = typer.Option(8000, "--port", "-p"),
+    open_browser: bool = typer.Option(True, "--open/--no-open"),
+) -> None:
+    """Browse and review the corpus in a browser.
+
+    Same workflow as `elsewhere review`, minus the terminal prompts. Judgments
+    save to ground_truth.jsonl as you click.
+    """
+    import threading
+    import webbrowser
+
+    import uvicorn
+
+    from elsewhere import generate, verify, web
+
+    if not (
+        verify.verified_path(source, target).exists() or generate.raw_path(source, target).exists()
+    ):
+        console.print("[yellow]no matches yet[/yellow] — run `elsewhere generate collect` first")
+        raise typer.Exit(1)
+
+    if port < 1024:
+        console.print(f"[red]✗[/red] port {port} needs root — pick something above 1024")
+        raise typer.Exit(1)
+
+    url = f"http://127.0.0.1:{port}"
+    console.print(f"[green]✓[/green] serving [cyan]{url}[/cyan]  [dim](ctrl-c to stop)[/dim]")
+    if open_browser:
+        threading.Timer(0.8, lambda: webbrowser.open(url)).start()
+
+    try:
+        # localhost only: this reads and writes files on disk and has no auth.
+        uvicorn.run(
+            web.create_app(source, target), host="127.0.0.1", port=port, log_level="warning"
+        )
+    except OSError as exc:
+        console.print(f"[red]✗[/red] couldn't bind port {port}: {exc}")
+        console.print(f"[dim]something else is probably using it — try `--port {port + 1}`[/dim]")
+        raise typer.Exit(1) from exc
+    except KeyboardInterrupt:
+        console.print("\n[dim]stopped[/dim]")
+
+
 @app.command("review")
 def review_cmd(
     source: str = typer.Option("austin", "--from"),
