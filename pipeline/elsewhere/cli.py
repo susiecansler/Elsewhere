@@ -349,6 +349,39 @@ def setup_key(
     console.print("[dim]next: `elsewhere generate preflight --cost`[/dim]")
 
 
+@app.command("check-key")
+def check_key_cmd() -> None:
+    """Re-test the stored key without re-entering it.
+
+    Useful after adding credits: the key doesn't change, only the account's
+    ability to pay for requests does.
+    """
+    from elsewhere import secrets
+
+    key = secrets.existing_key()
+    if not key:
+        console.print("[yellow]no key stored[/yellow] — run `elsewhere setup-key`")
+        raise typer.Exit(1)
+
+    console.print(f"[dim]stored: {secrets.redact(key)}[/dim]")
+    with console.status("checking…"):
+        result = secrets.check_key(key)
+
+    if result.ok:
+        console.print(f"[green]✓[/green] {result.detail}")
+        console.print("[dim]next: `elsewhere generate preflight --cost`[/dim]")
+        return
+
+    console.print(f"[red]✗[/red] {result.detail}")
+    if result.needs_credits:
+        console.print(
+            "[dim]Add credits at https://platform.claude.com/settings/billing, "
+            "then run this again. Note a Claude.ai subscription is billed "
+            "separately and does not fund API usage.[/dim]"
+        )
+    raise typer.Exit(1)
+
+
 @app.command("verify")
 def verify_cmd(
     source: str = typer.Option("austin", "--from"),
