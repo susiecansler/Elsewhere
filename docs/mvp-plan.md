@@ -4,23 +4,40 @@
 
 | Phase | State |
 | --- | --- |
-| 0 · Scaffolding + role taxonomy | ✅ done — 45 roles |
-| 1 · Seed corpus + places substrate | ✅ done — 117 / 118 seeds, 88% / 90% joined |
-| 2 · Batch match generation | ⛔ **blocked — needs `ANTHROPIC_API_KEY`** |
-| 3 · Verification | ✅ built + tested (runs once matches exist) |
-| 4 · Eval harness | ⚠️ built; needs **real** mined ground truth |
-| 5 · Query CLI | ✅ built + tested (runs once matches exist) |
+| 0 · Scaffolding + role taxonomy | ✅ 45 roles |
+| 1 · Seed corpus + places substrate | ✅ 117 / 118 seeds, 88% / 90% joined |
+| 2 · Batch match generation | ✅ **117/117 succeeded** |
+| 3 · Verification | ✅ 295/351 candidates, 100/117 top picks verified |
+| 4 · Eval harness | ⚠️ works; **needs real mined ground truth** |
+| 5 · Query CLI | ✅ working end to end |
 
-113 tests passing. Two blockers, both external:
+138 tests passing. The pipeline runs start to finish.
 
-1. **`ANTHROPIC_API_KEY`** — generation is the one step that can't be
-   faked. `elsewhere generate preflight` passes (117 requests, 13k-char
-   cached prefix); it just needs credentials to submit.
-2. **Mined ground truth** — the shipped 46 pairs are marked
-   `provenance: "provisional"` because *I wrote them*, and scoring the
-   model against pairs the same model authored is circular. The scorer
-   enforces this: it refuses a headline number until ≥30 `mined` pairs
-   exist. The MVP targets below only apply to mined data.
+### The one remaining blocker
+
+Against the provisional set: **top-1 63.0%, top-3 80.4%**. Do not read
+those as results. Inspecting the failures shows the answer key is often
+the thing that's wrong:
+
+| Source | Ground truth said | Model said |
+| --- | --- | --- |
+| Franklin Barbecue | Smoque BBQ | **Lou Malnati's** |
+| Jeffrey's | The Berghoff | **Gene & Georgetti** |
+| Amy's Ice Creams | Margie's Candies | **The Original Rainbow Cone** |
+| Uchi | Alinea | **Momotaro** |
+
+The Franklin row is the tell. I wrote "Smoque BBQ" by matching *cuisine*
+— barbecue to barbecue — which is precisely the category-matching error
+this project exists to avoid. The model matched *role* (the flagship
+out-of-towners are sent to for the city's defining dish) and returned
+Lou Malnati's. **It followed the instructions more faithfully than the
+answer key did**, and got scored down for it.
+
+So 63% / 80% is not a measurement of the matching model. It measures
+agreement between the model and my own inconsistent guesses, and the
+disagreements skew toward the model being right. Real mined pairs from
+local subreddits (`elsewhere mining-plan`) remain the only way to know
+whether this works. The scorer already refuses to call it a result.
 
 
 ## What the MVP is
