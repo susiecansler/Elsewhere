@@ -1,0 +1,37 @@
+# Render blueprint — the review app your colleagues use.
+#
+# Serves the generated corpus and collects judgments. It is a review tool, not
+# the product: no accounts, and anyone with the URL can submit. That's a
+# deliberate choice for a small round of colleague feedback — every judgment
+# carries a reviewer name, so anything junk is attributable and can be dropped
+# with `elsewhere judgments pull --exclude <name>`.
+
+services:
+  - type: web
+    name: elsewhere-review
+    runtime: python
+    plan: free
+    region: oregon
+    rootDir: .
+    buildCommand: pip install -e ./pipeline
+    startCommand: >
+      uvicorn elsewhere.wsgi:app
+      --host 0.0.0.0
+      --port $PORT
+    healthCheckPath: /healthz
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.12"
+      # Judgments live on the mounted disk. A container's default filesystem
+      # is wiped on every deploy — without this, a week of colleague reviews
+      # would vanish on the next push.
+      - key: ELSEWHERE_DATA_DIR
+        value: /var/elsewhere
+      - key: ELSEWHERE_SOURCE
+        value: austin
+      - key: ELSEWHERE_TARGET
+        value: chicago
+    disk:
+      name: judgments
+      mountPath: /var/elsewhere
+      sizeGB: 1

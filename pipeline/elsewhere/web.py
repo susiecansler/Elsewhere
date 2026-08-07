@@ -16,9 +16,9 @@ from typing import Any
 
 from fastapi import FastAPI
 from fastapi.responses import HTMLResponse, JSONResponse
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 
-from elsewhere import evaluate, generate, verify
+from elsewhere import evaluate, generate, store, verify
 
 
 def load_corpus(source: str, target: str) -> list:
@@ -30,27 +30,28 @@ def load_corpus(source: str, target: str) -> list:
 
 
 class ReviewIn(BaseModel):
+    reviewer: str = Field(min_length=1, max_length=60)
     source_name: str
     source_city: str
     target_city: str
-    accepted: list[str]
-    note: str | None = None
+    answer: str = Field(min_length=1, max_length=200)
+    custom: bool = False
 
 
 def create_app(source: str = "austin", target: str = "chicago") -> FastAPI:
     app = FastAPI(title="Elsewhere", docs_url=None, redoc_url=None)
+    corpus = load_corpus(source, target)
 
-    def state() -> dict[str, Any]:
-        matches = load_corpus(source, target)
-        truth = evaluate.load_ground_truth()
-        judged = {t.source_name: t.accepted for t in truth if t.provenance in evaluate.INDEPENDENT}
-        independent = len(judged)
+    def state(reviewer: str | None) -> dict[str, Any]:
+        mine = store.for_reviewer(reviewer, target) if reviewer else {}
+        agreed = store.consensus(target)
 
         return {
             "source": source,
             "target": target,
             "threshold": evaluate.MIN_INDEPENDENT,
-            "independent": independent,
+            "judged": len(agreed),
+            "reviewers": store.reviewers(),
             "matches": [
                 {
                     "name": m.source.name,
@@ -58,7 +59,14 @@ def create_app(source: str = "austin", target: str = "chicago") -> FastAPI:
                     "roles": m.role_tags,
                     "price_tier": int(m.price_tier),
                     "reach": m.reach.value,
-                    "reviewed": judged.get(m.source.name),
+                    "mine": mine.get(m.source.name),
+                    # Everyone's answers, so a reviewer can see they're
+                    # disagreeing with someone rather than judging blind.
+                    "others": [
+                        a
+                        for a in agreed.get(m.source.name, {}).get("accepted", [])
+                        if a != mine.get(m.source.name)
+                    ],
                     "candidates": [
                         {
                             "name": c.name,
@@ -69,7 +77,7 @@ def create_app(source: str = "austin", target: str = "chicago") -> FastAPI:
                         for c in m.candidates
                     ],
                 }
-                for m in matches
+                for m in corpus
             ],
         }
 
@@ -78,44 +86,32 @@ def create_app(source: str = "austin", target: str = "chicago") -> FastAPI:
         return PAGE
 
     @app.get("/api/state")
-    def api_state() -> JSONResponse:
-        return JSONResponse(state())
+    def api_state(reviewer: str = "") -> JSONResponse:
+        return JSONResponse(state(reviewer or None))
 
     @app.post("/api/review")
     def api_review(body: ReviewIn) -> JSONResponse:
-        truth = evaluate.load_ground_truth()
-        # Replace any prior judgment for this place rather than appending a
-        # second, conflicting one.
-        truth = [
-            t
-            for t in truth
-            if not (t.source_name == body.source_name and t.provenance in evaluate.INDEPENDENT)
-        ]
-        truth.append(
-            evaluate.GroundTruth(
+        try:
+            store.record(
+                reviewer=body.reviewer,
                 source_name=body.source_name,
                 source_city=body.source_city,
                 target_city=body.target_city,
-                accepted=body.accepted,
-                provenance="reviewed",
-                note=body.note,
+                answer=body.answer,
+                custom=body.custom,
             )
-        )
-        evaluate.write_ground_truth(truth)
-        independent = len([t for t in truth if t.provenance in evaluate.INDEPENDENT])
-        return JSONResponse({"ok": True, "independent": independent})
+        except ValueError as exc:
+            return JSONResponse({"ok": False, "error": str(exc)}, status_code=400)
+        return JSONResponse({"ok": True, "judged": store.count()})
 
-    @app.delete("/api/review/{source_name}")
-    def api_unreview(source_name: str) -> JSONResponse:
-        truth = evaluate.load_ground_truth()
-        truth = [
-            t
-            for t in truth
-            if not (t.source_name == source_name and t.provenance in evaluate.INDEPENDENT)
-        ]
-        evaluate.write_ground_truth(truth)
-        independent = len([t for t in truth if t.provenance in evaluate.INDEPENDENT])
-        return JSONResponse({"ok": True, "independent": independent})
+    @app.delete("/api/review")
+    def api_unreview(reviewer: str, source_name: str) -> JSONResponse:
+        store.forget(reviewer, source_name, target)
+        return JSONResponse({"ok": True, "judged": store.count()})
+
+    @app.get("/healthz")
+    def healthz() -> JSONResponse:
+        return JSONResponse({"ok": True, "matches": len(corpus)})
 
     return app
 
@@ -194,43 +190,103 @@ main { max-width: 1100px; margin: 0 auto; padding: 20px; }
 .verdict { font-size: 13px; color: var(--ok); flex: 1; }
 .link { font: inherit; font-size: 12.5px; background: none; border: none; color: var(--dim); cursor: pointer; text-decoration: underline; padding: 0; }
 .empty { text-align: center; color: var(--dim); padding: 60px 20px; }
+.others { font-size: 12.5px; color: var(--warn); margin-top: 5px; }
+.gate {
+  position: fixed; inset: 0; z-index: 50; background: var(--bg);
+  display: flex; align-items: center; justify-content: center; padding: 20px;
+}
+.gate[hidden] { display: none; }
+.gatebox { max-width: 460px; }
+.gatebox h2 { font-size: 22px; margin: 0 0 12px; letter-spacing: -0.02em; }
+.gatebox p { color: var(--dim); margin: 0 0 12px; }
+.gatebox .fine { font-size: 13px; }
+.gatebox input { width: 100%; margin: 8px 0 10px; padding: 10px 12px; }
+.gatebox button {
+  font: inherit; font-weight: 550; padding: 10px 18px; border-radius: 8px;
+  border: none; background: var(--ink); color: var(--bg); cursor: pointer;
+}
+#gateerr { color: var(--accent); min-height: 18px; }
 </style>
 </head>
 <body>
+<div id="gate" class="gate">
+  <div class="gatebox">
+    <h2>Which Chicago place actually fits?</h2>
+    <p>We asked a model to find the Chicago equivalent of ~117 Austin
+    institutions. It explains its reasoning for each. You tell us where
+    it's right and where it's nonsense.</p>
+    <p class="fine">Pick the best of three, or type something better. There's no
+    wrong answer — if you and someone else disagree, that's useful
+    information, not a problem.</p>
+    <input type="text" id="who" placeholder="Your name" autocomplete="name">
+    <button id="start">Start reviewing</button>
+    <p class="fine" id="gateerr"></p>
+  </div>
+</div>
+
 <header><div class="bar">
   <h1>Elsewhere <span id="pair"></span></h1>
   <input type="search" id="q" class="grow" placeholder="Search a place, role, or answer…">
   <div class="chips">
     <button class="chip" data-f="all" aria-pressed="true">All</button>
     <button class="chip" data-f="todo" aria-pressed="false">To review</button>
-    <button class="chip" data-f="done" aria-pressed="false">Reviewed</button>
+    <button class="chip" data-f="done" aria-pressed="false">Mine</button>
     <button class="chip" data-f="unverified" aria-pressed="false">Unverified</button>
   </div>
   <div class="progress" id="prog"></div>
+  <button class="link" id="signout"></button>
 </div></header>
 <main id="list"></main>
 <script>
-let S = null, filter = "all", q = "";
+let S = null, filter = "all", q = "", me = localStorage.getItem("elsewhere.reviewer") || "";
+
+function gate() {
+  const g = document.getElementById("gate");
+  if (me) { g.hidden = true; return true; }
+  g.hidden = false;
+  document.getElementById("who").focus();
+  return false;
+}
+
+document.getElementById("start").addEventListener("click", () => {
+  const v = document.getElementById("who").value.trim();
+  if (v.length < 2) {
+    document.getElementById("gateerr").textContent = "A name or nickname, so we know whose picks are whose.";
+    return;
+  }
+  me = v;
+  localStorage.setItem("elsewhere.reviewer", me);
+  gate(); load();
+});
+document.getElementById("who").addEventListener("keydown", e => {
+  if (e.key === "Enter") document.getElementById("start").click();
+});
+document.getElementById("signout").addEventListener("click", () => {
+  localStorage.removeItem("elsewhere.reviewer"); me = ""; gate();
+});
 
 async function load() {
-  S = await (await fetch("/api/state")).json();
+  S = await (await fetch("/api/state?reviewer=" + encodeURIComponent(me))).json();
   document.getElementById("pair").textContent = S.source + " → " + S.target;
+  document.getElementById("signout").textContent = "not " + me + "?";
   render();
 }
 
 function progress() {
-  const n = S.independent, t = S.threshold;
+  const n = S.judged, t = S.threshold;
   const pct = Math.min(100, n / t * 100);
+  const people = Object.keys(S.reviewers || {}).length;
   const msg = n >= t
-    ? `<b>${n}</b> reviewed — enough for a real score`
-    : `<b>${n}</b>/${t} reviewed`;
+    ? `<b>${n}</b> places judged — enough for a real score`
+    : `<b>${n}</b>/${t} places judged`;
+  const who = people > 1 ? ` <span style="opacity:.7">· ${people} reviewers</span>` : "";
   document.getElementById("prog").innerHTML =
-    msg + `<span class="track"><span class="fill" style="width:${pct}%"></span></span>`;
+    msg + who + `<span class="track"><span class="fill" style="width:${pct}%"></span></span>`;
 }
 
 function visible(m) {
-  if (filter === "todo" && m.reviewed) return false;
-  if (filter === "done" && !m.reviewed) return false;
+  if (filter === "todo" && m.mine) return false;
+  if (filter === "done" && !m.mine) return false;
   if (filter === "unverified" && !m.candidates.some(c => c.verified === false)) return false;
   if (!q) return true;
   const hay = (m.name + " " + m.roles.join(" ") + " " +
@@ -249,9 +305,9 @@ function render() {
   if (!rows.length) { el.innerHTML = '<p class="empty">Nothing matches that.</p>'; return; }
 
   el.innerHTML = rows.map(m => {
-    const chosen = m.reviewed || [];
+    const q = s => esc(s).replace(/'/g, "\\'");
     const cands = m.candidates.map((c, i) => {
-      const isPick = chosen.some(a => a.toLowerCase() === c.name.toLowerCase());
+      const isPick = m.mine && m.mine.toLowerCase() === c.name.toLowerCase();
       return `<div class="cand ${isPick ? "chosen" : ""}">
         <div class="rank">${i + 1}</div>
         <div class="body">
@@ -259,23 +315,29 @@ function render() {
             c.verified === false ? '<span class="unver">unverified</span>' : ""}</div>
           <div class="why">${esc(c.reasoning)}</div>
         </div>
-        <button class="pick" onclick="pick('${esc(m.name).replace(/'/g, "\\\\'")}', '${
-          esc(c.name).replace(/'/g, "\\\\'")}')">${isPick ? "✓ chosen" : "This one"}</button>
+        <button class="pick" onclick="pick('${q(m.name)}', '${q(c.name)}')">${
+          isPick ? "✓ yours" : "This one"}</button>
       </div>`;
     }).join("");
 
-    return `<div class="card ${m.reviewed ? "done" : ""}">
+    // Showing what others picked turns a silent disagreement into a visible
+    // one — which is the interesting case, not a conflict to hide.
+    const others = m.others && m.others.length
+      ? `<div class="others">others picked: ${m.others.map(esc).join(", ")}</div>` : "";
+
+    return `<div class="card ${m.mine ? "done" : ""}">
       <div class="head"><h2>${esc(m.name)}</h2><span class="arrow">→ ${esc(S.target)}</span></div>
       <div class="meta">${m.roles.map(r => `<span class="role">${esc(r)}</span>`).join("")}
         · tier ${m.price_tier} · ${esc(m.reach)}</div>
       ${cands}
+      ${others}
       <div class="foot">
-        ${m.reviewed
-          ? `<span class="verdict">✓ you chose ${esc(m.reviewed.join(", "))}</span>
-             <button class="link" onclick="clearPick('${esc(m.name).replace(/'/g, "\\\\'")}')">undo</button>`
+        ${m.mine
+          ? `<span class="verdict">✓ you picked ${esc(m.mine)}</span>
+             <button class="link" onclick="clearPick('${q(m.name)}')">undo</button>`
           : `<input type="text" placeholder="or type a better answer…" class="grow"
                onkeydown="if(event.key==='Enter'&&this.value.trim())pick('${
-                 esc(m.name).replace(/'/g, "\\\\'")}', this.value.trim(), true)">`}
+                 q(m.name)}', this.value.trim(), true)">`}
       </div>
     </div>`;
   }).join("");
@@ -286,21 +348,24 @@ async function pick(name, answer, custom) {
   const r = await fetch("/api/review", {
     method: "POST", headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
-      source_name: name, source_city: S.source, target_city: S.target,
-      accepted: [answer], note: custom ? "reviewer supplied a better answer" : null
+      reviewer: me, source_name: name, source_city: S.source,
+      target_city: S.target, answer: answer, custom: !!custom
     })
   });
   const j = await r.json();
-  m.reviewed = [answer];
-  S.independent = j.independent;
+  if (!j.ok) { alert(j.error || "couldn't save"); return; }
+  m.mine = answer;
+  m.others = (m.others || []).filter(a => a !== answer);
+  S.judged = j.judged;
   render();
 }
 
 async function clearPick(name) {
-  const r = await fetch("/api/review/" + encodeURIComponent(name), { method: "DELETE" });
+  const r = await fetch("/api/review?reviewer=" + encodeURIComponent(me) +
+                        "&source_name=" + encodeURIComponent(name), { method: "DELETE" });
   const j = await r.json();
-  S.matches.find(x => x.name === name).reviewed = null;
-  S.independent = j.independent;
+  S.matches.find(x => x.name === name).mine = null;
+  S.judged = j.judged;
   render();
 }
 
@@ -314,7 +379,7 @@ document.querySelectorAll(".chip").forEach(b => b.addEventListener("click", () =
   render();
 }));
 
-load();
+if (gate()) load();
 </script>
 </body>
 </html>

@@ -637,6 +637,76 @@ def review_cmd(
         console.print("[dim]enough for a real result — run `elsewhere eval`[/dim]")
 
 
+judgments_app = typer.Typer(
+    help="Reviewer judgments collected via the web app.", no_args_is_help=True
+)
+app.add_typer(judgments_app, name="judgments")
+
+
+@judgments_app.command("list")
+def judgments_list() -> None:
+    """Show who has reviewed what."""
+    from elsewhere import store
+
+    people = store.reviewers()
+    if not people:
+        console.print("[yellow]no judgments yet[/yellow]")
+        raise typer.Exit(0)
+    for name, n in people.items():
+        console.print(f"{name}: [cyan]{n}[/cyan] places")
+    console.print(f"\n[dim]{store.count()} distinct places judged[/dim]")
+
+
+@judgments_app.command("pull")
+def judgments_pull(
+    source: str = typer.Option("austin", "--from"),
+    target: str = typer.Option("chicago", "--to"),
+    exclude: list[str] = typer.Option(None, "--exclude", help="Reviewer to ignore. Repeatable."),
+    dry_run: bool = typer.Option(False, "--dry-run"),
+) -> None:
+    """Merge collected judgments into ground_truth.jsonl.
+
+    Where reviewers disagree, every answer is kept. Two locals naming
+    different places means the role is contested, and collapsing that to one
+    'right' answer would score a correct match as wrong.
+    """
+    from elsewhere import evaluate, store
+
+    agreed = store.consensus(target, exclude=set(exclude or []))
+    if not agreed:
+        console.print("[yellow]nothing to pull[/yellow]")
+        raise typer.Exit(0)
+
+    truth = [t for t in evaluate.load_ground_truth() if t.provenance != "reviewed"]
+    splits = 0
+    for name, entry in sorted(agreed.items()):
+        who = ", ".join(sorted(set(entry["reviewers"])))
+        if entry["split"]:
+            splits += 1
+        truth.append(
+            evaluate.GroundTruth(
+                source_name=name,
+                source_city=entry["source_city"],
+                target_city=target,
+                accepted=entry["accepted"],
+                provenance="reviewed",
+                note=f"reviewed by {who}" + (" (disagreed)" if entry["split"] else ""),
+            )
+        )
+
+    if dry_run:
+        for name, entry in sorted(agreed.items()):
+            mark = "[yellow]split[/yellow]" if entry["split"] else "     "
+            console.print(f"{mark} {name}: {', '.join(entry['accepted'])}")
+        console.print(f"\n[dim]{len(agreed)} places, {splits} with disagreement — dry run[/dim]")
+        raise typer.Exit(0)
+
+    evaluate.write_ground_truth(truth)
+    independent = len([t for t in truth if t.provenance in evaluate.INDEPENDENT])
+    console.print(f"[green]✓[/green] pulled {len(agreed)} places ({splits} with disagreement)")
+    console.print(f"[dim]{independent} independent pairs total — run `elsewhere eval`[/dim]")
+
+
 @app.command("eval")
 def eval_cmd(
     source: str = typer.Option("austin", "--from"),

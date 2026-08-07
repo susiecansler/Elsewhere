@@ -34,3 +34,6 @@ build/
 # iCloud syncs; it silently duplicates files as "name 2.ext". A stray
 # "cli 2.py" is a real hazard — it lints, it imports, and it is stale.
 * [0-9].*
+
+# Reviewer judgments DB (local runs; production lives on the mounted disk)
+data/reviews/
