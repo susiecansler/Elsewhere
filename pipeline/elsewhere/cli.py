@@ -474,6 +474,122 @@ def ask_cmd(
         console.print(f"     [dim]{cand.reasoning}[/dim]")
 
 
+@app.command("review")
+def review_cmd(
+    source: str = typer.Option("austin", "--from"),
+    target: str = typer.Option("chicago", "--to"),
+    limit: int = typer.Option(0, "--limit", "-n", help="Stop after N (0 = no limit)."),
+    shuffle: bool = typer.Option(
+        True,
+        "--shuffle/--in-order",
+        help="Random order, so a half-finished session still samples the corpus evenly.",
+    ),
+) -> None:
+    """Judge generated matches yourself, building model-independent ground truth.
+
+    This is the fix for the circularity problem. The shipped ground truth was
+    written by the same model family that generates the matches, so scoring
+    against it measures self-consistency. A human who knows the city is
+    independent evidence, and the scorer counts it as such.
+
+    Resumable: places already in ground truth are skipped.
+    """
+    import random
+
+    from elsewhere import evaluate, generate, verify
+
+    path = verify.verified_path(source, target)
+    if not path.exists():
+        path = generate.raw_path(source, target)
+    try:
+        matches = generate.read_matches(path)
+    except FileNotFoundError:
+        console.print("[yellow]no matches yet[/yellow] — run `elsewhere generate collect`")
+        raise typer.Exit(1) from None
+
+    truth = evaluate.load_ground_truth()
+    judged = {t.source_name for t in truth if t.provenance in evaluate.INDEPENDENT}
+    todo = [m for m in matches if m.source.name not in judged]
+    if shuffle:
+        random.shuffle(todo)
+    if limit:
+        todo = todo[:limit]
+
+    if not todo:
+        console.print("[green]✓[/green] everything already reviewed")
+        raise typer.Exit(0)
+
+    console.print(
+        f"\n[bold]Reviewing {len(todo)} matches[/bold] "
+        f"[dim]({len(judged)} already judged)[/dim]\n"
+        "[dim]1/2/3 pick · o type a better answer · n none are right · "
+        "s skip · q save and quit[/dim]"
+    )
+
+    added = 0
+    for i, match in enumerate(todo, 1):
+        console.print(f"\n[dim]─── {i}/{len(todo)} ───[/dim]")
+        console.print(f"[bold]{match.source.name}[/bold] → {target.title()}")
+        console.print(f"[dim]roles: {', '.join(match.role_tags)}[/dim]")
+        for n, cand in enumerate(match.candidates, 1):
+            flag = "" if cand.verified is not False else " [yellow](unverified)[/yellow]"
+            console.print(f"  [cyan]{n}.[/cyan] [bold]{cand.name}[/bold]{flag}")
+            console.print(f"     [dim]{cand.reasoning}[/dim]")
+
+        choice = typer.prompt("  →", default="s", show_default=False).strip().lower()
+
+        if choice == "q":
+            break
+        if choice in ("s", ""):
+            continue
+
+        if choice in ("1", "2", "3"):
+            idx = int(choice) - 1
+            if idx >= len(match.candidates):
+                console.print("  [yellow]no such candidate — skipped[/yellow]")
+                continue
+            accepted, note = [match.candidates[idx].name], None
+        elif choice == "o":
+            answer = typer.prompt("  correct answer").strip()
+            if not answer:
+                continue
+            accepted, note = [answer], "reviewer supplied a better answer"
+        elif choice == "n":
+            answer = typer.prompt("  what would be right? (blank = no equivalent)").strip()
+            if not answer:
+                # A city genuinely lacking a counterpart is a real finding, but
+                # it isn't scoreable — record it as a note, not a target.
+                console.print("  [dim]noted as 'no equivalent' — not scored[/dim]")
+                continue
+            accepted, note = [answer], "none of the generated candidates were right"
+        else:
+            console.print("  [yellow]unrecognised — skipped[/yellow]")
+            continue
+
+        truth.append(
+            evaluate.GroundTruth(
+                source_name=match.source.name,
+                source_city=source,
+                target_city=target,
+                accepted=accepted,
+                provenance="reviewed",
+                note=note,
+            )
+        )
+        added += 1
+        evaluate.write_ground_truth(truth)
+
+    total_independent = len([t for t in truth if t.provenance in evaluate.INDEPENDENT])
+    console.print(f"\n[green]✓[/green] added {added} — {total_independent} independent pairs total")
+    if total_independent < evaluate.MIN_INDEPENDENT:
+        console.print(
+            f"[dim]{evaluate.MIN_INDEPENDENT - total_independent} more before "
+            f"`elsewhere eval` will report a headline number[/dim]"
+        )
+    else:
+        console.print("[dim]enough for a real result — run `elsewhere eval`[/dim]")
+
+
 @app.command("eval")
 def eval_cmd(
     source: str = typer.Option("austin", "--from"),
@@ -498,11 +614,16 @@ def eval_cmd(
 
     scores = evaluate.score(matches, truth)
 
-    for provenance in ("mined", "provisional"):
+    labels = {
+        "mined": "[green]mined[/green]",
+        "reviewed": "[green]reviewed[/green]",
+        "provisional": "[yellow]provisional[/yellow]",
+    }
+    for provenance in ("mined", "reviewed", "provisional"):
         s = scores.get(provenance)
         if not s or not s.total:
             continue
-        label = "[green]mined[/green]" if provenance == "mined" else "[yellow]provisional[/yellow]"
+        label = labels[provenance]
         console.print(f"\n{label}  n={s.total}")
         console.print(f"  top-1  {s.top1_rate:6.1%}   [dim](target ≥60%)[/dim]")
         console.print(f"  top-3  {s.top3_rate:6.1%}   [dim](target ≥85%)[/dim]")
@@ -519,11 +640,15 @@ def eval_cmd(
             console.print(f"  [dim]{len(s.missing)} in ground truth but not generated[/dim]")
 
     if not evaluate.is_reportable(scores):
+        have = evaluate.independent_total(scores)
         console.print(
-            "\n[yellow]![/yellow] Not a reportable result. The provisional set was "
-            "written from the same model knowledge that generates matches, so "
-            "scoring against it is circular and flatters the model. Mine ≥30 "
-            "real pairs from local subreddits before trusting a number."
+            f"\n[yellow]![/yellow] Not a reportable result — {have}/"
+            f"{evaluate.MIN_INDEPENDENT} model-independent pairs. The "
+            "provisional set was written from the same model knowledge that "
+            "generates matches, so scoring against it measures self-"
+            "consistency. Run [cyan]elsewhere review[/cyan] to judge matches "
+            "yourself, or [cyan]elsewhere mining-plan[/cyan] to collect them "
+            "from locals."
         )
 
 

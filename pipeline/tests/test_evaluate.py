@@ -128,6 +128,35 @@ def test_score_partitions_by_provenance():
     assert scores["provisional"].total == 1
 
 
+def test_reviewed_counts_as_independent_evidence():
+    """A human who knows the city wasn't written by the model under test.
+
+    That independence — not the collection method — is what makes a pair
+    valid evidence, so reviewed and mined count the same.
+    """
+    matches = [make_match(f"P{i}", ["X"]) for i in range(30)]
+    entries = [truth(f"P{i}", ["X"], "reviewed") for i in range(30)]
+    assert evaluate.is_reportable(evaluate.score(matches, entries))
+
+
+def test_mined_and_reviewed_accumulate_together():
+    matches = [make_match(f"P{i}", ["X"]) for i in range(30)]
+    entries = [truth(f"P{i}", ["X"], "mined" if i % 2 else "reviewed") for i in range(30)]
+    scores = evaluate.score(matches, entries)
+    assert evaluate.independent_total(scores) == 30
+    assert evaluate.is_reportable(scores)
+
+
+def test_provisional_never_counts_toward_the_threshold():
+    matches = [make_match(f"P{i}", ["X"]) for i in range(60)]
+    entries = [truth(f"P{i}", ["X"], "reviewed") for i in range(10)] + [
+        truth(f"P{i}", ["X"], "provisional") for i in range(10, 60)
+    ]
+    scores = evaluate.score(matches, entries)
+    assert evaluate.independent_total(scores) == 10
+    assert not evaluate.is_reportable(scores)
+
+
 def test_provisional_alone_is_never_reportable():
     """Scoring Opus 5's matches against ground truth Opus 5 wrote is circular.
 
@@ -160,10 +189,20 @@ def test_shipped_ground_truth_loads():
 
 
 def test_shipped_ground_truth_is_honestly_labelled():
-    # Every entry is model-authored until real mining happens. If this starts
-    # failing because mined entries appeared, that's the good outcome.
+    """Nothing model-authored may masquerade as independent evidence.
+
+    Asserts the labelling is valid, not that everything is still
+    provisional — reviewed entries appearing here is the goal, and must not
+    break the suite when it happens.
+    """
     entries = evaluate.load_ground_truth()
-    assert all(e.provenance == "provisional" for e in entries)
+    assert entries
+    valid = {"mined", "reviewed", "provisional"}
+    assert all(e.provenance in valid for e in entries)
+    # The 46 seeded pairs were written by the model family under test and
+    # must stay labelled as such.
+    seeded = [e for e in entries if e.note and "canonical case" in e.note]
+    assert all(e.provenance == "provisional" for e in seeded)
 
 
 def test_shipped_ground_truth_sources_exist_in_the_seed_corpus():

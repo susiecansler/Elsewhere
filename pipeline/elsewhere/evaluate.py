@@ -33,7 +33,13 @@ from elsewhere.taxonomy import REPO_ROOT
 EVAL_DIR = REPO_ROOT / "data" / "eval"
 GROUND_TRUTH_PATH = EVAL_DIR / "ground_truth.jsonl"
 
-Provenance = Literal["mined", "provisional"]
+Provenance = Literal["mined", "reviewed", "provisional"]
+
+#: Provenances that count as evidence. Both are independent of the model being
+#: scored, which is the property that matters — `mined` comes from strangers
+#: on the internet, `reviewed` from a human who knows the city. Neither was
+#: written by the thing under test.
+INDEPENDENT: tuple[str, ...] = ("mined", "reviewed")
 
 
 class GroundTruth(BaseModel):
@@ -155,19 +161,23 @@ def score(matches: list[Match], truth: list[GroundTruth]) -> dict[str, Score]:
     """
     return {
         prov: score_subset(matches, [t for t in truth if t.provenance == prov])
-        for prov in ("mined", "provisional")
+        for prov in ("mined", "reviewed", "provisional")
         if any(t.provenance == prov for t in truth)
     }
 
 
-def is_reportable(scores: dict[str, Score]) -> bool:
-    """Whether there is enough independent evidence for a headline number.
+#: Below this, the confidence interval is wide enough that a taxonomy
+#: revision's effect on the score is unreadable.
+MIN_INDEPENDENT = 30
 
-    The plan targets 60-100 mined pairs. Below ~30 the confidence interval is
-    wide enough that a single revision's effect is unreadable.
-    """
-    mined = scores.get("mined")
-    return bool(mined and mined.total >= 30)
+
+def independent_total(scores: dict[str, Score]) -> int:
+    return sum(s.total for prov, s in scores.items() if prov in INDEPENDENT)
+
+
+def is_reportable(scores: dict[str, Score]) -> bool:
+    """Whether there is enough model-independent evidence for a headline."""
+    return independent_total(scores) >= MIN_INDEPENDENT
 
 
 # ─── Reddit mining ────────────────────────────────────────────────────────
