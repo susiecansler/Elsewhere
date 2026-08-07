@@ -3,10 +3,18 @@
 from __future__ import annotations
 
 import typer
+from dotenv import load_dotenv
 from rich.console import Console
 from rich.table import Table
 
 from elsewhere import places, seeds, taxonomy
+from elsewhere.taxonomy import REPO_ROOT
+
+# Load .env from the repo root and from pipeline/, without overriding anything
+# already exported — an explicit `ANTHROPIC_API_KEY=... elsewhere ...` should
+# always win over a checked-out file.
+for _env in (REPO_ROOT / ".env", REPO_ROOT / "pipeline" / ".env"):
+    load_dotenv(_env, override=False)
 
 app = typer.Typer(
     help="Find the parallel places in an unfamiliar city.",
@@ -175,7 +183,18 @@ def generate_preflight(
     cost: bool = typer.Option(False, "--cost", help="Estimate cost (needs API access)."),
 ) -> None:
     """Check everything is in place before spending money on a batch."""
+    import os
+
     from elsewhere import generate
+
+    if os.environ.get("ANTHROPIC_API_KEY"):
+        console.print("[green]✓[/green] ANTHROPIC_API_KEY found")
+    else:
+        console.print(
+            "[yellow]![/yellow] no ANTHROPIC_API_KEY — get one at "
+            "https://platform.claude.com/settings/keys and put it in "
+            f"{REPO_ROOT / '.env'} (see .env.example)"
+        )
 
     problems = generate.verify_ready(source, target)
     if problems:
