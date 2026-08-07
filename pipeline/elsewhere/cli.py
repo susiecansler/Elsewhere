@@ -16,9 +16,11 @@ app = typer.Typer(
 taxonomy_app = typer.Typer(help="Inspect the role vocabulary.", no_args_is_help=True)
 seeds_app = typer.Typer(help="Build and inspect the seed corpora.", no_args_is_help=True)
 places_app = typer.Typer(help="Manage the Overture places substrate.", no_args_is_help=True)
+generate_app = typer.Typer(help="Generate matches via the Batch API.", no_args_is_help=True)
 app.add_typer(taxonomy_app, name="taxonomy")
 app.add_typer(seeds_app, name="seeds")
 app.add_typer(places_app, name="places")
+app.add_typer(generate_app, name="generate")
 
 console = Console()
 
@@ -164,6 +166,113 @@ def seeds_unmatched(
     for place in missing:
         console.print(f"[yellow]·[/yellow] {place.name} [dim]({place.category})[/dim]")
     console.print(f"\n[dim]{len(missing)}/{len(corpus)} unmatched[/dim]")
+
+
+@generate_app.command("preflight")
+def generate_preflight(
+    source: str = typer.Option("austin", "--from"),
+    target: str = typer.Option("chicago", "--to"),
+    cost: bool = typer.Option(False, "--cost", help="Estimate cost (needs API access)."),
+) -> None:
+    """Check everything is in place before spending money on a batch."""
+    from elsewhere import generate
+
+    problems = generate.verify_ready(source, target)
+    if problems:
+        for p in problems:
+            console.print(f"[red]✗[/red] {p}")
+        raise typer.Exit(1)
+
+    reqs = generate.build_requests(source, target)
+    system = generate.build_system_prompt(target)
+    console.print(f"[green]✓[/green] {len(reqs)} requests ready ({source} → {target})")
+    console.print(f"[dim]model {generate.MODEL}, effort {generate.EFFORT}[/dim]")
+    console.print(f"[dim]cached system prefix: {len(system):,} chars[/dim]")
+
+    if cost:
+        try:
+            est = generate.estimate_cost(source, target)
+        except Exception as exc:
+            console.print(f"[yellow]![/yellow] cost estimate unavailable: {exc}")
+            raise typer.Exit(0) from None
+        console.print(
+            f"[dim]~{est['system_tokens']:,} cached tokens/req · "
+            f"est. ${est['total_usd_est']:.2f} total (batch-discounted)[/dim]"
+        )
+
+
+@generate_app.command("submit")
+def generate_submit(
+    source: str = typer.Option("austin", "--from"),
+    target: str = typer.Option("chicago", "--to"),
+) -> None:
+    """Submit the generation batch."""
+    from elsewhere import generate
+
+    problems = generate.verify_ready(source, target)
+    if problems:
+        for p in problems:
+            console.print(f"[red]✗[/red] {p}")
+        raise typer.Exit(1)
+
+    try:
+        batch_id = generate.submit(source, target)
+    except Exception as exc:
+        console.print(f"[red]✗ submit failed:[/red] {exc}")
+        raise typer.Exit(1) from exc
+
+    console.print(f"[green]✓[/green] submitted [cyan]{batch_id}[/cyan]")
+    console.print("[dim]check with `elsewhere generate status`[/dim]")
+
+
+@generate_app.command("status")
+def generate_status(
+    source: str = typer.Option("austin", "--from"),
+    target: str = typer.Option("chicago", "--to"),
+) -> None:
+    """Check batch progress."""
+    from elsewhere import generate
+
+    batch_id = generate.load_batch_id(source, target)
+    if not batch_id:
+        console.print("[yellow]no batch submitted[/yellow]")
+        raise typer.Exit(1)
+
+    batch = generate.status(batch_id)
+    counts = batch.request_counts
+    console.print(f"{batch_id}: [cyan]{batch.processing_status}[/cyan]")
+    console.print(
+        f"[dim]succeeded {counts.succeeded} · errored {counts.errored} · "
+        f"processing {counts.processing}[/dim]"
+    )
+
+
+@generate_app.command("collect")
+def generate_collect(
+    source: str = typer.Option("austin", "--from"),
+    target: str = typer.Option("chicago", "--to"),
+) -> None:
+    """Fetch batch results and write the raw match corpus."""
+    from elsewhere import generate
+
+    batch_id = generate.load_batch_id(source, target)
+    if not batch_id:
+        console.print("[yellow]no batch submitted[/yellow]")
+        raise typer.Exit(1)
+
+    matches, failures = generate.collect(source, target, batch_id)
+    out = generate.raw_path(source, target)
+    generate.write_matches(matches, out)
+
+    console.print(f"[green]✓[/green] {len(matches)} matches → {out.name}")
+    hard = [f for f in failures if not f.get("recoverable")]
+    if hard:
+        console.print(f"[red]✗[/red] {len(hard)} failed:")
+        for f in hard[:10]:
+            console.print(f"  [dim]{f.get('name', f['custom_id'])}: {f['error']}[/dim]")
+    soft = [f for f in failures if f.get("recoverable")]
+    if soft:
+        console.print(f"[yellow]![/yellow] {len(soft)} with dropped role tags")
 
 
 if __name__ == "__main__":
