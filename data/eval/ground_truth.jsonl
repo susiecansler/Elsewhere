@@ -1,0 +1,46 @@
+{"source_name":"H-E-B","source_city":"austin","target_city":"chicago","accepted":["Mariano's","Pete's Fresh Market"],"provenance":"provisional","note":"The canonical case. Jewel-Osco is the wrong answer despite matching on category, price, and footprint."}
+{"source_name":"Central Market","source_city":"austin","target_city":"chicago","accepted":["Eataly Chicago","Mariano's"],"provenance":"provisional"}
+{"source_name":"Torchy's Tacos","source_city":"austin","target_city":"chicago","accepted":["Big Star"],"provenance":"provisional"}
+{"source_name":"Whataburger","source_city":"austin","target_city":"chicago","accepted":["Portillo's","Superdawg Drive-In"],"provenance":"provisional","note":"Cuisine differs; the role is regional fast-food identity marker."}
+{"source_name":"P. Terry's","source_city":"austin","target_city":"chicago","accepted":["Small Cheval"],"provenance":"provisional"}
+{"source_name":"Franklin Barbecue","source_city":"austin","target_city":"chicago","accepted":["Smoque BBQ","Green Street Smoked Meats"],"provenance":"provisional","note":"Line-out-the-door flagship for the city's defining smoked meat."}
+{"source_name":"Salt Lick BBQ","source_city":"austin","target_city":"chicago","accepted":["Smoque BBQ"],"provenance":"provisional"}
+{"source_name":"Home Slice Pizza","source_city":"austin","target_city":"chicago","accepted":["Pequod's Pizza","Lou Malnati's"],"provenance":"provisional"}
+{"source_name":"Kerbey Lane Cafe","source_city":"austin","target_city":"chicago","accepted":["Lou Mitchell's","The Wieners Circle"],"provenance":"provisional","note":"Locals split between the breakfast-institution reading and the late-night reading."}
+{"source_name":"Magnolia Cafe","source_city":"austin","target_city":"chicago","accepted":["Lou Mitchell's"],"provenance":"provisional"}
+{"source_name":"Juan in a Million","source_city":"austin","target_city":"chicago","accepted":["Valois Cafeteria","Lou Mitchell's"],"provenance":"provisional"}
+{"source_name":"Jeffrey's","source_city":"austin","target_city":"chicago","accepted":["The Berghoff"],"provenance":"provisional"}
+{"source_name":"Uchi","source_city":"austin","target_city":"chicago","accepted":["Alinea","Kasama","Oriole"],"provenance":"provisional"}
+{"source_name":"Olamaie","source_city":"austin","target_city":"chicago","accepted":["Girl & the Goat","Monteverde"],"provenance":"provisional"}
+{"source_name":"Amy's Ice Creams","source_city":"austin","target_city":"chicago","accepted":["Margie's Candies"],"provenance":"provisional"}
+{"source_name":"Lifetime Fitness","source_city":"austin","target_city":"chicago","accepted":["East Bank Club"],"provenance":"provisional","note":"From the original concept sketch."}
+{"source_name":"Castle Hill Fitness","source_city":"austin","target_city":"chicago","accepted":["Studio Three"],"provenance":"provisional"}
+{"source_name":"Barton Springs Pool","source_city":"austin","target_city":"chicago","accepted":["North Avenue Beach","Promontory Point","Montrose Beach"],"provenance":"provisional","note":"Free outdoor swim as weekly ritual; Chicago's is the lakefront."}
+{"source_name":"Zilker Park","source_city":"austin","target_city":"chicago","accepted":["Grant Park","Millennium Park","Lincoln Park"],"provenance":"provisional","note":"Festival-hosting signature park. Grant Park is the closer functional match; Millennium is the postcard."}
+{"source_name":"Lady Bird Lake Hike-and-Bike Trail","source_city":"austin","target_city":"chicago","accepted":["Lakefront Trail","The 606"],"provenance":"provisional"}
+{"source_name":"Barton Creek Greenbelt","source_city":"austin","target_city":"chicago","accepted":["The 606","Lakefront Trail"],"provenance":"provisional"}
+{"source_name":"BookPeople","source_city":"austin","target_city":"chicago","accepted":["Seminary Co-op Bookstore","Unabridged Bookstore"],"provenance":"provisional"}
+{"source_name":"Waterloo Records","source_city":"austin","target_city":"chicago","accepted":["Reckless Records","Dusty Groove"],"provenance":"provisional"}
+{"source_name":"End of an Ear","source_city":"austin","target_city":"chicago","accepted":["Dusty Groove","Reckless Records"],"provenance":"provisional"}
+{"source_name":"Whole Earth Provision Co.","source_city":"austin","target_city":"chicago","accepted":["Uncle Dan's"],"provenance":"provisional"}
+{"source_name":"Uncommon Objects","source_city":"austin","target_city":"chicago","accepted":["Knee Deep Vintage"],"provenance":"provisional"}
+{"source_name":"Alamo Drafthouse Cinema","source_city":"austin","target_city":"chicago","accepted":["Music Box Theatre"],"provenance":"provisional"}
+{"source_name":"Antone's","source_city":"austin","target_city":"chicago","accepted":["Buddy Guy's Legends","Kingston Mines","The Green Mill"],"provenance":"provisional","note":"Blues institution specifically."}
+{"source_name":"The Continental Club","source_city":"austin","target_city":"chicago","accepted":["The Green Mill","The Hideout"],"provenance":"provisional"}
+{"source_name":"Mohawk","source_city":"austin","target_city":"chicago","accepted":["Empty Bottle","Thalia Hall","Lincoln Hall"],"provenance":"provisional"}
+{"source_name":"Emo's","source_city":"austin","target_city":"chicago","accepted":["Metro","Thalia Hall"],"provenance":"provisional"}
+{"source_name":"Deep Eddy Cabaret","source_city":"austin","target_city":"chicago","accepted":["Old Town Ale House","Rainbo Club","Simon's Tavern"],"provenance":"provisional"}
+{"source_name":"Live Oak Brewing","source_city":"austin","target_city":"chicago","accepted":["Half Acre Beer Company","Revolution Brewing"],"provenance":"provisional"}
+{"source_name":"Small Victory","source_city":"austin","target_city":"chicago","accepted":["The Violet Hour","Billy Sunday"],"provenance":"provisional"}
+{"source_name":"Cuvée Coffee","source_city":"austin","target_city":"chicago","accepted":["Intelligentsia Coffee","Metropolis Coffee"],"provenance":"provisional"}
+{"source_name":"Epoch Coffee","source_city":"austin","target_city":"chicago","accepted":["Kopi Cafe"],"provenance":"provisional"}
+{"source_name":"Blanton Museum of Art","source_city":"austin","target_city":"chicago","accepted":["Art Institute of Chicago","Museum of Contemporary Art Chicago"],"provenance":"provisional"}
+{"source_name":"Bullock Texas State History Museum","source_city":"austin","target_city":"chicago","accepted":["Chicago History Museum","Field Museum"],"provenance":"provisional"}
+{"source_name":"Austin Central Library","source_city":"austin","target_city":"chicago","accepted":["Harold Washington Library Center"],"provenance":"provisional"}
+{"source_name":"SFC Farmers' Market","source_city":"austin","target_city":"chicago","accepted":["Green City Market"],"provenance":"provisional"}
+{"source_name":"Congress Avenue Bridge Bats","source_city":"austin","target_city":"chicago","accepted":["Cloud Gate"],"provenance":"provisional","note":"Free civic spectacle you take visitors to."}
+{"source_name":"South Congress","source_city":"austin","target_city":"chicago","accepted":["Wicker Park","Logan Square"],"provenance":"provisional"}
+{"source_name":"Sixth Street","source_city":"austin","target_city":"chicago","accepted":["Wrigleyville","Division Street"],"provenance":"provisional"}
+{"source_name":"East Austin","source_city":"austin","target_city":"chicago","accepted":["Pilsen","Logan Square"],"provenance":"provisional"}
+{"source_name":"Tarrytown","source_city":"austin","target_city":"chicago","accepted":["Lake Forest"],"provenance":"provisional"}
+{"source_name":"The Domain","source_city":"austin","target_city":"chicago","accepted":["Fulton Market"],"provenance":"provisional"}

@@ -275,5 +275,72 @@ def generate_collect(
         console.print(f"[yellow]![/yellow] {len(soft)} with dropped role tags")
 
 
+@app.command("eval")
+def eval_cmd(
+    source: str = typer.Option("austin", "--from"),
+    target: str = typer.Option("chicago", "--to"),
+    verbose: bool = typer.Option(False, "--verbose", "-v", help="Show every miss."),
+) -> None:
+    """Score generated matches against ground truth."""
+    from elsewhere import evaluate, generate
+
+    truth = evaluate.load_ground_truth()
+    if not truth:
+        console.print("[yellow]no ground truth[/yellow] — see data/eval/ground_truth.jsonl")
+        raise typer.Exit(1)
+
+    try:
+        matches = generate.read_matches(generate.raw_path(source, target))
+    except FileNotFoundError:
+        console.print(
+            "[yellow]no matches yet[/yellow] — run `elsewhere generate submit` then `collect`"
+        )
+        raise typer.Exit(1) from None
+
+    scores = evaluate.score(matches, truth)
+
+    for provenance in ("mined", "provisional"):
+        s = scores.get(provenance)
+        if not s or not s.total:
+            continue
+        label = "[green]mined[/green]" if provenance == "mined" else "[yellow]provisional[/yellow]"
+        console.print(f"\n{label}  n={s.total}")
+        console.print(f"  top-1  {s.top1_rate:6.1%}   [dim](target ≥60%)[/dim]")
+        console.print(f"  top-3  {s.top3_rate:6.1%}   [dim](target ≥85%)[/dim]")
+        if s.misranked:
+            console.print(f"  [dim]{len(s.misranked)} mis-ranked (right answer, wrong order)[/dim]")
+        if verbose:
+            for name, got, want in s.misranked:
+                console.print(
+                    f"    [yellow]~[/yellow] {name}: ranked {got} over {' / '.join(want)}"
+                )
+            for name, got, want in s.wrong:
+                console.print(f"    [red]✗[/red] {name}: got {got}, wanted {' / '.join(want)}")
+        if s.missing:
+            console.print(f"  [dim]{len(s.missing)} in ground truth but not generated[/dim]")
+
+    if not evaluate.is_reportable(scores):
+        console.print(
+            "\n[yellow]![/yellow] Not a reportable result. The provisional set was "
+            "written from the same model knowledge that generates matches, so "
+            "scoring against it is circular and flatters the model. Mine ≥30 "
+            "real pairs from local subreddits before trusting a number."
+        )
+
+
+@app.command("mining-plan")
+def mining_plan_cmd(
+    source: str = typer.Option("austin", "--from"),
+    target: str = typer.Option("chicago", "--to"),
+) -> None:
+    """Print the subreddit search matrix for collecting real ground truth."""
+    from elsewhere import evaluate
+
+    plan = evaluate.mining_plan(source, target)
+    for item in plan:
+        console.print(f"r/{item['subreddit']}: [cyan]{item['query']}[/cyan]")
+    console.print(f"\n[dim]{len(plan)} searches → {evaluate.stub_mined_file(source, target)}[/dim]")
+
+
 if __name__ == "__main__":
     app()
