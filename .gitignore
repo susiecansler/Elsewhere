@@ -1,0 +1,20 @@
+# Environment / secrets
+.env
+.env.*
+!.env.example
+
+# Dependencies
+node_modules/
+venv/
+.venv/
+__pycache__/
+
+# Build output
+dist/
+build/
+*.egg-info/
+
+# Editors / OS
+.DS_Store
+.idea/
+.vscode/
