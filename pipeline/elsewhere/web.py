@@ -191,6 +191,12 @@ main { max-width: 1100px; margin: 0 auto; padding: 20px; }
 .link { font: inherit; font-size: 12.5px; background: none; border: none; color: var(--dim); cursor: pointer; text-decoration: underline; padding: 0; }
 .empty { text-align: center; color: var(--dim); padding: 60px 20px; }
 .others { font-size: 12.5px; color: var(--warn); margin-top: 5px; }
+.answer { font-size: 21px; font-weight: 650; letter-spacing: -0.02em; margin: 6px 0 4px; }
+.why.big { font-size: 14.5px; color: var(--ink); opacity: .82; }
+details { margin-top: 11px; }
+summary { cursor: pointer; font-size: 13px; color: var(--dim); }
+summary:hover { color: var(--accent); }
+.alt { padding: 9px 0 0 14px; border-left: 2px solid var(--line); margin-top: 9px; }
 .gate {
   position: fixed; inset: 0; z-index: 50; background: var(--bg);
   display: flex; align-items: center; justify-content: center; padding: 20px;
@@ -209,79 +215,107 @@ main { max-width: 1100px; margin: 0 auto; padding: 20px; }
 </style>
 </head>
 <body>
-<div id="gate" class="gate">
+<div id="gate" class="gate" hidden>
   <div class="gatebox">
-    <h2>Which Chicago place actually fits?</h2>
-    <p>We asked a model to find the Chicago equivalent of ~117 Austin
-    institutions. It explains its reasoning for each. You tell us where
-    it's right and where it's nonsense.</p>
-    <p class="fine">Pick the best of three, or type something better. There's no
-    wrong answer — if you and someone else disagree, that's useful
-    information, not a problem.</p>
+    <h2>Before you grade — who are you?</h2>
+    <p>So we can tell whose picks are whose. First name is plenty.</p>
+    <p class="fine">If you and someone else disagree, that's useful information,
+    not a problem. Please don't compare notes first.</p>
     <input type="text" id="who" placeholder="Your name" autocomplete="name">
-    <button id="start">Start reviewing</button>
+    <button id="start">Start grading</button>
+    <button class="link" id="cancel">never mind</button>
     <p class="fine" id="gateerr"></p>
   </div>
 </div>
 
 <header><div class="bar">
   <h1>Elsewhere <span id="pair"></span></h1>
-  <input type="search" id="q" class="grow" placeholder="Search a place, role, or answer…">
-  <div class="chips">
+  <input type="search" id="q" class="grow" placeholder="Search a place — try HEB, Torchy's, Barton Springs…">
+  <div class="chips" id="filters">
     <button class="chip" data-f="all" aria-pressed="true">All</button>
-    <button class="chip" data-f="todo" aria-pressed="false">To review</button>
+    <button class="chip" data-f="todo" aria-pressed="false">Ungraded</button>
     <button class="chip" data-f="done" aria-pressed="false">Mine</button>
-    <button class="chip" data-f="unverified" aria-pressed="false">Unverified</button>
   </div>
+  <button class="chip" id="modebtn" aria-pressed="false">Grade these</button>
   <div class="progress" id="prog"></div>
   <button class="link" id="signout"></button>
 </div></header>
 <main id="list"></main>
 <script>
-let S = null, filter = "all", q = "", me = localStorage.getItem("elsewhere.reviewer") || "";
+let S = null, filter = "all", q = "", grading = false, pending = null;
+let me = localStorage.getItem("elsewhere.reviewer") || "";
 
-function gate() {
-  const g = document.getElementById("gate");
-  if (me) { g.hidden = true; return true; }
-  g.hidden = false;
+// Browsing is the default and needs no identity. A name is only asked for at
+// the moment someone actually grades something — the gate used to sit in
+// front of everything, which made a lookup tool read as a survey.
+function askWho(after) {
+  pending = after;
+  document.getElementById("gate").hidden = false;
   document.getElementById("who").focus();
-  return false;
 }
 
 document.getElementById("start").addEventListener("click", () => {
   const v = document.getElementById("who").value.trim();
   if (v.length < 2) {
-    document.getElementById("gateerr").textContent = "A name or nickname, so we know whose picks are whose.";
+    document.getElementById("gateerr").textContent = "A name or nickname is enough.";
     return;
   }
   me = v;
   localStorage.setItem("elsewhere.reviewer", me);
-  gate(); load();
+  document.getElementById("gate").hidden = true;
+  const go = pending; pending = null;
+  load().then(() => { if (go) go(); });
+});
+document.getElementById("cancel").addEventListener("click", () => {
+  document.getElementById("gate").hidden = true; pending = null;
+  if (!me) setMode(false);
 });
 document.getElementById("who").addEventListener("keydown", e => {
   if (e.key === "Enter") document.getElementById("start").click();
 });
 document.getElementById("signout").addEventListener("click", () => {
-  localStorage.removeItem("elsewhere.reviewer"); me = ""; gate();
+  localStorage.removeItem("elsewhere.reviewer"); me = ""; load();
+});
+
+function setMode(on) {
+  grading = on;
+  document.getElementById("modebtn").setAttribute("aria-pressed", String(on));
+  document.getElementById("modebtn").textContent = on ? "Done grading" : "Grade these";
+  document.getElementById("filters").style.display = on ? "flex" : "none";
+  if (!on && filter !== "all") {
+    filter = "all";
+    document.querySelectorAll(".chip[data-f]").forEach(x =>
+      x.setAttribute("aria-pressed", String(x.dataset.f === "all")));
+  }
+  render();
+}
+
+document.getElementById("modebtn").addEventListener("click", () => {
+  if (!grading && !me) { askWho(() => setMode(true)); return; }
+  setMode(!grading);
 });
 
 async function load() {
   S = await (await fetch("/api/state?reviewer=" + encodeURIComponent(me))).json();
   document.getElementById("pair").textContent = S.source + " → " + S.target;
-  document.getElementById("signout").textContent = "not " + me + "?";
+  document.getElementById("signout").textContent = me ? "not " + me + "?" : "";
   render();
 }
 
 function progress() {
+  const el = document.getElementById("prog");
+  if (!grading) {
+    el.innerHTML = `<span style="opacity:.75">${S.matches.length} places</span>`;
+    return;
+  }
   const n = S.judged, t = S.threshold;
   const pct = Math.min(100, n / t * 100);
   const people = Object.keys(S.reviewers || {}).length;
   const msg = n >= t
-    ? `<b>${n}</b> places judged — enough for a real score`
-    : `<b>${n}</b>/${t} places judged`;
-  const who = people > 1 ? ` <span style="opacity:.7">· ${people} reviewers</span>` : "";
-  document.getElementById("prog").innerHTML =
-    msg + who + `<span class="track"><span class="fill" style="width:${pct}%"></span></span>`;
+    ? `<b>${n}</b> graded — enough for a real score`
+    : `<b>${n}</b>/${t} graded`;
+  const who = people > 1 ? ` <span style="opacity:.7">· ${people} people</span>` : "";
+  el.innerHTML = msg + who + `<span class="track"><span class="fill" style="width:${pct}%"></span></span>`;
 }
 
 function visible(m) {
@@ -299,13 +333,31 @@ function esc(s) {
 }
 
 function render() {
+  if (!S) return;  // setMode() runs before the first load resolves
   progress();
   const rows = S.matches.filter(visible);
   const el = document.getElementById("list");
   if (!rows.length) { el.innerHTML = '<p class="empty">Nothing matches that.</p>'; return; }
 
-  el.innerHTML = rows.map(m => {
+  el.innerHTML = rows.map((m, idx) => {
     const q = s => esc(s).replace(/'/g, "\\'");
+    const top = m.candidates[0];
+    const rest = m.candidates.slice(1);
+
+    if (!grading) {
+      // Reading mode: lead with the answer. The alternates are there for
+      // anyone who wants them, not in the way of everyone who doesn't.
+      return `<div class="card">
+        <div class="head"><h2>${esc(m.name)}</h2><span class="arrow">in ${esc(S.target)} is</span></div>
+        <div class="answer">${esc(top.name)}</div>
+        <div class="why big">${esc(top.reasoning)}</div>
+        ${rest.length ? `<details><summary>${rest.length} other candidate${
+          rest.length > 1 ? "s" : ""}</summary>${rest.map(c =>
+          `<div class="alt"><span class="cname">${esc(c.name)}</span>
+             <div class="why">${esc(c.reasoning)}</div></div>`).join("")}</details>` : ""}
+      </div>`;
+    }
+
     const cands = m.candidates.map((c, i) => {
       const isPick = m.mine && m.mine.toLowerCase() === c.name.toLowerCase();
       return `<div class="cand ${isPick ? "chosen" : ""}">
@@ -344,6 +396,7 @@ function render() {
 }
 
 async function pick(name, answer, custom) {
+  if (!me) { askWho(() => pick(name, answer, custom)); return; }
   const m = S.matches.find(x => x.name === name);
   const r = await fetch("/api/review", {
     method: "POST", headers: { "Content-Type": "application/json" },
@@ -379,7 +432,8 @@ document.querySelectorAll(".chip").forEach(b => b.addEventListener("click", () =
   render();
 }));
 
-if (gate()) load();
+setMode(false);
+load();
 </script>
 </body>
 </html>
