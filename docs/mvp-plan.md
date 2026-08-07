@@ -1,5 +1,28 @@
 # Elsewhere — MVP Implementation Plan
 
+## Status
+
+| Phase | State |
+| --- | --- |
+| 0 · Scaffolding + role taxonomy | ✅ done — 45 roles |
+| 1 · Seed corpus + places substrate | ✅ done — 117 / 118 seeds, 88% / 90% joined |
+| 2 · Batch match generation | ⛔ **blocked — needs `ANTHROPIC_API_KEY`** |
+| 3 · Verification | ✅ built + tested (runs once matches exist) |
+| 4 · Eval harness | ⚠️ built; needs **real** mined ground truth |
+| 5 · Query CLI | ✅ built + tested (runs once matches exist) |
+
+113 tests passing. Two blockers, both external:
+
+1. **`ANTHROPIC_API_KEY`** — generation is the one step that can't be
+   faked. `elsewhere generate preflight` passes (117 requests, 13k-char
+   cached prefix); it just needs credentials to submit.
+2. **Mined ground truth** — the shipped 46 pairs are marked
+   `provenance: "provisional"` because *I wrote them*, and scoring the
+   model against pairs the same model authored is circular. The scorer
+   enforces this: it refuses a headline number until ≥30 `mined` pairs
+   exist. The MVP targets below only apply to mined data.
+
+
 ## What the MVP is
 
 One city pair — **Austin ↔ Chicago** — with ~120 named institutions per side,
