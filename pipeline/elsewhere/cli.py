@@ -275,6 +275,84 @@ def generate_collect(
         console.print(f"[yellow]![/yellow] {len(soft)} with dropped role tags")
 
 
+@app.command("verify")
+def verify_cmd(
+    source: str = typer.Option("austin", "--from"),
+    target: str = typer.Option("chicago", "--to"),
+) -> None:
+    """Check generated candidates exist in the places substrate."""
+    from elsewhere import generate, verify
+
+    try:
+        matches = generate.read_matches(generate.raw_path(source, target))
+    except FileNotFoundError:
+        console.print("[yellow]no matches yet[/yellow] — run `elsewhere generate collect` first")
+        raise typer.Exit(1) from None
+
+    try:
+        matches, rejects, report = verify.verify_matches(matches)
+    except (RuntimeError, places.StaleTableError) as exc:
+        console.print(f"[red]✗ {exc}[/red]")
+        raise typer.Exit(1) from exc
+
+    generate.write_matches(matches, verify.verified_path(source, target))
+    verify.write_rejects(rejects, verify.rejects_path(source, target))
+
+    console.print(f"[green]✓[/green] {report.summary()}")
+    top_ok, top_n = verify.top_candidate_health(matches)
+    console.print(f"[dim]top-ranked candidates verified: {top_ok}/{top_n}[/dim]")
+    if rejects:
+        console.print(
+            f"[yellow]![/yellow] {len(rejects)} unverified → "
+            f"{verify.rejects_path(source, target).name} [dim](read it — an "
+            f"absence in Overture is not proof of a hallucination)[/dim]"
+        )
+
+
+@app.command("ask")
+def ask_cmd(
+    query: str = typer.Argument(..., help='e.g. "HEB"'),
+    source: str = typer.Option("austin", "--from"),
+    target: str = typer.Option("chicago", "--to"),
+) -> None:
+    """Look up the equivalent of a place in another city."""
+    from elsewhere import generate, resolve, verify
+
+    hit = resolve.resolve(query, source)
+    if hit is None:
+        console.print(f"[yellow]no match for[/yellow] {query!r} in {source}")
+        if near := resolve.suggest(query, source):
+            console.print("[dim]did you mean: " + ", ".join(p.name for p in near) + "?[/dim]")
+        raise typer.Exit(1)
+
+    path = verify.verified_path(source, target)
+    if not path.exists():
+        path = generate.raw_path(source, target)
+    try:
+        matches = generate.read_matches(path)
+    except FileNotFoundError:
+        console.print(
+            f"[green]✓[/green] resolved to [cyan]{hit.place.name}[/cyan] "
+            f"[dim]({hit.how})[/dim]\n[yellow]no matches generated yet[/yellow]"
+        )
+        raise typer.Exit(1) from None
+
+    match = next((m for m in matches if m.source.name == hit.place.name), None)
+    if match is None:
+        console.print(f"[yellow]no generated match for {hit.place.name}[/yellow]")
+        raise typer.Exit(1)
+
+    console.print(
+        f"\n[bold]{hit.place.name}[/bold] ({source.title()}) → [bold]{target.title()}[/bold]"
+    )
+    console.print(f"[dim]roles: {', '.join(match.role_tags)}[/dim]\n")
+    for i, cand in enumerate(match.candidates, 1):
+        mark = "" if cand.verified is not False else " [yellow](unverified)[/yellow]"
+        style = "bold cyan" if i == 1 else "cyan"
+        console.print(f"  {i}. [{style}]{cand.name}[/{style}]{mark}")
+        console.print(f"     [dim]{cand.reasoning}[/dim]")
+
+
 @app.command("eval")
 def eval_cmd(
     source: str = typer.Option("austin", "--from"),
