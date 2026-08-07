@@ -10,7 +10,11 @@ services:
   - type: web
     name: elsewhere-review
     runtime: python
-    plan: free
+    # Starter, not free: free services cannot attach a persistent disk, and
+    # Render destroys a free instance when it idles — which would take the
+    # judgments with it. Starter also removes the ~30s cold start colleagues
+    # would otherwise hit. Delete the service when the review round ends.
+    plan: starter
     region: oregon
     rootDir: .
     buildCommand: pip install -e ./pipeline
@@ -34,4 +38,6 @@ services:
     disk:
       name: judgments
       mountPath: /var/elsewhere
+      # Smallest Render allows. A few hundred judgments is kilobytes; this is
+      # already three orders of magnitude more than the round needs.
       sizeGB: 1
