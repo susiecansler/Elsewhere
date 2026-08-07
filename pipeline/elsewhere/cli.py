@@ -294,6 +294,61 @@ def generate_collect(
         console.print(f"[yellow]![/yellow] {len(soft)} with dropped role tags")
 
 
+@app.command("setup-key")
+def setup_key(
+    check: bool = typer.Option(True, "--check/--no-check", help="Verify against the real API."),
+) -> None:
+    """Store your Anthropic API key securely in .env.
+
+    The key is typed at a hidden prompt: it never appears on screen and never
+    lands in shell history, unlike `export ANTHROPIC_API_KEY=...`.
+    """
+    from elsewhere import secrets
+
+    console.print("\n[bold]Anthropic API key[/bold]")
+    console.print("[dim]Get one at https://platform.claude.com/settings/keys[/dim]")
+    console.print(
+        "[dim]Buy credits first — a key with no credits fails every call. "
+        "A Claude.ai subscription does NOT include API credits.[/dim]\n"
+    )
+
+    if current := secrets.existing_key():
+        console.print(
+            f"[yellow]![/yellow] {secrets.ENV_PATH} already has a key: "
+            f"[dim]{secrets.redact(current)}[/dim]"
+        )
+        if not typer.confirm("Replace it?", default=False):
+            console.print("[dim]unchanged[/dim]")
+            raise typer.Exit(0)
+
+    # hide_input keeps it off the screen; it is never echoed or logged.
+    value = typer.prompt("Paste your key", hide_input=True).strip()
+
+    ok, reason = secrets.looks_like_key(value)
+    if not ok:
+        console.print(f"[red]✗[/red] {reason}")
+        raise typer.Exit(1)
+
+    if check:
+        with console.status("verifying against the API…"):
+            result = secrets.check_key(value)
+        if not result.ok:
+            console.print(f"[red]✗[/red] {result.detail}")
+            if result.needs_credits:
+                console.print(
+                    "[dim]Add credits at https://platform.claude.com/settings/billing "
+                    "then run this again.[/dim]"
+                )
+            if not typer.confirm("Save it anyway?", default=False):
+                raise typer.Exit(1)
+        else:
+            console.print(f"[green]✓[/green] {result.detail}")
+
+    path = secrets.write_key(value)
+    console.print(f"[green]✓[/green] saved to {path} [dim](permissions 600, gitignored)[/dim]")
+    console.print("[dim]next: `elsewhere generate preflight --cost`[/dim]")
+
+
 @app.command("verify")
 def verify_cmd(
     source: str = typer.Option("austin", "--from"),
