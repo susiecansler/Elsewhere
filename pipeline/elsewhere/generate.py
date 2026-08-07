@@ -20,7 +20,7 @@ from typing import Literal
 from anthropic import Anthropic
 from anthropic.types.message_create_params import MessageCreateParamsNonStreaming
 from anthropic.types.messages.batch_create_params import Request
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 from elsewhere import places, seeds, taxonomy
 from elsewhere.models import Candidate, Match, Place, PriceTier, Reach
@@ -41,7 +41,16 @@ N_CANDIDATES = 3
 # ─── Structured output schema ─────────────────────────────────────────────
 
 
+#: Structured outputs require `additionalProperties: false` on every object in
+#: the schema. Pydantic emits that only when extra fields are forbidden, and
+#: without it the API rejects the request — which, in a batch, means every
+#: request fails identically after submission rather than at build time.
+STRICT = ConfigDict(extra="forbid")
+
+
 class GeneratedCandidate(BaseModel):
+    model_config = STRICT
+
     name: str = Field(description="The place's common name, as locals write it")
     reasoning: str = Field(
         description=(
@@ -53,6 +62,8 @@ class GeneratedCandidate(BaseModel):
 
 
 class GeneratedMatch(BaseModel):
+    model_config = STRICT
+
     role_tags: list[str] = Field(
         description="1-3 role ids from the vocabulary, most defining first"
     )
@@ -155,10 +166,7 @@ def build_requests(source_city: str, target_city: str) -> list[Request]:
                 ],
                 output_config={
                     "effort": EFFORT,
-                    "format": {
-                        "type": "json_schema",
-                        "schema": GeneratedMatch.model_json_schema(),
-                    },
+                    "format": {"type": "json_schema", "schema": api_schema()},
                 },
                 messages=[{"role": "user", "content": build_user_prompt(place, target_city)}],
             ),
@@ -337,9 +345,98 @@ def estimate_cost(source_city: str, target_city: str) -> dict[str, float]:
     }
 
 
+#: JSON Schema keywords structured outputs rejects. `messages.parse()` strips
+#: these for you, but the Batch API takes a hand-built schema, so we strip
+#: them ourselves. Dropping them costs nothing: the Pydantic model still
+#: enforces every one of them client-side when the response is parsed in
+#: `collect`, which is where a bad value actually needs catching.
+UNSUPPORTED_KEYWORDS = frozenset(
+    {
+        "minimum",
+        "maximum",
+        "exclusiveMinimum",
+        "exclusiveMaximum",
+        "multipleOf",
+        "minLength",
+        "maxLength",
+        "minItems",
+        "maxItems",
+        "uniqueItems",
+    }
+)
+
+
+def api_schema(model: type[BaseModel] = None) -> dict:
+    """The output schema as the API will accept it."""
+    schema = (model or GeneratedMatch).model_json_schema()
+
+    def strip(node):
+        if isinstance(node, dict):
+            return {k: strip(v) for k, v in node.items() if k not in UNSUPPORTED_KEYWORDS}
+        if isinstance(node, list):
+            return [strip(v) for v in node]
+        return node
+
+    return strip(schema)
+
+
+def schema_problems(schema: dict | None = None) -> list[str]:
+    """Validate the output schema against the structured-output constraints.
+
+    Exists because a schema the API rejects fails *every* request in the batch
+    identically, and only after submission — 117 requests, one error, several
+    minutes, and nothing to show. Cheap to check locally; expensive to learn
+    from the API.
+    """
+    schema = schema if schema is not None else api_schema()
+    problems: list[str] = []
+
+    def walk(node: dict, path: str) -> None:
+        if unsupported := sorted(set(node) & UNSUPPORTED_KEYWORDS):
+            problems.append(f"{path}: unsupported keyword(s) {unsupported}")
+        if node.get("type") == "object":
+            if node.get("additionalProperties") is not False:
+                problems.append(f"{path}: 'additionalProperties' must be explicitly false")
+            declared = set(node.get("properties", {}))
+            required = set(node.get("required", []))
+            if missing := declared - required:
+                problems.append(
+                    f"{path}: every property must be required, missing {sorted(missing)}"
+                )
+        for key in ("properties", "$defs"):
+            for name, child in (node.get(key) or {}).items():
+                if isinstance(child, dict):
+                    walk(child, f"{path}.{name}")
+        if isinstance(items := node.get("items"), dict):
+            walk(items, f"{path}[]")
+
+    walk(schema, "schema")
+    return problems
+
+
+def probe(source_city: str, target_city: str, client: Anthropic | None = None) -> tuple[bool, str]:
+    """Send exactly one real request to prove the batch will be accepted.
+
+    Local schema validation encodes what I already know is wrong. This catches
+    what I don't. A rejected shape fails every request in a batch identically,
+    several minutes after submission — twice now — so paying for one request
+    up front is straightforwardly the cheaper trade.
+    """
+    client = client or Anthropic()
+    req = build_requests(source_city, target_city)[0]
+    try:
+        msg = client.messages.create(**dict(req["params"]))
+        text = next(b.text for b in msg.content if b.type == "text")
+        parsed = GeneratedMatch.model_validate_json(text)
+    except Exception as exc:
+        return False, f"{type(exc).__name__}: {str(exc)[:300]}"
+    top = parsed.candidates[0].name if parsed.candidates else "—"
+    return True, f"accepted; {req['custom_id']} → {top}"
+
+
 def verify_ready(source_city: str, target_city: str) -> list[str]:
     """Pre-flight checks. Returns human-readable problems, empty if good."""
-    problems = []
+    problems = list(schema_problems())
     for city in (source_city, target_city):
         try:
             seeds.load_seeds(city)

@@ -1,0 +1,56 @@
+{"source": "Allens Boots", "candidate": "Optimo Hats", "target_city": "chicago", "confidence": 0.62, "rank": 2, "reason": "not_found"}
+{"source": "Barton Creek Greenbelt", "candidate": "Palos & Sag Valley Forest Preserves", "target_city": "chicago", "confidence": 0.6, "rank": 1, "reason": "not_found"}
+{"source": "Bennu Coffee", "candidate": "Kopi Cafe", "target_city": "chicago", "confidence": 0.72, "rank": 1, "reason": "not_found"}
+{"source": "BookPeople", "candidate": "Seminary Co-op Bookstore (with 57th Street Books)", "target_city": "chicago", "confidence": 0.72, "rank": 1, "reason": "not_found"}
+{"source": "BookPeople", "candidate": "Women & Children First", "target_city": "chicago", "confidence": 0.66, "rank": 2, "reason": "not_found"}
+{"source": "Bouldin Creek Cafe", "candidate": "Victory's Banner", "target_city": "chicago", "confidence": 0.72, "rank": 2, "reason": "not_found"}
+{"source": "Buc-ee's", "candidate": "Kwik Trip", "target_city": "chicago", "confidence": 0.6, "rank": 1, "reason": "not_found"}
+{"source": "Cabo Bob's", "candidate": "Valois Cafeteria", "target_city": "chicago", "confidence": 0.42, "rank": 3, "reason": "not_found"}
+{"source": "Cathedral of Junk", "candidate": "Busy Beaver Button Museum", "target_city": "chicago", "confidence": 0.58, "rank": 1, "reason": "not_found"}
+{"source": "Central Market", "candidate": "Gene's Sausage Shop", "target_city": "chicago", "confidence": 0.52, "rank": 3, "reason": "not_found"}
+{"source": "Chuy's", "candidate": "Nuevo Leon", "target_city": "chicago", "confidence": 0.4, "rank": 3, "reason": "not_found"}
+{"source": "Clarksville", "candidate": "Bronzeville", "target_city": "chicago", "confidence": 0.34, "rank": 3, "reason": "not_found"}
+{"source": "Deep Eddy Cabaret", "candidate": "Sterch's", "target_city": "chicago", "confidence": 0.72, "rank": 1, "reason": "not_found"}
+{"source": "Dillard's", "candidate": "Macy's on State Street", "target_city": "chicago", "confidence": 0.62, "rank": 2, "reason": "not_found"}
+{"source": "Ego's", "candidate": "Marie's Riptide Lounge", "target_city": "chicago", "confidence": 0.64, "rank": 2, "reason": "not_found"}
+{"source": "Elephant Room", "candidate": "Andy's Jazz Club", "target_city": "chicago", "confidence": 0.78, "rank": 2, "reason": "not_found"}
+{"source": "Elizabeth Street Cafe", "candidate": "C\u00e0 Ph\u00ea \u0110\u00e1 / Hai Sous", "target_city": "chicago", "confidence": 0.6, "rank": 2, "reason": "not_found"}
+{"source": "End of an Ear", "candidate": "Bric-a-Brac Records", "target_city": "chicago", "confidence": 0.62, "rank": 3, "reason": "not_found"}
+{"source": "Epoch Coffee", "candidate": "Kopi Cafe", "target_city": "chicago", "confidence": 0.72, "rank": 1, "reason": "not_found"}
+{"source": "Frost Bank", "candidate": "Wintrust (Wintrust Community Banks)", "target_city": "chicago", "confidence": 0.82, "rank": 1, "reason": "not_found"}
+{"source": "Home Slice Pizza", "candidate": "Piece Brewery and Pizzeria", "target_city": "chicago", "confidence": 0.66, "rank": 2, "reason": "not_found"}
+{"source": "Home Slice Pizza", "candidate": "Spacca Napoli", "target_city": "chicago", "confidence": 0.48, "rank": 3, "reason": "not_found"}
+{"source": "Hyde Park", "candidate": "Ravenswood", "target_city": "chicago", "confidence": 0.72, "rank": 1, "reason": "not_found"}
+{"source": "Hyde Park", "candidate": "Ravenswood Manor", "target_city": "chicago", "confidence": 0.58, "rank": 3, "reason": "not_found"}
+{"source": "Jester King Brewery", "candidate": "Penrose Brewing", "target_city": "chicago", "confidence": 0.52, "rank": 2, "reason": "not_found"}
+{"source": "Juan in a Million", "candidate": "Valois Cafeteria", "target_city": "chicago", "confidence": 0.6, "rank": 2, "reason": "not_found"}
+{"source": "Justine's Brasserie", "candidate": "Maude's Liquor Bar", "target_city": "chicago", "confidence": 0.78, "rank": 1, "reason": "not_found"}
+{"source": "LBJ Presidential Library", "candidate": "Pritzker Military Museum & Library", "target_city": "chicago", "confidence": 0.45, "rank": 3, "reason": "not_found"}
+{"source": "Lifetime Fitness", "candidate": "East Bank Club", "target_city": "chicago", "confidence": 0.86, "rank": 1, "reason": "not_found"}
+{"source": "Lifetime Fitness", "candidate": "FFC (Fitness Formula Clubs)", "target_city": "chicago", "confidence": 0.68, "rank": 3, "reason": "not_found"}
+{"source": "Long Center for the Performing Arts", "candidate": "Symphony Center", "target_city": "chicago", "confidence": 0.55, "rank": 3, "reason": "not_found"}
+{"source": "MT Supermarket", "candidate": "Tai Nam Market", "target_city": "chicago", "confidence": 0.74, "rank": 2, "reason": "not_found"}
+{"source": "Magnolia Cafe", "candidate": "The Golden Apple", "target_city": "chicago", "confidence": 0.66, "rank": 2, "reason": "not_found"}
+{"source": "Magnolia Cafe", "candidate": "Nookies Tree", "target_city": "chicago", "confidence": 0.55, "rank": 3, "reason": "not_found"}
+{"source": "Matt's El Rancho", "candidate": "The Berghoff", "target_city": "chicago", "confidence": 0.63, "rank": 2, "reason": "not_found"}
+{"source": "Matt's El Rancho", "candidate": "Nuevo Leon", "target_city": "chicago", "confidence": 0.5, "rank": 3, "reason": "not_found"}
+{"source": "Mount Bonnell", "candidate": "Montrose Point / Montrose Harbor", "target_city": "chicago", "confidence": 0.71, "rank": 2, "reason": "not_found"}
+{"source": "Mueller", "candidate": "Lakeshore East", "target_city": "chicago", "confidence": 0.66, "rank": 2, "reason": "not_found"}
+{"source": "Nickel City", "candidate": "Marie's Riptide Lounge", "target_city": "chicago", "confidence": 0.62, "rank": 3, "reason": "not_found"}
+{"source": "Radio Coffee & Beer", "candidate": "Middle Brow Bungalow", "target_city": "chicago", "confidence": 0.72, "rank": 2, "reason": "not_found"}
+{"source": "Rainey Street", "candidate": "Division Street (Rush & Division, Gold Coast)", "target_city": "chicago", "confidence": 0.82, "rank": 1, "reason": "not_found"}
+{"source": "Salt Lick BBQ", "candidate": "Twin Anchors", "target_city": "chicago", "confidence": 0.4, "rank": 3, "reason": "not_found"}
+{"source": "Scholz Garten", "candidate": "The Berghoff", "target_city": "chicago", "confidence": 0.78, "rank": 1, "reason": "not_found"}
+{"source": "Sixth Street", "candidate": "Clark Street in Wrigleyville", "target_city": "chicago", "confidence": 0.82, "rank": 1, "reason": "not_found"}
+{"source": "Sixth Street", "candidate": "Division Street (Rush & Division)", "target_city": "chicago", "confidence": 0.76, "rank": 2, "reason": "not_found"}
+{"source": "Sixth Street", "candidate": "Hubbard Street / River North", "target_city": "chicago", "confidence": 0.55, "rank": 3, "reason": "not_found"}
+{"source": "Skylark Lounge", "candidate": "Lee's Unleaded Blues", "target_city": "chicago", "confidence": 0.74, "rank": 2, "reason": "not_found"}
+{"source": "Suerte", "candidate": "Mi Tocaya Antojer\u00eda", "target_city": "chicago", "confidence": 0.79, "rank": 1, "reason": "not_found"}
+{"source": "Suerte", "candidate": "Cari\u00f1o", "target_city": "chicago", "confidence": 0.72, "rank": 2, "reason": "not_found"}
+{"source": "Tarrytown", "candidate": "Kenwood", "target_city": "chicago", "confidence": 0.72, "rank": 1, "reason": "not_found"}
+{"source": "Tarrytown", "candidate": "Lake Forest", "target_city": "chicago", "confidence": 0.66, "rank": 2, "reason": "not_found"}
+{"source": "Tarrytown", "candidate": "Astor Street", "target_city": "chicago", "confidence": 0.52, "rank": 3, "reason": "not_found"}
+{"source": "The Contemporary Austin", "candidate": "Nathan Manilow Sculpture Park", "target_city": "chicago", "confidence": 0.38, "rank": 3, "reason": "not_found"}
+{"source": "University Federal Credit Union", "candidate": "Wintrust Community Banks", "target_city": "chicago", "confidence": 0.72, "rank": 1, "reason": "not_found"}
+{"source": "Westlake", "candidate": "Lake Forest", "target_city": "chicago", "confidence": 0.6, "rank": 3, "reason": "not_found"}
+{"source": "Whole Earth Provision Co.", "candidate": "Erehwon Mountain Outfitter", "target_city": "chicago", "confidence": 0.62, "rank": 2, "reason": "not_found"}

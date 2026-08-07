@@ -181,6 +181,9 @@ def generate_preflight(
     source: str = typer.Option("austin", "--from"),
     target: str = typer.Option("chicago", "--to"),
     cost: bool = typer.Option(False, "--cost", help="Estimate cost (needs API access)."),
+    live: bool = typer.Option(
+        False, "--live", help="Send one real request to prove the batch is accepted."
+    ),
 ) -> None:
     """Check everything is in place before spending money on a batch."""
     import os
@@ -207,6 +210,17 @@ def generate_preflight(
     console.print(f"[green]✓[/green] {len(reqs)} requests ready ({source} → {target})")
     console.print(f"[dim]model {generate.MODEL}, effort {generate.EFFORT}[/dim]")
     console.print(f"[dim]cached system prefix: {len(system):,} chars[/dim]")
+
+    if live:
+        with console.status("probing with one real request…"):
+            ok, detail = generate.probe(source, target)
+        if not ok:
+            console.print(f"[red]✗ probe failed:[/red] {detail}")
+            console.print(
+                "[dim]a batch would fail this way 117 times — fix before submitting[/dim]"
+            )
+            raise typer.Exit(1)
+        console.print(f"[green]✓[/green] {detail}")
 
     if cost:
         try:

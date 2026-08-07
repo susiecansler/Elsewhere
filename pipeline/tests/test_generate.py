@@ -88,6 +88,95 @@ def test_requests_use_structured_output():
     assert "candidates" in fmt["schema"]["properties"]
 
 
+def test_output_schema_satisfies_structured_output_constraints():
+    """Regression: this shipped without `additionalProperties: false`.
+
+    The API rejects such a schema, so every one of the 117 batch requests
+    failed identically — after submission, several minutes in, with nothing
+    generated. Local validation is cheap; learning it from the API is not.
+    """
+    assert generate.schema_problems() == []
+
+
+def test_api_schema_strips_unsupported_numeric_constraints():
+    """Regression: `confidence` carries ge/le, which emit minimum/maximum.
+
+    Structured outputs rejects those, so the second batch failed exactly the
+    way the first did. `messages.parse()` strips them automatically; the Batch
+    API takes a hand-built schema, so we have to.
+    """
+    raw = generate.GeneratedMatch.model_json_schema()
+    conf_raw = raw["$defs"]["GeneratedCandidate"]["properties"]["confidence"]
+    assert "minimum" in conf_raw, "precondition: Pydantic still emits it"
+
+    conf_api = generate.api_schema()["$defs"]["GeneratedCandidate"]["properties"]["confidence"]
+    assert "minimum" not in conf_api and "maximum" not in conf_api
+
+
+def test_stripping_constraints_does_not_weaken_validation():
+    # The API no longer enforces the range, so the Pydantic model must —
+    # otherwise a bad confidence would sail into the corpus.
+    from pydantic import ValidationError
+
+    payload = {
+        "role_tags": ["regional_grocery_cult"],
+        "price_tier": 2,
+        "reach": "regional",
+        "candidates": [{"name": "X", "reasoning": "y", "confidence": 4.2}],
+    }
+    with pytest.raises(ValidationError):
+        generate.GeneratedMatch.model_validate(payload)
+
+
+def test_schema_validator_catches_unsupported_keywords():
+    bad = {
+        "type": "object",
+        "additionalProperties": False,
+        "properties": {"n": {"type": "number", "minimum": 0}},
+        "required": ["n"],
+    }
+    assert any("unsupported keyword" in p for p in generate.schema_problems(bad))
+
+
+def test_schema_validator_catches_missing_additional_properties():
+    bad = {
+        "type": "object",
+        "properties": {"a": {"type": "string"}},
+        "required": ["a"],
+    }
+    problems = generate.schema_problems(bad)
+    assert any("additionalProperties" in p for p in problems)
+
+
+def test_schema_validator_catches_optional_properties():
+    bad = {
+        "type": "object",
+        "additionalProperties": False,
+        "properties": {"a": {"type": "string"}, "b": {"type": "string"}},
+        "required": ["a"],
+    }
+    problems = generate.schema_problems(bad)
+    assert any("must be required" in p for p in problems)
+
+
+def test_schema_validator_descends_into_nested_definitions():
+    # The nested candidate object is where the real failure lived.
+    bad = {
+        "type": "object",
+        "additionalProperties": False,
+        "properties": {},
+        "required": [],
+        "$defs": {"Inner": {"type": "object", "properties": {"x": {"type": "string"}}}},
+    }
+    problems = generate.schema_problems(bad)
+    assert any("Inner" in p for p in problems)
+
+
+def test_preflight_refuses_a_bad_schema(monkeypatch):
+    monkeypatch.setattr(generate, "schema_problems", lambda *a, **k: ["boom"])
+    assert "boom" in generate.verify_ready("austin", "chicago")
+
+
 def test_requests_use_opus_5():
     req = generate.build_requests("austin", "chicago")[0]
     assert req["params"]["model"] == "claude-opus-5"
