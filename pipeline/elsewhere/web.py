@@ -65,35 +65,55 @@ def create_app(source: str = "austin", target: str = "chicago") -> FastAPI:
     # Load every corpus once at startup. Together they're a few MB, and
     # re-reading per request would make switching cities feel sluggish.
     corpora = {p: load_corpus(*p) for p in pairs}
-    default = (source, target) if (source, target) in corpora else pairs[0]
 
-    def state(reviewer: str | None, pair: tuple[str, str]) -> dict[str, Any]:
-        src, tgt = pair
-        corpus = corpora[pair]
-        mine = store.for_reviewer(reviewer, tgt) if reviewer else {}
-        agreed = store.consensus(tgt)
+    #: Cities you can ask *from*, and for each, the cities we can answer in.
+    #: Derived from what's on disk, so generating a new direction is the only
+    #: step needed to make it appear.
+    sources: dict[str, list[str]] = {}
+    for a, b in pairs:
+        sources.setdefault(a, []).append(b)
+    for tgts in sources.values():
+        tgts.sort()
 
-        return {
-            "source": src,
-            "target": tgt,
-            "pairs": [{"source": a, "target": b} for a, b in pairs],
-            "threshold": evaluate.MIN_INDEPENDENT,
-            "judged": len(agreed),
-            "reviewers": store.reviewers(),
-            "matches": [
-                {
-                    "name": m.source.name,
-                    "category": m.source.category,
-                    "roles": m.role_tags,
-                    "price_tier": int(m.price_tier),
-                    "reach": m.reach.value,
-                    "mine": mine.get(m.source.name),
-                    # Everyone's answers, so a reviewer can see they're
+    default_source = source if source in sources else next(iter(sources))
+
+    def state(reviewer: str | None, src: str) -> dict[str, Any]:
+        """One row per place, carrying its answer in *every* target city.
+
+        Grouping by source place rather than by city pair is what makes the
+        app answer "where do I go instead" — someone types a place they know
+        and sees it rendered into each city at once, instead of picking a
+        direction first.
+        """
+        targets = sources[src]
+        mine = {t: (store.for_reviewer(reviewer, t) if reviewer else {}) for t in targets}
+        agreed = {t: store.consensus(t) for t in targets}
+
+        # Keyed by place name so the same place lines up across cities.
+        rows: dict[str, dict[str, Any]] = {}
+        for tgt in targets:
+            for m in corpora[(src, tgt)]:
+                row = rows.setdefault(
+                    m.source.name,
+                    {
+                        "name": m.source.name,
+                        "aliases": m.source.aliases,
+                        "category": m.source.category,
+                        "roles": m.role_tags,
+                        "price_tier": int(m.price_tier),
+                        "reach": m.reach.value,
+                        "cities": {},
+                    },
+                )
+                picked = mine[tgt].get(m.source.name)
+                row["cities"][tgt] = {
+                    "mine": picked,
+                    # Everyone's answers, so a reviewer sees they're
                     # disagreeing with someone rather than judging blind.
                     "others": [
                         a
-                        for a in agreed.get(m.source.name, {}).get("accepted", [])
-                        if a != mine.get(m.source.name)
+                        for a in agreed[tgt].get(m.source.name, {}).get("accepted", [])
+                        if a != picked
                     ],
                     "candidates": [
                         {
@@ -105,8 +125,15 @@ def create_app(source: str = "austin", target: str = "chicago") -> FastAPI:
                         for c in m.candidates
                     ],
                 }
-                for m in corpus
-            ],
+
+        return {
+            "source": src,
+            "targets": targets,
+            "sources": {k: v for k, v in sorted(sources.items())},
+            "threshold": evaluate.MIN_INDEPENDENT,
+            "judged": sum(len(agreed[t]) for t in targets),
+            "reviewers": store.reviewers(),
+            "matches": [rows[k] for k in sorted(rows)],
         }
 
     @app.get("/", response_class=HTMLResponse)
@@ -114,9 +141,10 @@ def create_app(source: str = "austin", target: str = "chicago") -> FastAPI:
         return PAGE
 
     @app.get("/api/state")
-    def api_state(reviewer: str = "", source: str = "", target: str = "") -> JSONResponse:
-        pair = (source, target) if (source, target) in corpora else default
-        return JSONResponse(state(reviewer or None, pair))
+    def api_state(reviewer: str = "", source: str = "") -> JSONResponse:
+        return JSONResponse(
+            state(reviewer or None, source if source in sources else default_source)
+        )
 
     @app.post("/api/review")
     def api_review(body: ReviewIn) -> JSONResponse:
@@ -134,10 +162,10 @@ def create_app(source: str = "austin", target: str = "chicago") -> FastAPI:
         return JSONResponse({"ok": True, "judged": store.count()})
 
     @app.delete("/api/review")
-    def api_unreview(reviewer: str, source_name: str, target_city: str = "") -> JSONResponse:
-        # Must come from the request: with several pairs loaded, defaulting to
-        # the app's startup target would delete from the wrong city.
-        store.forget(reviewer, source_name, target_city or default[1])
+    def api_unreview(reviewer: str, source_name: str, target_city: str) -> JSONResponse:
+        # Required, not defaulted: with several cities loaded, falling back to
+        # a startup value would delete someone's answer for the wrong city.
+        store.forget(reviewer, source_name, target_city)
         return JSONResponse({"ok": True, "judged": store.count()})
 
     @app.get("/healthz")
@@ -289,6 +317,16 @@ summary::before {
 details[open] summary::before { content: "–"; transform: rotate(180deg); }
 summary:hover { color: var(--amber); }
 .alt { padding: 14px 0 0 18px; box-shadow: inset 2px 0 0 var(--hair); margin-top: 14px; }
+.from { font-size: 14px; color: var(--dim); font-weight: 600; }
+/* One block per city inside a place's card. A hairline between them, so the
+   card still reads as one place rather than several. */
+.city { padding-top: 20px; margin-top: 20px; box-shadow: inset 0 1px 0 var(--hair); }
+.city:first-of-type { padding-top: 6px; margin-top: 6px; box-shadow: none; }
+.city.done { box-shadow: inset 0 1px 0 var(--hair), inset 3px 0 0 var(--ok); padding-left: 16px; }
+.cityname {
+  font-size: 11.5px; font-weight: 700; letter-spacing: .07em; text-transform: uppercase;
+  color: var(--amber); margin-bottom: 2px;
+}
 
 /* Grading */
 .cand { display: flex; gap: 15px; padding: 16px 0; box-shadow: inset 0 1px 0 var(--hair); }
@@ -381,7 +419,8 @@ summary:hover { color: var(--amber); }
 
 <header><div class="bar">
   <h1>Elsewhere</h1>
-  <select id="pairsel" title="Which city pair"></select>
+  <span class="from">I know</span>
+  <select id="srcsel" title="Which city you know"></select>
   <input type="search" id="q" class="grow" placeholder="Search a place…">
   <div class="chips" id="filters">
     <button class="chip" data-f="all" aria-pressed="true">All</button>
@@ -397,10 +436,9 @@ summary:hover { color: var(--amber); }
 <script>
 let S = null, filter = "all", q = "", grading = false, pending = null;
 let me = localStorage.getItem("elsewhere.reviewer") || "";
-// Remembered so a friend who picked their own city isn't reset to Austin's
-// default every time they open the link.
-let pair = JSON.parse(localStorage.getItem("elsewhere.pair") || "null")
-           || { source: "", target: "" };
+// The city the visitor actually knows. Remembered so a Portland friend
+// isn't reset to Austin every time they open the link.
+let home = localStorage.getItem("elsewhere.home") || "";
 
 // Browsing is the default and needs no identity. A name is only asked for at
 // the moment someone actually grades something — the gate used to sit in
@@ -465,25 +503,21 @@ document.getElementById("modebtn").addEventListener("click", () => {
 const title = s => s.charAt(0).toUpperCase() + s.slice(1);
 
 async function load() {
-  const qs = new URLSearchParams({ reviewer: me, source: pair.source, target: pair.target });
+  const qs = new URLSearchParams({ reviewer: me, source: home });
   S = await (await fetch("/api/state?" + qs)).json();
-  pair = { source: S.source, target: S.target };
-  localStorage.setItem("elsewhere.pair", JSON.stringify(pair));
+  home = S.source;
+  localStorage.setItem("elsewhere.home", home);
 
-  const sel = document.getElementById("pairsel");
-  sel.innerHTML = S.pairs.map(p =>
-    `<option value="${p.source}|${p.target}" ${
-      p.source === S.source && p.target === S.target ? "selected" : ""
-    }>${title(p.source)} → ${title(p.target)}</option>`).join("");
-  sel.style.display = S.pairs.length > 1 ? "" : "none";
+  const sel = document.getElementById("srcsel");
+  sel.innerHTML = Object.keys(S.sources).map(c =>
+    `<option value="${c}" ${c === S.source ? "selected" : ""}>${title(c)}</option>`).join("");
 
   document.getElementById("signout").textContent = me ? "not " + me + "?" : "";
   render();
 }
 
-document.getElementById("pairsel").addEventListener("change", e => {
-  const [source, target] = e.target.value.split("|");
-  pair = { source, target };
+document.getElementById("srcsel").addEventListener("change", e => {
+  home = e.target.value;
   q = ""; document.getElementById("q").value = "";
   load();
 });
@@ -504,14 +538,49 @@ function progress() {
   el.innerHTML = msg + who + `<span class="track"><span class="fill" style="width:${pct}%"></span></span>`;
 }
 
+// Mirrors places.normalize on the server: fold punctuation so the way people
+// type a name doesn't have to match how it's printed.
+function norm(s) {
+  return s.toLowerCase()
+          .replace(/[‘’'`]/g, "")
+          .replace(/[^a-z0-9]+/g, " ")
+          .trim();
+}
+
+// How well a place answers the query. 0 means it doesn't.
+//   3  the name or a curated alias starts with what was typed
+//   2  the name or an alias contains it
+//   1  it only turns up in a role or in some city's answer
+// Ranking matters because searching "torchys" otherwise surfaces every card
+// whose reasoning happens to mention Torchy's before Torchy's itself.
+function score(m, needle) {
+  const cities = Object.values(m.cities);
+  const names = [m.name, ...(m.aliases || [])];
+  // Compare with spaces removed so "heb" reaches "H-E-B", but only against
+  // names — doing it to prose makes "the bar" match "heb".
+  const tight = needle.replace(/ /g, "");
+  for (const n of names) {
+    const k = norm(n), kt = k.replace(/ /g, "");
+    if (k.startsWith(needle) || kt.startsWith(tight)) return 3;
+    if (k.includes(needle) || kt.includes(tight)) return 2;
+  }
+  const body = norm(
+    m.roles.join(" ") + " " +
+    cities.flatMap(c => c.candidates.map(x => x.name + " " + x.reasoning)).join(" ")
+  );
+  return body.includes(needle) ? 1 : 0;
+}
+
 function visible(m) {
-  if (filter === "todo" && m.mine) return false;
-  if (filter === "done" && !m.mine) return false;
-  if (filter === "unverified" && !m.candidates.some(c => c.verified === false)) return false;
+  const cities = Object.values(m.cities);
+  // "Graded" means every city was judged, not just one — a place with a
+  // Chicago answer and no Portland answer is still unfinished.
+  const anyMine = cities.some(c => c.mine);
+  const allMine = cities.length > 0 && cities.every(c => c.mine);
+  if (filter === "todo" && allMine) return false;
+  if (filter === "done" && !anyMine) return false;
   if (!q) return true;
-  const hay = (m.name + " " + m.roles.join(" ") + " " +
-               m.candidates.map(c => c.name + " " + c.reasoning).join(" ")).toLowerCase();
-  return hay.includes(q);
+  return score(m, norm(q)) > 0;
 }
 
 function esc(s) {
@@ -521,96 +590,124 @@ function esc(s) {
 function render() {
   if (!S) return;  // setMode() runs before the first load resolves
   progress();
-  const rows = S.matches.filter(visible);
+  let rows = S.matches.filter(visible);
+  if (q) {
+    const needle = norm(q);
+    rows = rows.map(m => [score(m, needle), m])
+               .sort((a, b) => b[0] - a[0] || a[1].name.localeCompare(b[1].name))
+               .map(([, m]) => m);
+  }
   const el = document.getElementById("list");
   if (!rows.length) { el.innerHTML = '<p class="empty">Nothing matches that.</p>'; return; }
 
-  el.innerHTML = rows.map((m, idx) => {
+  el.innerHTML = rows.map(m => {
     const q = s => esc(s).replace(/'/g, "\\'");
-    const top = m.candidates[0];
-    const rest = m.candidates.slice(1);
+
+    // One place, its answer in every city we can answer for. Grouping this
+    // way is the point: you type somewhere you know and see it rendered
+    // into each city at once, rather than choosing a direction first.
+    const cities = S.targets.filter(t => m.cities[t]);
 
     if (!grading) {
-      // Reading mode: lead with the answer. The alternates are there for
-      // anyone who wants them, not in the way of everyone who doesn't.
+      const blocks = cities.map(t => {
+        const c = m.cities[t];
+        const top = c.candidates[0];
+        const rest = c.candidates.slice(1);
+        return `<div class="city">
+          <div class="cityname">in ${esc(title(t))}</div>
+          <div class="answer">${esc(top.name)}</div>
+          <div class="why big">${esc(top.reasoning)}</div>
+          ${rest.length ? `<details><summary>${rest.length} other option${
+            rest.length > 1 ? "s" : ""}</summary>${rest.map(x =>
+            `<div class="alt"><span class="cname">${esc(x.name)}</span>
+               <div class="why">${esc(x.reasoning)}</div></div>`).join("")}</details>` : ""}
+        </div>`;
+      }).join("");
+
       return `<div class="card">
-        <div class="head"><h2>${esc(m.name)}</h2><span class="arrow">in ${esc(S.target)} is</span></div>
-        <div class="answer">${esc(top.name)}</div>
-        <div class="why big">${esc(top.reasoning)}</div>
-        ${rest.length ? `<details><summary>${rest.length} other candidate${
-          rest.length > 1 ? "s" : ""}</summary>${rest.map(c =>
-          `<div class="alt"><span class="cname">${esc(c.name)}</span>
-             <div class="why">${esc(c.reasoning)}</div></div>`).join("")}</details>` : ""}
+        <div class="head"><h2>${esc(m.name)}</h2>
+          <span class="arrow">${esc(title(S.source))}</span></div>
+        ${blocks}
       </div>`;
     }
 
-    const cands = m.candidates.map((c, i) => {
-      const isPick = m.mine && m.mine.toLowerCase() === c.name.toLowerCase();
-      return `<div class="cand ${isPick ? "chosen" : ""}">
-        <div class="rank">${i + 1}</div>
-        <div class="body">
-          <div><span class="cname">${esc(c.name)}</span>${
-            c.verified === false ? '<span class="unver">unverified</span>' : ""}</div>
-          <div class="why">${esc(c.reasoning)}</div>
+    // Grading: every city is judged separately, because "the Chicago one is
+    // right but the Portland one is nonsense" is a normal and useful verdict.
+    const graded = cities.some(t => m.cities[t].mine);
+    const blocks = cities.map(t => {
+      const c = m.cities[t];
+      const cands = c.candidates.map((x, i) => {
+        const isPick = c.mine && c.mine.toLowerCase() === x.name.toLowerCase();
+        return `<div class="cand ${isPick ? "chosen" : ""}">
+          <div class="rank">${i + 1}</div>
+          <div class="body">
+            <div><span class="cname">${esc(x.name)}</span>${
+              x.verified === false ? '<span class="unver">unverified</span>' : ""}</div>
+            <div class="why">${esc(x.reasoning)}</div>
+          </div>
+          <button class="pick" onclick="pick('${q(m.name)}','${q(t)}','${q(x.name)}')">${
+            isPick ? "✓ yours" : "This one"}</button>
+        </div>`;
+      }).join("");
+
+      const others = c.others && c.others.length
+        ? `<div class="others">others picked: ${c.others.map(esc).join(", ")}</div>` : "";
+
+      return `<div class="city ${c.mine ? "done" : ""}">
+        <div class="cityname">in ${esc(title(t))}</div>
+        ${cands}
+        ${others}
+        <div class="foot">
+          ${c.mine
+            ? `<span class="verdict">✓ you picked ${esc(c.mine)}</span>
+               <button class="link" onclick="clearPick('${q(m.name)}','${q(t)}')">undo</button>`
+            : `<input type="text" placeholder="or type a better answer…" class="grow"
+                 onkeydown="if(event.key==='Enter'&&this.value.trim())pick('${
+                   q(m.name)}','${q(t)}',this.value.trim(),true)">`}
         </div>
-        <button class="pick" onclick="pick('${q(m.name)}', '${q(c.name)}')">${
-          isPick ? "✓ yours" : "This one"}</button>
       </div>`;
     }).join("");
 
-    // Showing what others picked turns a silent disagreement into a visible
-    // one — which is the interesting case, not a conflict to hide.
-    const others = m.others && m.others.length
-      ? `<div class="others">others picked: ${m.others.map(esc).join(", ")}</div>` : "";
-
-    return `<div class="card ${m.mine ? "done" : ""}">
-      <div class="head"><h2>${esc(m.name)}</h2><span class="arrow">→ ${esc(S.target)}</span></div>
+    return `<div class="card ${graded ? "done" : ""}">
+      <div class="head"><h2>${esc(m.name)}</h2>
+        <span class="arrow">${esc(title(S.source))}</span></div>
       <div class="meta">${m.roles.map(r => `<span class="role">${esc(r)}</span>`).join("")}
         · tier ${m.price_tier} · ${esc(m.reach)}</div>
-      ${cands}
-      ${others}
-      <div class="foot">
-        ${m.mine
-          ? `<span class="verdict">✓ you picked ${esc(m.mine)}</span>
-             <button class="link" onclick="clearPick('${q(m.name)}')">undo</button>`
-          : `<input type="text" placeholder="or type a better answer…" class="grow"
-               onkeydown="if(event.key==='Enter'&&this.value.trim())pick('${
-                 q(m.name)}', this.value.trim(), true)">`}
-      </div>
+      ${blocks}
     </div>`;
   }).join("");
 }
 
-async function pick(name, answer, custom) {
-  if (!me) { askWho(() => pick(name, answer, custom)); return; }
+async function pick(name, city, answer, custom) {
+  if (!me) { askWho(() => pick(name, city, answer, custom)); return; }
   const m = S.matches.find(x => x.name === name);
   const r = await fetch("/api/review", {
     method: "POST", headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
       reviewer: me, source_name: name, source_city: S.source,
-      target_city: S.target, answer: answer, custom: !!custom
+      target_city: city, answer: answer, custom: !!custom
     })
   });
   const j = await r.json();
   if (!j.ok) { alert(j.error || "couldn't save"); return; }
-  m.mine = answer;
-  m.others = (m.others || []).filter(a => a !== answer);
+  m.cities[city].mine = answer;
+  m.cities[city].others = (m.cities[city].others || []).filter(a => a !== answer);
   S.judged = j.judged;
   render();
 }
 
-async function clearPick(name) {
+async function clearPick(name, city) {
   const r = await fetch("/api/review?reviewer=" + encodeURIComponent(me) +
                         "&source_name=" + encodeURIComponent(name) +
-                        "&target_city=" + encodeURIComponent(S.target), { method: "DELETE" });
+                        "&target_city=" + encodeURIComponent(city), { method: "DELETE" });
   const j = await r.json();
-  S.matches.find(x => x.name === name).mine = null;
+  S.matches.find(x => x.name === name).cities[city].mine = null;
   S.judged = j.judged;
   render();
 }
 
 document.getElementById("q").addEventListener("input", e => {
-  q = e.target.value.toLowerCase().trim(); render();
+  q = e.target.value.trim(); render();
 });
 // Scoped to [data-f]: a bare `.chip` selector also caught the theme and
 // mode buttons, so clicking either set filter to undefined and flipped
