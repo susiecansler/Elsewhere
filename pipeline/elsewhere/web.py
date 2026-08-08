@@ -1027,17 +1027,18 @@ function article(name) {
   return /^[aeiou]/i.test(name) ? "an" : "a";
 }
 
-/* Letter-by-letter resolve, as a travelling wave.
+/* Letter-by-letter resolve, in scattered order.
 
-   The whole tail churning at once is noise — you can't read it, so nothing
-   is being *replaced*, the word just vanishes and a new one arrives. Instead
-   a narrow band of scrambling characters moves left to right: ahead of it the
-   old name is still legible, behind it the new one has landed. The band
-   starts one character wide and widens as it travels, so the effect begins as
-   a flicker and builds rather than exploding on frame one.
+   The characters don't settle left to right — each position gets a random
+   place in the queue, so the new name surfaces in pieces from all over the
+   word. Left-to-right reads as a cursor typing; scattered reads as a word
+   developing, which is what "find me the equivalent" should look like.
 
-   Both names stay visible during the transition, which is the point — you can
-   see the Austin place turning into the Chicago one. */
+   The active band starts one character wide and widens as it goes, so the
+   effect begins as a flicker rather than exploding on frame one. Ahead of the
+   band the old name is still legible and behind it the new one has landed:
+   both are on screen at once, which is the whole point — you watch the Austin
+   place turn into the Chicago one instead of watching noise. */
 const SCRAMBLE = "ABCDEFGHIJKLMNOPQRSTUVWXYZ&'-";
 const randChar = () => SCRAMBLE[(Math.random() * SCRAMBLE.length) | 0];
 
@@ -1052,10 +1053,20 @@ function scrambleTo(el, text) {
   }
 
   const span = Math.max(from.length, text.length);
-  let head = 0;                       // leading edge of the wave
+  // rank[i] is when position i resolves. Fisher-Yates over the positions,
+  // then inverted, so every character has exactly one turn and no position
+  // is favoured.
+  const order = [...Array(span).keys()];
+  for (let i = span - 1; i > 0; i--) {
+    const j = (Math.random() * (i + 1)) | 0;
+    [order[i], order[j]] = [order[j], order[i]];
+  }
+  const rank = new Array(span);
+  order.forEach((pos, r) => (rank[pos] = r));
+
+  let head = 0;
   scrambleTimer = setInterval(() => {
     head += 0.9;
-    // One character wide at the start, six by the end.
     const band = 1 + (head / span) * 5;
     if (head - band > span) {
       el.textContent = text;
@@ -1065,29 +1076,15 @@ function scrambleTo(el, text) {
     }
     let out = "";
     for (let i = 0; i < span; i++) {
-      if (i < head - band) out += text[i] ?? "";
-      else if (i < head) out += (text[i] === " " || from[i] === " ") ? " " : randChar();
+      const r = rank[i];
+      if (r < head - band) out += text[i] ?? "";
+      else if (r < head) out += (text[i] === " " || from[i] === " ") ? " " : randChar();
       else out += from[i] ?? "";
     }
     el.textContent = out;
     fitLine();
   }, 38);
 }
-
-/* Shrink the claim until it fits on one line. Measured rather than guessed:
-   'Every city has a Congress Avenue Bridge Bats' and 'has an H-E-B' are wildly
-   different lengths, and any fixed size is either too small for one or too
-   wide for the other. */
-function fitLine() {
-  const line = document.getElementById("line1");
-  const box = line.parentElement;
-  line.style.setProperty("--fit", 1);
-  const room = box.clientWidth;
-  if (!room || !line.scrollWidth) return;
-  const fit = Math.min(1, room / line.scrollWidth);
-  line.style.setProperty("--fit", fit.toFixed(3));
-}
-addEventListener("resize", fitLine);
 
 function demoPicks() {
   const known = new Map(S.matches.map(m => [m.name, m]));
