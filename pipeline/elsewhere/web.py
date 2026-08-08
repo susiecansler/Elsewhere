@@ -279,7 +279,7 @@ select.native { position: absolute; opacity: 0; pointer-events: none; width: 1px
 .citymenu button:hover { background: var(--chip); }
 .citymenu button[aria-selected=true] { background: var(--pink-deep); color: var(--on-pink); }
 .from, .to { font-size: 14px; color: var(--dim); font-weight: 600; white-space: nowrap; }
-.to { color: var(--faint); font-size: 17px; }
+.to { color: var(--dim); }
 .field { position: relative; display: flex; flex: 1; min-width: 0; }
 .field input[type=search] { width: 100%; padding-right: 42px; }
 .field .clear {
@@ -288,6 +288,23 @@ select.native { position: absolute; opacity: 0; pointer-events: none; width: 1px
   font-size: 17px; line-height: 1; display: grid; place-items: center;
 }
 .field .clear[hidden] { display: none; }
+/* Typing a place name exactly is a memory test nobody signed up for —
+   "Torchys", "torchy's" and "Alamo" should all get you there. */
+.suggest {
+  position: absolute; top: calc(100% + 8px); left: 0; right: 0; z-index: 60;
+  padding: 7px; border-radius: 18px; background: var(--panel);
+  box-shadow: var(--lift); max-height: 320px; overflow-y: auto;
+}
+.suggest[hidden] { display: none; }
+.suggest button {
+  display: block; width: 100%; text-align: left; padding: 10px 14px;
+  border-radius: 12px; background: none; color: var(--ink);
+  font-size: 15px; font-weight: 600;
+}
+.suggest button .cat { color: var(--faint); font-weight: 500; font-size: 13px; margin-left: 8px; }
+.suggest button:hover, .suggest button.on { background: var(--chip); }
+.suggest button.on { background: var(--pink-deep); color: var(--on-pink); }
+.suggest button.on .cat { color: var(--on-pink); opacity: .8; }
 .field .clear:hover { background: var(--pink-deep); color: var(--on-pink); }
 
 button {
@@ -606,15 +623,18 @@ summary:hover { color: var(--dim); }
       <button class="citybtn" id="citybtn" aria-haspopup="listbox" aria-expanded="false"></button>
       <div class="citymenu" id="citymenu" role="listbox" hidden></div>
     </div>
-    <span class="to" aria-hidden="true">&rarr;</span>
+    <span class="to">I\'m traveling to</span>
     <div class="citypick">
       <select id="dstsel" class="native" title="Which city you're going to" tabindex="-1"></select>
       <button class="citybtn" id="dstbtn" aria-haspopup="listbox" aria-expanded="false"></button>
       <div class="citymenu" id="dstmenu" role="listbox" hidden></div>
     </div>
     <div class="field">
-      <input type="search" id="q" placeholder="Name a place you love…">
+      <input type="search" id="q" placeholder="Name a place you love…"
+             autocomplete="off" role="combobox" aria-autocomplete="list"
+             aria-expanded="false" aria-controls="suggest">
       <button class="clear" id="clearq" hidden aria-label="Clear">×</button>
+      <div class="suggest" id="suggest" role="listbox" hidden></div>
     </div>
   </div>
 
@@ -703,6 +723,133 @@ function score(m, needle) {
   const body = norm(m.roles.join(" ") + " " +
     answers.flatMap(c => c.candidates.map(x => x.name + " " + x.reasoning)).join(" "));
   return body.includes(needle) ? 1 : 0;
+}
+
+/* ── Suggestions ───────────────────────────────────────────────────────
+   `score` decides whether a place answers a finished query. This decides
+   what to offer while someone is still typing, which is a different job: it
+   has to tolerate a half-typed word, a missing apostrophe, and a name the
+   visitor only half-remembers.
+
+   Subsequence matching does the fuzzy part — every typed character has to
+   appear in order, so "trchy" still reaches "Torchy's Tacos" — and the gaps
+   are penalised so tightly-packed matches rank above scattered ones. */
+function fuzzy(needle, hay) {
+  if (!needle) return 0;
+  if (hay.startsWith(needle)) return 1000 - hay.length;
+  const at = hay.indexOf(needle);
+  if (at >= 0) return 700 - at * 2 - hay.length;
+
+  let i = 0, gaps = 0, last = -1, first = -1;
+  for (const ch of needle) {
+    const found = hay.indexOf(ch, i);
+    if (found < 0) return 0;
+    if (first < 0) first = found;
+    if (last >= 0) gaps += found - last - 1;
+    last = found;
+    i = found + 1;
+  }
+  // Two guards, both learned the hard way. A subsequence has to begin at the
+  // start of a word — otherwise "heb" matches the alias "the bats", the same
+  // collision that once made "heb" return 72 results. And it has to be
+  // tightly packed, or a long enough name contains almost any short query.
+  if (first > 0 && hay[first - 1] !== " ") return 0;
+  if (gaps > 8) return 0;
+  return Math.max(1, 400 - gaps * 8 - hay.length);
+}
+
+/* One typo's worth of slack. Dropping each character in turn covers the
+   common cases — a doubled letter, a stray key — so "franklyn" still reaches
+   Franklin. Anything looser starts matching everything. */
+function fuzzyish(needle, hay) {
+  let best = fuzzy(needle, hay);
+  // Length is counted without spaces, and spaces are never the character
+  // dropped: deleting the space in "h e b" turns a precise query into a
+  // three-letter soup that matches half the corpus.
+  if (best || needle.replace(/ /g, "").length < 5) return best;
+  for (let i = 0; i < needle.length; i++) {
+    if (needle[i] === " ") continue;
+    const sc = fuzzy(needle.slice(0, i) + needle.slice(i + 1), hay);
+    if (sc > best) best = sc - 40;   // a corrected match ranks below a clean one
+  }
+  return Math.max(0, best);
+}
+
+/* The space-stripped comparison exists for one reason: "heb" has to reach
+   "H-E-B", which normalizes to "h e b". Stripping spaces also erases the word
+   boundaries the subsequence guard depends on, so it's allowed to match a
+   prefix or a substring and nothing looser. */
+function tight(needle, hay) {
+  // Prefix only. Allowing a substring here brings back the same collision in
+  // yet another disguise: with spaces gone, "heb" sits inside "theblanton"
+  // and "thebats". Real uses of this path are all prefixes — "heb" for
+  // "h e b", "hebgrocery" for "h e b grocery".
+  return needle && hay.startsWith(needle) ? 1000 - hay.length : 0;
+}
+
+function suggestions(text, limit = 7) {
+  const needle = norm(text);
+  if (!needle || !S) return [];
+  return S.matches
+    .filter(m => m.cities[dest])
+    .map(m => {
+      const best = Math.max(...[m.name, ...(m.aliases || [])].map(n => {
+        const k = norm(n);
+        return Math.max(fuzzyish(needle, k),
+                        tight(needle.replace(/ /g, ""), k.replace(/ /g, "")));
+      }));
+      return [best, m];
+    })
+    .filter(([sc]) => sc > 0)
+    .sort((a, b) => b[0] - a[0] || a[1].name.localeCompare(b[1].name))
+    .slice(0, limit)
+    .map(([, m]) => m);
+}
+
+let sugAt = -1;
+
+function renderSuggest() {
+  const el = document.getElementById("suggest");
+  const box = document.getElementById("q");
+  const rows = q ? suggestions(q) : [];
+  // One exact hit that's already showing isn't a suggestion, it's an echo.
+  const only = rows.length === 1 && norm(rows[0].name) === norm(q);
+  if (!rows.length || only) {
+    el.innerHTML = "";
+    el.hidden = true;
+    box.setAttribute("aria-expanded", "false");
+    return;
+  }
+  sugAt = -1;
+  el.innerHTML = rows.map((m, i) =>
+    `<button role="option" data-name="${esc(m.name)}" data-i="${i}">${esc(m.name)}
+       <span class="cat">${esc(groupOf(m))}</span></button>`).join("");
+  el.hidden = false;
+  box.setAttribute("aria-expanded", "true");
+}
+
+function closeSuggest() {
+  document.getElementById("suggest").hidden = true;
+  document.getElementById("q").setAttribute("aria-expanded", "false");
+  sugAt = -1;
+}
+
+function moveSuggest(step) {
+  const items = [...document.querySelectorAll("#suggest button")];
+  if (!items.length) return;
+  items.forEach(b => b.classList.remove("on"));
+  sugAt = (sugAt + step + items.length + 1) % (items.length + 1) - 1;
+  if (sugAt >= 0) {
+    items[sugAt].classList.add("on");
+    items[sugAt].scrollIntoView({ block: "nearest" });
+  }
+}
+
+function pickSuggest(name) {
+  q = name; cat = "";
+  document.getElementById("q").value = name;
+  closeSuggest();
+  syncURL(); render();
 }
 
 /* ── Browsing ──────────────────────────────────────────────────────────
@@ -1027,6 +1174,21 @@ function article(name) {
   return /^[aeiou]/i.test(name) ? "an" : "a";
 }
 
+/* Shrink the claim until it fits on one line. Measured rather than guessed:
+   "Every city has a Congress Avenue Bridge Bats" and "has an H-E-B" are wildly
+   different lengths, and any fixed size is either too small for one or too
+   wide for the other. */
+function fitLine() {
+  const line = document.getElementById("line1");
+  if (!line) return;
+  const box = line.parentElement;
+  line.style.setProperty("--fit", 1);
+  const room = box.clientWidth;
+  if (!room || !line.scrollWidth) return;
+  line.style.setProperty("--fit", Math.min(1, room / line.scrollWidth).toFixed(3));
+}
+addEventListener("resize", fitLine);
+
 /* Letter-by-letter resolve, in scattered order.
 
    The characters don't settle left to right — each position gets a random
@@ -1285,6 +1447,28 @@ document.getElementById("q").addEventListener("input", e => {
   if (q) cat = "";
   syncURL(true);   // replace, so typing doesn't fill the back stack
   render();
+  renderSuggest();
+});
+
+document.getElementById("q").addEventListener("keydown", e => {
+  const open = !document.getElementById("suggest").hidden;
+  if (e.key === "ArrowDown" && open) { e.preventDefault(); moveSuggest(1); }
+  else if (e.key === "ArrowUp" && open) { e.preventDefault(); moveSuggest(-1); }
+  else if (e.key === "Escape") closeSuggest();
+  else if (e.key === "Enter") {
+    const on = document.querySelector("#suggest button.on");
+    if (on) { e.preventDefault(); pickSuggest(on.dataset.name); }
+    else closeSuggest();
+  }
+});
+
+document.getElementById("suggest").addEventListener("click", e => {
+  const b = e.target.closest("button[data-name]");
+  if (b) pickSuggest(b.dataset.name);
+});
+// A click anywhere else means they're done with the list.
+addEventListener("click", e => {
+  if (!e.target.closest(".field")) closeSuggest();
 });
 /* ── City menus ────────────────────────────────────────────────────────
    Two of them — where you know and where you're going — sharing one
@@ -1391,6 +1575,7 @@ document.getElementById("savedbtn").addEventListener("click", () => {
 
 function clearView() {
   q = ""; cat = "";
+  closeSuggest();
   document.getElementById("q").value = "";
   syncURL(); render();
   scrollTo({ top: 0, behavior: "smooth" });

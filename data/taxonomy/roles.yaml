@@ -285,3 +285,87 @@
     Established wealthy residential area with mature trees, low turnover,
     and a country club.
   exemplars: ["Tarrytown (Austin)", "Lake Forest (Chicago)", "Brookline (Boston)"]
+
+# ─── Roles that exist outside the US ──────────────────────────────────────
+#
+# The vocabulary above was written from three American cities, and it shows:
+# it has no word for a konbini, a depachika, or a kissaten. Matching Tokyo
+# with it would force every Japanese place into the nearest US shape, which is
+# precisely the category-matching error this project exists to avoid.
+#
+# These are added as *roles*, not as Japanese categories. Each one names a
+# function that recurs across cities even where no single word for it exists
+# in English — and each carries a US exemplar wherever an honest one exists,
+# so the role stays two-way. Where none does, the absence is the finding.
+
+- id: convenience_store_civilization
+  definition: >
+    Dense network of small shops that genuinely substitutes for cooking,
+    banking, and errands — fresh food people eat by choice, bill payment,
+    parcel pickup, decent coffee. Distinct from a convenience store you use
+    only when everything else is shut.
+  exemplars: ["7-Eleven / Lawson / FamilyMart (Tokyo)", "OXXO (Mexico City)", "Wawa (Philadelphia)"]
+
+- id: department_store_food_hall
+  definition: >
+    Food floor of a major department store, treated as a serious shopping
+    destination in its own right rather than a mall food court — gifts,
+    prepared food, regional specialities, at prices people accept.
+  exemplars: ["Isetan Shinjuku depachika (Tokyo)", "Eataly (Chicago)", "Harrods Food Hall (London)"]
+
+- id: old_cafe_unhurried
+  definition: >
+    Long-established café whose product is permission to sit — dim, quiet,
+    often smoky, unchanged for decades, no pressure to leave and no laptops
+    expected. The opposite of a third-wave shop optimising turnover.
+  exemplars: ["Kissaten like Chatei Hatou (Tokyo)", "Café La Habana (Mexico City)", "Caffe Reggio (New York)"]
+
+- id: after_work_drinking_default
+  definition: >
+    Where colleagues go immediately after work without planning it. Cheap,
+    loud, food ordered continuously alongside drinking, near the station or
+    the office rather than anywhere scenic.
+  exemplars: ["Izakaya under the Yurakucho tracks (Tokyo)", "Cantina in Centro (Mexico City)", "The Billy Goat (Chicago)"]
+
+- id: single_dish_specialist
+  definition: >
+    Small shop doing one dish to an obsessive standard, often with a queue, a
+    counter, and no menu to speak of. The reputation is the dish, not the room.
+  exemplars: ["Ramen shops in Ogikubo (Tokyo)", "Al pastor at El Vilsito (Mexico City)", "Franklin Barbecue (Austin)"]
+
+- id: public_bath_ritual
+  definition: >
+    Communal bathing house that functions as neighbourhood infrastructure and
+    social space, not a spa day. Regulars, fixed etiquette, low price.
+  exemplars: ["Sento like Kosugiyu (Tokyo)", "Temazcal (Mexico City)", "Russian & Turkish Baths (New York)"]
+
+- id: transit_hub_as_destination
+  definition: >
+    Station that residents treat as a place to go — shops, restaurants, and
+    meeting points inside it — rather than somewhere passed through.
+  exemplars: ["Tokyo Station / Shibuya Station (Tokyo)", "Grand Central (New York)", "Union Station (Chicago)"]
+
+- id: covered_market_daily
+  definition: >
+    Roofed market of independent stalls where people actually shop for food
+    weekly, with cooked-food stalls attached. Not a weekend farmers market
+    and not a tourist food hall.
+  exemplars: ["Ameyoko (Tokyo)", "Mercado de Medellín (Mexico City)", "Pike Place (Seattle)"]
+
+- id: stationery_and_paper_obsessive
+  definition: >
+    Shop where pens, notebooks, and paper are treated as a serious category
+    with knowledgeable staff and deep range — a destination, not an aisle.
+  exemplars: ["Itoya (Tokyo)", "Casa Bosques (Mexico City)", "CW Pencil Enterprise (New York)"]
+
+- id: youth_style_district
+  definition: >
+    Streets where young people go to be seen and to shop for clothes that
+    signal a subculture. Dense, loud, and self-consciously trend-setting.
+  exemplars: ["Harajuku (Tokyo)", "Roma Norte (Mexico City)", "Melrose (Los Angeles)"]
+
+- id: shrine_or_civic_calm
+  definition: >
+    Enclosed sacred or civic ground inside the dense city that residents use
+    as everyday quiet — a shortcut, a lunch spot, a place to stand still.
+  exemplars: ["Meiji Jingu (Tokyo)", "Templo de San Fernando (Mexico City)", "Trinity Church yard (New York)"]

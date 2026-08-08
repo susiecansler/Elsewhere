@@ -1,0 +1,125 @@
+{"name":"Lawson","city":"tokyo","category":"convenience","aliases":["ローソン","lawson station"],"fsq_place_id":"90556819-e194-4400-9e6b-bf60f92019d7","notes":null}
+{"name":"FamilyMart","city":"tokyo","category":"convenience","aliases":["ファミリーマート","famima","ファミマ"],"fsq_place_id":"d7d22e07-a1d5-47c4-a790-7fe279220e95","notes":null}
+{"name":"7-Eleven Japan","city":"tokyo","category":"convenience","aliases":["セブンイレブン","seven eleven","seven-eleven","konbini"],"fsq_place_id":"bcf38eda-c9c7-4782-8687-38601587fe3d","notes":null}
+{"name":"Natural Lawson","city":"tokyo","category":"convenience","aliases":["ナチュラルローソン"],"fsq_place_id":"994979ea-b1fd-40e3-bc2d-6d21bedf75fb","notes":null}
+{"name":"Seijo Ishii","city":"tokyo","category":"grocery","aliases":["成城石井","seijoishii"],"fsq_place_id":null,"notes":null}
+{"name":"Life Supermarket","city":"tokyo","category":"grocery","aliases":["ライフ","life store"],"fsq_place_id":"9548c0e9-f8fa-4830-953d-6159b2d3bef4","notes":null}
+{"name":"Ozeki","city":"tokyo","category":"grocery","aliases":["オオゼキ"],"fsq_place_id":null,"notes":null}
+{"name":"Hanamasa","city":"tokyo","category":"grocery","aliases":["肉のハナマサ","niku no hanamasa"],"fsq_place_id":"ed3a45b4-d8e3-493a-b92d-dc535a6b32ef","notes":null}
+{"name":"Kaldi Coffee Farm","city":"tokyo","category":"grocery","aliases":["カルディ","kaldi"],"fsq_place_id":"244c48d4-7800-4a36-9b6a-aea4c5b3067f","notes":null}
+{"name":"Isetan Shinjuku Depachika","city":"tokyo","category":"grocery","aliases":["伊勢丹新宿","isetan food hall","isetan basement"],"fsq_place_id":"abf957d6-e3f3-4658-878d-3a1d5c097fe1","notes":null}
+{"name":"Ameyoko","city":"tokyo","category":"farmers","aliases":["アメ横","ameya yokocho","ameyayokocho"],"fsq_place_id":null,"notes":null}
+{"name":"Tsukiji Outer Market","city":"tokyo","category":"farmers","aliases":["築地場外市場","tsukiji","tsukiji market"],"fsq_place_id":"d60e5a5c-44fb-4678-9b1d-5d6decc15dba","notes":null}
+{"name":"Nishiki Ichiba Tokyo","city":"tokyo","category":"farmers","aliases":["nishiki market"],"fsq_place_id":"67ffc8f3-c12a-433a-820b-95a1ada3c6fd","notes":null}
+{"name":"Ichiran","city":"tokyo","category":"restaurant_ramen","aliases":["一蘭","ichiran ramen"],"fsq_place_id":"429a1c3d-fba4-44e0-aff0-4dc34aa0863e","notes":null}
+{"name":"Afuri","city":"tokyo","category":"restaurant_ramen","aliases":["阿夫利","afuri ramen"],"fsq_place_id":"6a17b225-e0f6-41d6-9628-5efdd4dd9dd4","notes":null}
+{"name":"Tsuta","city":"tokyo","category":"restaurant_ramen","aliases":["蔦","tsuta ramen"],"fsq_place_id":null,"notes":null}
+{"name":"Menya Musashi","city":"tokyo","category":"restaurant_ramen","aliases":["麺屋武蔵"],"fsq_place_id":null,"notes":null}
+{"name":"Sushi Saito","city":"tokyo","category":"restaurant_sushi","aliases":["鮨さいとう","saito"],"fsq_place_id":null,"notes":null}
+{"name":"Sushi Dai","city":"tokyo","category":"restaurant_sushi","aliases":["寿司大","sushi dai toyosu"],"fsq_place_id":"30f9ca9a-65a4-47ea-ab2d-f88d94013097","notes":null}
+{"name":"Uobei","city":"tokyo","category":"restaurant_sushi","aliases":["魚べい","conveyor belt sushi","kaitenzushi"],"fsq_place_id":"326f92d2-8c5c-43ed-a173-2bca486f6072","notes":null}
+{"name":"Yoshinoya","city":"tokyo","category":"restaurant","aliases":["吉野家","gyudon"],"fsq_place_id":"970271a8-bafe-42e9-80ef-fe01d92b416d","notes":null}
+{"name":"Sukiya","city":"tokyo","category":"restaurant","aliases":["すき家"],"fsq_place_id":"7165293a-a6eb-47d1-a3dc-e2666ec18b4e","notes":null}
+{"name":"CoCo Ichibanya","city":"tokyo","category":"restaurant","aliases":["ココイチ","coco ichi","curry house"],"fsq_place_id":"e2333442-34c3-4152-9ad6-922983308bb5","notes":null}
+{"name":"Saizeriya","city":"tokyo","category":"restaurant","aliases":["サイゼリヤ","saizeria"],"fsq_place_id":"e79c1028-5e18-479b-bb7e-60c600375071","notes":null}
+{"name":"Gonpachi Nishiazabu","city":"tokyo","category":"restaurant","aliases":["権八","kill bill restaurant"],"fsq_place_id":"8eae9b10-c72c-4611-b162-56a39e28a633","notes":null}
+{"name":"Tonkatsu Maisen","city":"tokyo","category":"restaurant","aliases":["まい泉","maisen"],"fsq_place_id":null,"notes":null}
+{"name":"Tempura Kondo","city":"tokyo","category":"restaurant","aliases":["天ぷら近藤"],"fsq_place_id":"a8a95ff6-3836-4d05-9fa8-ca0f09a379bf","notes":null}
+{"name":"Nakiryu","city":"tokyo","category":"restaurant_ramen","aliases":["鳴龍","tantanmen"],"fsq_place_id":null,"notes":null}
+{"name":"Harajuku Gyozaro","city":"tokyo","category":"restaurant","aliases":["原宿餃子楼","gyozaro"],"fsq_place_id":"4c4df36f-fa33-4495-9d1a-c76650c5dcae","notes":null}
+{"name":"Kagari","city":"tokyo","category":"restaurant_ramen","aliases":["篝","torisoba kagari"],"fsq_place_id":"446e36c7-f22b-4142-8520-7b3ecb72a3ad","notes":null}
+{"name":"Butagumi","city":"tokyo","category":"restaurant","aliases":["豚组"],"fsq_place_id":"f4f6181a-4e49-48fb-a291-e1d799d75056","notes":null}
+{"name":"Den","city":"tokyo","category":"restaurant_fine","aliases":["傳","restaurant den"],"fsq_place_id":"ff50e4ba-3f50-44ed-99f4-728c950e70cd","notes":null}
+{"name":"Narisawa","city":"tokyo","category":"restaurant_fine","aliases":["ナリサワ"],"fsq_place_id":"f08f3e00-82ad-4c4c-b360-963e4b478d9f","notes":null}
+{"name":"Florilege","city":"tokyo","category":"restaurant_fine","aliases":["フロリレージュ","florilège"],"fsq_place_id":"d49db424-493c-4769-af5b-b7aabb58a165","notes":null}
+{"name":"Omoide Yokocho","city":"tokyo","category":"restaurant","aliases":["思い出横丁","memory lane","piss alley","yakitori alley"],"fsq_place_id":"8cc60aa2-a90e-49d8-b1d1-85dd42a9cdfc","notes":null}
+{"name":"Ebisu Yokocho","city":"tokyo","category":"restaurant","aliases":["恵比寿横丁"],"fsq_place_id":null,"notes":null}
+{"name":"Tsukemen Tetsu","city":"tokyo","category":"restaurant_ramen","aliases":["つけめん102","tetsu"],"fsq_place_id":"bb2e9bea-9fb9-418d-928e-de62f8975895","notes":null}
+{"name":"Golden Gai","city":"tokyo","category":"bar","aliases":["ゴールデン街","shinjuku golden gai"],"fsq_place_id":"9c6710ba-d8a7-4bec-9a39-0571b438e096","notes":null}
+{"name":"Bar High Five","city":"tokyo","category":"bar","aliases":["ハイファイブ","high five ginza"],"fsq_place_id":"ff0ef28a-475a-425e-a1b2-ab2697af5f74","notes":null}
+{"name":"Bar Benfiddich","city":"tokyo","category":"bar","aliases":["ベンフィディック"],"fsq_place_id":"c5f25024-adf8-4d46-b1fa-bd5cde8df72f","notes":null}
+{"name":"Torikizoku","city":"tokyo","category":"bar","aliases":["鳥貴族","yakitori chain"],"fsq_place_id":"b8ed5175-5ce1-4292-a310-9795c64c70a2","notes":null}
+{"name":"Andy's Shin Hinomoto","city":"tokyo","category":"bar","aliases":["新日の基","andys","shin hinomoto"],"fsq_place_id":"b71c3f08-9494-4ecc-84d6-9547d2f885ac","notes":null}
+{"name":"Popeye Ryogoku","city":"tokyo","category":"brewery","aliases":["ポパイ","beer club popeye"],"fsq_place_id":null,"notes":null}
+{"name":"Mikkeller Tokyo","city":"tokyo","category":"brewery","aliases":["ミッケラー"],"fsq_place_id":"c7697866-a762-4d66-857f-d125b4481c3a","notes":null}
+{"name":"Yona Yona Beer Works","city":"tokyo","category":"brewery","aliases":["よなよなビアワークス","yonayona"],"fsq_place_id":"83396cd3-991a-49b4-b29c-9628cf568fb1","notes":null}
+{"name":"Baird Beer Taproom Harajuku","city":"tokyo","category":"brewery","aliases":["ベアードビール","baird taproom"],"fsq_place_id":null,"notes":null}
+{"name":"Nonbei Yokocho","city":"tokyo","category":"bar","aliases":["のんべい横丁","drunkards alley"],"fsq_place_id":null,"notes":null}
+{"name":"Womb","city":"tokyo","category":"music_club","aliases":["ウーム","womb shibuya"],"fsq_place_id":"3550937d-457d-485b-92e2-52fe14e0d829","notes":null}
+{"name":"Contact Tokyo","city":"tokyo","category":"music_club","aliases":["コンタクト"],"fsq_place_id":null,"notes":null}
+{"name":"Blue Note Tokyo","city":"tokyo","category":"music","aliases":["ブルーノート東京"],"fsq_place_id":"fcc8fcad-a569-4b31-b25a-11db5209399a","notes":null}
+{"name":"Liquidroom","city":"tokyo","category":"music","aliases":["リキッドルーム","liquid room"],"fsq_place_id":"a7cc0aa0-09c8-461e-b155-90696428fb5a","notes":null}
+{"name":"Shelter Shimokitazawa","city":"tokyo","category":"music","aliases":["シェルター","club shelter"],"fsq_place_id":"88001045-3b66-4504-ba3c-4039d53bc0fb","notes":null}
+{"name":"Budokan","city":"tokyo","category":"music","aliases":["日本武道館","nippon budokan"],"fsq_place_id":"dfe4c8e7-4c58-4c05-a5ad-8aac1e5677e6","notes":null}
+{"name":"Chatei Hatou","city":"tokyo","category":"coffee","aliases":["茶亭羽當","hatou"],"fsq_place_id":null,"notes":null}
+{"name":"Fuglen Tokyo","city":"tokyo","category":"coffee","aliases":["フグレン"],"fsq_place_id":"ee498975-1f07-4d78-a5c4-0e7119fd9559","notes":null}
+{"name":"Onibus Coffee","city":"tokyo","category":"coffee","aliases":["オニバスコーヒー","onibus"],"fsq_place_id":"d44196da-faa5-46ea-8563-edcd5fed7e55","notes":null}
+{"name":"Blue Bottle Kiyosumi","city":"tokyo","category":"coffee","aliases":["ブルーボトル","blue bottle tokyo"],"fsq_place_id":null,"notes":null}
+{"name":"Doutor","city":"tokyo","category":"coffee","aliases":["ドトール","doutor coffee"],"fsq_place_id":"d138a5a2-afd9-4f4a-9b76-6073209848a1","notes":null}
+{"name":"Komeda's Coffee","city":"tokyo","category":"coffee","aliases":["コメダ珈琲店","komeda"],"fsq_place_id":"573610a8-372e-4f5d-80ab-281750c1b3f6","notes":null}
+{"name":"Kissa Tricolore","city":"tokyo","category":"coffee","aliases":["トリコロール","tricolore ginza"],"fsq_place_id":"cd41ab67-8675-495e-b595-2e72382bcfee","notes":null}
+{"name":"Glitch Coffee","city":"tokyo","category":"coffee","aliases":["グリッチコーヒー","glitch"],"fsq_place_id":null,"notes":null}
+{"name":"Tsutaya Daikanyama","city":"tokyo","category":"retail_books","aliases":["代官山蔦屋書店","daikanyama t-site","tsutaya books"],"fsq_place_id":"681f8008-6540-4736-8d03-07304097dd8a","notes":null}
+{"name":"Kinokuniya Shinjuku","city":"tokyo","category":"retail_books","aliases":["紀伊國屋書店","kinokuniya"],"fsq_place_id":"a667cbc6-a032-42ff-b9a6-d8bf88fa944c","notes":null}
+{"name":"Jimbocho Book Town","city":"tokyo","category":"retail_books","aliases":["神保町","jimbocho","kanda jimbocho"],"fsq_place_id":"3a226c4a-1378-45b9-b1f3-744a053ec4ee","notes":null}
+{"name":"Village Vanguard","city":"tokyo","category":"retail_books","aliases":["ヴィレッジヴァンガード","village vanguard japan"],"fsq_place_id":"5f24a72b-1a50-4db2-91bf-2eeaa483205d","notes":null}
+{"name":"Disk Union","city":"tokyo","category":"retail_music","aliases":["ディスクユニオン","diskunion"],"fsq_place_id":"cbd73bd8-4b33-4429-8ebc-57956447d3f6","notes":null}
+{"name":"Tower Records Shibuya","city":"tokyo","category":"retail_music","aliases":["タワーレコード","tower records"],"fsq_place_id":"6e907aa2-91eb-4712-9530-9dd78593bbf5","notes":null}
+{"name":"HMV Record Shop Shibuya","city":"tokyo","category":"retail_music","aliases":["HMV record shop"],"fsq_place_id":"115c6ced-3839-4ca4-bb1d-47b1e91e123a","notes":null}
+{"name":"Itoya Ginza","city":"tokyo","category":"retail","aliases":["伊東屋","ito-ya","itoya"],"fsq_place_id":"8b62433a-590f-4e57-ad73-ebdced9d2d0f","notes":null}
+{"name":"Loft Shibuya","city":"tokyo","category":"retail","aliases":["ロフト","loft"],"fsq_place_id":"97808290-c395-4bf9-bdf3-97febef10831","notes":null}
+{"name":"Tokyu Hands","city":"tokyo","category":"retail","aliases":["東急ハンズ","hands","tokyu hands shibuya"],"fsq_place_id":"048cca4f-0d2a-4843-8ef2-95e27cc98be8","notes":null}
+{"name":"Don Quijote","city":"tokyo","category":"retail","aliases":["ドン・キホーテ","donki","don quixote"],"fsq_place_id":"4c50cbc4-b92e-48ec-94b6-89027937ab8b","notes":null}
+{"name":"Bic Camera","city":"tokyo","category":"retail","aliases":["ビックカメラ","biccamera"],"fsq_place_id":"f1be40bb-eaa4-4816-960e-03860a9804fb","notes":null}
+{"name":"Yodobashi Akiba","city":"tokyo","category":"retail","aliases":["ヨドバシカメラ","yodobashi"],"fsq_place_id":null,"notes":null}
+{"name":"Uniqlo Ginza","city":"tokyo","category":"retail","aliases":["ユニクロ","uniqlo flagship"],"fsq_place_id":"8201b397-5f55-43e3-a840-0416d4a3a621","notes":null}
+{"name":"Beams Harajuku","city":"tokyo","category":"retail","aliases":["ビームス","beams"],"fsq_place_id":"0e36ec09-0cbb-4e1e-8e9f-9d0236b92102","notes":null}
+{"name":"Muji Yurakucho","city":"tokyo","category":"retail","aliases":["無印良品","muji flagship"],"fsq_place_id":null,"notes":null}
+{"name":"Isetan Shinjuku","city":"tokyo","category":"retail","aliases":["伊勢丹","isetan"],"fsq_place_id":"abf957d6-e3f3-4658-878d-3a1d5c097fe1","notes":null}
+{"name":"Mitsukoshi Nihombashi","city":"tokyo","category":"retail","aliases":["三越","mitsukoshi"],"fsq_place_id":"acb244a3-48ad-427f-8a01-b38927b1384f","notes":null}
+{"name":"2nd Street","city":"tokyo","category":"retail","aliases":["セカンドストリート","secondstreet"],"fsq_place_id":"54f4dd0d-a5d6-43c7-8e86-9edf093eb839","notes":null}
+{"name":"Kappabashi Street","city":"tokyo","category":"retail","aliases":["かっぱ橋道具街","kitchen town","kappabashi"],"fsq_place_id":"f69a43fb-9d8d-405f-ad5f-7c2b2fd1b3ff","notes":null}
+{"name":"Akihabara Electric Town","city":"tokyo","category":"retail","aliases":["秋葉原","akiba","akihabara"],"fsq_place_id":"009f2586-b0bf-4ba5-bf35-14270180a685","notes":null}
+{"name":"Kosugiyu","city":"tokyo","category":"gym","aliases":["小杉湯","kosugi yu","sento"],"fsq_place_id":null,"notes":null}
+{"name":"Thermae-yu","city":"tokyo","category":"gym","aliases":["テルマー湯","thermae yu shinjuku"],"fsq_place_id":"933a4cc0-16c2-452c-a85c-d6aaa73e64cf","notes":null}
+{"name":"Oedo Onsen Monogatari","city":"tokyo","category":"gym","aliases":["大江戸温泉物語"],"fsq_place_id":null,"notes":null}
+{"name":"Gold's Gym Harajuku","city":"tokyo","category":"gym","aliases":["ゴールドジム","golds gym tokyo"],"fsq_place_id":"f5b6b60e-3667-4e9f-8641-3936935f5ca6","notes":null}
+{"name":"Chocozap","city":"tokyo","category":"gym","aliases":["チョコザップ","chocozap rizap"],"fsq_place_id":"771f7f86-b88c-455c-a9b5-1e82c8e72fdf","notes":null}
+{"name":"Konami Sports Club","city":"tokyo","category":"gym","aliases":["コナミスポーツ"],"fsq_place_id":"dd4049d5-856c-45b2-b066-64d3f50731bf","notes":null}
+{"name":"Yoyogi Park","city":"tokyo","category":"park","aliases":["代々木公園","yoyogi koen"],"fsq_place_id":"c4d00c8e-24a3-4e0a-ba48-91fe4b60c82a","notes":null}
+{"name":"Shinjuku Gyoen","city":"tokyo","category":"park","aliases":["新宿御苑","shinjuku gyoen national garden"],"fsq_place_id":"ee24534a-108e-47fe-aae9-5cca3473fb0f","notes":null}
+{"name":"Meiji Jingu","city":"tokyo","category":"landmark","aliases":["明治神宮","meiji shrine"],"fsq_place_id":"23cb40bf-be7a-49c6-9217-f22915ab6b02","notes":null}
+{"name":"Sensoji","city":"tokyo","category":"landmark","aliases":["浅草寺","senso-ji","asakusa temple"],"fsq_place_id":"362828a0-b822-4840-9d0f-9b400ad71523","notes":null}
+{"name":"Ueno Park","city":"tokyo","category":"park","aliases":["上野公園","ueno koen"],"fsq_place_id":"abf9a6a8-9006-42ef-acde-6addb798294d","notes":null}
+{"name":"Inokashira Park","city":"tokyo","category":"park","aliases":["井の頭公園","inokashira koen"],"fsq_place_id":null,"notes":null}
+{"name":"Todoroki Valley","city":"tokyo","category":"outdoor","aliases":["等々力渓谷","todoroki keikoku"],"fsq_place_id":null,"notes":null}
+{"name":"Tamagawa Riverside","city":"tokyo","category":"outdoor","aliases":["多摩川","tama river"],"fsq_place_id":"93f43751-b965-4c97-b6f7-866c98cd7b21","notes":null}
+{"name":"Mount Takao","city":"tokyo","category":"outdoor","aliases":["高尾山","takaosan","mt takao"],"fsq_place_id":"a861d024-c680-4c71-9cf9-98f46b1f74f3","notes":null}
+{"name":"Tokyo Tower","city":"tokyo","category":"landmark","aliases":["東京タワー"],"fsq_place_id":"8f0fd4d3-ee61-45af-9b28-96c5a05dfcfb","notes":null}
+{"name":"Shibuya Scramble Crossing","city":"tokyo","category":"landmark","aliases":["渋谷スクランブル交差点","shibuya crossing"],"fsq_place_id":"57654e84-315f-415c-b54a-921a885cfe6f","notes":null}
+{"name":"Tsutenkaku Tokyo Skytree","city":"tokyo","category":"landmark","aliases":["東京スカイツリー","skytree","tokyo skytree"],"fsq_place_id":"1c1b528e-4ed2-4ed0-a6fd-9ae6fc6cbd9e","notes":null}
+{"name":"Mori Art Museum","city":"tokyo","category":"museum","aliases":["森美術館","mori bijutsukan"],"fsq_place_id":null,"notes":null}
+{"name":"Tokyo National Museum","city":"tokyo","category":"museum","aliases":["東京国立博物館","tnm"],"fsq_place_id":null,"notes":null}
+{"name":"Nezu Museum","city":"tokyo","category":"museum","aliases":["根津美術館"],"fsq_place_id":null,"notes":null}
+{"name":"teamLab Borderless","city":"tokyo","category":"museum","aliases":["チームラボ","teamlab"],"fsq_place_id":"f0292738-8215-40de-8e74-cbb199f8f3c4","notes":null}
+{"name":"Ghibli Museum","city":"tokyo","category":"museum","aliases":["三鷹の森ジブリ美術館","ghibli"],"fsq_place_id":null,"notes":null}
+{"name":"National Film Archive of Japan","city":"tokyo","category":"cinema","aliases":["国立映画アーカイブ"],"fsq_place_id":"4e07bbe1-54e0-4e77-bbda-9f2746cb9304","notes":null}
+{"name":"Waseda Shochiku","city":"tokyo","category":"cinema","aliases":["早稲田松竹","revival cinema"],"fsq_place_id":"abeb0e5d-6c42-40dd-8173-844377005d5e","notes":null}
+{"name":"Image Forum","city":"tokyo","category":"cinema","aliases":["イメージフォーラム"],"fsq_place_id":null,"notes":null}
+{"name":"Kabukiza","city":"tokyo","category":"theater","aliases":["歌舞伎座","kabuki-za","kabuki theatre"],"fsq_place_id":"7ac62df1-75e4-4d5d-ae5f-b572ef94b56b","notes":null}
+{"name":"New National Theatre Tokyo","city":"tokyo","category":"theater","aliases":["新国立劇場"],"fsq_place_id":null,"notes":null}
+{"name":"Tokyo Metropolitan Library","city":"tokyo","category":"library","aliases":["東京都立中央図書館"],"fsq_place_id":null,"notes":null}
+{"name":"Shimokitazawa","city":"tokyo","category":"neighborhood","aliases":["下北沢","shimokita"],"fsq_place_id":"274593c9-f755-49f8-a01d-8d41ae4807e0","notes":null}
+{"name":"Koenji","city":"tokyo","category":"neighborhood","aliases":["高円寺"],"fsq_place_id":null,"notes":null}
+{"name":"Nakameguro","city":"tokyo","category":"neighborhood","aliases":["中目黒","naka-meguro"],"fsq_place_id":"010f9476-e485-4582-a05c-c9e19f7c1eb2","notes":null}
+{"name":"Harajuku","city":"tokyo","category":"neighborhood","aliases":["原宿","takeshita street"],"fsq_place_id":"4c4df36f-fa33-4495-9d1a-c76650c5dcae","notes":null}
+{"name":"Ginza","city":"tokyo","category":"neighborhood","aliases":["銀座"],"fsq_place_id":"56f3323e-7c5b-4086-b46b-17738e66586c","notes":null}
+{"name":"Yanaka","city":"tokyo","category":"neighborhood","aliases":["谷中","yanesen"],"fsq_place_id":null,"notes":null}
+{"name":"Kichijoji","city":"tokyo","category":"neighborhood","aliases":["吉祥寺"],"fsq_place_id":"380fa388-1c4d-4ebb-801b-bbe012b35cce","notes":null}
+{"name":"Daikanyama","city":"tokyo","category":"neighborhood","aliases":["代官山"],"fsq_place_id":"5a15cb92-d9b6-4279-92a7-038f2be5ca32","notes":null}
+{"name":"Denenchofu","city":"tokyo","category":"neighborhood","aliases":["田園調布","den-en-chofu"],"fsq_place_id":null,"notes":null}
+{"name":"Shibuya","city":"tokyo","category":"neighborhood","aliases":["渋谷"],"fsq_place_id":"f6dfaa41-e621-450e-85fa-5399a5e565d7","notes":null}
+{"name":"Kagurazaka","city":"tokyo","category":"neighborhood","aliases":["神楽坂"],"fsq_place_id":"8cd29a21-c8a6-42cc-9d58-1a310c78f561","notes":null}
+{"name":"Kiyosumi Shirakawa","city":"tokyo","category":"neighborhood","aliases":["清澄白河","kiyosumi"],"fsq_place_id":"b7923e70-edfb-48a2-8655-0af75858f006","notes":null}
+{"name":"Tokyo Station","city":"tokyo","category":"landmark","aliases":["東京駅","tokyo eki"],"fsq_place_id":"d355a3ca-129d-4a5d-a675-657db2374f13","notes":null}
+{"name":"Shinjuku Station","city":"tokyo","category":"landmark","aliases":["新宿駅","shinjuku eki"],"fsq_place_id":"9c6710ba-d8a7-4bec-9a39-0571b438e096","notes":null}

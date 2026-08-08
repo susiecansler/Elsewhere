@@ -1,0 +1,414 @@
+# Tokyo seed corpus — named institutions a resident would miss.
+#
+# Curated by hand, same as the US cities, but with two differences worth
+# stating because they change how the results should be read:
+#
+# 1. Names are given in the form an English-speaking visitor would type, with
+#    the Japanese written form as an alias. Overture's Tokyo rows are almost
+#    entirely Japanese with no English alternate, so the verification join
+#    lands far less often here than it does for Austin or Chicago. Unverified
+#    is the expected state for much of this list; it means "we couldn't
+#    confirm it in Overture", not "it doesn't exist".
+#
+# 2. Several entries are types with a flagship rather than single businesses —
+#    a konbini, a sento, a depachika. That is deliberate. The role is the unit
+#    of matching, and for these the role is what a visitor is actually asking
+#    about.
+#
+# Chains are included where the chain *is* the institution locally, which is
+# the same rule that puts H-E-B in the Austin list.
+
+city: tokyo
+places:
+  # ─── Groceries, konbini, food halls ─────────────────────────────────
+  - name: Lawson
+    category: convenience
+    aliases: [ローソン, lawson station]
+  - name: FamilyMart
+    category: convenience
+    aliases: [ファミリーマート, famima, ファミマ]
+  - name: 7-Eleven Japan
+    category: convenience
+    aliases: [セブンイレブン, seven eleven, seven-eleven, konbini]
+  - name: Natural Lawson
+    category: convenience
+    aliases: [ナチュラルローソン]
+  - name: Seijo Ishii
+    category: grocery
+    aliases: [成城石井, seijoishii]
+  - name: Life Supermarket
+    category: grocery
+    aliases: [ライフ, life store]
+  - name: Ozeki
+    category: grocery
+    aliases: [オオゼキ]
+  - name: Hanamasa
+    category: grocery
+    aliases: [肉のハナマサ, niku no hanamasa]
+  - name: Kaldi Coffee Farm
+    category: grocery
+    aliases: [カルディ, kaldi]
+  - name: Isetan Shinjuku Depachika
+    category: grocery
+    aliases: [伊勢丹新宿, isetan food hall, isetan basement]
+  - name: Ameyoko
+    category: farmers
+    aliases: [アメ横, ameya yokocho, ameyayokocho]
+  - name: Tsukiji Outer Market
+    category: farmers
+    aliases: [築地場外市場, tsukiji, tsukiji market]
+  - name: Nishiki Ichiba Tokyo
+    category: farmers
+    aliases: [nishiki market]
+
+  # ─── Restaurants ────────────────────────────────────────────────────
+  - name: Ichiran
+    category: restaurant_ramen
+    aliases: [一蘭, ichiran ramen]
+  - name: Afuri
+    category: restaurant_ramen
+    aliases: [阿夫利, afuri ramen]
+  - name: Tsuta
+    category: restaurant_ramen
+    aliases: [蔦, tsuta ramen]
+  - name: Menya Musashi
+    category: restaurant_ramen
+    aliases: [麺屋武蔵]
+  - name: Sushi Saito
+    category: restaurant_sushi
+    aliases: [鮨さいとう, saito]
+  - name: Sushi Dai
+    category: restaurant_sushi
+    aliases: [寿司大, sushi dai toyosu]
+  - name: Uobei
+    category: restaurant_sushi
+    aliases: [魚べい, conveyor belt sushi, kaitenzushi]
+  - name: Yoshinoya
+    category: restaurant
+    aliases: [吉野家, gyudon]
+  - name: Sukiya
+    category: restaurant
+    aliases: [すき家]
+  - name: CoCo Ichibanya
+    category: restaurant
+    aliases: [ココイチ, coco ichi, curry house]
+  - name: Saizeriya
+    category: restaurant
+    aliases: [サイゼリヤ, saizeria]
+  - name: Gonpachi Nishiazabu
+    category: restaurant
+    aliases: [権八, kill bill restaurant]
+  - name: Tonkatsu Maisen
+    category: restaurant
+    aliases: [まい泉, maisen]
+  - name: Tempura Kondo
+    category: restaurant
+    aliases: [天ぷら近藤]
+  - name: Nakiryu
+    category: restaurant_ramen
+    aliases: [鳴龍, tantanmen]
+  - name: Harajuku Gyozaro
+    category: restaurant
+    aliases: [原宿餃子楼, gyozaro]
+  - name: Kagari
+    category: restaurant_ramen
+    aliases: [篝, torisoba kagari]
+  - name: Butagumi
+    category: restaurant
+    aliases: [豚组]
+  - name: Den
+    category: restaurant_fine
+    aliases: [傳, restaurant den]
+  - name: Narisawa
+    category: restaurant_fine
+    aliases: [ナリサワ]
+  - name: Florilege
+    category: restaurant_fine
+    aliases: [フロリレージュ, florilège]
+  - name: Omoide Yokocho
+    category: restaurant
+    aliases: [思い出横丁, memory lane, piss alley, yakitori alley]
+  - name: Ebisu Yokocho
+    category: restaurant
+    aliases: [恵比寿横丁]
+  - name: Tsukemen Tetsu
+    category: restaurant_ramen
+    aliases: [つけめん102, tetsu]
+
+  # ─── Bars, izakaya, nightlife ───────────────────────────────────────
+  - name: Golden Gai
+    category: bar
+    aliases: [ゴールデン街, shinjuku golden gai]
+  - name: Bar High Five
+    category: bar
+    aliases: [ハイファイブ, high five ginza]
+  - name: Bar Benfiddich
+    category: bar
+    aliases: [ベンフィディック]
+  - name: Torikizoku
+    category: bar
+    aliases: [鳥貴族, yakitori chain]
+  - name: Andy's Shin Hinomoto
+    category: bar
+    aliases: [新日の基, andys, shin hinomoto]
+  - name: Popeye Ryogoku
+    category: brewery
+    aliases: [ポパイ, beer club popeye]
+  - name: Mikkeller Tokyo
+    category: brewery
+    aliases: [ミッケラー]
+  - name: Yona Yona Beer Works
+    category: brewery
+    aliases: [よなよなビアワークス, yonayona]
+  - name: Baird Beer Taproom Harajuku
+    category: brewery
+    aliases: [ベアードビール, baird taproom]
+  - name: Nonbei Yokocho
+    category: bar
+    aliases: [のんべい横丁, drunkards alley]
+  - name: Womb
+    category: music_club
+    aliases: [ウーム, womb shibuya]
+  - name: Contact Tokyo
+    category: music_club
+    aliases: [コンタクト]
+  - name: Blue Note Tokyo
+    category: music
+    aliases: [ブルーノート東京]
+  - name: Liquidroom
+    category: music
+    aliases: [リキッドルーム, liquid room]
+  - name: Shelter Shimokitazawa
+    category: music
+    aliases: [シェルター, club shelter]
+  - name: Budokan
+    category: music
+    aliases: [日本武道館, nippon budokan]
+
+  # ─── Coffee & cafés ─────────────────────────────────────────────────
+  - name: Chatei Hatou
+    category: coffee
+    aliases: [茶亭羽當, hatou]
+  - name: Fuglen Tokyo
+    category: coffee
+    aliases: [フグレン]
+  - name: Onibus Coffee
+    category: coffee
+    aliases: [オニバスコーヒー, onibus]
+  - name: Blue Bottle Kiyosumi
+    category: coffee
+    aliases: [ブルーボトル, blue bottle tokyo]
+  - name: Doutor
+    category: coffee
+    aliases: [ドトール, doutor coffee]
+  - name: Komeda's Coffee
+    category: coffee
+    aliases: [コメダ珈琲店, komeda]
+  - name: Kissa Tricolore
+    category: coffee
+    aliases: [トリコロール, tricolore ginza]
+  - name: Glitch Coffee
+    category: coffee
+    aliases: [グリッチコーヒー, glitch]
+
+  # ─── Books, records, shops ──────────────────────────────────────────
+  - name: Tsutaya Daikanyama
+    category: retail_books
+    aliases: [代官山蔦屋書店, daikanyama t-site, tsutaya books]
+  - name: Kinokuniya Shinjuku
+    category: retail_books
+    aliases: [紀伊國屋書店, kinokuniya]
+  - name: Jimbocho Book Town
+    category: retail_books
+    aliases: [神保町, jimbocho, kanda jimbocho]
+  - name: Village Vanguard
+    category: retail_books
+    aliases: [ヴィレッジヴァンガード, village vanguard japan]
+  - name: Disk Union
+    category: retail_music
+    aliases: [ディスクユニオン, diskunion]
+  - name: Tower Records Shibuya
+    category: retail_music
+    aliases: [タワーレコード, tower records]
+  - name: HMV Record Shop Shibuya
+    category: retail_music
+    aliases: [HMV record shop]
+  - name: Itoya Ginza
+    category: retail
+    aliases: [伊東屋, ito-ya, itoya]
+  - name: Loft Shibuya
+    category: retail
+    aliases: [ロフト, loft]
+  - name: Tokyu Hands
+    category: retail
+    aliases: [東急ハンズ, hands, tokyu hands shibuya]
+  - name: Don Quijote
+    category: retail
+    aliases: [ドン・キホーテ, donki, don quixote]
+  - name: Bic Camera
+    category: retail
+    aliases: [ビックカメラ, biccamera]
+  - name: Yodobashi Akiba
+    category: retail
+    aliases: [ヨドバシカメラ, yodobashi]
+  - name: Uniqlo Ginza
+    category: retail
+    aliases: [ユニクロ, uniqlo flagship]
+  - name: Beams Harajuku
+    category: retail
+    aliases: [ビームス, beams]
+  - name: Muji Yurakucho
+    category: retail
+    aliases: [無印良品, muji flagship]
+  - name: Isetan Shinjuku
+    category: retail
+    aliases: [伊勢丹, isetan]
+  - name: Mitsukoshi Nihombashi
+    category: retail
+    aliases: [三越, mitsukoshi]
+  - name: 2nd Street
+    category: retail
+    aliases: [セカンドストリート, secondstreet]
+  - name: Kappabashi Street
+    category: retail
+    aliases: [かっぱ橋道具街, kitchen town, kappabashi]
+  - name: Akihabara Electric Town
+    category: retail
+    aliases: [秋葉原, akiba, akihabara]
+
+  # ─── Baths, gyms, everyday services ─────────────────────────────────
+  - name: Kosugiyu
+    category: gym
+    aliases: [小杉湯, kosugi yu, sento]
+  - name: Thermae-yu
+    category: gym
+    aliases: [テルマー湯, thermae yu shinjuku]
+  - name: Oedo Onsen Monogatari
+    category: gym
+    aliases: [大江戸温泉物語]
+  - name: Gold's Gym Harajuku
+    category: gym
+    aliases: [ゴールドジム, golds gym tokyo]
+  - name: Chocozap
+    category: gym
+    aliases: [チョコザップ, chocozap rizap]
+  - name: Konami Sports Club
+    category: gym
+    aliases: [コナミスポーツ]
+
+  # ─── Parks, outdoors, landmarks ─────────────────────────────────────
+  - name: Yoyogi Park
+    category: park
+    aliases: [代々木公園, yoyogi koen]
+  - name: Shinjuku Gyoen
+    category: park
+    aliases: [新宿御苑, shinjuku gyoen national garden]
+  - name: Meiji Jingu
+    category: landmark
+    aliases: [明治神宮, meiji shrine]
+  - name: Sensoji
+    category: landmark
+    aliases: [浅草寺, senso-ji, asakusa temple]
+  - name: Ueno Park
+    category: park
+    aliases: [上野公園, ueno koen]
+  - name: Inokashira Park
+    category: park
+    aliases: [井の頭公園, inokashira koen]
+  - name: Todoroki Valley
+    category: outdoor
+    aliases: [等々力渓谷, todoroki keikoku]
+  - name: Tamagawa Riverside
+    category: outdoor
+    aliases: [多摩川, tama river]
+  - name: Mount Takao
+    category: outdoor
+    aliases: [高尾山, takaosan, mt takao]
+  - name: Tokyo Tower
+    category: landmark
+    aliases: [東京タワー]
+  - name: Shibuya Scramble Crossing
+    category: landmark
+    aliases: [渋谷スクランブル交差点, shibuya crossing]
+  - name: Tsutenkaku Tokyo Skytree
+    category: landmark
+    aliases: [東京スカイツリー, skytree, tokyo skytree]
+
+  # ─── Culture ────────────────────────────────────────────────────────
+  - name: Mori Art Museum
+    category: museum
+    aliases: [森美術館, mori bijutsukan]
+  - name: Tokyo National Museum
+    category: museum
+    aliases: [東京国立博物館, tnm]
+  - name: Nezu Museum
+    category: museum
+    aliases: [根津美術館]
+  - name: teamLab Borderless
+    category: museum
+    aliases: [チームラボ, teamlab]
+  - name: Ghibli Museum
+    category: museum
+    aliases: [三鷹の森ジブリ美術館, ghibli]
+  - name: National Film Archive of Japan
+    category: cinema
+    aliases: [国立映画アーカイブ]
+  - name: Waseda Shochiku
+    category: cinema
+    aliases: [早稲田松竹, revival cinema]
+  - name: Image Forum
+    category: cinema
+    aliases: [イメージフォーラム]
+  - name: Kabukiza
+    category: theater
+    aliases: [歌舞伎座, kabuki-za, kabuki theatre]
+  - name: New National Theatre Tokyo
+    category: theater
+    aliases: [新国立劇場]
+  - name: Tokyo Metropolitan Library
+    category: library
+    aliases: [東京都立中央図書館]
+
+  # ─── Neighborhoods & districts ──────────────────────────────────────
+  - name: Shimokitazawa
+    category: neighborhood
+    aliases: [下北沢, shimokita]
+  - name: Koenji
+    category: neighborhood
+    aliases: [高円寺]
+  - name: Nakameguro
+    category: neighborhood
+    aliases: [中目黒, naka-meguro]
+  - name: Harajuku
+    category: neighborhood
+    aliases: [原宿, takeshita street]
+  - name: Ginza
+    category: neighborhood
+    aliases: [銀座]
+  - name: Yanaka
+    category: neighborhood
+    aliases: [谷中, yanesen]
+  - name: Kichijoji
+    category: neighborhood
+    aliases: [吉祥寺]
+  - name: Daikanyama
+    category: neighborhood
+    aliases: [代官山]
+  - name: Denenchofu
+    category: neighborhood
+    aliases: [田園調布, den-en-chofu]
+  - name: Shibuya
+    category: neighborhood
+    aliases: [渋谷]
+  - name: Kagurazaka
+    category: neighborhood
+    aliases: [神楽坂]
+  - name: Kiyosumi Shirakawa
+    category: neighborhood
+    aliases: [清澄白河, kiyosumi]
+  - name: Tokyo Station
+    category: landmark
+    aliases: [東京駅, tokyo eki]
+  - name: Shinjuku Station
+    category: landmark
+    aliases: [新宿駅, shinjuku eki]
