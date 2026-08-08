@@ -185,9 +185,8 @@ PAGE = """<!doctype html>
   --lift:    0 2px 6px rgba(160,120,50,.07), 0 22px 50px -20px rgba(160,120,50,.32);
   --spring: cubic-bezier(.34, 1.4, .5, 1);
 }
-@media (prefers-color-scheme: dark) {
-  /* Dim, never cold — the same product after sunset. */
-  :root {
+/* Opt-in only. Dim, never cold — the same product after sunset. */
+:root[data-theme="dark"] {
     color-scheme: dark;
     --paper: #17140F; --sun: #2E2617; --peach: #2B2018; --panel: #211D17;
     --ink: #F7F1E6; --dim: #A8A094; --faint: #7B7367; --hair: #2F2920;
@@ -196,7 +195,6 @@ PAGE = """<!doctype html>
     --chip: #292217;
     --shadow: 0 1px 2px rgba(0,0,0,.35), 0 12px 32px -16px rgba(0,0,0,.6);
     --lift:   0 2px 6px rgba(0,0,0,.4), 0 22px 50px -20px rgba(0,0,0,.7);
-  }
 }
 * { box-sizing: border-box; }
 body {
@@ -247,6 +245,7 @@ select { cursor: pointer; font-weight: 650; padding-right: 38px; letter-spacing:
 .chip:hover { color: var(--amber); transform: translateY(-2px); }
 .chip:active { transform: translateY(0) scale(.97); }
 .chip[aria-pressed=true] { background: var(--ink); color: var(--paper); box-shadow: var(--lift); }
+#theme { padding: 9px 12px; font-size: 15px; line-height: 1; }
 #modebtn[aria-pressed=false] { background: linear-gradient(135deg, var(--sun), var(--peach)); color: var(--warn); }
 main { max-width: 820px; margin: 0 auto; padding: 10px 24px 100px; }
 
@@ -391,6 +390,7 @@ summary:hover { color: var(--amber); }
   </div>
   <button class="chip" id="modebtn" aria-pressed="false">Grade these</button>
   <div class="progress" id="prog"></div>
+  <button class="chip" id="theme" title="Switch theme" aria-label="Switch theme">☀</button>
   <button class="link" id="signout"></button>
 </div></header>
 <main id="list"></main>
@@ -433,6 +433,16 @@ document.getElementById("who").addEventListener("keydown", e => {
 document.getElementById("signout").addEventListener("click", () => {
   localStorage.removeItem("elsewhere.reviewer"); me = ""; load();
 });
+
+function applyTheme(t) {
+  document.documentElement.setAttribute("data-theme", t);
+  document.getElementById("theme").textContent = t === "dark" ? "☾" : "☀";
+  localStorage.setItem("elsewhere.theme", t);
+}
+document.getElementById("theme").addEventListener("click", () => {
+  applyTheme(document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark");
+});
+applyTheme(localStorage.getItem("elsewhere.theme") || "light");
 
 function setMode(on) {
   grading = on;
@@ -602,9 +612,12 @@ async function clearPick(name) {
 document.getElementById("q").addEventListener("input", e => {
   q = e.target.value.toLowerCase().trim(); render();
 });
-document.querySelectorAll(".chip").forEach(b => b.addEventListener("click", () => {
+// Scoped to [data-f]: a bare `.chip` selector also caught the theme and
+// mode buttons, so clicking either set filter to undefined and flipped
+// their aria-pressed, inverting their colours.
+document.querySelectorAll(".chip[data-f]").forEach(b => b.addEventListener("click", () => {
   filter = b.dataset.f;
-  document.querySelectorAll(".chip").forEach(x =>
+  document.querySelectorAll(".chip[data-f]").forEach(x =>
     x.setAttribute("aria-pressed", String(x === b)));
   render();
 }));
