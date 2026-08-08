@@ -130,114 +130,200 @@ PAGE = """<!doctype html>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Elsewhere — every city has an H-E-B</title>
 <style>
-/* Sunny, minimalist, playful.
-   No borders anywhere — separation comes from soft warm shadow. Hierarchy
-   comes from type size, not rules. The one indulgence is the sun wash at the
-   top of the page and a springy hover, which is where the play lives. */
+/* Palette: coffee-bean / vintage-grape / dim-grey / dry-sage / light-green.
+   No borders anywhere — separation comes from soft shadow, hierarchy from
+   type size. Two brand colours do the work: grape for interaction in light,
+   green in dark, so the accent always reads against its own background. */
 :root {
   color-scheme: light;
-  --paper:  #FFFDF6;
-  --sun:    #FFE9A8;
-  --peach:  #FFD9C2;
+  --paper:  #F7F8F3;
   --panel:  #FFFFFF;
-  --ink:    #1A1613;
-  --dim:    #7A7168;
-  --faint:  #ADA398;
-  --hair:   #F5EDE0;
-  --amber:  #E8801F;
-  --amber-soft: #FFF2DF;
-  --sky:    #2C7FB8;
-  --ok:     #17904B;
-  --ok-soft:#E8F6EC;
-  --warn:   #B26A0A;
-  --chip:   #FFF6E6;
-  --shadow:  0 1px 2px rgba(160,120,50,.05), 0 12px 32px -16px rgba(160,120,50,.22);
-  --lift:    0 2px 6px rgba(160,120,50,.07), 0 22px 50px -20px rgba(160,120,50,.32);
+  --ink:    #1A090D;   /* coffee-bean */
+  --dim:    #6B6570;   /* dim-grey */
+  --faint:  #9C97A2;
+  --hair:   #E6EADF;
+  --sage:   #A8BA9A;   /* dry-sage */
+  --lime:   #ACE894;   /* light-green */
+  --accent: #4A314D;   /* vintage-grape */
+  --accent-deep: #3B2440;
+  --accent-soft: #EFF6EA;
+  --on-accent: #FDFEFB;
+  --chip:   #EFF6EA;
+  /* The wash at the top of the page: green and grape, low and off-centre. */
+  --wash-a: #D7EEC8;
+  --wash-b: #E5DDE7;
+  --shadow: 0 1px 2px rgba(26,9,13,.05), 0 12px 32px -16px rgba(26,9,13,.20);
+  --lift:   0 2px 6px rgba(26,9,13,.07), 0 22px 50px -20px rgba(26,9,13,.30);
   --spring: cubic-bezier(.34, 1.4, .5, 1);
 }
-/* Opt-in only. Dim, never cold — the same product after sunset. */
+/* Opt-in only. Coffee-bean ground, green accent — the same product at night. */
 :root[data-theme="dark"] {
-    color-scheme: dark;
-    --paper: #17140F; --sun: #2E2617; --peach: #2B2018; --panel: #211D17;
-    --ink: #F7F1E6; --dim: #A8A094; --faint: #7B7367; --hair: #2F2920;
-    --amber: #F5A93F; --amber-soft: #2E2416;
-    --sky: #6BB6E0; --ok: #58C98A; --ok-soft: #1B2A20; --warn: #E2A65C;
-    --chip: #292217;
-    --shadow: 0 1px 2px rgba(0,0,0,.35), 0 12px 32px -16px rgba(0,0,0,.6);
-    --lift:   0 2px 6px rgba(0,0,0,.4), 0 22px 50px -20px rgba(0,0,0,.7);
+  color-scheme: dark;
+  --paper: #1A090D; --panel: #2A1A2C; --ink: #F3F6EE; --dim: #B0AAB6;
+  --faint: #847E8A; --hair: #3A2A3C; --sage: #A8BA9A; --lime: #ACE894;
+  --accent: #ACE894; --accent-deep: #ACE894; --accent-soft: #2C3B26;
+  --on-accent: #1A090D; --chip: #2C3B26;
+  --wash-a: #2B1B2E; --wash-b: #23161C;
+  --shadow: 0 1px 2px rgba(0,0,0,.35), 0 12px 32px -16px rgba(0,0,0,.6);
+  --lift:   0 2px 6px rgba(0,0,0,.4), 0 22px 50px -20px rgba(0,0,0,.7);
 }
 * { box-sizing: border-box; }
 body {
   margin: 0; color: var(--ink); background: var(--paper);
-  /* Two overlapping suns, low and off-centre. Warmth, not a banner. */
   background-image:
-    radial-gradient(900px 340px at 18% -140px, var(--sun), transparent 68%),
-    radial-gradient(760px 300px at 82% -120px, var(--peach), transparent 66%);
+    radial-gradient(900px 340px at 18% -140px, var(--wash-a), transparent 68%),
+    radial-gradient(760px 300px at 82% -120px, var(--wash-b), transparent 66%);
   background-repeat: no-repeat;
   font: 16px/1.62 ui-sans-serif, -apple-system, "Segoe UI", Inter, Roboto, sans-serif;
   -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
 }
+
+/* ─── Header ──────────────────────────────────────────────────────────────
+   Full bleed rather than pinned to the 820px reading column: the brand and
+   the theme toggle belong at the edges of the screen, not floating in from
+   them. The content below stays in its column. */
 header {
-  position: sticky; top: 0; z-index: 20; padding: 18px 24px 16px;
+  position: sticky; top: 0; z-index: 20; padding: 14px 28px;
   background: color-mix(in srgb, var(--paper) 78%, transparent);
-  backdrop-filter: saturate(1.6) blur(14px);
-  -webkit-backdrop-filter: saturate(1.6) blur(14px);
+  backdrop-filter: saturate(1.4) blur(14px);
+  -webkit-backdrop-filter: saturate(1.4) blur(14px);
 }
-.bar { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; max-width: 820px; margin: 0 auto; }
-h1 {
-  font-size: 20px; margin: 0 6px 0 0; font-weight: 800; letter-spacing: -0.04em;
-  background: linear-gradient(96deg, var(--ink) 20%, var(--amber));
-  -webkit-background-clip: text; background-clip: text; color: transparent;
-}
+.bar { display: flex; gap: 14px; align-items: center; width: 100%; }
+#barslot { display: flex; gap: 10px; align-items: center; flex: 1; min-width: 0; }
+/* A search field stretched across a 1500px header reads as a text area, not
+   a search box. */
+#barslot .field { max-width: 560px; }
+#theme { margin-left: auto; padding: 9px 12px; font-size: 15px; line-height: 1; }
+
+/* ─── Controls (city + search) ────────────────────────────────────────────
+   One instance, moved between the hero and the header rather than
+   duplicated — two search boxes would mean two sources of truth for what
+   the visitor typed. */
+#controls { display: flex; gap: 10px; align-items: center; flex: 1; min-width: 0; }
 input[type=search], input[type=text], select {
   font: inherit; font-size: 15px; padding: 11px 16px; border: 0;
   border-radius: 999px; background: var(--panel); color: var(--ink);
   box-shadow: var(--shadow); transition: box-shadow .2s, transform .2s var(--spring);
 }
-input[type=search] { min-width: 200px; }
-input:focus, select:focus { outline: none; box-shadow: var(--lift), 0 0 0 2.5px var(--amber-soft); }
+input[type=search] { min-width: 0; }
+input:focus, select:focus { outline: none; box-shadow: var(--lift), 0 0 0 2.5px var(--accent-soft); }
 input::placeholder { color: var(--faint); }
 select { cursor: pointer; font-weight: 650; padding-right: 38px; letter-spacing: -0.01em; }
-.grow { flex: 1; }
-.chips { display: flex; gap: 6px; }
-/* Every button here is a pill. Without this reset the browser's default
-   chrome (outset border, square corners) shows through — as it did on the
-   theme toggle once the review buttons that used to carry it were removed. */
+.from { font-size: 14px; color: var(--dim); font-weight: 600; white-space: nowrap; }
+.field { position: relative; display: flex; flex: 1; min-width: 0; }
+.field input[type=search] { width: 100%; padding-right: 42px; }
+.field .clear {
+  position: absolute; right: 7px; top: 50%; transform: translateY(-50%);
+  width: 28px; height: 28px; background: var(--chip); color: var(--accent-deep);
+  font-size: 17px; line-height: 1; display: grid; place-items: center;
+}
+.field .clear[hidden] { display: none; }
+.field .clear:hover { background: var(--accent); color: var(--on-accent); }
+
 button {
   font: inherit; border: 0; border-radius: 999px; cursor: pointer;
   transition: transform .22s var(--spring), box-shadow .2s, color .2s, background .2s;
 }
-.chip, .pick { font-size: 13.5px; padding: 9px 15px; background: var(--panel); color: var(--dim); box-shadow: var(--shadow); }
-.chip:hover { color: var(--amber); transform: translateY(-2px); }
+.chip { font-size: 13.5px; padding: 9px 15px; background: var(--panel); color: var(--dim); box-shadow: var(--shadow); }
+.chip:hover { color: var(--accent); transform: translateY(-2px); }
 .chip:active { transform: translateY(0) scale(.97); }
-.chip[aria-pressed=true] { background: var(--ink); color: var(--paper); box-shadow: var(--lift); }
-#theme { padding: 9px 12px; font-size: 15px; line-height: 1; }
-main { max-width: 820px; margin: 0 auto; padding: 10px 24px 100px; }
+button.brand {
+  background: none; padding: 0; font-size: 17px; font-weight: 800;
+  letter-spacing: -0.02em; color: var(--ink);
+}
+button.brand:hover { color: var(--accent); }
 
+/* ─── The index ───────────────────────────────────────────────────────────
+   Naming a place is the whole product, so on the index it owns the screen:
+   the controls sit in the middle of the viewport at full size and the
+   header carries nothing but the brand and the theme toggle. */
+.stage {
+  min-height: calc(100vh - 74px);
+  display: flex; flex-direction: column; justify-content: center;
+  text-align: center; padding: 24px 24px 60px; gap: 4px;
+}
+.stage[hidden] { display: none; }
+.stage .inner { width: 100%; max-width: 720px; margin: 0 auto; }
+.pitch {
+  font-size: 46px; line-height: 1.06; letter-spacing: -0.045em; font-weight: 800;
+  margin: 0 0 30px;
+}
+.pitch em, .sub em {
+  font-style: normal;
+  background: linear-gradient(100deg, var(--accent), var(--sage));
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+/* In the hero the controls are the hero: big type, generous target. */
+.stage #controls { justify-content: center; flex: 0 1 auto; }
+.stage #controls select { font-size: 18px; padding: 16px 42px 16px 20px; }
+.stage #controls .field { flex: 1 1 380px; max-width: 460px; }
+.stage #controls input[type=search] { font-size: 18px; padding: 16px 22px; }
+.stage .q { font-size: 17px; font-weight: 650; color: var(--dim); margin: 34px 0 0; }
+
+/* ─── Try rail ────────────────────────────────────────────────────────────
+   The examples scroll on their own. Four static chips read as the whole
+   catalogue; a moving rail reads as a sample of something larger, and shows
+   more names than fit on one line. Hover or keyboard focus stops it so a
+   chip can actually be clicked. */
+.rail {
+  overflow: hidden; margin-top: 14px;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 9%, #000 91%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 9%, #000 91%, transparent);
+}
+.track { display: flex; gap: 9px; width: max-content; animation: drift 44s linear infinite; }
+.rail:hover .track, .rail:focus-within .track { animation-play-state: paused; }
+@keyframes drift { to { transform: translateX(-50%); } }
+.eg {
+  font-size: 14px; font-weight: 600; padding: 9px 16px; white-space: nowrap;
+  background: var(--chip); color: var(--accent-deep);
+}
+.eg:hover { background: var(--accent); color: var(--on-accent); transform: translateY(-2px); }
+
+.or {
+  font-size: 13px; color: var(--faint); margin: 34px 0 14px;
+  text-transform: uppercase; letter-spacing: .09em; font-weight: 700;
+}
+.cats { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
+.cats button {
+  font-size: 14px; font-weight: 650; padding: 10px 18px;
+  background: var(--panel); color: var(--dim); box-shadow: var(--shadow);
+}
+.cats button:hover { color: var(--accent); transform: translateY(-2px); box-shadow: var(--lift); }
+.cats button .n { color: var(--faint); font-weight: 500; margin-left: 6px; font-size: 13px; }
+
+/* ─── Results ─────────────────────────────────────────────────────────── */
+main { max-width: 820px; margin: 0 auto; padding: 10px 24px 100px; }
+.crumb {
+  max-width: 820px; margin: 0 auto; padding: 22px 24px 4px;
+  display: flex; align-items: baseline; gap: 12px;
+}
+.crumb[hidden] { display: none; }
+.crumb span { font-size: 15px; font-weight: 650; color: var(--dim); }
 .card {
   background: var(--panel); border-radius: 24px; padding: 30px 34px;
   margin-bottom: 18px; box-shadow: var(--shadow);
   transition: box-shadow .28s, transform .28s var(--spring);
 }
 .card:hover { box-shadow: var(--lift); transform: translateY(-3px); }
-.card.done { box-shadow: var(--shadow), inset 4px 0 0 var(--ok); }
-
-/* "Alamo Drafthouse Cinema  in chicago is"  —  reads as a sentence, so the
-   answer below it lands as the punchline. */
 .head { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; }
 .head h2 { font-size: 14.5px; margin: 0; font-weight: 650; color: var(--dim); letter-spacing: -0.01em; }
 .arrow { color: var(--faint); font-size: 13.5px; font-style: italic; }
-.meta { font-size: 12.5px; color: var(--faint); margin: 12px 0 16px; }
-.role {
-  display: inline-block; background: var(--chip); color: var(--warn);
-  padding: 4px 11px; border-radius: 999px; margin: 0 5px 5px 0;
-  font-size: 11.5px; font-weight: 650; letter-spacing: .01em;
+/* One block per city inside a place's card. A hairline between them, so the
+   card still reads as one place rather than several. */
+.city { padding-top: 20px; margin-top: 20px; box-shadow: inset 0 1px 0 var(--hair); }
+.city:first-of-type { padding-top: 6px; margin-top: 6px; box-shadow: none; }
+.cityname {
+  font-size: 11.5px; font-weight: 700; letter-spacing: .07em; text-transform: uppercase;
+  color: var(--accent); margin-bottom: 2px;
 }
 .answer {
   font-size: 34px; font-weight: 800; letter-spacing: -0.045em;
   line-height: 1.08; margin: 7px 0 12px;
 }
+.why { color: var(--dim); font-size: 14.5px; margin-top: 4px; max-width: 62ch; }
 .why.big { font-size: 15.5px; color: var(--ink); opacity: .74; max-width: 62ch; }
+.cname { font-weight: 700; font-size: 17px; letter-spacing: -0.02em; }
+.alt { padding: 14px 0 0 18px; box-shadow: inset 2px 0 0 var(--hair); margin-top: 14px; }
 details { margin-top: 18px; }
 summary {
   cursor: pointer; font-size: 13.5px; color: var(--faint); font-weight: 650;
@@ -248,195 +334,59 @@ summary::-webkit-details-marker { display: none; }
 summary::before {
   content: "+"; display: grid; place-items: center;
   width: 20px; height: 20px; border-radius: 999px;
-  background: var(--chip); color: var(--warn); font-size: 14px; line-height: 1;
+  background: var(--chip); color: var(--accent-deep); font-size: 14px; line-height: 1;
   transition: transform .25s var(--spring);
 }
-details[open] summary::before { content: "–"; transform: rotate(180deg); }
-summary:hover { color: var(--amber); }
-.alt { padding: 14px 0 0 18px; box-shadow: inset 2px 0 0 var(--hair); margin-top: 14px; }
-.from { font-size: 14px; color: var(--dim); font-weight: 600; }
-/* One block per city inside a place's card. A hairline between them, so the
-   card still reads as one place rather than several. */
-.city { padding-top: 20px; margin-top: 20px; box-shadow: inset 0 1px 0 var(--hair); }
-.city:first-of-type { padding-top: 6px; margin-top: 6px; box-shadow: none; }
-.city.done { box-shadow: inset 0 1px 0 var(--hair), inset 3px 0 0 var(--ok); padding-left: 16px; }
-.cityname {
-  font-size: 11.5px; font-weight: 700; letter-spacing: .07em; text-transform: uppercase;
-  color: var(--amber); margin-bottom: 2px;
-}
-
-.cname { font-weight: 700; font-size: 17px; letter-spacing: -0.02em; }
-.why { color: var(--dim); font-size: 14.5px; margin-top: 4px; max-width: 62ch; }
+details[open] summary::before { content: "\2013"; transform: rotate(180deg); }
+summary:hover { color: var(--accent); }
 .link {
-  font: inherit; font-size: 13px; background: none; border: 0; color: var(--faint);
+  font: inherit; font-size: 13px; background: none; color: var(--faint);
   cursor: pointer; text-decoration: underline; text-underline-offset: 3px;
   padding: 0; transition: color .2s;
 }
-.link:hover { color: var(--amber); }
+.link:hover { color: var(--accent); }
 .empty { text-align: center; color: var(--faint); padding: 90px 20px; font-size: 17px; }
 
-@keyframes pop { from { opacity: 0; transform: translateY(10px) scale(.97); } }
-/* Must out-specify `
+/* ─── First visit: choose a city ──────────────────────────────────────── */
+.pick { padding: 76px 24px 40px; text-align: center; }
+.pick[hidden] { display: none; }
+.pick .wrap { max-width: 700px; margin: 0 auto; }
+.brand { font-size: 15px; font-weight: 800; letter-spacing: -0.02em; color: var(--dim); margin-bottom: 26px; }
+.sub { font-size: 17px; color: var(--dim); max-width: 30em; margin: 0 auto 44px; line-height: 1.55; }
+.pick .q { font-size: 15px; font-weight: 650; color: var(--dim); margin: 0 0 16px; }
+.cities { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+.cities button {
+  font-size: 19px; font-weight: 700; letter-spacing: -0.02em;
+  padding: 20px 34px; border-radius: 20px;
+  background: var(--panel); color: var(--ink); box-shadow: var(--shadow);
+}
+.cities button:hover { transform: translateY(-3px); box-shadow: var(--lift); color: var(--accent); }
+.cities button:active { transform: translateY(0) scale(.97); }
+
+#app[hidden] { display: none; }
+
 @media (max-width: 640px) {
   header { padding: 12px 16px; }
+  .bar { gap: 10px; }
+  .from { display: none; }        /* "I know" is implied by the city control */
   main { padding: 8px 16px 70px; }
+  .crumb { padding: 16px 18px 2px; }
   .card { padding: 24px 22px; border-radius: 20px; }
   .answer { font-size: 27px; }
-  h1 { font-size: 18px; }
+  .pitch { font-size: 31px; }
+  .sub { font-size: 16px; margin-bottom: 32px; }
+  .cities button { font-size: 17px; padding: 16px 24px; flex: 1 1 40%; }
+  .stage { padding: 16px 18px 48px; min-height: calc(100vh - 66px); }
+  .stage #controls { flex-wrap: wrap; }
+  .stage #controls .field { flex: 1 1 100%; }
 }
 @media (prefers-reduced-motion: reduce) {
   * { transition: none !important; animation: none !important; }
-  .card:hover, .chip:hover, .cats button:hover { transform: none; }
-}
-/* ─── Arrival ─────────────────────────────────────────────────────────── */
-.hero { padding: 76px 24px 40px; text-align: center; }
-.hero .wrap { max-width: 720px; margin: 0 auto; }
-.brand {
-  font-size: 15px; font-weight: 800; letter-spacing: -0.02em; color: var(--dim);
-  margin-bottom: 26px;
-}
-.brand.small { margin: 0; font-size: 17px; color: var(--ink); }
-.pitch {
-  font-size: 46px; line-height: 1.06; letter-spacing: -0.045em; font-weight: 800;
-  margin: 0 0 34px;
-}
-.pitch em {
-  font-style: normal;
-  background: linear-gradient(100deg, var(--amber), #E85D2A);
-  -webkit-background-clip: text; background-clip: text; color: transparent;
-}
-.ask .lead { font-size: 16px; color: var(--dim); font-weight: 600; }
-.ask select { font-size: 17px; padding: 13px 40px 13px 18px; font-weight: 700; }
-.ask input[type=search] {
-  font-size: 17px; padding: 13px 20px; min-width: 300px; flex: 0 1 340px;
-}
-.examples {
-  display: flex; gap: 8px; justify-content: center; flex-wrap: wrap;
-  margin-top: 22px; min-height: 34px;
-}
-.examples .eg {
-  font: inherit; font-size: 13.5px; font-weight: 600; padding: 7px 14px;
-  border: 0; border-radius: 999px; cursor: pointer;
-  background: var(--chip); color: var(--warn);
-  transition: transform .22s var(--spring), background .2s, color .2s;
-}
-.examples .eg:hover { background: var(--amber); color: #fff; transform: translateY(-2px); }
-.examples .lead { font-size: 13.5px; color: var(--faint); align-self: center; margin-right: 2px; }
-
-#bar { position: sticky; top: 0; z-index: 20; }
-
-@media (max-width: 640px) {
-  .hero { padding: 48px 18px 28px; }
-  .pitch { font-size: 32px; }
-  .ask input[type=search] { min-width: 0; flex: 1 1 100%; }
-}
-/* ─── First visit: choose a city ──────────────────────────────────────── */
-.pick[hidden] { display: none; }
-.pick .wrap { max-width: 700px; margin: 0 auto; }
-.brand {
-  font-size: 15px; font-weight: 800; letter-spacing: -0.02em; color: var(--dim);
-  margin-bottom: 26px;
-}
-.brand.small { margin: 0; font-size: 16px; color: var(--ink); }
-.pitch {
-  font-size: 46px; line-height: 1.06; letter-spacing: -0.045em; font-weight: 800;
-  margin: 0 0 22px;
-}
-.pitch em, .sub em {
-  font-style: normal;
-  background: linear-gradient(100deg, var(--amber), #E85D2A);
-  -webkit-background-clip: text; background-clip: text; color: transparent;
-}
-.sub {
-  font-size: 17px; color: var(--dim); max-width: 30em; margin: 0 auto 44px;
-  line-height: 1.55;
-}
-.q { font-size: 15px; font-weight: 650; color: var(--dim); margin: 0 0 16px; }
-.cities { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
-.cities button {
-  font: inherit; font-size: 19px; font-weight: 700; letter-spacing: -0.02em;
-  padding: 20px 34px; border: 0; border-radius: 20px; cursor: pointer;
-  background: var(--panel); color: var(--ink); box-shadow: var(--shadow);
-  transition: transform .22s var(--spring), box-shadow .2s, color .2s;
-}
-.cities button:hover {
-  transform: translateY(-3px); box-shadow: var(--lift); color: var(--amber);
-}
-.cities button:active { transform: translateY(0) scale(.97); }
-
-/* ─── Prompt shown before they search ─────────────────────────────────── */
-.prompt { text-align: center; padding: 64px 24px 20px; }
-.prompt[hidden] { display: none; }
-.prompt .q { font-size: 19px; color: var(--ink); font-weight: 700; letter-spacing: -0.02em; }
-.examples {
-  display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; margin-top: 18px;
-}
-.examples .eg {
-  font: inherit; font-size: 14px; font-weight: 600; padding: 9px 16px;
-  border: 0; border-radius: 999px; cursor: pointer;
-  background: var(--chip); color: var(--warn);
-  transition: transform .22s var(--spring), background .2s, color .2s;
-}
-.examples .eg:hover { background: var(--amber); color: #fff; transform: translateY(-2px); }
-.examples .lead { font-size: 14px; color: var(--faint); align-self: center; margin-right: 2px; }
-
-#bar { position: sticky; top: 0; z-index: 20; }
-#app[hidden] { display: none; }
-.from { font-size: 14px; color: var(--dim); font-weight: 600; }
-
-@media (max-width: 640px) {
-    .pitch { font-size: 32px; }
-  .sub { font-size: 16px; margin-bottom: 32px; }
-  .cities button { font-size: 17px; padding: 16px 24px; flex: 1 1 40%; }
-  .prompt { padding: 44px 18px 12px; }
-}
-/* ─── Nav additions ───────────────────────────────────────────────────── */
-button.brand.small {
-  background: none; border: 0; cursor: pointer; padding: 0;
-  font: inherit; font-size: 16px; font-weight: 800; letter-spacing: -0.02em;
-  color: var(--ink); transition: color .2s;
-}
-button.brand.small:hover { color: var(--amber); }
-
-/* Search field with a clear affordance. Without one, getting back from a
-   query to the browse view meant selecting the text and deleting it. */
-.field { position: relative; display: flex; }
-.field input[type=search] { width: 100%; padding-right: 40px; }
-.field .clear {
-  position: absolute; right: 6px; top: 50%; transform: translateY(-50%);
-  width: 26px; height: 26px; border: 0; border-radius: 999px; cursor: pointer;
-  background: var(--chip); color: var(--warn); font-size: 17px; line-height: 1;
-  display: grid; place-items: center; transition: background .2s, color .2s;
-}
-.field .clear[hidden] { display: none; }
-.field .clear:hover { background: var(--amber); color: #fff; }
-
-.or {
-  font-size: 13px; color: var(--faint); margin: 30px 0 14px;
-  text-transform: uppercase; letter-spacing: .09em; font-weight: 700;
-}
-.cats { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
-.cats button {
-  font: inherit; font-size: 14px; font-weight: 650; padding: 10px 18px;
-  border: 0; border-radius: 999px; cursor: pointer;
-  background: var(--panel); color: var(--dim); box-shadow: var(--shadow);
-  transition: transform .22s var(--spring), box-shadow .2s, color .2s;
-}
-.cats button:hover { color: var(--amber); transform: translateY(-2px); box-shadow: var(--lift); }
-.cats button .n { color: var(--faint); font-weight: 500; margin-left: 6px; font-size: 13px; }
-
-/* Tells you what you're looking at, and how to get out of it. */
-.crumb {
-  max-width: 820px; margin: 0 auto; padding: 22px 24px 4px;
-  display: flex; align-items: baseline; gap: 12px;
-}
-.crumb[hidden] { display: none; }
-.crumb span { font-size: 15px; font-weight: 650; color: var(--dim); }
-
-@media (max-width: 640px) {
-  .bar { gap: 8px; }
-  .from { display: none; }        /* "I know" is implied by the city control */
-  .crumb { padding: 16px 18px 2px; }
+  .card:hover, .chip:hover, .cats button:hover, .eg:hover { transform: none; }
+  /* Without the animation the rail would sit frozen showing three names,
+     the second copy unreachable. Let it wrap instead. */
+  .track { flex-wrap: wrap; justify-content: center; width: auto; }
+  .rail { -webkit-mask-image: none; mask-image: none; }
 }
 </style>
 </head>
@@ -457,23 +407,33 @@ button.brand.small:hover { color: var(--amber); }
 
 <div id="app" hidden>
   <header id="bar"><div class="bar">
-    <button class="brand small" id="homebtn" title="Start over">Elsewhere</button>
+    <button class="brand" id="homebtn" title="Start over">Elsewhere</button>
+    <!-- #controls lives here on results pages and in the hero on the index;
+         the same element either way. -->
+    <div id="barslot"></div>
+    <button class="chip" id="theme" title="Switch theme" aria-label="Switch theme">☼</button>
+  </div></header>
+
+  <div id="controls">
     <span class="from">I know</span>
     <select id="srcsel" title="Which city you know"></select>
-    <div class="field grow">
+    <div class="field">
       <input type="search" id="q" placeholder="Name a place you love…">
       <button class="clear" id="clearq" hidden aria-label="Clear">×</button>
     </div>
-    <button class="chip" id="theme" title="Switch theme" aria-label="Switch theme">☀</button>
-  </div></header>
+  </div>
 
-  <!-- Shown until they search. Dumping every card made the page read as a
-       list to scroll rather than a box to type in. -->
-  <section class="prompt" id="prompt">
-    <p class="q" id="promptq"></p>
-    <div class="examples" id="examples"></div>
-    <p class="or">or browse</p>
-    <div class="cats" id="cats"></div>
+  <!-- The index. Shown until they search or browse; dumping every card made
+       the page read as a list to scroll rather than a box to type in. -->
+  <section class="stage" id="prompt">
+    <div class="inner">
+      <h1 class="pitch">Every city has an H-E-B.<br><em>It's just called something else.</em></h1>
+      <div id="heroslot"></div>
+      <p class="q" id="promptq"></p>
+      <div class="rail"><div class="track" id="examples"></div></div>
+      <p class="or">or browse</p>
+      <div class="cats" id="cats"></div>
+    </div>
   </section>
 
   <div class="crumb" id="crumb" hidden>
@@ -596,6 +556,10 @@ function render() {
   if (!S) return;
 
   const idle = !q && !cat;
+  // The search box is the index; on results pages it retreats to the header.
+  const slot = document.getElementById(idle ? "heroslot" : "barslot");
+  const controls = document.getElementById("controls");
+  if (controls.parentElement !== slot) slot.appendChild(controls);
   document.getElementById("prompt").hidden = !idle;
   document.getElementById("crumb").hidden = idle || !!q;
   document.getElementById("clearq").hidden = !q;
@@ -656,11 +620,17 @@ const SEEDS_BY_CITY = {
 
 function renderExamples() {
   const known = new Set(S.matches.map(m => m.name));
-  const picks = (SEEDS_BY_CITY[S.source] || []).filter(n => known.has(n)).slice(0, 4);
-  const list = picks.length ? picks : S.matches.slice(0, 4).map(m => m.name);
-  document.getElementById("examples").innerHTML =
-    `<span class="lead">try</span>` +
-    list.map(n => `<button class="eg" data-name="${esc(n)}">${esc(n)}</button>`).join("");
+  const curated = (SEEDS_BY_CITY[S.source] || []).filter(n => known.has(n));
+  // Pad from the corpus, evenly spaced so the rail isn't ten restaurants.
+  const rest = S.matches.map(m => m.name).filter(n => !curated.includes(n));
+  const step = Math.max(1, Math.floor(rest.length / 10));
+  const list = curated.concat(rest.filter((_, i) => i % step === 0)).slice(0, 12);
+
+  // Twice: the animation translates by half the track, so the second copy is
+  // already in place when the first scrolls out.
+  const chips = list.map(n =>
+    `<button class="eg" data-name="${esc(n)}">${esc(n)}</button>`).join("");
+  document.getElementById("examples").innerHTML = chips + chips;
   document.getElementById("promptq").textContent = `What do you love in ${title(S.source)}?`;
 }
 
