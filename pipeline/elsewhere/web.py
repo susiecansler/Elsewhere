@@ -294,9 +294,9 @@ button {
 /* The brand is the way home, so it should look like the biggest thing in the
    bar rather than a label sharing its baseline with the controls. */
 button.brand {
-  background: none; padding: 0 14px 0 0; margin-right: 2px;
+  background: none; margin: 0; padding: 0 16px 0 0;
   font-size: 23px; font-weight: 800; letter-spacing: -0.035em;
-  color: var(--ink); line-height: 1; align-self: center;
+  color: var(--ink); line-height: 1.15; align-self: center;
 }
 button.brand:hover { color: var(--accent); }
 
@@ -516,7 +516,7 @@ summary:hover { color: var(--accent); }
 .pick { padding: 76px 24px 40px; text-align: center; }
 .pick[hidden] { display: none; }
 .pick .wrap { max-width: 700px; margin: 0 auto; }
-.brand { font-size: 15px; font-weight: 800; letter-spacing: -0.02em; color: var(--dim); margin-bottom: 26px; }
+.pick .brand { font-size: 15px; font-weight: 800; letter-spacing: -0.02em; color: var(--dim); margin-bottom: 26px; }
 .sub { font-size: 17px; color: var(--dim); max-width: 30em; margin: 0 auto 44px; line-height: 1.55; }
 .pick .q { font-size: 15px; font-weight: 650; color: var(--dim); margin: 0 0 16px; }
 .cities { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
