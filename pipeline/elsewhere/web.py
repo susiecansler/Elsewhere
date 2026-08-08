@@ -166,7 +166,12 @@ PAGE = """<!doctype html>
   --dim:    #4A6C78;
   --faint:  #8CA7B1;
   --hair:   #E0EEF2;
-  --pink:   #EF476F;   /* bubblegum-pink */
+  --pink:   #EF476F;   /* bubblegum-pink — display only, see --pink-deep */
+  /* #EF476F is 3.6:1 on white, which fails for anything at body size. This
+     is the same hue darkened until small white text on it clears AA, and it
+     carries every pink that isn't the headline or the map pin. */
+  --pink-deep: #C9284F;
+  --on-pink: #FFFFFF;
   --gold:   #FFD166;   /* golden-pollen */
   --emerald:#06D6A0;
   --accent: #118AB2;   /* ocean-blue */
@@ -186,7 +191,8 @@ PAGE = """<!doctype html>
   color-scheme: dark;
   --paper: #073B4C; --panel: #0C4C61; --ink: #EFFAFC; --dim: #A7C5CF;
   --faint: #6F93A1; --hair: #145A70;
-  --pink: #FF6B8B; --gold: #FFD166; --emerald: #06D6A0;
+  --pink: #FF6B8B; --pink-deep: #FF8FA6; --on-pink: #073B4C;
+  --gold: #FFD166; --emerald: #06D6A0;
   --accent: #06D6A0; --accent-deep: #06D6A0; --accent-soft: #0E5A6E;
   --on-accent: #073B4C; --chip: #0E5A6E;
   --wash-a: #0C5163; --wash-b: #0A4553;
@@ -271,7 +277,7 @@ select.native { position: absolute; opacity: 0; pointer-events: none; width: 1px
   font-size: 15px; font-weight: 650; background: none; color: var(--ink);
 }
 .citymenu button:hover { background: var(--chip); }
-.citymenu button[aria-selected=true] { background: var(--accent); color: var(--on-accent); }
+.citymenu button[aria-selected=true] { background: var(--pink-deep); color: var(--on-pink); }
 .from, .to { font-size: 14px; color: var(--dim); font-weight: 600; white-space: nowrap; }
 .to { color: var(--faint); font-size: 17px; }
 .field { position: relative; display: flex; flex: 1; min-width: 0; }
@@ -282,14 +288,14 @@ select.native { position: absolute; opacity: 0; pointer-events: none; width: 1px
   font-size: 17px; line-height: 1; display: grid; place-items: center;
 }
 .field .clear[hidden] { display: none; }
-.field .clear:hover { background: var(--accent); color: var(--on-accent); }
+.field .clear:hover { background: var(--pink-deep); color: var(--on-pink); }
 
 button {
   font: inherit; border: 0; border-radius: 999px; cursor: pointer;
   transition: transform .22s var(--spring), box-shadow .2s, color .2s, background .2s;
 }
 .chip { font-size: 13.5px; padding: 8px 14px; background: var(--panel); color: var(--dim); box-shadow: var(--shadow); }
-.chip:hover { color: var(--accent); transform: translateY(-2px); }
+.chip:hover { color: var(--dim); transform: translateY(-2px); }
 .chip:active { transform: translateY(0) scale(.97); }
 /* The brand is the way home, so it should look like the biggest thing in the
    bar rather than a label sharing its baseline with the controls. */
@@ -298,7 +304,7 @@ button.brand {
   font-size: 23px; font-weight: 800; letter-spacing: -0.035em;
   color: var(--ink); line-height: 1.15; align-self: center;
 }
-button.brand:hover { color: var(--accent); }
+button.brand:hover { color: var(--dim); }
 
 /* ─── The index ───────────────────────────────────────────────────────────
    Naming a place is the whole product, so on the index it owns the screen:
@@ -392,9 +398,11 @@ button.brand:hover { color: var(--accent); }
   font-size: 14px; font-weight: 600; padding: 9px 16px; white-space: nowrap;
   background: var(--chip); color: var(--accent-deep);
 }
-.eg:nth-child(3n+2) { background: color-mix(in srgb, var(--gold) 34%, var(--panel)); color: var(--ink); }
-.eg:nth-child(3n+3) { background: color-mix(in srgb, var(--emerald) 22%, var(--panel)); color: var(--ink); }
-.eg:hover { background: var(--accent); color: var(--on-accent); transform: translateY(-2px); }
+/* Alternating between the two brand colours at low strength, rather than
+   introducing two more hues purely for decoration. */
+.eg:nth-child(3n+2) { background: color-mix(in srgb, var(--pink) 15%, var(--panel)); color: var(--pink-deep); }
+.eg:nth-child(3n+3) { background: color-mix(in srgb, var(--accent) 15%, var(--panel)); color: var(--accent-deep); }
+.eg:hover { background: var(--pink-deep); color: var(--on-pink); transform: translateY(-2px); }
 
 .browse { padding: 56px 24px 40px; text-align: center; }
 .browse[hidden] { display: none; }
@@ -408,7 +416,7 @@ button.brand:hover { color: var(--accent); }
   font-size: 16px; font-weight: 650; padding: 14px 24px;
   background: var(--panel); color: var(--dim); box-shadow: var(--shadow);
 }
-.cats button:hover { color: var(--accent); transform: translateY(-2px); box-shadow: var(--lift); }
+.cats button:hover { color: var(--dim); transform: translateY(-2px); box-shadow: var(--lift); }
 .cats button .n { color: var(--faint); font-weight: 500; margin-left: 6px; font-size: 13px; }
 
 /* ─── Results ─────────────────────────────────────────────────────────── */
@@ -475,12 +483,12 @@ main { max-width: 820px; margin: 0 auto; padding: 10px 24px 100px; }
   transition: background .2s, color .2s, transform .22s var(--spring);
 }
 .acts a:hover, .acts .save:hover {
-  background: var(--accent); color: var(--on-accent); transform: translateY(-2px);
+  background: var(--pink-deep); color: var(--on-pink); transform: translateY(-2px);
 }
 /* A save is yours, not the site's — pink marks it as the one thing on the
    page you put there. */
-.acts .save[aria-pressed=true] { background: var(--pink); color: #fff; }
-.acts .save[aria-pressed=true]:hover { background: var(--pink); }
+.acts .save[aria-pressed=true] { background: var(--pink-deep); color: var(--on-pink); }
+.acts .save[aria-pressed=true]:hover { background: var(--pink-deep); }
 .acts .out { font-size: 11px; opacity: .6; }
 .savecount { font-size: 12px; color: var(--faint); font-weight: 600; margin-left: 4px; }
 #savedbtn[hidden] { display: none; }
@@ -503,13 +511,13 @@ summary::before {
   transition: transform .25s var(--spring);
 }
 details[open] summary::before { content: "\2013"; transform: rotate(180deg); }
-summary:hover { color: var(--accent); }
+summary:hover { color: var(--dim); }
 .link {
   font: inherit; font-size: 13px; background: none; color: var(--faint);
   cursor: pointer; text-decoration: underline; text-underline-offset: 3px;
   padding: 0; transition: color .2s;
 }
-.link:hover { color: var(--accent); }
+.link:hover { color: var(--dim); }
 .empty { text-align: center; color: var(--faint); padding: 90px 20px; font-size: 17px; }
 
 /* ─── First visit: choose a city ──────────────────────────────────────── */
@@ -525,11 +533,19 @@ summary:hover { color: var(--accent); }
   padding: 20px 34px; border-radius: 20px;
   background: var(--panel); color: var(--ink); box-shadow: var(--shadow);
 }
-.cities button:hover { transform: translateY(-3px); box-shadow: var(--lift); color: var(--accent); }
+.cities button:hover { transform: translateY(-3px); box-shadow: var(--lift); color: var(--dim); }
 .cities button:active { transform: translateY(0) scale(.97); }
 
 #app[hidden] { display: none; }
 
+/* Narrow windows: the bar has a brand, two city pickers, a search box and
+   three buttons, which is more than fits. Let it wrap and give the search
+   its own row rather than letting Saved slide under Chicago. */
+@media (max-width: 860px) {
+  .bar { flex-wrap: wrap; row-gap: 8px; }
+  #barslot { order: 3; flex: 1 0 100%; }
+  #barslot .field { max-width: none; }
+}
 @media (max-width: 640px) {
   header { padding: 8px 14px; }
   button.brand { font-size: 19px; padding-right: 8px; }
