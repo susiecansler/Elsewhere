@@ -17,7 +17,7 @@ from typing import Any
 from fastapi import FastAPI
 from fastapi.responses import HTMLResponse, JSONResponse
 
-from elsewhere import generate, verify
+from elsewhere import generate, links, verify
 
 
 def load_corpus(source: str, target: str) -> list:
@@ -61,6 +61,11 @@ def create_app(source: str = "austin", target: str = "chicago") -> FastAPI:
 
     default_source = source if source in sources else next(iter(sources))
 
+    # Snapshot of websites and coordinates, extracted offline. Absent in a
+    # checkout that hasn't run `elsewhere links`, which only costs the
+    # website buttons — map links are derived from the name.
+    link_index = links.load()
+
     def state(src: str) -> dict[str, Any]:
         """One row per place, carrying its answer in *every* target city.
 
@@ -84,9 +89,15 @@ def create_app(source: str = "austin", target: str = "chicago") -> FastAPI:
                         "cities": {},
                     },
                 )
+                row.setdefault("links", links.for_place(link_index, m.source.name, src))
                 row["cities"][tgt] = {
                     "candidates": [
-                        {"name": c.name, "reasoning": c.reasoning} for c in m.candidates
+                        {
+                            "name": c.name,
+                            "reasoning": c.reasoning,
+                            "links": links.for_place(link_index, c.name, tgt),
+                        }
+                        for c in m.candidates
                     ],
                 }
 
@@ -193,7 +204,8 @@ header {
 /* A search field stretched across a 1500px header reads as a text area, not
    a search box. */
 #barslot .field { max-width: 560px; }
-#theme { margin-left: auto; padding: 9px 12px; font-size: 15px; line-height: 1; }
+#savedbtn { margin-left: auto; }
+#theme { padding: 9px 12px; font-size: 15px; line-height: 1; }
 
 /* ─── Controls (city + search) ────────────────────────────────────────────
    One instance, moved between the hero and the header rather than
@@ -320,6 +332,22 @@ main { max-width: 820px; margin: 0 auto; padding: 10px 24px 100px; }
   font-size: 34px; font-weight: 800; letter-spacing: -0.045em;
   line-height: 1.08; margin: 7px 0 12px;
 }
+/* Actions under an answer: where to go, and whether you're keeping it. */
+.acts { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; margin-top: 16px; }
+.acts a, .acts .save {
+  font: inherit; font-size: 13px; font-weight: 650; padding: 8px 14px;
+  border-radius: 999px; background: var(--chip); color: var(--accent-deep);
+  text-decoration: none; display: inline-flex; align-items: center; gap: 6px;
+  transition: background .2s, color .2s, transform .22s var(--spring);
+}
+.acts a:hover, .acts .save:hover {
+  background: var(--accent); color: var(--on-accent); transform: translateY(-2px);
+}
+.acts .save[aria-pressed=true] { background: var(--accent); color: var(--on-accent); }
+.acts .out { font-size: 11px; opacity: .6; }
+.savecount { font-size: 12px; color: var(--faint); font-weight: 600; margin-left: 4px; }
+#savedbtn[hidden] { display: none; }
+
 .why { color: var(--dim); font-size: 14.5px; margin-top: 4px; max-width: 62ch; }
 .why.big { font-size: 15.5px; color: var(--ink); opacity: .74; max-width: 62ch; }
 .cname { font-weight: 700; font-size: 17px; letter-spacing: -0.02em; }
@@ -397,7 +425,7 @@ summary:hover { color: var(--accent); }
 <section id="pick" class="pick" hidden>
   <div class="wrap">
     <div class="brand">Elsewhere</div>
-    <h1 class="pitch">Every city has an H-E-B.<br><em>It's just called something else.</em></h1>
+    <h1 class="pitch">Every city has an H-E-B.<br><em>It's just elsewhere.</em></h1>
     <p class="sub">Name a place you love and we'll find its counterpart
     somewhere else — not the same category, the same <em>role</em>.</p>
     <p class="q">Which city do you know best?</p>
@@ -411,6 +439,7 @@ summary:hover { color: var(--accent); }
     <!-- #controls lives here on results pages and in the hero on the index;
          the same element either way. -->
     <div id="barslot"></div>
+    <button class="chip" id="savedbtn" hidden title="Places you saved"></button>
     <button class="chip" id="theme" title="Switch theme" aria-label="Switch theme">☼</button>
   </div></header>
 
@@ -427,7 +456,7 @@ summary:hover { color: var(--accent); }
        the page read as a list to scroll rather than a box to type in. -->
   <section class="stage" id="prompt">
     <div class="inner">
-      <h1 class="pitch">Every city has an H-E-B.<br><em>It's just called something else.</em></h1>
+      <h1 class="pitch">Every city has an H-E-B.<br><em>It's just elsewhere.</em></h1>
       <div id="heroslot"></div>
       <p class="q" id="promptq"></p>
       <div class="rail"><div class="track" id="examples"></div></div>
@@ -526,6 +555,39 @@ function renderCats() {
     .join("");
 }
 
+/* ── Saved places ───────────────────────────────────────────────────────
+   Local only, on purpose: there are no accounts, so a save that needed a
+   server would be a save nobody could get back to. Keyed by city + name
+   because the same name can exist in two cities. */
+const SAVED_KEY = "elsewhere.saved";
+const savedKey = (city, name) => city + "\u0000" + name;
+
+function loadSaved() {
+  try { return new Map(JSON.parse(localStorage.getItem(SAVED_KEY) || "[]")); }
+  catch { return new Map(); }   // corrupt storage shouldn't take the page down
+}
+let saved = loadSaved();
+
+function toggleSave(city, name, from, links) {
+  const k = savedKey(city, name);
+  if (saved.has(k)) saved.delete(k);
+  else saved.set(k, { city, name, from, links, at: Date.now() });
+  localStorage.setItem(SAVED_KEY, JSON.stringify([...saved]));
+  renderSavedBtn();
+}
+const isSaved = (city, name) => saved.has(savedKey(city, name));
+
+function renderSavedBtn() {
+  const b = document.getElementById("savedbtn");
+  b.hidden = saved.size === 0 && cat !== "__saved";
+  b.innerHTML = `\u2605 Saved<span class="savecount">${saved.size}</span>`;
+  document.querySelectorAll(".save").forEach(el => {
+    const on = isSaved(el.dataset.city, el.dataset.name);
+    el.setAttribute("aria-pressed", on);
+    el.firstChild.textContent = on ? "\u2605 Saved" : "\u2606 Save";
+  });
+}
+
 /* ── Deep links ────────────────────────────────────────────────────────
    The whole point is a link people pass around, so a result has to be
    linkable. Without this you can only tell someone "go here, then type
@@ -534,6 +596,7 @@ function syncURL(replace) {
   const p = new URLSearchParams();
   if (home) p.set("city", home);
   if (q) p.set("q", q);
+  else if (cat === "__saved") p.set("saved", "1");
   else if (cat) p.set("in", cat);
   const url = p.toString() ? "?" + p : location.pathname;
   history[replace ? "replaceState" : "pushState"]({ home, q, cat }, "", url);
@@ -541,7 +604,11 @@ function syncURL(replace) {
 
 function readURL() {
   const p = new URLSearchParams(location.search);
-  return { city: p.get("city") || "", q: p.get("q") || "", cat: p.get("in") || "" };
+  return {
+    city: p.get("city") || "",
+    q: p.get("q") || "",
+    cat: p.get("saved") ? "__saved" : (p.get("in") || ""),
+  };
 }
 
 addEventListener("popstate", () => {
@@ -550,6 +617,22 @@ addEventListener("popstate", () => {
   document.getElementById("q").value = q;
   if (u.city && u.city !== home) { home = u.city; load(); } else { render(); }
 });
+
+/* Links out, plus the save control. `rel=noopener` matters even for links we
+   built ourselves — a website comes from upstream data, not from us. */
+function acts(place, city, from) {
+  const l = place.links || {};
+  const site = l.website
+    ? `<a href="${esc(l.website)}" target="_blank" rel="noopener noreferrer">Website<span class="out">\u2197</span></a>`
+    : "";
+  const map = l.map
+    ? `<a href="${esc(l.map)}" target="_blank" rel="noopener noreferrer">Map &amp; reviews<span class="out">\u2197</span></a>`
+    : "";
+  return `<div class="acts">${site}${map}
+    <button class="save" data-city="${esc(city)}" data-name="${esc(place.name)}"
+      data-from="${esc(from || "")}" aria-pressed="false"><span>\u2606 Save</span></button>
+  </div>`;
+}
 
 /* ── Rendering ─────────────────────────────────────────────────────── */
 function render() {
@@ -564,6 +647,8 @@ function render() {
   document.getElementById("crumb").hidden = idle || !!q;
   document.getElementById("clearq").hidden = !q;
   if (idle) { document.getElementById("list").innerHTML = ""; return; }
+
+  if (cat === "__saved") { renderSaved(); return; }
 
   let rows;
   if (q) {
@@ -596,6 +681,7 @@ function render() {
         <div class="cityname">in ${esc(title(t))}</div>
         <div class="answer">${esc(top.name)}</div>
         <div class="why big">${esc(top.reasoning)}</div>
+        ${acts(top, t, m.name)}
         ${rest.length ? `<details><summary>${rest.length} other option${
           rest.length > 1 ? "s" : ""}</summary>${rest.map(x =>
           `<div class="alt"><span class="cname">${esc(x.name)}</span>
@@ -609,6 +695,26 @@ function render() {
       ${blocks}
     </div>`;
   }).join("");
+  renderSavedBtn();
+}
+
+function renderSaved() {
+  const el = document.getElementById("list");
+  const rows = [...saved.values()].sort((a, b) => b.at - a.at);
+  document.getElementById("crumbtext").textContent =
+    `Saved · ${rows.length} place${rows.length === 1 ? "" : "s"}`;
+  el.innerHTML = rows.length
+    ? rows.map(r => `<div class="card">
+        <div class="head"><h2>${esc(r.from || "Saved")}</h2>
+          <span class="arrow">${r.from ? "your answer for" : "saved"}</span></div>
+        <div class="city">
+          <div class="cityname">in ${esc(title(r.city))}</div>
+          <div class="answer">${esc(r.name)}</div>
+          ${acts(r, r.city, r.from)}
+        </div>
+      </div>`).join("")
+    : `<p class="empty">Nothing saved yet. Star an answer to keep it here.</p>`;
+  renderSavedBtn();
 }
 
 /* ── Flow ──────────────────────────────────────────────────────────── */
@@ -643,6 +749,7 @@ async function load() {
   renderExamples();
   renderCats();
   render();
+  renderSavedBtn();
 }
 
 async function boot() {
@@ -708,6 +815,32 @@ document.getElementById("cats").addEventListener("click", e => {
   document.getElementById("q").value = "";
   syncURL(); render();
   document.getElementById("crumb").scrollIntoView({ behavior: "smooth", block: "start" });
+});
+
+document.getElementById("list").addEventListener("click", e => {
+  const b = e.target.closest(".save");
+  if (!b) return;
+  const row = saved.get(savedKey(b.dataset.city, b.dataset.name));
+  toggleSave(b.dataset.city, b.dataset.name, b.dataset.from,
+             row ? row.links : linksFor(b));
+  if (cat === "__saved") renderSaved();
+});
+
+/* The save button sits next to the links it should keep, so read them off
+   the DOM rather than threading the object through the markup. */
+function linksFor(btn) {
+  const out = {};
+  btn.parentElement.querySelectorAll("a").forEach(a => {
+    out[a.textContent.startsWith("Website") ? "website" : "map"] = a.href;
+  });
+  return out;
+}
+
+document.getElementById("savedbtn").addEventListener("click", () => {
+  cat = "__saved"; q = "";
+  document.getElementById("q").value = "";
+  syncURL(); render();
+  scrollTo({ top: 0, behavior: "smooth" });
 });
 
 function clearView() {

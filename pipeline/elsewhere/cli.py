@@ -7,7 +7,7 @@ from dotenv import load_dotenv
 from rich.console import Console
 from rich.table import Table
 
-from elsewhere import places, seeds, taxonomy
+from elsewhere import links, places, seeds, taxonomy
 from elsewhere.taxonomy import REPO_ROOT
 
 # Load .env from the repo root and from pipeline/, without overriding anything
@@ -112,6 +112,22 @@ def places_status() -> None:
         raise typer.Exit(1)
     for city, n in places.city_counts().items():
         console.print(f"{city}: {n:,} places")
+
+
+@app.command("links")
+def links_cmd() -> None:
+    """Extract websites and coordinates for the places the corpus names.
+
+    Writes a small tracked file so the deployed app can link out without
+    shipping the 156 MB places database.
+    """
+    if not places.is_built():
+        console.print("[yellow]needs the places table[/yellow] — run `elsewhere places build`")
+        raise typer.Exit(1)
+    counts = links.build()
+    for city, n in sorted(counts.items()):
+        console.print(f"[green]✓[/green] {city}: {n:,} places with a website or coordinates")
+    console.print(f"[dim]{links.LINKS_PATH}[/dim]")
 
 
 @seeds_app.command("build")

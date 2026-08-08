@@ -9,7 +9,7 @@ from __future__ import annotations
 import pytest
 from fastapi.testclient import TestClient
 
-from elsewhere import generate, verify, web
+from elsewhere import generate, links, verify, web
 
 pytestmark = pytest.mark.skipif(
     not (
@@ -135,3 +135,28 @@ def test_pairs_are_discovered_from_disk():
     pairs = web.available_pairs()
     assert ("austin", "chicago") in pairs
     assert all(len(p) == 2 and all(p) for p in pairs)
+
+
+# ─── Links ────────────────────────────────────────────────────────────────
+
+
+def test_every_place_gets_a_map_link(client):
+    """Map links are derived from the name, so they never depend on a build."""
+    s = state(client)
+    m = s["matches"][0]
+    assert m["links"]["map"].startswith("https://www.google.com/maps/")
+    for city in s["targets"]:
+        assert m["cities"][city]["candidates"][0]["links"]["map"]
+
+
+def test_websites_are_http_only():
+    """Upstream data becomes an href, so anything but http(s) must be dropped."""
+    assert links._clean("javascript:alert(1)") is None
+    assert links._clean(" https://heb.com ") == "https://heb.com"
+    assert links._clean(None) is None
+
+
+def test_map_link_carries_the_city():
+    """'Mariano's' alone lands anywhere; the city is what makes it right."""
+    url = links.map_url("Mariano's", "chicago")
+    assert "Chicago" in url and "Mariano" in url
