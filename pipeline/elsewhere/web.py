@@ -305,9 +305,9 @@ button.brand:hover { color: var(--accent); }
    the controls sit in the middle of the viewport at full size and the
    header carries nothing but the brand and the theme toggle. */
 .stage {
-  min-height: calc(100vh - 74px);
+  min-height: calc(100vh - 62px);
   display: flex; flex-direction: column; justify-content: center;
-  text-align: center; padding: 24px 24px 60px; gap: 4px;
+  text-align: center; padding: 24px 24px 150px; gap: 4px;
 }
 .stage[hidden] { display: none; }
 .stage .inner { width: 100%; max-width: min(1180px, 92vw); margin: 0 auto; }
@@ -361,7 +361,14 @@ button.brand:hover { color: var(--accent); }
 .peekcity { color: var(--faint); font-size: 12px; text-transform: uppercase;
   letter-spacing: .07em; font-weight: 700; margin-right: 7px; }
 .peekrow b { color: var(--ink); font-weight: 700; }
-.stage .q { font-size: 18px; font-weight: 650; color: var(--dim); margin: 40px 0 0; }
+.tryfoot {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 30;
+  padding: 14px 24px 20px; text-align: center;
+  background: linear-gradient(to bottom,
+    color-mix(in srgb, var(--paper) 0%, transparent),
+    color-mix(in srgb, var(--paper) 92%, transparent) 38%, var(--paper));
+}
+.tryfoot .q { font-size: 15px; font-weight: 650; color: var(--dim); margin: 0 0 10px; }
 
 /* ─── Try rail ────────────────────────────────────────────────────────────
    The examples scroll on their own. Four static chips read as the whole
@@ -535,7 +542,8 @@ summary:hover { color: var(--accent); }
   .pitch { margin-bottom: 24px; }
   .sub { font-size: 16px; margin-bottom: 32px; }
   .cities button { font-size: 17px; padding: 16px 24px; flex: 1 1 40%; }
-  .stage { padding: 16px 18px 48px; min-height: calc(100vh - 66px); }
+  .stage { padding: 16px 18px 140px; min-height: calc(100vh - 54px); }
+  .tryfoot { padding: 12px 14px 16px; }
   .stage #controls { flex-wrap: wrap; }
   .stage #controls .field { flex: 1 1 100%; }
 }
@@ -598,9 +606,15 @@ summary:hover { color: var(--accent); }
        the page read as a list to scroll rather than a box to type in. -->
   <section class="stage" id="prompt">
     <div class="inner">
-      <h1 class="pitch"><span class="l1" id="line1">Every city has <span id="heroart">an</span> <span id="heroplace">H-E-B</span></span><em>It\'s just elsewhere.</em></h1>
+      <h1 class="pitch"><span class="l1" id="line1">Every city has <span id="heroart">an</span> <span id="heroplace">H-E-B</span>,</span><em>It\'s just elsewhere.</em></h1>
       <div id="heroslot"></div>
       <div class="peek" id="peek"></div>
+    </div>
+    <!-- Pinned to the bottom of the viewport rather than trailing the hero:
+         it's an ambient sample of what's in here, not the next step in the
+         sentence. Sitting in the flow, it pulled the eye down from the search
+         box that's supposed to be the point of the screen. -->
+    <div class="tryfoot">
       <p class="q" id="promptq"></p>
       <div class="rail"><div class="track" id="examples"></div></div>
     </div>
