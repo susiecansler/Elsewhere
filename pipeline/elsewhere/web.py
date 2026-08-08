@@ -200,7 +200,14 @@ input::placeholder { color: var(--faint); }
 select { cursor: pointer; font-weight: 650; padding-right: 38px; letter-spacing: -0.01em; }
 .grow { flex: 1; }
 .chips { display: flex; gap: 6px; }
-.chip, .pick, .chip { font-size: 13.5px; padding: 9px 15px; background: var(--panel); color: var(--dim); box-shadow: var(--shadow); }
+/* Every button here is a pill. Without this reset the browser's default
+   chrome (outset border, square corners) shows through — as it did on the
+   theme toggle once the review buttons that used to carry it were removed. */
+button {
+  font: inherit; border: 0; border-radius: 999px; cursor: pointer;
+  transition: transform .22s var(--spring), box-shadow .2s, color .2s, background .2s;
+}
+.chip, .pick { font-size: 13.5px; padding: 9px 15px; background: var(--panel); color: var(--dim); box-shadow: var(--shadow); }
 .chip:hover { color: var(--amber); transform: translateY(-2px); }
 .chip:active { transform: translateY(0) scale(.97); }
 .chip[aria-pressed=true] { background: var(--ink); color: var(--paper); box-shadow: var(--lift); }
@@ -279,7 +286,8 @@ summary:hover { color: var(--amber); }
 }
 @media (prefers-reduced-motion: reduce) {
   * { transition: none !important; animation: none !important; }
-  .card:hover, .chip:hover, }
+  .card:hover, .chip:hover, .cats button:hover { transform: none; }
+}
 /* ─── Arrival ─────────────────────────────────────────────────────────── */
 .hero { padding: 76px 24px 40px; text-align: center; }
 .hero .wrap { max-width: 720px; margin: 0 auto; }
@@ -382,6 +390,54 @@ summary:hover { color: var(--amber); }
   .cities button { font-size: 17px; padding: 16px 24px; flex: 1 1 40%; }
   .prompt { padding: 44px 18px 12px; }
 }
+/* ─── Nav additions ───────────────────────────────────────────────────── */
+button.brand.small {
+  background: none; border: 0; cursor: pointer; padding: 0;
+  font: inherit; font-size: 16px; font-weight: 800; letter-spacing: -0.02em;
+  color: var(--ink); transition: color .2s;
+}
+button.brand.small:hover { color: var(--amber); }
+
+/* Search field with a clear affordance. Without one, getting back from a
+   query to the browse view meant selecting the text and deleting it. */
+.field { position: relative; display: flex; }
+.field input[type=search] { width: 100%; padding-right: 40px; }
+.field .clear {
+  position: absolute; right: 6px; top: 50%; transform: translateY(-50%);
+  width: 26px; height: 26px; border: 0; border-radius: 999px; cursor: pointer;
+  background: var(--chip); color: var(--warn); font-size: 17px; line-height: 1;
+  display: grid; place-items: center; transition: background .2s, color .2s;
+}
+.field .clear[hidden] { display: none; }
+.field .clear:hover { background: var(--amber); color: #fff; }
+
+.or {
+  font-size: 13px; color: var(--faint); margin: 30px 0 14px;
+  text-transform: uppercase; letter-spacing: .09em; font-weight: 700;
+}
+.cats { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
+.cats button {
+  font: inherit; font-size: 14px; font-weight: 650; padding: 10px 18px;
+  border: 0; border-radius: 999px; cursor: pointer;
+  background: var(--panel); color: var(--dim); box-shadow: var(--shadow);
+  transition: transform .22s var(--spring), box-shadow .2s, color .2s;
+}
+.cats button:hover { color: var(--amber); transform: translateY(-2px); box-shadow: var(--lift); }
+.cats button .n { color: var(--faint); font-weight: 500; margin-left: 6px; font-size: 13px; }
+
+/* Tells you what you're looking at, and how to get out of it. */
+.crumb {
+  max-width: 820px; margin: 0 auto; padding: 22px 24px 4px;
+  display: flex; align-items: baseline; gap: 12px;
+}
+.crumb[hidden] { display: none; }
+.crumb span { font-size: 15px; font-weight: 650; color: var(--dim); }
+
+@media (max-width: 640px) {
+  .bar { gap: 8px; }
+  .from { display: none; }        /* "I know" is implied by the city control */
+  .crumb { padding: 16px 18px 2px; }
+}
 </style>
 </head>
 <body>
@@ -401,10 +457,13 @@ summary:hover { color: var(--amber); }
 
 <div id="app" hidden>
   <header id="bar"><div class="bar">
-    <span class="brand small">Elsewhere</span>
+    <button class="brand small" id="homebtn" title="Start over">Elsewhere</button>
     <span class="from">I know</span>
     <select id="srcsel" title="Which city you know"></select>
-    <input type="search" id="q" class="grow" placeholder="Name a place you love…">
+    <div class="field grow">
+      <input type="search" id="q" placeholder="Name a place you love…">
+      <button class="clear" id="clearq" hidden aria-label="Clear">×</button>
+    </div>
     <button class="chip" id="theme" title="Switch theme" aria-label="Switch theme">☀</button>
   </div></header>
 
@@ -413,13 +472,20 @@ summary:hover { color: var(--amber); }
   <section class="prompt" id="prompt">
     <p class="q" id="promptq"></p>
     <div class="examples" id="examples"></div>
+    <p class="or">or browse</p>
+    <div class="cats" id="cats"></div>
   </section>
+
+  <div class="crumb" id="crumb" hidden>
+    <span id="crumbtext"></span>
+    <button class="link" id="crumbclear">clear</button>
+  </div>
 
   <main id="list"></main>
 </div>
 
 <script>
-let S = null, q = "";
+let S = null, q = "", cat = "";
 let home = localStorage.getItem("elsewhere.home") || "";
 
 const title = s => s.charAt(0).toUpperCase() + s.slice(1);
@@ -468,21 +534,87 @@ function score(m, needle) {
   return body.includes(needle) ? 1 : 0;
 }
 
+/* ── Browsing ──────────────────────────────────────────────────────────
+   Search alone is a dead end for anyone who can't think of a place. The
+   seed categories are too granular to show raw (44 of them), so they fold
+   into a handful of buckets people actually think in. */
+const GROUPS = [
+  ["Food",          "Food",          ["restaurant", "dessert"]],
+  ["Drinks",        "Bars & beer",   ["bar", "brewery"]],
+  ["Coffee",        "Coffee",        ["coffee"]],
+  ["Groceries",     "Groceries",     ["grocery", "convenience", "farmers"]],
+  ["Shops",         "Shops",         ["retail", "bank"]],
+  ["Outdoors",      "Outdoors",      ["outdoor", "park"]],
+  ["Culture",       "Culture",       ["music", "museum", "theater", "cinema", "library", "landmark"]],
+  ["Neighborhoods", "Neighborhoods", ["neighborhood"]],
+  ["Fitness",       "Fitness",       ["gym"]],
+];
+
+const groupOf = m => {
+  const head = (m.category || "").split("_")[0];
+  const hit = GROUPS.find(([, , heads]) => heads.includes(head));
+  return hit ? hit[0] : "Other";
+};
+
+function renderCats() {
+  const counts = {};
+  for (const m of S.matches) counts[groupOf(m)] = (counts[groupOf(m)] || 0) + 1;
+  document.getElementById("cats").innerHTML = GROUPS
+    .filter(([key]) => counts[key])
+    .map(([key, label]) =>
+      `<button data-cat="${key}">${label}<span class="n">${counts[key]}</span></button>`)
+    .join("");
+}
+
+/* ── Deep links ────────────────────────────────────────────────────────
+   The whole point is a link people pass around, so a result has to be
+   linkable. Without this you can only tell someone "go here, then type
+   Torchy's". */
+function syncURL(replace) {
+  const p = new URLSearchParams();
+  if (home) p.set("city", home);
+  if (q) p.set("q", q);
+  else if (cat) p.set("in", cat);
+  const url = p.toString() ? "?" + p : location.pathname;
+  history[replace ? "replaceState" : "pushState"]({ home, q, cat }, "", url);
+}
+
+function readURL() {
+  const p = new URLSearchParams(location.search);
+  return { city: p.get("city") || "", q: p.get("q") || "", cat: p.get("in") || "" };
+}
+
+addEventListener("popstate", () => {
+  const u = readURL();
+  q = u.q; cat = u.cat;
+  document.getElementById("q").value = q;
+  if (u.city && u.city !== home) { home = u.city; load(); } else { render(); }
+});
+
 /* ── Rendering ─────────────────────────────────────────────────────── */
 function render() {
   if (!S) return;
 
-  // Before they type, invite a search instead of listing everything.
-  const idle = !q;
+  const idle = !q && !cat;
   document.getElementById("prompt").hidden = !idle;
+  document.getElementById("crumb").hidden = idle || !!q;
+  document.getElementById("clearq").hidden = !q;
   if (idle) { document.getElementById("list").innerHTML = ""; return; }
 
-  const needle = norm(q);
-  const rows = S.matches
-    .map(m => [score(m, needle), m])
-    .filter(([s]) => s > 0)
-    .sort((a, b) => b[0] - a[0] || a[1].name.localeCompare(b[1].name))
-    .map(([, m]) => m);
+  let rows;
+  if (q) {
+    const needle = norm(q);
+    rows = S.matches
+      .map(m => [score(m, needle), m])
+      .filter(([s]) => s > 0)
+      .sort((a, b) => b[0] - a[0] || a[1].name.localeCompare(b[1].name))
+      .map(([, m]) => m);
+  } else {
+    rows = S.matches.filter(m => groupOf(m) === cat);
+    const label = (GROUPS.find(([k]) => k === cat) || [cat, cat])[1];
+    document.getElementById("crumbtext").textContent =
+      `${label} in ${title(S.source)} · ${rows.length} places`;
+  }
 
   const el = document.getElementById("list");
   if (!rows.length) {
@@ -539,10 +671,17 @@ async function load() {
   document.getElementById("srcsel").innerHTML = Object.keys(S.sources).map(c =>
     `<option value="${c}" ${c === S.source ? "selected" : ""}>${title(c)}</option>`).join("");
   renderExamples();
+  renderCats();
   render();
 }
 
 async function boot() {
+  // A shared link carries its own city and query, and must not be
+  // overridden by whatever this browser happened to choose last time.
+  const u = readURL();
+  if (u.city) home = u.city;
+  q = u.q; cat = u.cat;
+
   if (!home) {
     const cities = await (await fetch("/api/cities")).json();
     document.getElementById("cities").innerHTML =
@@ -551,7 +690,7 @@ async function boot() {
     return;
   }
   document.getElementById("app").hidden = false;
-  load();
+  load().then(() => { document.getElementById("q").value = q; render(); });
 }
 
 function chooseCity(c) {
@@ -559,6 +698,7 @@ function chooseCity(c) {
   localStorage.setItem("elsewhere.home", home);
   document.getElementById("pick").hidden = true;
   document.getElementById("app").hidden = false;
+  syncURL();
   load().then(() => document.getElementById("q").focus());
 }
 
@@ -572,21 +712,43 @@ document.getElementById("cities").addEventListener("click", e => {
 document.getElementById("examples").addEventListener("click", e => {
   const b = e.target.closest(".eg");
   if (!b) return;
-  q = b.dataset.name;
+  q = b.dataset.name; cat = "";
   document.getElementById("q").value = q;
-  render();
+  syncURL(); render();
 });
 document.getElementById("q").addEventListener("input", e => {
   q = e.target.value.trim();
+  if (q) cat = "";
+  syncURL(true);   // replace, so typing doesn't fill the back stack
   render();
 });
 document.getElementById("srcsel").addEventListener("change", e => {
   home = e.target.value;
   localStorage.setItem("elsewhere.home", home);
-  q = "";
+  q = ""; cat = "";
   document.getElementById("q").value = "";
+  syncURL();
   load();
 });
+
+document.getElementById("cats").addEventListener("click", e => {
+  const b = e.target.closest("button[data-cat]");
+  if (!b) return;
+  cat = b.dataset.cat; q = "";
+  document.getElementById("q").value = "";
+  syncURL(); render();
+  document.getElementById("crumb").scrollIntoView({ behavior: "smooth", block: "start" });
+});
+
+function clearView() {
+  q = ""; cat = "";
+  document.getElementById("q").value = "";
+  syncURL(); render();
+  scrollTo({ top: 0, behavior: "smooth" });
+}
+document.getElementById("clearq").addEventListener("click", clearView);
+document.getElementById("crumbclear").addEventListener("click", clearView);
+document.getElementById("homebtn").addEventListener("click", clearView);
 
 boot();
 </script>
