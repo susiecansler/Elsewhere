@@ -187,3 +187,20 @@ def test_page_script_parses():
         assert done.returncode == 0, done.stderr
     finally:
         os.unlink(tmp)
+
+
+def test_area_places_get_no_website():
+    """A neighborhood's name belongs to whatever opened there.
+
+    Joining on it found a department store for 'The Domain' and a gym for
+    'Mueller'. A wrong link is worse than none, and the map link — which is
+    the right one for an area anyway — is unaffected.
+    """
+    wanted = links.corpus_places()
+    index = links.load()
+    if not index:
+        pytest.skip("links snapshot not built")
+    for city, cats in wanted.items():
+        for name, category in cats.items():
+            if category.split("_")[0] in links.AREA_CATEGORIES:
+                assert not index.get(city, {}).get(name, {}).get("website"), (city, name)

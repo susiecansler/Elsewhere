@@ -63,18 +63,29 @@ def _clean(website: str | None) -> str | None:
     return site if site.startswith(("http://", "https://")) else None
 
 
-def corpus_places() -> dict[str, set[str]]:
-    """Every place the corpus names, by the city it's in.
+#: Categories where the name denotes an area, not a business with a homepage.
+#: A neighborhood shares its name with whatever opened there, so a name-based
+#: join finds a plausible-looking row and attaches a wrong link: "The Domain"
+#: matched a department store, "Mueller" a gym, "South Congress" a mall.
+#: These places still get a map link, which is the correct one for them.
+AREA_CATEGORIES = {"neighborhood", "park", "outdoor", "landmark"}
 
-    Both sides count: a source place is shown as the card's heading and a
-    candidate as its answer, and both are worth linking.
+
+def corpus_places() -> dict[str, dict[str, str]]:
+    """Every place the corpus names, by city, with the category it plays.
+
+    Both sides count: a source place is the card's heading and a candidate is
+    its answer, and both are worth linking. A candidate inherits its source's
+    category — the match is role-for-role, so a neighborhood is answered with
+    a neighborhood.
     """
-    wanted: dict[str, set[str]] = {}
+    wanted: dict[str, dict[str, str]] = {}
     for src, tgt in _pairs():
         for m in _load(src, tgt):
-            wanted.setdefault(src, set()).add(m.source.name)
+            cat = m.source.category or ""
+            wanted.setdefault(src, {})[m.source.name] = cat
             for c in m.candidates:
-                wanted.setdefault(tgt, set()).add(c.name)
+                wanted.setdefault(tgt, {}).setdefault(c.name, cat)
     return wanted
 
 
@@ -108,7 +119,8 @@ def build() -> dict[str, int]:
     out: dict[str, dict[str, Any]] = {}
     for city, names in sorted(wanted.items()):
         found: dict[str, Any] = {}
-        for name in sorted(names):
+        for name, category in sorted(names.items()):
+            is_area = category.split("_")[0] in AREA_CATEGORIES
             row = con.execute(
                 """
                 SELECT website, lon, lat FROM places
@@ -121,7 +133,8 @@ def build() -> dict[str, int]:
             if not row:
                 continue
             website, lon, lat = row
-            entry = {k: v for k, v in (("website", _clean(website)),) if v}
+            site = None if is_area else _clean(website)
+            entry = {k: v for k, v in (("website", site),) if v}
             if lon is not None and lat is not None:
                 entry["lon"], entry["lat"] = round(lon, 5), round(lat, 5)
             if entry:

@@ -81,8 +81,7 @@
   },
   "Barton Creek Greenbelt": {
    "lat": 30.27509,
-   "lon": -97.82534,
-   "website": "http://austinparks.org/parks/barton-creek-greenbelt-east-loop-360-access"
+   "lon": -97.82534
   },
   "Bass Concert Hall": {
    "lat": 30.28639,
@@ -115,8 +114,7 @@
   },
   "Blue Genie Art Bazaar": {
    "lat": 30.32668,
-   "lon": -97.71698,
-   "website": "http://www.bluegenieartbazaar.com/"
+   "lon": -97.71698
   },
   "Blue Owl Brewing": {
    "lat": 30.25453,
@@ -207,8 +205,7 @@
   },
   "Cathedral of Junk": {
    "lat": 30.21866,
-   "lon": -97.77153,
-   "website": "http://www.roadsideamerica.com/story/7816"
+   "lon": -97.77153
   },
   "Cavender's Boot City": {
    "lat": 30.23179,
@@ -242,8 +239,7 @@
   },
   "Clarksville": {
    "lat": 30.22529,
-   "lon": -97.76905,
-   "website": "https://www.austinhomelistings.com/clarksville-austin-homes.php"
+   "lon": -97.76905
   },
   "Come and Take It Live": {
    "lat": 30.24097,
@@ -267,8 +263,7 @@
   },
   "Crestview": {
    "lat": 30.33833,
-   "lon": -97.71917,
-   "website": "http://www.crestview.com/"
+   "lon": -97.71917
   },
   "Crown & Anchor Pub": {
    "lat": 30.29247,
@@ -297,8 +292,7 @@
   },
   "Deep Eddy Pool": {
    "lat": 30.27685,
-   "lon": -97.77277,
-   "website": "http://www.deepeddymural.org/"
+   "lon": -97.77277
   },
   "Dillard's": {
    "lat": 30.3102,
@@ -325,8 +319,7 @@
   },
   "Eastwoods Park": {
    "lat": 30.29101,
-   "lon": -97.73205,
-   "website": "http://www.austintexas.gov/sites/default/files/files/Parks/parks/Alcohol_Permit_Required_for_Alcohol_Consumption_-_Official_List.pdf"
+   "lon": -97.73205
   },
   "Easy Tiger": {
    "lat": 30.26413,
@@ -359,8 +352,7 @@
   },
   "Emma Long Metropolitan Park": {
    "lat": 30.32802,
-   "lon": -97.84193,
-   "website": "https://austintexas.gov/department/emma-long-metropolitan-park"
+   "lon": -97.84193
   },
   "Emma S. Barrientos Mexican American Cultural Center": {
    "lat": 30.25811,
@@ -449,8 +441,7 @@
   },
   "Greetings from Austin mural": {
    "lat": 30.2476,
-   "lon": -97.756,
-   "website": "http://www.roadhouserelics.com/"
+   "lon": -97.756
   },
   "H-E-B": {
    "lat": 30.21605,
@@ -563,13 +554,11 @@
   },
   "Lady Bird Johnson Wildflower Center": {
    "lat": 30.18549,
-   "lon": -97.87328,
-   "website": "http://www.wildflower.org/"
+   "lon": -97.87328
   },
   "Lady Bird Lake Hike-and-Bike Trail": {
    "lat": 30.23876,
-   "lon": -97.76841,
-   "website": "http://www.austintexas.org/listings/ann-and-roy-butler-hike-and-bike-trail-and-boardwalk-at-lady-bird-lake/4369"
+   "lon": -97.76841
   },
   "Licha's Cantina": {
    "lat": 30.26402,
@@ -617,8 +606,7 @@
   },
   "McKinney Falls State Park": {
    "lat": 30.17927,
-   "lon": -97.72141,
-   "website": "https://tpwd.texas.gov/state-parks/mckinney-falls"
+   "lon": -97.72141
   },
   "Mexic-Arte Museum": {
    "lat": 30.26689,
@@ -637,13 +625,11 @@
   },
   "Mueller": {
    "lat": 30.29875,
-   "lon": -97.70631,
-   "website": "https://www.corepoweryoga.com/yoga-studios/tx/austin/mueller"
+   "lon": -97.70631
   },
   "Mueller Lake Park": {
    "lat": 30.2968,
-   "lon": -97.70577,
-   "website": "http://www.muelleraustin.com/parks-and-open-spaces"
+   "lon": -97.70577
   },
   "Nau's Enfield Drug": {
    "lat": 30.27998,
@@ -725,8 +711,7 @@
   },
   "Rainey Street": {
    "lat": 30.25878,
-   "lon": -97.73921,
-   "website": "http://www.raineystbars.com"
+   "lon": -97.73921
   },
   "Ramen Tatsu-ya": {
    "lat": 30.2539,
@@ -740,8 +725,7 @@
   },
   "Red Bud Isle": {
    "lat": 30.29103,
-   "lon": -97.78684,
-   "website": "https://redbudisle.com/"
+   "lon": -97.78684
   },
   "Ride Indoor Cycling": {
    "lat": 30.27308,
@@ -749,8 +733,7 @@
   },
   "River Place Nature Trail": {
    "lat": 30.35703,
-   "lon": -97.86431,
-   "website": "http://www.austinexplorer.com/Locations/ShowLocation.aspx?LocationID=9337"
+   "lon": -97.86431
   },
   "Room Service Vintage": {
    "lat": 30.31759,
@@ -837,13 +820,11 @@
   },
   "South Congress": {
    "lat": 30.24876,
-   "lon": -97.75035,
-   "website": "http://www.visitsoco.com/"
+   "lon": -97.75035
   },
   "South Congress Avenue": {
    "lat": 30.24072,
-   "lon": -97.75299,
-   "website": "http://austin.smallplanetguide.com/rentals/index.php?p=soco_austin_neighborhood"
+   "lon": -97.75299
   },
   "South Congress Books": {
    "lat": 30.24766,
@@ -852,8 +833,7 @@
   },
   "Southern Walnut Creek Trail": {
    "lat": 30.26012,
-   "lon": -97.69221,
-   "website": "http://www.austintexas.gov/article/walnut-creek-trail-system"
+   "lon": -97.69221
   },
   "St. Elmo Brewing": {
    "lat": 30.21742,
@@ -931,8 +911,7 @@
   },
   "The Domain": {
    "lat": 30.50335,
-   "lon": -97.75578,
-   "website": "https://www.101domain.com/store.htm"
+   "lon": -97.75578
   },
   "The Hideout Theatre": {
    "lat": 30.26857,
@@ -945,8 +924,7 @@
   },
   "The Oasis on Lake Travis": {
    "lat": 30.40562,
-   "lon": -97.87415,
-   "website": "https://www.oasis-austin.com"
+   "lon": -97.87415
   },
   "The Parish": {
    "lat": 30.26467,
@@ -990,8 +968,7 @@
   },
   "Umlauf Sculpture Garden & Museum": {
    "lat": 30.26327,
-   "lon": -97.76616,
-   "website": "http://www.umlaufsculpture.org/"
+   "lon": -97.76616
   },
   "Uncommon Objects": {
    "lat": 30.24849,
@@ -1015,13 +992,11 @@
   },
   "Walnut Creek Metropolitan Park": {
    "lat": 30.4008,
-   "lon": -97.68643,
-   "website": "http://www.austintexas.gov/department/walnut-creek-pool"
+   "lon": -97.68643
   },
   "Waterloo Park": {
    "lat": 30.27373,
-   "lon": -97.73602,
-   "website": "http://www.ci.austin.tx.us/parks"
+   "lon": -97.73602
   },
   "Waterloo Records": {
    "lat": 30.272,
@@ -1030,8 +1005,7 @@
   },
   "West Sixth Street": {
    "lat": 30.26995,
-   "lon": -97.74982,
-   "website": "http://www.300west6thstreet.com/"
+   "lon": -97.74982
   },
   "Westlake": {
    "lat": 30.28022,
@@ -1059,8 +1033,7 @@
   },
   "Zilker Botanical Garden": {
    "lat": 30.26976,
-   "lon": -97.77219,
-   "website": "http://zilkergarden.org/"
+   "lon": -97.77219
   },
   "Zilker Brewing": {
    "lat": 30.2622,
@@ -1074,8 +1047,7 @@
   },
   "Zilker Park": {
    "lat": 30.26837,
-   "lon": -97.7728,
-   "website": "http://www.austintexas.gov"
+   "lon": -97.7728
   },
   "la Barbecue": {
    "lat": 30.25456,
@@ -1115,9 +1087,9 @@
    "website": "http://www.alsbeef.com/"
   },
   "Al's Beef": {
-   "lat": 41.87909,
-   "lon": -87.64288,
-   "website": "https://alsbeefandcatering.com/"
+   "lat": 41.70556,
+   "lon": -87.7987,
+   "website": "http://www.alsbeef.com/"
   },
   "Alcala's Western Wear": {
    "lat": 41.89595,
@@ -1146,13 +1118,11 @@
   },
   "American Science & Surplus": {
    "lat": 42.01239,
-   "lon": -87.83072,
-   "website": "https://www.sciplus.com"
+   "lon": -87.83072
   },
   "Andersonville": {
    "lat": 41.97998,
-   "lon": -87.66856,
-   "website": "https://order.sweetgreen.com/andersonville/"
+   "lon": -87.66856
   },
   "Antique Taco": {
    "lat": 41.90648,
@@ -1239,8 +1209,7 @@
   },
   "Bridgeport": {
    "lat": 41.83789,
-   "lon": -87.64646,
-   "website": "https://www.att.com/stores/illinois/chicago/174156"
+   "lon": -87.64646
   },
   "Broadway Antique Market": {
    "lat": 41.99334,
@@ -1249,8 +1218,7 @@
   },
   "Bucktown": {
    "lat": 41.91037,
-   "lon": -87.67712,
-   "website": "https://www.huntington.com/Community/branch-info?locationId=23524"
+   "lon": -87.67712
   },
   "Buddy Guy's Legends": {
    "lat": 41.87302,
@@ -1314,8 +1282,7 @@
   },
   "Chicago Botanic Garden": {
    "lat": 41.88582,
-   "lon": -87.65231,
-   "website": "http://www.chicagobotanic.org/"
+   "lon": -87.65231
   },
   "Chicago Cultural Center": {
    "lat": 41.88363,
@@ -1334,8 +1301,7 @@
   },
   "Chicago Riverwalk": {
    "lat": 41.88044,
-   "lon": -87.63733,
-   "website": "http://egov.cityofchicago.org/city/webportal/portalEntityHomeAction.do?entityName=Chicago+Riverwalk&entityNameEnumValue=199"
+   "lon": -87.63733
   },
   "Chicago Shakespeare Theater": {
    "lat": 41.8914,
@@ -1358,8 +1324,7 @@
   },
   "Cloud Gate": {
    "lat": 41.8834,
-   "lon": -87.62247,
-   "website": "https://www.chicago.gov"
+   "lon": -87.62247
   },
   "Cole's Bar": {
    "lat": 41.92371,
@@ -1393,8 +1358,7 @@
   },
   "Dan Ryan Woods": {
    "lat": 41.74154,
-   "lon": -87.67864,
-   "website": "http://www.cityofchicago.org/dam/city/depts/zlup/Sustainable_Development/Publications/Chicago_Nature_and_Wildlife_Plan/Dan_Ryan_Forest_Preserve.pdf"
+   "lon": -87.67864
   },
   "Dark Matter Coffee": {
    "lat": 41.93981,
@@ -1508,8 +1472,7 @@
   },
   "Frederick C. Robie House": {
    "lat": 41.78976,
-   "lon": -87.59592,
-   "website": "http://www.gowright.org"
+   "lon": -87.59592
   },
   "Fulton Market": {
    "lat": 41.88586,
@@ -1526,8 +1489,7 @@
   },
   "Garfield Park Conservatory": {
    "lat": 41.88631,
-   "lon": -87.71719,
-   "website": "https://linktr.ee/gpconservatory"
+   "lon": -87.71719
   },
   "Garrett Popcorn Shops": {
    "lat": 41.73653,
@@ -1576,8 +1538,7 @@
   },
   "Glessner House": {
    "lat": 41.85774,
-   "lon": -87.6211,
-   "website": "http://www.glessnerhouse.org/"
+   "lon": -87.6211
   },
   "Golden Nugget Pancake House": {
    "lat": 41.93224,
@@ -1596,8 +1557,7 @@
   },
   "Grant Park": {
    "lat": 41.89855,
-   "lon": -87.63641,
-   "website": "http://www.bwgrantparkhotel.com/"
+   "lon": -87.63641
   },
   "Green City Market": {
    "lat": 41.9159,
@@ -1645,8 +1605,7 @@
   },
   "Hinsdale": {
    "lat": 41.7537,
-   "lon": -87.94393,
-   "website": "https://www.mathnasium.com/"
+   "lon": -87.94393
   },
   "Hopewell Brewing": {
    "lat": 41.93128,
@@ -1673,8 +1632,7 @@
   },
   "Indiana Dunes State Park": {
    "lat": 41.96014,
-   "lon": -87.83154,
-   "website": "http://www.in.gov/dnr/parklake/2980.htm"
+   "lon": -87.83154
   },
   "Indienne": {
    "lat": 41.89452,
@@ -1705,8 +1663,8 @@
    "website": "https://local.jewelosco.com/il/oak-forest/5616-w-159th-st.html"
   },
   "Johnnie's Beef": {
-   "lat": 41.90884,
-   "lon": -87.81332,
+   "lat": 42.04958,
+   "lon": -87.98168,
    "website": "http://johnniesbeef.com"
   },
   "Joong Boo Market": {
@@ -1765,8 +1723,7 @@
   },
   "Lakefront Trail": {
    "lat": 41.89307,
-   "lon": -87.61375,
-   "website": "http://www.bobbysbikehike.com/rentals"
+   "lon": -87.61375
   },
   "Lakeshore Sport & Fitness": {
    "lat": 41.92591,
@@ -1800,8 +1757,7 @@
   },
   "Leaning Tower of Niles": {
    "lat": 42.01243,
-   "lon": -87.78405,
-   "website": "http://www.vniles.com/883/The-Leaning-Tower-of-Niles"
+   "lon": -87.78405
   },
   "Lem's Bar-B-Q": {
    "lat": 41.75821,
@@ -1995,8 +1951,7 @@
   },
   "Navy Pier": {
    "lat": 41.89185,
-   "lon": -87.60511,
-   "website": "http://www.navypier.org/"
+   "lon": -87.60511
   },
   "Newberry Library": {
    "lat": 41.90005,
@@ -2005,13 +1960,11 @@
   },
   "North Avenue Beach": {
    "lat": 41.91722,
-   "lon": -87.62697,
-   "website": "http://www.cpdbeaches.com/beaches/north-avenue-beach/"
+   "lon": -87.62697
   },
   "North Branch Trail": {
    "lat": 41.99794,
-   "lon": -87.78724,
-   "website": "http://fpdcc.com/visit-us/recreation/hiking-walking/north-branch-trail-system"
+   "lon": -87.78724
   },
   "North Pond": {
    "lat": 41.92976,
@@ -2030,8 +1983,7 @@
   },
   "Oakbrook Center": {
    "lat": 41.85036,
-   "lon": -87.95351,
-   "website": "http://www.oakbrookcenter.com"
+   "lon": -87.95351
   },
   "Obama Presidential Center": {
    "lat": 41.78569,
@@ -2055,13 +2007,11 @@
   },
   "Ohio Street Beach": {
    "lat": 41.89359,
-   "lon": -87.6125,
-   "website": "http://chicagoparkdistrict.com/"
+   "lon": -87.6125
   },
   "Old Orchard": {
    "lat": 42.06379,
-   "lon": -87.76134,
-   "website": "https://my.lifetime.life/clubs/il/old-orchard.html"
+   "lon": -87.76134
   },
   "Old Town": {
    "lat": 41.91096,
@@ -2094,8 +2044,7 @@
   },
   "Palmer Square Park": {
    "lat": 41.92113,
-   "lon": -87.70528,
-   "website": "http://www.chicagoparkdistrict.com/parks/palmer-square-park"
+   "lon": -87.70528
   },
   "Patio at Cafe Brauer": {
    "lat": 41.91908,
@@ -2168,8 +2117,7 @@
   },
   "Richard H. Driehaus Museum": {
    "lat": 41.8943,
-   "lon": -87.62643,
-   "website": "https://linktr.ee/driehausmuseum"
+   "lon": -87.62643
   },
   "Richwell Market": {
    "lat": 42.04125,
@@ -2178,8 +2126,7 @@
   },
   "Roosevelt Square": {
    "lat": 41.8673,
-   "lon": -87.65718,
-   "website": "http://rooseveltsquare.com"
+   "lon": -87.65718
   },
   "Rosa's Lounge": {
    "lat": 41.91746,
@@ -2188,8 +2135,7 @@
   },
   "Roscoe Village": {
    "lat": 41.94183,
-   "lon": -87.68961,
-   "website": "https://crumblcookies.com/ilroscoevillage"
+   "lon": -87.68961
   },
   "Salvage One": {
    "lat": 41.88997,
@@ -2253,8 +2199,7 @@
   },
   "Southport Corridor": {
    "lat": 41.95278,
-   "lon": -87.66445,
-   "website": "http://southportcorridorchicago.blogspot.com"
+   "lon": -87.66445
   },
   "Sportsman's Club": {
    "lat": 41.89898,
@@ -2312,8 +2257,7 @@
   },
   "The 606": {
    "lat": 41.91386,
-   "lon": -87.72023,
-   "website": "http://The606.org/"
+   "lon": -87.72023
   },
   "The Dock at Montrose Beach": {
    "lat": 41.96485,
@@ -2486,13 +2430,11 @@
   },
   "Waterfall Glen": {
    "lat": 41.71633,
-   "lon": -87.95017,
-   "website": "http://www.www.forrent.com/apartment-community-profile/1001082.php"
+   "lon": -87.95017
   },
   "Waterfall Glen Forest Preserve": {
    "lat": 41.72443,
-   "lon": -87.97292,
-   "website": "http://www.dupageforest.com/preserve.aspx?id=4224"
+   "lon": -87.97292
   },
   "White Hen Pantry": {
    "lat": 41.97649,
@@ -2500,18 +2442,15 @@
   },
   "Wicker Park": {
    "lat": 41.90592,
-   "lon": -87.66486,
-   "website": "http://www.wickerparkbucktown.com/hot-properties/ashland/1440-n-ashland/"
+   "lon": -87.66486
   },
   "Winnemac Park": {
    "lat": 41.97418,
-   "lon": -87.68193,
-   "website": "http://www.winnemacdogpark.org/"
+   "lon": -87.68193
   },
   "Winnetka": {
    "lat": 42.10548,
-   "lon": -87.73099,
-   "website": "https://us17.campaign-archive.com/home/?u=8bfc1999112eaa947125ae7fa&id=f9973b61ab"
+   "lon": -87.73099
   },
   "Wishbone": {
    "lat": 41.88504,
@@ -2530,8 +2469,7 @@
   },
   "Wrigleyville": {
    "lat": 41.94704,
-   "lon": -87.65571,
-   "website": "http://www.mywrigleyville.com/"
+   "lon": -87.65571
   },
   "m.henry": {
    "lat": 41.98562,
@@ -2656,8 +2594,7 @@
   },
   "Bridgeport Village": {
    "lat": 45.39581,
-   "lon": -122.75256,
-   "website": "https://www.bridgeport-village.com"
+   "lon": -122.75256
   },
   "Broadway Books": {
    "lat": 45.53494,
@@ -2666,8 +2603,7 @@
   },
   "Broughton Beach": {
    "lat": 45.60055,
-   "lon": -122.61674,
-   "website": "http://www.oregonmetro.gov/parks/broughton-beach"
+   "lon": -122.61674
   },
   "Buffalo Exchange": {
    "lat": 45.52282,
@@ -2721,8 +2657,7 @@
   },
   "Cathedral Park": {
    "lat": 45.58751,
-   "lon": -122.75877,
-   "website": "http://www.portlandonline.com/parks/finder/index.cfm?&propertyid=97&action=ViewPark"
+   "lon": -122.75877
   },
   "Cha Cha Cha": {
    "lat": 45.47386,
@@ -2756,8 +2691,7 @@
   },
   "Council Crest Park": {
    "lat": 45.49867,
-   "lon": -122.70804,
-   "website": "http://www.portlandoregon.gov/parks/finder/index.cfm"
+   "lon": -122.70804
   },
   "Crush Bar": {
    "lat": 45.51698,
@@ -2854,13 +2788,11 @@
   },
   "Forest Park": {
    "lat": 45.57539,
-   "lon": -122.77454,
-   "website": "http://forestparkconservancy.org/forest-park"
+   "lon": -122.77454
   },
   "Forest Park (Wildwood Trail)": {
    "lat": 45.5254,
-   "lon": -122.71803,
-   "website": "http://www.forestparkconservancy.org/Forest-park/"
+   "lon": -122.71803
   },
   "Fred Meyer": {
    "lat": 45.53012,
@@ -2919,8 +2851,7 @@
   },
   "Hollywood District": {
    "lat": 45.53495,
-   "lon": -122.62317,
-   "website": "https://www.eventseeker.com/venue/143516-hollywood-district-portland-or"
+   "lon": -122.62317
   },
   "Hollywood Farmers Market": {
    "lat": 45.53624,
@@ -2959,13 +2890,11 @@
   },
   "International Rose Test Garden": {
    "lat": 45.51896,
-   "lon": -122.70527,
-   "website": "https://www.portlandoregon.gov/parks/finder/index.cfm?action=viewpark&propertyid=1113"
+   "lon": -122.70527
   },
   "Irvington": {
    "lat": 45.53459,
-   "lon": -122.64532,
-   "website": "https://www.banfield.com/locations/veterinarians/or/portland/ivt"
+   "lon": -122.64532
   },
   "Irvington Club": {
    "lat": 45.53935,
@@ -3066,8 +2995,7 @@
   },
   "Laurelhurst Park": {
    "lat": 45.52111,
-   "lon": -122.62721,
-   "website": "http://www.portlandonline.com/parks/finder/index.cfm?action=ViewPark&PropertyID=224"
+   "lon": -122.62721
   },
   "Laurelhurst Theater": {
    "lat": 45.52323,
@@ -3150,13 +3078,11 @@
   },
   "Mill Ends Park": {
    "lat": 45.51617,
-   "lon": -122.67323,
-   "website": "http://www.portlandonline.com/parks/finder/index.cfm?PropertyID=265&action=ViewPark"
+   "lon": -122.67323
   },
   "Mississippi Avenue": {
    "lat": 45.55143,
-   "lon": -122.67585,
-   "website": "http://mississippiave.com"
+   "lon": -122.67585
   },
   "Mississippi Records": {
    "lat": 45.56049,
@@ -3235,8 +3161,7 @@
   },
   "North Mississippi Avenue": {
    "lat": 45.55031,
-   "lon": -122.67574,
-   "website": "https://www.eventseeker.com/venue/790492-north-mississippi-portland-or"
+   "lon": -122.67574
   },
   "Nostrana": {
    "lat": 45.51772,
@@ -3290,8 +3215,7 @@
   },
   "Oxbow Regional Park": {
    "lat": 45.50014,
-   "lon": -122.43013,
-   "website": "http://www.oregonmetro.gov"
+   "lon": -122.43013
   },
   "Palomar": {
    "lat": 45.5053,
@@ -3310,8 +3234,7 @@
   },
   "Pearl District": {
    "lat": 45.53069,
-   "lon": -122.68166,
-   "website": "https://barre3.com/studio-locations/portland-pearl-district"
+   "lon": -122.68166
   },
   "Pendleton Home Store": {
    "lat": 45.5246,
@@ -3335,8 +3258,7 @@
   },
   "Pittock Mansion": {
    "lat": 45.5252,
-   "lon": -122.71638,
-   "website": "http://www.pittockmansion.org/"
+   "lon": -122.71638
   },
   "Plaid Pantry": {
    "lat": 45.59313,
@@ -3350,8 +3272,7 @@
   },
   "Poet's Beach": {
    "lat": 45.50707,
-   "lon": -122.67142,
-   "website": "http://www.humanaccessproject.com/swimming"
+   "lon": -122.67142
   },
   "Pok Pok": {
    "lat": 45.50477,
@@ -3389,8 +3310,7 @@
   },
   "Portland Japanese Garden": {
    "lat": 45.51865,
-   "lon": -122.70678,
-   "website": "http://www.japanesegarden.com/"
+   "lon": -122.70678
   },
   "Portland Mercado": {
    "lat": 45.48609,
@@ -3404,18 +3324,15 @@
   },
   "Portland Saturday Market": {
    "lat": 45.52266,
-   "lon": -122.66978,
-   "website": "http://www.portlandsaturdaymarket.com/"
+   "lon": -122.66978
   },
   "Portlandia": {
    "lat": 45.54119,
-   "lon": -122.71486,
-   "website": "http://www.heritagepreservation.org/Programs/Sos/4KIDS/arthist/portlan.htm"
+   "lon": -122.71486
   },
   "Powell Butte Nature Park": {
    "lat": 45.49071,
-   "lon": -122.49701,
-   "website": "http://www.portlandonline.com/parks/finder/index.cfm?PropertyID=528&action=ViewPark"
+   "lon": -122.49701
   },
   "Powell's City of Books": {
    "lat": 45.52305,
@@ -3542,13 +3459,11 @@
   },
   "Sellwood Riverfront Park": {
    "lat": 45.46669,
-   "lon": -122.66347,
-   "website": "http://www.portlandonline.com/parks/finder/index.cfm?PropertyID=668&action=ViewPark"
+   "lon": -122.66347
   },
   "Sellwood-Moreland": {
    "lat": 45.4777,
-   "lon": -122.64951,
-   "website": "https://www.banfield.com/locations/veterinarians/or/portland/aaf"
+   "lon": -122.64951
   },
   "Sheridan Fruit Company": {
    "lat": 45.51986,
@@ -3572,13 +3487,11 @@
   },
   "Springwater Corridor Trail": {
    "lat": 45.46493,
-   "lon": -122.66141,
-   "website": "http://www.40mileloop.org/trail_springwatercorridor.htm"
+   "lon": -122.66141
   },
   "St. Johns": {
    "lat": 45.64071,
-   "lon": -122.65124,
-   "website": "http://eocswa.org"
+   "lon": -122.65124
   },
   "Stars Antiques Malls": {
    "lat": 45.47327,
@@ -3672,8 +3585,7 @@
   },
   "Tom McCall Waterfront Park": {
    "lat": 45.52057,
-   "lon": -122.67023,
-   "website": "http://www.portlandonline.com/parks/finder/index.cfm?PropertyID=156&action=ViewPark"
+   "lon": -122.67023
   },
   "Tortilleria y Tienda de Leon's": {
    "lat": 45.527,
@@ -3682,8 +3594,7 @@
   },
   "Tryon Creek State Natural Area": {
    "lat": 45.43772,
-   "lon": -122.67706,
-   "website": "http://www.tryonfriends.org"
+   "lon": -122.67706
   },
   "Tulip Shop Tavern": {
    "lat": 45.56278,
@@ -3741,8 +3652,7 @@
   },
   "Washington Park": {
    "lat": 45.5174,
-   "lon": -122.70987,
-   "website": "https://www.discovertheforest.org/"
+   "lon": -122.70987
   },
   "Water Avenue Coffee": {
    "lat": 45.51825,
@@ -3761,8 +3671,7 @@
   },
   "Wildwood Trail": {
    "lat": 45.52709,
-   "lon": -122.72736,
-   "website": "http://www.forestparkconservancy.org/Forest-park/"
+   "lon": -122.72736
   },
   "WinCo Foods": {
    "lat": 45.43518,
