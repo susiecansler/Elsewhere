@@ -1,9 +1,15 @@
+"""The public site is a read-only lookup tool.
+
+Reviewing and evaluation live in the CLI, not here — these tests pin that
+separation as much as they pin the lookup behaviour.
+"""
+
 from __future__ import annotations
 
 import pytest
 from fastapi.testclient import TestClient
 
-from elsewhere import evaluate, generate, store, verify, web
+from elsewhere import generate, verify, web
 
 pytestmark = pytest.mark.skipif(
     not (
@@ -15,9 +21,7 @@ pytestmark = pytest.mark.skipif(
 
 
 @pytest.fixture
-def client(tmp_path, monkeypatch):
-    """Isolate the judgment store so tests never touch real reviews."""
-    monkeypatch.setattr(store, "DB_PATH", tmp_path / "judgments.db")
+def client():
     return TestClient(web.create_app("austin", "chicago"))
 
 
@@ -25,25 +29,8 @@ def state(client, **params):
     return client.get("/api/state", params=params).json()
 
 
-def review(client, reviewer, name, answer, city="chicago"):
-    return client.post(
-        "/api/review",
-        json={
-            "reviewer": reviewer,
-            "source_name": name,
-            "source_city": "austin",
-            "target_city": city,
-            "answer": answer,
-        },
-    )
-
-
 def row(s, name):
     return next(m for m in s["matches"] if m["name"] == name)
-
-
-def first_name(client):
-    return state(client)["matches"][0]["name"]
 
 
 # ─── Serving ──────────────────────────────────────────────────────────────
@@ -59,38 +46,80 @@ def test_healthcheck(client):
     assert r.status_code == 200 and r.json()["matches"] >= 100
 
 
-# ─── Any-to-any shape ─────────────────────────────────────────────────────
+def test_cities_lists_every_starting_point(client):
+    cities = client.get("/api/cities").json()
+    assert "austin" in cities
+    assert cities == sorted(cities)
 
 
-def test_state_exposes_places_with_per_city_answers(client):
+# ─── Read-only ────────────────────────────────────────────────────────────
+
+
+@pytest.mark.parametrize("method,path", [("post", "/api/review"), ("delete", "/api/review")])
+def test_no_write_endpoints(client, method, path):
+    """Nothing on the public site should accept writes.
+
+    The review flow was removed on purpose; leaving its endpoints behind
+    would keep an unauthenticated write surface on an open URL.
+    """
+    r = getattr(client, method)(path, json={}) if method == "post" else client.delete(path)
+    assert r.status_code == 404
+
+
+def test_state_carries_no_reviewer_data(client):
+    """No per-visitor state — the corpus is the same for everyone."""
+    s = state(client)
+    assert "reviewers" not in s and "judged" not in s
+    city = s["matches"][0]["cities"][s["targets"][0]]
+    assert set(city) == {"candidates"}
+
+
+# ─── Lookup ───────────────────────────────────────────────────────────────
+
+
+def test_state_groups_answers_by_place(client):
     s = state(client)
     assert len(s["matches"]) >= 100
     m = s["matches"][0]
-    assert {"name", "roles", "cities"} <= set(m)
-    assert s["targets"], "must report which cities it can answer in"
+    assert {"name", "aliases", "roles", "cities"} <= set(m)
+    assert s["targets"]
     for city in s["targets"]:
-        assert m["cities"][city]["candidates"]
+        cands = m["cities"][city]["candidates"]
+        assert cands and {"name", "reasoning"} <= set(cands[0])
 
 
-def test_state_lists_every_source_city(client):
-    s = state(client)
-    assert "austin" in s["sources"]
-    # Each source maps to the cities it can answer in.
-    assert all(isinstance(v, list) and v for v in s["sources"].values())
+def test_every_city_works_as_a_starting_point(client):
+    for src in client.get("/api/cities").json():
+        s = state(client, source=src)
+        assert s["source"] == src
+        assert s["targets"], f"{src} answers nowhere"
+        assert src not in s["targets"], "a city should not map to itself"
+        assert len(s["matches"]) >= 100
 
 
-def test_austin_answers_in_both_cities_when_both_are_generated(client):
-    pairs = web.available_pairs()
-    targets = sorted(t for src, t in pairs if src == "austin")
-    if len(targets) < 2:
-        pytest.skip("only one target generated for austin")
-
+def test_the_same_place_differs_by_city(client):
     s = state(client, source="austin")
-    assert s["targets"] == targets
+    if len(s["targets"]) < 2:
+        pytest.skip("only one target generated")
     m = row(s, "H-E-B")
-    # A different city means a genuinely different answer.
-    answers = {t: m["cities"][t]["candidates"][0]["name"] for t in targets}
+    answers = {t: m["cities"][t]["candidates"][0]["name"] for t in s["targets"]}
     assert len(set(answers.values())) > 1, answers
+
+
+def test_reverse_direction_agrees_with_the_forward_one(client):
+    """Franklin Barbecue ↔ Lou Malnati's was generated in two separate runs.
+
+    Neither knew about the other, so agreement is a real signal that the
+    role model is stable rather than an artifact of one prompt.
+    """
+    cities = client.get("/api/cities").json()
+    if not {"austin", "chicago"} <= set(cities):
+        pytest.skip("needs both directions generated")
+
+    fwd = row(state(client, source="austin"), "Franklin Barbecue")
+    rev = row(state(client, source="chicago"), "Lou Malnati's")
+    assert fwd["cities"]["chicago"]["candidates"][0]["name"] == "Lou Malnati's"
+    assert rev["cities"]["austin"]["candidates"][0]["name"] == "Franklin Barbecue"
 
 
 def test_unknown_source_falls_back_rather_than_erroring(client):
@@ -98,117 +127,11 @@ def test_unknown_source_falls_back_rather_than_erroring(client):
     assert s["source"] in s["sources"]
 
 
-# ─── Reviewing ────────────────────────────────────────────────────────────
-
-
-def test_review_round_trips(client):
-    name = first_name(client)
-    assert review(client, "Sam", name, "Somewhere").json()["ok"]
-    assert row(state(client, reviewer="Sam"), name)["cities"]["chicago"]["mine"] == "Somewhere"
-
-
-def test_blank_reviewer_is_rejected(client):
-    assert review(client, "   ", first_name(client), "Somewhere").status_code == 400
-
-
-def test_missing_reviewer_field_is_rejected(client):
-    r = client.post(
-        "/api/review",
-        json={
-            "source_name": first_name(client),
-            "source_city": "austin",
-            "target_city": "chicago",
-            "answer": "Somewhere",
-        },
-    )
-    assert r.status_code == 422
-
-
-def test_reviewers_see_only_their_own_picks(client):
-    """Colleagues must not appear to have already answered for you."""
-    name = first_name(client)
-    review(client, "Sam", name, "Sam's pick")
-    review(client, "Alex", name, "Alex's pick")
-
-    c = row(state(client, reviewer="Sam"), name)["cities"]["chicago"]
-    assert c["mine"] == "Sam's pick"
-    assert c["others"] == ["Alex's pick"]
-
-
-def test_undo_removes_only_your_own(client):
-    name = first_name(client)
-    review(client, "Sam", name, "Sam's pick")
-    review(client, "Alex", name, "Alex's pick")
-
-    client.delete(
-        "/api/review",
-        params={"reviewer": "Sam", "source_name": name, "target_city": "chicago"},
-    )
-
-    assert row(state(client, reviewer="Sam"), name)["cities"]["chicago"]["mine"] is None
-    assert row(state(client, reviewer="Alex"), name)["cities"]["chicago"]["mine"] == "Alex's pick"
-
-
-def test_judged_counts_places_not_judgments(client):
-    """Three people judging one place is one data point, not three."""
-    name = first_name(client)
-    review(client, "Sam", name, "A")
-    review(client, "Alex", name, "A")
-    assert review(client, "Jo", name, "B").json()["judged"] == 1
-
-
-# ─── Per-city isolation ───────────────────────────────────────────────────
-
-
-def test_judging_one_city_leaves_the_other_untouched(client):
-    """ "Chicago's answer is right, Portland's is nonsense" must be sayable."""
-    targets = state(client)["targets"]
-    if len(targets) < 2:
-        pytest.skip("only one target generated")
-
-    a, b = targets[0], targets[1]
-    name = first_name(client)
-    review(client, "Sam", name, "Answer for " + a, city=a)
-
-    cities = row(state(client, reviewer="Sam"), name)["cities"]
-    assert cities[a]["mine"] == "Answer for " + a
-    assert cities[b]["mine"] is None, "a judgment leaked between cities"
-
-
-def test_delete_requires_a_city(client):
-    # Defaulting would delete someone's answer for the wrong city.
-    r = client.delete("/api/review", params={"reviewer": "Sam", "source_name": first_name(client)})
-    assert r.status_code == 422
-
-
-def test_delete_targets_only_the_named_city(client):
-    targets = state(client)["targets"]
-    if len(targets) < 2:
-        pytest.skip("only one target generated")
-
-    a, b = targets[0], targets[1]
-    name = first_name(client)
-    review(client, "Sam", name, "keep me", city=a)
-
-    client.delete("/api/review", params={"reviewer": "Sam", "source_name": name, "target_city": b})
-    assert row(state(client, reviewer="Sam"), name)["cities"][a]["mine"] == "keep me"
-
-
-def test_progress_reports_the_threshold(client):
-    s = state(client)
-    assert s["threshold"] == evaluate.MIN_INDEPENDENT
-    assert s["judged"] == 0
-
-
 # ─── Discovery ────────────────────────────────────────────────────────────
 
 
 def test_pairs_are_discovered_from_disk():
-    """Adding a direction should just mean generating it.
-
-    Discovery from the filesystem avoids a second place to remember to
-    update, which is where a new direction would silently not appear.
-    """
+    """Adding a direction should just mean generating it."""
     pairs = web.available_pairs()
     assert ("austin", "chicago") in pairs
     assert all(len(p) == 2 and all(p) for p in pairs)

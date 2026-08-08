@@ -1,13 +1,13 @@
-"""Local viewer and review UI.
+"""The Elsewhere web app.
 
-Reviewing 30 matches at a terminal prompt is tedious enough that it doesn't
-get done, and the eval is blocked until it does. This is the same workflow
-with the friction removed: scan the corpus, judge a match in one click, and
-the judgment lands in ground_truth.jsonl immediately.
+A lookup tool: say which city you know, name a place you love, and see its
+counterpart in the other cities — matched by the *role* a place plays in
+local life, not by category.
 
-Deliberately a *local dev tool*, not the product. It binds to localhost, reads
-and writes files on disk, and ships as one embedded HTML string with no build
-step. The eventual public app is still the TypeScript one in `web/`.
+Read-only by design. There are no write endpoints and nothing to log in to;
+the corpus is generated offline by the pipeline and served as static data.
+Evaluation and reviewing live in the CLI (`elsewhere review`, `elsewhere
+eval`), deliberately not here.
 """
 
 from __future__ import annotations
@@ -16,9 +16,8 @@ from typing import Any
 
 from fastapi import FastAPI
 from fastapi.responses import HTMLResponse, JSONResponse
-from pydantic import BaseModel, Field
 
-from elsewhere import evaluate, generate, store, verify
+from elsewhere import generate, verify
 
 
 def load_corpus(source: str, target: str) -> list:
@@ -36,26 +35,13 @@ def available_pairs() -> list[tuple[str, str]]:
     just generating it — no second place to remember to update.
     """
     pairs: set[tuple[str, str]] = set()
-    for path in generate.MATCHES_DIR.glob("*-*.raw.jsonl"):
-        stem = path.name.removesuffix(".raw.jsonl")
-        if "-" in stem:
-            source, target = stem.split("-", 1)
-            pairs.add((source, target))
-    for path in generate.MATCHES_DIR.glob("*-*.verified.jsonl"):
-        stem = path.name.removesuffix(".verified.jsonl")
-        if "-" in stem:
-            source, target = stem.split("-", 1)
-            pairs.add((source, target))
+    for suffix in (".raw.jsonl", ".verified.jsonl"):
+        for path in generate.MATCHES_DIR.glob(f"*-*{suffix}"):
+            stem = path.name.removesuffix(suffix)
+            if "-" in stem:
+                source, target = stem.split("-", 1)
+                pairs.add((source, target))
     return sorted(pairs)
-
-
-class ReviewIn(BaseModel):
-    reviewer: str = Field(min_length=1, max_length=60)
-    source_name: str
-    source_city: str
-    target_city: str
-    answer: str = Field(min_length=1, max_length=200)
-    custom: bool = False
 
 
 def create_app(source: str = "austin", target: str = "chicago") -> FastAPI:
@@ -67,8 +53,6 @@ def create_app(source: str = "austin", target: str = "chicago") -> FastAPI:
     corpora = {p: load_corpus(*p) for p in pairs}
 
     #: Cities you can ask *from*, and for each, the cities we can answer in.
-    #: Derived from what's on disk, so generating a new direction is the only
-    #: step needed to make it appear.
     sources: dict[str, list[str]] = {}
     for a, b in pairs:
         sources.setdefault(a, []).append(b)
@@ -77,17 +61,14 @@ def create_app(source: str = "austin", target: str = "chicago") -> FastAPI:
 
     default_source = source if source in sources else next(iter(sources))
 
-    def state(reviewer: str | None, src: str) -> dict[str, Any]:
+    def state(src: str) -> dict[str, Any]:
         """One row per place, carrying its answer in *every* target city.
 
         Grouping by source place rather than by city pair is what makes the
-        app answer "where do I go instead" — someone types a place they know
-        and sees it rendered into each city at once, instead of picking a
-        direction first.
+        app answer "where do I go instead" — someone names a place they know
+        and sees it rendered into each city at once.
         """
         targets = sources[src]
-        mine = {t: (store.for_reviewer(reviewer, t) if reviewer else {}) for t in targets}
-        agreed = {t: store.consensus(t) for t in targets}
 
         # Keyed by place name so the same place lines up across cities.
         rows: dict[str, dict[str, Any]] = {}
@@ -100,29 +81,12 @@ def create_app(source: str = "austin", target: str = "chicago") -> FastAPI:
                         "aliases": m.source.aliases,
                         "category": m.source.category,
                         "roles": m.role_tags,
-                        "price_tier": int(m.price_tier),
-                        "reach": m.reach.value,
                         "cities": {},
                     },
                 )
-                picked = mine[tgt].get(m.source.name)
                 row["cities"][tgt] = {
-                    "mine": picked,
-                    # Everyone's answers, so a reviewer sees they're
-                    # disagreeing with someone rather than judging blind.
-                    "others": [
-                        a
-                        for a in agreed[tgt].get(m.source.name, {}).get("accepted", [])
-                        if a != picked
-                    ],
                     "candidates": [
-                        {
-                            "name": c.name,
-                            "reasoning": c.reasoning,
-                            "confidence": c.confidence,
-                            "verified": c.verified,
-                        }
-                        for c in m.candidates
+                        {"name": c.name, "reasoning": c.reasoning} for c in m.candidates
                     ],
                 }
 
@@ -130,9 +94,6 @@ def create_app(source: str = "austin", target: str = "chicago") -> FastAPI:
             "source": src,
             "targets": targets,
             "sources": {k: v for k, v in sorted(sources.items())},
-            "threshold": evaluate.MIN_INDEPENDENT,
-            "judged": sum(len(agreed[t]) for t in targets),
-            "reviewers": store.reviewers(),
             "matches": [rows[k] for k in sorted(rows)],
         }
 
@@ -146,32 +107,8 @@ def create_app(source: str = "austin", target: str = "chicago") -> FastAPI:
         return JSONResponse(sorted(sources))
 
     @app.get("/api/state")
-    def api_state(reviewer: str = "", source: str = "") -> JSONResponse:
-        return JSONResponse(
-            state(reviewer or None, source if source in sources else default_source)
-        )
-
-    @app.post("/api/review")
-    def api_review(body: ReviewIn) -> JSONResponse:
-        try:
-            store.record(
-                reviewer=body.reviewer,
-                source_name=body.source_name,
-                source_city=body.source_city,
-                target_city=body.target_city,
-                answer=body.answer,
-                custom=body.custom,
-            )
-        except ValueError as exc:
-            return JSONResponse({"ok": False, "error": str(exc)}, status_code=400)
-        return JSONResponse({"ok": True, "judged": store.count()})
-
-    @app.delete("/api/review")
-    def api_unreview(reviewer: str, source_name: str, target_city: str) -> JSONResponse:
-        # Required, not defaulted: with several cities loaded, falling back to
-        # a startup value would delete someone's answer for the wrong city.
-        store.forget(reviewer, source_name, target_city)
-        return JSONResponse({"ok": True, "judged": store.count()})
+    def api_state(source: str = "") -> JSONResponse:
+        return JSONResponse(state(source if source in sources else default_source))
 
     @app.get("/healthz")
     def healthz() -> JSONResponse:
@@ -191,7 +128,7 @@ PAGE = """<!doctype html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Elsewhere</title>
+<title>Elsewhere — every city has an H-E-B</title>
 <style>
 /* Sunny, minimalist, playful.
    No borders anywhere — separation comes from soft warm shadow. Hierarchy
@@ -262,24 +199,12 @@ input:focus, select:focus { outline: none; box-shadow: var(--lift), 0 0 0 2.5px 
 input::placeholder { color: var(--faint); }
 select { cursor: pointer; font-weight: 650; padding-right: 38px; letter-spacing: -0.01em; }
 .grow { flex: 1; }
-.progress { font-size: 13.5px; color: var(--dim); white-space: nowrap; }
-.progress b { color: var(--ink); font-weight: 700; }
-.track {
-  width: 110px; height: 6px; background: var(--chip); border-radius: 99px;
-  overflow: hidden; display: inline-block; vertical-align: middle; margin-left: 10px;
-}
-.fill { height: 100%; border-radius: 99px; background: linear-gradient(90deg, var(--sun), var(--amber)); transition: width .45s var(--spring); }
 .chips { display: flex; gap: 6px; }
-.chip, .pick, .gatebox button {
-  font: inherit; font-weight: 650; border: 0; cursor: pointer;
-  border-radius: 999px; transition: transform .22s var(--spring), box-shadow .2s, background .2s, color .2s;
-}
-.chip { font-size: 13.5px; padding: 9px 15px; background: var(--panel); color: var(--dim); box-shadow: var(--shadow); }
+.chip, .pick, .chip { font-size: 13.5px; padding: 9px 15px; background: var(--panel); color: var(--dim); box-shadow: var(--shadow); }
 .chip:hover { color: var(--amber); transform: translateY(-2px); }
 .chip:active { transform: translateY(0) scale(.97); }
 .chip[aria-pressed=true] { background: var(--ink); color: var(--paper); box-shadow: var(--lift); }
 #theme { padding: 9px 12px; font-size: 15px; line-height: 1; }
-#modebtn[aria-pressed=false] { background: linear-gradient(135deg, var(--sun), var(--peach)); color: var(--warn); }
 main { max-width: 820px; margin: 0 auto; padding: 10px 24px 100px; }
 
 .card {
@@ -333,68 +258,18 @@ summary:hover { color: var(--amber); }
   color: var(--amber); margin-bottom: 2px;
 }
 
-/* Grading */
-.cand { display: flex; gap: 15px; padding: 16px 0; box-shadow: inset 0 1px 0 var(--hair); }
-.cand:first-of-type { box-shadow: none; }
-.rank {
-  flex: none; width: 24px; height: 24px; border-radius: 999px; margin-top: 2px;
-  display: grid; place-items: center; background: var(--chip); color: var(--warn);
-  font-size: 12px; font-weight: 700; font-variant-numeric: tabular-nums;
-}
-.body { flex: 1; min-width: 0; }
 .cname { font-weight: 700; font-size: 17px; letter-spacing: -0.02em; }
-.unver { font-size: 11.5px; color: var(--warn); margin-left: 8px; font-weight: 600; }
 .why { color: var(--dim); font-size: 14.5px; margin-top: 4px; max-width: 62ch; }
-.pick {
-  font-size: 13px; padding: 9px 17px; background: var(--chip); color: var(--warn);
-  align-self: center; white-space: nowrap;
-}
-.pick:hover { background: var(--amber); color: #fff; transform: translateY(-2px); }
-.pick:active { transform: scale(.96); }
-.cand.chosen .rank { background: var(--ok-soft); color: var(--ok); }
-.cand.chosen .pick { background: var(--ok); color: #fff; }
-.cand.chosen .cname { color: var(--ok); }
-.foot { display: flex; gap: 10px; margin-top: 16px; align-items: center; flex-wrap: wrap; }
-.verdict { font-size: 13.5px; color: var(--ok); font-weight: 650; flex: 1; }
 .link {
   font: inherit; font-size: 13px; background: none; border: 0; color: var(--faint);
   cursor: pointer; text-decoration: underline; text-underline-offset: 3px;
   padding: 0; transition: color .2s;
 }
 .link:hover { color: var(--amber); }
-.others { font-size: 13px; color: var(--warn); margin-top: 10px; }
 .empty { text-align: center; color: var(--faint); padding: 90px 20px; font-size: 17px; }
 
-/* Name prompt */
-.gate {
-  position: fixed; inset: 0; z-index: 50; padding: 24px;
-  background: color-mix(in srgb, var(--paper) 74%, transparent);
-  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
-  display: flex; align-items: center; justify-content: center;
-}
-.gate[hidden] { display: none; }
-.gatebox {
-  max-width: 430px; background: var(--panel); padding: 38px 40px;
-  border-radius: 28px; box-shadow: var(--lift);
-  animation: pop .34s var(--spring);
-}
 @keyframes pop { from { opacity: 0; transform: translateY(10px) scale(.97); } }
-.gatebox h2 { font-size: 27px; margin: 0 0 14px; letter-spacing: -0.04em; line-height: 1.15; font-weight: 800; }
-.gatebox p { color: var(--dim); margin: 0 0 14px; }
-.gatebox .fine { font-size: 14px; color: var(--faint); }
-.gatebox input { width: 100%; margin: 12px 0 16px; }
-.gatebox button { font-size: 15px; padding: 13px 24px; background: var(--ink); color: var(--paper); }
-.gatebox button:hover { transform: translateY(-2px); box-shadow: var(--lift); }
-.gatebox button:active { transform: scale(.97); }
-/* Must out-specify `.gatebox button`, or the secondary action reads as
-   a second primary button and the choice stops being obvious. */
-.gatebox button.link {
-  margin-left: 16px; background: none; color: var(--faint); font-weight: 500;
-  padding: 0; box-shadow: none; border-radius: 0;
-}
-.gatebox button.link:hover { color: var(--amber); transform: none; box-shadow: none; }
-#gateerr { color: var(--amber); min-height: 18px; margin: 10px 0 0; font-size: 13.5px; font-weight: 550; }
-
+/* Must out-specify `
 @media (max-width: 640px) {
   header { padding: 12px 16px; }
   main { padding: 8px 16px 70px; }
@@ -404,8 +279,7 @@ summary:hover { color: var(--amber); }
 }
 @media (prefers-reduced-motion: reduce) {
   * { transition: none !important; animation: none !important; }
-  .card:hover, .chip:hover, .pick:hover { transform: none; }
-}
+  .card:hover, .chip:hover, }
 /* ─── Arrival ─────────────────────────────────────────────────────────── */
 .hero { padding: 76px 24px 40px; text-align: center; }
 .hero .wrap { max-width: 720px; margin: 0 auto; }
@@ -422,10 +296,6 @@ summary:hover { color: var(--amber); }
   font-style: normal;
   background: linear-gradient(100deg, var(--amber), #E85D2A);
   -webkit-background-clip: text; background-clip: text; color: transparent;
-}
-.ask {
-  display: flex; gap: 10px; align-items: center; justify-content: center;
-  flex-wrap: wrap;
 }
 .ask .lead { font-size: 16px; color: var(--dim); font-weight: 600; }
 .ask select { font-size: 17px; padding: 13px 40px 13px 18px; font-weight: 700; }
@@ -453,7 +323,6 @@ summary:hover { color: var(--amber); }
   .ask input[type=search] { min-width: 0; flex: 1 1 100%; }
 }
 /* ─── First visit: choose a city ──────────────────────────────────────── */
-.pick { padding: 84px 24px 60px; text-align: center; }
 .pick[hidden] { display: none; }
 .pick .wrap { max-width: 700px; margin: 0 auto; }
 .brand {
@@ -503,20 +372,12 @@ summary:hover { color: var(--amber); }
 .examples .eg:hover { background: var(--amber); color: #fff; transform: translateY(-2px); }
 .examples .lead { font-size: 14px; color: var(--faint); align-self: center; margin-right: 2px; }
 
-/* ─── Grading invitation ──────────────────────────────────────────────── */
-.ask {
-  max-width: 620px; margin: 10px auto 90px; padding: 0 24px; text-align: center;
-}
-.ask[hidden] { display: none; }
-.ask p { color: var(--dim); font-size: 15px; margin: 0 0 16px; }
-
 #bar { position: sticky; top: 0; z-index: 20; }
 #app[hidden] { display: none; }
 .from { font-size: 14px; color: var(--dim); font-weight: 600; }
 
 @media (max-width: 640px) {
-  .pick { padding: 52px 18px 40px; }
-  .pitch { font-size: 32px; }
+    .pitch { font-size: 32px; }
   .sub { font-size: 16px; margin-bottom: 32px; }
   .cities button { font-size: 17px; padding: 16px 24px; flex: 1 1 40%; }
   .prompt { padding: 44px 18px 12px; }
@@ -524,19 +385,6 @@ summary:hover { color: var(--amber); }
 </style>
 </head>
 <body>
-<div id="gate" class="gate" hidden>
-  <div class="gatebox">
-    <h2>Before you grade — who are you?</h2>
-    <p>So we can tell whose picks are whose. First name is plenty.</p>
-    <p class="fine">If you and someone else disagree, that's useful information,
-    not a problem. Please don't compare notes first.</p>
-    <input type="text" id="who" placeholder="Your name" autocomplete="name">
-    <button id="start">Start grading</button>
-    <button class="link" id="cancel">never mind</button>
-    <p class="fine" id="gateerr"></p>
-  </div>
-</div>
-
 <!-- First visit: pick a city before anything else. A dropdown defaulted to
      Austin meant a Chicago visitor saw Austin places and had to notice a
      control they had no reason to look at. -->
@@ -544,31 +392,23 @@ summary:hover { color: var(--amber); }
   <div class="wrap">
     <div class="brand">Elsewhere</div>
     <h1 class="pitch">Every city has an H-E-B.<br><em>It's just called something else.</em></h1>
-    <p class="sub">Tell us a place you love and we'll find its counterpart
-    in another city — not the same category, the same <em>role</em>.</p>
+    <p class="sub">Name a place you love and we'll find its counterpart
+    somewhere else — not the same category, the same <em>role</em>.</p>
     <p class="q">Which city do you know best?</p>
     <div class="cities" id="cities"></div>
   </div>
 </section>
 
-<!-- The app, once a city is chosen. One control bar, not two. -->
 <div id="app" hidden>
   <header id="bar"><div class="bar">
     <span class="brand small">Elsewhere</span>
     <span class="from">I know</span>
     <select id="srcsel" title="Which city you know"></select>
-    <input type="search" id="q" class="grow" placeholder="Type a place you love…">
-    <div class="chips" id="filters" hidden>
-      <button class="chip" data-f="all" aria-pressed="true">All</button>
-      <button class="chip" data-f="todo" aria-pressed="false">Ungraded</button>
-      <button class="chip" data-f="done" aria-pressed="false">Mine</button>
-    </div>
-    <div class="progress" id="prog"></div>
+    <input type="search" id="q" class="grow" placeholder="Name a place you love…">
     <button class="chip" id="theme" title="Switch theme" aria-label="Switch theme">☀</button>
-    <button class="link" id="signout"></button>
   </div></header>
 
-  <!-- Shown until they search. Dumping all 117 cards made the page read as a
+  <!-- Shown until they search. Dumping every card made the page read as a
        list to scroll rather than a box to type in. -->
   <section class="prompt" id="prompt">
     <p class="q" id="promptq"></p>
@@ -576,103 +416,140 @@ summary:hover { color: var(--amber); }
   </section>
 
   <main id="list"></main>
-
-  <footer class="ask" id="askgrade" hidden>
-    <p>Know these cities well? Tell us where we got it wrong —
-    it's the only way we find out if this actually works.</p>
-    <button class="chip" id="modebtn" aria-pressed="false">Help check the answers</button>
-  </footer>
 </div>
+
 <script>
-let S = null, filter = "all", q = "", grading = false, pending = null;
-let me = localStorage.getItem("elsewhere.reviewer") || "";
-// The city the visitor actually knows. Remembered so a Portland friend
-// isn't reset to Austin every time they open the link.
+let S = null, q = "";
 let home = localStorage.getItem("elsewhere.home") || "";
 
-// Browsing is the default and needs no identity. A name is only asked for at
-// the moment someone actually grades something — the gate used to sit in
-// front of everything, which made a lookup tool read as a survey.
-function askWho(after) {
-  pending = after;
-  document.getElementById("gate").hidden = false;
-  document.getElementById("who").focus();
-}
+const title = s => s.charAt(0).toUpperCase() + s.slice(1);
+const esc = s => String(s).replace(/[&<>"]/g, c =>
+  ({ "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;" }[c]));
 
-document.getElementById("start").addEventListener("click", () => {
-  const v = document.getElementById("who").value.trim();
-  if (v.length < 2) {
-    document.getElementById("gateerr").textContent = "A name or nickname is enough.";
-    return;
-  }
-  me = v;
-  localStorage.setItem("elsewhere.reviewer", me);
-  document.getElementById("gate").hidden = true;
-  const go = pending; pending = null;
-  load().then(() => { if (go) go(); });
-});
-document.getElementById("cancel").addEventListener("click", () => {
-  document.getElementById("gate").hidden = true; pending = null;
-  if (!me) setMode(false);
-});
-document.getElementById("who").addEventListener("keydown", e => {
-  if (e.key === "Enter") document.getElementById("start").click();
-});
-document.getElementById("signout").addEventListener("click", () => {
-  localStorage.removeItem("elsewhere.reviewer"); me = ""; load();
-});
-
+/* ── Theme ─────────────────────────────────────────────────────────────
+   Light by default regardless of the visitor's OS: the design is a sunny
+   one, and prefers-color-scheme would hand that choice to whichever
+   machine opened the link. */
 function applyTheme(t) {
   document.documentElement.setAttribute("data-theme", t);
   document.getElementById("theme").textContent = t === "dark" ? "☾" : "☀";
   localStorage.setItem("elsewhere.theme", t);
 }
-document.getElementById("theme").addEventListener("click", () => {
-  applyTheme(document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark");
-});
+document.getElementById("theme").addEventListener("click", () =>
+  applyTheme(document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark"));
 applyTheme(localStorage.getItem("elsewhere.theme") || "light");
 
-function setMode(on) {
-  grading = on;
-  document.getElementById("modebtn").setAttribute("aria-pressed", String(on));
-  document.getElementById("modebtn").textContent = on ? "Done grading" : "Grade these";
-  document.getElementById("filters").style.display = on ? "flex" : "none";
-  if (!on && filter !== "all") {
-    filter = "all";
-    document.querySelectorAll(".chip[data-f]").forEach(x =>
-      x.setAttribute("aria-pressed", String(x.dataset.f === "all")));
-  }
-  render();
+/* ── Search ────────────────────────────────────────────────────────────
+   Mirrors places.normalize on the server: fold punctuation so the way
+   people type a name doesn't have to match how it's printed. */
+function norm(s) {
+  return s.toLowerCase().replace(/[‘’'`]/g, "").replace(/[^a-z0-9]+/g, " ").trim();
 }
 
-document.getElementById("modebtn").addEventListener("click", () => {
-  if (!grading && !me) { askWho(() => setMode(true)); return; }
-  setMode(!grading);
-});
+/* How well a place answers the query. 0 means it doesn't.
+     3  the name or a curated alias starts with what was typed
+     2  the name or an alias contains it
+     1  it only turns up in a role or in some city's answer
+   Ranking matters because searching "torchys" otherwise surfaces every
+   card whose reasoning happens to mention Torchy's before Torchy's. */
+function score(m, needle) {
+  const names = [m.name, ...(m.aliases || [])];
+  // Compare with spaces removed so "heb" reaches "H-E-B", but only against
+  // names — doing it to prose makes "the bar" match "heb".
+  const tight = needle.replace(/ /g, "");
+  for (const n of names) {
+    const k = norm(n), kt = k.replace(/ /g, "");
+    if (k.startsWith(needle) || kt.startsWith(tight)) return 3;
+    if (k.includes(needle) || kt.includes(tight)) return 2;
+  }
+  const body = norm(m.roles.join(" ") + " " +
+    Object.values(m.cities).flatMap(c =>
+      c.candidates.map(x => x.name + " " + x.reasoning)).join(" "));
+  return body.includes(needle) ? 1 : 0;
+}
 
-const title = s => s.charAt(0).toUpperCase() + s.slice(1);
+/* ── Rendering ─────────────────────────────────────────────────────── */
+function render() {
+  if (!S) return;
 
-// A visitor who has never seen this has no idea what to type, so offer real
-// places from whichever city they picked.
+  // Before they type, invite a search instead of listing everything.
+  const idle = !q;
+  document.getElementById("prompt").hidden = !idle;
+  if (idle) { document.getElementById("list").innerHTML = ""; return; }
+
+  const needle = norm(q);
+  const rows = S.matches
+    .map(m => [score(m, needle), m])
+    .filter(([s]) => s > 0)
+    .sort((a, b) => b[0] - a[0] || a[1].name.localeCompare(b[1].name))
+    .map(([, m]) => m);
+
+  const el = document.getElementById("list");
+  if (!rows.length) {
+    el.innerHTML = `<p class="empty">Nothing here called “${esc(q)}”. Try another place.</p>`;
+    return;
+  }
+
+  el.innerHTML = rows.map(m => {
+    // One place, its answer in every city we can answer for.
+    const blocks = S.targets.filter(t => m.cities[t]).map(t => {
+      const c = m.cities[t];
+      const top = c.candidates[0];
+      const rest = c.candidates.slice(1);
+      return `<div class="city">
+        <div class="cityname">in ${esc(title(t))}</div>
+        <div class="answer">${esc(top.name)}</div>
+        <div class="why big">${esc(top.reasoning)}</div>
+        ${rest.length ? `<details><summary>${rest.length} other option${
+          rest.length > 1 ? "s" : ""}</summary>${rest.map(x =>
+          `<div class="alt"><span class="cname">${esc(x.name)}</span>
+             <div class="why">${esc(x.reasoning)}</div></div>`).join("")}</details>` : ""}
+      </div>`;
+    }).join("");
+
+    return `<div class="card">
+      <div class="head"><h2>${esc(m.name)}</h2>
+        <span class="arrow">${esc(title(S.source))}</span></div>
+      ${blocks}
+    </div>`;
+  }).join("");
+}
+
+/* ── Flow ──────────────────────────────────────────────────────────── */
 const SEEDS_BY_CITY = {
   austin:   ["H-E-B", "Torchy's Tacos", "Barton Springs Pool", "BookPeople"],
   chicago:  ["Mariano's", "Lou Malnati's", "The Green Mill", "Reckless Records"],
   portland: ["Powell's City of Books", "Stumptown Coffee Roasters", "Salt & Straw", "Forest Park"]
 };
 
-// Which screen to show. The city choice is a deliberate first step rather
-// than a dropdown defaulted to Austin, which a Chicago visitor had no reason
-// to notice before wondering why everything was Austin.
+function renderExamples() {
+  const known = new Set(S.matches.map(m => m.name));
+  const picks = (SEEDS_BY_CITY[S.source] || []).filter(n => known.has(n)).slice(0, 4);
+  const list = picks.length ? picks : S.matches.slice(0, 4).map(m => m.name);
+  document.getElementById("examples").innerHTML =
+    `<span class="lead">try</span>` +
+    list.map(n => `<button class="eg" data-name="${esc(n)}">${esc(n)}</button>`).join("");
+  document.getElementById("promptq").textContent = `What do you love in ${title(S.source)}?`;
+}
+
+async function load() {
+  S = await (await fetch("/api/state?source=" + encodeURIComponent(home))).json();
+  home = S.source;
+  localStorage.setItem("elsewhere.home", home);
+  document.getElementById("srcsel").innerHTML = Object.keys(S.sources).map(c =>
+    `<option value="${c}" ${c === S.source ? "selected" : ""}>${title(c)}</option>`).join("");
+  renderExamples();
+  render();
+}
+
 async function boot() {
-  const chooser = document.getElementById("pick");
   if (!home) {
     const cities = await (await fetch("/api/cities")).json();
-    document.getElementById("cities").innerHTML = cities.map(c =>
-      `<button data-city="${c}">${title(c)}</button>`).join("");
-    chooser.hidden = false;
+    document.getElementById("cities").innerHTML =
+      cities.map(c => `<button data-city="${c}">${title(c)}</button>`).join("");
+    document.getElementById("pick").hidden = false;
     return;
   }
-  chooser.hidden = true;
   document.getElementById("app").hidden = false;
   load();
 }
@@ -685,68 +562,24 @@ function chooseCity(c) {
   load().then(() => document.getElementById("q").focus());
 }
 
-async function load() {
-  const qs = new URLSearchParams({ reviewer: me, source: home });
-  S = await (await fetch("/api/state?" + qs)).json();
-  home = S.source;
-  localStorage.setItem("elsewhere.home", home);
-
-  const sel = document.getElementById("srcsel");
-  sel.innerHTML = Object.keys(S.sources).map(c =>
-    `<option value="${c}" ${c === S.source ? "selected" : ""}>${title(c)}</option>`).join("");
-
-  renderExamples();
-  document.getElementById("signout").textContent = me ? "not " + me + "?" : "";
-  render();
-}
-
-function renderExamples() {
-  const el = document.getElementById("examples");
-  const known = new Set(S.matches.map(m => m.name));
-  const picks = (SEEDS_BY_CITY[S.source] || []).filter(n => known.has(n)).slice(0, 4);
-  const list = picks.length ? picks : S.matches.slice(0, 4).map(m => m.name);
-  el.innerHTML = `<span class="lead">try</span>` + list.map(n =>
-    `<button class="eg" data-name="${esc(n)}">${esc(n)}</button>`
-  ).join("");
-  document.getElementById("promptq").textContent =
-    `What do you love in ${title(S.source)}?`;
-}
-
-function jumpTo(name) {
-  q = name;
-  document.getElementById("q").value = name;
-  render();
-}
-
-// Delegated rather than inline: an onclick built by interpolation breaks on
-// any name containing an apostrophe — Lou Malnati's, Torchy's, Mariano's —
-// and does so silently, because the attribute is a JS syntax error.
+/* Delegated rather than inline: an onclick built by interpolation breaks on
+   any name containing an apostrophe — Lou Malnati's, Torchy's, Mariano's —
+   and does so silently, because the attribute is a JS syntax error. */
 document.getElementById("cities").addEventListener("click", e => {
   const b = e.target.closest("button[data-city]");
   if (b) chooseCity(b.dataset.city);
 });
 document.getElementById("examples").addEventListener("click", e => {
   const b = e.target.closest(".eg");
-  if (b) jumpTo(b.dataset.name);
-});
-document.getElementById("list").addEventListener("click", e => {
-  const b = e.target.closest("[data-act]");
   if (!b) return;
-  if (b.dataset.act === "pick") pick(b.dataset.place, b.dataset.city, b.dataset.answer);
-  if (b.dataset.act === "undo") clearPick(b.dataset.place, b.dataset.city);
+  q = b.dataset.name;
+  document.getElementById("q").value = q;
+  render();
 });
-document.getElementById("list").addEventListener("keydown", e => {
-  const el = e.target.closest('input[data-act="custom"]');
-  if (el && e.key === "Enter" && el.value.trim()) {
-    pick(el.dataset.place, el.dataset.city, el.value.trim(), true);
-  }
-});
-
 document.getElementById("q").addEventListener("input", e => {
   q = e.target.value.trim();
   render();
 });
-
 document.getElementById("srcsel").addEventListener("change", e => {
   home = e.target.value;
   localStorage.setItem("elsewhere.home", home);
@@ -755,217 +588,6 @@ document.getElementById("srcsel").addEventListener("change", e => {
   load();
 });
 
-// The slim bar is plain CSS sticky — no show/hide logic. Two earlier
-// attempts (IntersectionObserver, then a scroll listener) both left it
-// stuck hidden, which costs a visitor the search box for the whole page.
-// Sticky positioning cannot fail that way.
-
-
-function progress() {
-  const el = document.getElementById("prog");
-  if (!grading) {
-    el.innerHTML = `<span style="opacity:.75">${S.matches.length} places</span>`;
-    return;
-  }
-  const n = S.judged, t = S.threshold;
-  const pct = Math.min(100, n / t * 100);
-  const people = Object.keys(S.reviewers || {}).length;
-  const msg = n >= t
-    ? `<b>${n}</b> graded — enough for a real score`
-    : `<b>${n}</b>/${t} graded`;
-  const who = people > 1 ? ` <span style="opacity:.7">· ${people} people</span>` : "";
-  el.innerHTML = msg + who + `<span class="track"><span class="fill" style="width:${pct}%"></span></span>`;
-}
-
-// Mirrors places.normalize on the server: fold punctuation so the way people
-// type a name doesn't have to match how it's printed.
-function norm(s) {
-  return s.toLowerCase()
-          .replace(/[‘’'`]/g, "")
-          .replace(/[^a-z0-9]+/g, " ")
-          .trim();
-}
-
-// How well a place answers the query. 0 means it doesn't.
-//   3  the name or a curated alias starts with what was typed
-//   2  the name or an alias contains it
-//   1  it only turns up in a role or in some city's answer
-// Ranking matters because searching "torchys" otherwise surfaces every card
-// whose reasoning happens to mention Torchy's before Torchy's itself.
-function score(m, needle) {
-  const cities = Object.values(m.cities);
-  const names = [m.name, ...(m.aliases || [])];
-  // Compare with spaces removed so "heb" reaches "H-E-B", but only against
-  // names — doing it to prose makes "the bar" match "heb".
-  const tight = needle.replace(/ /g, "");
-  for (const n of names) {
-    const k = norm(n), kt = k.replace(/ /g, "");
-    if (k.startsWith(needle) || kt.startsWith(tight)) return 3;
-    if (k.includes(needle) || kt.includes(tight)) return 2;
-  }
-  const body = norm(
-    m.roles.join(" ") + " " +
-    cities.flatMap(c => c.candidates.map(x => x.name + " " + x.reasoning)).join(" ")
-  );
-  return body.includes(needle) ? 1 : 0;
-}
-
-function visible(m) {
-  const cities = Object.values(m.cities);
-  // "Graded" means every city was judged, not just one — a place with a
-  // Chicago answer and no Portland answer is still unfinished.
-  const anyMine = cities.some(c => c.mine);
-  const allMine = cities.length > 0 && cities.every(c => c.mine);
-  if (filter === "todo" && allMine) return false;
-  if (filter === "done" && !anyMine) return false;
-  if (!q) return true;
-  return score(m, norm(q)) > 0;
-}
-
-function esc(s) {
-  return String(s).replace(/[&<>"]/g, c => ({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;" }[c]));
-}
-
-function render() {
-  if (!S) return;  // setMode() runs before the first load resolves
-  progress();
-
-  // Before they type, invite a search instead of dumping 117 cards — the
-  // full list made the page read as something to scroll, not to type in.
-  const idle = !q && !grading;
-  document.getElementById("prompt").hidden = !idle;
-  document.getElementById("askgrade").hidden = idle;
-  document.getElementById("filters").hidden = !grading;
-  if (idle) { document.getElementById("list").innerHTML = ""; return; }
-  let rows = S.matches.filter(visible);
-  if (q) {
-    const needle = norm(q);
-    rows = rows.map(m => [score(m, needle), m])
-               .sort((a, b) => b[0] - a[0] || a[1].name.localeCompare(b[1].name))
-               .map(([, m]) => m);
-  }
-  const el = document.getElementById("list");
-  if (!rows.length) { el.innerHTML = '<p class="empty">Nothing matches that.</p>'; return; }
-
-  el.innerHTML = rows.map(m => {
-    const q = s => esc(s).replace(/'/g, "\\'");
-
-    // One place, its answer in every city we can answer for. Grouping this
-    // way is the point: you type somewhere you know and see it rendered
-    // into each city at once, rather than choosing a direction first.
-    const cities = S.targets.filter(t => m.cities[t]);
-
-    if (!grading) {
-      const blocks = cities.map(t => {
-        const c = m.cities[t];
-        const top = c.candidates[0];
-        const rest = c.candidates.slice(1);
-        return `<div class="city">
-          <div class="cityname">in ${esc(title(t))}</div>
-          <div class="answer">${esc(top.name)}</div>
-          <div class="why big">${esc(top.reasoning)}</div>
-          ${rest.length ? `<details><summary>${rest.length} other option${
-            rest.length > 1 ? "s" : ""}</summary>${rest.map(x =>
-            `<div class="alt"><span class="cname">${esc(x.name)}</span>
-               <div class="why">${esc(x.reasoning)}</div></div>`).join("")}</details>` : ""}
-        </div>`;
-      }).join("");
-
-      return `<div class="card">
-        <div class="head"><h2>${esc(m.name)}</h2>
-          <span class="arrow">${esc(title(S.source))}</span></div>
-        ${blocks}
-      </div>`;
-    }
-
-    // Grading: every city is judged separately, because "the Chicago one is
-    // right but the Portland one is nonsense" is a normal and useful verdict.
-    const graded = cities.some(t => m.cities[t].mine);
-    const blocks = cities.map(t => {
-      const c = m.cities[t];
-      const cands = c.candidates.map((x, i) => {
-        const isPick = c.mine && c.mine.toLowerCase() === x.name.toLowerCase();
-        return `<div class="cand ${isPick ? "chosen" : ""}">
-          <div class="rank">${i + 1}</div>
-          <div class="body">
-            <div><span class="cname">${esc(x.name)}</span>${
-              x.verified === false ? '<span class="unver">unverified</span>' : ""}</div>
-            <div class="why">${esc(x.reasoning)}</div>
-          </div>
-          <button class="pick" data-act="pick" data-place="${esc(m.name)}"
-                  data-city="${esc(t)}" data-answer="${esc(x.name)}">${
-            isPick ? "✓ yours" : "This one"}</button>
-        </div>`;
-      }).join("");
-
-      const others = c.others && c.others.length
-        ? `<div class="others">others picked: ${c.others.map(esc).join(", ")}</div>` : "";
-
-      return `<div class="city ${c.mine ? "done" : ""}">
-        <div class="cityname">in ${esc(title(t))}</div>
-        ${cands}
-        ${others}
-        <div class="foot">
-          ${c.mine
-            ? `<span class="verdict">✓ you picked ${esc(c.mine)}</span>
-               <button class="link" data-act="undo" data-place="${esc(m.name)}"
-                       data-city="${esc(t)}">undo</button>`
-            : `<input type="text" placeholder="or type a better answer…" class="grow"
-                 data-act="custom" data-place="${esc(m.name)}" data-city="${esc(t)}">`}
-        </div>
-      </div>`;
-    }).join("");
-
-    return `<div class="card ${graded ? "done" : ""}">
-      <div class="head"><h2>${esc(m.name)}</h2>
-        <span class="arrow">${esc(title(S.source))}</span></div>
-      <div class="meta">${m.roles.map(r => `<span class="role">${esc(r)}</span>`).join("")}
-        · tier ${m.price_tier} · ${esc(m.reach)}</div>
-      ${blocks}
-    </div>`;
-  }).join("");
-}
-
-async function pick(name, city, answer, custom) {
-  if (!me) { askWho(() => pick(name, city, answer, custom)); return; }
-  const m = S.matches.find(x => x.name === name);
-  const r = await fetch("/api/review", {
-    method: "POST", headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      reviewer: me, source_name: name, source_city: S.source,
-      target_city: city, answer: answer, custom: !!custom
-    })
-  });
-  const j = await r.json();
-  if (!j.ok) { alert(j.error || "couldn't save"); return; }
-  m.cities[city].mine = answer;
-  m.cities[city].others = (m.cities[city].others || []).filter(a => a !== answer);
-  S.judged = j.judged;
-  render();
-}
-
-async function clearPick(name, city) {
-  const r = await fetch("/api/review?reviewer=" + encodeURIComponent(me) +
-                        "&source_name=" + encodeURIComponent(name) +
-                        "&target_city=" + encodeURIComponent(city), { method: "DELETE" });
-  const j = await r.json();
-  S.matches.find(x => x.name === name).cities[city].mine = null;
-  S.judged = j.judged;
-  render();
-}
-
-
-// Scoped to [data-f]: a bare `.chip` selector also caught the theme and
-// mode buttons, so clicking either set filter to undefined and flipped
-// their aria-pressed, inverting their colours.
-document.querySelectorAll(".chip[data-f]").forEach(b => b.addEventListener("click", () => {
-  filter = b.dataset.f;
-  document.querySelectorAll(".chip[data-f]").forEach(x =>
-    x.setAttribute("aria-pressed", String(x === b)));
-  render();
-}));
-
-setMode(false);
 boot();
 </script>
 </body>
