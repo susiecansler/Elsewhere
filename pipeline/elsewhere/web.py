@@ -314,7 +314,12 @@ button.brand:hover { color: var(--accent); }
 .stage #controls .citybtn { font-size: 18px; padding: 16px 22px; }
 .stage #controls .field { flex: 1 1 380px; max-width: 460px; }
 .stage #controls input[type=search] { font-size: 18px; padding: 16px 22px; }
+/* The name gets its own line and the headline reserves the space for it.
+   Otherwise every change to a longer or shorter name reflows the block, and
+   because the stage is vertically centred that shoves the entire page up and
+   down mid-animation. */
 #heroplace { display: inline-block; min-width: 3ch; }
+.pitch { min-height: calc(1.06em * 3); }
 #heroart:empty { display: none; }
 .prompt.demo #heroplace { color: var(--accent); }
 /* The demo's answers. Present but quiet — the headline is doing the talking,
@@ -470,7 +475,7 @@ summary:hover { color: var(--accent); }
   .crumb { padding: 16px 18px 2px; }
   .card { padding: 24px 22px; border-radius: 20px; }
   .answer { font-size: 27px; }
-  .pitch { font-size: 31px; }
+  .pitch { font-size: 31px; min-height: calc(1.06em * 4); }
   .sub { font-size: 16px; margin-bottom: 32px; }
   .cities button { font-size: 17px; padding: 16px 24px; flex: 1 1 40%; }
   .stage { padding: 16px 18px 48px; min-height: calc(100vh - 66px); }
@@ -529,7 +534,7 @@ summary:hover { color: var(--accent); }
        the page read as a list to scroll rather than a box to type in. -->
   <section class="stage" id="prompt">
     <div class="inner">
-      <h1 class="pitch">Every city has <span id="heroart">an</span> <span id="heroplace">H-E-B</span>.<br><em>It\'s just elsewhere.</em></h1>
+      <h1 class="pitch">Every city has <span id="heroart">an</span><br><span id="heroplace">H-E-B</span>.<br><em>It\'s just elsewhere.</em></h1>
       <div id="heroslot"></div>
       <div class="peek" id="peek"></div>
       <p class="q" id="promptq"></p>
@@ -835,8 +840,7 @@ function startRail() {
    It stops for good at the first sign of a real visitor — focus, a
    keystroke, a click — because an animation that keeps going while someone
    is typing is a bug, not a flourish. */
-const SCRAMBLE = "ABCDEFGHIJKLMNOPQRSTUVWXYZ&'-";
-let demoTimer = null, demoAt = 0, demoOn = false, scrambleTimer = null;
+let demoOn = false, scrambleTimer = null;
 
 /* "a" or "an", by sound rather than spelling.
 
@@ -855,27 +859,48 @@ function article(name) {
   return /^[aeiou]/i.test(name) ? "an" : "a";
 }
 
-/* Letter-by-letter resolve: each character locks in from the left while the
-   unresolved tail keeps churning. Reads as *finding* a name, which is what
-   the product does — a dissolve would read as merely replacing one. */
+/* Letter-by-letter resolve, as a travelling wave.
+
+   The whole tail churning at once is noise — you can't read it, so nothing
+   is being *replaced*, the word just vanishes and a new one arrives. Instead
+   a narrow band of scrambling characters moves left to right: ahead of it the
+   old name is still legible, behind it the new one has landed. The band
+   starts one character wide and widens as it travels, so the effect begins as
+   a flicker and builds rather than exploding on frame one.
+
+   Both names stay visible during the transition, which is the point — you can
+   see the Austin place turning into the Chicago one. */
+const SCRAMBLE = "ABCDEFGHIJKLMNOPQRSTUVWXYZ&'-";
+const randChar = () => SCRAMBLE[(Math.random() * SCRAMBLE.length) | 0];
+
 function scrambleTo(el, text) {
   clearInterval(scrambleTimer);
+  const from = el.dataset.text || el.textContent || "";
+  el.dataset.text = text;
   if (matchMedia("(prefers-reduced-motion: reduce)").matches) {
     el.textContent = text;
     return;
   }
-  let frame = 0;
-  const total = text.length;
+
+  const span = Math.max(from.length, text.length);
+  let head = 0;                       // leading edge of the wave
   scrambleTimer = setInterval(() => {
-    frame++;
-    const locked = Math.floor(frame / 1.6);
-    if (locked >= total) { el.textContent = text; clearInterval(scrambleTimer); return; }
-    let out = text.slice(0, locked);
-    for (let i = locked; i < total; i++) {
-      out += text[i] === " " ? " " : SCRAMBLE[(Math.random() * SCRAMBLE.length) | 0];
+    head += 0.9;
+    // One character wide at the start, six by the end.
+    const band = 1 + (head / span) * 5;
+    if (head - band > span) {
+      el.textContent = text;
+      clearInterval(scrambleTimer);
+      return;
+    }
+    let out = "";
+    for (let i = 0; i < span; i++) {
+      if (i < head - band) out += text[i] ?? "";
+      else if (i < head) out += (text[i] === " " || from[i] === " ") ? " " : randChar();
+      else out += from[i] ?? "";
     }
     el.textContent = out;
-  }, 34);
+  }, 38);
 }
 
 function demoPicks() {
@@ -884,43 +909,92 @@ function demoPicks() {
     .concat(S.matches.slice(0, 4)).slice(0, 4);
 }
 
-function demoStep() {
+/* The cycle is a little performance: someone types a place, thinks for a
+   beat, gets an answer, then clears the box and tries another. Written as an
+   async sequence rather than nested timers — the timing reads in order, and
+   one cancellation token unwinds it from any point.
+
+   `demoRun` increments on every stop, so a sequence that was mid-await when
+   the visitor touched the page notices and returns instead of writing into
+   the box under their hands. */
+let demoRun = 0;
+const sleep = ms => new Promise(r => setTimeout(r, ms));
+
+/* Human typing isn't metronomic, and a uniform interval is the thing that
+   makes an effect read as a cursor animation rather than a person. */
+const beat = base => base + Math.random() * base * 0.7;
+
+async function typeInto(box, text, token) {
+  for (let i = 1; i <= text.length; i++) {
+    if (token !== demoRun) return false;
+    box.value = text.slice(0, i);
+    await sleep(beat(52));
+  }
+  return token === demoRun;
+}
+
+async function deleteFrom(box, token) {
+  while (box.value.length) {
+    if (token !== demoRun) return false;
+    box.value = box.value.slice(0, -1);
+    await sleep(beat(26));   // deleting is always faster than typing
+  }
+  return token === demoRun;
+}
+
+async function demoCycle(token) {
   const picks = demoPicks();
   if (!picks.length) return;
-  const m = picks[demoAt % picks.length];
-  demoAt++;
-
-  const shown = m.name.replace(/^The\s+/i, "");
-  document.getElementById("heroart").textContent = article(shown);
-  scrambleTo(document.getElementById("heroplace"), shown);
   const box = document.getElementById("q");
-  box.value = m.name;                 // no input event: this is a demo, not a search
-  document.getElementById("clearq").hidden = true;
-
   const peek = document.getElementById("peek");
-  peek.innerHTML = S.targets.filter(t => m.cities[t]).map(t =>
-    `<span class="peekrow"><span class="peekcity">in ${esc(title(t))}</span>
-       <b>${esc(m.cities[t].candidates[0].name)}</b></span>`).join("");
-  peek.classList.remove("in");
-  requestAnimationFrame(() => peek.classList.add("in"));
+
+  // Land on the static sentence first; a headline already mid-flight on
+  // arrival reads as a glitch rather than a demonstration.
+  await sleep(2200);
+
+  for (let n = 0; token === demoRun; n++) {
+    const m = picks[n % picks.length];
+
+    if (!await typeInto(box, m.name, token)) return;
+    await sleep(900);                    // the pause before you hit enter
+    if (token !== demoRun) return;
+
+    const shown = m.name.replace(/^The\s+/i, "");
+    document.getElementById("heroart").textContent = article(shown);
+    scrambleTo(document.getElementById("heroplace"), shown);
+
+    peek.innerHTML = S.targets.filter(t => m.cities[t]).map(t =>
+      `<span class="peekrow"><span class="peekcity">in ${esc(title(t))}</span>
+         <b>${esc(m.cities[t].candidates[0].name)}</b></span>`).join("");
+    peek.classList.remove("in");
+    requestAnimationFrame(() => peek.classList.add("in"));
+
+    await sleep(3400);                   // long enough to read the answer
+    if (token !== demoRun) return;
+    peek.classList.remove("in");
+    if (!await deleteFrom(box, token)) return;
+    await sleep(500);
+  }
 }
 
 function startDemo() {
   if (demoOn || q || cat) return;
   demoOn = true;
   document.getElementById("prompt").classList.add("demo");
-  demoStep();
-  demoTimer = setInterval(demoStep, 4200);
+  demoCycle(demoRun);
 }
 
 function stopDemo() {
   if (!demoOn) return;
   demoOn = false;
-  clearInterval(demoTimer); clearInterval(scrambleTimer);
+  demoRun++;                             // any in-flight sequence stands down
+  clearInterval(scrambleTimer);
   document.getElementById("prompt").classList.remove("demo");
+  const hp = document.getElementById("heroplace");
   document.getElementById("heroart").textContent = "an";
-  document.getElementById("heroplace").textContent = "H-E-B";
+  hp.textContent = hp.dataset.text = "H-E-B";
   document.getElementById("peek").innerHTML = "";
+  document.getElementById("peek").classList.remove("in");
   const box = document.getElementById("q");
   if (!q) box.value = "";
 }
@@ -962,7 +1036,6 @@ async function load() {
   railAt = 0;
   document.getElementById("examples").style.transform = "translateX(0)";
   startRail();
-  demoAt = 0;
   if (!q && !cat) startDemo();
 }
 

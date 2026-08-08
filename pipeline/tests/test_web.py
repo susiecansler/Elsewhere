@@ -6,6 +6,11 @@ separation as much as they pin the lookup behaviour.
 
 from __future__ import annotations
 
+import os
+import shutil
+import subprocess
+import tempfile
+
 import pytest
 from fastapi.testclient import TestClient
 
@@ -160,3 +165,25 @@ def test_map_link_carries_the_city():
     """'Mariano's' alone lands anywhere; the city is what makes it right."""
     url = links.map_url("Mariano's", "chicago")
     assert "Chicago" in url and "Mariano" in url
+
+
+def test_page_script_parses():
+    """The page is one big inline script with no build step behind it.
+
+    A syntax error there is silent: the server still returns 200, the tests
+    still pass, and the page renders blank. A duplicate `const` introduced
+    exactly that. Skipped where node isn't installed rather than made a hard
+    dependency of the suite.
+    """
+    node = shutil.which("node")
+    if not node:
+        pytest.skip("node not available")
+    script = web.PAGE[web.PAGE.index("<script>") + 8 : web.PAGE.rindex("</script>")]
+    with tempfile.NamedTemporaryFile("w", suffix=".js", delete=False) as fh:
+        fh.write(script)
+        tmp = fh.name
+    try:
+        done = subprocess.run([node, "--check", tmp], capture_output=True, text=True)
+        assert done.returncode == 0, done.stderr
+    finally:
+        os.unlink(tmp)
