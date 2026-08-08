@@ -141,40 +141,43 @@ PAGE = """<!doctype html>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Elsewhere — every city has an H-E-B</title>
 <style>
-/* Palette: coffee-bean / vintage-grape / dim-grey / dry-sage / light-green.
+/* Palette: bubblegum-pink / golden-pollen / emerald / ocean-blue / dark-teal.
    No borders anywhere — separation comes from soft shadow, hierarchy from
-   type size. Two brand colours do the work: grape for interaction in light,
-   green in dark, so the accent always reads against its own background. */
+   type size. Ocean-blue carries interaction in light and emerald in dark, so
+   the accent always has contrast against its own ground; pink and gold are
+   used sparingly, where a moment should feel like a moment. */
 :root {
   color-scheme: light;
-  --paper:  #F7F8F3;
+  --paper:  #F6FBFC;
   --panel:  #FFFFFF;
-  --ink:    #1A090D;   /* coffee-bean */
-  --dim:    #6B6570;   /* dim-grey */
-  --faint:  #9C97A2;
-  --hair:   #E6EADF;
-  --sage:   #A8BA9A;   /* dry-sage */
-  --lime:   #ACE894;   /* light-green */
-  --accent: #4A314D;   /* vintage-grape */
-  --accent-deep: #3B2440;
-  --accent-soft: #EFF6EA;
-  --on-accent: #FDFEFB;
-  --chip:   #EFF6EA;
-  /* The wash at the top of the page: green and grape, low and off-centre. */
-  --wash-a: #D7EEC8;
-  --wash-b: #E5DDE7;
-  --shadow: 0 1px 2px rgba(26,9,13,.05), 0 12px 32px -16px rgba(26,9,13,.20);
-  --lift:   0 2px 6px rgba(26,9,13,.07), 0 22px 50px -20px rgba(26,9,13,.30);
+  --ink:    #073B4C;   /* dark-teal */
+  --dim:    #4A6C78;
+  --faint:  #8CA7B1;
+  --hair:   #E0EEF2;
+  --pink:   #EF476F;   /* bubblegum-pink */
+  --gold:   #FFD166;   /* golden-pollen */
+  --emerald:#06D6A0;
+  --accent: #118AB2;   /* ocean-blue */
+  --accent-deep: #0B6E8F;
+  --accent-soft: #DFF1F8;
+  --on-accent: #FFFFFF;
+  --chip:   #E4F2F8;
+  /* The wash at the top of the page: pollen and emerald, low and off-centre. */
+  --wash-a: #FFE9B4;
+  --wash-b: #C6F5E6;
+  --shadow: 0 1px 2px rgba(7,59,76,.05), 0 12px 32px -16px rgba(7,59,76,.22);
+  --lift:   0 2px 6px rgba(7,59,76,.08), 0 22px 50px -20px rgba(7,59,76,.32);
   --spring: cubic-bezier(.34, 1.4, .5, 1);
 }
-/* Opt-in only. Coffee-bean ground, green accent — the same product at night. */
+/* Opt-in only. Dark-teal ground, emerald accent — the same product at night. */
 :root[data-theme="dark"] {
   color-scheme: dark;
-  --paper: #1A090D; --panel: #2A1A2C; --ink: #F3F6EE; --dim: #B0AAB6;
-  --faint: #847E8A; --hair: #3A2A3C; --sage: #A8BA9A; --lime: #ACE894;
-  --accent: #ACE894; --accent-deep: #ACE894; --accent-soft: #2C3B26;
-  --on-accent: #1A090D; --chip: #2C3B26;
-  --wash-a: #2B1B2E; --wash-b: #23161C;
+  --paper: #073B4C; --panel: #0C4C61; --ink: #EFFAFC; --dim: #A7C5CF;
+  --faint: #6F93A1; --hair: #145A70;
+  --pink: #FF6B8B; --gold: #FFD166; --emerald: #06D6A0;
+  --accent: #06D6A0; --accent-deep: #06D6A0; --accent-soft: #0E5A6E;
+  --on-accent: #073B4C; --chip: #0E5A6E;
+  --wash-a: #0C5163; --wash-b: #0A4553;
   --shadow: 0 1px 2px rgba(0,0,0,.35), 0 12px 32px -16px rgba(0,0,0,.6);
   --lift:   0 2px 6px rgba(0,0,0,.4), 0 22px 50px -20px rgba(0,0,0,.7);
 }
@@ -262,7 +265,7 @@ button.brand:hover { color: var(--accent); }
 }
 .pitch em, .sub em {
   font-style: normal;
-  background: linear-gradient(100deg, var(--accent), var(--sage));
+  background: linear-gradient(100deg, var(--accent), var(--pink));
   -webkit-background-clip: text; background-clip: text; color: transparent;
 }
 /* In the hero the controls are the hero: big type, generous target. */
@@ -289,6 +292,8 @@ button.brand:hover { color: var(--accent); }
   font-size: 14px; font-weight: 600; padding: 9px 16px; white-space: nowrap;
   background: var(--chip); color: var(--accent-deep);
 }
+.eg:nth-child(3n+2) { background: color-mix(in srgb, var(--gold) 34%, var(--panel)); color: var(--ink); }
+.eg:nth-child(3n+3) { background: color-mix(in srgb, var(--emerald) 22%, var(--panel)); color: var(--ink); }
 .eg:hover { background: var(--accent); color: var(--on-accent); transform: translateY(-2px); }
 
 .or {
@@ -343,7 +348,10 @@ main { max-width: 820px; margin: 0 auto; padding: 10px 24px 100px; }
 .acts a:hover, .acts .save:hover {
   background: var(--accent); color: var(--on-accent); transform: translateY(-2px);
 }
-.acts .save[aria-pressed=true] { background: var(--accent); color: var(--on-accent); }
+/* A save is yours, not the site's — pink marks it as the one thing on the
+   page you put there. */
+.acts .save[aria-pressed=true] { background: var(--pink); color: #fff; }
+.acts .save[aria-pressed=true]:hover { background: var(--pink); }
 .acts .out { font-size: 11px; opacity: .6; }
 .savecount { font-size: 12px; color: var(--faint); font-weight: 600; margin-left: 4px; }
 #savedbtn[hidden] { display: none; }
