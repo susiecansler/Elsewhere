@@ -160,12 +160,19 @@ def load() -> dict[str, dict[str, Any]]:
         return {}
 
 
-def for_place(index: dict[str, dict[str, Any]], name: str, city: str) -> dict[str, str]:
-    """The links to show for one place: always a map, a website when known."""
+def for_place(index: dict[str, dict[str, Any]], name: str, city: str) -> dict[str, Any]:
+    """What the card can show for one place.
+
+    Always a map search link; a website where we trust one; and coordinates
+    where the corpus knows them, which is what lets the card draw an actual
+    map instead of just linking to one.
+    """
     entry = index.get(city, {}).get(name, {})
-    out = {"map": map_url(name, city)}
+    out: dict[str, Any] = {"map": map_url(name, city)}
     if entry.get("website"):
         out["website"] = entry["website"]
+    if entry.get("lat") is not None and entry.get("lon") is not None:
+        out["lat"], out["lon"] = entry["lat"], entry["lon"]
     return out
 
 

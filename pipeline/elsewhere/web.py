@@ -1,5 +1,11 @@
 """The Elsewhere web app.
 
+Stretch goal, not built: geolocate the visitor's city so the source picker
+starts on where they actually are instead of on Austin. The corpus only
+covers three cities, so today the guess would be wrong more often than
+right — worth revisiting once there are enough cities for a nearest-match
+to be meaningful.
+
 A lookup tool: say which city you know, name a place you love, and see its
 counterpart in the other cities — matched by the *role* a place plays in
 local life, not by category.
@@ -206,7 +212,7 @@ body {
    ambiguous whether the bar was chrome or content — the hairline and the
    lifted panel colour settle that. */
 header {
-  position: sticky; top: 0; z-index: 40; padding: 14px 28px;
+  position: sticky; top: 0; z-index: 40; padding: 8px 26px;
   background: color-mix(in srgb, var(--panel) 88%, var(--accent) 4%);
   backdrop-filter: saturate(1.4) blur(14px);
   -webkit-backdrop-filter: saturate(1.4) blur(14px);
@@ -217,7 +223,8 @@ header {
 /* A search field stretched across a 1500px header reads as a text area, not
    a search box. */
 #barslot .field { max-width: 560px; }
-#savedbtn { margin-left: auto; }
+#browsebtn { margin-left: auto; }
+#savedbtn { margin-left: 0; }
 #theme { padding: 9px 12px; font-size: 15px; line-height: 1; }
 
 /* ─── Controls (city + search) ────────────────────────────────────────────
@@ -226,7 +233,7 @@ header {
    the visitor typed. */
 #controls { display: flex; gap: 10px; align-items: center; flex: 1; min-width: 0; }
 input[type=search], input[type=text], select {
-  font: inherit; font-size: 15px; padding: 11px 16px; border: 0;
+  font: inherit; font-size: 15px; padding: 9px 16px; border: 0;
   border-radius: 999px; background: var(--panel); color: var(--ink);
   box-shadow: var(--shadow); transition: box-shadow .2s, transform .2s var(--spring);
 }
@@ -243,7 +250,7 @@ select.native { position: absolute; opacity: 0; pointer-events: none; width: 1px
 .citybtn {
   display: inline-flex; align-items: center; gap: 9px;
   font-size: 15px; font-weight: 700; letter-spacing: -0.01em;
-  padding: 11px 16px; background: var(--panel); color: var(--ink);
+  padding: 9px 16px; background: var(--panel); color: var(--ink);
   box-shadow: var(--shadow);
 }
 .citybtn:hover { box-shadow: var(--lift); }
@@ -265,7 +272,8 @@ select.native { position: absolute; opacity: 0; pointer-events: none; width: 1px
 }
 .citymenu button:hover { background: var(--chip); }
 .citymenu button[aria-selected=true] { background: var(--accent); color: var(--on-accent); }
-.from { font-size: 14px; color: var(--dim); font-weight: 600; white-space: nowrap; }
+.from, .to { font-size: 14px; color: var(--dim); font-weight: 600; white-space: nowrap; }
+.to { color: var(--faint); font-size: 17px; }
 .field { position: relative; display: flex; flex: 1; min-width: 0; }
 .field input[type=search] { width: 100%; padding-right: 42px; }
 .field .clear {
@@ -280,12 +288,15 @@ button {
   font: inherit; border: 0; border-radius: 999px; cursor: pointer;
   transition: transform .22s var(--spring), box-shadow .2s, color .2s, background .2s;
 }
-.chip { font-size: 13.5px; padding: 9px 15px; background: var(--panel); color: var(--dim); box-shadow: var(--shadow); }
+.chip { font-size: 13.5px; padding: 8px 14px; background: var(--panel); color: var(--dim); box-shadow: var(--shadow); }
 .chip:hover { color: var(--accent); transform: translateY(-2px); }
 .chip:active { transform: translateY(0) scale(.97); }
+/* The brand is the way home, so it should look like the biggest thing in the
+   bar rather than a label sharing its baseline with the controls. */
 button.brand {
-  background: none; padding: 0; font-size: 17px; font-weight: 800;
-  letter-spacing: -0.02em; color: var(--ink);
+  background: none; padding: 0 14px 0 0; margin-right: 2px;
+  font-size: 23px; font-weight: 800; letter-spacing: -0.035em;
+  color: var(--ink); line-height: 1; align-self: center;
 }
 button.brand:hover { color: var(--accent); }
 
@@ -299,7 +310,7 @@ button.brand:hover { color: var(--accent); }
   text-align: center; padding: 24px 24px 60px; gap: 4px;
 }
 .stage[hidden] { display: none; }
-.stage .inner { width: 100%; max-width: 720px; margin: 0 auto; }
+.stage .inner { width: 100%; max-width: min(1180px, 92vw); margin: 0 auto; }
 .pitch {
   font-size: 46px; line-height: 1.06; letter-spacing: -0.045em; font-weight: 800;
   margin: 0 0 30px;
@@ -311,15 +322,31 @@ button.brand:hover { color: var(--accent); }
 }
 /* In the hero the controls are the hero: big type, generous target. */
 .stage #controls { justify-content: center; flex: 0 1 auto; }
-.stage #controls .citybtn { font-size: 18px; padding: 16px 22px; }
-.stage #controls .field { flex: 1 1 380px; max-width: 460px; }
-.stage #controls input[type=search] { font-size: 18px; padding: 16px 22px; }
-/* The name gets its own line and the headline reserves the space for it.
-   Otherwise every change to a longer or shorter name reflows the block, and
-   because the stage is vertically centred that shoves the entire page up and
-   down mid-animation. */
-#heroplace { display: inline-block; min-width: 3ch; }
-.pitch { min-height: calc(1.06em * 3); }
+.stage #controls .citybtn { font-size: 20px; padding: 20px 26px; }
+.stage #controls .field { flex: 1 1 460px; max-width: 620px; }
+.stage #controls input[type=search] { font-size: 20px; padding: 20px 26px; }
+/* Two lines, always: the claim and the payoff. The first must never wrap —
+   a name breaking mid-phrase turns the sentence into a paragraph and, because
+   the stage is vertically centred, reflows the whole page mid-animation. So
+   it's held on one line and scaled down to fit instead (see fitLine). */
+/* The place name is the variable in the sentence, so it's set as one: a
+   serif against the sans, in pink, so you read "has a ___" and see what's
+   filling the blank without needing the animation to tell you.
+   System faces only — a webfont would be a blocking request to a third party
+   for one line of text. */
+#heroplace {
+  display: inline-block; min-width: 3ch;
+  font-family: ui-serif, Georgia, "Iowan Old Style", "Times New Roman", serif;
+  font-style: italic; font-weight: 600; letter-spacing: -0.015em;
+  color: var(--pink);
+}
+.pitch { margin: 0 0 34px; font-size: clamp(30px, 5.4vw, 68px); }
+.pitch .l1 {
+  display: block; white-space: nowrap;
+  font-size: calc(1em * var(--fit, 1));
+  transition: font-size .3s var(--spring);
+}
+.pitch em { display: block; }
 #heroart:empty { display: none; }
 .prompt.demo #heroplace { color: var(--accent); }
 /* The demo's answers. Present but quiet — the headline is doing the talking,
@@ -330,11 +357,11 @@ button.brand:hover { color: var(--accent); }
   opacity: 0; transform: translateY(6px); transition: opacity .45s, transform .45s var(--spring);
 }
 .peek.in { opacity: 1; transform: none; }
-.peekrow { font-size: 15px; color: var(--dim); }
+.peekrow { font-size: 17px; color: var(--dim); }
 .peekcity { color: var(--faint); font-size: 12px; text-transform: uppercase;
   letter-spacing: .07em; font-weight: 700; margin-right: 7px; }
 .peekrow b { color: var(--ink); font-weight: 700; }
-.stage .q { font-size: 17px; font-weight: 650; color: var(--dim); margin: 34px 0 0; }
+.stage .q { font-size: 18px; font-weight: 650; color: var(--dim); margin: 40px 0 0; }
 
 /* ─── Try rail ────────────────────────────────────────────────────────────
    The examples scroll on their own. Four static chips read as the whole
@@ -351,7 +378,7 @@ button.brand:hover { color: var(--accent); }
    motion and none of them is ever the one being offered. */
 .track {
   display: flex; gap: 9px; width: max-content;
-  transition: transform .55s var(--spring);
+  transition: transform .75s cubic-bezier(.4, 0, .2, 1);
 }
 .rail.hold .track { transition: none; }   /* the seamless wrap, unanimated */
 .eg {
@@ -362,13 +389,16 @@ button.brand:hover { color: var(--accent); }
 .eg:nth-child(3n+3) { background: color-mix(in srgb, var(--emerald) 22%, var(--panel)); color: var(--ink); }
 .eg:hover { background: var(--accent); color: var(--on-accent); transform: translateY(-2px); }
 
-.or {
-  font-size: 13px; color: var(--faint); margin: 34px 0 14px;
-  text-transform: uppercase; letter-spacing: .09em; font-weight: 700;
+.browse { padding: 56px 24px 40px; text-align: center; }
+.browse[hidden] { display: none; }
+.browseh {
+  font-size: 27px; font-weight: 800; letter-spacing: -0.03em;
+  margin: 0 0 28px; color: var(--ink);
 }
+.cats { max-width: 900px; margin: 0 auto; }
 .cats { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
 .cats button {
-  font-size: 14px; font-weight: 650; padding: 10px 18px;
+  font-size: 16px; font-weight: 650; padding: 14px 24px;
   background: var(--panel); color: var(--dim); box-shadow: var(--shadow);
 }
 .cats button:hover { color: var(--accent); transform: translateY(-2px); box-shadow: var(--lift); }
@@ -403,6 +433,32 @@ main { max-width: 820px; margin: 0 auto; padding: 10px 24px 100px; }
   font-size: 34px; font-weight: 800; letter-spacing: -0.045em;
   line-height: 1.08; margin: 7px 0 12px;
 }
+/* ─── The map on a card ───────────────────────────────────────────────────
+   Raster tiles as plain <img>s, positioned by arithmetic. No map library and
+   no API key: the only thing a slippy map adds here is panning, and this is a
+   thumbnail you click through to Google Maps, not something to explore.
+   `loading=lazy` means a card scrolled past never fetches anything. */
+.map {
+  position: relative; height: 132px; width: 100%; max-width: 560px; margin-top: 18px;
+  border-radius: 16px; overflow: hidden; background: var(--chip);
+  display: block; text-decoration: none;
+}
+.map img {
+  position: absolute; width: 256px; height: 256px; max-width: none;
+  border: 0; image-rendering: auto;
+}
+.map .pin {
+  position: absolute; left: 50%; top: 50%; width: 16px; height: 16px;
+  margin: -8px 0 0 -8px; border-radius: 999px;
+  background: var(--pink); box-shadow: 0 0 0 3px #fff, 0 3px 10px rgba(7,59,76,.45);
+}
+.map .osm {
+  position: absolute; right: 0; bottom: 0; font-size: 9.5px; line-height: 1.6;
+  padding: 1px 6px; background: color-mix(in srgb, var(--panel) 82%, transparent);
+  color: var(--faint); border-radius: 6px 0 0 0;
+}
+.map:hover { box-shadow: var(--lift); }
+
 /* Actions under an answer: where to go, and whether you're keeping it. */
 .acts { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; margin-top: 16px; }
 .acts a, .acts .save {
@@ -468,14 +524,15 @@ summary:hover { color: var(--accent); }
 #app[hidden] { display: none; }
 
 @media (max-width: 640px) {
-  header { padding: 12px 16px; }
+  header { padding: 8px 14px; }
+  button.brand { font-size: 19px; padding-right: 8px; }
   .bar { gap: 10px; }
   .from { display: none; }        /* "I know" is implied by the city control */
   main { padding: 8px 16px 70px; }
   .crumb { padding: 16px 18px 2px; }
   .card { padding: 24px 22px; border-radius: 20px; }
   .answer { font-size: 27px; }
-  .pitch { font-size: 31px; min-height: calc(1.06em * 4); }
+  .pitch { margin-bottom: 24px; }
   .sub { font-size: 16px; margin-bottom: 32px; }
   .cities button { font-size: 17px; padding: 16px 24px; flex: 1 1 40%; }
   .stage { padding: 16px 18px 48px; min-height: calc(100vh - 66px); }
@@ -513,6 +570,7 @@ summary:hover { color: var(--accent); }
     <!-- #controls lives here on results pages and in the hero on the index;
          the same element either way. -->
     <div id="barslot"></div>
+    <button class="chip" id="browsebtn" title="Browse by category">Browse</button>
     <button class="chip" id="savedbtn" hidden title="Places you saved"></button>
     <button class="chip" id="theme" title="Switch theme" aria-label="Switch theme">☼</button>
   </div></header>
@@ -524,6 +582,12 @@ summary:hover { color: var(--accent); }
       <button class="citybtn" id="citybtn" aria-haspopup="listbox" aria-expanded="false"></button>
       <div class="citymenu" id="citymenu" role="listbox" hidden></div>
     </div>
+    <span class="to" aria-hidden="true">&rarr;</span>
+    <div class="citypick">
+      <select id="dstsel" class="native" title="Which city you're going to" tabindex="-1"></select>
+      <button class="citybtn" id="dstbtn" aria-haspopup="listbox" aria-expanded="false"></button>
+      <div class="citymenu" id="dstmenu" role="listbox" hidden></div>
+    </div>
     <div class="field">
       <input type="search" id="q" placeholder="Name a place you love…">
       <button class="clear" id="clearq" hidden aria-label="Clear">×</button>
@@ -534,14 +598,20 @@ summary:hover { color: var(--accent); }
        the page read as a list to scroll rather than a box to type in. -->
   <section class="stage" id="prompt">
     <div class="inner">
-      <h1 class="pitch">Every city has <span id="heroart">an</span><br><span id="heroplace">H-E-B</span>.<br><em>It\'s just elsewhere.</em></h1>
+      <h1 class="pitch"><span class="l1" id="line1">Every city has <span id="heroart">an</span> <span id="heroplace">H-E-B</span></span><em>It\'s just elsewhere.</em></h1>
       <div id="heroslot"></div>
       <div class="peek" id="peek"></div>
       <p class="q" id="promptq"></p>
       <div class="rail"><div class="track" id="examples"></div></div>
-      <p class="or">or browse</p>
-      <div class="cats" id="cats"></div>
     </div>
+  </section>
+
+  <!-- Browse is its own page. On the index it was a second, competing way in
+       that pushed the search box up the screen; as a page it's a place you go
+       when you can't think of a name. -->
+  <section class="browse" id="browsepage" hidden>
+    <h2 class="browseh" id="browseh"></h2>
+    <div class="cats" id="cats"></div>
   </section>
 
   <div class="crumb" id="crumb" hidden>
@@ -553,8 +623,9 @@ summary:hover { color: var(--accent); }
 </div>
 
 <script>
-let S = null, q = "", cat = "";
+let S = null, q = "", cat = "", dest = "";
 let home = localStorage.getItem("elsewhere.home") || "";
+let savedDest = localStorage.getItem("elsewhere.dest") || "";
 
 const title = s => s.charAt(0).toUpperCase() + s.slice(1);
 const esc = s => String(s).replace(/[&<>"]/g, c =>
@@ -569,8 +640,10 @@ function applyTheme(t) {
   document.getElementById("theme").textContent = t === "dark" ? "☾" : "☀";
   localStorage.setItem("elsewhere.theme", t);
 }
-document.getElementById("theme").addEventListener("click", () =>
-  applyTheme(document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark"));
+document.getElementById("theme").addEventListener("click", () => {
+  applyTheme(document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark");
+  if (typeof S !== "undefined" && S) render();   // maps are light or dark tiles
+});
 applyTheme(localStorage.getItem("elsewhere.theme") || "light");
 
 /* ── Search ────────────────────────────────────────────────────────────
@@ -596,9 +669,9 @@ function score(m, needle) {
     if (k.startsWith(needle) || kt.startsWith(tight)) return 3;
     if (k.includes(needle) || kt.includes(tight)) return 2;
   }
+  const answers = dest && m.cities[dest] ? [m.cities[dest]] : Object.values(m.cities);
   const body = norm(m.roles.join(" ") + " " +
-    Object.values(m.cities).flatMap(c =>
-      c.candidates.map(x => x.name + " " + x.reasoning)).join(" "));
+    answers.flatMap(c => c.candidates.map(x => x.name + " " + x.reasoning)).join(" "));
   return body.includes(needle) ? 1 : 0;
 }
 
@@ -626,7 +699,10 @@ const groupOf = m => {
 
 function renderCats() {
   const counts = {};
-  for (const m of S.matches) counts[groupOf(m)] = (counts[groupOf(m)] || 0) + 1;
+  for (const m of S.matches) {
+    if (!m.cities[dest]) continue;
+    counts[groupOf(m)] = (counts[groupOf(m)] || 0) + 1;
+  }
   document.getElementById("cats").innerHTML = GROUPS
     .filter(([key]) => counts[key])
     .map(([key, label]) =>
@@ -674,8 +750,10 @@ function renderSavedBtn() {
 function syncURL(replace) {
   const p = new URLSearchParams();
   if (home) p.set("city", home);
+  if (dest) p.set("to", dest);
   if (q) p.set("q", q);
   else if (cat === "__saved") p.set("saved", "1");
+  else if (cat === "__browse") p.set("browse", "1");
   else if (cat) p.set("in", cat);
   const url = p.toString() ? "?" + p : location.pathname;
   history[replace ? "replaceState" : "pushState"]({ home, q, cat }, "", url);
@@ -685,8 +763,9 @@ function readURL() {
   const p = new URLSearchParams(location.search);
   return {
     city: p.get("city") || "",
+    dest: p.get("to") || "",
     q: p.get("q") || "",
-    cat: p.get("saved") ? "__saved" : (p.get("in") || ""),
+    cat: p.get("saved") ? "__saved" : p.get("browse") ? "__browse" : (p.get("in") || ""),
   };
 }
 
@@ -694,8 +773,54 @@ addEventListener("popstate", () => {
   const u = readURL();
   q = u.q; cat = u.cat;
   document.getElementById("q").value = q;
-  if (u.city && u.city !== home) { home = u.city; load(); } else { render(); }
+  if (u.city && u.city !== home) { home = u.city; dest = u.dest; load(); }
+  else if (u.dest && u.dest !== dest) { dest = u.dest; drawDst(); render(); }
+  else { render(); }
 });
+
+/* Web Mercator, the same projection every tile server uses: longitude is
+   linear, latitude runs through a log-tangent so the tiles stay square.
+   Returns the place's position in world pixels at this zoom. */
+/* CARTO's Positron, not openstreetmap.org's own tiles: those are served by
+   volunteer infrastructure whose usage policy this page would be breaking,
+   and they say so — the request comes back 418 with a "tile usage policy"
+   image in place of the map. Positron needs no key, comes in a light and a
+   dark cut that match the two themes, and its washed-out styling is the
+   right register for a thumbnail behind a pin. Attribution is required and
+   sits in the corner. */
+const MAP_ZOOM = 15, TILE = 256, MAP_H = 132;
+const mapStyle = () =>
+  document.documentElement.getAttribute("data-theme") === "dark" ? "dark_all" : "light_all";
+
+function worldPixels(lat, lon, z) {
+  const n = TILE * Math.pow(2, z);
+  const s = Math.sin(lat * Math.PI / 180);
+  return {
+    x: (lon + 180) / 360 * n,
+    y: (0.5 - Math.log((1 + s) / (1 - s)) / (4 * Math.PI)) * n,
+    n,
+  };
+}
+
+/* A mosaic of whole tiles, shifted so the place lands dead centre. Sized
+   generously in width because a card is wider than it is tall and the extra
+   tiles are cheap; anything off the edge is clipped by overflow. */
+function mapHTML(l, width = 560) {
+  if (l.lat === undefined || l.lon === undefined) return "";
+  const { x, y } = worldPixels(l.lat, l.lon, MAP_ZOOM);
+  const left = x - width / 2, top = y - MAP_H / 2;
+  const tiles = [];
+  for (let tx = Math.floor(left / TILE); tx <= Math.floor((left + width) / TILE); tx++) {
+    for (let ty = Math.floor(top / TILE); ty <= Math.floor((top + MAP_H) / TILE); ty++) {
+      tiles.push(`<img loading="lazy" alt="" src="https://basemaps.cartocdn.com/${
+        mapStyle()}/${MAP_ZOOM}/${tx}/${ty}.png"
+        style="left:${tx * TILE - left}px;top:${ty * TILE - top}px">`);
+    }
+  }
+  return `<a class="map" href="${esc(l.map)}" target="_blank" rel="noopener noreferrer"
+     aria-label="Open in Google Maps">${tiles.join("")}<span class="pin"></span>
+     <span class="osm">&copy; OpenStreetMap &copy; CARTO</span></a>`;
+}
 
 /* Links out, plus the save control. `rel=noopener` matters even for links we
    built ourselves — a website comes from upstream data, not from us. */
@@ -707,7 +832,7 @@ function acts(place, city, from) {
   const map = l.map
     ? `<a href="${esc(l.map)}" target="_blank" rel="noopener noreferrer">Map &amp; reviews<span class="out">\u2197</span></a>`
     : "";
-  return `<div class="acts">${site}${map}
+  return `${mapHTML(l)}<div class="acts">${site}${map}
     <button class="save" data-city="${esc(city)}" data-name="${esc(place.name)}"
       data-from="${esc(from || "")}" aria-pressed="false"><span>\u2606 Save</span></button>
   </div>`;
@@ -717,16 +842,23 @@ function acts(place, city, from) {
 function render() {
   if (!S) return;
 
+  const browsing = cat === "__browse";
   const idle = !q && !cat;
   if (!idle) stopDemo();
+  document.getElementById("browsepage").hidden = !browsing;
+  if (browsing) {
+    document.getElementById("browseh").textContent =
+      `What are you looking for in ${title(dest)}?`;
+    renderCats();
+  }
   // The search box is the index; on results pages it retreats to the header.
   const slot = document.getElementById(idle ? "heroslot" : "barslot");
   const controls = document.getElementById("controls");
   if (controls.parentElement !== slot) slot.appendChild(controls);
   document.getElementById("prompt").hidden = !idle;
-  document.getElementById("crumb").hidden = idle || !!q;
+  document.getElementById("crumb").hidden = idle || browsing || !!q;
   document.getElementById("clearq").hidden = !q;
-  if (idle) { document.getElementById("list").innerHTML = ""; return; }
+  if (idle || browsing) { document.getElementById("list").innerHTML = ""; return; }
 
   if (cat === "__saved") { renderSaved(); return; }
 
@@ -739,10 +871,10 @@ function render() {
       .sort((a, b) => b[0] - a[0] || a[1].name.localeCompare(b[1].name))
       .map(([, m]) => m);
   } else {
-    rows = S.matches.filter(m => groupOf(m) === cat);
+    rows = S.matches.filter(m => groupOf(m) === cat && m.cities[dest]);
     const label = (GROUPS.find(([k]) => k === cat) || [cat, cat])[1];
     document.getElementById("crumbtext").textContent =
-      `${label} in ${title(S.source)} · ${rows.length} places`;
+      `${label} in ${title(S.source)} \u2192 ${title(dest)} · ${rows.length} places`;
   }
 
   const el = document.getElementById("list");
@@ -753,7 +885,7 @@ function render() {
 
   el.innerHTML = rows.map(m => {
     // One place, its answer in every city we can answer for.
-    const blocks = S.targets.filter(t => m.cities[t]).map(t => {
+    const blocks = S.targets.filter(t => t === dest && m.cities[t]).map(t => {
       const c = m.cities[t];
       const top = c.candidates[0];
       const rest = c.candidates.slice(1);
@@ -825,10 +957,16 @@ function stepRail() {
   track.style.transform = `translateX(-${shift}px)`;
 }
 
+/* Uneven and unhurried. A fixed interval turns the rail into a metronome you
+   start anticipating instead of reading; a random extra beat keeps it in the
+   background where it belongs. */
 function startRail() {
-  clearInterval(railTimer);
+  clearTimeout(railTimer);
   if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-  railTimer = setInterval(stepRail, 2600);
+  const next = () => {
+    railTimer = setTimeout(() => { stepRail(); next(); }, 4200 + Math.random() * 2600);
+  };
+  next();
 }
 
 /* ── Landing demo ──────────────────────────────────────────────────────
@@ -879,6 +1017,7 @@ function scrambleTo(el, text) {
   el.dataset.text = text;
   if (matchMedia("(prefers-reduced-motion: reduce)").matches) {
     el.textContent = text;
+    fitLine();
     return;
   }
 
@@ -890,6 +1029,7 @@ function scrambleTo(el, text) {
     const band = 1 + (head / span) * 5;
     if (head - band > span) {
       el.textContent = text;
+      fitLine();
       clearInterval(scrambleTimer);
       return;
     }
@@ -900,8 +1040,24 @@ function scrambleTo(el, text) {
       else out += from[i] ?? "";
     }
     el.textContent = out;
+    fitLine();
   }, 38);
 }
+
+/* Shrink the claim until it fits on one line. Measured rather than guessed:
+   'Every city has a Congress Avenue Bridge Bats' and 'has an H-E-B' are wildly
+   different lengths, and any fixed size is either too small for one or too
+   wide for the other. */
+function fitLine() {
+  const line = document.getElementById("line1");
+  const box = line.parentElement;
+  line.style.setProperty("--fit", 1);
+  const room = box.clientWidth;
+  if (!room || !line.scrollWidth) return;
+  const fit = Math.min(1, room / line.scrollWidth);
+  line.style.setProperty("--fit", fit.toFixed(3));
+}
+addEventListener("resize", fitLine);
 
 function demoPicks() {
   const known = new Map(S.matches.map(m => [m.name, m]));
@@ -963,7 +1119,7 @@ async function demoCycle(token) {
     document.getElementById("heroart").textContent = article(shown);
     scrambleTo(document.getElementById("heroplace"), shown);
 
-    peek.innerHTML = S.targets.filter(t => m.cities[t]).map(t =>
+    peek.innerHTML = S.targets.filter(t => t === dest && m.cities[t]).map(t =>
       `<span class="peekrow"><span class="peekcity">in ${esc(title(t))}</span>
          <b>${esc(m.cities[t].candidates[0].name)}</b></span>`).join("");
     peek.classList.remove("in");
@@ -993,6 +1149,7 @@ function stopDemo() {
   const hp = document.getElementById("heroplace");
   document.getElementById("heroart").textContent = "an";
   hp.textContent = hp.dataset.text = "H-E-B";
+  fitLine();
   document.getElementById("peek").innerHTML = "";
   document.getElementById("peek").classList.remove("in");
   const box = document.getElementById("q");
@@ -1028,9 +1185,18 @@ async function load() {
   localStorage.setItem("elsewhere.home", home);
   document.getElementById("srcsel").innerHTML = Object.keys(S.sources).map(c =>
     `<option value="${c}" ${c === S.source ? "selected" : ""}>${title(c)}</option>`).join("");
+
+  // Keep the chosen destination if this city can answer for it; otherwise
+  // fall back to the remembered one, then to the first available.
+  if (!S.targets.includes(dest)) dest = "";
+  if (!dest && S.targets.includes(savedDest)) dest = savedDest;
+  if (!dest) dest = S.targets[0];
+  savedDest = dest;
+  localStorage.setItem("elsewhere.dest", dest);
+  document.getElementById("dstsel").innerHTML = S.targets.map(c =>
+    `<option value="${c}" ${c === dest ? "selected" : ""}>${title(c)}</option>`).join("");
   renderExamples();
-  renderCityMenu();
-  renderCats();
+  drawSrc(); drawDst();
   render();
   renderSavedBtn();
   railAt = 0;
@@ -1044,6 +1210,7 @@ async function boot() {
   // overridden by whatever this browser happened to choose last time.
   const u = readURL();
   if (u.city) home = u.city;
+  if (u.dest) dest = u.dest;
   q = u.q; cat = u.cat;
 
   if (!home) {
@@ -1092,48 +1259,66 @@ document.getElementById("q").addEventListener("input", e => {
   syncURL(true);   // replace, so typing doesn't fill the back stack
   render();
 });
-/* ── City menu ─────────────────────────────────────────────────────────
-   Rendered from the <select>'s own options, so there is still exactly one
-   list of cities and one selected value. */
-function renderCityMenu() {
-  const sel = document.getElementById("srcsel");
-  document.getElementById("citybtn").innerHTML =
-    `${esc(title(sel.value))}<span class="caret">\u25BC</span>`;
-  document.getElementById("citymenu").innerHTML = [...sel.options].map(o =>
-    `<button role="option" data-city="${esc(o.value)}"
-       aria-selected="${o.value === sel.value}">${esc(o.textContent)}</button>`).join("");
+/* ── City menus ────────────────────────────────────────────────────────
+   Two of them — where you know and where you're going — sharing one
+   implementation. Each is a skin over a real <select>, which stays in the DOM
+   as the single source of truth and for keyboard and screen reader support. */
+function cityMenu(selId, btnId, menuId, onPick) {
+  const sel = document.getElementById(selId);
+  const btn = document.getElementById(btnId);
+  const menu = document.getElementById(menuId);
+
+  function draw() {
+    btn.innerHTML = `${esc(title(sel.value))}<span class="caret">\u25BC</span>`;
+    menu.innerHTML = [...sel.options].map(o =>
+      `<button role="option" data-city="${esc(o.value)}"
+         aria-selected="${o.value === sel.value}">${esc(o.textContent)}</button>`).join("");
+  }
+
+  btn.addEventListener("click", e => {
+    e.stopPropagation();
+    const open = menu.hidden;
+    closeMenus();
+    menu.hidden = !open;
+    btn.setAttribute("aria-expanded", open);
+  });
+  menu.addEventListener("click", e => {
+    const b = e.target.closest("button[data-city]");
+    if (!b) return;
+    closeMenus();
+    if (b.dataset.city === sel.value) return;
+    sel.value = b.dataset.city;
+    draw();
+    onPick(b.dataset.city);
+  });
+  return draw;
 }
 
-function openCityMenu(open) {
-  document.getElementById("citymenu").hidden = !open;
-  document.getElementById("citybtn").setAttribute("aria-expanded", open);
+function closeMenus() {
+  document.querySelectorAll(".citymenu").forEach(m => (m.hidden = true));
+  document.querySelectorAll(".citybtn").forEach(b => b.setAttribute("aria-expanded", "false"));
 }
-
-document.getElementById("citybtn").addEventListener("click", e => {
-  e.stopPropagation();
-  openCityMenu(document.getElementById("citymenu").hidden);
-});
-document.getElementById("citymenu").addEventListener("click", e => {
-  const b = e.target.closest("button[data-city]");
-  if (!b) return;
-  openCityMenu(false);
-  const sel = document.getElementById("srcsel");
-  if (b.dataset.city === sel.value) return;
-  sel.value = b.dataset.city;
-  sel.dispatchEvent(new Event("change"));
-});
 // Click-away and Escape, the two ways every other menu on the web closes.
-addEventListener("click", () => openCityMenu(false));
-addEventListener("keydown", e => { if (e.key === "Escape") openCityMenu(false); });
+addEventListener("click", closeMenus);
+addEventListener("keydown", e => { if (e.key === "Escape") closeMenus(); });
 
-document.getElementById("srcsel").addEventListener("change", e => {
-  home = e.target.value;
+const drawSrc = cityMenu("srcsel", "citybtn", "citymenu", city => {
+  home = city;
   localStorage.setItem("elsewhere.home", home);
+  dest = "";                      // the old destination may not exist from here
   q = ""; cat = "";
   document.getElementById("q").value = "";
-  syncURL();
   load();
 });
+
+const drawDst = cityMenu("dstsel", "dstbtn", "dstmenu", city => {
+  dest = city;
+  localStorage.setItem("elsewhere.dest", dest);
+  stopDemo();
+  syncURL();
+  render();
+});
+
 
 document.getElementById("cats").addEventListener("click", e => {
   const b = e.target.closest("button[data-cat]");
@@ -1162,6 +1347,13 @@ function linksFor(btn) {
   });
   return out;
 }
+
+document.getElementById("browsebtn").addEventListener("click", () => {
+  cat = "__browse"; q = "";
+  document.getElementById("q").value = "";
+  stopDemo(); syncURL(); render();
+  scrollTo({ top: 0, behavior: "smooth" });
+});
 
 document.getElementById("savedbtn").addEventListener("click", () => {
   cat = "__saved"; q = "";
