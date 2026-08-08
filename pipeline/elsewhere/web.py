@@ -140,6 +140,11 @@ def create_app(source: str = "austin", target: str = "chicago") -> FastAPI:
     def index() -> str:
         return PAGE
 
+    @app.get("/api/cities")
+    def api_cities() -> JSONResponse:
+        """Cities that can be used as a starting point."""
+        return JSONResponse(sorted(sources))
+
     @app.get("/api/state")
     def api_state(reviewer: str = "", source: str = "") -> JSONResponse:
         return JSONResponse(
@@ -447,6 +452,75 @@ summary:hover { color: var(--amber); }
   .pitch { font-size: 32px; }
   .ask input[type=search] { min-width: 0; flex: 1 1 100%; }
 }
+/* ─── First visit: choose a city ──────────────────────────────────────── */
+.pick { padding: 84px 24px 60px; text-align: center; }
+.pick[hidden] { display: none; }
+.pick .wrap { max-width: 700px; margin: 0 auto; }
+.brand {
+  font-size: 15px; font-weight: 800; letter-spacing: -0.02em; color: var(--dim);
+  margin-bottom: 26px;
+}
+.brand.small { margin: 0; font-size: 16px; color: var(--ink); }
+.pitch {
+  font-size: 46px; line-height: 1.06; letter-spacing: -0.045em; font-weight: 800;
+  margin: 0 0 22px;
+}
+.pitch em, .sub em {
+  font-style: normal;
+  background: linear-gradient(100deg, var(--amber), #E85D2A);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.sub {
+  font-size: 17px; color: var(--dim); max-width: 30em; margin: 0 auto 44px;
+  line-height: 1.55;
+}
+.q { font-size: 15px; font-weight: 650; color: var(--dim); margin: 0 0 16px; }
+.cities { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+.cities button {
+  font: inherit; font-size: 19px; font-weight: 700; letter-spacing: -0.02em;
+  padding: 20px 34px; border: 0; border-radius: 20px; cursor: pointer;
+  background: var(--panel); color: var(--ink); box-shadow: var(--shadow);
+  transition: transform .22s var(--spring), box-shadow .2s, color .2s;
+}
+.cities button:hover {
+  transform: translateY(-3px); box-shadow: var(--lift); color: var(--amber);
+}
+.cities button:active { transform: translateY(0) scale(.97); }
+
+/* ─── Prompt shown before they search ─────────────────────────────────── */
+.prompt { text-align: center; padding: 64px 24px 20px; }
+.prompt[hidden] { display: none; }
+.prompt .q { font-size: 19px; color: var(--ink); font-weight: 700; letter-spacing: -0.02em; }
+.examples {
+  display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; margin-top: 18px;
+}
+.examples .eg {
+  font: inherit; font-size: 14px; font-weight: 600; padding: 9px 16px;
+  border: 0; border-radius: 999px; cursor: pointer;
+  background: var(--chip); color: var(--warn);
+  transition: transform .22s var(--spring), background .2s, color .2s;
+}
+.examples .eg:hover { background: var(--amber); color: #fff; transform: translateY(-2px); }
+.examples .lead { font-size: 14px; color: var(--faint); align-self: center; margin-right: 2px; }
+
+/* ─── Grading invitation ──────────────────────────────────────────────── */
+.ask {
+  max-width: 620px; margin: 10px auto 90px; padding: 0 24px; text-align: center;
+}
+.ask[hidden] { display: none; }
+.ask p { color: var(--dim); font-size: 15px; margin: 0 0 16px; }
+
+#bar { position: sticky; top: 0; z-index: 20; }
+#app[hidden] { display: none; }
+.from { font-size: 14px; color: var(--dim); font-weight: 600; }
+
+@media (max-width: 640px) {
+  .pick { padding: 52px 18px 40px; }
+  .pitch { font-size: 32px; }
+  .sub { font-size: 16px; margin-bottom: 32px; }
+  .cities button { font-size: 17px; padding: 16px 24px; flex: 1 1 40%; }
+  .prompt { padding: 44px 18px 12px; }
+}
 </style>
 </head>
 <body>
@@ -463,37 +537,52 @@ summary:hover { color: var(--amber); }
   </div>
 </div>
 
-<!-- The first thing a friend sees. States the idea in one line, then puts the
-     only two controls that matter directly under it. -->
-<section class="hero">
+<!-- First visit: pick a city before anything else. A dropdown defaulted to
+     Austin meant a Chicago visitor saw Austin places and had to notice a
+     control they had no reason to look at. -->
+<section id="pick" class="pick" hidden>
   <div class="wrap">
     <div class="brand">Elsewhere</div>
     <h1 class="pitch">Every city has an H-E-B.<br><em>It's just called something else.</em></h1>
-    <div class="ask">
-      <span class="lead">I know</span>
-      <select id="srcsel" title="Which city you know"></select>
-      <input type="search" id="q" placeholder="Type a place you love…">
-    </div>
-    <div class="examples" id="examples"></div>
+    <p class="sub">Tell us a place you love and we'll find its counterpart
+    in another city — not the same category, the same <em>role</em>.</p>
+    <p class="q">Which city do you know best?</p>
+    <div class="cities" id="cities"></div>
   </div>
 </section>
 
-<!-- Slim bar that takes over once the hero scrolls away. -->
-<header id="bar"><div class="bar">
-  <span class="brand small">Elsewhere</span>
-  <select id="srcsel2" title="Which city you know"></select>
-  <input type="search" id="q2" class="grow" placeholder="Search a place…">
-  <div class="chips" id="filters">
-    <button class="chip" data-f="all" aria-pressed="true">All</button>
-    <button class="chip" data-f="todo" aria-pressed="false">Ungraded</button>
-    <button class="chip" data-f="done" aria-pressed="false">Mine</button>
-  </div>
-  <button class="chip" id="modebtn" aria-pressed="false">Grade these</button>
-  <div class="progress" id="prog"></div>
-  <button class="chip" id="theme" title="Switch theme" aria-label="Switch theme">☀</button>
-  <button class="link" id="signout"></button>
-</div></header>
-<main id="list"></main>
+<!-- The app, once a city is chosen. One control bar, not two. -->
+<div id="app" hidden>
+  <header id="bar"><div class="bar">
+    <span class="brand small">Elsewhere</span>
+    <span class="from">I know</span>
+    <select id="srcsel" title="Which city you know"></select>
+    <input type="search" id="q" class="grow" placeholder="Type a place you love…">
+    <div class="chips" id="filters" hidden>
+      <button class="chip" data-f="all" aria-pressed="true">All</button>
+      <button class="chip" data-f="todo" aria-pressed="false">Ungraded</button>
+      <button class="chip" data-f="done" aria-pressed="false">Mine</button>
+    </div>
+    <div class="progress" id="prog"></div>
+    <button class="chip" id="theme" title="Switch theme" aria-label="Switch theme">☀</button>
+    <button class="link" id="signout"></button>
+  </div></header>
+
+  <!-- Shown until they search. Dumping all 117 cards made the page read as a
+       list to scroll rather than a box to type in. -->
+  <section class="prompt" id="prompt">
+    <p class="q" id="promptq"></p>
+    <div class="examples" id="examples"></div>
+  </section>
+
+  <main id="list"></main>
+
+  <footer class="ask" id="askgrade" hidden>
+    <p>Know these cities well? Tell us where we got it wrong —
+    it's the only way we find out if this actually works.</p>
+    <button class="chip" id="modebtn" aria-pressed="false">Help check the answers</button>
+  </footer>
+</div>
 <script>
 let S = null, filter = "all", q = "", grading = false, pending = null;
 let me = localStorage.getItem("elsewhere.reviewer") || "";
@@ -563,31 +652,7 @@ document.getElementById("modebtn").addEventListener("click", () => {
 
 const title = s => s.charAt(0).toUpperCase() + s.slice(1);
 
-async function load() {
-  const qs = new URLSearchParams({ reviewer: me, source: home });
-  S = await (await fetch("/api/state?" + qs)).json();
-  home = S.source;
-  localStorage.setItem("elsewhere.home", home);
-
-  syncControls();
-  renderExamples();
-  document.getElementById("signout").textContent = me ? "not " + me + "?" : "";
-  render();
-}
-
-// Two search boxes and two city pickers — one in the hero, one in the slim bar
-// that replaces it on scroll. Kept in sync so scrolling never loses your query.
-function syncControls() {
-  document.getElementById("q").value = q;
-  document.getElementById("q2").value = q;
-  for (const id of ["srcsel", "srcsel2"]) {
-    const sel = document.getElementById(id);
-    sel.innerHTML = Object.keys(S.sources).map(c =>
-      `<option value="${c}" ${c === S.source ? "selected" : ""}>${title(c)}</option>`).join("");
-  }
-}
-
-// A friend who has never seen this has no idea what to type. Offer a few real
+// A visitor who has never seen this has no idea what to type, so offer real
 // places from whichever city they picked.
 const SEEDS_BY_CITY = {
   austin:   ["H-E-B", "Torchy's Tacos", "Barton Springs Pool", "BookPeople"],
@@ -595,40 +660,100 @@ const SEEDS_BY_CITY = {
   portland: ["Powell's City of Books", "Stumptown Coffee Roasters", "Salt & Straw", "Forest Park"]
 };
 
+// Which screen to show. The city choice is a deliberate first step rather
+// than a dropdown defaulted to Austin, which a Chicago visitor had no reason
+// to notice before wondering why everything was Austin.
+async function boot() {
+  const chooser = document.getElementById("pick");
+  if (!home) {
+    const cities = await (await fetch("/api/cities")).json();
+    document.getElementById("cities").innerHTML = cities.map(c =>
+      `<button data-city="${c}">${title(c)}</button>`).join("");
+    chooser.hidden = false;
+    return;
+  }
+  chooser.hidden = true;
+  document.getElementById("app").hidden = false;
+  load();
+}
+
+function chooseCity(c) {
+  home = c;
+  localStorage.setItem("elsewhere.home", home);
+  document.getElementById("pick").hidden = true;
+  document.getElementById("app").hidden = false;
+  load().then(() => document.getElementById("q").focus());
+}
+
+async function load() {
+  const qs = new URLSearchParams({ reviewer: me, source: home });
+  S = await (await fetch("/api/state?" + qs)).json();
+  home = S.source;
+  localStorage.setItem("elsewhere.home", home);
+
+  const sel = document.getElementById("srcsel");
+  sel.innerHTML = Object.keys(S.sources).map(c =>
+    `<option value="${c}" ${c === S.source ? "selected" : ""}>${title(c)}</option>`).join("");
+
+  renderExamples();
+  document.getElementById("signout").textContent = me ? "not " + me + "?" : "";
+  render();
+}
+
 function renderExamples() {
   const el = document.getElementById("examples");
-  if (q) { el.innerHTML = ""; return; }
   const known = new Set(S.matches.map(m => m.name));
   const picks = (SEEDS_BY_CITY[S.source] || []).filter(n => known.has(n)).slice(0, 4);
-  // Fall back to whatever the corpus has, so a new city still gets prompts.
   const list = picks.length ? picks : S.matches.slice(0, 4).map(m => m.name);
   el.innerHTML = `<span class="lead">try</span>` + list.map(n =>
-    `<button class="eg" onclick="jumpTo('${esc(n).replace(/'/g, "\\'")}')">${esc(n)}</button>`
+    `<button class="eg" data-name="${esc(n)}">${esc(n)}</button>`
   ).join("");
+  document.getElementById("promptq").textContent =
+    `What do you love in ${title(S.source)}?`;
 }
 
 function jumpTo(name) {
   q = name;
-  syncControls();
+  document.getElementById("q").value = name;
   render();
-  document.getElementById("list").scrollIntoView({ behavior: "smooth", block: "start" });
 }
 
-for (const id of ["q", "q2"]) {
-  document.getElementById(id).addEventListener("input", e => {
-    q = e.target.value.trim();
-    document.getElementById(id === "q" ? "q2" : "q").value = e.target.value;
-    renderExamples();
-    render();
-  });
-}
-for (const id of ["srcsel", "srcsel2"]) {
-  document.getElementById(id).addEventListener("change", e => {
-    home = e.target.value;
-    q = "";
-    load();
-  });
-}
+// Delegated rather than inline: an onclick built by interpolation breaks on
+// any name containing an apostrophe — Lou Malnati's, Torchy's, Mariano's —
+// and does so silently, because the attribute is a JS syntax error.
+document.getElementById("cities").addEventListener("click", e => {
+  const b = e.target.closest("button[data-city]");
+  if (b) chooseCity(b.dataset.city);
+});
+document.getElementById("examples").addEventListener("click", e => {
+  const b = e.target.closest(".eg");
+  if (b) jumpTo(b.dataset.name);
+});
+document.getElementById("list").addEventListener("click", e => {
+  const b = e.target.closest("[data-act]");
+  if (!b) return;
+  if (b.dataset.act === "pick") pick(b.dataset.place, b.dataset.city, b.dataset.answer);
+  if (b.dataset.act === "undo") clearPick(b.dataset.place, b.dataset.city);
+});
+document.getElementById("list").addEventListener("keydown", e => {
+  const el = e.target.closest('input[data-act="custom"]');
+  if (el && e.key === "Enter" && el.value.trim()) {
+    pick(el.dataset.place, el.dataset.city, el.value.trim(), true);
+  }
+});
+
+document.getElementById("q").addEventListener("input", e => {
+  q = e.target.value.trim();
+  render();
+});
+
+document.getElementById("srcsel").addEventListener("change", e => {
+  home = e.target.value;
+  localStorage.setItem("elsewhere.home", home);
+  q = "";
+  document.getElementById("q").value = "";
+  load();
+});
 
 // The slim bar is plain CSS sticky — no show/hide logic. Two earlier
 // attempts (IntersectionObserver, then a scroll listener) both left it
@@ -704,6 +829,14 @@ function esc(s) {
 function render() {
   if (!S) return;  // setMode() runs before the first load resolves
   progress();
+
+  // Before they type, invite a search instead of dumping 117 cards — the
+  // full list made the page read as something to scroll, not to type in.
+  const idle = !q && !grading;
+  document.getElementById("prompt").hidden = !idle;
+  document.getElementById("askgrade").hidden = idle;
+  document.getElementById("filters").hidden = !grading;
+  if (idle) { document.getElementById("list").innerHTML = ""; return; }
   let rows = S.matches.filter(visible);
   if (q) {
     const needle = norm(q);
@@ -759,7 +892,8 @@ function render() {
               x.verified === false ? '<span class="unver">unverified</span>' : ""}</div>
             <div class="why">${esc(x.reasoning)}</div>
           </div>
-          <button class="pick" onclick="pick('${q(m.name)}','${q(t)}','${q(x.name)}')">${
+          <button class="pick" data-act="pick" data-place="${esc(m.name)}"
+                  data-city="${esc(t)}" data-answer="${esc(x.name)}">${
             isPick ? "✓ yours" : "This one"}</button>
         </div>`;
       }).join("");
@@ -774,10 +908,10 @@ function render() {
         <div class="foot">
           ${c.mine
             ? `<span class="verdict">✓ you picked ${esc(c.mine)}</span>
-               <button class="link" onclick="clearPick('${q(m.name)}','${q(t)}')">undo</button>`
+               <button class="link" data-act="undo" data-place="${esc(m.name)}"
+                       data-city="${esc(t)}">undo</button>`
             : `<input type="text" placeholder="or type a better answer…" class="grow"
-                 onkeydown="if(event.key==='Enter'&&this.value.trim())pick('${
-                   q(m.name)}','${q(t)}',this.value.trim(),true)">`}
+                 data-act="custom" data-place="${esc(m.name)}" data-city="${esc(t)}">`}
         </div>
       </div>`;
     }).join("");
@@ -832,7 +966,7 @@ document.querySelectorAll(".chip[data-f]").forEach(b => b.addEventListener("clic
 }));
 
 setMode(false);
-load();
+boot();
 </script>
 </body>
 </html>
