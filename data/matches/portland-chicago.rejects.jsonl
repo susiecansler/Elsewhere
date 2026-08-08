@@ -1,0 +1,56 @@
+{"source": "Apizza Scholls", "candidate": "Spacca Napoli", "target_city": "chicago", "confidence": 0.45, "rank": 3, "reason": "not_found"}
+{"source": "Arlene Schnitzer Concert Hall", "candidate": "Symphony Center (Orchestra Hall)", "target_city": "chicago", "confidence": 0.72, "rank": 2, "reason": "not_found"}
+{"source": "Breakside Brewery", "candidate": "Maplewood Brewery", "target_city": "chicago", "confidence": 0.6, "rank": 3, "reason": "not_found"}
+{"source": "Cascade Brewing Barrel House", "candidate": "Off Color Mousetrap", "target_city": "chicago", "confidence": 0.72, "rank": 1, "reason": "not_found"}
+{"source": "Dante's", "candidate": "Reggies", "target_city": "chicago", "confidence": 0.55, "rank": 3, "reason": "not_found"}
+{"source": "Division Street", "candidate": "Randolph Street (Fulton Market)", "target_city": "chicago", "confidence": 0.72, "rank": 2, "reason": "not_found"}
+{"source": "Division Street", "candidate": "Clark Street in Andersonville", "target_city": "chicago", "confidence": 0.55, "rank": 3, "reason": "not_found"}
+{"source": "Dunthorpe", "candidate": "Kenilworth", "target_city": "chicago", "confidence": 0.82, "rank": 1, "reason": "not_found"}
+{"source": "Dunthorpe", "candidate": "Lake Forest", "target_city": "chicago", "confidence": 0.74, "rank": 2, "reason": "not_found"}
+{"source": "Forest Park", "candidate": "Palos / Sag Valley Forest Preserves", "target_city": "chicago", "confidence": 0.63, "rank": 2, "reason": "not_found"}
+{"source": "Great Notion Brewing", "candidate": "Phase Three Brewing", "target_city": "chicago", "confidence": 0.55, "rank": 3, "reason": "not_found"}
+{"source": "Hair of the Dog Brewing", "candidate": "Pipeworks Brewing", "target_city": "chicago", "confidence": 0.42, "rank": 3, "reason": "not_found"}
+{"source": "Hawthorne Boulevard", "candidate": "Clark Street in Andersonville", "target_city": "chicago", "confidence": 0.71, "rank": 2, "reason": "not_found"}
+{"source": "Higgins Restaurant", "candidate": "The Berghoff", "target_city": "chicago", "confidence": 0.62, "rank": 2, "reason": "not_found"}
+{"source": "Huber's Cafe", "candidate": "The Berghoff", "target_city": "chicago", "confidence": 0.93, "rank": 1, "reason": "not_found"}
+{"source": "Huber's Cafe", "candidate": "Italian Village", "target_city": "chicago", "confidence": 0.8, "rank": 2, "reason": "not_found"}
+{"source": "Irvington", "candidate": "Ravenswood", "target_city": "chicago", "confidence": 0.62, "rank": 1, "reason": "not_found"}
+{"source": "Irvington", "candidate": "Beverly", "target_city": "chicago", "confidence": 0.55, "rank": 2, "reason": "not_found"}
+{"source": "Irvington", "candidate": "Kenwood", "target_city": "chicago", "confidence": 0.4, "rank": 3, "reason": "not_found"}
+{"source": "Jake's Famous Crawfish", "candidate": "The Berghoff", "target_city": "chicago", "confidence": 0.72, "rank": 2, "reason": "not_found"}
+{"source": "Kann", "candidate": "Virtue", "target_city": "chicago", "confidence": 0.79, "rank": 2, "reason": "not_found"}
+{"source": "Ken's Artisan Pizza", "candidate": "Middle Brow Bungalow", "target_city": "chicago", "confidence": 0.7, "rank": 1, "reason": "not_found"}
+{"source": "Ken's Artisan Pizza", "candidate": "Spacca Napoli", "target_city": "chicago", "confidence": 0.66, "rank": 2, "reason": "not_found"}
+{"source": "Langbaan", "candidate": "Kikk\u014d", "target_city": "chicago", "confidence": 0.6, "rank": 3, "reason": "not_found"}
+{"source": "Lardo", "candidate": "J.P. Graziano", "target_city": "chicago", "confidence": 0.72, "rank": 2, "reason": "not_found"}
+{"source": "Laurelhurst", "candidate": "Beverly", "target_city": "chicago", "confidence": 0.78, "rank": 1, "reason": "not_found"}
+{"source": "Laurelhurst", "candidate": "Sauganash", "target_city": "chicago", "confidence": 0.7, "rank": 2, "reason": "not_found"}
+{"source": "Laurelhurst", "candidate": "Kenwood", "target_city": "chicago", "confidence": 0.55, "rank": 3, "reason": "not_found"}
+{"source": "Le Pigeon", "candidate": "Schwa", "target_city": "chicago", "confidence": 0.6, "rank": 2, "reason": "not_found"}
+{"source": "Living Room Theaters", "candidate": "Alamo Drafthouse Chicago", "target_city": "chicago", "confidence": 0.42, "rank": 3, "reason": "not_found"}
+{"source": "Made in Oregon", "candidate": "Macy's on State Street", "target_city": "chicago", "confidence": 0.55, "rank": 2, "reason": "not_found"}
+{"source": "Mississippi Avenue", "candidate": "18th Street in Pilsen", "target_city": "chicago", "confidence": 0.78, "rank": 1, "reason": "not_found"}
+{"source": "Mississippi Records", "candidate": "Bric-a-Brac Records", "target_city": "chicago", "confidence": 0.6, "rank": 3, "reason": "not_found"}
+{"source": "Nob Hill", "candidate": "Armitage Avenue (Armitage\u2013Halsted, Lincoln Park)", "target_city": "chicago", "confidence": 0.82, "rank": 1, "reason": "not_found"}
+{"source": "Nob Hill", "candidate": "Damen Avenue north of Division (Wicker Park/Bucktown)", "target_city": "chicago", "confidence": 0.6, "rank": 3, "reason": "not_found"}
+{"source": "Nordstrom", "candidate": "Macy's on State Street", "target_city": "chicago", "confidence": 0.82, "rank": 1, "reason": "not_found"}
+{"source": "Old Town Chinatown", "candidate": "Rush & Division", "target_city": "chicago", "confidence": 0.72, "rank": 1, "reason": "not_found"}
+{"source": "Old Town Chinatown", "candidate": "Hubbard Street / River North club strip", "target_city": "chicago", "confidence": 0.63, "rank": 2, "reason": "not_found"}
+{"source": "OnPoint Community Credit Union", "candidate": "Wintrust Community Banks", "target_city": "chicago", "confidence": 0.7, "rank": 1, "reason": "not_found"}
+{"source": "Otto's Sausage Kitchen", "candidate": "Gene's Sausage Shop", "target_city": "chicago", "confidence": 0.9, "rank": 1, "reason": "not_found"}
+{"source": "Otto's Sausage Kitchen", "candidate": "Paulina Meat Market", "target_city": "chicago", "confidence": 0.78, "rank": 2, "reason": "not_found"}
+{"source": "Portland Japanese Garden", "candidate": "Garden of the Phoenix (Osaka Garden), Jackson Park", "target_city": "chicago", "confidence": 0.45, "rank": 3, "reason": "not_found"}
+{"source": "Portland Oregon Sign", "candidate": "Wrigley Field's red marquee", "target_city": "chicago", "confidence": 0.68, "rank": 2, "reason": "not_found"}
+{"source": "Portland Oregon Sign", "candidate": "Superdawg Drive-In's rooftop hot dogs", "target_city": "chicago", "confidence": 0.55, "rank": 3, "reason": "not_found"}
+{"source": "Portland Saturday Market", "candidate": "Randolph Street Market", "target_city": "chicago", "confidence": 0.62, "rank": 2, "reason": "not_found"}
+{"source": "Powell's City of Books", "candidate": "Seminary Co-op Bookstore", "target_city": "chicago", "confidence": 0.72, "rank": 1, "reason": "not_found"}
+{"source": "Providore Fine Foods", "candidate": "Gene's Sausage Shop", "target_city": "chicago", "confidence": 0.72, "rank": 1, "reason": "not_found"}
+{"source": "REI", "candidate": "Erehwon Mountain Outfitter", "target_city": "chicago", "confidence": 0.6, "rank": 2, "reason": "not_found"}
+{"source": "Rimsky-Korsakoffee House", "candidate": "Kopi Cafe", "target_city": "chicago", "confidence": 0.52, "rank": 3, "reason": "not_found"}
+{"source": "Sassy's", "candidate": "Marie's Riptide Lounge", "target_city": "chicago", "confidence": 0.52, "rank": 2, "reason": "not_found"}
+{"source": "Sellwood-Moreland", "candidate": "Beverly", "target_city": "chicago", "confidence": 0.5, "rank": 3, "reason": "not_found"}
+{"source": "Umpqua Bank", "candidate": "Wintrust Community Banks", "target_city": "chicago", "confidence": 0.82, "rank": 1, "reason": "not_found"}
+{"source": "Wildwood Trail", "candidate": "Palos Trail System (Sag Valley / Swallow Cliff)", "target_city": "chicago", "confidence": 0.68, "rank": 2, "reason": "not_found"}
+{"source": "WinCo Foods", "candidate": "Woodman's Food Markets", "target_city": "chicago", "confidence": 0.55, "rank": 3, "reason": "not_found"}
+{"source": "Winks Hardware", "candidate": "Lee Lumber & Building Materials", "target_city": "chicago", "confidence": 0.45, "rank": 3, "reason": "not_found"}
+{"source": "Zupan's Markets", "candidate": "Gene's Sausage Shop", "target_city": "chicago", "confidence": 0.45, "rank": 3, "reason": "not_found"}

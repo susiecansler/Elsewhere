@@ -1,0 +1,51 @@
+{"source": "Aldi", "candidate": "El Rancho Supermercado", "target_city": "austin", "confidence": 0.42, "rank": 3, "reason": "not_found"}
+{"source": "Alinea", "candidate": "Uchi", "target_city": "austin", "confidence": 0.63, "rank": 1, "reason": "not_found"}
+{"source": "Andersonville", "candidate": "Duval Street, Hyde Park", "target_city": "austin", "confidence": 0.63, "rank": 2, "reason": "not_found"}
+{"source": "Andersonville", "candidate": "Manor Road", "target_city": "austin", "confidence": 0.5, "rank": 3, "reason": "not_found"}
+{"source": "Billy Sunday", "candidate": "Drink.well", "target_city": "austin", "confidence": 0.76, "rank": 2, "reason": "not_found"}
+{"source": "Birrieria Zaragoza", "candidate": "Vasquez Restaurant", "target_city": "austin", "confidence": 0.78, "rank": 1, "reason": "not_found"}
+{"source": "Buddy Guy's Legends", "candidate": "Antone's", "target_city": "austin", "confidence": 0.93, "rank": 1, "reason": "not_found"}
+{"source": "Carnitas Uruapan", "candidate": "Vasquez Restaurant", "target_city": "austin", "confidence": 0.6, "rank": 1, "reason": "not_found"}
+{"source": "Chicago History Museum", "candidate": "LBJ Presidential Library", "target_city": "austin", "confidence": 0.5, "rank": 3, "reason": "not_found"}
+{"source": "Cindy's Rooftop", "candidate": "P6 Rooftop at Fairmont Austin", "target_city": "austin", "confidence": 0.72, "rank": 1, "reason": "not_found"}
+{"source": "Clark-Devon Hardware", "candidate": "Breed & Co. Hardware", "target_city": "austin", "confidence": 0.84, "rank": 1, "reason": "not_found"}
+{"source": "Delilah's", "candidate": "Lovejoys Tap Room", "target_city": "austin", "confidence": 0.63, "rank": 2, "reason": "not_found"}
+{"source": "Dill Pickle Food Co-op", "candidate": "Fresh Plus", "target_city": "austin", "confidence": 0.55, "rank": 2, "reason": "not_found"}
+{"source": "Division Street", "candidate": "Sixth Street", "target_city": "austin", "confidence": 0.58, "rank": 3, "reason": "not_found"}
+{"source": "East Bank Club", "candidate": "Lifetime Fitness (Downtown Austin)", "target_city": "austin", "confidence": 0.55, "rank": 2, "reason": "not_found"}
+{"source": "Empty Bottle", "candidate": "Mohawk", "target_city": "austin", "confidence": 0.76, "rank": 1, "reason": "not_found"}
+{"source": "Field Museum", "candidate": "LBJ Presidential Library", "target_city": "austin", "confidence": 0.5, "rank": 3, "reason": "not_found"}
+{"source": "Girl & the Goat", "candidate": "Uchi", "target_city": "austin", "confidence": 0.82, "rank": 1, "reason": "not_found"}
+{"source": "Grant Park", "candidate": "Vic Mathias Shores (Auditorium Shores)", "target_city": "austin", "confidence": 0.72, "rank": 2, "reason": "not_found"}
+{"source": "Green Street Smoked Meats", "candidate": "Loro", "target_city": "austin", "confidence": 0.55, "rank": 2, "reason": "not_found"}
+{"source": "Hyde Park", "candidate": "Hyde Park", "target_city": "austin", "confidence": 0.78, "rank": 1, "reason": "not_found"}
+{"source": "Hyde Park", "candidate": "North University", "target_city": "austin", "confidence": 0.62, "rank": 2, "reason": "not_found"}
+{"source": "Joong Boo Market", "candidate": "Asia Market", "target_city": "austin", "confidence": 0.72, "rank": 2, "reason": "not_found"}
+{"source": "Kopi Cafe", "candidate": "Spider House Cafe", "target_city": "austin", "confidence": 0.72, "rank": 2, "reason": "not_found"}
+{"source": "Lake Forest", "candidate": "Tarrytown", "target_city": "austin", "confidence": 0.82, "rank": 1, "reason": "not_found"}
+{"source": "Lake Forest", "candidate": "Old Enfield / Pemberton Heights", "target_city": "austin", "confidence": 0.63, "rank": 3, "reason": "not_found"}
+{"source": "Lincoln Hall", "candidate": "Mohawk", "target_city": "austin", "confidence": 0.82, "rank": 1, "reason": "not_found"}
+{"source": "Lincoln Hall", "candidate": "Scoot Inn", "target_city": "austin", "confidence": 0.55, "rank": 3, "reason": "not_found"}
+{"source": "Lincoln Square", "candidate": "Hyde Park (Duval Street)", "target_city": "austin", "confidence": 0.6, "rank": 1, "reason": "not_found"}
+{"source": "Logan Square", "candidate": "Manor Road / Cherrywood", "target_city": "austin", "confidence": 0.5, "rank": 3, "reason": "not_found"}
+{"source": "Lou Mitchell's", "candidate": "Cisco's Restaurant Bakery & Bar", "target_city": "austin", "confidence": 0.78, "rank": 1, "reason": "not_found"}
+{"source": "Macy's on State Street", "candidate": "The Scarbrough Building (Congress Ave)", "target_city": "austin", "confidence": 0.35, "rank": 3, "reason": "not_found"}
+{"source": "Manny's Cafeteria & Delicatessen", "candidate": "Cisco's Restaurant Bakery & Bar", "target_city": "austin", "confidence": 0.82, "rank": 1, "reason": "not_found"}
+{"source": "Map Room", "candidate": "Draught House Pub & Brewery", "target_city": "austin", "confidence": 0.78, "rank": 1, "reason": "not_found"}
+{"source": "Mariano's", "candidate": "H-E-B Mueller", "target_city": "austin", "confidence": 0.62, "rank": 3, "reason": "not_found"}
+{"source": "Metro", "candidate": "Mohawk", "target_city": "austin", "confidence": 0.64, "rank": 2, "reason": "not_found"}
+{"source": "Metro", "candidate": "Antone's", "target_city": "austin", "confidence": 0.45, "rank": 3, "reason": "not_found"}
+{"source": "Music Box Theatre", "candidate": "Alamo Drafthouse Ritz", "target_city": "austin", "confidence": 0.5, "rank": 3, "reason": "not_found"}
+{"source": "Myopic Books", "candidate": "Farewell Books", "target_city": "austin", "confidence": 0.38, "rank": 3, "reason": "not_found"}
+{"source": "Navy Pier", "candidate": "Sixth Street", "target_city": "austin", "confidence": 0.83, "rank": 1, "reason": "not_found"}
+{"source": "Oriole", "candidate": "Uchi", "target_city": "austin", "confidence": 0.58, "rank": 3, "reason": "not_found"}
+{"source": "Pilsen", "candidate": "East Cesar Chavez (East Austin)", "target_city": "austin", "confidence": 0.86, "rank": 1, "reason": "not_found"}
+{"source": "Portillo's", "candidate": "P. Terry's", "target_city": "austin", "confidence": 0.78, "rank": 1, "reason": "not_found"}
+{"source": "Sawada Coffee", "candidate": "Sa-T\u00e9n Coffee & Eats", "target_city": "austin", "confidence": 0.72, "rank": 1, "reason": "not_found"}
+{"source": "Small Cheval", "candidate": "P. Terry's", "target_city": "austin", "confidence": 0.61, "rank": 2, "reason": "not_found"}
+{"source": "Smoque BBQ", "candidate": "Micklethwait Craft Meats", "target_city": "austin", "confidence": 0.65, "rank": 2, "reason": "not_found"}
+{"source": "Steppenwolf Theatre", "candidate": "ZACH Theatre", "target_city": "austin", "confidence": 0.6, "rank": 1, "reason": "not_found"}
+{"source": "Thalia Hall", "candidate": "Mohawk", "target_city": "austin", "confidence": 0.72, "rank": 1, "reason": "not_found"}
+{"source": "Unabridged Bookstore", "candidate": "First Light Book Shop", "target_city": "austin", "confidence": 0.55, "rank": 2, "reason": "not_found"}
+{"source": "Valois Cafeteria", "candidate": "Cisco's Restaurant Bakery & Bar", "target_city": "austin", "confidence": 0.72, "rank": 2, "reason": "not_found"}
+{"source": "Wrigleyville", "candidate": "Sixth Street", "target_city": "austin", "confidence": 0.65, "rank": 2, "reason": "not_found"}

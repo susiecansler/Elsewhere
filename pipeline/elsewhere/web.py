@@ -401,6 +401,52 @@ summary:hover { color: var(--amber); }
   * { transition: none !important; animation: none !important; }
   .card:hover, .chip:hover, .pick:hover { transform: none; }
 }
+/* ─── Arrival ─────────────────────────────────────────────────────────── */
+.hero { padding: 76px 24px 40px; text-align: center; }
+.hero .wrap { max-width: 720px; margin: 0 auto; }
+.brand {
+  font-size: 15px; font-weight: 800; letter-spacing: -0.02em; color: var(--dim);
+  margin-bottom: 26px;
+}
+.brand.small { margin: 0; font-size: 17px; color: var(--ink); }
+.pitch {
+  font-size: 46px; line-height: 1.06; letter-spacing: -0.045em; font-weight: 800;
+  margin: 0 0 34px;
+}
+.pitch em {
+  font-style: normal;
+  background: linear-gradient(100deg, var(--amber), #E85D2A);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.ask {
+  display: flex; gap: 10px; align-items: center; justify-content: center;
+  flex-wrap: wrap;
+}
+.ask .lead { font-size: 16px; color: var(--dim); font-weight: 600; }
+.ask select { font-size: 17px; padding: 13px 40px 13px 18px; font-weight: 700; }
+.ask input[type=search] {
+  font-size: 17px; padding: 13px 20px; min-width: 300px; flex: 0 1 340px;
+}
+.examples {
+  display: flex; gap: 8px; justify-content: center; flex-wrap: wrap;
+  margin-top: 22px; min-height: 34px;
+}
+.examples .eg {
+  font: inherit; font-size: 13.5px; font-weight: 600; padding: 7px 14px;
+  border: 0; border-radius: 999px; cursor: pointer;
+  background: var(--chip); color: var(--warn);
+  transition: transform .22s var(--spring), background .2s, color .2s;
+}
+.examples .eg:hover { background: var(--amber); color: #fff; transform: translateY(-2px); }
+.examples .lead { font-size: 13.5px; color: var(--faint); align-self: center; margin-right: 2px; }
+
+#bar { position: sticky; top: 0; z-index: 20; }
+
+@media (max-width: 640px) {
+  .hero { padding: 48px 18px 28px; }
+  .pitch { font-size: 32px; }
+  .ask input[type=search] { min-width: 0; flex: 1 1 100%; }
+}
 </style>
 </head>
 <body>
@@ -417,11 +463,26 @@ summary:hover { color: var(--amber); }
   </div>
 </div>
 
-<header><div class="bar">
-  <h1>Elsewhere</h1>
-  <span class="from">I know</span>
-  <select id="srcsel" title="Which city you know"></select>
-  <input type="search" id="q" class="grow" placeholder="Search a place…">
+<!-- The first thing a friend sees. States the idea in one line, then puts the
+     only two controls that matter directly under it. -->
+<section class="hero">
+  <div class="wrap">
+    <div class="brand">Elsewhere</div>
+    <h1 class="pitch">Every city has an H-E-B.<br><em>It's just called something else.</em></h1>
+    <div class="ask">
+      <span class="lead">I know</span>
+      <select id="srcsel" title="Which city you know"></select>
+      <input type="search" id="q" placeholder="Type a place you love…">
+    </div>
+    <div class="examples" id="examples"></div>
+  </div>
+</section>
+
+<!-- Slim bar that takes over once the hero scrolls away. -->
+<header id="bar"><div class="bar">
+  <span class="brand small">Elsewhere</span>
+  <select id="srcsel2" title="Which city you know"></select>
+  <input type="search" id="q2" class="grow" placeholder="Search a place…">
   <div class="chips" id="filters">
     <button class="chip" data-f="all" aria-pressed="true">All</button>
     <button class="chip" data-f="todo" aria-pressed="false">Ungraded</button>
@@ -508,19 +569,72 @@ async function load() {
   home = S.source;
   localStorage.setItem("elsewhere.home", home);
 
-  const sel = document.getElementById("srcsel");
-  sel.innerHTML = Object.keys(S.sources).map(c =>
-    `<option value="${c}" ${c === S.source ? "selected" : ""}>${title(c)}</option>`).join("");
-
+  syncControls();
+  renderExamples();
   document.getElementById("signout").textContent = me ? "not " + me + "?" : "";
   render();
 }
 
-document.getElementById("srcsel").addEventListener("change", e => {
-  home = e.target.value;
-  q = ""; document.getElementById("q").value = "";
-  load();
-});
+// Two search boxes and two city pickers — one in the hero, one in the slim bar
+// that replaces it on scroll. Kept in sync so scrolling never loses your query.
+function syncControls() {
+  document.getElementById("q").value = q;
+  document.getElementById("q2").value = q;
+  for (const id of ["srcsel", "srcsel2"]) {
+    const sel = document.getElementById(id);
+    sel.innerHTML = Object.keys(S.sources).map(c =>
+      `<option value="${c}" ${c === S.source ? "selected" : ""}>${title(c)}</option>`).join("");
+  }
+}
+
+// A friend who has never seen this has no idea what to type. Offer a few real
+// places from whichever city they picked.
+const SEEDS_BY_CITY = {
+  austin:   ["H-E-B", "Torchy's Tacos", "Barton Springs Pool", "BookPeople"],
+  chicago:  ["Mariano's", "Lou Malnati's", "The Green Mill", "Reckless Records"],
+  portland: ["Powell's City of Books", "Stumptown Coffee Roasters", "Salt & Straw", "Forest Park"]
+};
+
+function renderExamples() {
+  const el = document.getElementById("examples");
+  if (q) { el.innerHTML = ""; return; }
+  const known = new Set(S.matches.map(m => m.name));
+  const picks = (SEEDS_BY_CITY[S.source] || []).filter(n => known.has(n)).slice(0, 4);
+  // Fall back to whatever the corpus has, so a new city still gets prompts.
+  const list = picks.length ? picks : S.matches.slice(0, 4).map(m => m.name);
+  el.innerHTML = `<span class="lead">try</span>` + list.map(n =>
+    `<button class="eg" onclick="jumpTo('${esc(n).replace(/'/g, "\\'")}')">${esc(n)}</button>`
+  ).join("");
+}
+
+function jumpTo(name) {
+  q = name;
+  syncControls();
+  render();
+  document.getElementById("list").scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
+for (const id of ["q", "q2"]) {
+  document.getElementById(id).addEventListener("input", e => {
+    q = e.target.value.trim();
+    document.getElementById(id === "q" ? "q2" : "q").value = e.target.value;
+    renderExamples();
+    render();
+  });
+}
+for (const id of ["srcsel", "srcsel2"]) {
+  document.getElementById(id).addEventListener("change", e => {
+    home = e.target.value;
+    q = "";
+    load();
+  });
+}
+
+// The slim bar is plain CSS sticky — no show/hide logic. Two earlier
+// attempts (IntersectionObserver, then a scroll listener) both left it
+// stuck hidden, which costs a visitor the search box for the whole page.
+// Sticky positioning cannot fail that way.
+
 
 function progress() {
   const el = document.getElementById("prog");
@@ -706,9 +820,7 @@ async function clearPick(name, city) {
   render();
 }
 
-document.getElementById("q").addEventListener("input", e => {
-  q = e.target.value.trim(); render();
-});
+
 // Scoped to [data-f]: a bare `.chip` selector also caught the theme and
 // mode buttons, so clicking either set filter to undefined and flipped
 // their aria-pressed, inverting their colours.

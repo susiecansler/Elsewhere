@@ -1,0 +1,62 @@
+{"source": "Alberta Arts District", "candidate": "East 11th & 12th Street", "target_city": "austin", "confidence": 0.6, "rank": 2, "reason": "not_found"}
+{"source": "Alberta Arts District", "candidate": "Manor Road", "target_city": "austin", "confidence": 0.45, "rank": 3, "reason": "not_found"}
+{"source": "Blue Star Donuts", "candidate": "Bougie's Donut and Dive Bar", "target_city": "austin", "confidence": 0.42, "rank": 3, "reason": "not_found"}
+{"source": "Buffalo Exchange", "candidate": "New Bohemia", "target_city": "austin", "confidence": 0.52, "rank": 3, "reason": "not_found"}
+{"source": "Burgerville", "candidate": "P. Terry's", "target_city": "austin", "confidence": 0.88, "rank": 1, "reason": "not_found"}
+{"source": "Dante's", "candidate": "Mohawk", "target_city": "austin", "confidence": 0.55, "rank": 2, "reason": "not_found"}
+{"source": "Deschutes Brewery Portland Public House", "candidate": "Real Ale Brewing", "target_city": "austin", "confidence": 0.66, "rank": 2, "reason": "not_found"}
+{"source": "Division Street", "candidate": "East Cesar Chavez / East Sixth Street", "target_city": "austin", "confidence": 0.74, "rank": 2, "reason": "not_found"}
+{"source": "Doug Fir Lounge", "candidate": "Mohawk", "target_city": "austin", "confidence": 0.82, "rank": 1, "reason": "not_found"}
+{"source": "Dunthorpe", "candidate": "Tarrytown", "target_city": "austin", "confidence": 0.85, "rank": 1, "reason": "not_found"}
+{"source": "Dunthorpe", "candidate": "Old Enfield", "target_city": "austin", "confidence": 0.62, "rank": 3, "reason": "not_found"}
+{"source": "Dutch Bros Coffee", "candidate": "P. Terry's", "target_city": "austin", "confidence": 0.55, "rank": 2, "reason": "not_found"}
+{"source": "Hollywood Theatre", "candidate": "Alamo Drafthouse Ritz", "target_city": "austin", "confidence": 0.6, "rank": 3, "reason": "not_found"}
+{"source": "Horse Brass Pub", "candidate": "Draught House Pub & Brewery", "target_city": "austin", "confidence": 0.88, "rank": 1, "reason": "not_found"}
+{"source": "International Rose Test Garden", "candidate": "Mount Bonnell", "target_city": "austin", "confidence": 0.72, "rank": 1, "reason": "not_found"}
+{"source": "Irvington", "candidate": "Hyde Park", "target_city": "austin", "confidence": 0.83, "rank": 1, "reason": "not_found"}
+{"source": "Irvington", "candidate": "Travis Heights", "target_city": "austin", "confidence": 0.68, "rank": 2, "reason": "not_found"}
+{"source": "Irvington", "candidate": "Tarrytown", "target_city": "austin", "confidence": 0.52, "rank": 3, "reason": "not_found"}
+{"source": "Kann", "candidate": "x", "target_city": "austin", "confidence": 0.1, "rank": 2, "reason": "not_found"}
+{"source": "Killer Burger", "candidate": "P. Terry's", "target_city": "austin", "confidence": 0.45, "rank": 3, "reason": "not_found"}
+{"source": "Laurelhurst", "candidate": "Old Enfield", "target_city": "austin", "confidence": 0.82, "rank": 1, "reason": "not_found"}
+{"source": "Laurelhurst", "candidate": "Hyde Park", "target_city": "austin", "confidence": 0.74, "rank": 2, "reason": "not_found"}
+{"source": "Laurelhurst", "candidate": "Travis Heights", "target_city": "austin", "confidence": 0.6, "rank": 3, "reason": "not_found"}
+{"source": "Laurelhurst Park", "candidate": "Pease Park", "target_city": "austin", "confidence": 0.78, "rank": 1, "reason": "not_found"}
+{"source": "Living Room Theaters", "candidate": "Alamo Drafthouse Ritz", "target_city": "austin", "confidence": 0.78, "rank": 1, "reason": "not_found"}
+{"source": "Matt's BBQ", "candidate": "Micklethwait Craft Meats", "target_city": "austin", "confidence": 0.7, "rank": 2, "reason": "not_found"}
+{"source": "Mill Ends Park", "candidate": "Hi, How Are You mural (Jeremiah the Innocent)", "target_city": "austin", "confidence": 0.62, "rank": 2, "reason": "not_found"}
+{"source": "Mill Ends Park", "candidate": "Treaty Oak", "target_city": "austin", "confidence": 0.5, "rank": 3, "reason": "not_found"}
+{"source": "Mississippi Avenue", "candidate": "East 11th Street", "target_city": "austin", "confidence": 0.72, "rank": 2, "reason": "not_found"}
+{"source": "Mississippi Studios", "candidate": "Mohawk", "target_city": "austin", "confidence": 0.82, "rank": 1, "reason": "not_found"}
+{"source": "Mount Tabor Park", "candidate": "Mount Bonnell", "target_city": "austin", "confidence": 0.6, "rank": 1, "reason": "not_found"}
+{"source": "Mount Tabor Park", "candidate": "Pease Park", "target_city": "austin", "confidence": 0.4, "rank": 3, "reason": "not_found"}
+{"source": "Never Coffee", "candidate": "Try Hard Coffee", "target_city": "austin", "confidence": 0.74, "rank": 2, "reason": "not_found"}
+{"source": "Never Coffee", "candidate": "Sa-T\u00e9n Coffee", "target_city": "austin", "confidence": 0.6, "rank": 3, "reason": "not_found"}
+{"source": "Nob Hill", "candidate": "West Lynn / Clarksville", "target_city": "austin", "confidence": 0.72, "rank": 2, "reason": "not_found"}
+{"source": "Nong's Khao Man Gai", "candidate": "Dee Dee", "target_city": "austin", "confidence": 0.66, "rank": 2, "reason": "not_found"}
+{"source": "Old Town Chinatown", "candidate": "Sixth Street", "target_city": "austin", "confidence": 0.91, "rank": 1, "reason": "not_found"}
+{"source": "Oregon Historical Society", "candidate": "LBJ Presidential Library", "target_city": "austin", "confidence": 0.55, "rank": 3, "reason": "not_found"}
+{"source": "Pearl District", "candidate": "Second Street District (Seaholm/Downtown warehouse blocks)", "target_city": "austin", "confidence": 0.72, "rank": 1, "reason": "not_found"}
+{"source": "Pittock Mansion", "candidate": "Mount Bonnell", "target_city": "austin", "confidence": 0.86, "rank": 1, "reason": "not_found"}
+{"source": "Pittock Mansion", "candidate": "The Driskill Hotel", "target_city": "austin", "confidence": 0.7, "rank": 2, "reason": "not_found"}
+{"source": "Plaid Pantry", "candidate": "Thom's Market", "target_city": "austin", "confidence": 0.62, "rank": 1, "reason": "not_found"}
+{"source": "Podnah's Pit Barbecue", "candidate": "Micklethwait Craft Meats", "target_city": "austin", "confidence": 0.65, "rank": 2, "reason": "not_found"}
+{"source": "Pok Pok", "candidate": "Dee Dee", "target_city": "austin", "confidence": 0.65, "rank": 2, "reason": "not_found"}
+{"source": "Portland Center Stage", "candidate": "ZACH Theatre", "target_city": "austin", "confidence": 0.86, "rank": 1, "reason": "not_found"}
+{"source": "Powell Butte Nature Park", "candidate": "Mount Bonnell", "target_city": "austin", "confidence": 0.38, "rank": 3, "reason": "not_found"}
+{"source": "Revolution Hall", "candidate": "Mohawk", "target_city": "austin", "confidence": 0.72, "rank": 1, "reason": "not_found"}
+{"source": "Rimsky-Korsakoffee House", "candidate": "Spider House Cafe & Ballroom", "target_city": "austin", "confidence": 0.76, "rank": 1, "reason": "not_found"}
+{"source": "Safeway", "candidate": "Albertsons", "target_city": "austin", "confidence": 0.82, "rank": 2, "reason": "not_found"}
+{"source": "Sassy's", "candidate": "The Yellow Rose", "target_city": "austin", "confidence": 0.62, "rank": 1, "reason": "not_found"}
+{"source": "Screen Door", "candidate": "Sawyer & Co.", "target_city": "austin", "confidence": 0.42, "rank": 3, "reason": "not_found"}
+{"source": "Sellwood-Moreland", "candidate": "Hyde Park", "target_city": "austin", "confidence": 0.78, "rank": 1, "reason": "not_found"}
+{"source": "Sellwood-Moreland", "candidate": "Travis Heights", "target_city": "austin", "confidence": 0.72, "rank": 2, "reason": "not_found"}
+{"source": "St. Johns", "candidate": "Montopolis", "target_city": "austin", "confidence": 0.72, "rank": 1, "reason": "not_found"}
+{"source": "St. Johns", "candidate": "Govalle / Johnston Terrace", "target_city": "austin", "confidence": 0.65, "rank": 2, "reason": "not_found"}
+{"source": "St. Johns", "candidate": "Manor", "target_city": "austin", "confidence": 0.45, "rank": 3, "reason": "not_found"}
+{"source": "Tom McCall Waterfront Park", "candidate": "Vic Mathias Shores (Auditorium Shores)", "target_city": "austin", "confidence": 0.78, "rank": 1, "reason": "not_found"}
+{"source": "Washington Park", "candidate": "Mount Bonnell", "target_city": "austin", "confidence": 0.42, "rank": 3, "reason": "not_found"}
+{"source": "Widmer Brothers Brewing", "candidate": "Real Ale Brewing", "target_city": "austin", "confidence": 0.66, "rank": 2, "reason": "not_found"}
+{"source": "WinCo Foods", "candidate": "H-E-B (the older, non-'plus!' stores)", "target_city": "austin", "confidence": 0.55, "rank": 2, "reason": "not_found"}
+{"source": "WinCo Foods", "candidate": "El Rancho Supermercado / La Michoacana Meat Market", "target_city": "austin", "confidence": 0.48, "rank": 3, "reason": "not_found"}
+{"source": "Wonder Ballroom", "candidate": "Mohawk", "target_city": "austin", "confidence": 0.78, "rank": 1, "reason": "not_found"}

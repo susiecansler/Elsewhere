@@ -1,0 +1,48 @@
+{"source": "Andersonville", "candidate": "Alberta Street (Alberta Arts District)", "target_city": "portland", "confidence": 0.78, "rank": 1, "reason": "not_found"}
+{"source": "Art Institute of Chicago", "candidate": "Oregon Museum of Science and Industry", "target_city": "portland", "confidence": 0.3, "rank": 3, "reason": "not_found"}
+{"source": "Buddy Guy's Legends", "candidate": "Duff's Garage", "target_city": "portland", "confidence": 0.62, "rank": 1, "reason": "not_found"}
+{"source": "Chicago Cultural Center", "candidate": "Pioneer Courthouse Square", "target_city": "portland", "confidence": 0.65, "rank": 2, "reason": "not_found"}
+{"source": "Clark-Devon Hardware", "candidate": "Winks Hardware", "target_city": "portland", "confidence": 0.78, "rank": 1, "reason": "not_found"}
+{"source": "Clark-Devon Hardware", "candidate": "Hippo Hardware & Trading Co.", "target_city": "portland", "confidence": 0.55, "rank": 3, "reason": "not_found"}
+{"source": "Division Street", "candidate": "Old Town Chinatown", "target_city": "portland", "confidence": 0.76, "rank": 1, "reason": "not_found"}
+{"source": "Division Street", "candidate": "NW 21st & 23rd (Nob Hill)", "target_city": "portland", "confidence": 0.62, "rank": 2, "reason": "not_found"}
+{"source": "Field Museum", "candidate": "Oregon Museum of Science and Industry (OMSI)", "target_city": "portland", "confidence": 0.82, "rank": 1, "reason": "not_found"}
+{"source": "Fulton Market", "candidate": "Northwest 13th Avenue / Slabtown", "target_city": "portland", "confidence": 0.5, "rank": 3, "reason": "not_found"}
+{"source": "Gene & Jude's", "candidate": "Otto's Sausage Kitchen", "target_city": "portland", "confidence": 0.55, "rank": 2, "reason": "not_found"}
+{"source": "Gene Siskel Film Center", "candidate": "PAM CUT / Whitsell Auditorium (Northwest Film Center)", "target_city": "portland", "confidence": 0.9, "rank": 1, "reason": "not_found"}
+{"source": "Gene's Sausage Shop", "candidate": "Otto's Sausage Kitchen", "target_city": "portland", "confidence": 0.78, "rank": 1, "reason": "not_found"}
+{"source": "Gene's Sausage Shop", "candidate": "Edelweiss Sausage & Delicatessen", "target_city": "portland", "confidence": 0.72, "rank": 2, "reason": "not_found"}
+{"source": "Goose Island", "candidate": "BridgePort Brewpub", "target_city": "portland", "confidence": 0.7, "rank": 2, "reason": "not_found"}
+{"source": "Grant Park", "candidate": "Pioneer Courthouse Square", "target_city": "portland", "confidence": 0.5, "rank": 3, "reason": "not_found"}
+{"source": "H Mart", "candidate": "Uwajimaya", "target_city": "portland", "confidence": 0.86, "rank": 1, "reason": "not_found"}
+{"source": "H Mart", "candidate": "Fubonn Supermarket", "target_city": "portland", "confidence": 0.8, "rank": 2, "reason": "not_found"}
+{"source": "Harold Washington Library Center", "candidate": "Millar Library, Portland State University", "target_city": "portland", "confidence": 0.35, "rank": 3, "reason": "not_found"}
+{"source": "Hyde Park", "candidate": "Eastmoreland", "target_city": "portland", "confidence": 0.72, "rank": 1, "reason": "not_found"}
+{"source": "Hyde Park", "candidate": "Laurelhurst", "target_city": "portland", "confidence": 0.5, "rank": 3, "reason": "not_found"}
+{"source": "Johnnie's Beef", "candidate": "Otto's Sausage Kitchen", "target_city": "portland", "confidence": 0.66, "rank": 2, "reason": "not_found"}
+{"source": "Joong Boo Market", "candidate": "Uwajimaya", "target_city": "portland", "confidence": 0.72, "rank": 2, "reason": "not_found"}
+{"source": "Kingston Mines", "candidate": "Duff's Garage", "target_city": "portland", "confidence": 0.42, "rank": 3, "reason": "not_found"}
+{"source": "Knee Deep Vintage", "candidate": "Xtabay Vintage", "target_city": "portland", "confidence": 0.78, "rank": 1, "reason": "not_found"}
+{"source": "Kopi Cafe", "candidate": "Common Grounds Coffee House", "target_city": "portland", "confidence": 0.66, "rank": 1, "reason": "not_found"}
+{"source": "Lake Forest", "candidate": "Dunthorpe", "target_city": "portland", "confidence": 0.85, "rank": 1, "reason": "not_found"}
+{"source": "Lincoln Square", "candidate": "Multnomah Village", "target_city": "portland", "confidence": 0.5, "rank": 3, "reason": "not_found"}
+{"source": "Lou Malnati's", "candidate": "Hot Lips Pizza", "target_city": "portland", "confidence": 0.52, "rank": 3, "reason": "not_found"}
+{"source": "Manny's Cafeteria & Delicatessen", "candidate": "Otto's Sausage Kitchen", "target_city": "portland", "confidence": 0.44, "rank": 3, "reason": "not_found"}
+{"source": "Millennium Park", "candidate": "Pioneer Courthouse Square", "target_city": "portland", "confidence": 0.7, "rank": 2, "reason": "not_found"}
+{"source": "Mr. Beef", "candidate": "Otto's Sausage Kitchen", "target_city": "portland", "confidence": 0.6, "rank": 2, "reason": "not_found"}
+{"source": "Museum of Science and Industry", "candidate": "Oregon Museum of Science and Industry", "target_city": "portland", "confidence": 0.97, "rank": 1, "reason": "not_found"}
+{"source": "Myopic Books", "candidate": "Longfellow's Books", "target_city": "portland", "confidence": 0.55, "rank": 3, "reason": "not_found"}
+{"source": "North Avenue Beach", "candidate": "Walton Beach, Sauvie Island", "target_city": "portland", "confidence": 0.6, "rank": 2, "reason": "not_found"}
+{"source": "Off Color Brewing", "candidate": "Hair of the Dog Brewing", "target_city": "portland", "confidence": 0.72, "rank": 2, "reason": "not_found"}
+{"source": "Old Town Ale House", "candidate": "Billy Ray's Neighborhood Dive", "target_city": "portland", "confidence": 0.5, "rank": 3, "reason": "not_found"}
+{"source": "Oriole", "candidate": "Berlu", "target_city": "portland", "confidence": 0.46, "rank": 3, "reason": "not_found"}
+{"source": "Pete's Fresh Market", "candidate": "Fubonn Supermarket", "target_city": "portland", "confidence": 0.62, "rank": 1, "reason": "not_found"}
+{"source": "Portillo's", "candidate": "Otto's Sausage Kitchen", "target_city": "portland", "confidence": 0.5, "rank": 3, "reason": "not_found"}
+{"source": "Promontory Point", "candidate": "High Rocks (Clackamas River, Gladstone)", "target_city": "portland", "confidence": 0.45, "rank": 3, "reason": "not_found"}
+{"source": "Superdawg Drive-In", "candidate": "Otto's Sausage Kitchen", "target_city": "portland", "confidence": 0.6, "rank": 1, "reason": "not_found"}
+{"source": "Taqueria Chingon", "candidate": "Uno M\u00e1s Taquiza", "target_city": "portland", "confidence": 0.62, "rank": 1, "reason": "not_found"}
+{"source": "The 606", "candidate": "Mount Tabor Park", "target_city": "portland", "confidence": 0.5, "rank": 3, "reason": "not_found"}
+{"source": "The Green Mill", "candidate": "Wilf's Restaurant & Bar", "target_city": "portland", "confidence": 0.55, "rank": 2, "reason": "not_found"}
+{"source": "Uncle Dan's", "candidate": "Next Adventure", "target_city": "portland", "confidence": 0.85, "rank": 1, "reason": "not_found"}
+{"source": "Wrigleyville", "candidate": "Old Town Chinatown", "target_city": "portland", "confidence": 0.66, "rank": 1, "reason": "not_found"}
+{"source": "Wrigleyville", "candidate": "Goose Hollow / Providence Park", "target_city": "portland", "confidence": 0.6, "rank": 2, "reason": "not_found"}
