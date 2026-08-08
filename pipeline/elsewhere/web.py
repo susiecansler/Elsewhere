@@ -160,99 +160,210 @@ PAGE = """<!doctype html>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Elsewhere</title>
 <style>
+/* Sunny, minimalist, playful.
+   No borders anywhere — separation comes from soft warm shadow. Hierarchy
+   comes from type size, not rules. The one indulgence is the sun wash at the
+   top of the page and a springy hover, which is where the play lives. */
 :root {
-  --bg: #fbfaf8; --panel: #fff; --ink: #1a1a1a; --dim: #6b6b6b;
-  --line: #e5e1da; --accent: #b4542a; --ok: #2f7d4f;
-  --warn: #a8761b; --chip: #f0ece5;
+  color-scheme: light;
+  --paper:  #FFFDF6;
+  --sun:    #FFE9A8;
+  --peach:  #FFD9C2;
+  --panel:  #FFFFFF;
+  --ink:    #1A1613;
+  --dim:    #7A7168;
+  --faint:  #ADA398;
+  --hair:   #F5EDE0;
+  --amber:  #E8801F;
+  --amber-soft: #FFF2DF;
+  --sky:    #2C7FB8;
+  --ok:     #17904B;
+  --ok-soft:#E8F6EC;
+  --warn:   #B26A0A;
+  --chip:   #FFF6E6;
+  --shadow:  0 1px 2px rgba(160,120,50,.05), 0 12px 32px -16px rgba(160,120,50,.22);
+  --lift:    0 2px 6px rgba(160,120,50,.07), 0 22px 50px -20px rgba(160,120,50,.32);
+  --spring: cubic-bezier(.34, 1.4, .5, 1);
 }
 @media (prefers-color-scheme: dark) {
+  /* Dim, never cold — the same product after sunset. */
   :root {
-    --bg: #16151a; --panel: #1e1d23; --ink: #eceaf0; --dim: #9b98a4;
-    --line: #302e38; --accent: #e08d5f; --ok: #6cc48c; --warn: #d9ab5c;
-    --chip: #292731;
+    color-scheme: dark;
+    --paper: #17140F; --sun: #2E2617; --peach: #2B2018; --panel: #211D17;
+    --ink: #F7F1E6; --dim: #A8A094; --faint: #7B7367; --hair: #2F2920;
+    --amber: #F5A93F; --amber-soft: #2E2416;
+    --sky: #6BB6E0; --ok: #58C98A; --ok-soft: #1B2A20; --warn: #E2A65C;
+    --chip: #292217;
+    --shadow: 0 1px 2px rgba(0,0,0,.35), 0 12px 32px -16px rgba(0,0,0,.6);
+    --lift:   0 2px 6px rgba(0,0,0,.4), 0 22px 50px -20px rgba(0,0,0,.7);
   }
 }
 * { box-sizing: border-box; }
 body {
-  margin: 0; background: var(--bg); color: var(--ink);
-  font: 15px/1.55 ui-sans-serif, -apple-system, "Segoe UI", Roboto, sans-serif;
+  margin: 0; color: var(--ink); background: var(--paper);
+  /* Two overlapping suns, low and off-centre. Warmth, not a banner. */
+  background-image:
+    radial-gradient(900px 340px at 18% -140px, var(--sun), transparent 68%),
+    radial-gradient(760px 300px at 82% -120px, var(--peach), transparent 66%);
+  background-repeat: no-repeat;
+  font: 16px/1.62 ui-sans-serif, -apple-system, "Segoe UI", Inter, Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
 }
 header {
-  position: sticky; top: 0; z-index: 10; background: var(--bg);
-  border-bottom: 1px solid var(--line); padding: 14px 20px;
+  position: sticky; top: 0; z-index: 20; padding: 18px 24px 16px;
+  background: color-mix(in srgb, var(--paper) 78%, transparent);
+  backdrop-filter: saturate(1.6) blur(14px);
+  -webkit-backdrop-filter: saturate(1.6) blur(14px);
 }
-.bar { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; max-width: 1100px; margin: 0 auto; }
-h1 { font-size: 17px; margin: 0; font-weight: 650; letter-spacing: -0.01em; }
-h1 span { color: var(--dim); font-weight: 400; }
-input[type=search], input[type=text] {
-  font: inherit; padding: 7px 11px; border: 1px solid var(--line);
-  border-radius: 7px; background: var(--panel); color: var(--ink); min-width: 200px;
+.bar { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; max-width: 820px; margin: 0 auto; }
+h1 {
+  font-size: 20px; margin: 0 6px 0 0; font-weight: 800; letter-spacing: -0.04em;
+  background: linear-gradient(96deg, var(--ink) 20%, var(--amber));
+  -webkit-background-clip: text; background-clip: text; color: transparent;
 }
+input[type=search], input[type=text], select {
+  font: inherit; font-size: 15px; padding: 11px 16px; border: 0;
+  border-radius: 999px; background: var(--panel); color: var(--ink);
+  box-shadow: var(--shadow); transition: box-shadow .2s, transform .2s var(--spring);
+}
+input[type=search] { min-width: 200px; }
+input:focus, select:focus { outline: none; box-shadow: var(--lift), 0 0 0 2.5px var(--amber-soft); }
+input::placeholder { color: var(--faint); }
+select { cursor: pointer; font-weight: 650; padding-right: 38px; letter-spacing: -0.01em; }
 .grow { flex: 1; }
-.progress { font-size: 13px; color: var(--dim); white-space: nowrap; }
-.progress b { color: var(--ink); }
-.track { width: 130px; height: 6px; background: var(--chip); border-radius: 3px; overflow: hidden; display: inline-block; vertical-align: middle; margin-left: 8px; }
-.fill { height: 100%; background: var(--ok); transition: width .3s; }
+.progress { font-size: 13.5px; color: var(--dim); white-space: nowrap; }
+.progress b { color: var(--ink); font-weight: 700; }
+.track {
+  width: 110px; height: 6px; background: var(--chip); border-radius: 99px;
+  overflow: hidden; display: inline-block; vertical-align: middle; margin-left: 10px;
+}
+.fill { height: 100%; border-radius: 99px; background: linear-gradient(90deg, var(--sun), var(--amber)); transition: width .45s var(--spring); }
 .chips { display: flex; gap: 6px; }
-.chip {
-  font: inherit; font-size: 13px; padding: 5px 11px; border-radius: 999px;
-  border: 1px solid var(--line); background: var(--panel); color: var(--dim); cursor: pointer;
+.chip, .pick, .gatebox button {
+  font: inherit; font-weight: 650; border: 0; cursor: pointer;
+  border-radius: 999px; transition: transform .22s var(--spring), box-shadow .2s, background .2s, color .2s;
 }
-.chip[aria-pressed=true] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
-main { max-width: 1100px; margin: 0 auto; padding: 20px; }
+.chip { font-size: 13.5px; padding: 9px 15px; background: var(--panel); color: var(--dim); box-shadow: var(--shadow); }
+.chip:hover { color: var(--amber); transform: translateY(-2px); }
+.chip:active { transform: translateY(0) scale(.97); }
+.chip[aria-pressed=true] { background: var(--ink); color: var(--paper); box-shadow: var(--lift); }
+#modebtn[aria-pressed=false] { background: linear-gradient(135deg, var(--sun), var(--peach)); color: var(--warn); }
+main { max-width: 820px; margin: 0 auto; padding: 10px 24px 100px; }
+
 .card {
-  background: var(--panel); border: 1px solid var(--line); border-radius: 11px;
-  padding: 16px 18px; margin-bottom: 14px;
+  background: var(--panel); border-radius: 24px; padding: 30px 34px;
+  margin-bottom: 18px; box-shadow: var(--shadow);
+  transition: box-shadow .28s, transform .28s var(--spring);
 }
-.card.done { border-color: var(--ok); }
-.head { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; margin-bottom: 3px; }
-.head h2 { font-size: 16px; margin: 0; font-weight: 620; }
-.arrow { color: var(--dim); }
-.meta { font-size: 12.5px; color: var(--dim); margin-bottom: 13px; }
-.role { display: inline-block; background: var(--chip); padding: 1px 8px; border-radius: 4px; margin-right: 5px; font-size: 12px; }
-.cand { display: flex; gap: 11px; padding: 9px 0; border-top: 1px solid var(--line); }
-.rank { color: var(--dim); font-variant-numeric: tabular-nums; font-size: 13px; padding-top: 2px; min-width: 16px; }
+.card:hover { box-shadow: var(--lift); transform: translateY(-3px); }
+.card.done { box-shadow: var(--shadow), inset 4px 0 0 var(--ok); }
+
+/* "Alamo Drafthouse Cinema  in chicago is"  —  reads as a sentence, so the
+   answer below it lands as the punchline. */
+.head { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; }
+.head h2 { font-size: 14.5px; margin: 0; font-weight: 650; color: var(--dim); letter-spacing: -0.01em; }
+.arrow { color: var(--faint); font-size: 13.5px; font-style: italic; }
+.meta { font-size: 12.5px; color: var(--faint); margin: 12px 0 16px; }
+.role {
+  display: inline-block; background: var(--chip); color: var(--warn);
+  padding: 4px 11px; border-radius: 999px; margin: 0 5px 5px 0;
+  font-size: 11.5px; font-weight: 650; letter-spacing: .01em;
+}
+.answer {
+  font-size: 34px; font-weight: 800; letter-spacing: -0.045em;
+  line-height: 1.08; margin: 7px 0 12px;
+}
+.why.big { font-size: 15.5px; color: var(--ink); opacity: .74; max-width: 62ch; }
+details { margin-top: 18px; }
+summary {
+  cursor: pointer; font-size: 13.5px; color: var(--faint); font-weight: 650;
+  list-style: none; display: inline-flex; align-items: center; gap: 7px;
+  transition: color .2s;
+}
+summary::-webkit-details-marker { display: none; }
+summary::before {
+  content: "+"; display: grid; place-items: center;
+  width: 20px; height: 20px; border-radius: 999px;
+  background: var(--chip); color: var(--warn); font-size: 14px; line-height: 1;
+  transition: transform .25s var(--spring);
+}
+details[open] summary::before { content: "–"; transform: rotate(180deg); }
+summary:hover { color: var(--amber); }
+.alt { padding: 14px 0 0 18px; box-shadow: inset 2px 0 0 var(--hair); margin-top: 14px; }
+
+/* Grading */
+.cand { display: flex; gap: 15px; padding: 16px 0; box-shadow: inset 0 1px 0 var(--hair); }
+.cand:first-of-type { box-shadow: none; }
+.rank {
+  flex: none; width: 24px; height: 24px; border-radius: 999px; margin-top: 2px;
+  display: grid; place-items: center; background: var(--chip); color: var(--warn);
+  font-size: 12px; font-weight: 700; font-variant-numeric: tabular-nums;
+}
 .body { flex: 1; min-width: 0; }
-.cname { font-weight: 600; }
-.unver { font-size: 11.5px; color: var(--warn); margin-left: 6px; }
-.why { color: var(--dim); font-size: 13.5px; margin-top: 2px; }
+.cname { font-weight: 700; font-size: 17px; letter-spacing: -0.02em; }
+.unver { font-size: 11.5px; color: var(--warn); margin-left: 8px; font-weight: 600; }
+.why { color: var(--dim); font-size: 14.5px; margin-top: 4px; max-width: 62ch; }
 .pick {
-  font: inherit; font-size: 12.5px; padding: 4px 11px; border-radius: 6px; cursor: pointer;
-  border: 1px solid var(--line); background: transparent; color: var(--dim); align-self: center; white-space: nowrap;
+  font-size: 13px; padding: 9px 17px; background: var(--chip); color: var(--warn);
+  align-self: center; white-space: nowrap;
 }
-.pick:hover { border-color: var(--accent); color: var(--accent); }
-.cand.chosen .pick { background: var(--ok); border-color: var(--ok); color: #fff; }
+.pick:hover { background: var(--amber); color: #fff; transform: translateY(-2px); }
+.pick:active { transform: scale(.96); }
+.cand.chosen .rank { background: var(--ok-soft); color: var(--ok); }
+.cand.chosen .pick { background: var(--ok); color: #fff; }
 .cand.chosen .cname { color: var(--ok); }
-.foot { display: flex; gap: 8px; margin-top: 11px; align-items: center; flex-wrap: wrap; }
-.verdict { font-size: 13px; color: var(--ok); flex: 1; }
-.link { font: inherit; font-size: 12.5px; background: none; border: none; color: var(--dim); cursor: pointer; text-decoration: underline; padding: 0; }
-.empty { text-align: center; color: var(--dim); padding: 60px 20px; }
-.others { font-size: 12.5px; color: var(--warn); margin-top: 5px; }
-.answer { font-size: 21px; font-weight: 650; letter-spacing: -0.02em; margin: 6px 0 4px; }
-.why.big { font-size: 14.5px; color: var(--ink); opacity: .82; }
-details { margin-top: 11px; }
-summary { cursor: pointer; font-size: 13px; color: var(--dim); }
-summary:hover { color: var(--accent); }
-.alt { padding: 9px 0 0 14px; border-left: 2px solid var(--line); margin-top: 9px; }
-select {
-  font: inherit; font-size: 14px; padding: 7px 10px; border-radius: 7px;
-  border: 1px solid var(--line); background: var(--panel); color: var(--ink); cursor: pointer;
+.foot { display: flex; gap: 10px; margin-top: 16px; align-items: center; flex-wrap: wrap; }
+.verdict { font-size: 13.5px; color: var(--ok); font-weight: 650; flex: 1; }
+.link {
+  font: inherit; font-size: 13px; background: none; border: 0; color: var(--faint);
+  cursor: pointer; text-decoration: underline; text-underline-offset: 3px;
+  padding: 0; transition: color .2s;
 }
+.link:hover { color: var(--amber); }
+.others { font-size: 13px; color: var(--warn); margin-top: 10px; }
+.empty { text-align: center; color: var(--faint); padding: 90px 20px; font-size: 17px; }
+
+/* Name prompt */
 .gate {
-  position: fixed; inset: 0; z-index: 50; background: var(--bg);
-  display: flex; align-items: center; justify-content: center; padding: 20px;
+  position: fixed; inset: 0; z-index: 50; padding: 24px;
+  background: color-mix(in srgb, var(--paper) 74%, transparent);
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  display: flex; align-items: center; justify-content: center;
 }
 .gate[hidden] { display: none; }
-.gatebox { max-width: 460px; }
-.gatebox h2 { font-size: 22px; margin: 0 0 12px; letter-spacing: -0.02em; }
-.gatebox p { color: var(--dim); margin: 0 0 12px; }
-.gatebox .fine { font-size: 13px; }
-.gatebox input { width: 100%; margin: 8px 0 10px; padding: 10px 12px; }
-.gatebox button {
-  font: inherit; font-weight: 550; padding: 10px 18px; border-radius: 8px;
-  border: none; background: var(--ink); color: var(--bg); cursor: pointer;
+.gatebox {
+  max-width: 430px; background: var(--panel); padding: 38px 40px;
+  border-radius: 28px; box-shadow: var(--lift);
+  animation: pop .34s var(--spring);
 }
-#gateerr { color: var(--accent); min-height: 18px; }
+@keyframes pop { from { opacity: 0; transform: translateY(10px) scale(.97); } }
+.gatebox h2 { font-size: 27px; margin: 0 0 14px; letter-spacing: -0.04em; line-height: 1.15; font-weight: 800; }
+.gatebox p { color: var(--dim); margin: 0 0 14px; }
+.gatebox .fine { font-size: 14px; color: var(--faint); }
+.gatebox input { width: 100%; margin: 12px 0 16px; }
+.gatebox button { font-size: 15px; padding: 13px 24px; background: var(--ink); color: var(--paper); }
+.gatebox button:hover { transform: translateY(-2px); box-shadow: var(--lift); }
+.gatebox button:active { transform: scale(.97); }
+/* Must out-specify `.gatebox button`, or the secondary action reads as
+   a second primary button and the choice stops being obvious. */
+.gatebox button.link {
+  margin-left: 16px; background: none; color: var(--faint); font-weight: 500;
+  padding: 0; box-shadow: none; border-radius: 0;
+}
+.gatebox button.link:hover { color: var(--amber); transform: none; box-shadow: none; }
+#gateerr { color: var(--amber); min-height: 18px; margin: 10px 0 0; font-size: 13.5px; font-weight: 550; }
+
+@media (max-width: 640px) {
+  header { padding: 12px 16px; }
+  main { padding: 8px 16px 70px; }
+  .card { padding: 24px 22px; border-radius: 20px; }
+  .answer { font-size: 27px; }
+  h1 { font-size: 18px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+  .card:hover, .chip:hover, .pick:hover { transform: none; }
+}
 </style>
 </head>
 <body>
@@ -272,7 +383,7 @@ select {
 <header><div class="bar">
   <h1>Elsewhere</h1>
   <select id="pairsel" title="Which city pair"></select>
-  <input type="search" id="q" class="grow" placeholder="Search a place — try HEB, Torchy's, Barton Springs…">
+  <input type="search" id="q" class="grow" placeholder="Search a place…">
   <div class="chips" id="filters">
     <button class="chip" data-f="all" aria-pressed="true">All</button>
     <button class="chip" data-f="todo" aria-pressed="false">Ungraded</button>
