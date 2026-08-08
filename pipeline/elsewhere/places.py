@@ -44,6 +44,9 @@ class BBox:
 CITY_BBOXES: dict[str, BBox] = {
     "austin": BBox(west=-98.05, south=30.05, east=-97.50, north=30.60),
     "chicago": BBox(west=-88.10, south=41.55, east=-87.45, north=42.15),
+    # Wide enough to take in Beaverton and Lake Oswego — a few Portland
+    # institutions people name are across the county line.
+    "portland": BBox(west=-122.90, south=45.35, east=-122.40, north=45.65),
 }
 
 

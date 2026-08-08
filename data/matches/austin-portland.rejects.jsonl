@@ -1,0 +1,62 @@
+{"source": "Alamo Drafthouse Cinema", "candidate": "Bagdad Theater", "target_city": "portland", "confidence": 0.6, "rank": 3, "reason": "not_found"}
+{"source": "Allens Boots", "candidate": "Next Adventure", "target_city": "portland", "confidence": 0.63, "rank": 2, "reason": "not_found"}
+{"source": "Barton Springs Pool", "candidate": "Mount Tabor Park", "target_city": "portland", "confidence": 0.42, "rank": 3, "reason": "not_found"}
+{"source": "Bennu Coffee", "candidate": "Common Grounds Coffee House", "target_city": "portland", "confidence": 0.72, "rank": 1, "reason": "not_found"}
+{"source": "Blanton Museum of Art", "candidate": "Jordan Schnitzer Museum of Art at PSU", "target_city": "portland", "confidence": 0.45, "rank": 3, "reason": "not_found"}
+{"source": "Bouldin Creek Cafe", "candidate": "Paradox Caf\u00e9", "target_city": "portland", "confidence": 0.72, "rank": 1, "reason": "not_found"}
+{"source": "Breed & Co.", "candidate": "Winks Hardware", "target_city": "portland", "confidence": 0.63, "rank": 2, "reason": "not_found"}
+{"source": "Breed & Co.", "candidate": "Mirador Community Store", "target_city": "portland", "confidence": 0.45, "rank": 3, "reason": "not_found"}
+{"source": "Buc-ee's", "candidate": "Camp 18", "target_city": "portland", "confidence": 0.4, "rank": 3, "reason": "not_found"}
+{"source": "Bullock Texas State History Museum", "candidate": "Oregon Museum of Science and Industry", "target_city": "portland", "confidence": 0.66, "rank": 2, "reason": "not_found"}
+{"source": "Cathedral of Junk", "candidate": "The Witch's Castle (Stone House, Forest Park)", "target_city": "portland", "confidence": 0.72, "rank": 1, "reason": "not_found"}
+{"source": "Cheer Up Charlies", "candidate": "Sissy Bar", "target_city": "portland", "confidence": 0.55, "rank": 3, "reason": "not_found"}
+{"source": "Clarksville", "candidate": "Nob Hill", "target_city": "portland", "confidence": 0.78, "rank": 1, "reason": "not_found"}
+{"source": "Counter Cafe", "candidate": "Broder", "target_city": "portland", "confidence": 0.78, "rank": 1, "reason": "not_found"}
+{"source": "Dai Due", "candidate": "Higgins Restaurant", "target_city": "portland", "confidence": 0.6, "rank": 3, "reason": "not_found"}
+{"source": "Deep Eddy Pool", "candidate": "Grant Park Pool", "target_city": "portland", "confidence": 0.55, "rank": 2, "reason": "not_found"}
+{"source": "Dillard's", "candidate": "Meier & Frank", "target_city": "portland", "confidence": 0.45, "rank": 2, "reason": "not_found"}
+{"source": "Dillard's", "candidate": "Macy's at Washington Square", "target_city": "portland", "confidence": 0.4, "rank": 3, "reason": "not_found"}
+{"source": "Donn's Depot", "candidate": "Duff's Garage", "target_city": "portland", "confidence": 0.55, "rank": 3, "reason": "not_found"}
+{"source": "Ego's", "candidate": "Baby Ketten Club", "target_city": "portland", "confidence": 0.72, "rank": 2, "reason": "not_found"}
+{"source": "Elephant Room", "candidate": "Wilf's Restaurant & Bar", "target_city": "portland", "confidence": 0.55, "rank": 3, "reason": "not_found"}
+{"source": "Elizabeth Street Cafe", "candidate": "Berlu", "target_city": "portland", "confidence": 0.62, "rank": 1, "reason": "not_found"}
+{"source": "Fiesta Mart", "candidate": "Fubonn Supermarket", "target_city": "portland", "confidence": 0.72, "rank": 1, "reason": "not_found"}
+{"source": "Fiesta Mart", "candidate": "Uwajimaya", "target_city": "portland", "confidence": 0.62, "rank": 2, "reason": "not_found"}
+{"source": "Franklin Barbecue", "candidate": "Screen Door", "target_city": "portland", "confidence": 0.65, "rank": 2, "reason": "not_found"}
+{"source": "Gourdough's", "candidate": "Pip's Original Doughnuts & Chai", "target_city": "portland", "confidence": 0.4, "rank": 3, "reason": "not_found"}
+{"source": "Hyde Park", "candidate": "Laurelhurst", "target_city": "portland", "confidence": 0.74, "rank": 2, "reason": "not_found"}
+{"source": "Jeffrey's", "candidate": "Higgins Restaurant", "target_city": "portland", "confidence": 0.78, "rank": 2, "reason": "not_found"}
+{"source": "Jester King Brewery", "candidate": "de Garde Brewing", "target_city": "portland", "confidence": 0.72, "rank": 1, "reason": "not_found"}
+{"source": "Juan in a Million", "candidate": "Screen Door", "target_city": "portland", "confidence": 0.55, "rank": 2, "reason": "not_found"}
+{"source": "Justine's Brasserie", "candidate": "Bar Vivant", "target_city": "portland", "confidence": 0.42, "rank": 3, "reason": "not_found"}
+{"source": "Kerbey Lane Cafe", "candidate": "Broder", "target_city": "portland", "confidence": 0.6, "rank": 1, "reason": "not_found"}
+{"source": "Kerbey Lane Cafe", "candidate": "The Roxy", "target_city": "portland", "confidence": 0.4, "rank": 3, "reason": "not_found"}
+{"source": "LBJ Presidential Library", "candidate": "Oregon Museum of Science and Industry", "target_city": "portland", "confidence": 0.35, "rank": 3, "reason": "not_found"}
+{"source": "Lifetime Fitness", "candidate": "ClubSport Oregon", "target_city": "portland", "confidence": 0.66, "rank": 2, "reason": "not_found"}
+{"source": "MT Supermarket", "candidate": "Fubonn Supermarket", "target_city": "portland", "confidence": 0.9, "rank": 1, "reason": "not_found"}
+{"source": "McKinney Falls State Park", "candidate": "Dabney State Recreation Area", "target_city": "portland", "confidence": 0.44, "rank": 3, "reason": "not_found"}
+{"source": "Mount Bonnell", "candidate": "Mount Tabor Park", "target_city": "portland", "confidence": 0.6, "rank": 3, "reason": "not_found"}
+{"source": "Mozart's Coffee Roasters", "candidate": "Palio Dessert & Espresso House", "target_city": "portland", "confidence": 0.5, "rank": 2, "reason": "not_found"}
+{"source": "Mueller", "candidate": "Orenco Station", "target_city": "portland", "confidence": 0.6, "rank": 1, "reason": "not_found"}
+{"source": "Mueller", "candidate": "South Waterfront", "target_city": "portland", "confidence": 0.5, "rank": 2, "reason": "not_found"}
+{"source": "Radio Coffee & Beer", "candidate": "Prost! / Mississippi Marketplace", "target_city": "portland", "confidence": 0.5, "rank": 3, "reason": "not_found"}
+{"source": "Rainey Street", "candidate": "Old Town Chinatown", "target_city": "portland", "confidence": 0.62, "rank": 1, "reason": "not_found"}
+{"source": "Saxon Pub", "candidate": "Al's Den", "target_city": "portland", "confidence": 0.7, "rank": 2, "reason": "not_found"}
+{"source": "Saxon Pub", "candidate": "White Eagle Saloon", "target_city": "portland", "confidence": 0.6, "rank": 3, "reason": "not_found"}
+{"source": "Sixth Street", "candidate": "Old Town Chinatown", "target_city": "portland", "confidence": 0.88, "rank": 1, "reason": "not_found"}
+{"source": "Sixth Street", "candidate": "Ankeny Alley / SW Stark strip", "target_city": "portland", "confidence": 0.72, "rank": 2, "reason": "not_found"}
+{"source": "Skylark Lounge", "candidate": "Duff's Garage", "target_city": "portland", "confidence": 0.78, "rank": 1, "reason": "not_found"}
+{"source": "South Congress", "candidate": "Nob Hill (NW 23rd Avenue)", "target_city": "portland", "confidence": 0.63, "rank": 2, "reason": "not_found"}
+{"source": "Tarrytown", "candidate": "Dunthorpe", "target_city": "portland", "confidence": 0.72, "rank": 2, "reason": "not_found"}
+{"source": "Texas State Capitol", "candidate": "Pioneer Courthouse Square", "target_city": "portland", "confidence": 0.66, "rank": 1, "reason": "not_found"}
+{"source": "Texas State Capitol", "candidate": "Oregon State Capitol (Salem)", "target_city": "portland", "confidence": 0.55, "rank": 2, "reason": "not_found"}
+{"source": "The Broken Spoke", "candidate": "Duff's Garage", "target_city": "portland", "confidence": 0.45, "rank": 3, "reason": "not_found"}
+{"source": "The Domain", "candidate": "Orenco Station", "target_city": "portland", "confidence": 0.44, "rank": 3, "reason": "not_found"}
+{"source": "The White Horse", "candidate": "Ponderosa Lounge at Jubitz", "target_city": "portland", "confidence": 0.72, "rank": 2, "reason": "not_found"}
+{"source": "Travis Heights", "candidate": "Mount Tabor", "target_city": "portland", "confidence": 0.65, "rank": 2, "reason": "not_found"}
+{"source": "Uncommon Objects", "candidate": "Hippo Hardware & Trading Company", "target_city": "portland", "confidence": 0.62, "rank": 1, "reason": "not_found"}
+{"source": "Westlake", "candidate": "Portland's West Hills (Portland Heights / Council Crest)", "target_city": "portland", "confidence": 0.72, "rank": 2, "reason": "not_found"}
+{"source": "Westlake", "candidate": "Dunthorpe", "target_city": "portland", "confidence": 0.55, "rank": 3, "reason": "not_found"}
+{"source": "Wheatsville Food Co-op", "candidate": "Alberta Co-op Grocery", "target_city": "portland", "confidence": 0.6, "rank": 3, "reason": "not_found"}
+{"source": "Whole Earth Provision Co.", "candidate": "Next Adventure", "target_city": "portland", "confidence": 0.79, "rank": 1, "reason": "not_found"}
+{"source": "Zilker Park", "candidate": "Mount Tabor Park", "target_city": "portland", "confidence": 0.58, "rank": 3, "reason": "not_found"}

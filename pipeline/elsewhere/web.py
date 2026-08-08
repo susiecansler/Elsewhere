@@ -29,6 +29,26 @@ def load_corpus(source: str, target: str) -> list:
     return generate.read_matches(path)
 
 
+def available_pairs() -> list[tuple[str, str]]:
+    """Every city pair with a generated corpus on disk.
+
+    Discovered from the filesystem rather than configured, so adding a pair is
+    just generating it — no second place to remember to update.
+    """
+    pairs: set[tuple[str, str]] = set()
+    for path in generate.MATCHES_DIR.glob("*-*.raw.jsonl"):
+        stem = path.name.removesuffix(".raw.jsonl")
+        if "-" in stem:
+            source, target = stem.split("-", 1)
+            pairs.add((source, target))
+    for path in generate.MATCHES_DIR.glob("*-*.verified.jsonl"):
+        stem = path.name.removesuffix(".verified.jsonl")
+        if "-" in stem:
+            source, target = stem.split("-", 1)
+            pairs.add((source, target))
+    return sorted(pairs)
+
+
 class ReviewIn(BaseModel):
     reviewer: str = Field(min_length=1, max_length=60)
     source_name: str
@@ -40,15 +60,23 @@ class ReviewIn(BaseModel):
 
 def create_app(source: str = "austin", target: str = "chicago") -> FastAPI:
     app = FastAPI(title="Elsewhere", docs_url=None, redoc_url=None)
-    corpus = load_corpus(source, target)
 
-    def state(reviewer: str | None) -> dict[str, Any]:
-        mine = store.for_reviewer(reviewer, target) if reviewer else {}
-        agreed = store.consensus(target)
+    pairs = available_pairs() or [(source, target)]
+    # Load every corpus once at startup. Together they're a few MB, and
+    # re-reading per request would make switching cities feel sluggish.
+    corpora = {p: load_corpus(*p) for p in pairs}
+    default = (source, target) if (source, target) in corpora else pairs[0]
+
+    def state(reviewer: str | None, pair: tuple[str, str]) -> dict[str, Any]:
+        src, tgt = pair
+        corpus = corpora[pair]
+        mine = store.for_reviewer(reviewer, tgt) if reviewer else {}
+        agreed = store.consensus(tgt)
 
         return {
-            "source": source,
-            "target": target,
+            "source": src,
+            "target": tgt,
+            "pairs": [{"source": a, "target": b} for a, b in pairs],
             "threshold": evaluate.MIN_INDEPENDENT,
             "judged": len(agreed),
             "reviewers": store.reviewers(),
@@ -86,8 +114,9 @@ def create_app(source: str = "austin", target: str = "chicago") -> FastAPI:
         return PAGE
 
     @app.get("/api/state")
-    def api_state(reviewer: str = "") -> JSONResponse:
-        return JSONResponse(state(reviewer or None))
+    def api_state(reviewer: str = "", source: str = "", target: str = "") -> JSONResponse:
+        pair = (source, target) if (source, target) in corpora else default
+        return JSONResponse(state(reviewer or None, pair))
 
     @app.post("/api/review")
     def api_review(body: ReviewIn) -> JSONResponse:
@@ -105,13 +134,21 @@ def create_app(source: str = "austin", target: str = "chicago") -> FastAPI:
         return JSONResponse({"ok": True, "judged": store.count()})
 
     @app.delete("/api/review")
-    def api_unreview(reviewer: str, source_name: str) -> JSONResponse:
-        store.forget(reviewer, source_name, target)
+    def api_unreview(reviewer: str, source_name: str, target_city: str = "") -> JSONResponse:
+        # Must come from the request: with several pairs loaded, defaulting to
+        # the app's startup target would delete from the wrong city.
+        store.forget(reviewer, source_name, target_city or default[1])
         return JSONResponse({"ok": True, "judged": store.count()})
 
     @app.get("/healthz")
     def healthz() -> JSONResponse:
-        return JSONResponse({"ok": True, "matches": len(corpus)})
+        return JSONResponse(
+            {
+                "ok": True,
+                "pairs": len(corpora),
+                "matches": sum(len(c) for c in corpora.values()),
+            }
+        )
 
     return app
 
@@ -197,6 +234,10 @@ details { margin-top: 11px; }
 summary { cursor: pointer; font-size: 13px; color: var(--dim); }
 summary:hover { color: var(--accent); }
 .alt { padding: 9px 0 0 14px; border-left: 2px solid var(--line); margin-top: 9px; }
+select {
+  font: inherit; font-size: 14px; padding: 7px 10px; border-radius: 7px;
+  border: 1px solid var(--line); background: var(--panel); color: var(--ink); cursor: pointer;
+}
 .gate {
   position: fixed; inset: 0; z-index: 50; background: var(--bg);
   display: flex; align-items: center; justify-content: center; padding: 20px;
@@ -229,7 +270,8 @@ summary:hover { color: var(--accent); }
 </div>
 
 <header><div class="bar">
-  <h1>Elsewhere <span id="pair"></span></h1>
+  <h1>Elsewhere</h1>
+  <select id="pairsel" title="Which city pair"></select>
   <input type="search" id="q" class="grow" placeholder="Search a place — try HEB, Torchy's, Barton Springs…">
   <div class="chips" id="filters">
     <button class="chip" data-f="all" aria-pressed="true">All</button>
@@ -244,6 +286,10 @@ summary:hover { color: var(--accent); }
 <script>
 let S = null, filter = "all", q = "", grading = false, pending = null;
 let me = localStorage.getItem("elsewhere.reviewer") || "";
+// Remembered so a friend who picked their own city isn't reset to Austin's
+// default every time they open the link.
+let pair = JSON.parse(localStorage.getItem("elsewhere.pair") || "null")
+           || { source: "", target: "" };
 
 // Browsing is the default and needs no identity. A name is only asked for at
 // the moment someone actually grades something — the gate used to sit in
@@ -295,12 +341,31 @@ document.getElementById("modebtn").addEventListener("click", () => {
   setMode(!grading);
 });
 
+const title = s => s.charAt(0).toUpperCase() + s.slice(1);
+
 async function load() {
-  S = await (await fetch("/api/state?reviewer=" + encodeURIComponent(me))).json();
-  document.getElementById("pair").textContent = S.source + " → " + S.target;
+  const qs = new URLSearchParams({ reviewer: me, source: pair.source, target: pair.target });
+  S = await (await fetch("/api/state?" + qs)).json();
+  pair = { source: S.source, target: S.target };
+  localStorage.setItem("elsewhere.pair", JSON.stringify(pair));
+
+  const sel = document.getElementById("pairsel");
+  sel.innerHTML = S.pairs.map(p =>
+    `<option value="${p.source}|${p.target}" ${
+      p.source === S.source && p.target === S.target ? "selected" : ""
+    }>${title(p.source)} → ${title(p.target)}</option>`).join("");
+  sel.style.display = S.pairs.length > 1 ? "" : "none";
+
   document.getElementById("signout").textContent = me ? "not " + me + "?" : "";
   render();
 }
+
+document.getElementById("pairsel").addEventListener("change", e => {
+  const [source, target] = e.target.value.split("|");
+  pair = { source, target };
+  q = ""; document.getElementById("q").value = "";
+  load();
+});
 
 function progress() {
   const el = document.getElementById("prog");
@@ -415,7 +480,8 @@ async function pick(name, answer, custom) {
 
 async function clearPick(name) {
   const r = await fetch("/api/review?reviewer=" + encodeURIComponent(me) +
-                        "&source_name=" + encodeURIComponent(name), { method: "DELETE" });
+                        "&source_name=" + encodeURIComponent(name) +
+                        "&target_city=" + encodeURIComponent(S.target), { method: "DELETE" });
   const j = await r.json();
   S.matches.find(x => x.name === name).mine = null;
   S.judged = j.judged;

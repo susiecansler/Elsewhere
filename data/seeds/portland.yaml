@@ -1,0 +1,354 @@
+# Portland (Oregon) seed corpus.
+#
+# Same conventions as austin.yaml and chicago.yaml: no pre-assigned roles,
+# aliases are how people actually type it, closures get caught by the
+# Overture join and the phase 3 verification pass.
+#
+# Serves as both query set and candidate pool, since Portland now appears on
+# both sides of a pair.
+
+city: portland
+places:
+  # ─── Grocery & food retail ──────────────────────────────────────────
+  - name: New Seasons Market
+    category: grocery
+    aliases: ["New Seasons"]
+  - name: Fred Meyer
+    category: grocery
+    aliases: [Freddy's, "Freddies", "Fred Meyers"]
+  - name: Zupan's Markets
+    category: grocery
+    aliases: [Zupans, "Zupan's"]
+  - name: Safeway
+    category: grocery
+    aliases: [safeway]
+  - name: WinCo Foods
+    category: grocery
+    aliases: [WinCo, "Winco"]
+  - name: Uwajimaya
+    category: grocery
+    aliases: [Uwajimaya Beaverton]
+  - name: Providore Fine Foods
+    category: grocery
+    aliases: [Providore]
+  - name: Plaid Pantry
+    category: convenience
+    aliases: ["Plaid"]
+
+  # ─── Coffee ─────────────────────────────────────────────────────────
+  - name: Stumptown Coffee Roasters
+    category: coffee
+    aliases: [Stumptown, "Stumptown Coffee"]
+  - name: Coava Coffee Roasters
+    category: coffee
+    aliases: [Coava]
+  - name: Heart Coffee Roasters
+    category: coffee
+    aliases: ["Heart Coffee"]
+  - name: Case Study Coffee
+    category: coffee
+    aliases: ["Case Study"]
+  - name: Never Coffee
+    category: coffee
+    aliases: ["Never Coffee Lab"]
+  - name: Dutch Bros Coffee
+    category: coffee
+    aliases: ["Dutch Bros", "Dutch Brothers"]
+
+  # ─── Restaurants ────────────────────────────────────────────────────
+  - name: Voodoo Doughnut
+    category: dessert
+    aliases: [Voodoo Donuts, "Voodoo"]
+  - name: Blue Star Donuts
+    category: dessert
+    aliases: ["Blue Star"]
+  - name: Salt & Straw
+    category: dessert
+    aliases: ["Salt and Straw"]
+  - name: Pok Pok
+    category: restaurant_casual
+    aliases: ["Pok Pok PDX"]
+  - name: Nong's Khao Man Gai
+    category: restaurant_casual
+    aliases: [Nongs, "Nong's"]
+  - name: Apizza Scholls
+    category: restaurant_pizza
+    aliases: ["Apizza Scholls"]
+  - name: Ken's Artisan Pizza
+    category: restaurant_pizza
+    aliases: [Kens Artisan Pizza, "Ken's"]
+  - name: Lardo
+    category: restaurant_casual
+    aliases: ["Lardo PDX"]
+  - name: Screen Door
+    category: restaurant_breakfast
+    aliases: ["Screen Door Restaurant"]
+  - name: Tasty n Daughters
+    category: restaurant_breakfast
+    aliases: ["Tasty n Alder", "Tasty and Alder"]
+  - name: Broder
+    category: restaurant_breakfast
+    aliases: ["Broder Cafe"]
+  - name: Pine State Biscuits
+    category: restaurant_breakfast
+    aliases: ["Pine State"]
+  - name: Le Pigeon
+    category: restaurant_fine
+    aliases: ["Le Pigeon PDX"]
+  - name: Langbaan
+    category: restaurant_fine
+    aliases: [Langbaan]
+  - name: Kann
+    category: restaurant_fine
+    aliases: ["Kann PDX"]
+  - name: Higgins Restaurant
+    category: restaurant_fine
+    aliases: [Higgins]
+  - name: Huber's Cafe
+    category: restaurant_fine
+    aliases: [Hubers, "Huber's"]
+  - name: Jake's Famous Crawfish
+    category: restaurant_fine
+    aliases: [Jakes Crawfish, "Jake's"]
+  - name: Burgerville
+    category: restaurant_burger
+    aliases: [Burgerville USA]
+  - name: Killer Burger
+    category: restaurant_burger
+    aliases: ["Killer Burger PDX"]
+  - name: Otto's Sausage Kitchen
+    category: restaurant_casual
+    aliases: [Ottos, "Otto's"]
+  - name: Podnah's Pit Barbecue
+    category: restaurant_bbq
+    aliases: [Podnahs, "Podnah's Pit"]
+  - name: Matt's BBQ
+    category: restaurant_bbq
+    aliases: ["Matts BBQ"]
+
+  # ─── Bars & nightlife ───────────────────────────────────────────────
+  - name: Horse Brass Pub
+    category: bar_dive
+    aliases: ["Horse Brass"]
+  - name: Sassy's
+    category: bar_dive
+    aliases: [Sassys]
+  - name: The Know
+    category: bar_dive
+    aliases: ["Know Bar"]
+  - name: Century Bar
+    category: bar_dive
+    aliases: [Century]
+  - name: Kelly's Olympian
+    category: bar_dive
+    aliases: [Kellys Olympian, "Kelly's"]
+  - name: Rimsky-Korsakoffee House
+    category: bar_dive
+    aliases: [Rimskys, "Rimsky Korsakoffee"]
+  - name: Pépé le Moko
+    category: bar_cocktail
+    aliases: ["Pepe le Moko"]
+  - name: Multnomah Whiskey Library
+    category: bar_cocktail
+    aliases: ["Whiskey Library", MWL]
+  - name: Teardrop Lounge
+    category: bar_cocktail
+    aliases: [Teardrop]
+  - name: Old Town Chinatown
+    category: neighborhood_nightlife
+    aliases: ["Old Town"]
+
+  # ─── Breweries ──────────────────────────────────────────────────────
+  - name: Cascade Brewing Barrel House
+    category: brewery
+    aliases: ["Cascade Brewing", "Barrel House"]
+  - name: Breakside Brewery
+    category: brewery
+    aliases: [Breakside]
+  - name: Great Notion Brewing
+    category: brewery
+    aliases: ["Great Notion"]
+  - name: Hair of the Dog Brewing
+    category: brewery
+    aliases: ["Hair of the Dog"]
+  - name: Widmer Brothers Brewing
+    category: brewery
+    aliases: [Widmer, "Widmer Brothers"]
+  - name: Deschutes Brewery Portland Public House
+    category: brewery
+    aliases: ["Deschutes Brewery", Deschutes]
+
+  # ─── Music venues ───────────────────────────────────────────────────
+  - name: Crystal Ballroom
+    category: music_venue
+    aliases: ["McMenamins Crystal Ballroom"]
+  - name: Doug Fir Lounge
+    category: music_venue
+    aliases: ["Doug Fir"]
+  - name: Mississippi Studios
+    category: music_venue
+    aliases: ["Mississippi Studios PDX"]
+  - name: Revolution Hall
+    category: music_venue
+    aliases: ["Rev Hall"]
+  - name: Aladdin Theater
+    category: music_venue
+    aliases: ["The Aladdin"]
+  - name: Wonder Ballroom
+    category: music_venue
+    aliases: ["The Wonder"]
+  - name: Dante's
+    category: music_venue
+    aliases: [Dantes, "Dante's PDX"]
+
+  # ─── Fitness & outdoors ─────────────────────────────────────────────
+  - name: Forest Park
+    category: outdoor_trail
+    aliases: ["Forest Park Portland"]
+  - name: Wildwood Trail
+    category: outdoor_trail
+    aliases: [Wildwood]
+  - name: Washington Park
+    category: park
+    aliases: ["Washington Park Portland"]
+  - name: Tom McCall Waterfront Park
+    category: park
+    aliases: ["Waterfront Park"]
+  - name: Laurelhurst Park
+    category: park
+    aliases: [Laurelhurst]
+  - name: Mount Tabor Park
+    category: park
+    aliases: ["Mt Tabor", "Mount Tabor"]
+  - name: Powell Butte Nature Park
+    category: park
+    aliases: ["Powell Butte"]
+  - name: Sellwood Riverfront Park
+    category: outdoor_swim
+    aliases: [Sellwood Park]
+  - name: Portland Japanese Garden
+    category: park
+    aliases: ["Japanese Garden"]
+  - name: International Rose Test Garden
+    category: park
+    aliases: ["Rose Garden", "Rose Test Garden"]
+
+  # ─── Retail ─────────────────────────────────────────────────────────
+  - name: Powell's City of Books
+    category: retail_books
+    aliases: [Powells, "Powell's Books", "Powell's"]
+  - name: Next Adventure
+    category: retail_outdoor
+    aliases: ["Next Adventure PDX"]
+  - name: REI
+    category: retail_outdoor
+    aliases: ["REI Portland"]
+  - name: Music Millennium
+    category: retail_records
+    aliases: ["Music Millennium PDX"]
+  - name: Jackpot Records
+    category: retail_records
+    aliases: [Jackpot]
+  - name: Mississippi Records
+    category: retail_records
+    aliases: ["Mississippi Records PDX"]
+  - name: House of Vintage
+    category: retail_vintage
+    aliases: ["House of Vintage PDX"]
+  - name: Buffalo Exchange
+    category: retail_vintage
+    aliases: ["Buffalo Exchange Portland"]
+  - name: Winks Hardware
+    category: retail_hardware
+    aliases: ["Wink's Hardware"]
+  - name: Nordstrom
+    category: retail_department
+    aliases: ["Nordstrom Portland"]
+  - name: Made in Oregon
+    category: retail_apparel
+    aliases: ["Made In Oregon"]
+
+  # ─── Civic & culture ────────────────────────────────────────────────
+  - name: Portland Farmers Market at PSU
+    category: farmers_market
+    aliases: ["PSU Farmers Market", "Portland Farmers Market"]
+  - name: Multnomah County Central Library
+    category: library
+    aliases: ["Central Library", "Multnomah Central Library"]
+  - name: Portland Art Museum
+    category: museum_art
+    aliases: [PAM, "Portland Art Museum PDX"]
+  - name: Oregon Museum of Science and Industry
+    category: museum_history
+    aliases: [OMSI]
+  - name: Oregon Historical Society
+    category: museum_history
+    aliases: ["Oregon Historical Society Museum"]
+  - name: Hollywood Theatre
+    category: cinema
+    aliases: ["The Hollywood Theatre"]
+  - name: Cinema 21
+    category: cinema
+    aliases: ["Cinema21"]
+  - name: Living Room Theaters
+    category: cinema
+    aliases: ["Living Room Theater"]
+  - name: Arlene Schnitzer Concert Hall
+    category: theater
+    aliases: ["The Schnitz", "Schnitzer Hall"]
+  - name: Portland Center Stage
+    category: theater
+    aliases: ["The Armory", "Portland Center Stage at the Armory"]
+  - name: OnPoint Community Credit Union
+    category: bank
+    aliases: [OnPoint]
+  - name: Umpqua Bank
+    category: bank
+    aliases: [Umpqua]
+
+  # ─── Landmarks & neighborhoods ──────────────────────────────────────
+  - name: Portland Saturday Market
+    category: landmark_tourist
+    aliases: ["Saturday Market"]
+  - name: Mill Ends Park
+    category: landmark_oddity
+    aliases: ["Mill Ends"]
+  - name: Portland Oregon Sign
+    category: landmark_oddity
+    aliases: ["White Stag Sign", "Portland sign"]
+  - name: Pittock Mansion
+    category: landmark
+    aliases: [Pittock]
+  - name: Alberta Arts District
+    category: neighborhood_commercial
+    aliases: ["Alberta Street", "NE Alberta"]
+  - name: Hawthorne Boulevard
+    category: neighborhood_commercial
+    aliases: [Hawthorne, "SE Hawthorne"]
+  - name: Mississippi Avenue
+    category: neighborhood_commercial
+    aliases: ["N Mississippi", "Mississippi Ave"]
+  - name: Division Street
+    category: neighborhood_commercial
+    aliases: ["SE Division", "Division"]
+  - name: Pearl District
+    category: neighborhood_commercial
+    aliases: ["The Pearl"]
+  - name: Nob Hill
+    category: neighborhood_commercial
+    aliases: ["NW 23rd", "Northwest District"]
+  - name: Sellwood-Moreland
+    category: neighborhood_residential
+    aliases: [Sellwood]
+  - name: Laurelhurst
+    category: neighborhood_residential
+    aliases: ["Laurelhurst Portland"]
+  - name: Irvington
+    category: neighborhood_residential
+    aliases: ["Irvington Portland"]
+  - name: St. Johns
+    category: neighborhood_residential
+    aliases: ["St Johns", "Saint Johns"]
+  - name: Dunthorpe
+    category: neighborhood_residential
+    aliases: [Dunthorpe]

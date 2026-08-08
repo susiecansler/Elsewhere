@@ -120,6 +120,95 @@ def test_judged_counts_places_not_judgments(client):
     assert r.json()["judged"] == 1
 
 
+# ─── Multiple city pairs ──────────────────────────────────────────────────
+
+
+def test_pairs_are_discovered_from_disk():
+    """Adding a city pair should just mean generating it.
+
+    Discovery from the filesystem avoids a second place to remember to
+    update, which is where a new pair would otherwise silently not appear.
+    """
+    pairs = web.available_pairs()
+    assert ("austin", "chicago") in pairs
+    assert all(len(p) == 2 and all(p) for p in pairs)
+
+
+def test_state_lists_every_pair(client):
+    s = client.get("/api/state").json()
+    assert s["pairs"]
+    assert {"source", "target"} <= set(s["pairs"][0])
+
+
+def test_switching_pair_changes_the_corpus(client):
+    pairs = web.available_pairs()
+    if len(pairs) < 2:
+        pytest.skip("only one corpus generated")
+
+    a, b = pairs[0], pairs[1]
+    first = client.get("/api/state", params={"source": a[0], "target": a[1]}).json()
+    second = client.get("/api/state", params={"source": b[0], "target": b[1]}).json()
+
+    assert (first["source"], first["target"]) == a
+    assert (second["source"], second["target"]) == b
+    # Different target city means different answers.
+    assert (
+        first["matches"][0]["candidates"][0]["name"]
+        != second["matches"][0]["candidates"][0]["name"]
+    )
+
+
+def test_unknown_pair_falls_back_rather_than_erroring(client):
+    s = client.get("/api/state", params={"source": "atlantis", "target": "narnia"}).json()
+    assert (s["source"], s["target"]) in web.available_pairs()
+
+
+def test_judgments_are_scoped_per_target_city(client):
+    """A pick for Chicago must not appear as a pick for Portland."""
+    pairs = web.available_pairs()
+    if len(pairs) < 2:
+        pytest.skip("only one corpus generated")
+
+    (s1, t1), (s2, t2) = pairs[0], pairs[1]
+    name = client.get("/api/state", params={"source": s1, "target": t1}).json()["matches"][0][
+        "name"
+    ]
+
+    client.post(
+        "/api/review",
+        json={
+            "reviewer": "Sam",
+            "source_name": name,
+            "source_city": s1,
+            "target_city": t1,
+            "answer": "Answer for " + t1,
+        },
+    )
+
+    other = client.get("/api/state", params={"reviewer": "Sam", "source": s2, "target": t2}).json()
+    row = next((m for m in other["matches"] if m["name"] == name), None)
+    if row is not None:
+        assert row["mine"] is None, "a judgment leaked across city pairs"
+
+
+def test_delete_targets_the_right_city(client):
+    pairs = web.available_pairs()
+    if len(pairs) < 2:
+        pytest.skip("only one corpus generated")
+
+    (s1, t1), (_, t2) = pairs[0], pairs[1]
+    name = client.get("/api/state", params={"source": s1, "target": t1}).json()["matches"][0][
+        "name"
+    ]
+    body = {"reviewer": "Sam", "source_name": name, "source_city": s1, "answer": "X"}
+    client.post("/api/review", json={**body, "target_city": t1})
+
+    # Deleting against the *other* city must leave this one alone.
+    client.delete("/api/review", params={"reviewer": "Sam", "source_name": name, "target_city": t2})
+    still = client.get("/api/state", params={"reviewer": "Sam", "source": s1, "target": t1}).json()
+    assert next(m for m in still["matches"] if m["name"] == name)["mine"] == "X"
+
+
 def test_progress_reports_the_threshold(client):
     s = client.get("/api/state").json()
     assert s["threshold"] == evaluate.MIN_INDEPENDENT
