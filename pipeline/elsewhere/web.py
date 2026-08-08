@@ -15,6 +15,7 @@ from __future__ import annotations
 from typing import Any
 
 from fastapi import FastAPI
+from fastapi.middleware.gzip import GZipMiddleware
 from fastapi.responses import HTMLResponse, JSONResponse
 
 from elsewhere import generate, links, verify
@@ -46,6 +47,11 @@ def available_pairs() -> list[tuple[str, str]]:
 
 def create_app(source: str = "austin", target: str = "chicago") -> FastAPI:
     app = FastAPI(title="Elsewhere", docs_url=None, redoc_url=None)
+    # The whole corpus for a city is one 437 KB response, and it's every
+    # answer the page will ever need — including the ones the landing
+    # animation shows. Compressed it's a fifth of that, so the animation
+    # costs no extra request and no extra round trip.
+    app.add_middleware(GZipMiddleware, minimum_size=1024)
 
     pairs = available_pairs() or [(source, target)]
     # Load every corpus once at startup. Together they're a few MB, and
@@ -196,11 +202,15 @@ body {
    Full bleed rather than pinned to the 820px reading column: the brand and
    the theme toggle belong at the edges of the screen, not floating in from
    them. The content below stays in its column. */
+/* The header reads as its own surface. Translucent paper over paper left it
+   ambiguous whether the bar was chrome or content — the hairline and the
+   lifted panel colour settle that. */
 header {
-  position: sticky; top: 0; z-index: 20; padding: 14px 28px;
-  background: color-mix(in srgb, var(--paper) 78%, transparent);
+  position: sticky; top: 0; z-index: 40; padding: 14px 28px;
+  background: color-mix(in srgb, var(--panel) 88%, var(--accent) 4%);
   backdrop-filter: saturate(1.4) blur(14px);
   -webkit-backdrop-filter: saturate(1.4) blur(14px);
+  box-shadow: 0 1px 0 var(--hair), 0 6px 20px -18px rgba(7,59,76,.5);
 }
 .bar { display: flex; gap: 14px; align-items: center; width: 100%; }
 #barslot { display: flex; gap: 10px; align-items: center; flex: 1; min-width: 0; }
@@ -223,7 +233,38 @@ input[type=search], input[type=text], select {
 input[type=search] { min-width: 0; }
 input:focus, select:focus { outline: none; box-shadow: var(--lift), 0 0 0 2.5px var(--accent-soft); }
 input::placeholder { color: var(--faint); }
-select { cursor: pointer; font-weight: 650; padding-right: 38px; letter-spacing: -0.01em; }
+/* The native <select> renders its list with the OS's own chrome — square
+   corners, system blue, system font — which is the one part of the page the
+   site's styling can't reach. So the menu is ours. The underlying <select>
+   stays in the DOM as the source of truth and for keyboard and screen
+   reader support; it's just visually replaced. */
+select.native { position: absolute; opacity: 0; pointer-events: none; width: 1px; height: 1px; }
+.citypick { position: relative; }
+.citybtn {
+  display: inline-flex; align-items: center; gap: 9px;
+  font-size: 15px; font-weight: 700; letter-spacing: -0.01em;
+  padding: 11px 16px; background: var(--panel); color: var(--ink);
+  box-shadow: var(--shadow);
+}
+.citybtn:hover { box-shadow: var(--lift); }
+.citybtn .caret { font-size: 10px; color: var(--faint); transition: transform .25s var(--spring); }
+.citybtn[aria-expanded=true] .caret { transform: rotate(180deg); }
+.citymenu {
+  position: absolute; top: calc(100% + 8px); left: 0; z-index: 60;
+  min-width: 100%; padding: 7px; border-radius: 18px;
+  background: var(--panel); box-shadow: var(--lift);
+  display: flex; flex-direction: column; gap: 2px;
+  transform-origin: top center;
+  animation: menuin .18s var(--spring);
+}
+.citymenu[hidden] { display: none; }
+@keyframes menuin { from { opacity: 0; transform: translateY(-6px) scale(.97); } }
+.citymenu button {
+  text-align: left; white-space: nowrap; padding: 10px 16px; border-radius: 12px;
+  font-size: 15px; font-weight: 650; background: none; color: var(--ink);
+}
+.citymenu button:hover { background: var(--chip); }
+.citymenu button[aria-selected=true] { background: var(--accent); color: var(--on-accent); }
 .from { font-size: 14px; color: var(--dim); font-weight: 600; white-space: nowrap; }
 .field { position: relative; display: flex; flex: 1; min-width: 0; }
 .field input[type=search] { width: 100%; padding-right: 42px; }
@@ -270,9 +311,24 @@ button.brand:hover { color: var(--accent); }
 }
 /* In the hero the controls are the hero: big type, generous target. */
 .stage #controls { justify-content: center; flex: 0 1 auto; }
-.stage #controls select { font-size: 18px; padding: 16px 42px 16px 20px; }
+.stage #controls .citybtn { font-size: 18px; padding: 16px 22px; }
 .stage #controls .field { flex: 1 1 380px; max-width: 460px; }
 .stage #controls input[type=search] { font-size: 18px; padding: 16px 22px; }
+#heroplace { display: inline-block; min-width: 3ch; }
+#heroart:empty { display: none; }
+.prompt.demo #heroplace { color: var(--accent); }
+/* The demo's answers. Present but quiet — the headline is doing the talking,
+   and these are the evidence under it. */
+.peek {
+  display: flex; gap: 18px; justify-content: center; flex-wrap: wrap;
+  min-height: 26px; margin-top: 18px;
+  opacity: 0; transform: translateY(6px); transition: opacity .45s, transform .45s var(--spring);
+}
+.peek.in { opacity: 1; transform: none; }
+.peekrow { font-size: 15px; color: var(--dim); }
+.peekcity { color: var(--faint); font-size: 12px; text-transform: uppercase;
+  letter-spacing: .07em; font-weight: 700; margin-right: 7px; }
+.peekrow b { color: var(--ink); font-weight: 700; }
 .stage .q { font-size: 17px; font-weight: 650; color: var(--dim); margin: 34px 0 0; }
 
 /* ─── Try rail ────────────────────────────────────────────────────────────
@@ -285,9 +341,14 @@ button.brand:hover { color: var(--accent); }
   -webkit-mask-image: linear-gradient(90deg, transparent, #000 9%, #000 91%, transparent);
   mask-image: linear-gradient(90deg, transparent, #000 9%, #000 91%, transparent);
 }
-.track { display: flex; gap: 9px; width: max-content; animation: drift 44s linear infinite; }
-.rail:hover .track, .rail:focus-within .track { animation-play-state: paused; }
-@keyframes drift { to { transform: translateX(-50%); } }
+/* Stepped, not drifting: it rests on a name long enough to read, then moves
+   in one quick beat. A constant crawl means every name is always slightly in
+   motion and none of them is ever the one being offered. */
+.track {
+  display: flex; gap: 9px; width: max-content;
+  transition: transform .55s var(--spring);
+}
+.rail.hold .track { transition: none; }   /* the seamless wrap, unanimated */
 .eg {
   font-size: 14px; font-weight: 600; padding: 9px 16px; white-space: nowrap;
   background: var(--chip); color: var(--accent-deep);
@@ -453,7 +514,11 @@ summary:hover { color: var(--accent); }
 
   <div id="controls">
     <span class="from">I know</span>
-    <select id="srcsel" title="Which city you know"></select>
+    <div class="citypick">
+      <select id="srcsel" class="native" title="Which city you know" tabindex="-1"></select>
+      <button class="citybtn" id="citybtn" aria-haspopup="listbox" aria-expanded="false"></button>
+      <div class="citymenu" id="citymenu" role="listbox" hidden></div>
+    </div>
     <div class="field">
       <input type="search" id="q" placeholder="Name a place you love…">
       <button class="clear" id="clearq" hidden aria-label="Clear">×</button>
@@ -464,8 +529,9 @@ summary:hover { color: var(--accent); }
        the page read as a list to scroll rather than a box to type in. -->
   <section class="stage" id="prompt">
     <div class="inner">
-      <h1 class="pitch">Every city has an H-E-B.<br><em>It's just elsewhere.</em></h1>
+      <h1 class="pitch">Every city has <span id="heroart">an</span> <span id="heroplace">H-E-B</span>.<br><em>It\'s just elsewhere.</em></h1>
       <div id="heroslot"></div>
+      <div class="peek" id="peek"></div>
       <p class="q" id="promptq"></p>
       <div class="rail"><div class="track" id="examples"></div></div>
       <p class="or">or browse</p>
@@ -647,6 +713,7 @@ function render() {
   if (!S) return;
 
   const idle = !q && !cat;
+  if (!idle) stopDemo();
   // The search box is the index; on results pages it retreats to the header.
   const slot = document.getElementById(idle ? "heroslot" : "barslot");
   const controls = document.getElementById("controls");
@@ -725,6 +792,139 @@ function renderSaved() {
   renderSavedBtn();
 }
 
+/* ── The try rail ──────────────────────────────────────────────────────
+   Advances one chip at a time by measuring the real chip widths, so it lands
+   flush regardless of how long a name is. When it reaches the end of the
+   first copy it jumps back to the start with the transition off, which is
+   invisible because the second copy is identical. */
+let railAt = 0, railTimer = null;
+
+function stepRail() {
+  const track = document.getElementById("examples");
+  const rail = track.parentElement;
+  const chips = [...track.children];
+  const half = chips.length / 2;
+  if (!half) return;
+
+  railAt++;
+  if (railAt >= half) {
+    railAt = 0;
+    rail.classList.add("hold");
+    track.style.transform = "translateX(0)";
+    // Two frames: one for the style to land, one for the class to lift.
+    requestAnimationFrame(() => requestAnimationFrame(() => rail.classList.remove("hold")));
+    return;
+  }
+  const gap = 9;
+  const shift = chips.slice(0, railAt).reduce((n, c) => n + c.offsetWidth + gap, 0);
+  track.style.transform = `translateX(-${shift}px)`;
+}
+
+function startRail() {
+  clearInterval(railTimer);
+  if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  railTimer = setInterval(stepRail, 2600);
+}
+
+/* ── Landing demo ──────────────────────────────────────────────────────
+   The page explains itself by doing the thing: a few well-known places from
+   the chosen city cycle through the headline and the search box, with their
+   real answers underneath. Every one of these already came down in the
+   /api/state payload, so the whole sequence costs no extra request.
+
+   It stops for good at the first sign of a real visitor — focus, a
+   keystroke, a click — because an animation that keeps going while someone
+   is typing is a bug, not a flourish. */
+const SCRAMBLE = "ABCDEFGHIJKLMNOPQRSTUVWXYZ&'-";
+let demoTimer = null, demoAt = 0, demoOn = false, scrambleTimer = null;
+
+/* "a" or "an", by sound rather than spelling.
+
+   H-E-B is the case that makes this necessary: it starts with a consonant
+   letter and takes "an", because what you say is "aitch". So initialisms are
+   judged on the letter's name, everything else on its first vowel. Names
+   that already begin with an article or "The" take none at all. */
+const VOWEL_LETTERS = new Set(["A", "E", "F", "H", "I", "L", "M", "N", "O", "R", "S", "X"]);
+
+function article(name) {
+  const first = name.split(/[\s-]/)[0];
+  if (/^(a|an)$/i.test(first)) return "";
+  if (first.length === 1 || /^[A-Z]-[A-Z]/.test(name)) {
+    return VOWEL_LETTERS.has(first[0].toUpperCase()) ? "an" : "a";
+  }
+  return /^[aeiou]/i.test(name) ? "an" : "a";
+}
+
+/* Letter-by-letter resolve: each character locks in from the left while the
+   unresolved tail keeps churning. Reads as *finding* a name, which is what
+   the product does — a dissolve would read as merely replacing one. */
+function scrambleTo(el, text) {
+  clearInterval(scrambleTimer);
+  if (matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    el.textContent = text;
+    return;
+  }
+  let frame = 0;
+  const total = text.length;
+  scrambleTimer = setInterval(() => {
+    frame++;
+    const locked = Math.floor(frame / 1.6);
+    if (locked >= total) { el.textContent = text; clearInterval(scrambleTimer); return; }
+    let out = text.slice(0, locked);
+    for (let i = locked; i < total; i++) {
+      out += text[i] === " " ? " " : SCRAMBLE[(Math.random() * SCRAMBLE.length) | 0];
+    }
+    el.textContent = out;
+  }, 34);
+}
+
+function demoPicks() {
+  const known = new Map(S.matches.map(m => [m.name, m]));
+  return (SEEDS_BY_CITY[S.source] || []).filter(n => known.has(n)).map(n => known.get(n))
+    .concat(S.matches.slice(0, 4)).slice(0, 4);
+}
+
+function demoStep() {
+  const picks = demoPicks();
+  if (!picks.length) return;
+  const m = picks[demoAt % picks.length];
+  demoAt++;
+
+  const shown = m.name.replace(/^The\s+/i, "");
+  document.getElementById("heroart").textContent = article(shown);
+  scrambleTo(document.getElementById("heroplace"), shown);
+  const box = document.getElementById("q");
+  box.value = m.name;                 // no input event: this is a demo, not a search
+  document.getElementById("clearq").hidden = true;
+
+  const peek = document.getElementById("peek");
+  peek.innerHTML = S.targets.filter(t => m.cities[t]).map(t =>
+    `<span class="peekrow"><span class="peekcity">in ${esc(title(t))}</span>
+       <b>${esc(m.cities[t].candidates[0].name)}</b></span>`).join("");
+  peek.classList.remove("in");
+  requestAnimationFrame(() => peek.classList.add("in"));
+}
+
+function startDemo() {
+  if (demoOn || q || cat) return;
+  demoOn = true;
+  document.getElementById("prompt").classList.add("demo");
+  demoStep();
+  demoTimer = setInterval(demoStep, 4200);
+}
+
+function stopDemo() {
+  if (!demoOn) return;
+  demoOn = false;
+  clearInterval(demoTimer); clearInterval(scrambleTimer);
+  document.getElementById("prompt").classList.remove("demo");
+  document.getElementById("heroart").textContent = "an";
+  document.getElementById("heroplace").textContent = "H-E-B";
+  document.getElementById("peek").innerHTML = "";
+  const box = document.getElementById("q");
+  if (!q) box.value = "";
+}
+
 /* ── Flow ──────────────────────────────────────────────────────────── */
 const SEEDS_BY_CITY = {
   austin:   ["H-E-B", "Torchy's Tacos", "Barton Springs Pool", "BookPeople"],
@@ -755,9 +955,15 @@ async function load() {
   document.getElementById("srcsel").innerHTML = Object.keys(S.sources).map(c =>
     `<option value="${c}" ${c === S.source ? "selected" : ""}>${title(c)}</option>`).join("");
   renderExamples();
+  renderCityMenu();
   renderCats();
   render();
   renderSavedBtn();
+  railAt = 0;
+  document.getElementById("examples").style.transform = "translateX(0)";
+  startRail();
+  demoAt = 0;
+  if (!q && !cat) startDemo();
 }
 
 async function boot() {
@@ -798,15 +1004,55 @@ document.getElementById("examples").addEventListener("click", e => {
   const b = e.target.closest(".eg");
   if (!b) return;
   q = b.dataset.name; cat = "";
+  stopDemo();
   document.getElementById("q").value = q;
   syncURL(); render();
 });
+["focus", "keydown", "pointerdown"].forEach(evt =>
+  document.getElementById("q").addEventListener(evt, stopDemo));
+document.getElementById("cats").addEventListener("pointerdown", stopDemo);
+document.getElementById("examples").addEventListener("pointerdown", stopDemo);
+
 document.getElementById("q").addEventListener("input", e => {
   q = e.target.value.trim();
   if (q) cat = "";
   syncURL(true);   // replace, so typing doesn't fill the back stack
   render();
 });
+/* ── City menu ─────────────────────────────────────────────────────────
+   Rendered from the <select>'s own options, so there is still exactly one
+   list of cities and one selected value. */
+function renderCityMenu() {
+  const sel = document.getElementById("srcsel");
+  document.getElementById("citybtn").innerHTML =
+    `${esc(title(sel.value))}<span class="caret">\u25BC</span>`;
+  document.getElementById("citymenu").innerHTML = [...sel.options].map(o =>
+    `<button role="option" data-city="${esc(o.value)}"
+       aria-selected="${o.value === sel.value}">${esc(o.textContent)}</button>`).join("");
+}
+
+function openCityMenu(open) {
+  document.getElementById("citymenu").hidden = !open;
+  document.getElementById("citybtn").setAttribute("aria-expanded", open);
+}
+
+document.getElementById("citybtn").addEventListener("click", e => {
+  e.stopPropagation();
+  openCityMenu(document.getElementById("citymenu").hidden);
+});
+document.getElementById("citymenu").addEventListener("click", e => {
+  const b = e.target.closest("button[data-city]");
+  if (!b) return;
+  openCityMenu(false);
+  const sel = document.getElementById("srcsel");
+  if (b.dataset.city === sel.value) return;
+  sel.value = b.dataset.city;
+  sel.dispatchEvent(new Event("change"));
+});
+// Click-away and Escape, the two ways every other menu on the web closes.
+addEventListener("click", () => openCityMenu(false));
+addEventListener("keydown", e => { if (e.key === "Escape") openCityMenu(false); });
+
 document.getElementById("srcsel").addEventListener("change", e => {
   home = e.target.value;
   localStorage.setItem("elsewhere.home", home);
