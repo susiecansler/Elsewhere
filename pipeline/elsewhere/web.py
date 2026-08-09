@@ -536,6 +536,7 @@ summary:hover { color: var(--dim); }
 }
 .link:hover { color: var(--dim); }
 .empty { text-align: center; color: var(--faint); padding: 90px 20px; font-size: 17px; }
+.more { text-align: center; color: var(--faint); font-size: 14px; padding: 8px 20px 40px; }
 
 /* ─── Step one: the two cities ─────────────────────────────────────────── */
 .setup {
@@ -719,6 +720,9 @@ summary:hover { color: var(--dim); }
 
 <script>
 let S = null, q = "", cat = "", dest = "";
+//: How many cards to build at once. Past this it's a scroll nobody finishes,
+//: and each card's map is six more elements to lay out.
+const LIST_CAP = 25;
 let home = localStorage.getItem("elsewhere.home") || "";
 let savedDest = localStorage.getItem("elsewhere.dest") || "";
 
@@ -1076,9 +1080,25 @@ function render() {
     renderCats();
   }
   // The search box is the index; on results pages it retreats to the header.
+  //
+  // Re-parenting a subtree drops focus from anything inside it, silently and
+  // without firing blur. Since this move happens on the *first* character
+  // typed, the caret vanished mid-word and every keystroke after it went
+  // nowhere — the search box appeared to stop accepting input. Carry the
+  // focus and the caret across the move.
   const slot = document.getElementById(idle ? "heroslot" : "barslot");
   const controls = document.getElementById("controls");
-  if (controls.parentElement !== slot) slot.appendChild(controls);
+  if (controls.parentElement !== slot) {
+    const box = document.getElementById("q");
+    const had = document.activeElement === box;
+    const at = had ? box.selectionStart : null;
+    const to = had ? box.selectionEnd : null;
+    slot.appendChild(controls);
+    if (had) {
+      box.focus();
+      try { box.setSelectionRange(at, to); } catch { /* type=search on old Safari */ }
+    }
+  }
   document.getElementById("prompt").hidden = !idle;
   document.getElementById("crumb").hidden = idle || browsing || !!q;
   document.getElementById("clearq").hidden = !q;
@@ -1107,6 +1127,13 @@ function render() {
     return;
   }
 
+  // A broad query matches most of the corpus, and every card carries a map
+  // built from six tile elements. Rendering all of them cost ~140ms per
+  // keystroke — felt as the input stuttering — to produce a list nobody
+  // scrolls. Show the best of them and say what was left.
+  const total = rows.length;
+  rows = rows.slice(0, LIST_CAP);
+
   el.innerHTML = rows.map(m => {
     // One place, its answer in every city we can answer for.
     const blocks = S.targets.filter(t => t === dest && m.cities[t]).map(t => {
@@ -1130,7 +1157,9 @@ function render() {
         <span class="arrow">${esc(title(S.source))}</span></div>
       ${blocks}
     </div>`;
-  }).join("");
+  }).join("") + (total > rows.length
+    ? `<p class="more">${total - rows.length} more match \u201c${esc(q || cat)}\u201d — keep typing to narrow it down.</p>`
+    : "");
   renderSavedBtn();
 }
 
@@ -1534,12 +1563,18 @@ document.getElementById("examples").addEventListener("click", e => {
   document.addEventListener(evt, stopDemo, { capture: true, passive: true }));
 document.getElementById("q").addEventListener("focus", stopDemo);
 
+/* Suggestions are cheap and must feel instant. Building the result cards is
+   not, so it waits for a pause in typing — otherwise every character pays for
+   a list that the next character throws away. */
+let renderTimer = null;
+
 document.getElementById("q").addEventListener("input", e => {
   q = e.target.value.trim();
   if (q) cat = "";
   syncURL(true);   // replace, so typing doesn't fill the back stack
-  render();
   renderSuggest();
+  clearTimeout(renderTimer);
+  renderTimer = setTimeout(render, 130);
 });
 
 document.getElementById("q").addEventListener("keydown", e => {
