@@ -153,86 +153,63 @@ PAGE = """<!doctype html>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Elsewhere — every city has an H-E-B</title>
 <style>
-/* Palette: bubblegum-pink / golden-pollen / emerald / ocean-blue / dark-teal.
-   No borders anywhere — separation comes from soft shadow, hierarchy from
-   type size. Ocean-blue carries interaction in light and emerald in dark, so
-   the accent always has contrast against its own ground; pink and gold are
-   used sparingly, where a moment should feel like a moment. */
+/* One surface, everywhere. The yellow field broke the app in half — a
+   poster for two screens and a document for the rest — so the whole thing is
+   now a single warm white, and continuity comes for free. Colour arrives as
+   accent and as the soft discs behind the hero, not as a ground that
+   switches.
+
+   Structure is carried by hairlines and radius rather than by blocks of
+   colour: a white page, 1px rules, generous rounding, one hot accent. */
 :root {
   color-scheme: light;
-  --paper:  #F6FBFC;
+  --paper:  #FFFFFF;
+  --sunk:   #F7F7F7;   /* the only other surface: inset wells, hovers */
   --panel:  #FFFFFF;
-  --ink:    #073B4C;   /* dark-teal */
-  --dim:    #4A6C78;
-  --faint:  #8CA7B1;
-  --hair:   #E0EEF2;
-  /* Turquoise, one flat colour, cut deep enough to stay legible on paper:
-     the bright emerald reads at 1.8:1 here, which is decoration rather than
-     text. */
-  --turquoise: #0A8276;
-  --pink:   #EF476F;   /* bubblegum-pink — display only, see --pink-deep */
-  /* #EF476F is 3.6:1 on white, which fails for anything at body size. This
-     is the same hue darkened until small white text on it clears AA, and it
-     carries every pink that isn't the headline or the map pin. */
-  --pink-deep: #C9284F;
-  --on-pink: #FFFFFF;
-  --gold:   #FFD166;   /* golden-pollen */
-  --emerald:#06D6A0;
-  --accent: #118AB2;   /* ocean-blue */
-  --accent-deep: #0B6E8F;
-  --accent-soft: #DFF1F8;
+  --ink:    #1C1C1C;
+  --dim:    #6A6A6A;
+  --faint:  #9B9B9B;
+  --hair:   #E4E4E4;
+  --hair-2: #DDDDDD;
+  --accent: #E0355A;          /* the one hot colour */
+  --accent-deep: #C22B4C;
+  --accent-soft: #FFF1F4;
   --on-accent: #FFFFFF;
-  --chip:   #E4F2F8;
-  /* The wash at the top of the page: pollen and emerald, low and off-centre. */
-  --wash-a: #FFE9B4;
-  --wash-b: #C6F5E6;
-  --shadow: 0 1px 2px rgba(7,59,76,.05), 0 12px 32px -16px rgba(7,59,76,.22);
-  --lift:   0 2px 6px rgba(7,59,76,.08), 0 22px 50px -20px rgba(7,59,76,.32);
-  --spring: cubic-bezier(.34, 1.4, .5, 1);
-  /* Three voices, and each one has a job. A serif carries the place names,
-     because the answer is the editorial moment on the page. A grotesque
-     carries everything you read in bulk. A monospace carries the labels,
-     counts and metadata — it reads as machine-made, which is honest about
-     what this is, and it keeps small text legible at tracking this wide. */
-  --display: ui-serif, "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
-  --sans: ui-sans-serif, -apple-system, "Segoe UI", Inter, Roboto, sans-serif;
-  --mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
-  /* Hard offset instead of a blur. A solid shadow reads as printed matter
-     rather than as a floating cloud, and it gives a press state something
-     physical to do. */
-  --bar: #073B4C; --bar-ink: #F2FAFC; --bar-line: rgba(242,250,252,.28);
-  --bar-dim: rgba(242,250,252,.55); --bar-field: rgba(242,250,252,.12);
-  --hard: 5px 5px 0 var(--ink);
-  --hard-sm: 3px 3px 0 var(--ink);
+  --pink: #E0355A; --pink-deep: #C22B4C; --on-pink: #FFFFFF;
+  --turquoise: #067A6F;
+  --gold: #FFC53D;
+  --emerald: #16A97F;
+  --chip: #F2F2F2;
+  --bar: #FFFFFF; --bar-ink: #1C1C1C; --bar-line: #DDDDDD;
+  --bar-dim: #7A7A7A; --bar-field: #FFFFFF;
+  /* Soft, wide, and low — the shadow of something resting on the page, not
+     floating above it. */
+  --shadow: 0 1px 2px rgba(0,0,0,.05), 0 4px 12px rgba(0,0,0,.06);
+  --lift:   0 2px 4px rgba(0,0,0,.07), 0 10px 28px rgba(0,0,0,.12);
+  --hard:   var(--lift); --hard-sm: var(--shadow);
+  --display: var(--sans);
+  --sans: ui-sans-serif, -apple-system, "Segoe UI", Inter, Roboto, "Helvetica Neue", sans-serif;
+  --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --spring: cubic-bezier(.2, .8, .3, 1);
 }
-/* Opt-in only. Dark-teal ground, emerald accent — the same product at night. */
 :root[data-theme="dark"] {
   color-scheme: dark;
-  --paper: #073B4C; --panel: #0C4C61; --ink: #EFFAFC; --dim: #A7C5CF;
-  --faint: #6F93A1; --hair: #145A70;
-  --turquoise: #19D3BE;   /* brighter cut, for the dark ground */
-  --pink: #FF6B8B; --pink-deep: #FF8FA6; --on-pink: #073B4C;
-  --gold: #FFD166; --emerald: #06D6A0;
-  --accent: #06D6A0; --accent-deep: #06D6A0; --accent-soft: #0E5A6E;
-  --on-accent: #073B4C; --chip: #0E5A6E;
-  --bar: #04222C; --bar-ink: #EFFAFC; --bar-line: rgba(239,250,252,.22);
-  --bar-dim: rgba(239,250,252,.5); --bar-field: rgba(239,250,252,.1);
-  --wash-a: #0C5163; --wash-b: #0A4553;
-  /* --hard resolves to --ink, which is near-white here; a white slab behind
-     every hovered card is a strobe. Dark gets a deeper shade of its own
-     ground instead, so the offset still reads as a printed edge. */
-  --hard: 5px 5px 0 #03202A; --hard-sm: 3px 3px 0 #03202A;
-  --shadow: 0 1px 2px rgba(0,0,0,.35), 0 12px 32px -16px rgba(0,0,0,.6);
-  --lift:   0 2px 6px rgba(0,0,0,.4), 0 22px 50px -20px rgba(0,0,0,.7);
+  --paper: #121212; --sunk: #1D1D1D; --panel: #1A1A1A; --ink: #F4F4F4;
+  --dim: #ADADAD; --faint: #7E7E7E; --hair: #2E2E2E; --hair-2: #383838;
+  --accent: #FF5A78; --accent-deep: #FF7A92; --accent-soft: #2A1A1E;
+  --on-accent: #1A1A1A;
+  --pink: #FF5A78; --pink-deep: #FF7A92; --on-pink: #17171A;
+  --turquoise: #37C9B8; --gold: #FFC53D; --emerald: #35C89B;
+  --chip: #242424;
+  --bar: #121212; --bar-ink: #F4F4F4; --bar-line: #303030;
+  --bar-dim: #9A9A9A; --bar-field: #1D1D1D;
+  --shadow: 0 1px 2px rgba(0,0,0,.5), 0 4px 12px rgba(0,0,0,.45);
+  --lift:   0 2px 4px rgba(0,0,0,.55), 0 10px 28px rgba(0,0,0,.6);
 }
 * { box-sizing: border-box; }
 body {
   margin: 0; color: var(--ink); background: var(--paper);
-  background-image:
-    radial-gradient(900px 340px at 18% -140px, var(--wash-a), transparent 68%),
-    radial-gradient(760px 300px at 82% -120px, var(--wash-b), transparent 66%);
-  background-repeat: no-repeat;
-  font: 16.5px/1.68 var(--sans);
+  font: 16px/1.6 var(--sans); letter-spacing: -0.003em;
   -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
 }
 
@@ -246,20 +223,26 @@ body {
 /* A solid bar, dark in both themes. Chrome that matches the page reads as
    part of the page; chrome that doesn't reads as a frame around it, and a
    frame is what tells you this is a product rather than a document. */
+/* White, sticky, and separated by a hairline rather than by contrast. The
+   dark bar framed the page like an app chrome; this lets the page start at
+   the top of the screen and keeps the eye on the content. */
 header {
-  position: sticky; top: 0; z-index: 40; padding: 0 22px;
+  position: sticky; top: 0; z-index: 40; padding: 0 40px;
   background: var(--bar); color: var(--bar-ink);
+  box-shadow: inset 0 -1px 0 var(--hair);
 }
-.bar { display: flex; gap: 12px; align-items: center; width: 100%; min-height: 62px; }
+.bar { display: flex; gap: 8px; align-items: center; width: 100%; min-height: 80px; }
 .bar .chip {
-  background: transparent; color: var(--bar-ink); box-shadow: inset 0 0 0 1.5px var(--bar-line);
+  background: transparent; color: var(--ink); box-shadow: none;
+  font: 600 14px/1 var(--sans); letter-spacing: 0; text-transform: none;
+  padding: 12px 14px; border-radius: 999px;
 }
-.bar .chip:hover {
-  background: var(--bar-ink); color: var(--bar); box-shadow: none; transform: none;
+.bar .chip:hover { background: var(--sunk); transform: none; }
+.bar .chip:active { transform: none; }
+#pairbtn {
+  box-shadow: inset 0 0 0 1px var(--hair-2); padding: 11px 16px;
 }
-.bar .chip:active { transform: translateY(1px); }
-#pairbtn { background: var(--pink); color: #fff; box-shadow: none; }
-#pairbtn:hover { background: #fff; color: var(--pink-deep); }
+#pairbtn:hover { box-shadow: inset 0 0 0 1px var(--ink); background: var(--paper); }
 .bar #controls .field input { background: var(--bar-field); color: var(--bar-ink); box-shadow: none; }
 .bar #controls .field input::placeholder { color: var(--bar-dim); }
 .bar #controls .field input:focus { box-shadow: 0 0 0 2px var(--gold); }
@@ -275,7 +258,19 @@ header {
    One instance, moved between the hero and the header rather than
    duplicated — two search boxes would mean two sources of truth for what
    the visitor typed. */
-#controls { display: flex; gap: 10px; align-items: center; flex: 1; min-width: 0; }
+/* One pill, divided into fields. Each segment is a question, the dividers
+   say they belong to the same question, and the round button at the end is
+   the verb. It reads as a single control rather than three that happen to
+   sit near each other. */
+#controls { display: flex; align-items: center; flex: 1; min-width: 0; }
+.stage #controls, .setup #controls {
+  background: var(--panel); border-radius: 999px; padding: 6px 6px 6px 8px;
+  box-shadow: 0 1px 2px rgba(0,0,0,.08), 0 8px 28px rgba(0,0,0,.10);
+  max-width: 780px; margin: 0 auto; width: 100%;
+}
+.stage #controls:hover, .setup #controls:hover {
+  box-shadow: 0 2px 4px rgba(0,0,0,.10), 0 14px 40px rgba(0,0,0,.14);
+}
 input[type=search], input[type=text], select {
   font: inherit; font-size: 15px; padding: 9px 16px; border: 0;
   border-radius: 999px; background: var(--panel); color: var(--ink);
@@ -339,8 +334,7 @@ select.native { position: absolute; opacity: 0; pointer-events: none; width: 1px
   border-radius: 12px; background: none; color: var(--ink);
   font-size: 15px; font-weight: 600;
 }
-.suggest button .cat { font: 500 11px/1 var(--mono); letter-spacing: .12em;
-  text-transform: uppercase; color: var(--faint); margin-left: 10px; }
+.suggest button .cat { font-size: 13px; font-weight: 400; color: var(--faint); margin-left: 10px; }
 .suggest button:hover, .suggest button.on { background: var(--chip); }
 .suggest button.on { background: var(--pink-deep); color: var(--on-pink); }
 .suggest button.on .cat { color: var(--on-pink); opacity: .8; }
@@ -351,8 +345,8 @@ button {
   transition: transform .22s var(--spring), box-shadow .2s, color .2s, background .2s;
 }
 .chip {
-  font: 500 11.5px/1 var(--mono); letter-spacing: .1em; text-transform: uppercase;
-  padding: 10px 14px; background: var(--panel); color: var(--dim); box-shadow: var(--shadow);
+  font-size: 14px; font-weight: 600; padding: 11px 16px;
+  background: var(--panel); color: var(--ink); box-shadow: inset 0 0 0 1px var(--hair-2);
 }
 .chip:hover { color: var(--ink); box-shadow: var(--hard-sm); transform: translate(-1px, -1px); }
 /* Press moves *into* the shadow, so the button behaves like a physical key. */
@@ -361,130 +355,60 @@ button {
    bar rather than a label sharing its baseline with the controls. */
 button.brand {
   background: none; margin: 0; padding: 0 20px 0 0;
-  font-family: var(--display); font-size: 26px; font-weight: 600;
-  letter-spacing: -0.02em; color: var(--bar-ink); line-height: 1; align-self: center;
+  font-size: 23px; font-weight: 800; letter-spacing: -0.035em;
+  color: var(--accent); line-height: 1; align-self: center;
 }
-button.brand:hover { color: var(--gold); }
+button.brand:hover { color: var(--accent-deep); }
 button.brand:hover { color: var(--dim); }
 
 /* ─── The index ───────────────────────────────────────────────────────────
    Naming a place is the whole product, so on the index it owns the screen:
    the controls sit in the middle of the viewport at full size and the
    header carries nothing but the brand and the theme toggle. */
-/* Step two wears the same field as step one. Yellow while you're choosing,
-   paper while you're reading — two surfaces with a reason, instead of a
-   colour that appears on one screen and vanishes on the next.
-
-   The field goes away once results are on screen (.typing), because a page
-   of reasoning wants a reading surface, not a poster. */
+/* Step two: the same white page and the same pill shape, asking the next
+   question. Nothing about the surface changes between the two, which is the
+   whole point — it should feel like one place, not two. */
 .stage {
-  min-height: calc(100vh - 62px);
+  min-height: calc(100vh - 80px);
   display: flex; flex-direction: column; justify-content: center;
   text-align: center; padding: 24px 24px 150px; gap: 4px;
-  background: #FFD166; color: #07323F; position: relative; overflow: hidden;
+  position: relative; overflow: hidden;
 }
 .stage::before, .stage::after {
-  content: ""; position: absolute; border-radius: 50%; pointer-events: none;
+  content: ""; position: absolute; border-radius: 50%; pointer-events: none; filter: blur(2px);
 }
-.stage::before { width: 40vw; height: 40vw; right: -13vw; top: -15vw; background: #06D6A0; opacity: .45; }
-.stage::after { width: 22vw; height: 22vw; left: -8vw; bottom: 4vw; background: #EF476F; opacity: .3; }
+.stage::before { width: 34vw; height: 34vw; right: -12vw; top: -12vw; background: var(--turquoise); opacity: .06; }
+.stage::after { width: 22vw; height: 22vw; left: -8vw; bottom: 6vw; background: var(--accent); opacity: .06; }
 .stage .inner, .stage .tryfoot { position: relative; z-index: 1; }
-.stage .ask { color: #07323F; }
-.stage .ask em { color: #0A6E63; }
-.stage #controls .field input {
-  background: #FFFDF7; color: #07323F; box-shadow: 4px 4px 0 rgba(7,50,63,.22);
+.stage[hidden] { display: none; }
+.stage .inner { width: 100%; max-width: min(900px, 92vw); margin: 0 auto; }
+.stage #controls { justify-content: center; flex: 0 1 auto; }
+.stage #controls .field { flex: 1 1 auto; max-width: none; }
+.stage #controls input[type=search] {
+  font-size: 17px; padding: 18px 22px; background: none; box-shadow: none;
 }
-.stage #controls .field input::placeholder { color: #6B7F86; }
-.stage #controls .field input:focus { box-shadow: 4px 4px 0 rgba(7,50,63,.4); }
-.stage .peekcity { color: #0E4557; }
-.stage .peekrow, .stage .peekrow b { color: #07323F; }
-/* The rail sits on the field too, so it needs its own footing. */
-.stage .tryfoot { background: none; }
-.stage .tryfoot .q { color: #0E4557; }
-.stage .eg { background: rgba(255,255,255,.62); color: #07323F; }
-.stage .eg:nth-child(3n+2) { background: rgba(255,255,255,.42); color: #07323F; }
-.stage .eg:nth-child(3n+3) { background: rgba(7,50,63,.1); color: #07323F; }
-.stage .eg:hover { background: #07323F; color: #FFD166; }
+.stage #controls input[type=search]:focus { box-shadow: none; }
+.stage .q { font-size: 15px; font-weight: 500; color: var(--dim); margin: 40px 0 0; }
 
-/* Once there are results, drop the poster and become a page. */
+/* The search itself gets the round button, matching Next on step one. */
+.field .go {
+  width: 48px; height: 48px; flex: 0 0 48px; border-radius: 999px;
+  background: var(--accent); color: #fff; display: grid; place-items: center;
+  font-size: 18px; margin-left: 4px;
+}
+.field .go:hover { background: var(--accent-deep); }
+
 .stage.typing {
-  background: none; color: inherit; min-height: 0; overflow: visible;
-  padding-bottom: 30px;
+  min-height: 0; overflow: visible; padding-bottom: 26px; justify-content: flex-start;
+  padding-top: 28px;
 }
 .stage.typing::before, .stage.typing::after { display: none; }
-.stage.typing .ask { color: var(--ink); }
-.stage.typing .ask em { color: var(--turquoise); }
-.stage.typing #controls .field input {
-  background: var(--panel); color: var(--ink); box-shadow: var(--shadow);
-}
-.stage[hidden] { display: none; }
-/* Typing state: nothing above the box is allowed to change size, so the box
-   itself does not move by a single pixel while someone is mid-word. Only the
-   demo's answer line disappears, and it sits below. Results render under the
-   stage and are reached by scrolling — or instantly, by committing the query
-   with Enter, which is when the layout is allowed to rearrange. */
-.stage.typing .peek { visibility: hidden; }
-.tryfoot[hidden] { display: none; }
-.stage .inner { width: 100%; max-width: min(1180px, 92vw); margin: 0 auto; }
-.pitch {
-  font-size: 46px; line-height: 1.06; letter-spacing: -0.045em; font-weight: 800;
-  margin: 0 0 30px;
-}
-/* Same reasoning as .ask em — one flat colour. The setup screen overrides
-   both of these anyway; this is the fallback. */
-.pitch em, .sub em { font-style: normal; color: var(--turquoise); }
-/* In the hero the controls are the hero: big type, generous target. */
-.stage #controls { justify-content: center; flex: 0 1 auto; }
-.stage #controls .citybtn { font-size: 20px; padding: 20px 26px; }
-.stage #controls .field { flex: 1 1 460px; max-width: 620px; }
-.stage #controls input[type=search] { font-size: 20px; padding: 20px 26px; }
-/* Two lines, always: the claim and the payoff. The first must never wrap —
-   a name breaking mid-phrase turns the sentence into a paragraph and, because
-   the stage is vertically centred, reflows the whole page mid-animation. So
-   it's held on one line and scaled down to fit instead (see fitLine). */
-/* The place name is the variable in the sentence, so it's set as one: a
-   serif against the sans, in pink, so you read "has a ___" and see what's
-   filling the blank without needing the animation to tell you.
-   System faces only — a webfont would be a blocking request to a third party
-   for one line of text. */
-#heroplace {
-  display: inline-block; min-width: 3ch;
-  font-family: ui-serif, Georgia, "Iowan Old Style", "Times New Roman", serif;
-  font-style: italic; font-weight: 600; letter-spacing: -0.015em;
-  color: var(--pink);
-}
-.pitch { margin: 0 0 34px; font-size: clamp(30px, 5.4vw, 68px); }
-.pitch .l1 {
-  display: block; white-space: nowrap;
-  font-size: calc(1em * var(--fit, 1));
-  transition: font-size .3s var(--spring);
-}
-.pitch em { display: block; }
-#heroart:empty { display: none; }
-.prompt.demo #heroplace { color: var(--accent); }
-/* The demo's answers. Present but quiet — the headline is doing the talking,
-   and these are the evidence under it. */
-.peek {
-  display: flex; gap: 18px; justify-content: center; flex-wrap: wrap;
-  min-height: 26px; margin-top: 18px;
-  opacity: 0; transform: translateY(6px); transition: opacity .45s, transform .45s var(--spring);
-}
-.peek.in { opacity: 1; transform: none; }
-.peekrow { font-size: 17px; color: var(--dim); }
-.peekcity { font: 500 11px/1 var(--mono); color: var(--faint);
-  text-transform: uppercase; letter-spacing: .14em; margin-right: 9px; }
-.peekrow b { font-family: var(--display); font-weight: 600; font-size: 19px; color: var(--ink); }
-.tryfoot {
-  position: fixed; left: 0; right: 0; bottom: 0; z-index: 30;
-  padding: 14px 24px 20px; text-align: center;
-  background: linear-gradient(to bottom,
-    color-mix(in srgb, var(--paper) 0%, transparent),
-    color-mix(in srgb, var(--paper) 92%, transparent) 38%, var(--paper));
-}
-.tryfoot .q {
-  font: 500 11px/1 var(--mono); letter-spacing: .18em; text-transform: uppercase;
-  color: var(--faint); margin: 0 0 14px;
-}
+.stage.typing .ask { font-size: clamp(20px, 2.4vw, 28px); margin-bottom: 20px; }
+
+.tryfoot .q { font-size: 14px; font-weight: 500; color: var(--dim); margin: 0 0 14px; }
+.peekcity { font-size: 14px; color: var(--faint); margin-right: 8px; }
+.peekrow { font-size: 16px; color: var(--dim); }
+.peekrow b { font-weight: 600; font-size: 17px; color: var(--ink); }
 
 /* ─── Try rail ────────────────────────────────────────────────────────────
    The examples scroll on their own. Four static chips read as the whole
@@ -517,8 +441,8 @@ button.brand:hover { color: var(--dim); }
 .browse { padding: 56px 24px 40px; text-align: center; }
 .browse[hidden] { display: none; }
 .browseh {
-  font-family: var(--display); font-size: clamp(26px, 3.4vw, 40px);
-  font-weight: 600; letter-spacing: -0.02em; margin: 0 0 34px; color: var(--ink);
+  font-size: clamp(24px, 3vw, 34px); font-weight: 800; letter-spacing: -0.03em;
+  margin: 0 0 34px; color: var(--ink);
 }
 .cats { max-width: 900px; margin: 0 auto; }
 .cats { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
@@ -528,7 +452,7 @@ button.brand:hover { color: var(--dim); }
 }
 .cats button:hover { transform: translate(-2px, -3px); box-shadow: var(--hard); }
 .cats button:active { transform: translate(2px, 2px); box-shadow: none; }
-.cats button .n { font: 500 12px/1 var(--mono); color: var(--faint); margin-left: 9px; }
+.cats button .n { font-size: 14px; font-weight: 400; color: var(--faint); margin-left: 8px; }
 
 /* ─── Results ─────────────────────────────────────────────────────────── */
 main { max-width: 860px; margin: 0 auto; padding: 20px 24px 140px; }
@@ -537,66 +461,63 @@ main { max-width: 860px; margin: 0 auto; padding: 20px 24px 140px; }
   display: flex; align-items: baseline; gap: 12px;
 }
 .crumb[hidden] { display: none; }
-.crumb span { font: 500 12px/1.5 var(--mono); letter-spacing: .12em;
-  text-transform: uppercase; color: var(--dim); }
-/* Not boxes. A numbered index: a rule across the top, the source place and
-   its number in a narrow left column, the answer in a wide right one. Boxes
-   stacked in a scroll all look like the same weight of thing; a spread with
-   a hierarchy tells you what to read first. */
-main { counter-reset: card; }
+.crumb span { font-size: 15px; font-weight: 600; color: var(--ink); }
+/* Listings, not a newspaper index. Each answer is a card: the map reads as
+   the photo, the name as the title, the roles as the amenity line. Cards say
+   "these are comparable things, pick one", which is exactly the job. */
+main { max-width: 1180px; margin: 0 auto; padding: 28px 40px 140px; }
 .card {
-  background: none; border-radius: 0; padding: 34px 0 44px;
-  margin: 0; box-shadow: inset 0 2px 0 var(--ink);
-  display: grid; grid-template-columns: 190px minmax(0, 1fr); gap: 0 44px;
+  background: var(--panel); border-radius: 16px; padding: 0; margin: 0 0 8px;
+  box-shadow: none; display: block;
   transition: none;
 }
-.card:hover { box-shadow: inset 0 2px 0 var(--ink); transform: none; }
-.card > .head { grid-column: 1; align-self: start; position: sticky; top: 84px; }
-.card > .city { grid-column: 2; }
-.head { display: flex; flex-direction: column; gap: 8px; padding: 0; margin: 0; box-shadow: none; }
-.head::before {
-  content: counter(card, decimal-leading-zero); counter-increment: card;
-  font: 500 12px/1 var(--mono); color: var(--pink-deep); letter-spacing: .1em;
+.card:hover { box-shadow: none; transform: none; }
+.card > .head {
+  display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap;
+  padding: 26px 4px 14px; margin: 0; box-shadow: none;
 }
 .head h2 {
-  font-family: var(--display); font-size: 23px; font-weight: 600;
-  letter-spacing: -0.015em; margin: 0; color: var(--ink); line-height: 1.15;
+  font-size: 15px; font-weight: 600; letter-spacing: -0.01em;
+  margin: 0; color: var(--dim); line-height: 1.2;
 }
-.arrow { font: 500 11px/1 var(--mono); color: var(--faint); letter-spacing: .14em; text-transform: uppercase; }
+.arrow { font-size: 15px; color: var(--faint); }
+.roles { display: flex; flex-wrap: wrap; gap: 6px; width: 100%; margin-top: 4px; }
+.role {
+  font-size: 12px; font-weight: 500; color: var(--dim);
+  padding: 5px 10px; border-radius: 999px; background: var(--sunk);
+}
 /* The roles are the argument. Stating them in the margin turns the answer
    from an assertion into a claim with reasons attached. */
 .roles { display: flex; flex-direction: column; align-items: flex-start; gap: 5px; margin-top: 14px; }
 .role {
-  font: 500 10.5px/1.4 var(--mono); letter-spacing: .08em; text-transform: uppercase;
-  color: var(--dim); padding: 5px 9px; border-radius: 5px;
-  box-shadow: inset 0 0 0 1px var(--hair);
+  font-size: 12.5px; font-weight: 500; color: var(--dim);
+  padding: 5px 11px; border-radius: 999px; background: var(--sunk);
 }
 /* One block per city inside a place's card. A hairline between them, so the
    card still reads as one place rather than several. */
-.city { padding-top: 30px; margin-top: 30px; box-shadow: inset 0 1px 0 var(--hair); }
-.city:first-of-type { padding-top: 0; margin-top: 0; box-shadow: none; }
+.city {
+  padding: 22px 22px 20px; margin: 0 0 22px; border-radius: 16px;
+  box-shadow: inset 0 0 0 1px var(--hair);
+  transition: box-shadow .2s, transform .2s var(--spring);
+}
+.city:hover { box-shadow: var(--lift); transform: translateY(-2px); }
+.city:first-of-type { margin-top: 0; }
 .cityname {
-  font: 500 11px/1 var(--mono); letter-spacing: .16em; text-transform: uppercase;
-  color: var(--accent); margin-bottom: 12px; display: inline-block;
-  padding: 6px 10px; border-radius: 6px; background: var(--chip);
+  font-size: 13px; font-weight: 600; color: var(--accent);
+  margin-bottom: 6px; display: block; letter-spacing: 0; text-transform: none;
 }
 .answer {
-  font-family: var(--display); font-size: clamp(32px, 4vw, 52px);
-  font-weight: 600; letter-spacing: -0.02em; line-height: 1.02;
-  margin: 2px 0 20px; text-wrap: balance;
+  font-size: clamp(24px, 2.6vw, 32px); font-weight: 700; letter-spacing: -0.03em;
+  line-height: 1.15; margin: 0 0 12px; text-wrap: balance; color: var(--ink);
 }
-/* A highlighter swipe sitting behind the last third of the line. Cheap,
-   graphic, and it marks the answer as the thing you came for. */
-.answer span {
-  background: linear-gradient(transparent 64%, var(--gold) 64%, var(--gold) 94%, transparent 94%);
-}
+.answer span { background: none; }
 /* ─── The map on a card ───────────────────────────────────────────────────
    Raster tiles as plain <img>s, positioned by arithmetic. No map library and
    no API key: the only thing a slippy map adds here is panning, and this is a
    thumbnail you click through to Google Maps, not something to explore.
    `loading=lazy` means a card scrolled past never fetches anything. */
 .map {
-  position: relative; height: 132px; width: 100%; max-width: 560px; margin-top: 18px;
+  position: relative; height: 168px; width: 100%; margin: 4px 0 18px;
   border-radius: 16px; overflow: hidden; background: var(--chip);
   display: block; text-decoration: none;
 }
@@ -626,8 +547,7 @@ main { counter-reset: card; }
 /* Actions under an answer: where to go, and whether you're keeping it. */
 .acts { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; margin-top: 16px; }
 .acts a, .acts .save {
-  font: 500 11.5px/1 var(--mono); letter-spacing: .1em; text-transform: uppercase;
-  padding: 11px 16px;
+  font-size: 14px; font-weight: 600; padding: 11px 16px;
   border-radius: 999px; background: var(--chip); color: var(--accent-deep);
   text-decoration: none; display: inline-flex; align-items: center; gap: 6px;
   transition: background .2s, color .2s, transform .22s var(--spring);
@@ -644,13 +564,13 @@ main { counter-reset: card; }
 #savedbtn[hidden] { display: none; }
 
 .why { color: var(--dim); font-size: 15px; line-height: 1.7; margin-top: 6px; max-width: 60ch; }
-.why.big { font-size: 17px; line-height: 1.68; color: var(--ink); opacity: .8; max-width: 58ch; }
-.cname { font-family: var(--display); font-weight: 600; font-size: 21px; letter-spacing: -0.015em; }
+.why.big { font-size: 15px; line-height: 1.6; color: var(--dim); opacity: 1; max-width: 68ch; }
+.cname { font-weight: 600; font-size: 17px; letter-spacing: -0.01em; }
 .alt { padding: 14px 0 0 18px; box-shadow: inset 2px 0 0 var(--hair); margin-top: 14px; }
 details { margin-top: 18px; }
 summary {
-  cursor: pointer; font: 500 11.5px/1 var(--mono); letter-spacing: .1em;
-  text-transform: uppercase; color: var(--faint);
+  cursor: pointer; font-size: 14px; font-weight: 600; color: var(--ink);
+  text-decoration: underline; text-underline-offset: 3px;
   list-style: none; display: inline-flex; align-items: center; gap: 7px;
   transition: color .2s;
 }
@@ -670,86 +590,88 @@ summary:hover { color: var(--dim); }
 }
 .link:hover { color: var(--dim); }
 .empty { text-align: center; color: var(--faint); padding: 90px 20px; font-size: 17px; }
-.more { text-align: center; color: var(--faint); font: 500 12px/1.6 var(--mono);
-  letter-spacing: .08em; padding: 12px 20px 48px; }
+.more { text-align: center; color: var(--dim); font-size: 14px; padding: 16px 20px 48px; }
 
 /* ─── Step one: the two cities ─────────────────────────────────────────
-   A full-bleed field of pollen yellow. The first screen is the one that has
-   to say what kind of thing this is, and a pale page says "form". Colour is
-   fixed rather than themed: it's the cover, and a cover doesn't change with
-   the reading light. */
+   White, like everything else. The discs stay — they were the good part of
+   the yellow — but at low opacity and behind everything, so they read as
+   atmosphere rather than as a background you have to work against. */
 .setup {
   min-height: 100vh; display: flex; flex-direction: column; justify-content: center;
-  padding: 56px 6vw 60px; background: #FFD166; color: #07323F;
-  position: relative; overflow: hidden;
+  padding: 40px 5vw 80px; position: relative; overflow: hidden; text-align: center;
 }
 .setup[hidden] { display: none; }
-.setup .inner { width: 100%; max-width: 1100px; margin: 0 auto; text-align: left; }
-/* Two flat discs, no blur, sitting behind the type. Shape, not decoration. */
+.setup .inner { width: 100%; max-width: 860px; margin: 0 auto; }
 .setup::before, .setup::after {
   content: ""; position: absolute; border-radius: 50%; pointer-events: none;
+  filter: blur(2px);
 }
-.setup::before { width: 46vw; height: 46vw; right: -14vw; top: -16vw; background: #06D6A0; opacity: .5; }
-.setup::after { width: 26vw; height: 26vw; left: -9vw; bottom: -11vw; background: #EF476F; opacity: .35; }
+.setup::before { width: 38vw; height: 38vw; right: -12vw; top: -14vw; background: var(--accent); opacity: .07; }
+.setup::after { width: 26vw; height: 26vw; left: -10vw; bottom: -10vw; background: var(--turquoise); opacity: .07; }
 .setup .inner > * { position: relative; z-index: 1; }
 
-.setup .pitch { color: #07323F; margin: 0 0 26px; }
-.setup .pitch em {
-  background: none; -webkit-background-clip: initial; background-clip: initial;
-  color: #07323F; font-family: var(--display); font-style: italic; font-weight: 600;
+.setup .pitch {
+  font-size: clamp(34px, 4.6vw, 56px); font-weight: 800; letter-spacing: -0.035em;
+  line-height: 1.08; margin: 0 0 20px; color: var(--ink);
 }
-.setup #heroplace { font-family: var(--display); font-style: italic; color: #B3184A; }
+/* Second line of the slogan — it needs its own line, or the comma runs
+   straight into "It's". */
+.setup .pitch em { font-style: normal; color: var(--accent); display: block; }
+.setup #heroplace { color: var(--accent); }
 .setup .sub {
-  font-size: 18px; color: #0E4557; opacity: .85; max-width: 44ch; margin: 0 0 44px;
-  line-height: 1.6;
+  font-size: 19px; color: var(--dim); max-width: 46ch; margin: 0 auto 44px; line-height: 1.55;
 }
-.setup .sub em { color: #B3184A; font-style: normal; -webkit-text-fill-color: currentColor; }
+.setup .sub em { color: var(--ink); font-style: normal; font-weight: 600; }
 
+/* The pair, as one control: two segments, a divider, and the verb at the
+   end. Same shape as the search pill on the next screen, so moving from one
+   to the other feels like the same object asking a second question. */
 .pair {
-  counter-reset: leg; display: flex; gap: 0; flex-wrap: wrap;
-  margin: 0 0 40px; align-items: stretch;
+  counter-reset: leg; display: flex; align-items: center; gap: 0;
+  background: var(--panel); border-radius: 999px; padding: 6px 6px 6px 10px;
+  box-shadow: 0 1px 2px rgba(0,0,0,.08), 0 8px 28px rgba(0,0,0,.10);
+  max-width: 720px; margin: 0 auto 24px; text-align: left;
 }
-/* Two panels butted together with a single rule between them, like a form
-   printed on the page rather than floated above it. */
+.pair:hover { box-shadow: 0 2px 4px rgba(0,0,0,.10), 0 14px 40px rgba(0,0,0,.14); }
 .leg {
-  display: flex; flex-direction: column; gap: 12px; align-items: flex-start;
-  padding: 24px 34px 26px; background: rgba(255,255,255,.55);
+  display: flex; flex-direction: column; gap: 2px; align-items: flex-start;
+  padding: 12px 22px; flex: 1; min-width: 0; border-radius: 999px;
 }
-.leg:first-child { border-radius: 20px 0 0 20px; }
-.leg:last-child { border-radius: 0 20px 20px 0; box-shadow: inset 2px 0 0 rgba(7,50,63,.18); }
+.leg:hover { background: var(--sunk); }
+.leg + .leg { box-shadow: inset 1px 0 0 var(--hair); }
 .legt {
-  font: 500 11px/1 var(--mono); letter-spacing: .18em; text-transform: uppercase;
-  color: #0E4557; display: flex; align-items: center; gap: 10px;
+  font: 600 12px/1 var(--sans); letter-spacing: 0; text-transform: none;
+  color: var(--ink); display: flex; align-items: center; gap: 7px;
 }
 .legt::before {
   content: counter(leg, decimal-leading-zero); counter-increment: leg;
-  font-size: 12px; color: #fff; background: #07323F;
-  width: 22px; height: 22px; border-radius: 50%; display: grid; place-items: center;
+  font: 600 10px/1 var(--mono); color: var(--accent);
 }
 .leg .citybtn {
-  font-family: var(--display); font-size: 30px; font-weight: 600; letter-spacing: -0.02em;
-  padding: 4px 0; background: none; box-shadow: none; color: #07323F;
+  font-size: 15px; font-weight: 400; letter-spacing: 0; padding: 2px 0;
+  background: none; box-shadow: none; color: var(--dim);
 }
-.leg .citybtn:hover { box-shadow: none; color: #B3184A; transform: none; }
-.leg .citybtn .caret { color: #B3184A; }
+.leg .citybtn:hover { box-shadow: none; color: var(--ink); transform: none; background: none; }
+.leg .citybtn .caret { color: var(--faint); }
 
+/* Round, coral, and at the end of the pill — the one thing on the screen
+   that does something. */
 .next {
-  font: 500 13px/1 var(--mono); letter-spacing: .2em; text-transform: uppercase;
-  padding: 22px 54px; background: #07323F; color: #FFD166;
-  box-shadow: 5px 5px 0 rgba(7,50,63,.28);
+  font-size: 16px; font-weight: 600; letter-spacing: 0; text-transform: none;
+  padding: 16px 26px; background: var(--accent); color: var(--on-accent);
+  box-shadow: none; border-radius: 999px; white-space: nowrap;
 }
-.next:hover { transform: translate(-2px,-2px); box-shadow: 8px 8px 0 rgba(7,50,63,.28); }
-.next:active { transform: translate(4px,4px); box-shadow: none; }
+.next:hover { background: var(--accent-deep); transform: none; box-shadow: none; }
+.next:active { transform: scale(.97); box-shadow: none; }
 
 /* Step two asks one thing. */
 .ask {
-  font-family: var(--display); font-weight: 600;
-  font-size: clamp(30px, 4.6vw, 58px); letter-spacing: -0.025em;
-  line-height: 1.05; margin: 0 0 40px; text-wrap: balance;
+  font-weight: 800; font-size: clamp(30px, 4.2vw, 52px); letter-spacing: -0.035em;
+  line-height: 1.06; margin: 0 0 36px; text-wrap: balance; color: var(--ink);
 }
 /* Flat, not a gradient. A colour ramp across four letters reads as an
    effect applied to the word rather than as the word being the point. */
-.ask em { font-style: normal; color: var(--turquoise); }
+.ask em { font-style: normal; color: var(--accent); }
 /* The pair you chose, always visible and always one click from changing. */
 #pairbtn { font-weight: 650; }
 
@@ -842,9 +764,8 @@ summary:hover { color: var(--dim); }
           <div class="citymenu" id="dstmenu" role="listbox" hidden></div>
         </div>
       </label>
+      <button class="next" id="nextbtn">Next</button>
     </div>
-
-    <button class="next" id="nextbtn">Next</button>
   </div>
 </section>
 
