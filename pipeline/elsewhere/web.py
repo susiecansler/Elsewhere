@@ -18,6 +18,8 @@ eval`), deliberately not here.
 
 from __future__ import annotations
 
+import json
+import os
 from typing import Any
 
 from fastapi import FastAPI
@@ -212,6 +214,22 @@ def create_app(source: str = "austin", target: str = "chicago") -> FastAPI:
     return app
 
 
+def supabase_config() -> dict[str, str]:
+    """Credentials for the accounts backend, or empty if it isn't set up.
+
+    The anon key is meant to be public — it identifies the project, and the
+    row-level security policies in data/supabase/schema.sql are what actually
+    protect the data. The service-role key is the dangerous one and must
+    never appear here or anywhere else the browser can reach.
+
+    Absent config is a supported state, not an error: verification simply
+    doesn't appear, and every other part of the site works as before.
+    """
+    url = os.environ.get("SUPABASE_URL", "").strip()
+    key = os.environ.get("SUPABASE_ANON_KEY", "").strip()
+    return {"url": url, "key": key} if url and key else {}
+
+
 def page_html() -> str:
     """The page with the mark substituted into every slot that wants it."""
     return (
@@ -219,6 +237,7 @@ def page_html() -> str:
         .replace("__LOOP_NEXT__", LOOP.format(cls="loop-go"))
         .replace("__LOOP_EMPTY__", LOOP.format(cls="loop-empty"))
         .replace("__LOOP_SPIN__", LOOP.format(cls="loop-spin"))
+        .replace("__SUPABASE__", json.dumps(supabase_config()))
     )
 
 
@@ -737,6 +756,43 @@ summary:hover { color: var(--dim); }
   padding: 0; transition: color .2s;
 }
 .link:hover { color: var(--dim); }
+/* ─── Sign-in sheet ───────────────────────────────────────────────────── */
+.sheet {
+  position: fixed; inset: 0; z-index: 90; display: grid; place-items: center;
+  background: rgba(20,20,20,.45); padding: 24px;
+}
+.sheet[hidden] { display: none; }
+.sheetbox {
+  background: var(--panel); border-radius: 20px; padding: 34px 32px 28px;
+  max-width: 440px; width: 100%; box-shadow: var(--lift); position: relative;
+}
+.sheetbox h2 { font-size: 24px; font-weight: 800; letter-spacing: -0.03em; margin: 0 0 10px; }
+.sheetbox p { color: var(--dim); font-size: 15px; margin: 0 0 20px; }
+.sheetx {
+  position: absolute; top: 14px; right: 14px; width: 34px; height: 34px;
+  background: none; color: var(--dim); font-size: 22px; line-height: 1;
+  display: grid; place-items: center;
+}
+.sheetx:hover { background: var(--sunk); }
+.sheetbox input {
+  width: 100%; font-size: 16px; padding: 15px 18px; border-radius: 12px;
+  background: var(--panel); box-shadow: inset 0 0 0 1px var(--hair-2);
+}
+.next.wide { width: 100%; height: auto; border-radius: 12px; padding: 15px; font-size: 16px; font-weight: 600; }
+.sheetnote { font-size: 14px; margin: 14px 0 0 !important; min-height: 20px; }
+
+/* ─── Verification, on the card ───────────────────────────────────────── */
+.verify { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-top: 14px; }
+.verify[hidden] { display: none; }
+.vbtn {
+  font-size: 13.5px; font-weight: 600; padding: 9px 14px; border-radius: 999px;
+  background: none; color: var(--dim); box-shadow: inset 0 0 0 1px var(--hair-2);
+}
+.vbtn:hover { color: var(--ink); box-shadow: inset 0 0 0 1px var(--ink); }
+.vbtn[aria-pressed=true] { background: var(--accent); color: var(--on-accent); box-shadow: none; }
+.vbtn.no[aria-pressed=true] { background: var(--dim); color: var(--paper); }
+.tally { font-size: 13px; color: var(--faint); }
+
 .nudge {
   position: fixed; left: 50%; bottom: 30px; transform: translate(-50%, 14px);
   background: var(--ink); color: var(--paper); padding: 13px 22px;
@@ -1003,6 +1059,24 @@ summary:hover { color: var(--dim); }
   <main id="list"></main>
 </div>
 
+<!-- Sign-in. A single field and no password: nothing to store, nothing to
+     leak, nothing to reset. Hidden entirely when the accounts backend
+     isn't configured. -->
+<div class="sheet" id="signin" hidden>
+  <div class="sheetbox">
+    <button class="sheetx" id="signinx" aria-label="Close">×</button>
+    <h2>Verify a match</h2>
+    <p>Locals settle this better than a model does. Sign in with your email —
+       we\'ll send a link, there\'s no password.</p>
+    <form id="signinform">
+      <input type="email" id="email" placeholder="you@example.com" required
+             autocomplete="email" spellcheck="false">
+      <button class="next wide" type="submit">Send me a link</button>
+    </form>
+    <p class="sheetnote" id="signinnote"></p>
+  </div>
+</div>
+
 <script>
 let S = null, q = "", cat = "", dest = "";
 //: True once the visitor has settled on a query — Enter, or a suggestion
@@ -1229,6 +1303,152 @@ function renderCats() {
       `<button data-cat="${key}">${label}<span class="n">${counts[key]} place${
          counts[key] === 1 ? "" : "s"}</span></button>`)
     .join("");
+}
+
+/* ── Accounts and verification ─────────────────────────────────────────
+   Everything here is optional. With no backend configured the whole feature
+   is absent and the rest of the site behaves exactly as it did — which is
+   also the state of every deploy until the keys are set.
+
+   The Supabase client is loaded lazily, on the first action that needs it,
+   so a visitor who never verifies anything never pays for the library. */
+const SB_CONFIG = __SUPABASE__;
+const ACCOUNTS = !!SB_CONFIG.url;
+let sb = null, me = null, myVerdicts = new Map(), tallies = new Map();
+
+const vkey = (city, from, to, cand) => [city, from, to, cand].join("\u0000");
+
+async function client() {
+  if (sb) return sb;
+  const { createClient } = await import(
+    "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm");
+  sb = createClient(SB_CONFIG.url, SB_CONFIG.key);
+  return sb;
+}
+
+async function initAccounts() {
+  if (!ACCOUNTS) return;
+  const c = await client();
+  const { data } = await c.auth.getSession();
+  me = data.session ? data.session.user : null;
+  c.auth.onAuthStateChange((_e, session) => {
+    me = session ? session.user : null;
+    loadMyVerdicts().then(render);
+  });
+  await loadMyVerdicts();
+}
+
+async function loadMyVerdicts() {
+  myVerdicts = new Map();
+  if (!me) return;
+  const c = await client();
+  const { data } = await c.from("judgments")
+    .select("source_city,source_name,target_city,candidate,verdict")
+    .eq("user_id", me.id);
+  for (const r of data || []) {
+    myVerdicts.set(vkey(r.source_city, r.source_name, r.target_city, r.candidate), r.verdict);
+  }
+}
+
+/* Counts for what's on screen, in one request rather than one per card. */
+async function loadTallies(names) {
+  if (!ACCOUNTS || !names.length) return;
+  const c = await client();
+  const { data } = await c.from("judgment_tallies")
+    .select("source_city,source_name,target_city,candidate,yes_count,no_count")
+    .eq("source_city", S.source).eq("target_city", dest)
+    .in("source_name", names.slice(0, 60));
+  for (const r of data || []) {
+    tallies.set(vkey(r.source_city, r.source_name, r.target_city, r.candidate),
+                { yes: r.yes_count, no: r.no_count });
+  }
+  paintTallies();
+}
+
+function paintTallies() {
+  document.querySelectorAll(".verify").forEach(el => {
+    const k = vkey(el.dataset.city, el.dataset.from, el.dataset.to, el.dataset.cand);
+    const t = tallies.get(k), mine = myVerdicts.get(k);
+    el.querySelectorAll(".vbtn").forEach(b =>
+      b.setAttribute("aria-pressed", b.dataset.verdict === mine));
+    const out = el.querySelector(".tally");
+    if (!out) return;
+    if (!t || (!t.yes && !t.no)) { out.textContent = ""; return; }
+    // "3 say yes · 1 says no" — both sides, always. A split is information.
+    const bits = [];
+    if (t.yes) bits.push(`${t.yes} say${t.yes === 1 ? "s" : ""} yes`);
+    if (t.no) bits.push(`${t.no} say${t.no === 1 ? "s" : ""} no`);
+    out.textContent = bits.join(" \u00b7 ");
+  });
+}
+
+function verifyBlock(place, city, from) {
+  if (!ACCOUNTS) return "";
+  return `<div class="verify" data-city="${esc(S.source)}" data-from="${esc(from || "")}"
+       data-to="${esc(city)}" data-cand="${esc(place.name)}">
+    <span class="tally"></span>
+    <button class="vbtn" data-verdict="yes" aria-pressed="false">Locals agree</button>
+    <button class="vbtn no" data-verdict="no" aria-pressed="false">Not really</button>
+  </div>`;
+}
+
+async function castVerdict(el, verdict) {
+  if (!me) { openSignin(); return; }
+  const d = el.parentElement.dataset;
+  const k = vkey(d.city, d.from, d.to, d.cand);
+  const c = await client();
+  const had = myVerdicts.get(k);
+
+  if (had === verdict) {                       // pressing again withdraws it
+    await c.from("judgments").delete()
+      .match({ user_id: me.id, source_city: d.city, source_name: d.from,
+               target_city: d.to, candidate: d.cand });
+    myVerdicts.delete(k);
+    bumpTally(k, verdict, -1);
+  } else {
+    await c.from("judgments").upsert({
+      user_id: me.id, source_city: d.city, source_name: d.from,
+      target_city: d.to, candidate: d.cand, verdict,
+    }, { onConflict: "user_id,source_city,source_name,target_city,candidate" });
+    myVerdicts.set(k, verdict);
+    bumpTally(k, verdict, 1);
+    if (had) bumpTally(k, had, -1);
+  }
+  paintTallies();
+}
+
+/* Optimistic: the count moves before the round trip returns, because waiting
+   on a network call to acknowledge a click is what makes a page feel dead. */
+function bumpTally(k, verdict, by) {
+  const t = tallies.get(k) || { yes: 0, no: 0 };
+  t[verdict === "yes" ? "yes" : "no"] = Math.max(0, t[verdict === "yes" ? "yes" : "no"] + by);
+  tallies.set(k, t);
+}
+
+function openSignin() { document.getElementById("signin").hidden = false; }
+
+if (ACCOUNTS) {
+  document.getElementById("signinx").addEventListener("click", () =>
+    document.getElementById("signin").hidden = true);
+
+  document.getElementById("signinform").addEventListener("submit", async e => {
+    e.preventDefault();
+    const note = document.getElementById("signinnote");
+    const email = document.getElementById("email").value.trim();
+    note.textContent = "Sending\u2026";
+    const c = await client();
+    const { error } = await c.auth.signInWithOtp({
+      email, options: { emailRedirectTo: location.href },
+    });
+    note.textContent = error
+      ? `Couldn't send it: ${error.message}`
+      : "Check your email — the link signs you straight in.";
+  });
+
+  document.getElementById("list").addEventListener("click", e => {
+    const b = e.target.closest(".vbtn");
+    if (b) castVerdict(b, b.dataset.verdict);
+  });
 }
 
 /* ── Saved places ───────────────────────────────────────────────────────
@@ -1556,6 +1776,7 @@ function render() {
         ${roles ? `<div class="roleline">${roles}</div>` : ""}
         <div class="why big">${esc(top.reasoning)}</div>
         ${acts(top, t, m.name)}
+        ${verifyBlock(top, t, m.name)}
         ${rest.length ? `<details><summary>${rest.length} other option${
           rest.length > 1 ? "s" : ""}</summary>${rest.map(x =>
           `<div class="alt"><span class="cname">${esc(x.name)}</span>
@@ -1568,6 +1789,7 @@ function render() {
     ? `<p class="more">${total - rows.length} more match \u201c${esc(q || cat)}\u201d — keep typing to narrow it down.</p>`
     : "");
   renderSavedBtn();
+  if (ACCOUNTS) { paintTallies(); loadTallies(rows.map(m => m.name)); }
 }
 
 function renderSaved() {
@@ -1894,6 +2116,7 @@ async function load() {
   document.getElementById("examples").style.transform = "translateX(0)";
   startRail();
   if (!q && !cat) startDemo();
+  if (ACCOUNTS && !sb) initAccounts();
 }
 
 /* ── Where you are ─────────────────────────────────────────────────────
