@@ -711,7 +711,25 @@ summary:hover { color: var(--dim); }
   .card { grid-template-columns: 1fr; gap: 18px; padding: 24px 0 34px; }
   .card > .head { position: static; }
   .answer { font-size: 27px; }
-  .pitch { margin-bottom: 24px; }
+  /* Three lines on a phone. Left to wrap on its own, "an H-E-B," lands
+     alone on line two as a stranded fragment; breaking deliberately puts the
+     place name at the head of its own line where it reads as the subject. */
+  /* The pill is a row of segments, which needs width it doesn't have here.
+     Stack it: each question gets a full-width row, the divider becomes a
+     rule between them, and the verb spans the bottom. */
+  .pair {
+    flex-direction: column; align-items: stretch; border-radius: 24px;
+    padding: 8px; gap: 2px; max-width: 420px;
+  }
+  .leg { padding: 14px 18px; border-radius: 18px; }
+  .leg + .leg { box-shadow: inset 0 1px 0 var(--hair); }
+  .leg .citybtn { font-size: 17px; }
+  .next { width: 100%; margin-top: 6px; padding: 16px 20px; }
+  .setup { padding: 28px 20px 48px; }
+  .setup .sub { font-size: 16px; margin-bottom: 30px; }
+  .setup .pitch .hl2 { display: block; }
+  .setup .pitch .l1 { white-space: normal; }
+  .pitch { margin-bottom: 24px; font-size: clamp(28px, 8.4vw, 40px); }
   .sub { font-size: 16px; margin-bottom: 32px; }
   .cities button { font-size: 17px; padding: 16px 24px; flex: 1 1 40%; }
   .stage { padding: 16px 18px 140px; min-height: calc(100vh - 54px); }
@@ -743,7 +761,7 @@ summary:hover { color: var(--dim); }
      question. The city pickers live here and nowhere else. -->
 <section id="setup" class="setup" hidden>
   <div class="inner">
-    <h1 class="pitch"><span class="l1" id="line1">Every city has <span id="heroart">an</span> <span id="heroplace">H-E-B</span>,</span><em>It\'s just elsewhere.</em></h1>
+    <h1 class="pitch"><span class="l1" id="line1">Every city has<span class="hl2"> <span id="heroart">an</span> <span id="heroplace">H-E-B</span>,</span></span><em>It\'s just elsewhere.</em></h1>
     <p class="sub">Tell us the city you know and the one you're headed to.
     We\'ll find the counterparts — not the same category, the same <em>role</em>.</p>
 
@@ -1377,6 +1395,13 @@ function article(name) {
 function fitLine() {
   const line = document.getElementById("line1");
   if (!line) return;
+  // Below the breakpoint the claim is allowed to wrap onto three lines, so
+  // there is nothing to shrink and measuring a wrapped line would scale the
+  // type down for no reason.
+  if (matchMedia("(max-width: 640px)").matches) {
+    line.style.setProperty("--fit", 1);
+    return;
+  }
   const box = line.parentElement;
   line.style.setProperty("--fit", 1);
   const room = box.clientWidth;
