@@ -834,7 +834,9 @@ function tight(needle, hay) {
 
 function suggestions(text, limit = 7) {
   const needle = norm(text);
-  if (!needle || !S) return [];
+  // A single letter matches most of the corpus, so the list it produces is
+  // noise that covers the page rather than help.
+  if (needle.length < 2 || !S) return [];
   return S.matches
     .filter(m => m.cities[dest])
     .map(m => {
@@ -1314,9 +1316,15 @@ const sleep = ms => new Promise(r => setTimeout(r, ms));
    makes an effect read as a cursor animation rather than a person. */
 const beat = base => base + Math.random() * base * 0.7;
 
+/* `mine` is the safety catch. The demo owns the box only while it's
+   unfocused and empty of anything a person put there. Without this, a missed
+   stop signal means the animation types over someone mid-word — which is
+   exactly what it did. */
+const mine = box => demoOn && document.activeElement !== box;
+
 async function typeInto(box, text, token) {
   for (let i = 1; i <= text.length; i++) {
-    if (token !== demoRun) return false;
+    if (token !== demoRun || !mine(box)) return false;
     box.value = text.slice(0, i);
     await sleep(beat(52));
   }
@@ -1325,7 +1333,7 @@ async function typeInto(box, text, token) {
 
 async function deleteFrom(box, token) {
   while (box.value.length) {
-    if (token !== demoRun) return false;
+    if (token !== demoRun || !mine(box)) return false;
     box.value = box.value.slice(0, -1);
     await sleep(beat(26));   // deleting is always faster than typing
   }
@@ -1387,7 +1395,8 @@ function stopDemo() {
   document.getElementById("peek").innerHTML = "";
   document.getElementById("peek").classList.remove("in");
   const box = document.getElementById("q");
-  if (!q) box.value = "";
+  // Only clear what the demo itself left behind.
+  if (!q && document.activeElement !== box) box.value = "";
 }
 
 /* ── Flow ──────────────────────────────────────────────────────────── */
@@ -1518,10 +1527,12 @@ document.getElementById("examples").addEventListener("click", e => {
   document.getElementById("q").value = q;
   syncURL(); render();
 });
-["focus", "keydown", "pointerdown"].forEach(evt =>
-  document.getElementById("q").addEventListener(evt, stopDemo));
-document.getElementById("cats").addEventListener("pointerdown", stopDemo);
-document.getElementById("examples").addEventListener("pointerdown", stopDemo);
+/* Listened for on the document, in the capture phase, so nothing can swallow
+   them first. Scoping these to the search box meant a click the box didn't
+   receive left the animation running under the visitor's hands. */
+["pointerdown", "keydown", "wheel", "touchstart"].forEach(evt =>
+  document.addEventListener(evt, stopDemo, { capture: true, passive: true }));
+document.getElementById("q").addEventListener("focus", stopDemo);
 
 document.getElementById("q").addEventListener("input", e => {
   q = e.target.value.trim();
