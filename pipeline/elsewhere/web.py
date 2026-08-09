@@ -537,6 +537,41 @@ summary:hover { color: var(--dim); }
 .link:hover { color: var(--dim); }
 .empty { text-align: center; color: var(--faint); padding: 90px 20px; font-size: 17px; }
 
+/* ─── Step one: the two cities ─────────────────────────────────────────── */
+.setup {
+  min-height: 100vh; display: flex; flex-direction: column; justify-content: center;
+  text-align: center; padding: 40px 24px 60px;
+}
+.setup[hidden] { display: none; }
+.setup .inner { width: 100%; max-width: min(1180px, 92vw); margin: 0 auto; }
+.pair {
+  display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;
+  margin: 40px 0 36px;
+}
+.leg { display: flex; flex-direction: column; gap: 10px; align-items: flex-start; text-align: left; }
+.legt { font-size: 14px; font-weight: 650; color: var(--dim); letter-spacing: -0.01em; }
+.leg .citybtn { font-size: 20px; padding: 18px 26px; }
+.next {
+  font-size: 18px; font-weight: 700; letter-spacing: -0.01em;
+  padding: 17px 46px; background: var(--pink-deep); color: var(--on-pink);
+  box-shadow: var(--shadow);
+}
+.next:hover { transform: translateY(-2px); box-shadow: var(--lift); }
+.next:active { transform: translateY(0) scale(.98); }
+
+/* Step two asks one thing. */
+.ask {
+  font-size: clamp(28px, 4.4vw, 52px); font-weight: 800; letter-spacing: -0.04em;
+  line-height: 1.1; margin: 0 0 34px;
+}
+.ask em {
+  font-style: normal;
+  background: linear-gradient(100deg, var(--accent), var(--pink));
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+/* The pair you chose, always visible and always one click from changing. */
+#pairbtn { font-weight: 650; }
+
 /* ─── First visit: choose a city ──────────────────────────────────────── */
 .pick { padding: 76px 24px 40px; text-align: center; }
 .pick[hidden] { display: none; }
@@ -576,6 +611,10 @@ summary:hover { color: var(--dim); }
   .sub { font-size: 16px; margin-bottom: 32px; }
   .cities button { font-size: 17px; padding: 16px 24px; flex: 1 1 40%; }
   .stage { padding: 16px 18px 140px; min-height: calc(100vh - 54px); }
+  .setup { padding: 28px 18px 40px; }
+  .pair { gap: 14px; margin: 28px 0 26px; }
+  .leg { width: 100%; }
+  .leg .citypick, .leg .citybtn { width: 100%; }
   .tryfoot { padding: 12px 14px 16px; }
   .stage #controls { flex-wrap: wrap; }
   .stage #controls .field { flex: 1 1 100%; }
@@ -594,41 +633,52 @@ summary:hover { color: var(--dim); }
 <!-- First visit: pick a city before anything else. A dropdown defaulted to
      Austin meant a Chicago visitor saw Austin places and had to notice a
      control they had no reason to look at. -->
-<section id="pick" class="pick" hidden>
-  <div class="wrap">
-    <div class="brand">Elsewhere</div>
-    <h1 class="pitch">Every city has an H-E-B.<br><em>It's just elsewhere.</em></h1>
-    <p class="sub">Name a place you love and we'll find its counterpart
-    somewhere else — not the same category, the same <em>role</em>.</p>
-    <p class="q">Which city do you know best?</p>
-    <div class="cities" id="cities"></div>
+<!-- Step one: where you're coming from and where you're going. On one
+     screen with the search box, this was three simultaneous decisions and
+     no indication which to make first. Split out, each screen asks one
+     question. The city pickers live here and nowhere else. -->
+<section id="setup" class="setup" hidden>
+  <div class="inner">
+    <h1 class="pitch"><span class="l1" id="line1">Every city has <span id="heroart">an</span> <span id="heroplace">H-E-B</span>,</span><em>It\'s just elsewhere.</em></h1>
+    <p class="sub">Tell us the city you know and the one you're headed to.
+    We\'ll find the counterparts — not the same category, the same <em>role</em>.</p>
+
+    <div class="pair">
+      <label class="leg">
+        <span class="legt">I know</span>
+        <div class="citypick">
+          <select id="srcsel" class="native" title="Which city you know" tabindex="-1"></select>
+          <button class="citybtn" id="citybtn" aria-haspopup="listbox" aria-expanded="false"></button>
+          <div class="citymenu" id="citymenu" role="listbox" hidden></div>
+        </div>
+      </label>
+      <label class="leg">
+        <span class="legt">I\'m traveling to</span>
+        <div class="citypick">
+          <select id="dstsel" class="native" title="Which city you\'re going to" tabindex="-1"></select>
+          <button class="citybtn" id="dstbtn" aria-haspopup="listbox" aria-expanded="false"></button>
+          <div class="citymenu" id="dstmenu" role="listbox" hidden></div>
+        </div>
+      </label>
+    </div>
+
+    <button class="next" id="nextbtn">Next</button>
   </div>
 </section>
 
 <div id="app" hidden>
   <header id="bar"><div class="bar">
     <button class="brand" id="homebtn" title="Start over">Elsewhere</button>
-    <!-- #controls lives here on results pages and in the hero on the index;
+    <!-- #controls lives here on results pages and in the hero on step two;
          the same element either way. -->
     <div id="barslot"></div>
+    <button class="chip" id="pairbtn" title="Change cities"></button>
     <button class="chip" id="browsebtn" title="Browse by category">Browse</button>
     <button class="chip" id="savedbtn" hidden title="Places you saved"></button>
     <button class="chip" id="theme" title="Switch theme" aria-label="Switch theme">☼</button>
   </div></header>
 
   <div id="controls">
-    <span class="from">I know</span>
-    <div class="citypick">
-      <select id="srcsel" class="native" title="Which city you know" tabindex="-1"></select>
-      <button class="citybtn" id="citybtn" aria-haspopup="listbox" aria-expanded="false"></button>
-      <div class="citymenu" id="citymenu" role="listbox" hidden></div>
-    </div>
-    <span class="to">I\'m traveling to</span>
-    <div class="citypick">
-      <select id="dstsel" class="native" title="Which city you're going to" tabindex="-1"></select>
-      <button class="citybtn" id="dstbtn" aria-haspopup="listbox" aria-expanded="false"></button>
-      <div class="citymenu" id="dstmenu" role="listbox" hidden></div>
-    </div>
     <div class="field">
       <input type="search" id="q" placeholder="Name a place you love…"
              autocomplete="off" role="combobox" aria-autocomplete="list"
@@ -638,27 +688,22 @@ summary:hover { color: var(--dim); }
     </div>
   </div>
 
-  <!-- The index. Shown until they search or browse; dumping every card made
-       the page read as a list to scroll rather than a box to type in. -->
+  <!-- Step two: one question, one box. -->
   <section class="stage" id="prompt">
     <div class="inner">
-      <h1 class="pitch"><span class="l1" id="line1">Every city has <span id="heroart">an</span> <span id="heroplace">H-E-B</span>,</span><em>It\'s just elsewhere.</em></h1>
+      <h1 class="ask" id="askh"></h1>
       <div id="heroslot"></div>
       <div class="peek" id="peek"></div>
     </div>
     <!-- Pinned to the bottom of the viewport rather than trailing the hero:
          it's an ambient sample of what's in here, not the next step in the
-         sentence. Sitting in the flow, it pulled the eye down from the search
-         box that's supposed to be the point of the screen. -->
+         sentence. -->
     <div class="tryfoot">
       <p class="q" id="promptq"></p>
       <div class="rail"><div class="track" id="examples"></div></div>
     </div>
   </section>
 
-  <!-- Browse is its own page. On the index it was a second, competing way in
-       that pushed the search box up the screen; as a page it's a place you go
-       when you can't think of a name. -->
   <section class="browse" id="browsepage" hidden>
     <h2 class="browseh" id="browseh"></h2>
     <div class="cats" id="cats"></div>
@@ -1365,7 +1410,8 @@ function renderExamples() {
   const chips = list.map(n =>
     `<button class="eg" data-name="${esc(n)}">${esc(n)}</button>`).join("");
   document.getElementById("examples").innerHTML = chips + chips;
-  document.getElementById("promptq").textContent = `What do you love in ${title(S.source)}?`;
+  // The heading already asks the question; the rail just labels its samples.
+  document.getElementById("promptq").textContent = `Popular in ${title(S.source)}`;
 }
 
 async function load() {
@@ -1386,6 +1432,10 @@ async function load() {
     `<option value="${c}" ${c === dest ? "selected" : ""}>${title(c)}</option>`).join("");
   renderExamples();
   drawSrc(); drawDst();
+  document.getElementById("pairbtn").textContent =
+    `${title(S.source)} \u2192 ${title(dest)}`;
+  document.getElementById("askh").innerHTML =
+    `What do you love in <em>${esc(title(S.source))}</em>?`;
   render();
   renderSavedBtn();
   railAt = 0;
@@ -1394,41 +1444,72 @@ async function load() {
   if (!q && !cat) startDemo();
 }
 
+/* Two screens, one question each. `showSetup` is the only thing that decides
+   which is on. */
+function showSetup(on) {
+  document.getElementById("setup").hidden = !on;
+  document.getElementById("app").hidden = on;
+  if (on) stopDemo();
+}
+
 async function boot() {
-  // A shared link carries its own city and query, and must not be
-  // overridden by whatever this browser happened to choose last time.
+  // A shared link carries its whole state and skips the picker — someone who
+  // was sent a result should land on it, not on a form.
   const u = readURL();
   if (u.city) home = u.city;
   if (u.dest) dest = u.dest;
   q = u.q; cat = u.cat;
 
-  if (!home) {
-    const cities = await (await fetch("/api/cities")).json();
-    document.getElementById("cities").innerHTML =
-      cities.map(c => `<button data-city="${c}">${title(c)}</button>`).join("");
-    document.getElementById("pick").hidden = false;
-    return;
+  const cities = await (await fetch("/api/cities")).json();
+  if (!home || !cities.includes(home)) home = cities[0];
+
+  // Populate the pickers before anything is shown, so Next is one click for
+  // anyone who's been here before.
+  document.getElementById("srcsel").innerHTML = cities.map(c =>
+    `<option value="${c}" ${c === home ? "selected" : ""}>${title(c)}</option>`).join("");
+  drawSrc();
+  await fillDestinations();
+
+  if (u.city && u.dest) {
+    showSetup(false);
+    load().then(() => { document.getElementById("q").value = q; render(); });
+  } else {
+    showSetup(true);
   }
-  document.getElementById("app").hidden = false;
-  load().then(() => { document.getElementById("q").value = q; render(); });
 }
 
-function chooseCity(c) {
-  home = c;
+/* The destinations a city can actually answer for. Asked of the API rather
+   than assumed, because coverage is uneven — every pair is generated
+   separately and some don't exist yet. */
+async function fillDestinations() {
+  const st = await (await fetch("/api/state?source=" + encodeURIComponent(home))).json();
+  S = st;
+  home = st.source;
+  if (!st.targets.includes(dest)) dest = "";
+  if (!dest && st.targets.includes(savedDest)) dest = savedDest;
+  if (!dest) dest = st.targets[0];
+  document.getElementById("dstsel").innerHTML = st.targets.map(c =>
+    `<option value="${c}" ${c === dest ? "selected" : ""}>${title(c)}</option>`).join("");
+  drawDst();
+}
+
+function startAsking() {
   localStorage.setItem("elsewhere.home", home);
-  document.getElementById("pick").hidden = true;
-  document.getElementById("app").hidden = false;
+  localStorage.setItem("elsewhere.dest", dest);
+  savedDest = dest;
+  q = ""; cat = "";
+  document.getElementById("q").value = "";
+  showSetup(false);
   syncURL();
   load().then(() => document.getElementById("q").focus());
 }
 
+document.getElementById("nextbtn").addEventListener("click", startAsking);
+document.getElementById("pairbtn").addEventListener("click", () => showSetup(true));
+
 /* Delegated rather than inline: an onclick built by interpolation breaks on
    any name containing an apostrophe — Lou Malnati's, Torchy's, Mariano's —
    and does so silently, because the attribute is a JS syntax error. */
-document.getElementById("cities").addEventListener("click", e => {
-  const b = e.target.closest("button[data-city]");
-  if (b) chooseCity(b.dataset.city);
-});
 document.getElementById("examples").addEventListener("click", e => {
   const b = e.target.closest(".eg");
   if (!b) return;
@@ -1513,23 +1594,20 @@ function closeMenus() {
 addEventListener("click", closeMenus);
 addEventListener("keydown", e => { if (e.key === "Escape") closeMenus(); });
 
-const drawSrc = cityMenu("srcsel", "citybtn", "citymenu", city => {
+const drawSrc = cityMenu("srcsel", "citybtn", "citymenu", async city => {
   home = city;
-  localStorage.setItem("elsewhere.home", home);
   dest = "";                      // the old destination may not exist from here
-  q = ""; cat = "";
-  document.getElementById("q").value = "";
-  load();
+  await fillDestinations();
 });
 
 const drawDst = cityMenu("dstsel", "dstbtn", "dstmenu", city => {
   dest = city;
-  localStorage.setItem("elsewhere.dest", dest);
-  stopDemo();
-  syncURL();
-  render();
+  if (document.getElementById("setup").hidden) {   // changed from the header
+    localStorage.setItem("elsewhere.dest", dest);
+    savedDest = dest;
+    stopDemo(); syncURL(); load();
+  }
 });
-
 
 document.getElementById("cats").addEventListener("click", e => {
   const b = e.target.closest("button[data-cat]");
