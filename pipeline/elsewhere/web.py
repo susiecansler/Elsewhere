@@ -24,7 +24,7 @@ from fastapi import FastAPI
 from fastapi.middleware.gzip import GZipMiddleware
 from fastapi.responses import HTMLResponse, JSONResponse, Response
 
-from elsewhere import generate, links, verify
+from elsewhere import generate, links, places, verify
 
 #: Drawn rather than exported. A favicon is seen at 16px in a tab strip more
 #: often than anywhere else, and vector strokes stay crisp there where a
@@ -171,6 +171,23 @@ def create_app(source: str = "austin", target: str = "chicago") -> FastAPI:
     @app.get("/api/state")
     def api_state(source: str = "") -> JSONResponse:
         return JSONResponse(state(source if source in sources else default_source))
+
+    @app.get("/api/geo")
+    def api_geo() -> JSONResponse:
+        """Where each city is, so the browser can work out the nearest one.
+
+        Sent to the client rather than resolved on the server because the
+        client is the only party that knows the visitor's coordinates, and
+        keeping it that way means the location never leaves the device.
+        """
+        centers = places.city_centers()
+        return JSONResponse(
+            {
+                c: {"lat": centers[c][0], "lon": centers[c][1]}
+                for c in sorted(sources)
+                if c in centers
+            }
+        )
 
     @app.get("/favicon.svg", include_in_schema=False)
     def favicon() -> Response:
@@ -752,10 +769,6 @@ summary:hover { color: var(--dim); }
 .setup::after { width: 26vw; height: 26vw; left: -10vw; bottom: -10vw; background: var(--turquoise); opacity: .07; }
 .setup .inner > * { position: relative; z-index: 1; }
 
-.mark {
-  display: block; margin: 0 auto 26px; border-radius: 16px;
-  box-shadow: 0 2px 6px rgba(0,0,0,.06);
-}
 .setup .pitch {
   font-size: clamp(34px, 4.6vw, 56px); font-weight: 800; letter-spacing: -0.035em;
   line-height: 1.08; margin: 0 0 20px; color: var(--ink);
@@ -792,6 +805,25 @@ summary:hover { color: var(--dim); }
 .madlib .citybtn:hover { color: var(--accent); box-shadow: inset 0 -3px 0 var(--accent); transform: none; }
 .madlib .citybtn .caret { font-size: .42em; color: var(--accent); }
 .loop { width: 1.5em; height: 1.5em; color: var(--accent); flex: none; }
+/* The mark, doing the thing the mark means. Reversing the sentence is the
+   most common second thought someone has here — "wait, I want it the other
+   way" — and it deserves the logo rather than a pair of arrows. */
+.swap {
+  background: none; padding: 6px; border-radius: 999px; display: grid;
+  place-items: center; color: var(--accent);
+}
+.swap:hover { background: var(--accent-soft); }
+.swap.spin .loop { animation: flip .5s var(--spring); }
+@keyframes flip { from { transform: rotate(0) scale(1); } 50% { transform: rotate(180deg) scale(.8); } to { transform: rotate(360deg) scale(1); } }
+
+/* Offered, never taken. The prompt only fires if this is pressed. */
+.locate {
+  display: block; margin: 22px auto 0; background: none; color: var(--dim);
+  font-size: 14px; font-weight: 600; padding: 8px 14px; border-radius: 999px;
+  box-shadow: inset 0 0 0 1px var(--hair-2);
+}
+.locate:hover { color: var(--ink); box-shadow: inset 0 0 0 1px var(--ink); }
+.locate[hidden] { display: none; }
 
 /* The verb, again — the same mark, filled in and clickable. */
 .next {
@@ -889,7 +921,6 @@ summary:hover { color: var(--dim); }
      question. The city pickers live here and nowhere else. -->
 <section id="setup" class="setup" hidden>
   <div class="inner">
-    <img class="mark" src="/favicon.svg" alt="" width="64" height="64">
     <h1 class="pitch"><span class="l1" id="line1">Every city has<span class="hl2"> <span id="heroart">an</span> <span id="heroplace">H-E-B</span>,</span></span><em>It\'s just elsewhere.</em></h1>
     <p class="sub">Tell us the city you know and the one you\'re headed to.
     We\'ll find the counterparts.</p>
@@ -906,7 +937,8 @@ summary:hover { color: var(--dim); }
       </span>
       <!-- The loop belongs between the two cities. It is the sentence's verb:
            not "go northeast" but "translate this into that". -->
-      __LOOP_INLINE__
+      <button class="swap" id="swapbtn" title="Swap the two cities"
+              aria-label="Swap the two cities">__LOOP_INLINE__</button>
       <span class="lead">show me</span>
       <span class="citypick">
         <select id="dstsel" class="native" title="Which city you\'re going to" tabindex="-1"></select>
@@ -915,6 +947,7 @@ summary:hover { color: var(--dim); }
       </span>
       <button class="next" id="nextbtn" aria-label="Show me">__LOOP_NEXT__</button>
     </div>
+    <button class="locate" id="locatebtn">Use my location</button>
   </div>
 </section>
 
@@ -1863,6 +1896,96 @@ async function load() {
   if (!q && !cat) startDemo();
 }
 
+/* ── Where you are ─────────────────────────────────────────────────────
+   Two guesses, in order of how much they cost the visitor.
+
+   First the time zone: free, instant, requires no permission and no network
+   call, and never leaves the page. "America/Chicago" narrows six cities to
+   two without asking anyone anything. It cannot tell Austin from Chicago —
+   they share a zone — so it picks one and lets the visitor correct it, which
+   is a better opening position than defaulting to Austin for a Tokyo
+   visitor.
+
+   Then, only if the visitor presses the button, the Geolocation API: exact,
+   but it costs a browser permission prompt, and firing that unbidden on page
+   load is the kind of thing that makes people close a tab. The coordinates
+   are compared against city centres in the browser and discarded; nothing is
+   sent anywhere.
+
+   Deliberately not used: IP geolocation. It would need a third-party lookup
+   on every page load — a dependency, a cost, and a request carrying the
+   visitor's address to someone else — to do a job the time zone already does
+   well enough. */
+const ZONE_GUESS = {
+  "America/Chicago": "austin",
+  "America/New_York": "chapel_hill",
+  "America/Detroit": "chapel_hill",
+  "America/Toronto": "chapel_hill",
+  "America/Los_Angeles": "portland",
+  "America/Vancouver": "portland",
+  "America/Denver": "austin",
+  "America/Phoenix": "los_angeles",
+  "Asia/Tokyo": "tokyo",
+  "Asia/Seoul": "tokyo",
+  "Asia/Osaka": "tokyo",
+};
+
+function guessFromZone(known) {
+  try {
+    const zone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+    const guess = ZONE_GUESS[zone];
+    if (guess && known.includes(guess)) return guess;
+    // Anywhere in the Americas is closer to a US city than to Tokyo.
+    if (zone && zone.startsWith("America/")) {
+      return known.find(c => c !== "tokyo") || known[0];
+    }
+    if (zone && (zone.startsWith("Asia/") || zone.startsWith("Australia/"))) {
+      return known.includes("tokyo") ? "tokyo" : known[0];
+    }
+  } catch { /* Intl is missing on nothing we support, but it's free to guard */ }
+  return "";
+}
+
+/* Great-circle distance. The cities are thousands of kilometres apart, so
+   this only has to rank them, not measure them. */
+function haversine(a, b, c, d) {
+  const R = 6371, rad = x => (x * Math.PI) / 180;
+  const dLat = rad(c - a), dLon = rad(d - b);
+  const h = Math.sin(dLat / 2) ** 2 +
+    Math.cos(rad(a)) * Math.cos(rad(c)) * Math.sin(dLon / 2) ** 2;
+  return 2 * R * Math.asin(Math.sqrt(h));
+}
+
+async function locateMe(btn) {
+  if (!navigator.geolocation) { btn.hidden = true; return; }
+  const was = btn.textContent;
+  btn.textContent = "Finding you…";
+  try {
+    const pos = await new Promise((ok, no) =>
+      navigator.geolocation.getCurrentPosition(ok, no, { timeout: 8000, maximumAge: 600000 }));
+    const geo = await (await fetch("/api/geo")).json();
+    let best = null, bestKm = Infinity;
+    for (const [city, p] of Object.entries(geo)) {
+      const km = haversine(pos.coords.latitude, pos.coords.longitude, p.lat, p.lon);
+      if (km < bestKm) { bestKm = km; best = city; }
+    }
+    if (best && best !== home) {
+      home = best;
+      document.getElementById("srcsel").value = home;
+      drawSrc();
+      dest = "";
+      await fillDestinations();
+    }
+    btn.textContent = `Nearest: ${title(best)}`;
+    setTimeout(() => { btn.textContent = was; }, 2600);
+  } catch {
+    // Denied, unavailable, or timed out — all the same to us. The picker
+    // still works; stop offering something that didn't help.
+    btn.textContent = "Couldn't get your location";
+    setTimeout(() => { btn.textContent = was; }, 2600);
+  }
+}
+
 /* Two screens, one question each. `showSetup` is the only thing that decides
    which is on. */
 function showSetup(on) {
@@ -1880,7 +2003,8 @@ async function boot() {
   q = u.q; cat = u.cat;
 
   const cities = await (await fetch("/api/cities")).json();
-  if (!home || !cities.includes(home)) home = cities[0];
+  // Remembered choice first, then the time-zone guess, then the fallback.
+  if (!home || !cities.includes(home)) home = guessFromZone(cities) || cities[0];
 
   // Populate the pickers before anything is shown, so Next is one click for
   // anyone who's been here before.
@@ -1925,6 +2049,21 @@ function startAsking() {
 }
 
 document.getElementById("nextbtn").addEventListener("click", startAsking);
+
+document.getElementById("swapbtn").addEventListener("click", async e => {
+  const btn = e.currentTarget;
+  const from = home, to = dest;
+  if (!to) return;
+  btn.classList.add("spin");
+  setTimeout(() => btn.classList.remove("spin"), 520);
+  home = to;
+  document.getElementById("srcsel").value = home;
+  drawSrc();
+  dest = from;                 // kept if the reversed pair exists
+  await fillDestinations();
+});
+
+document.getElementById("locatebtn").addEventListener("click", e => locateMe(e.currentTarget));
 document.getElementById("pairbtn").addEventListener("click", () => showSetup(true));
 
 /* Delegated rather than inline: an onclick built by interpolation breaks on

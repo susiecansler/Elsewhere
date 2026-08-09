@@ -326,3 +326,16 @@ def lookup(
     finally:
         con.close()
     return None
+
+
+def city_centers() -> dict[str, tuple[float, float]]:
+    """The middle of each city's bounding box, as (lat, lon).
+
+    Good enough to answer "which of these six is nearest to you" — the boxes
+    are metro-sized and the cities are thousands of kilometres apart, so the
+    error that matters is never close to the gap between candidates.
+    """
+    return {
+        name: ((box.south + box.north) / 2, (box.west + box.east) / 2)
+        for name, box in CITY_BBOXES.items()
+    }
