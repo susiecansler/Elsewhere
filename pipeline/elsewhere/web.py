@@ -22,9 +22,34 @@ from typing import Any
 
 from fastapi import FastAPI
 from fastapi.middleware.gzip import GZipMiddleware
-from fastapi.responses import HTMLResponse, JSONResponse
+from fastapi.responses import HTMLResponse, JSONResponse, Response
 
 from elsewhere import generate, links, verify
+
+#: Drawn rather than exported. A favicon is seen at 16px in a tab strip more
+#: often than anywhere else, and vector strokes stay crisp there where a
+#: downscaled raster turns to mush. It also costs 700 bytes and no build step.
+FAVICON = """<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect x="1" y="1" width="62" height="62" rx="15" fill="#F2F6E6"/>
+  <g fill="none" stroke="#14A288" stroke-width="5.2"
+     stroke-linecap="round" stroke-linejoin="round">
+    <!-- One wandering line: it sets out, doubles back on itself, then
+         commits and leaves. That's the product in a single stroke. -->
+    <path d="M12 51C22 51 25.5 45 23.5 39.5C22 35.2 17 35.8 17.6 40.6
+             C18.4 46 25.5 45.6 31.5 41.4C38 36.9 42.5 30.5 46.2 24.6"/>
+    <path d="M34.8 22.6L47.6 20.8L48.4 33.8"/>
+  </g>
+  <path d="M50.5 5.5C51.2 9.6 52.8 11.2 56.9 11.9C52.8 12.6 51.2 14.2 50.5 18.3
+           C49.8 14.2 48.2 12.6 44.1 11.9C48.2 11.2 49.8 9.6 50.5 5.5Z"
+        fill="#8FD9B6"/>
+  <!-- Kept clear of the corner radius: anything past x=60 up here gets
+       clipped by the rounded tile. -->
+  <g stroke="#8FD9B6" stroke-width="3.2" stroke-linecap="round">
+    <path d="M56 17.5L59 14.5"/>
+    <path d="M57.5 24.5L60.5 23.5"/>
+  </g>
+</svg>
+"""
 
 
 def load_corpus(source: str, target: str) -> list:
@@ -133,6 +158,16 @@ def create_app(source: str = "austin", target: str = "chicago") -> FastAPI:
     def api_state(source: str = "") -> JSONResponse:
         return JSONResponse(state(source if source in sources else default_source))
 
+    @app.get("/favicon.svg", include_in_schema=False)
+    def favicon() -> Response:
+        # A year is safe: the file only changes when the brand does, and the
+        # path would change with it.
+        return Response(
+            FAVICON,
+            media_type="image/svg+xml",
+            headers={"Cache-Control": "public, max-age=31536000"},
+        )
+
     @app.get("/healthz")
     def healthz() -> JSONResponse:
         return JSONResponse(
@@ -152,6 +187,9 @@ PAGE = """<!doctype html>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Elsewhere — every city has an H-E-B</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta name="theme-color" content="#FFFFFF">
+<meta name="description" content="Name a place you love and find its counterpart in another city — matched by the role it plays in local life, not by category.">
 <style>
 /* One surface, everywhere. The yellow field broke the app in half — a
    poster for two screens and a document for the rest — so the whole thing is
@@ -1834,7 +1872,7 @@ function cityMenu(selId, btnId, menuId, onPick) {
   const menu = document.getElementById(menuId);
 
   function draw() {
-    btn.innerHTML = `${esc(title(sel.value))}<span class="caret">\u25BC</span>`;
+    btn.innerHTML = `${esc(title(sel.value))}<span class="caret">\u25bc</span>`;
     menu.innerHTML = [...sel.options].map(o =>
       `<button role="option" data-city="${esc(o.value)}"
          aria-selected="${o.value === sel.value}">${esc(o.textContent)}</button>`).join("");
