@@ -564,17 +564,19 @@ main { max-width: 1180px; margin: 0 auto; padding: 28px 40px 140px; }
 
 /* Actions under an answer: where to go, and whether you're keeping it. */
 .acts { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; margin-top: 16px; }
-.acts a, .acts .save {
+.acts a, .acts .save, .acts .share {
   font-size: 14px; font-weight: 600; padding: 11px 16px;
   border-radius: 999px; background: var(--chip); color: var(--accent-deep);
   text-decoration: none; display: inline-flex; align-items: center; gap: 6px;
   transition: background .2s, color .2s, transform .22s var(--spring);
 }
-.acts a:hover, .acts .save:hover {
+.acts a:hover, .acts .save:hover, .acts .share:hover {
   background: var(--pink-deep); color: var(--on-pink); transform: translateY(-2px);
 }
 /* A save is yours, not the site's — pink marks it as the one thing on the
    page you put there. */
+.acts .share { background: var(--chip); color: var(--accent-deep); }
+.acts .share.done { background: var(--accent); color: var(--on-accent); }
 .acts .save[aria-pressed=true] { background: var(--pink-deep); color: var(--on-pink); }
 .acts .save[aria-pressed=true]:hover { background: var(--pink-deep); }
 .acts .out { font-size: 11px; opacity: .6; }
@@ -780,8 +782,8 @@ summary:hover { color: var(--dim); }
 <section id="setup" class="setup" hidden>
   <div class="inner">
     <h1 class="pitch"><span class="l1" id="line1">Every city has<span class="hl2"> <span id="heroart">an</span> <span id="heroplace">H-E-B</span>,</span></span><em>It\'s just elsewhere.</em></h1>
-    <p class="sub">Tell us the city you know and the one you're headed to.
-    We\'ll find the counterparts — not the same category, the same <em>role</em>.</p>
+    <p class="sub">Tell us the city you know and the one you\'re headed to.
+    We\'ll find the counterparts.</p>
 
     <div class="pair">
       <label class="leg">
@@ -1196,6 +1198,60 @@ function mapHTML(l, width = 560) {
      <span class="osm">&copy; OpenStreetMap &copy; CARTO</span></a>`;
 }
 
+/* What gets pasted into a text message.
+
+   Three lines and no more: the claim, where the place is, and where the
+   claim came from. A share that arrives as a paragraph doesn't get read, and
+   one that arrives as a bare URL doesn't get opened — the sentence has to
+   carry the idea on its own, because that's all most people will see in a
+   notification.
+
+   The link points at this exact answer, so the friend lands on the result
+   rather than on the front door. */
+function shareText(b) {
+  const from = b.dataset.from, name = b.dataset.name;
+  const here = title(S.source), there = title(b.dataset.city);
+  const url = new URL(location.pathname, location.href);
+  url.searchParams.set("city", S.source);
+  url.searchParams.set("to", b.dataset.city);
+  if (from) url.searchParams.set("q", from);
+
+  const line = from
+    ? `${here}'s ${from} is ${there}'s ${name}.`
+    : `In ${there}, go to ${name}.`;
+  return [line, b.dataset.map, url.toString()].filter(Boolean).join("\\n");
+}
+
+/* Native share sheet where there is one — that's the whole point on a phone,
+   where "different mediums" means Messages, WhatsApp, wherever. Clipboard is
+   the desktop fallback, and execCommand covers the browsers and insecure
+   origins where the async clipboard API isn't available. */
+async function shareAnswer(b) {
+  const text = shareText(b);
+  const flash = () => {
+    const was = b.textContent;
+    b.textContent = "Copied";
+    b.classList.add("done");
+    setTimeout(() => { b.textContent = was; b.classList.remove("done"); }, 1800);
+  };
+
+  if (navigator.share) {
+    try { await navigator.share({ text }); return; }
+    catch (e) { if (e.name === "AbortError") return; }   // they closed the sheet
+  }
+  try {
+    await navigator.clipboard.writeText(text);
+    flash();
+  } catch {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.style.cssText = "position:fixed;opacity:0";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); flash(); } finally { ta.remove(); }
+  }
+}
+
 /* Links out, plus the save control. `rel=noopener` matters even for links we
    built ourselves — a website comes from upstream data, not from us. */
 function acts(place, city, from) {
@@ -1207,6 +1263,8 @@ function acts(place, city, from) {
     ? `<a href="${esc(l.map)}" target="_blank" rel="noopener noreferrer">Map &amp; reviews<span class="out">\u2197</span></a>`
     : "";
   return `${mapHTML(l)}<div class="acts">${site}${map}
+    <button class="share" data-name="${esc(place.name)}" data-city="${esc(city)}"
+      data-map="${esc(l.map || "")}" data-from="${esc(from || "")}">Share</button>
     <button class="save" data-city="${esc(city)}" data-name="${esc(place.name)}"
       data-from="${esc(from || "")}" aria-pressed="false"><span>\u2606 Save</span></button>
   </div>`;
@@ -1834,6 +1892,8 @@ document.getElementById("cats").addEventListener("click", e => {
 });
 
 document.getElementById("list").addEventListener("click", e => {
+  const sh = e.target.closest(".share");
+  if (sh) { shareAnswer(sh); return; }
   const b = e.target.closest(".save");
   if (!b) return;
   const row = saved.get(savedKey(b.dataset.city, b.dataset.name));
