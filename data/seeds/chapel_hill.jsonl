@@ -1,0 +1,99 @@
+{"name":"Weaver Street Market","city":"chapel_hill","category":"grocery","aliases":["weaver street","weaver st","the lawn","wsm"],"fsq_place_id":"7cea18b6-a816-4b7b-833d-ffb4c12f256a","notes":null}
+{"name":"Harris Teeter","city":"chapel_hill","category":"grocery","aliases":["teeter","harris teeter chapel hill","hteeter"],"fsq_place_id":"adee79de-fd83-4c94-aaca-14f35f530d43","notes":null}
+{"name":"Trader Joe's","city":"chapel_hill","category":"grocery","aliases":["trader joes","tj's"],"fsq_place_id":"ce90de7a-638c-4ad5-b6a1-84dda9512a6c","notes":null}
+{"name":"Wegmans Chapel Hill","city":"chapel_hill","category":"grocery","aliases":["wegmans"],"fsq_place_id":"eabb0f08-e18a-45a4-85d0-c3dc67ce7793","notes":null}
+{"name":"Whole Foods Market Chapel Hill","city":"chapel_hill","category":"grocery","aliases":["whole foods","wholefoods"],"fsq_place_id":"b8d8b7c6-6fd3-4a13-92c3-0be01f388a62","notes":null}
+{"name":"Food Lion","city":"chapel_hill","category":"grocery","aliases":["food lion chapel hill"],"fsq_place_id":"8e260d11-942e-431e-ac1f-98e4d9c2e06e","notes":null}
+{"name":"Cliff's Meat Market","city":"chapel_hill","category":"grocery","aliases":["cliffs meat market","cliff's"],"fsq_place_id":null,"notes":null}
+{"name":"Li Ming's Global Mart","city":"chapel_hill","category":"grocery","aliases":["li mings","global mart"],"fsq_place_id":"93963195-26f4-43e9-a83d-0fee5248132c","notes":null}
+{"name":"Carrboro Farmers Market","city":"chapel_hill","category":"farmers","aliases":["carrboro farmers market","cfm","saturday market"],"fsq_place_id":"19670ccb-d010-459a-999d-1bbc2b2b4023","notes":null}
+{"name":"Chapel Hill Farmers Market","city":"chapel_hill","category":"farmers","aliases":["university place market"],"fsq_place_id":"1d9e363d-6717-4203-b416-145739fdb66c","notes":null}
+{"name":"Sutton's Drug Store","city":"chapel_hill","category":"restaurant","aliases":["suttons","sutton's","suttons drug store"],"fsq_place_id":"01324f4d-1e78-4b61-91d9-147a092ffa2a","notes":null}
+{"name":"Merritt's Store & Grill","city":"chapel_hill","category":"restaurant","aliases":["merritts","merritt's","blt place","merritts grill"],"fsq_place_id":"0620d2a5-368b-459f-8df1-58e0542dabee","notes":null}
+{"name":"Al's Burger Shack","city":"chapel_hill","category":"restaurant","aliases":["als burger shack","al's"],"fsq_place_id":"19440fa1-96c6-4fa1-9801-dd96a7b2b25f","notes":null}
+{"name":"Time-Out","city":"chapel_hill","category":"restaurant","aliases":["time out","timeout","chicken biscuit","time-out restaurant"],"fsq_place_id":"d88fd62c-916b-4e7c-ab9a-bd3fd6f6435b","notes":null}
+{"name":"Ye Olde Waffle Shoppe","city":"chapel_hill","category":"restaurant","aliases":["waffle shop","ye olde waffle","the waffle shoppe"],"fsq_place_id":"d60b3dc2-7707-404c-842e-94d13878663c","notes":null}
+{"name":"Breadmen's","city":"chapel_hill","category":"restaurant","aliases":["breadmens","breadmen's"],"fsq_place_id":"cf6368b6-6519-48fb-955f-dfea56179705","notes":null}
+{"name":"Elmo's Diner","city":"chapel_hill","category":"restaurant","aliases":["elmos","elmo's"],"fsq_place_id":"0686fed2-8d0e-40b0-a3db-c2b92cc44261","notes":null}
+{"name":"Mediterranean Deli","city":"chapel_hill","category":"restaurant","aliases":["med deli","mediterranean deli chapel hill"],"fsq_place_id":null,"notes":null}
+{"name":"Vimala's Curryblossom Cafe","city":"chapel_hill","category":"restaurant","aliases":["curryblossom","vimalas","vimala's"],"fsq_place_id":"fc98d159-9c00-4073-983e-b359ef308dea","notes":null}
+{"name":"Lantern","city":"chapel_hill","category":"restaurant_fine","aliases":["lantern restaurant","lantern chapel hill"],"fsq_place_id":"3573ca10-07d7-4819-8a21-b596f6f7e590","notes":null}
+{"name":"Kipos Greek Taverna","city":"chapel_hill","category":"restaurant","aliases":["kipos"],"fsq_place_id":"cd30c051-81f1-4446-8232-f25852a15270","notes":null}
+{"name":"Il Palio","city":"chapel_hill","category":"restaurant_fine","aliases":["il palio siena hotel"],"fsq_place_id":null,"notes":null}
+{"name":"Sup Dogs","city":"chapel_hill","category":"restaurant","aliases":["sup dogs chapel hill","supdogs"],"fsq_place_id":"67decfe2-58eb-4460-bdbb-fbfa6fef6fab","notes":null}
+{"name":"Buns","city":"chapel_hill","category":"restaurant","aliases":["buns chapel hill","buns burgers"],"fsq_place_id":"657ab52e-7a16-4429-8ad6-68bcac4f37c3","notes":null}
+{"name":"Bandido's Mexican Cafe","city":"chapel_hill","category":"restaurant","aliases":["bandidos","bandido's"],"fsq_place_id":"946bc4f4-41de-4910-b365-d17e8759b81d","notes":null}
+{"name":"Neal's Deli","city":"chapel_hill","category":"restaurant","aliases":["neals deli","neal's","carrboro biscuits"],"fsq_place_id":"d9ed557b-b8e5-4fb9-b11a-a9604c45ca5e","notes":null}
+{"name":"Acme Food & Beverage","city":"chapel_hill","category":"restaurant","aliases":["acme carrboro","acme"],"fsq_place_id":"58db66b7-93e2-4db7-a0a0-f56e5ea8d08f","notes":null}
+{"name":"Venable Rotisserie Bistro","city":"chapel_hill","category":"restaurant","aliases":["venable"],"fsq_place_id":"7ff3430e-2a54-41c2-8499-54822ba918a8","notes":null}
+{"name":"Glasshalfull","city":"chapel_hill","category":"restaurant","aliases":["glass half full","glasshalfull carrboro"],"fsq_place_id":"105e9a4f-032a-4f39-b320-bbf4f18bd35a","notes":null}
+{"name":"Pizzeria Mercato","city":"chapel_hill","category":"restaurant","aliases":["mercato"],"fsq_place_id":"3fa191e0-f522-4e8d-815a-06e7db68cfd1","notes":null}
+{"name":"Hawkers Asian Street Food","city":"chapel_hill","category":"restaurant","aliases":["hawkers"],"fsq_place_id":"93715bd4-f15d-435d-ab74-ce647a94c87c","notes":null}
+{"name":"Gocciolina","city":"chapel_hill","category":"restaurant","aliases":["gocciolina durham"],"fsq_place_id":null,"notes":null}
+{"name":"Jujube","city":"chapel_hill","category":"restaurant","aliases":["jujube chapel hill"],"fsq_place_id":"ba0ec20c-00a3-4920-b6b2-ff74706d5a00","notes":null}
+{"name":"Tandem","city":"chapel_hill","category":"restaurant_fine","aliases":["tandem chapel hill"],"fsq_place_id":"f9715154-29c4-4066-b5fa-bdbb5a15a282","notes":null}
+{"name":"Carolina Brewery","city":"chapel_hill","category":"brewery","aliases":["carolina brewery chapel hill"],"fsq_place_id":"2e6c23c6-5bc9-4da8-b171-a50fa9b33e4e","notes":null}
+{"name":"The Root Cellar","city":"chapel_hill","category":"restaurant","aliases":["root cellar cafe"],"fsq_place_id":null,"notes":null}
+{"name":"He's Not Here","city":"chapel_hill","category":"bar","aliases":["hes not here","he's not","blue cup","blue cups"],"fsq_place_id":"38e7291f-2c6a-4586-9f25-17bbc4c9fd62","notes":null}
+{"name":"Linda's Bar and Grill","city":"chapel_hill","category":"bar","aliases":["lindas","linda's"],"fsq_place_id":null,"notes":null}
+{"name":"Top of the Hill","city":"chapel_hill","category":"brewery","aliases":["top o","toph","top of the hill restaurant brewery"],"fsq_place_id":"724fd967-9008-40df-b5f2-0fef24a5f517","notes":null}
+{"name":"The Crunkleton","city":"chapel_hill","category":"bar","aliases":["crunkleton"],"fsq_place_id":"1474dca1-8b44-4bde-9e00-2bc05bfc599c","notes":null}
+{"name":"Steel String Brewery","city":"chapel_hill","category":"brewery","aliases":["steel string","steel string carrboro"],"fsq_place_id":"febe161f-fc60-463e-92f3-5a2ce85c2868","notes":null}
+{"name":"Might as Well Bar & Grill","city":"chapel_hill","category":"bar","aliases":["might as well"],"fsq_place_id":"873d69ca-2ec2-4f37-927d-2c7f0eca809e","notes":null}
+{"name":"Lucha Tigre","city":"chapel_hill","category":"bar","aliases":["lucha tigre chapel hill"],"fsq_place_id":"10bf929f-f8af-46c2-8194-b999d338e91d","notes":null}
+{"name":"The Station","city":"chapel_hill","category":"bar","aliases":["station carrboro"],"fsq_place_id":"00a02725-9546-4a00-953e-5b98057d4b4e","notes":null}
+{"name":"Cat's Cradle","city":"chapel_hill","category":"music","aliases":["cats cradle","cat's cradle carrboro","the cradle"],"fsq_place_id":"fe7d657c-7771-4d2d-9789-a939b243f96b","notes":null}
+{"name":"Local 506","city":"chapel_hill","category":"music","aliases":["local506","506"],"fsq_place_id":"e22165dc-6930-4ca2-8fcf-10f1eb18e71f","notes":null}
+{"name":"The ArtsCenter","city":"chapel_hill","category":"music","aliases":["artscenter carrboro","arts center"],"fsq_place_id":"0fe2b583-8ba9-4eb6-9340-b79c6a1eb255","notes":null}
+{"name":"Nightlight","city":"chapel_hill","category":"music","aliases":["nightlight bar","the nightlight"],"fsq_place_id":"cd2f3d0e-c6bd-4efd-b64c-29b132aace59","notes":null}
+{"name":"Memorial Hall","city":"chapel_hill","category":"music","aliases":["carolina performing arts","memorial hall unc"],"fsq_place_id":"a35099f3-efa2-4aea-be0a-492812c7ba4b","notes":null}
+{"name":"Dean E. Smith Center","city":"chapel_hill","category":"music","aliases":["dean dome","dean smith center","the dean dome"],"fsq_place_id":"a9955cf6-c851-4ce2-acf0-ae3fb437699d","notes":null}
+{"name":"Carolina Coffee Shop","city":"chapel_hill","category":"coffee","aliases":["carolina coffee","ccs"],"fsq_place_id":"7d38ff33-54a8-4f2f-a44f-14aee342f858","notes":null}
+{"name":"Open Eye Cafe","city":"chapel_hill","category":"coffee","aliases":["open eye","openeye carrboro"],"fsq_place_id":"d06e3ebe-5b87-48ba-8a42-1f87899b2740","notes":null}
+{"name":"Caffe Driade","city":"chapel_hill","category":"coffee","aliases":["driade","caffé driade"],"fsq_place_id":"cbd5376c-46a8-446d-ac76-81f9ecb2f6d7","notes":null}
+{"name":"Gray Squirrel Coffee","city":"chapel_hill","category":"coffee","aliases":["gray squirrel","grey squirrel"],"fsq_place_id":"43c956cf-6990-4a66-a338-3f054d67b765","notes":null}
+{"name":"Johnny's Gone Fishing","city":"chapel_hill","category":"coffee","aliases":["johnnys","johnny's","johnnys carrboro"],"fsq_place_id":"cf932664-9eae-444c-bffc-654a28e838d5","notes":null}
+{"name":"Perennial Coffee","city":"chapel_hill","category":"coffee","aliases":["perennial"],"fsq_place_id":"9f72f38f-5fe8-4704-9a26-ff425b762712","notes":null}
+{"name":"Bread & Butter","city":"chapel_hill","category":"coffee","aliases":["bread and butter chapel hill"],"fsq_place_id":null,"notes":null}
+{"name":"Flyleaf Books","city":"chapel_hill","category":"retail_books","aliases":["flyleaf"],"fsq_place_id":"c2c5fc21-5179-4b91-8400-f37f7e0418fb","notes":null}
+{"name":"Epilogue Books Chocolate Brews","city":"chapel_hill","category":"retail_books","aliases":["epilogue","epilogue books"],"fsq_place_id":"3335db7f-2f56-44d2-98d5-744b7a9653fa","notes":null}
+{"name":"Internationalist Books","city":"chapel_hill","category":"retail_books","aliases":["internationalist","the internationalist"],"fsq_place_id":null,"notes":null}
+{"name":"UNC Student Stores","city":"chapel_hill","category":"retail_books","aliases":["student stores","unc bookstore"],"fsq_place_id":"bcf8af24-19e9-4ac3-9ca1-3d9b45f65ac7","notes":null}
+{"name":"Nice Price Books","city":"chapel_hill","category":"retail_music","aliases":["nice price","nice price books carrboro"],"fsq_place_id":"9d6c6c57-4a55-4778-b5c9-579a56f4a6ed","notes":null}
+{"name":"Chapel Hill Comics","city":"chapel_hill","category":"retail","aliases":["ch comics"],"fsq_place_id":"35de78f7-f686-4c10-99ba-4fdb12cc461f","notes":null}
+{"name":"Fifth Season Gardening","city":"chapel_hill","category":"retail","aliases":["fifth season"],"fsq_place_id":null,"notes":null}
+{"name":"The Purple Bowl","city":"chapel_hill","category":"retail","aliases":["purple bowl"],"fsq_place_id":"b9cc1d95-a33e-465c-b3ef-61511202114e","notes":null}
+{"name":"Southern Season","city":"chapel_hill","category":"retail","aliases":["a southern season","southern season chapel hill"],"fsq_place_id":"64155ce1-d3ae-4c00-95e6-cdd1ff19e8f8","notes":null}
+{"name":"PTA Thrift Shop","city":"chapel_hill","category":"retail","aliases":["pta thrift","pta thrift store carrboro"],"fsq_place_id":null,"notes":null}
+{"name":"University Place","city":"chapel_hill","category":"retail","aliases":["university mall","university place chapel hill"],"fsq_place_id":"8f837bbb-3e6f-4018-9820-4f8b66a92cf1","notes":null}
+{"name":"Rams Head Recreation Center","city":"chapel_hill","category":"gym","aliases":["rams head rec","rams head gym"],"fsq_place_id":"a9a7cf4d-cb77-4330-9bf9-0359d873f817","notes":null}
+{"name":"Chapel Hill Community Center","city":"chapel_hill","category":"gym","aliases":["community center pool"],"fsq_place_id":"bd23d297-1f57-4b15-83de-168ba9b010f1","notes":null}
+{"name":"O2 Fitness Chapel Hill","city":"chapel_hill","category":"gym","aliases":["o2 fitness","o2"],"fsq_place_id":"8f033df3-e3ef-4fa3-a077-2da8d84909bd","notes":null}
+{"name":"Woollen Gym","city":"chapel_hill","category":"gym","aliases":["woollen","woollen gymnasium"],"fsq_place_id":"1a4e5a8d-dac1-438d-84be-ba592c7a0085","notes":null}
+{"name":"Coker Arboretum","city":"chapel_hill","category":"park","aliases":["coker","the arboretum"],"fsq_place_id":"7caf2684-eb00-4e20-9c85-197b1283515f","notes":null}
+{"name":"North Carolina Botanical Garden","city":"chapel_hill","category":"park","aliases":["botanical garden","ncbg"],"fsq_place_id":"38df8d7c-e2a3-44a0-926a-b8384125dd76","notes":null}
+{"name":"Battle Park","city":"chapel_hill","category":"outdoor","aliases":["battle park chapel hill","forest theatre woods"],"fsq_place_id":"23ebea20-d8f5-4b2a-8484-a3977ea0f14e","notes":null}
+{"name":"Bolin Creek Trail","city":"chapel_hill","category":"outdoor","aliases":["bolin creek","bolin creek greenway"],"fsq_place_id":"161d22f2-0935-4378-b89b-229fefb033f9","notes":null}
+{"name":"Carolina North Forest","city":"chapel_hill","category":"outdoor","aliases":["carolina north","horace williams tract"],"fsq_place_id":"70cdeb5f-d6dc-4e10-959c-f907f1d5d076","notes":null}
+{"name":"Jordan Lake","city":"chapel_hill","category":"outdoor","aliases":["b everett jordan lake","lake jordan"],"fsq_place_id":null,"notes":null}
+{"name":"Umstead Park","city":"chapel_hill","category":"park","aliases":["umstead","william b umstead"],"fsq_place_id":"30babe70-0892-40f1-9698-5fc91c3f7cbe","notes":null}
+{"name":"The Old Well","city":"chapel_hill","category":"landmark","aliases":["old well","the well"],"fsq_place_id":"c6e45d47-99d8-4761-ab39-be05db8bd9c2","notes":null}
+{"name":"Franklin Street","city":"chapel_hill","category":"neighborhood","aliases":["east franklin","franklin st","downtown chapel hill"],"fsq_place_id":"a7dcddd5-8f34-4cf9-bdcf-817e07dec540","notes":null}
+{"name":"Forest Theatre","city":"chapel_hill","category":"landmark","aliases":["koch forest theatre","the forest theatre"],"fsq_place_id":"7695eb55-8a67-480b-b049-7eb9fdc5bbd4","notes":null}
+{"name":"Morehead Planetarium","city":"chapel_hill","category":"landmark","aliases":["morehead","morehead planetarium and science center"],"fsq_place_id":"96e5620f-eda0-4146-9620-a271a3ffad93","notes":null}
+{"name":"Gimghoul Castle","city":"chapel_hill","category":"landmark","aliases":["gimghoul","hippol castle"],"fsq_place_id":null,"notes":null}
+{"name":"Kenan Memorial Stadium","city":"chapel_hill","category":"landmark","aliases":["kenan stadium","kenan"],"fsq_place_id":"20b9cf0d-210a-4ba9-8255-fb9c646e12ba","notes":null}
+{"name":"Ackland Art Museum","city":"chapel_hill","category":"museum","aliases":["ackland"],"fsq_place_id":"ab2aaef1-23de-4aa7-a8ce-160d8fb111c1","notes":null}
+{"name":"Wilson Library","city":"chapel_hill","category":"library","aliases":["wilson","wilson special collections"],"fsq_place_id":"cd0418a1-6f4b-410b-b651-f5227a8f553a","notes":null}
+{"name":"Davis Library","city":"chapel_hill","category":"library","aliases":["davis","davis library unc"],"fsq_place_id":"d0b29a35-bc62-4d96-92c8-90906759ca3a","notes":null}
+{"name":"Chapel Hill Public Library","city":"chapel_hill","category":"library","aliases":["chpl","public library"],"fsq_place_id":"3a92b02b-9637-43ab-923c-4b52fa4b356d","notes":null}
+{"name":"Varsity Theatre","city":"chapel_hill","category":"cinema","aliases":["the varsity","varsity on franklin"],"fsq_place_id":"d43b48f8-e4ba-4c79-8d8f-0a8117a95149","notes":null}
+{"name":"Silverspot Cinema","city":"chapel_hill","category":"cinema","aliases":["silverspot","silverspot chapel hill"],"fsq_place_id":"b5e8914c-aaca-4d8f-b0ef-73b5eb8ffb9e","notes":null}
+{"name":"PlayMakers Repertory Company","city":"chapel_hill","category":"theater","aliases":["playmakers","paul green theatre"],"fsq_place_id":"fad39c17-94f3-466f-aed5-a16551797bdd","notes":null}
+{"name":"Carrboro","city":"chapel_hill","category":"neighborhood","aliases":["downtown carrboro","main street carrboro"],"fsq_place_id":null,"notes":null}
+{"name":"Southern Village","city":"chapel_hill","category":"neighborhood","aliases":["southern village chapel hill"],"fsq_place_id":"567a018b-7802-42cb-b14a-a3dbaba4e20b","notes":null}
+{"name":"Meadowmont","city":"chapel_hill","category":"neighborhood","aliases":["meadowmont village"],"fsq_place_id":"9f244071-3636-4cf0-b255-7043203c81f8","notes":null}
+{"name":"Gimghoul","city":"chapel_hill","category":"neighborhood","aliases":["gimghoul neighborhood"],"fsq_place_id":null,"notes":null}
+{"name":"Northside","city":"chapel_hill","category":"neighborhood","aliases":["northside chapel hill"],"fsq_place_id":null,"notes":null}
+{"name":"Glen Lennox","city":"chapel_hill","category":"neighborhood","aliases":["glen lennox chapel hill"],"fsq_place_id":"f63b5003-e735-4ee2-bcec-8496d024f46d","notes":null}
+{"name":"Rosemary Street","city":"chapel_hill","category":"neighborhood","aliases":["west rosemary","rosemary st"],"fsq_place_id":null,"notes":null}

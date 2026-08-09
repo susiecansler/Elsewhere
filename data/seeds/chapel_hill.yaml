@@ -1,0 +1,336 @@
+# Chapel Hill seed corpus — named institutions locals would miss.
+#
+# Two judgement calls specific to this one:
+#
+# 1. Carrboro is in. It is a separate municipality and nobody who lives here
+#    treats it as one — Weaver Street lawn and Cat's Cradle are as central to
+#    Chapel Hill life as anything on Franklin Street, and a list that stopped
+#    at the town line would answer for a town that doesn't exist.
+#
+# 2. The university is not a category, it's the weather. UNC places are here
+#    where they function as public institutions rather than as campus
+#    facilities: the Old Well is a landmark, Wilson Library is a reading room,
+#    Franklin Street on a championship night is a civic event.
+#
+# Chapel Hill is small, so this list is shorter than Chicago's and that is
+# correct — padding it with anything a local wouldn't name would make the
+# matches worse, not the coverage better.
+
+city: chapel_hill
+places:
+  # ─── Grocery & food retail ──────────────────────────────────────────
+  - name: Weaver Street Market
+    category: grocery
+    aliases: [weaver street, weaver st, the lawn, wsm]
+  - name: Harris Teeter
+    category: grocery
+    aliases: [teeter, harris teeter chapel hill, hteeter]
+  - name: Trader Joe's
+    category: grocery
+    aliases: [trader joes, "tj's"]
+  - name: Wegmans Chapel Hill
+    category: grocery
+    aliases: [wegmans]
+  - name: Whole Foods Market Chapel Hill
+    category: grocery
+    aliases: [whole foods, wholefoods]
+  - name: Food Lion
+    category: grocery
+    aliases: [food lion chapel hill]
+  - name: Cliff's Meat Market
+    category: grocery
+    aliases: [cliffs meat market, "cliff's"]
+  - name: Li Ming's Global Mart
+    category: grocery
+    aliases: [li mings, global mart]
+  - name: Carrboro Farmers Market
+    category: farmers
+    aliases: [carrboro farmers market, cfm, saturday market]
+  - name: Chapel Hill Farmers Market
+    category: farmers
+    aliases: [university place market]
+
+  # ─── Restaurants ────────────────────────────────────────────────────
+  - name: Sutton's Drug Store
+    category: restaurant
+    aliases: [suttons, "sutton's", suttons drug store]
+  - name: Merritt's Store & Grill
+    category: restaurant
+    aliases: [merritts, "merritt's", blt place, merritts grill]
+  - name: Al's Burger Shack
+    category: restaurant
+    aliases: [als burger shack, "al's"]
+  - name: Time-Out
+    category: restaurant
+    aliases: [time out, timeout, chicken biscuit, "time-out restaurant"]
+  - name: Ye Olde Waffle Shoppe
+    category: restaurant
+    aliases: [waffle shop, ye olde waffle, the waffle shoppe]
+  - name: Breadmen's
+    category: restaurant
+    aliases: [breadmens, "breadmen's"]
+  - name: Elmo's Diner
+    category: restaurant
+    aliases: [elmos, "elmo's"]
+  - name: Mediterranean Deli
+    category: restaurant
+    aliases: [med deli, mediterranean deli chapel hill]
+  - name: Vimala's Curryblossom Cafe
+    category: restaurant
+    aliases: [curryblossom, vimalas, "vimala's"]
+  - name: Lantern
+    category: restaurant_fine
+    aliases: [lantern restaurant, lantern chapel hill]
+  - name: Kipos Greek Taverna
+    category: restaurant
+    aliases: [kipos]
+  - name: Il Palio
+    category: restaurant_fine
+    aliases: [il palio siena hotel]
+  - name: Sup Dogs
+    category: restaurant
+    aliases: [sup dogs chapel hill, supdogs]
+  - name: Buns
+    category: restaurant
+    aliases: [buns chapel hill, buns burgers]
+  - name: Bandido's Mexican Cafe
+    category: restaurant
+    aliases: [bandidos, "bandido's"]
+  - name: Neal's Deli
+    category: restaurant
+    aliases: [neals deli, "neal's", carrboro biscuits]
+  - name: Acme Food & Beverage
+    category: restaurant
+    aliases: [acme carrboro, acme]
+  - name: Venable Rotisserie Bistro
+    category: restaurant
+    aliases: [venable]
+  - name: Glasshalfull
+    category: restaurant
+    aliases: [glass half full, glasshalfull carrboro]
+  - name: Pizzeria Mercato
+    category: restaurant
+    aliases: [mercato]
+  - name: Hawkers Asian Street Food
+    category: restaurant
+    aliases: [hawkers]
+  - name: Gocciolina
+    category: restaurant
+    aliases: [gocciolina durham]
+  - name: Jujube
+    category: restaurant
+    aliases: [jujube chapel hill]
+  - name: Tandem
+    category: restaurant_fine
+    aliases: [tandem chapel hill]
+  - name: Carolina Brewery
+    category: brewery
+    aliases: [carolina brewery chapel hill]
+  - name: The Root Cellar
+    category: restaurant
+    aliases: [root cellar cafe]
+
+  # ─── Bars & nightlife ───────────────────────────────────────────────
+  - name: He's Not Here
+    category: bar
+    aliases: [hes not here, "he's not", blue cup, blue cups]
+  - name: Linda's Bar and Grill
+    category: bar
+    aliases: [lindas, "linda's"]
+  - name: Top of the Hill
+    category: brewery
+    aliases: [top o, toph, top of the hill restaurant brewery]
+  - name: The Crunkleton
+    category: bar
+    aliases: [crunkleton]
+  - name: Steel String Brewery
+    category: brewery
+    aliases: [steel string, steel string carrboro]
+  - name: Might as Well Bar & Grill
+    category: bar
+    aliases: [might as well]
+  - name: Lucha Tigre
+    category: bar
+    aliases: [lucha tigre chapel hill]
+  - name: The Station
+    category: bar
+    aliases: [station carrboro]
+
+  # ─── Music & venues ─────────────────────────────────────────────────
+  - name: Cat's Cradle
+    category: music
+    aliases: [cats cradle, "cat's cradle carrboro", the cradle]
+  - name: Local 506
+    category: music
+    aliases: [local506, "506"]
+  - name: The ArtsCenter
+    category: music
+    aliases: [artscenter carrboro, arts center]
+  - name: Nightlight
+    category: music
+    aliases: [nightlight bar, the nightlight]
+  - name: Memorial Hall
+    category: music
+    aliases: [carolina performing arts, memorial hall unc]
+  - name: Dean E. Smith Center
+    category: music
+    aliases: [dean dome, dean smith center, the dean dome]
+
+  # ─── Coffee ─────────────────────────────────────────────────────────
+  - name: Carolina Coffee Shop
+    category: coffee
+    aliases: [carolina coffee, ccs]
+  - name: Open Eye Cafe
+    category: coffee
+    aliases: [open eye, openeye carrboro]
+  - name: Caffe Driade
+    category: coffee
+    aliases: [driade, caffé driade]
+  - name: Gray Squirrel Coffee
+    category: coffee
+    aliases: [gray squirrel, grey squirrel]
+  - name: Johnny's Gone Fishing
+    category: coffee
+    aliases: [johnnys, "johnny's", johnnys carrboro]
+  - name: Perennial Coffee
+    category: coffee
+    aliases: [perennial]
+  - name: Bread & Butter
+    category: coffee
+    aliases: [bread and butter chapel hill]
+
+  # ─── Books & shops ──────────────────────────────────────────────────
+  - name: Flyleaf Books
+    category: retail_books
+    aliases: [flyleaf]
+  - name: Epilogue Books Chocolate Brews
+    category: retail_books
+    aliases: [epilogue, epilogue books]
+  - name: Internationalist Books
+    category: retail_books
+    aliases: [internationalist, the internationalist]
+  - name: UNC Student Stores
+    category: retail_books
+    aliases: [student stores, unc bookstore]
+  - name: Nice Price Books
+    category: retail_music
+    aliases: [nice price, nice price books carrboro]
+  - name: Chapel Hill Comics
+    category: retail
+    aliases: [ch comics]
+  - name: Fifth Season Gardening
+    category: retail
+    aliases: [fifth season]
+  - name: The Purple Bowl
+    category: retail
+    aliases: [purple bowl]
+  - name: Southern Season
+    category: retail
+    aliases: [a southern season, southern season chapel hill]
+  - name: PTA Thrift Shop
+    category: retail
+    aliases: [pta thrift, pta thrift store carrboro]
+  - name: University Place
+    category: retail
+    aliases: [university mall, university place chapel hill]
+
+  # ─── Fitness & everyday ─────────────────────────────────────────────
+  - name: Rams Head Recreation Center
+    category: gym
+    aliases: [rams head rec, rams head gym]
+  - name: Chapel Hill Community Center
+    category: gym
+    aliases: [community center pool]
+  - name: O2 Fitness Chapel Hill
+    category: gym
+    aliases: [o2 fitness, o2]
+  - name: Woollen Gym
+    category: gym
+    aliases: [woollen, woollen gymnasium]
+
+  # ─── Parks, outdoors, landmarks ─────────────────────────────────────
+  - name: Coker Arboretum
+    category: park
+    aliases: [coker, the arboretum]
+  - name: North Carolina Botanical Garden
+    category: park
+    aliases: [botanical garden, ncbg]
+  - name: Battle Park
+    category: outdoor
+    aliases: [battle park chapel hill, forest theatre woods]
+  - name: Bolin Creek Trail
+    category: outdoor
+    aliases: [bolin creek, bolin creek greenway]
+  - name: Carolina North Forest
+    category: outdoor
+    aliases: [carolina north, horace williams tract]
+  - name: Jordan Lake
+    category: outdoor
+    aliases: [b everett jordan lake, lake jordan]
+  - name: Umstead Park
+    category: park
+    aliases: [umstead, william b umstead]
+  - name: The Old Well
+    category: landmark
+    aliases: [old well, the well]
+  - name: Franklin Street
+    category: neighborhood
+    aliases: [east franklin, franklin st, downtown chapel hill]
+  - name: Forest Theatre
+    category: landmark
+    aliases: [koch forest theatre, the forest theatre]
+  - name: Morehead Planetarium
+    category: landmark
+    aliases: [morehead, morehead planetarium and science center]
+  - name: Gimghoul Castle
+    category: landmark
+    aliases: [gimghoul, hippol castle]
+  - name: Kenan Memorial Stadium
+    category: landmark
+    aliases: [kenan stadium, kenan]
+
+  # ─── Culture ────────────────────────────────────────────────────────
+  - name: Ackland Art Museum
+    category: museum
+    aliases: [ackland]
+  - name: Wilson Library
+    category: library
+    aliases: [wilson, wilson special collections]
+  - name: Davis Library
+    category: library
+    aliases: [davis, davis library unc]
+  - name: Chapel Hill Public Library
+    category: library
+    aliases: [chpl, public library]
+  - name: Varsity Theatre
+    category: cinema
+    aliases: [the varsity, varsity on franklin]
+  - name: Silverspot Cinema
+    category: cinema
+    aliases: [silverspot, silverspot chapel hill]
+  - name: PlayMakers Repertory Company
+    category: theater
+    aliases: [playmakers, paul green theatre]
+
+  # ─── Neighborhoods & districts ──────────────────────────────────────
+  - name: Carrboro
+    category: neighborhood
+    aliases: [downtown carrboro, main street carrboro]
+  - name: Southern Village
+    category: neighborhood
+    aliases: [southern village chapel hill]
+  - name: Meadowmont
+    category: neighborhood
+    aliases: [meadowmont village]
+  - name: Gimghoul
+    category: neighborhood
+    aliases: [gimghoul neighborhood]
+  - name: Northside
+    category: neighborhood
+    aliases: [northside chapel hill]
+  - name: Glen Lennox
+    category: neighborhood
+    aliases: [glen lennox chapel hill]
+  - name: Rosemary Street
+    category: neighborhood
+    aliases: [west rosemary, rosemary st]

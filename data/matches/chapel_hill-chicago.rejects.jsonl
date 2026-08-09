@@ -1,0 +1,63 @@
+{"source": "Ackland Art Museum", "candidate": "Block Museum of Art (Northwestern, Evanston)", "target_city": "chicago", "confidence": 0.8, "rank": 2, "reason": "not_found"}
+{"source": "Bolin Creek Trail", "candidate": "The 606 (Bloomingdale Trail)", "target_city": "chicago", "confidence": 0.65, "rank": 2, "reason": "not_found"}
+{"source": "Bread & Butter", "candidate": "Plein Air Caf\u00e9", "target_city": "chicago", "confidence": 0.72, "rank": 1, "reason": "not_found"}
+{"source": "Bread & Butter", "candidate": "Bourgeois Pig Caf\u00e9", "target_city": "chicago", "confidence": 0.68, "rank": 2, "reason": "not_found"}
+{"source": "Bread & Butter", "candidate": "Build Coffee", "target_city": "chicago", "confidence": 0.55, "rank": 3, "reason": "not_found"}
+{"source": "Breadmen's", "candidate": "Valois Cafeteria", "target_city": "chicago", "confidence": 0.82, "rank": 1, "reason": "not_found"}
+{"source": "Caffe Driade", "candidate": "Kopi Cafe", "target_city": "chicago", "confidence": 0.65, "rank": 2, "reason": "not_found"}
+{"source": "Carolina Brewery", "candidate": "Piece Brewery & Pizzeria", "target_city": "chicago", "confidence": 0.5, "rank": 3, "reason": "not_found"}
+{"source": "Carolina Coffee Shop", "candidate": "Valois Cafeteria", "target_city": "chicago", "confidence": 0.71, "rank": 2, "reason": "not_found"}
+{"source": "Carolina North Forest", "candidate": "Palos / Sag Valley Forest Preserves", "target_city": "chicago", "confidence": 0.72, "rank": 1, "reason": "not_found"}
+{"source": "Cliff's Meat Market", "candidate": "Paulina Meat Market", "target_city": "chicago", "confidence": 0.85, "rank": 1, "reason": "not_found"}
+{"source": "Cliff's Meat Market", "candidate": "Gene's Sausage Shop", "target_city": "chicago", "confidence": 0.75, "rank": 2, "reason": "not_found"}
+{"source": "Coker Arboretum", "candidate": "Osaka Garden, Jackson Park", "target_city": "chicago", "confidence": 0.5, "rank": 3, "reason": "not_found"}
+{"source": "Elmo's Diner", "candidate": "Salonica", "target_city": "chicago", "confidence": 0.72, "rank": 1, "reason": "not_found"}
+{"source": "Elmo's Diner", "candidate": "Valois Cafeteria", "target_city": "chicago", "confidence": 0.68, "rank": 2, "reason": "not_found"}
+{"source": "Flyleaf Books", "candidate": "Women & Children First", "target_city": "chicago", "confidence": 0.52, "rank": 3, "reason": "not_found"}
+{"source": "Forest Theatre", "candidate": "Garden of the Phoenix / Osaka Garden, Jackson Park", "target_city": "chicago", "confidence": 0.52, "rank": 3, "reason": "not_found"}
+{"source": "Franklin Street", "candidate": "Clark Street in Wrigleyville", "target_city": "chicago", "confidence": 0.72, "rank": 1, "reason": "not_found"}
+{"source": "Gimghoul", "candidate": "Longwood Drive, Beverly", "target_city": "chicago", "confidence": 0.55, "rank": 2, "reason": "not_found"}
+{"source": "Gimghoul Castle", "candidate": "Givins Irish Castle", "target_city": "chicago", "confidence": 0.72, "rank": 1, "reason": "not_found"}
+{"source": "Glen Lennox", "candidate": "University Apartments (55th Street, Hyde Park)", "target_city": "chicago", "confidence": 0.38, "rank": 3, "reason": "not_found"}
+{"source": "Gocciolina", "candidate": "Monteverde", "target_city": "chicago", "confidence": 0.55, "rank": 3, "reason": "not_found"}
+{"source": "Gray Squirrel Coffee", "candidate": "Plein Air Caf\u00e9", "target_city": "chicago", "confidence": 0.78, "rank": 1, "reason": "not_found"}
+{"source": "Gray Squirrel Coffee", "candidate": "Bourgeois Pig Caf\u00e9", "target_city": "chicago", "confidence": 0.7, "rank": 2, "reason": "not_found"}
+{"source": "Gray Squirrel Coffee", "candidate": "Build Coffee", "target_city": "chicago", "confidence": 0.6, "rank": 3, "reason": "not_found"}
+{"source": "Il Palio", "candidate": "Booth One at the Ambassador Hotel", "target_city": "chicago", "confidence": 0.5, "rank": 3, "reason": "not_found"}
+{"source": "Internationalist Books", "candidate": "Women & Children First", "target_city": "chicago", "confidence": 0.72, "rank": 2, "reason": "not_found"}
+{"source": "Jordan Lake", "candidate": "Chain O'Lakes (Fox Lake / Chain O'Lakes State Park)", "target_city": "chicago", "confidence": 0.72, "rank": 1, "reason": "not_found"}
+{"source": "Lucha Tigre", "candidate": "Lonesome Rose", "target_city": "chicago", "confidence": 0.55, "rank": 2, "reason": "not_found"}
+{"source": "Meadowmont", "candidate": "Prairie Crossing, Grayslake", "target_city": "chicago", "confidence": 0.68, "rank": 2, "reason": "not_found"}
+{"source": "Mediterranean Deli", "candidate": "Valois Cafeteria", "target_city": "chicago", "confidence": 0.66, "rank": 2, "reason": "not_found"}
+{"source": "Memorial Hall", "candidate": "Mandel Hall (UChicago Presents)", "target_city": "chicago", "confidence": 0.72, "rank": 1, "reason": "not_found"}
+{"source": "Memorial Hall", "candidate": "Logan Center for the Arts", "target_city": "chicago", "confidence": 0.66, "rank": 2, "reason": "not_found"}
+{"source": "Might as Well Bar & Grill", "candidate": "Glascott's Groggery", "target_city": "chicago", "confidence": 0.55, "rank": 3, "reason": "not_found"}
+{"source": "Neal's Deli", "candidate": "Bari Foods", "target_city": "chicago", "confidence": 0.66, "rank": 2, "reason": "not_found"}
+{"source": "Northside", "candidate": "Bronzeville", "target_city": "chicago", "confidence": 0.62, "rank": 2, "reason": "not_found"}
+{"source": "O2 Fitness Chapel Hill", "candidate": "FFC (Fitness Formula Clubs)", "target_city": "chicago", "confidence": 0.65, "rank": 2, "reason": "not_found"}
+{"source": "Open Eye Cafe", "candidate": "Kopi Cafe", "target_city": "chicago", "confidence": 0.82, "rank": 1, "reason": "not_found"}
+{"source": "Perennial Coffee", "candidate": "Build Coffee", "target_city": "chicago", "confidence": 0.48, "rank": 3, "reason": "not_found"}
+{"source": "Pizzeria Mercato", "candidate": "Spacca Napoli", "target_city": "chicago", "confidence": 0.72, "rank": 1, "reason": "not_found"}
+{"source": "Pizzeria Mercato", "candidate": "Middle Brow Bungalow", "target_city": "chicago", "confidence": 0.66, "rank": 2, "reason": "not_found"}
+{"source": "Rams Head Recreation Center", "candidate": "Ratner Athletics Center (University of Chicago)", "target_city": "chicago", "confidence": 0.76, "rank": 1, "reason": "not_found"}
+{"source": "Rams Head Recreation Center", "candidate": "Northwestern SPAC (Henry Crown / Sports and Aquatics Center)", "target_city": "chicago", "confidence": 0.52, "rank": 3, "reason": "not_found"}
+{"source": "Rosemary Street", "candidate": "East 53rd Street, Hyde Park", "target_city": "chicago", "confidence": 0.56, "rank": 1, "reason": "not_found"}
+{"source": "Rosemary Street", "candidate": "Clark Street, Rogers Park", "target_city": "chicago", "confidence": 0.42, "rank": 3, "reason": "not_found"}
+{"source": "Southern Season", "candidate": "Gene's Sausage Shop & Delicatessen", "target_city": "chicago", "confidence": 0.55, "rank": 2, "reason": "not_found"}
+{"source": "Southern Village", "candidate": "The Glen (Glenview)", "target_city": "chicago", "confidence": 0.67, "rank": 1, "reason": "not_found"}
+{"source": "Southern Village", "candidate": "Prairie Crossing (Grayslake)", "target_city": "chicago", "confidence": 0.56, "rank": 2, "reason": "not_found"}
+{"source": "Southern Village", "candidate": "Riverside", "target_city": "chicago", "confidence": 0.5, "rank": 3, "reason": "not_found"}
+{"source": "Sutton's Drug Store", "candidate": "Valois Cafeteria", "target_city": "chicago", "confidence": 0.88, "rank": 1, "reason": "not_found"}
+{"source": "The Old Well", "candidate": "The Rock (Northwestern, Evanston)", "target_city": "chicago", "confidence": 0.55, "rank": 3, "reason": "not_found"}
+{"source": "The Root Cellar", "candidate": "Valois Cafeteria", "target_city": "chicago", "confidence": 0.7, "rank": 1, "reason": "not_found"}
+{"source": "Top of the Hill", "candidate": "Piece Brewery and Pizzeria", "target_city": "chicago", "confidence": 0.63, "rank": 1, "reason": "not_found"}
+{"source": "UNC Student Stores", "candidate": "Seminary Co-op Bookstore", "target_city": "chicago", "confidence": 0.66, "rank": 1, "reason": "not_found"}
+{"source": "UNC Student Stores", "candidate": "Powell's Books Hyde Park", "target_city": "chicago", "confidence": 0.42, "rank": 3, "reason": "not_found"}
+{"source": "Umstead Park", "candidate": "Palos / Sag Valley Forest Preserves", "target_city": "chicago", "confidence": 0.66, "rank": 2, "reason": "not_found"}
+{"source": "University Place", "candidate": "Century Shopping Centre (Lincoln Park)", "target_city": "chicago", "confidence": 0.68, "rank": 1, "reason": "not_found"}
+{"source": "Varsity Theatre", "candidate": "Doc Films", "target_city": "chicago", "confidence": 0.74, "rank": 2, "reason": "not_found"}
+{"source": "Whole Foods Market Chapel Hill", "candidate": "Gene's Sausage Shop", "target_city": "chicago", "confidence": 0.42, "rank": 3, "reason": "not_found"}
+{"source": "Wilson Library", "candidate": "Special Collections Research Center, Regenstein Library", "target_city": "chicago", "confidence": 0.65, "rank": 3, "reason": "not_found"}
+{"source": "Woollen Gym", "candidate": "Ratner Athletics Center", "target_city": "chicago", "confidence": 0.62, "rank": 1, "reason": "not_found"}
+{"source": "Ye Olde Waffle Shoppe", "candidate": "Valois Cafeteria", "target_city": "chicago", "confidence": 0.84, "rank": 1, "reason": "not_found"}
+{"source": "Ye Olde Waffle Shoppe", "candidate": "Salonica", "target_city": "chicago", "confidence": 0.66, "rank": 3, "reason": "not_found"}

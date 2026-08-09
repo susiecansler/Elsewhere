@@ -1,14 +1,29 @@
 {
  "austin": {
+  "24 Diner": {
+   "lat": 30.27209,
+   "lon": -97.75412,
+   "website": "https://t.mtrbio.com/24-diner"
+  },
   "99 Ranch Market": {
    "lat": 30.33774,
    "lon": -97.71786,
    "website": "http://www.99ranch.com/"
   },
+  "ACC Highland": {
+   "lat": 30.32702,
+   "lon": -97.71388,
+   "website": "http://sites.austincc.edu/accelerator-academic-coaching"
+  },
   "AFS Cinema": {
    "lat": 30.3254,
    "lon": -97.70852,
    "website": "https://www.austinfilm.org/"
+  },
+  "Alamo Drafthouse Cinema (South Lamar)": {
+   "lat": 30.25607,
+   "lon": -97.76333,
+   "website": "http://drafthouse.com/austin/south_lamar"
   },
   "Alienated Majesty Books": {
    "lat": 30.29537,
@@ -28,6 +43,11 @@
    "lat": 30.16126,
    "lon": -97.79173,
    "website": "http://www.amysicecreams.com/"
+  },
+  "Anna Hiss Gymnasium": {
+   "lat": 30.28852,
+   "lon": -97.73786,
+   "website": "http://www.utexas.edu/maps/main/buildings/ahg.html"
   },
   "Antone's Nightclub": {
    "lat": 30.26618,
@@ -98,9 +118,24 @@
    "lon": -97.74811,
    "website": "http://www.austinflea.net/"
   },
+  "Austin Recreation Center": {
+   "lat": 30.27813,
+   "lon": -97.749,
+   "website": "http://local.jazzercise.com/jazzercise-austin-recreation-center/Austin-TX"
+  },
   "Austin-Bergstrom International Airport": {
    "lat": 30.19408,
    "lon": -97.6711
+  },
+  "Aviary Wine & Kitchen": {
+   "lat": 30.24805,
+   "lon": -97.77134,
+   "website": "https://www.aviarywinekitchen.com/"
+  },
+  "Baby Acapulco": {
+   "lat": 30.2444,
+   "lon": -97.72985,
+   "website": "http://babyacapulco.com/"
   },
   "Backwoods": {
    "lat": 30.30959,
@@ -111,6 +146,11 @@
    "lat": 30.25897,
    "lon": -97.73861,
    "website": "http://www.bangersaustin.com/"
+  },
+  "Bar Peached": {
+   "lat": 30.27364,
+   "lon": -97.75998,
+   "website": "http://www.barpeached.com/"
   },
   "Barley Swine": {
    "lat": 30.34132,
@@ -125,6 +165,11 @@
   "Barton Creek Greenbelt": {
    "lat": 30.27509,
    "lon": -97.82534
+  },
+  "Barton Springs Nursery": {
+   "lat": 30.27764,
+   "lon": -97.80548,
+   "website": "https://www.youtube.com/watch?v=S23svzMxIFY&list=PLDWOUljMWxwzapcAPrriBg8GsUDDgHMXV&index=24"
   },
   "Bass Concert Hall": {
    "lat": 30.28639,
@@ -222,6 +267,10 @@
    "lon": -97.76283,
    "website": "https://buffaloexchange.com/location/austin-soco/"
   },
+  "Bull Creek District Park": {
+   "lat": 30.36691,
+   "lon": -97.78609
+  },
   "Bullock Texas State History Museum": {
    "lat": 30.27977,
    "lon": -97.7386
@@ -246,6 +295,10 @@
    "lon": -97.75043,
    "website": "https://cafenoseaustin.com/"
   },
+  "Cain & Abel's": {
+   "lat": 30.28788,
+   "lon": -97.74737
+  },
   "Callahan's General Store": {
    "lat": 30.23759,
    "lon": -97.6862,
@@ -265,6 +318,11 @@
    "lat": 30.35349,
    "lon": -97.66728,
    "website": "https://www.youtube.com/@casabrasilcoffees"
+  },
+  "Casa de Luz": {
+   "lat": 30.26443,
+   "lon": -97.76151,
+   "website": "http://www.casadeluz.org/"
   },
   "Casino El Camino": {
    "lat": 30.26649,
@@ -381,6 +439,11 @@
    "lon": -97.71401,
    "website": "http://www.danesbodyshop.com"
   },
+  "Darrell K Royal\u2013Texas Memorial Stadium": {
+   "lat": 30.28357,
+   "lon": -97.73253,
+   "website": "https://texassports.com/sports/2013/7/24/facilities_0724133148.aspx?id=205"
+  },
   "Deep Eddy Cabaret": {
    "lat": 30.27781,
    "lon": -97.77257,
@@ -419,6 +482,11 @@
    "lon": -97.7634,
    "website": "http://donnsdepot.com/"
   },
+  "Dougherty Arts Center": {
+   "lat": 30.26082,
+   "lon": -97.75607,
+   "website": "http://www.austintexas.gov/dac"
+  },
   "East Austin": {
    "lat": 30.2617,
    "lon": -97.72161
@@ -446,6 +514,11 @@
    "lon": -97.73819,
    "website": "http://elnaranjo-restaurant.com"
   },
+  "El Patio": {
+   "lat": 30.29665,
+   "lon": -97.74231,
+   "website": "https://elpatioaustin.com/"
+  },
   "El Primo": {
    "lat": 30.24471,
    "lon": -97.75735,
@@ -458,8 +531,7 @@
   },
   "Elisabet Ney Museum": {
    "lat": 30.30664,
-   "lon": -97.72629,
-   "website": "http://www.elisabetneymuseum.org/"
+   "lon": -97.72629
   },
   "Elizabeth Street Cafe": {
    "lat": 30.24979,
@@ -550,10 +622,20 @@
    "lon": -97.71436,
    "website": "http://www.fleetcoffee.com/"
   },
+  "Flightpath Coffeehouse": {
+   "lat": 30.31382,
+   "lon": -97.71997,
+   "website": "http://www.flightpathcoffeehouse.com/"
+  },
   "Fonda San Miguel": {
    "lat": 30.32553,
    "lon": -97.74336,
    "website": "http://www.fondasanmiguel.com/"
+  },
+  "Frank Erwin Center": {
+   "lat": 30.2769,
+   "lon": -97.7322,
+   "website": "https://www.uterwincenter.com"
   },
   "Franklin Barbecue": {
    "lat": 30.27012,
@@ -597,6 +679,11 @@
   "Hana World Market": {
    "lat": 30.41291,
    "lon": -97.68674
+  },
+  "Hancock Center": {
+   "lat": 30.29986,
+   "lon": -97.71994,
+   "website": "https://www.regencycenters.com/property/detail/665/hancock-center"
   },
   "Harry Ransom Center": {
    "lat": 30.28417,
@@ -697,6 +784,11 @@
    "lon": -97.71912,
    "website": "http://www.juaninamillion.com/"
   },
+  "JuiceLand": {
+   "lat": 30.29063,
+   "lon": -97.82622,
+   "website": "https://www.juiceland.com/locations/westlake/"
+  },
   "Juniper": {
    "lat": 30.25471,
    "lon": -97.71745,
@@ -712,10 +804,20 @@
    "lon": -97.73763,
    "website": "https://www.kingdomnightclub.com/home"
   },
+  "Kismet Cafe": {
+   "lat": 30.29988,
+   "lon": -97.72152,
+   "website": "http://Www.kismetcafe.com/"
+  },
   "Kome Sushi Kitchen": {
    "lat": 30.31408,
    "lon": -97.71461,
    "website": "http://www.kome-austin.com/"
+  },
+  "Kung Fu Saloon": {
+   "lat": 30.40113,
+   "lon": -97.72252,
+   "website": "https://www.kungfusaloon.com"
   },
   "Ky\u014dten Sushiko": {
    "lat": 30.29856,
@@ -726,6 +828,11 @@
    "lat": 30.29721,
    "lon": -97.70462,
    "website": "http://www.locadoroaustin.com/"
+  },
+  "LOLO": {
+   "lat": 30.26333,
+   "lon": -97.72705,
+   "website": "http://www.lolo.wine/"
   },
   "La Mexicana Bakery": {
    "lat": 30.2457,
@@ -739,8 +846,7 @@
   },
   "Lady Bird Johnson Wildflower Center": {
    "lat": 30.18549,
-   "lon": -97.87328,
-   "website": "http://www.wildflower.org/"
+   "lon": -97.87328
   },
   "Lady Bird Lake Hike-and-Bike Trail": {
    "lat": 30.23876,
@@ -760,6 +866,10 @@
    "lat": 30.27291,
    "lon": -97.75801,
    "website": "http://www.linasianbar.com"
+  },
+  "Littlefield Fountain": {
+   "lat": 30.28281,
+   "lon": -97.73697
   },
   "Live Oak Brewing": {
    "lat": 30.22111,
@@ -813,6 +923,11 @@
    "lon": -97.72936,
    "website": "https://www.meanwhilebeer.com/"
   },
+  "Medici Roasting": {
+   "lat": 30.26774,
+   "lon": -97.694,
+   "website": "http://www.mediciroasting.com/"
+  },
   "Merit Coffee": {
    "lat": 30.25526,
    "lon": -97.76172,
@@ -833,10 +948,19 @@
    "lon": -97.73997,
    "website": "http://www.midnightcowboymodeling.com/"
   },
+  "MonkeyWrench Books": {
+   "lat": 30.31784,
+   "lon": -97.72166,
+   "website": "http://monkeywrenchbooks.org/"
+  },
   "Moody Center": {
    "lat": 30.28086,
    "lon": -97.7306,
    "website": "https://www.moodycenteratx.com/"
+  },
+  "Moviehouse & Eatery": {
+   "lat": 30.41976,
+   "lon": -97.84586
   },
   "Mozart's Coffee Roasters": {
    "lat": 30.29548,
@@ -850,6 +974,11 @@
   "Mueller Lake Park": {
    "lat": 30.2968,
    "lon": -97.70577
+  },
+  "Museum of Human Achievement": {
+   "lat": 30.26146,
+   "lon": -97.69952,
+   "website": "http://www.themuseumofhumanachievement.com/"
   },
   "Nau's Enfield Drug": {
    "lat": 30.27998,
@@ -875,6 +1004,11 @@
    "lat": 30.32632,
    "lon": -97.74237
   },
+  "Northcross Mall": {
+   "lat": 30.35454,
+   "lon": -97.7337,
+   "website": "http://www.shopnorthcross.com"
+  },
   "Odd Duck": {
    "lat": 30.25475,
    "lon": -97.76205,
@@ -884,6 +1018,16 @@
    "lat": 30.27989,
    "lon": -97.74361,
    "website": "http://www.OlamaieAustin.com/"
+  },
+  "Old Thousand": {
+   "lat": 30.26968,
+   "lon": -97.7297,
+   "website": "https://oldthousandatx.com/?y_source=1_MjM1NDQyMjMtNTU5LWxvY2F0aW9uLndlYnNpdGU%3D"
+  },
+  "Olive & June": {
+   "lat": 30.30726,
+   "lon": -97.75114,
+   "website": "https://www.oliveandjune-austin.com"
   },
   "Once Over Coffee Bar": {
    "lat": 30.24477,
@@ -898,6 +1042,11 @@
    "lat": 30.24747,
    "lon": -97.75027,
    "website": "https://otokoaustin.com/"
+  },
+  "P. Terry's Burger Stand": {
+   "lat": 30.46745,
+   "lon": -97.59258,
+   "website": "https://pterrys.com/?utm_source=fb&utm_medium=yext"
   },
   "Paper + Craft Pantry": {
    "lat": 30.26749,
@@ -938,10 +1087,20 @@
    "lat": 30.42555,
    "lon": -97.67084
   },
+  "Pinthouse Pizza": {
+   "lat": 30.31878,
+   "lon": -97.73916,
+   "website": "https://pinthouse.com/burnet?y_source=1_MzEwMDA3ODUtNTU5LWxvY2F0aW9uLndlYnNpdGU%3D"
+  },
   "Planet Fitness": {
    "lat": 30.20872,
    "lon": -97.81621,
    "website": "https://www.planetfitness.com/gyms/austin-westgate-blvd-tx?utm_medium=organic&utm_source=extnet"
+  },
+  "Posse East": {
+   "lat": 30.29137,
+   "lon": -97.73463,
+   "website": "http://www.posseeast.com/"
   },
   "Precision Camera & Video": {
    "lat": 30.3579,
@@ -999,6 +1158,11 @@
    "lat": 30.17557,
    "lon": -97.78332,
    "website": "http://restaurantdepot.com/"
+  },
+  "Reverie Books": {
+   "lat": 30.21775,
+   "lon": -97.79649,
+   "website": "https://www.reveriebooks.com/"
   },
   "Ride Indoor Cycling": {
    "lat": 30.27308,
@@ -1191,6 +1355,11 @@
    "lon": -97.75682,
    "website": "http://swedishhillaustin.com/"
   },
+  "Sweet Ritual": {
+   "lat": 30.30717,
+   "lon": -97.72488,
+   "website": "http://www.sweetritual.com"
+  },
   "Taco Cabana": {
    "lat": 30.19139,
    "lon": -97.77103,
@@ -1292,6 +1461,11 @@
    "lon": -97.71439,
    "website": "http://thelostwell.com"
   },
+  "The Natural Gardener": {
+   "lat": 30.25698,
+   "lon": -97.89063,
+   "website": "http://tngaustin.com/"
+  },
   "The Oasis on Lake Travis": {
    "lat": 30.40562,
    "lon": -97.87415
@@ -1311,6 +1485,11 @@
    "lon": -97.74628,
    "website": "http://www.therooseveltroomatx.com/"
   },
+  "The VORTEX": {
+   "lat": 30.28374,
+   "lon": -97.71738,
+   "website": "https://bit.ly/m/TheVORTEXRep"
+  },
   "The White Horse": {
    "lat": 30.26253,
    "lon": -97.72697,
@@ -1325,6 +1504,11 @@
    "lat": 30.21749,
    "lon": -97.76812,
    "website": "http://www.thirdcoastcoffee.com"
+  },
+  "Thunderbird Coffee": {
+   "lat": 30.28444,
+   "lon": -97.71934,
+   "website": "https://thunderbirdcoffee.com"
   },
   "Thundercloud Subs": {
    "lat": 30.46149,
@@ -1361,6 +1545,10 @@
    "lon": -97.74802,
    "website": "https://toyjoy.com/"
   },
+  "UT Tower": {
+   "lat": 30.28619,
+   "lon": -97.73945
+  },
   "Umlauf Sculpture Garden & Museum": {
    "lat": 30.26327,
    "lon": -97.76616
@@ -1369,6 +1557,11 @@
    "lat": 30.24849,
    "lon": -97.7504,
    "website": "http://www.uncommonobjects.com"
+  },
+  "University Co-op": {
+   "lat": 30.28616,
+   "lon": -97.74194,
+   "website": "http://www.universitycoop.com/"
   },
   "University Federal Credit Union": {
    "lat": 30.31317,
@@ -1431,6 +1624,10 @@
    "lon": -97.79798,
    "website": "http://www.wholeearthprovision.com/"
   },
+  "Wild Basin Wilderness Preserve": {
+   "lat": 30.31033,
+   "lon": -97.82355
+  },
   "Yellow Jacket Social Club": {
    "lat": 30.26172,
    "lon": -97.72464,
@@ -1452,8 +1649,7 @@
   },
   "Zilker Hillside Theater": {
    "lat": 30.26446,
-   "lon": -97.77248,
-   "website": "https://austintexas.gov/zilkerhillsidetheater"
+   "lon": -97.77248
   },
   "Zilker Park": {
    "lat": 30.26837,
@@ -1465,11 +1661,647 @@
    "website": "http://www.labarbecue.com/"
   }
  },
+ "chapel_hill": {
+  "Ackland Art Museum": {
+   "lat": 35.91259,
+   "lon": -79.05487,
+   "website": "http://www.ackland.org/"
+  },
+  "Acme Food & Beverage": {
+   "lat": 35.9104,
+   "lon": -79.07097,
+   "website": "http://www.acmecarrboro.com/"
+  },
+  "Akai Hana": {
+   "lat": 35.91034,
+   "lon": -79.07554,
+   "website": "http://www.akaihana.com/"
+  },
+  "Al's Burger Shack": {
+   "lat": 35.91005,
+   "lon": -79.06405,
+   "website": "https://alsburgershack.com/"
+  },
+  "Aldi": {
+   "lat": 35.93513,
+   "lon": -79.02454,
+   "website": "https://www.aldi.us"
+  },
+  "All Day Records": {
+   "lat": 35.91043,
+   "lon": -79.07076,
+   "website": "http://alldayrecords.com/"
+  },
+  "Amante Gourmet Pizza": {
+   "lat": 35.90937,
+   "lon": -78.98607,
+   "website": "http://amantepizza.com/"
+  },
+  "American Tobacco Trail": {
+   "lat": 35.89462,
+   "lon": -78.95348
+  },
+  "Balanced Movement Studio": {
+   "lat": 35.91132,
+   "lon": -79.07492,
+   "website": "http://www.balanced-movement.com/"
+  },
+  "Bandido's Mexican Cafe": {
+   "lat": 35.91406,
+   "lon": -79.05384,
+   "website": "http://Bandidoscafe.com/"
+  },
+  "Battle Park": {
+   "lat": 35.91367,
+   "lon": -79.03843
+  },
+  "Benny Cappella's": {
+   "lat": 35.91317,
+   "lon": -79.05481
+  },
+  "Bojangles": {
+   "lat": 35.91029,
+   "lon": -79.04773,
+   "website": "https://locations.bojangles.com/nc/chapel-hill/209-south-rd-1362.html"
+  },
+  "Bolin Creek Trail": {
+   "lat": 35.92756,
+   "lon": -79.03558
+  },
+  "Bowbarr": {
+   "lat": 35.91082,
+   "lon": -79.0662
+  },
+  "Breadmen's": {
+   "lat": 35.91249,
+   "lon": -79.06107,
+   "website": "http://breadmens.com/"
+  },
+  "Buns": {
+   "lat": 35.91348,
+   "lon": -79.05608,
+   "website": "http://www.bunsofchapelhill.com/"
+  },
+  "CD Alley": {
+   "lat": 35.91106,
+   "lon": -79.06068,
+   "website": "http://www.cdalley.net"
+  },
+  "Caffe Driade": {
+   "lat": 35.92536,
+   "lon": -79.03769,
+   "website": "http://www.caffedriade.com/"
+  },
+  "Cameron-McCauley Historic District": {
+   "lat": 35.90639,
+   "lon": -79.05862
+  },
+  "Carolina Brewery": {
+   "lat": 35.91067,
+   "lon": -79.0628,
+   "website": "http://carolinabrewery.com"
+  },
+  "Carolina Coffee Shop": {
+   "lat": 35.91355,
+   "lon": -79.05441,
+   "website": "http://www.carolinacoffeeshop.com"
+  },
+  "Carolina North Forest": {
+   "lat": 35.93911,
+   "lon": -79.05906
+  },
+  "Carrboro Coffee Roasters": {
+   "lat": 35.90987,
+   "lon": -79.07217,
+   "website": "http://www.carrborocoffee.com/"
+  },
+  "Carrboro Farmers Market": {
+   "lat": 35.91098,
+   "lon": -79.07722,
+   "website": "http://www.carrborofarmersmarket.com"
+  },
+  "Carrburritos": {
+   "lat": 35.91083,
+   "lon": -79.06651,
+   "website": "http://www.carrburritos.com/"
+  },
+  "Cat's Cradle": {
+   "lat": 35.91014,
+   "lon": -79.06884,
+   "website": "http://catscradle.com/events/"
+  },
+  "Chapel Hill Comics": {
+   "lat": 35.91141,
+   "lon": -79.06057,
+   "website": "http://www.chapelhillcomics.com"
+  },
+  "Chapel Hill Community Center": {
+   "lat": 35.92585,
+   "lon": -79.03277,
+   "website": "https://webtrac.townofchapelhill.org/wbwsc/webtrac.wsc/search.html?module=AR&type=ADVEN&subtype"
+  },
+  "Chapel Hill Country Club": {
+   "lat": 35.92088,
+   "lon": -79.00903,
+   "website": "http://www.chapelhillcountryclub.com/"
+  },
+  "Chapel Hill Farmers Market": {
+   "lat": 35.9273,
+   "lon": -79.02892,
+   "website": "https://linktr.ee/chapelhillfarmersmarket?utm_source=linktree_profile_share&ltsid=07136fe7-bb1c-4af7-b0fe-a0e275ab4c18"
+  },
+  "Chapel Hill Public Library": {
+   "lat": 35.9322,
+   "lon": -79.03559,
+   "website": "https://chapelhillpubliclibrary.org/"
+  },
+  "Chapel Hill Tennis Club": {
+   "lat": 35.89874,
+   "lon": -79.08547,
+   "website": "https://www.youtube.com/channel/UCuohOkp68djKU0TIAVkvpug"
+  },
+  "Char-Grill": {
+   "lat": 35.91859,
+   "lon": -78.96046,
+   "website": "http://chargrillusa.com"
+  },
+  "Coker Arboretum": {
+   "lat": 35.91373,
+   "lon": -79.04893
+  },
+  "Cook Out": {
+   "lat": 35.967,
+   "lon": -78.95457,
+   "website": "https://cookout.com/locations/?location=shannon-rd-durham-north-carolina"
+  },
+  "Cosmic Cantina": {
+   "lat": 35.91335,
+   "lon": -79.05472,
+   "website": "http://www.cosmiccantina.com"
+  },
+  "Davis Library": {
+   "lat": 35.91098,
+   "lon": -79.04791,
+   "website": "https://library.unc.edu/davis/"
+  },
+  "Dean E. Smith Center": {
+   "lat": 35.89944,
+   "lon": -79.04374
+  },
+  "Duke Forest (Korstian Division)": {
+   "lat": 35.97803,
+   "lon": -79.02255
+  },
+  "Elements": {
+   "lat": 35.90688,
+   "lon": -79.02265,
+   "website": "http://www.elementsofchapelhill.com"
+  },
+  "Elmo's Diner": {
+   "lat": 35.91158,
+   "lon": -79.07088,
+   "website": "http://elmosdinercarrboro.com/"
+  },
+  "Epilogue Books Chocolate Brews": {
+   "lat": 35.91346,
+   "lon": -79.05534,
+   "website": "https://epiloguebooksch.com/"
+  },
+  "First Citizens Bank": {
+   "lat": 35.93446,
+   "lon": -79.02932,
+   "website": "https://locations.firstcitizens.com/nc/chapel-hill/1650-east-franklin-street"
+  },
+  "Fitch Lumber & Hardware": {
+   "lat": 35.91224,
+   "lon": -79.07264,
+   "website": "https://www.fitchlumber.com"
+  },
+  "Fleet Feet Carrboro": {
+   "lat": 35.91046,
+   "lon": -79.06919,
+   "website": "https://www.fleetfeetcarrboro.com/"
+  },
+  "Flyleaf Books": {
+   "lat": 35.92441,
+   "lon": -79.05359,
+   "website": "http://www.flyleafbooks.com/"
+  },
+  "Food Lion": {
+   "lat": 35.93686,
+   "lon": -79.02206,
+   "website": "http://www.foodlion.com/stores/nc/chapel_hill/1480/"
+  },
+  "Forest Theatre": {
+   "lat": 35.9162,
+   "lon": -79.04514
+  },
+  "Franklin Street": {
+   "lat": 35.9145,
+   "lon": -79.05322
+  },
+  "Franklin Street Yoga Center": {
+   "lat": 35.90989,
+   "lon": -79.06276,
+   "website": "http://www.franklinstyoga.com/"
+  },
+  "Franklin-Rosemary Historic District": {
+   "lat": 35.91778,
+   "lon": -79.04608
+  },
+  "Glasshalfull": {
+   "lat": 35.90976,
+   "lon": -79.07242,
+   "website": "http://www.glasshalfull.net/"
+  },
+  "Glen Lennox": {
+   "lat": 35.91504,
+   "lon": -79.02586
+  },
+  "Gourmet Kingdom": {
+   "lat": 35.91087,
+   "lon": -79.0689,
+   "website": "http://www.thegourmetkingdom.com/"
+  },
+  "Gray Squirrel Coffee": {
+   "lat": 35.91062,
+   "lon": -79.0682,
+   "website": "http://www.graysquirrelcoffee.com/"
+  },
+  "Gray Squirrel Coffee Co.": {
+   "lat": 35.91062,
+   "lon": -79.0682,
+   "website": "http://www.graysquirrelcoffee.com/"
+  },
+  "Great Outdoor Provision Co.": {
+   "lat": 35.93522,
+   "lon": -79.02453,
+   "website": "https://greatoutdoorprovision.com/locations/chapel-hill/"
+  },
+  "Harris Teeter": {
+   "lat": 35.91766,
+   "lon": -78.9586,
+   "website": "https://www.harristeeter.com/stores/grocery/nc/durham/hope-valley-commons/097/00224?cid=loc_09700224_fb"
+  },
+  "Hawkers Asian Street Food": {
+   "lat": 35.92561,
+   "lon": -79.02583,
+   "website": "https://eathawkers.com/?olonwp=z17TA_tz20aL5UmKf8LjMg"
+  },
+  "Hawthorne & Wood": {
+   "lat": 35.90641,
+   "lon": -79.02182,
+   "website": "http://hawthorneandwood.com"
+  },
+  "He's Not Here": {
+   "lat": 35.91344,
+   "lon": -79.05685,
+   "website": "http://www.twitter.com/Hes_Not_Here"
+  },
+  "Homestead Park": {
+   "lat": 35.95589,
+   "lon": -79.06487
+  },
+  "Italian Pizzeria III": {
+   "lat": 35.91022,
+   "lon": -79.06402,
+   "website": "http://italianpizzeria3.com/"
+  },
+  "Joe Van Gogh": {
+   "lat": 35.96308,
+   "lon": -79.05241,
+   "website": "http://www.joevangogh.com"
+  },
+  "Johnny T-shirt": {
+   "lat": 35.91339,
+   "lon": -79.0548,
+   "website": "http://www.johnnytshirt.com/"
+  },
+  "Johnny's Gone Fishing": {
+   "lat": 35.91578,
+   "lon": -79.08698,
+   "website": "http://www.johnnysgonefishing.com"
+  },
+  "Jujube": {
+   "lat": 35.90884,
+   "lon": -79.02518,
+   "website": "http://jujuberestaurant.com/"
+  },
+  "Julian's": {
+   "lat": 35.91381,
+   "lon": -79.05463,
+   "website": "http://www.julianschapelhill.com/"
+  },
+  "Kenan Memorial Stadium": {
+   "lat": 35.90698,
+   "lon": -79.04786
+  },
+  "Kipos Greek Taverna": {
+   "lat": 35.93533,
+   "lon": -79.02636,
+   "website": "https://www.kiposchapelhill.com/"
+  },
+  "Lantern": {
+   "lat": 35.9105,
+   "lon": -79.06236,
+   "website": "http://www.lanternrestaurant.com/"
+  },
+  "Li Ming's Global Mart": {
+   "lat": 35.96619,
+   "lon": -78.96321,
+   "website": "http://lm-globalmart.com"
+  },
+  "Local 506": {
+   "lat": 35.91018,
+   "lon": -79.06383,
+   "website": "http://www.local506.com/"
+  },
+  "Los Potrillos": {
+   "lat": 35.91342,
+   "lon": -79.05869,
+   "website": "http://www.los-potrillos.net"
+  },
+  "Lucha Tigre": {
+   "lat": 35.92476,
+   "lon": -79.05341,
+   "website": "http://luchatigre.com/"
+  },
+  "Maple View Farm Country Store": {
+   "lat": 35.97693,
+   "lon": -79.13905,
+   "website": "http://www.mapleviewfarm.com/"
+  },
+  "Maple View Farm Ice Cream": {
+   "lat": 35.97684,
+   "lon": -79.13903,
+   "website": "http://www.mapleviewfarm.com/"
+  },
+  "McCorkle Place": {
+   "lat": 35.91323,
+   "lon": -79.05184
+  },
+  "Meadowmont Village": {
+   "lat": 35.90592,
+   "lon": -79.00927
+  },
+  "Might as Well Bar & Grill": {
+   "lat": 35.91223,
+   "lon": -79.05876,
+   "website": "http://mightaswellbarandgrill.com/"
+  },
+  "Morehead Planetarium and Science Center": {
+   "lat": 35.91401,
+   "lon": -79.05064,
+   "website": "http://www.moreheadplanetarium.org/"
+  },
+  "Morehead-Patterson Bell Tower": {
+   "lat": 35.90859,
+   "lon": -79.04924
+  },
+  "Neal's Deli": {
+   "lat": 35.9101,
+   "lon": -79.0722,
+   "website": "http://www.nealsdeli.com/"
+  },
+  "Nice Price Books": {
+   "lat": 35.91025,
+   "lon": -79.06687,
+   "website": "https://nicepricebooksandrecords.com"
+  },
+  "Nightlight": {
+   "lat": 35.91151,
+   "lon": -79.06258,
+   "website": "http://www.nightlightclub.com"
+  },
+  "North Carolina Botanical Garden": {
+   "lat": 35.90571,
+   "lon": -79.04626
+  },
+  "Open Eye Cafe": {
+   "lat": 35.90989,
+   "lon": -79.07216,
+   "website": "http://www.openeyecafe.com/"
+  },
+  "Orange County Social Club": {
+   "lat": 35.9104,
+   "lon": -79.07108,
+   "website": "http://orangecountysocialclub.com/"
+  },
+  "Osteria Georgi": {
+   "lat": 35.9332,
+   "lon": -79.0279,
+   "website": "https://www.osteriageorgi.com"
+  },
+  "Pizzeria Mercato": {
+   "lat": 35.91134,
+   "lon": -79.07612,
+   "website": "http://www.pizzeriamercatonc.com/"
+  },
+  "PlayMakers Repertory Company": {
+   "lat": 35.91185,
+   "lon": -79.04386,
+   "website": "http://www.playmakersrep.org/"
+  },
+  "Port City Java": {
+   "lat": 35.906,
+   "lon": -79.04569,
+   "website": "http://www.portcityjava.com/"
+  },
+  "Rams Head Recreation Center": {
+   "lat": 35.9059,
+   "lon": -79.04655,
+   "website": "http://campusrec.unc.edu/fitness-centers"
+  },
+  "Schoolkids Records": {
+   "lat": 35.91106,
+   "lon": -79.06059,
+   "website": "http://www.schoolkidsrecords.com"
+  },
+  "Sheetz": {
+   "lat": 35.90751,
+   "lon": -78.96094,
+   "website": "https://www.sheetz.com/"
+  },
+  "Silverspot Cinema": {
+   "lat": 35.92845,
+   "lon": -79.02814,
+   "website": "https://silverspot.net/"
+  },
+  "Southern Season": {
+   "lat": 35.92527,
+   "lon": -79.02586,
+   "website": "http://southernseason.com/"
+  },
+  "Southern Village": {
+   "lat": 35.88159,
+   "lon": -79.06414
+  },
+  "Steel String Brewery": {
+   "lat": 35.90988,
+   "lon": -79.07241,
+   "website": "http://www.steelstringbrewery.com/"
+  },
+  "Sugarland": {
+   "lat": 35.91366,
+   "lon": -79.05445,
+   "website": "http://www.sugarlandchapelhill.com"
+  },
+  "Sunrise Biscuit Kitchen": {
+   "lat": 35.92757,
+   "lon": -79.03547,
+   "website": "https://sunrisebiscuits.com/"
+  },
+  "Sup Dogs": {
+   "lat": 35.91339,
+   "lon": -79.05537,
+   "website": "https://supdogs.com/"
+  },
+  "Sutton's Drug Store": {
+   "lat": 35.91404,
+   "lon": -79.05383,
+   "website": "http://www.suttonsdrugstore.com/"
+  },
+  "Tandem": {
+   "lat": 35.91157,
+   "lon": -79.07187,
+   "website": "http://tandemcarrboro.com/"
+  },
+  "The ArtsCenter": {
+   "lat": 35.90961,
+   "lon": -79.06989,
+   "website": "http://www.artscenterlive.org"
+  },
+  "The Blue Note Grill": {
+   "lat": 35.96839,
+   "lon": -78.95967,
+   "website": "http://www.thebluenotegrill.com"
+  },
+  "The Bookshop": {
+   "lat": 35.91139,
+   "lon": -79.06093,
+   "website": "http://www.bookshopinc.com"
+  },
+  "The Cave": {
+   "lat": 35.91074,
+   "lon": -79.06248,
+   "website": "http://www.caverntavern.com/"
+  },
+  "The Crunkleton": {
+   "lat": 35.9114,
+   "lon": -79.06065,
+   "website": "http://www.thecrunkleton.com/"
+  },
+  "The Lumina Theater": {
+   "lat": 35.88092,
+   "lon": -79.06646,
+   "website": "http://www.thelumina.com/"
+  },
+  "The Old Well": {
+   "lat": 35.91205,
+   "lon": -79.05124
+  },
+  "The Pig": {
+   "lat": 35.96223,
+   "lon": -79.03489,
+   "website": "http://www.thepigrestaurant.com/"
+  },
+  "The Pit": {
+   "lat": 35.91002,
+   "lon": -79.04839
+  },
+  "The Purple Bowl": {
+   "lat": 35.90986,
+   "lon": -79.06382,
+   "website": "http://purplebowlch.com/"
+  },
+  "The Station": {
+   "lat": 35.91078,
+   "lon": -79.07024,
+   "website": "http://www.thestationcarrboro.com"
+  },
+  "Townsend Bertram & Company": {
+   "lat": 35.9113,
+   "lon": -79.0707,
+   "website": "http://www.tbandc.com"
+  },
+  "Trader Joe's": {
+   "lat": 35.93664,
+   "lon": -79.0245,
+   "website": "https://locations.traderjoes.com/nc/chapel-hill/745/"
+  },
+  "UNC Student Stores": {
+   "lat": 35.90966,
+   "lon": -79.04829,
+   "website": "http://store.unc.edu/"
+  },
+  "Umstead Park": {
+   "lat": 35.92128,
+   "lon": -79.06329
+  },
+  "Uniquities": {
+   "lat": 35.91083,
+   "lon": -79.06256,
+   "website": "https://www.uniquities.com"
+  },
+  "University Lake": {
+   "lat": 35.89774,
+   "lon": -79.09248
+  },
+  "University Place": {
+   "lat": 35.92778,
+   "lon": -79.0265,
+   "website": "http://www.universityplacenc.com/"
+  },
+  "Varsity Theatre": {
+   "lat": 35.91362,
+   "lon": -79.05499,
+   "website": "http://varsityonfranklin.com/"
+  },
+  "Venable Rotisserie Bistro": {
+   "lat": 35.91128,
+   "lon": -79.07047,
+   "website": "http://venablebistro.com/"
+  },
+  "Vimala's Curryblossom Cafe": {
+   "lat": 35.91008,
+   "lon": -79.06294,
+   "website": "https://curryblossom.cafe/"
+  },
+  "Weaver Street Market": {
+   "lat": 35.88007,
+   "lon": -79.06601,
+   "website": "http://www.weaverstreetmarket.coop/"
+  },
+  "Whitehall Antiques": {
+   "lat": 35.92534,
+   "lon": -79.03852,
+   "website": "http://www.WhitehallAntiques.com/"
+  },
+  "Wilson Library": {
+   "lat": 35.90934,
+   "lon": -79.04983,
+   "website": "http://www.lib.unc.edu/wilson"
+  },
+  "Ye Olde Waffle Shoppe": {
+   "lat": 35.91425,
+   "lon": -79.05347,
+   "website": "https://yeoldewaffleshoppe.com"
+  }
+ },
  "chicago": {
   "5 Rabanitos": {
    "lat": 41.85779,
    "lon": -87.67095,
    "website": "http://5rabanitos.com/"
+  },
+  "53rd Street, Hyde Park": {
+   "lat": 41.7996,
+   "lon": -87.59287
+  },
+  "57th Street Books": {
+   "lat": 41.79126,
+   "lon": -87.59467,
+   "website": "https://linktr.ee/Seminarycoopbookstores"
   },
   "61st Street Farmers Market": {
    "lat": 41.78407,
@@ -1493,8 +2325,7 @@
   },
   "Adler Planetarium": {
    "lat": 41.86564,
-   "lon": -87.61965,
-   "website": "http://www.adlerplanetarium.org/"
+   "lon": -87.61965
   },
   "Admiral Theatre": {
    "lat": 41.96854,
@@ -1602,6 +2433,11 @@
    "lon": -87.62522,
    "website": "http://www.auditoriumtheatre.org/"
   },
+  "Avli Taverna": {
+   "lat": 41.92875,
+   "lon": -87.66236,
+   "website": "https://www.avli.us/?utm_source=lincolnpark-facebook&utm_medium=social"
+  },
   "Bang Bang Pie & Biscuits": {
    "lat": 41.91901,
    "lon": -87.69712,
@@ -1616,6 +2452,11 @@
    "lat": 41.88924,
    "lon": -87.63489,
    "website": "https://bavettessteakhouse.com/"
+  },
+  "Beverly Arts Center": {
+   "lat": 41.69167,
+   "lon": -87.68167,
+   "website": "https://thebeverlyartscenter.com/event/bac-59th-anniversary-gala-a-night-of-glitz-glamor-and-all-that-jazz/"
   },
   "Big Chicks": {
    "lat": 41.97403,
@@ -1641,6 +2482,11 @@
    "lon": -87.65992,
    "website": "http://birrieriazaragoza.com"
   },
+  "Bistro Campagne": {
+   "lat": 41.9636,
+   "lon": -87.68571,
+   "website": "http://www.bistrocampagne.com/"
+  },
   "Black Dog Gelato": {
    "lat": 41.89767,
    "lon": -87.67688,
@@ -1661,6 +2507,11 @@
    "lon": -87.64792,
    "website": "http://www.bpigcafe.com/"
   },
+  "Brew & Grow": {
+   "lat": 41.67366,
+   "lon": -88.06833,
+   "website": "https://www.brewandgrow.com"
+  },
   "Bridgeport": {
    "lat": 41.83789,
    "lon": -87.64646
@@ -1669,6 +2520,15 @@
    "lat": 41.99334,
    "lon": -87.66059,
    "website": "http://bamchicago.com/"
+  },
+  "Broadway Armory Park": {
+   "lat": 41.98932,
+   "lon": -87.65999,
+   "website": "http://www.chicagoparkdistrict.com"
+  },
+  "Buckingham Fountain": {
+   "lat": 41.88599,
+   "lon": -87.62093
   },
   "Bucktown": {
    "lat": 41.91037,
@@ -1728,6 +2588,11 @@
    "lat": 41.90335,
    "lon": -88.08232,
    "website": "https://www.caseys.com"
+  },
+  "Cellar Door Provisions": {
+   "lat": 41.932,
+   "lon": -87.70359,
+   "website": "http://cellardoorprovisions.com"
   },
   "Central Camera": {
    "lat": 41.87859,
@@ -1843,6 +2708,11 @@
    "lat": 41.8834,
    "lon": -87.62247
   },
+  "Coco Pazzo": {
+   "lat": 41.89009,
+   "lon": -87.63586,
+   "website": "http://www.cocopazzochicago.com/"
+  },
   "Cole's Bar": {
    "lat": 41.92371,
    "lon": -87.6988,
@@ -1873,6 +2743,11 @@
    "lon": -87.76272,
    "website": "https://www.cornerbakerycafe.com/location/skokie"
   },
+  "Court Theatre": {
+   "lat": 41.7938,
+   "lon": -87.60074,
+   "website": "http://www.courttheatre.org/"
+  },
   "Crafty Beaver Home Center": {
    "lat": 42.0265,
    "lon": -87.74792,
@@ -1887,6 +2762,11 @@
    "lat": 41.76785,
    "lon": -87.97379,
    "website": "https://www.wsce.com/location/westmont-currency-exchange"
+  },
+  "Daisies": {
+   "lat": 41.92722,
+   "lon": -87.70419,
+   "website": "https://www.daisieschicago.com"
   },
   "Dan Ryan Woods": {
    "lat": 41.74154,
@@ -1907,10 +2787,24 @@
    "lon": -87.68663,
    "website": "http://www.davistheater.com/"
   },
+  "DePaul Art Museum": {
+   "lat": 41.92513,
+   "lon": -87.65253,
+   "website": "http://artmuseum.depaul.edu/"
+  },
+  "Dearborn Observatory": {
+   "lat": 42.05669,
+   "lon": -87.67506
+  },
   "Delilah's": {
    "lat": 41.93227,
    "lon": -87.65809,
    "website": "http://www.delilahschicago.com/"
+  },
+  "Devil Dawgs": {
+   "lat": 41.87217,
+   "lon": -87.62738,
+   "website": "http://www.devildawgs.com/"
   },
   "Dill Pickle Food Co-op": {
    "lat": 41.93086,
@@ -1946,6 +2840,11 @@
    "lat": 41.95618,
    "lon": -87.67446,
    "website": "http://www.dovetailbrewery.com/"
+  },
+  "Duffy's Tavern": {
+   "lat": 41.87956,
+   "lon": -87.81278,
+   "website": "https://duffystavernforestpark.com/"
   },
   "Dunkin'": {
    "lat": 41.93907,
@@ -2006,6 +2905,10 @@
    "lon": -87.77619,
    "website": "http://www.fieldmuseum.org/"
   },
+  "Fiesta Mexicana": {
+   "lat": 41.96917,
+   "lon": -87.65985
+  },
   "Firecakes Donuts": {
    "lat": 41.92693,
    "lon": -87.64122,
@@ -2055,6 +2958,11 @@
    "lon": -87.90849,
    "website": "http://www.myfreshfarms.com"
   },
+  "Fruve xPress Juicery": {
+   "lat": 41.88176,
+   "lon": -87.65505,
+   "website": "http://www.fruvexpressjuicery.com/"
+  },
   "Fulton Market": {
    "lat": 41.88586,
    "lon": -87.64965
@@ -2067,6 +2975,11 @@
    "lat": 41.94005,
    "lon": -87.64936,
    "website": "http://furiousramen.com"
+  },
+  "Galit": {
+   "lat": 41.9263,
+   "lon": -87.64951,
+   "website": "http://www.galitrestaurant.com/"
   },
   "Garfield Park": {
    "lat": 41.88211,
@@ -2105,6 +3018,11 @@
    "lat": 41.98671,
    "lon": -87.66924,
    "website": "https://www.gethsemanegardens.com/"
+  },
+  "Ghareeb Nawaz": {
+   "lat": 41.99797,
+   "lon": -87.68158,
+   "website": "http://www.yelp.com/biz/ghareeb-nawaz-restaurant-chicago"
   },
   "Gibsons Bar & Steakhouse": {
    "lat": 41.84855,
@@ -2155,6 +3073,11 @@
    "lon": -87.68833,
    "website": "http://goldennuggetpancake.com/locations.php"
   },
+  "Golf Mill Shopping Center": {
+   "lat": 42.05098,
+   "lon": -87.83702,
+   "website": "https://www.golfmill.com/"
+  },
   "Goodman Theatre": {
    "lat": 41.8851,
    "lon": -87.62965,
@@ -2183,6 +3106,11 @@
    "lat": 41.89855,
    "lon": -87.63641
   },
+  "Greek Islands": {
+   "lat": 41.87905,
+   "lon": -87.64763,
+   "website": "http://www.greekislands.net"
+  },
   "Green City Market": {
    "lat": 41.9159,
    "lon": -87.63428,
@@ -2203,15 +3131,29 @@
    "lon": -87.68202,
    "website": "http://www.halfacrebeer.com/"
   },
+  "Halsted Packing House": {
+   "lat": 41.89045,
+   "lon": -87.64747
+  },
   "Handlebar": {
    "lat": 41.91018,
    "lon": -87.6853,
    "website": "http://handlebarchicago.com/"
   },
+  "Harlem Irving Plaza": {
+   "lat": 41.95575,
+   "lon": -87.80856,
+   "website": "https://linktr.ee/shophip"
+  },
   "Harold's Chicken Shack": {
    "lat": 41.76273,
    "lon": -87.6836,
    "website": "http://haroldschicken.com"
+  },
+  "Harper Memorial Library": {
+   "lat": 41.78784,
+   "lon": -87.59962,
+   "website": "https://architecture.uchicago.edu/locations/william_rainey_harper_memorial_library"
   },
   "Harris Theater for Music and Dance": {
    "lat": 41.88394,
@@ -2227,6 +3169,16 @@
    "lat": 41.65434,
    "lon": -87.54746
   },
+  "Henry Crown Field House": {
+   "lat": 41.79356,
+   "lon": -87.59876,
+   "website": "http://athletics.uchicago.edu"
+  },
+  "Hexe Coffee Co.": {
+   "lat": 41.93261,
+   "lon": -87.67896,
+   "website": "https://www.hexecoffee.com"
+  },
   "High Five Ramen": {
    "lat": 41.88369,
    "lon": -87.6487,
@@ -2236,7 +3188,16 @@
    "lat": 41.7537,
    "lon": -87.94393
   },
+  "Honey Butter Fried Chicken": {
+   "lat": 41.94264,
+   "lon": -87.70275
+  },
   "Hopewell Brewing": {
+   "lat": 41.93128,
+   "lon": -87.7112,
+   "website": "http://hopewellbrewing.com/"
+  },
+  "Hopewell Brewing Company": {
    "lat": 41.93128,
    "lon": -87.7112,
    "website": "http://hopewellbrewing.com/"
@@ -2316,6 +3277,11 @@
    "lon": -87.75771,
    "website": "https://local.jewelosco.com/il/oak-forest/5616-w-159th-st.html"
   },
+  "Jim's Original": {
+   "lat": 41.86568,
+   "lon": -87.64525,
+   "website": "http://www.jimsoriginal.com/"
+  },
   "Jin Ju": {
    "lat": 41.97639,
    "lon": -87.66833,
@@ -2330,6 +3296,11 @@
    "lat": 42.06694,
    "lon": -87.85077,
    "website": "http://www.joongboomarket.com"
+  },
+  "Joseph Regenstein Library": {
+   "lat": 41.79232,
+   "lon": -87.59993,
+   "website": "http://www.lib.uchicago.edu/e/reg/"
   },
   "Julius Meinl": {
    "lat": 41.9567,
@@ -2349,6 +3320,11 @@
    "lat": 41.88845,
    "lon": -87.80315,
    "website": "http://katysdumplinghouse.com/"
+  },
+  "Kelly's Pub": {
+   "lat": 41.92163,
+   "lon": -87.65295,
+   "website": "http://twitter.com/KellysPubLP"
   },
   "Kingston Mines": {
    "lat": 41.9287,
@@ -2400,6 +3376,14 @@
    "lon": -87.70303,
    "website": "http://www.lachaparrita2.com"
   },
+  "LaBagh Woods": {
+   "lat": 41.88973,
+   "lon": -87.80592
+  },
+  "Lake Meadows": {
+   "lat": 41.83524,
+   "lon": -87.61659
+  },
   "Lakefront Trail": {
    "lat": 41.89307,
    "lon": -87.61375
@@ -2408,6 +3392,11 @@
    "lat": 41.92591,
    "lon": -87.66141,
    "website": "http://www.lakeshoresf.com"
+  },
+  "Lalo's": {
+   "lat": 41.89132,
+   "lon": -87.60742,
+   "website": "http://www.lalos.com"
   },
   "Lalo's Mexican Restaurant": {
    "lat": 42.08124,
@@ -2429,6 +3418,10 @@
    "lon": -87.71636,
    "website": "http://latebarchicago.com/"
   },
+  "Lathrop Homes": {
+   "lat": 41.93253,
+   "lon": -87.6791
+  },
   "Laurie's Planet of Sound": {
    "lat": 41.96601,
    "lon": -87.68673,
@@ -2447,6 +3440,11 @@
   "Leaning Tower of Niles": {
    "lat": 42.01243,
    "lon": -87.78405
+  },
+  "Left Coast Food + Juice": {
+   "lat": 41.88456,
+   "lon": -87.63523,
+   "website": "https://www.leftcoastfood.com"
   },
   "Lem's Bar-B-Q": {
    "lat": 41.75821,
@@ -2471,6 +3469,11 @@
   "Lincoln Park": {
    "lat": 41.88942,
    "lon": -87.62896
+  },
+  "Links Hall": {
+   "lat": 41.9381,
+   "lon": -87.68764,
+   "website": "https://www.linkshall.org"
   },
   "Little Goat Diner": {
    "lat": 41.94234,
@@ -2521,6 +3524,11 @@
    "lon": -87.70689,
    "website": "http://lulacafe.com/"
   },
+  "M. Henry": {
+   "lat": 41.98562,
+   "lon": -87.66917,
+   "website": "http://www.mhenry.net/"
+  },
   "Mako": {
    "lat": 41.88561,
    "lon": -87.64693,
@@ -2551,6 +3559,10 @@
    "lon": -87.8522,
    "website": "https://www.marianos.com/"
   },
+  "Marion Street Cheese Market": {
+   "lat": 41.88631,
+   "lon": -87.80212
+  },
   "Marquette Bank": {
    "lat": 41.60341,
    "lon": -87.75874,
@@ -2565,6 +3577,16 @@
    "lat": 41.83387,
    "lon": -87.64582,
    "website": "http://marzbrewing.com"
+  },
+  "Marz Community Brewing Co.": {
+   "lat": 41.83387,
+   "lon": -87.64582,
+   "website": "http://marzbrewing.com"
+  },
+  "Medici on 57th": {
+   "lat": 41.79134,
+   "lon": -87.59378,
+   "website": "http://www.medici57.com/"
   },
   "Meijer": {
    "lat": 41.60471,
@@ -2637,10 +3659,20 @@
    "lat": 41.85135,
    "lon": -87.70341
   },
+  "Mott St": {
+   "lat": 41.90714,
+   "lon": -87.66737,
+   "website": "http://www.mottstreetchicago.com/"
+  },
   "Mr. Beef": {
    "lat": 41.89445,
    "lon": -87.63727,
    "website": "http://mrbeefonorleans.com/"
+  },
+  "Murphy's Bleachers": {
+   "lat": 41.9489,
+   "lon": -87.65421,
+   "website": "http://www.murphysbleachers.com/"
   },
   "Museum of Contemporary Art Chicago": {
    "lat": 41.89722,
@@ -2730,6 +3762,11 @@
    "lon": -87.65191,
    "website": "http://www.offcolorbrewing.com"
   },
+  "Off Color Brewing (The Mousetrap)": {
+   "lat": 41.9079,
+   "lon": -87.65191,
+   "website": "http://www.offcolorbrewing.com"
+  },
   "Off Color Brewing \u2013 The Mousetrap": {
    "lat": 41.9079,
    "lon": -87.65191,
@@ -2786,9 +3823,18 @@
    "lon": -87.64513,
    "website": "http://www.oriolechicago.com/"
   },
+  "Osteria Langhe": {
+   "lat": 41.91755,
+   "lon": -87.69823,
+   "website": "http://www.osterialanghe.com/"
+  },
   "Palmer Square Park": {
    "lat": 41.92113,
    "lon": -87.70528
+  },
+  "Parachute": {
+   "lat": 41.94471,
+   "lon": -87.70653
   },
   "Passion House Coffee Roasters": {
    "lat": 41.88649,
@@ -2829,6 +3875,11 @@
    "lat": 41.85626,
    "lon": -87.66566
   },
+  "Pilsen Community Books": {
+   "lat": 41.8581,
+   "lon": -87.65369,
+   "website": "http://www.pilsencommunitybooks.org"
+  },
   "Pinwheel Records": {
    "lat": 41.85788,
    "lon": -87.66954,
@@ -2843,6 +3894,11 @@
    "lat": 42.10215,
    "lon": -87.8123,
    "website": "https://www.planetfitness.com/gyms/glenview-il?utm_medium=organic&utm_source=extnet"
+  },
+  "Plein Air Cafe": {
+   "lat": 41.79002,
+   "lon": -87.59624,
+   "website": "http://www.pleinaircafe.co/"
   },
   "Pompei (Little Italy)": {
    "lat": 41.89276,
@@ -2873,6 +3929,11 @@
    "lat": 41.92433,
    "lon": -87.69727,
    "website": "http://Prettycoolicecream.com/"
+  },
+  "Protein Bar & Kitchen": {
+   "lat": 41.88584,
+   "lon": -87.62868,
+   "website": "https://www.theproteinbar.com/location/protein-bar-kitchen-state-lake-chicago/"
   },
   "Publican Quality Meats": {
    "lat": 41.88669,
@@ -2909,6 +3970,11 @@
    "lon": -87.67744,
    "website": "http://www.wickerparkbars.com"
   },
+  "Ramen-San": {
+   "lat": 41.88979,
+   "lon": -87.63043,
+   "website": "http://ramensan.com/"
+  },
   "Ramen-san": {
    "lat": 41.88979,
    "lon": -87.63043,
@@ -2932,6 +3998,11 @@
    "lat": 41.87976,
    "lon": -87.63057,
    "website": "https://www.revivalfoodhall.com/"
+  },
+  "Riccardo Trattoria": {
+   "lat": 41.9207,
+   "lon": -87.63744,
+   "website": "http://www.riccardotrattoria.com/"
   },
   "Richard H. Driehaus Museum": {
    "lat": 41.8943,
@@ -2979,6 +4050,10 @@
    "lon": -87.65845,
    "website": "http://rotofugi.com/"
   },
+  "Ryan Field": {
+   "lat": 42.06539,
+   "lon": -87.69228
+  },
   "Saint Alfred": {
    "lat": 41.90933,
    "lon": -87.67564,
@@ -2993,6 +4068,11 @@
    "lat": 41.97761,
    "lon": -87.68884,
    "website": "http://www.sansoogabsan.com/"
+  },
+  "Save A Lot": {
+   "lat": 41.69874,
+   "lon": -87.64291,
+   "website": "https://savealot.com/stores/61312"
   },
   "Sawada Coffee": {
    "lat": 41.88366,
@@ -3014,6 +4094,11 @@
    "lon": -87.67101,
    "website": "http://www.scootersfrozencustard.com/"
   },
+  "Semicolon Bookstore & Gallery": {
+   "lat": 41.89594,
+   "lon": -87.66161,
+   "website": "http://www.semicolonchi.com/"
+  },
   "Semiramis": {
    "lat": 41.96586,
    "lon": -87.70844,
@@ -3033,6 +4118,10 @@
    "lat": 41.97658,
    "lon": -87.6686,
    "website": "http://www.chibarproject.com/Reviews/Simon's/Simon's.htm"
+  },
+  "Skokie Lagoons": {
+   "lat": 42.12317,
+   "lon": -87.77423
   },
   "Skylark": {
    "lat": 41.85277,
@@ -3069,6 +4158,11 @@
    "lon": -87.66056,
    "website": "http://www.smythandtheloyalist.com/smyth/"
   },
+  "Soldier Field": {
+   "lat": 41.86231,
+   "lon": -87.6167,
+   "website": "http://www.soldierfield.com/"
+  },
   "Soul & Smoke": {
    "lat": 42.05708,
    "lon": -87.69453,
@@ -3088,10 +4182,20 @@
    "lon": -87.89236,
    "website": "https://sparrowcoffee.com"
   },
+  "Sports World Chicago": {
+   "lat": 41.94713,
+   "lon": -87.65617,
+   "website": "http://sportsworldchicago.com/"
+  },
   "Sportsman's Club": {
    "lat": 41.89898,
    "lon": -87.6871,
    "website": "http://www.drinkingandgathering.com/"
+  },
+  "Sprout Home": {
+   "lat": 41.89537,
+   "lon": -87.67695,
+   "website": "http://www.sprouthome.com/"
   },
   "Spybar": {
    "lat": 41.89366,
@@ -3130,6 +4234,11 @@
    "lon": -87.69746,
    "website": "https://chicagofalafel.com/order-now/"
   },
+  "Sulzer Regional Library": {
+   "lat": 41.96285,
+   "lon": -87.68443,
+   "website": "http://www.chipublib.org/002branches/sulzer/sulzer.html"
+  },
   "Sun Wah BBQ": {
    "lat": 41.97395,
    "lon": -87.6597,
@@ -3160,15 +4269,30 @@
    "lon": -87.65511,
    "website": "http://tacquick.com/"
   },
+  "Table, Donkey and Stick": {
+   "lat": 41.91755,
+   "lon": -87.69598,
+   "website": "http://www.tabledonkeystick.com/"
+  },
   "Taco Burrito King": {
    "lat": 41.67962,
    "lon": -87.72031,
    "website": "http://www.yelp.com/biz/taco-burrito-king-alsip-2"
   },
+  "Tai Nam Food Market": {
+   "lat": 41.97241,
+   "lon": -87.65895,
+   "website": "http://www.tainammarket.com/"
+  },
   "Taqueria Chingon": {
    "lat": 41.8866,
    "lon": -87.64822,
    "website": "https://www.taqueriachingon.com/"
+  },
+  "Taxim": {
+   "lat": 41.90974,
+   "lon": -87.67667,
+   "website": "http://www.taximchicago.com/"
   },
   "Tempo Cafe": {
    "lat": 41.89844,
@@ -3188,6 +4312,16 @@
   "The 606": {
    "lat": 41.91386,
    "lon": -87.72023
+  },
+  "The Ark Thrift Shop": {
+   "lat": 41.94283,
+   "lon": -87.67052,
+   "website": "http://www.arkchicago.org"
+  },
+  "The Book Cellar": {
+   "lat": 41.96757,
+   "lon": -87.68813,
+   "website": "http://www.bookcellarinc.com/"
   },
   "The Dock at Montrose Beach": {
    "lat": 41.96485,
@@ -3337,6 +4471,11 @@
    "lon": -87.62845,
    "website": "https://www.tzuco.com"
   },
+  "UIC Student Recreation Facility": {
+   "lat": 41.87243,
+   "lon": -87.64662,
+   "website": "http://recreation.uic.edu/"
+  },
   "Una Mae's": {
    "lat": 41.9092,
    "lon": -87.67581,
@@ -3355,6 +4494,15 @@
   "United Center": {
    "lat": 41.89289,
    "lon": -87.62823
+  },
+  "Urbanbelly": {
+   "lat": 41.88429,
+   "lon": -87.66292,
+   "website": "http://urbanbellychicago.com"
+  },
+  "Valli Produce": {
+   "lat": 42.05194,
+   "lon": -87.97661
   },
   "Viking Ski Shop": {
    "lat": 41.92478,
@@ -3427,6 +4575,11 @@
    "lon": -87.79848,
    "website": "http://www.webersbakery.com/"
   },
+  "Webster's Wine Bar": {
+   "lat": 41.92178,
+   "lon": -87.66607,
+   "website": "http://www.websterwinebar.com"
+  },
   "White Hen Pantry": {
    "lat": 41.97649,
    "lon": -87.83698
@@ -3443,6 +4596,11 @@
    "lat": 42.10548,
    "lon": -87.73099
   },
+  "Wintrust Arena": {
+   "lat": 41.85379,
+   "lon": -87.62112,
+   "website": "http://wintrustarena.com/"
+  },
   "Wishbone": {
    "lat": 41.88504,
    "lon": -87.64261,
@@ -3451,6 +4609,10 @@
   "Wolff's Flea Market": {
    "lat": 42.14373,
    "lon": -88.02534
+  },
+  "Woodlawn": {
+   "lat": 41.7515,
+   "lon": -87.59519
   },
   "Working Bikes": {
    "lat": 41.8472,
@@ -3461,6 +4623,10 @@
    "lat": 41.92897,
    "lon": -87.64503,
    "website": "https://wrightwood659.org/publications/"
+  },
+  "Wrigley Field": {
+   "lat": 41.94847,
+   "lon": -87.65533
   },
   "Wrigleyville": {
    "lat": 41.94704,
@@ -3492,6 +4658,11 @@
    "lat": 34.06879,
    "lon": -118.29627,
    "website": "https://www.7-eleven.com/"
+  },
+  "A Noise Within": {
+   "lat": 34.1433,
+   "lon": -118.25452,
+   "website": "http://www.anoisewithin.org"
   },
   "A.O.C.": {
    "lat": 34.07343,
@@ -3559,6 +4730,11 @@
    "lat": 34.02441,
    "lon": -118.51309
   },
+  "Antico Nuovo": {
+   "lat": 34.07651,
+   "lon": -118.31101,
+   "website": "http://www.antico-la.com/"
+  },
   "Apollonia's Pizzeria": {
    "lat": 34.06176,
    "lon": -118.34274,
@@ -3569,10 +4745,30 @@
    "lon": -118.4985,
    "website": "http://www.arcanabooks.com"
   },
+  "Armstrong Garden Centers": {
+   "lat": 33.77881,
+   "lon": -118.14725,
+   "website": "https://www.armstronggarden.com/armstrong-garden-centers-long-beach"
+  },
+  "Astro Family Restaurant": {
+   "lat": 34.10449,
+   "lon": -118.25866,
+   "website": "http://astrofamilyrestaurant.com/"
+  },
   "Atomic Records": {
    "lat": 34.16719,
    "lon": -118.34854,
    "website": "http://AtomicRecordsLA.com/"
+  },
+  "Bacetti Trattoria": {
+   "lat": 34.08018,
+   "lon": -118.25539,
+   "website": "https://bacetti-la.com"
+  },
+  "Backyard Bowls": {
+   "lat": 34.01971,
+   "lon": -118.49336,
+   "website": "http://www.backyardbowls.com"
   },
   "Balconi Coffee Company": {
    "lat": 34.0384,
@@ -3603,10 +4799,14 @@
    "lon": -118.38361,
    "website": "https://www.barnine.us"
   },
+  "Barney's Beanery": {
+   "lat": 34.18111,
+   "lon": -118.31174,
+   "website": "http://www.barneysbeanery.com/"
+  },
   "Barnsdall Art Park": {
    "lat": 34.10039,
-   "lon": -118.29435,
-   "website": "http://barnsdall.org/"
+   "lon": -118.29435
   },
   "Baroo": {
    "lat": 34.04726,
@@ -3617,6 +4817,11 @@
    "lat": 34.01793,
    "lon": -118.48929,
    "website": "http://www.baycitiesitaliandeli.com"
+  },
+  "Bay Club": {
+   "lat": 34.2019,
+   "lon": -118.61156,
+   "website": "http://www.bayclubs.com"
   },
   "Bay Club Santa Monica": {
    "lat": 34.02797,
@@ -3642,6 +4847,11 @@
    "lat": 34.03367,
    "lon": -118.22921,
    "website": "http://www.bestiala.com/"
+  },
+  "Beyond Baroque": {
+   "lat": 33.99132,
+   "lon": -118.45881,
+   "website": "http://www.beyondbaroque.org/"
   },
   "Big Daddy's Antiques": {
    "lat": 34.02805,
@@ -3699,6 +4909,10 @@
    "lon": -118.28013,
    "website": "https://brouwerijwest.com"
   },
+  "Broxton Brewery & Public House": {
+   "lat": 34.06113,
+   "lon": -118.44561
+  },
   "Buffalo Exchange": {
    "lat": 34.15158,
    "lon": -118.45175,
@@ -3724,8 +4938,7 @@
   },
   "California Science Center": {
    "lat": 34.01584,
-   "lon": -118.28632,
-   "website": "https://californiasciencecenter.org/"
+   "lon": -118.28632
   },
   "Canter's Deli": {
    "lat": 34.07878,
@@ -3745,6 +4958,15 @@
    "lat": 34.14684,
    "lon": -118.4228,
    "website": "http://www.casavega.com/"
+  },
+  "Cassell's Hamburgers": {
+   "lat": 34.0635,
+   "lon": -118.30054,
+   "website": "http://www.cassellshamburgers.com/"
+  },
+  "Castaic Lake": {
+   "lat": 34.31699,
+   "lon": -118.49081
   },
   "Catch One": {
    "lat": 34.04774,
@@ -3770,6 +4992,10 @@
    "lon": -118.27796,
    "website": "http://theoriginalchanos.com"
   },
+  "Chase Knolls": {
+   "lat": 34.15874,
+   "lon": -118.42458
+  },
   "Chevalier's Books": {
    "lat": 34.07403,
    "lon": -118.32384,
@@ -3783,6 +5009,11 @@
   "Chicken Boy": {
    "lat": 34.10865,
    "lon": -118.1944
+  },
+  "Chinois on Main": {
+   "lat": 34.00085,
+   "lon": -118.48219,
+   "website": "http://www.wolfgangpuck.com/restaurants/finedining/chinois/main"
   },
   "Chuze Fitness": {
    "lat": 33.96158,
@@ -3834,6 +5065,11 @@
    "lon": -118.40093,
    "website": "https://crossroadstrading.com/location/studio-city-ventura-blvd/"
   },
+  "Crypto.com Arena": {
+   "lat": 34.04309,
+   "lon": -118.2672,
+   "website": "http://www.cryptoarena.com/"
+  },
   "Cupid's Hot Dogs": {
    "lat": 34.19362,
    "lon": -118.57001,
@@ -3871,6 +5107,11 @@
   "Descanso Gardens": {
    "lat": 34.20113,
    "lon": -118.20966
+  },
+  "Dinah's Family Restaurant": {
+   "lat": 33.98029,
+   "lon": -118.39494,
+   "website": "http://www.dinahsrestaurant.com/"
   },
   "Dinosaur Coffee": {
    "lat": 34.09533,
@@ -4007,6 +5248,16 @@
    "lat": 34.01731,
    "lon": -118.28593
   },
+  "Fair Oaks Pharmacy & Soda Fountain": {
+   "lat": 34.11605,
+   "lon": -118.15054,
+   "website": "http://fairoakspharmacy.net/"
+  },
+  "Falafel Arax": {
+   "lat": 34.15065,
+   "lon": -118.38811,
+   "website": "http://www.falafelaraxusa.com"
+  },
   "Fatburger": {
    "lat": 34.01186,
    "lon": -118.41964,
@@ -4037,6 +5288,11 @@
    "lon": -118.14394,
    "website": "http://fosselmans.com/"
   },
+  "Fowler Museum at UCLA": {
+   "lat": 34.07295,
+   "lon": -118.44315,
+   "website": "http://fowler.ucla.edu/"
+  },
   "Franklin Canyon Park": {
    "lat": 34.12304,
    "lon": -118.40962
@@ -4050,6 +5306,11 @@
    "lat": 34.03599,
    "lon": -118.68514,
    "website": "http://www.fredsegal.com"
+  },
+  "Frogtown Brewery": {
+   "lat": 34.10696,
+   "lon": -118.25129,
+   "website": "http://frogtownbrewery.com/"
   },
   "Frolic Room": {
    "lat": 34.10175,
@@ -4120,6 +5381,11 @@
    "lat": 34.28051,
    "lon": -118.454,
    "website": "https://gold-diggers.com"
+  },
+  "Golden Apple Comics": {
+   "lat": 34.08329,
+   "lon": -118.34348,
+   "website": "http://www.goldenapplecomics.com/"
   },
   "Golden Road Brewing": {
    "lat": 34.15049,
@@ -4287,6 +5553,11 @@
    "lon": -118.19389,
    "website": "https://www.myhomestate.com/highland-park-los-angeles/?utm_source=fb&utm_medium=yext"
   },
+  "Homegirl Cafe": {
+   "lat": 34.06252,
+   "lon": -118.2358,
+   "website": "http://homegirlcafe.org"
+  },
   "House of Pies": {
    "lat": 34.10507,
    "lon": -118.29214,
@@ -4301,20 +5572,30 @@
    "lon": -118.44679,
    "website": "http://www.iguanaclothing.com"
   },
+  "Il Cielo": {
+   "lat": 34.07177,
+   "lon": -118.38842,
+   "website": "http://www.ilcielo.com/"
+  },
   "Iliad Bookshop": {
    "lat": 34.16893,
    "lon": -118.3613,
    "website": "http://www.iliadbooks.com/"
   },
   "In-N-Out Burger": {
-   "lat": 34.1521,
-   "lon": -118.44826,
-   "website": "https://locations.in-n-out.com/85"
+   "lat": 33.75331,
+   "lon": -118.30865,
+   "website": "https://locations.in-n-out.com/151"
   },
   "Jet Rag": {
    "lat": 34.08619,
    "lon": -118.34428,
    "website": "http://www.jetragvintage.com/"
+  },
+  "John Wooden Center": {
+   "lat": 34.07115,
+   "lon": -118.44573,
+   "website": "http://www.recreation.ucla.edu"
   },
   "Jumbo's Clown Room": {
    "lat": 34.10202,
@@ -4329,6 +5610,11 @@
   "Kenneth Hahn State Recreation Area": {
    "lat": 34.01227,
    "lon": -118.37179
+  },
+  "Kerckhoff Coffee House": {
+   "lat": 34.07054,
+   "lon": -118.44355,
+   "website": "http://www.ucla.edu"
   },
   "Ketchum-Downtown YMCA": {
    "lat": 34.05225,
@@ -4359,6 +5645,11 @@
    "lat": 34.08453,
    "lon": -118.38441,
    "website": "http://www.koontz.com/"
+  },
+  "Kreation Organic Juicery": {
+   "lat": 34.06966,
+   "lon": -118.4059,
+   "website": "https://www.kreationjuice.com/"
   },
   "Kura Revolving Sushi Bar": {
    "lat": 34.03928,
@@ -4403,9 +5694,19 @@
    "lat": 34.07792,
    "lon": -118.37613
   },
+  "Las Perlas": {
+   "lat": 34.09084,
+   "lon": -118.35323,
+   "website": "http://lasperlasweho.com/"
+  },
   "Lawry's The Prime Rib": {
    "lat": 34.06781,
    "lon": -118.37605
+  },
+  "Le Petit Greek": {
+   "lat": 34.07399,
+   "lon": -118.32393,
+   "website": "https://www.lepetitgreek.com"
   },
   "Leimert Park": {
    "lat": 34.00426,
@@ -4421,6 +5722,11 @@
    "lon": -118.28727,
    "website": "http://www.youtube.com/eatheavyLA"
   },
+  "Little Sister": {
+   "lat": 33.81827,
+   "lon": -118.38692,
+   "website": "http://dinelittlesister.com/"
+  },
   "Lodge Room": {
    "lat": 34.10907,
    "lon": -118.19448,
@@ -4430,6 +5736,11 @@
    "lat": 34.14276,
    "lon": -118.13181,
    "website": "https://www.logixbanking.com/branches/pasadena?utm_source=GMB&utm_medium=Profile&utm_content=Pasadena&utm_campaign=Branch+Social+Pages"
+  },
+  "Lono Hollywood": {
+   "lat": 34.10173,
+   "lon": -118.33383,
+   "website": "http://lonohollywood.com/"
   },
   "Los Angeles Athletic Club": {
    "lat": 34.04685,
@@ -4457,6 +5768,11 @@
    "lat": 34.08393,
    "lon": -118.27429,
    "website": "https://www.clublosglobos.com"
+  },
+  "Madeo": {
+   "lat": 34.06837,
+   "lon": -118.40387,
+   "website": "http://madeoristorante.com"
   },
   "Majordomo": {
    "lat": 34.06907,
@@ -4516,6 +5832,11 @@
    "lon": -118.45756,
    "website": "https://www.mccabes.com/"
   },
+  "McCall's Meat & Fish Co.": {
+   "lat": 34.11704,
+   "lon": -118.26233,
+   "website": "https://www.mccallsmeatandfish.com/"
+  },
   "McCall's Meat & Fish Company": {
    "lat": 34.11704,
    "lon": -118.26233,
@@ -4531,9 +5852,9 @@
    "website": "https://www.MelroseTradingPost.org/"
   },
   "Mendocino Farms": {
-   "lat": 34.15963,
-   "lon": -118.63446,
-   "website": "https://www.mendocinofarms.com/locations/calabasas"
+   "lat": 34.04879,
+   "lon": -118.26078,
+   "website": "https://www.mendocinofarms.com/location-directory/los-angeles/735-s-figueroa-ave-los-angeles-ca-90017"
   },
   "Millie's Cafe": {
    "lat": 34.08928,
@@ -4567,6 +5888,10 @@
   "Mosaic Tile House": {
    "lat": 34.00007,
    "lon": -118.45693
+  },
+  "Mount Wilson Observatory": {
+   "lat": 34.08484,
+   "lon": -118.2981
   },
   "Museum of Jurassic Technology": {
    "lat": 34.02581,
@@ -4631,6 +5956,10 @@
    "lon": -118.45158,
    "website": "http://oldlightning.com/"
   },
+  "Old Pasadena": {
+   "lat": 34.14603,
+   "lon": -118.14995
+  },
   "Old Town Pasadena": {
    "lat": 34.13949,
    "lon": -118.15279
@@ -4668,6 +5997,14 @@
    "lon": -118.13728,
    "website": "http://www.pasadenaplayhouse.org/"
   },
+  "Paseo Colorado": {
+   "lat": 34.145,
+   "lon": -118.1451
+  },
+  "Pauley Pavilion": {
+   "lat": 34.0703,
+   "lon": -118.44676
+  },
   "Pavilions": {
    "lat": 33.98518,
    "lon": -118.43972,
@@ -4697,6 +6034,16 @@
    "lat": 34.0466,
    "lon": -118.25926,
    "website": "https://philzcoffee.com/locations/dtla-hope"
+  },
+  "Pie 'n Burger": {
+   "lat": 34.13596,
+   "lon": -118.13149,
+   "website": "http://pienburger.com"
+  },
+  "Pine & Crane": {
+   "lat": 34.04058,
+   "lon": -118.26248,
+   "website": "https://www.pineandcrane.com/dtla"
   },
   "Pink's Hot Dogs": {
    "lat": 34.13617,
@@ -4735,6 +6082,10 @@
    "lat": 34.1045,
    "lon": -118.33028,
    "website": "https://www.poketo.com"
+  },
+  "Porter Ranch": {
+   "lat": 34.28221,
+   "lon": -118.55063
   },
   "Precinct": {
    "lat": 34.04979,
@@ -4819,6 +6170,10 @@
    "lon": -118.36729,
    "website": "http://www.roscoeschickenandwaffles.com"
   },
+  "Rose Bowl": {
+   "lat": 34.14602,
+   "lon": -118.14788
+  },
   "Rose Bowl Aquatics Center": {
    "lat": 34.15174,
    "lon": -118.16485
@@ -4902,6 +6257,16 @@
    "lon": -118.22857,
    "website": "http://www.schreinersfinesausages.com/"
   },
+  "Secret Headquarters": {
+   "lat": 34.117,
+   "lon": -118.26235,
+   "website": "http://www.thesecretheadquarters.com/"
+  },
+  "Semi-Tropic": {
+   "lat": 34.08002,
+   "lon": -118.25999,
+   "website": "https://thesemitropic.com/"
+  },
   "Seven Grand": {
    "lat": 34.04704,
    "lon": -118.25588,
@@ -4958,6 +6323,16 @@
   "South Coast Plaza": {
    "lat": 33.81665,
    "lon": -118.28638
+  },
+  "South Pasadena Farmers Market": {
+   "lat": 34.11531,
+   "lon": -118.15717,
+   "website": "http://www.SouthPasadenaFarmersMarket.org/"
+  },
+  "Southern California Library": {
+   "lat": 33.98402,
+   "lon": -118.29142,
+   "website": "http://www.socallib.org/"
   },
   "Sport Chalet": {
    "lat": 34.03304,
@@ -5032,10 +6407,15 @@
    "lon": -118.48956,
    "website": "http://swingersdiner.com/"
   },
+  "Tabula Rasa Bar": {
+   "lat": 34.10191,
+   "lon": -118.30151,
+   "website": "http://tabularasabar.com/"
+  },
   "Tacos 1986": {
-   "lat": 34.15282,
-   "lon": -118.46111,
-   "website": "https://www.tacos1986.com/shermanoaks"
+   "lat": 34.04576,
+   "lon": -118.25136,
+   "website": "http://www.tacos1986.com/downtownla"
   },
   "Tail o' the Pup": {
    "lat": 34.07977,
@@ -5057,10 +6437,20 @@
    "lon": -118.14787,
    "website": "http://tatsuramen.com"
   },
+  "Taverna Tony": {
+   "lat": 34.03663,
+   "lon": -118.68594,
+   "website": "http://www.tavernatony.com/"
+  },
   "Teragram Ballroom": {
    "lat": 34.05185,
    "lon": -118.26705,
    "website": "http://www.teragramballroom.com/"
+  },
+  "The Apple Pan": {
+   "lat": 34.04074,
+   "lon": -118.4278,
+   "website": "http://www.theapplepan.com/"
   },
   "The Baked Potato": {
    "lat": 34.1367,
@@ -5081,6 +6471,11 @@
    "lat": 34.05444,
    "lon": -118.25031,
    "website": "http://www.thebroad.org/"
+  },
+  "The Broad Stage": {
+   "lat": 34.01875,
+   "lon": -118.47018,
+   "website": "http://www.thebroadstage.com"
   },
   "The Cinema Bar": {
    "lat": 34.00945,
@@ -5151,6 +6546,10 @@
    "lat": 34.04768,
    "lon": -118.24989,
    "website": "http://www.lastbookstorela.com/"
+  },
+  "The Magic Castle": {
+   "lat": 34.10456,
+   "lon": -118.34177
   },
   "The Music Center": {
    "lat": 34.05696,
@@ -5298,6 +6697,11 @@
    "lon": -118.25571,
    "website": "http://www.umamiburger.com"
   },
+  "Uncle Paulie's Deli": {
+   "lat": 34.07224,
+   "lon": -118.36497,
+   "website": "http://unclepauliesdeli.com/"
+  },
   "Undefeated": {
    "lat": 34.09153,
    "lon": -118.27941,
@@ -5410,9 +6814,28 @@
    "lat": 34.0586,
    "lon": -118.41892
   },
+  "Westfield Culver City": {
+   "lat": 33.98584,
+   "lon": -118.39398,
+   "website": "https://www.westfield.com"
+  },
+  "Westfield Fashion Square": {
+   "lat": 34.15707,
+   "lon": -118.43756,
+   "website": "https://www.westfield.com/fashionsquare"
+  },
   "Westwood": {
    "lat": 34.05598,
    "lon": -118.44192
+  },
+  "Westwood Village": {
+   "lat": 34.05852,
+   "lon": -118.44365
+  },
+  "Wexler's Deli": {
+   "lat": 34.05105,
+   "lon": -118.24933,
+   "website": "https://www.wexlersdeli.com/"
   },
   "Whisky a Go Go": {
    "lat": 34.09076,
@@ -5448,6 +6871,11 @@
    "lon": -118.34211,
    "website": "http://yamashirohollywood.com/menu/"
   },
+  "Yang's Kitchen": {
+   "lat": 34.09441,
+   "lon": -118.12822,
+   "website": "http://www.yangskitchenla.com/"
+  },
   "Ye Olde King's Head": {
    "lat": 34.01456,
    "lon": -118.49724,
@@ -5476,6 +6904,10 @@
    "lat": 34.10724,
    "lon": -118.25482,
    "website": "https://www.zebulon.la"
+  },
+  "Zuma Beach": {
+   "lat": 34.11926,
+   "lon": -118.32478
   },
   "n/naka": {
    "lat": 34.02509,
@@ -5573,6 +7005,11 @@
    "lon": -122.68121,
    "website": "https://www.portland5.com/venues/arlene-schnitzer-concert-hall"
   },
+  "Artichoke Music": {
+   "lat": 45.51181,
+   "lon": -122.63316,
+   "website": "http://www.artichokemusic.org"
+  },
   "Artists Repertory Theatre": {
    "lat": 45.52162,
    "lon": -122.68753,
@@ -5593,10 +7030,20 @@
    "lon": -122.67565,
    "website": "http://www.mississippistudios.com"
   },
+  "Barbur World Foods": {
+   "lat": 45.45432,
+   "lon": -122.71981,
+   "website": "http://www.barburworldfoods.com/"
+  },
   "Base Camp Brewing": {
    "lat": 45.51989,
    "lon": -122.65646,
    "website": "http://basecampbrewingco.com"
+  },
+  "Beaverton City Library": {
+   "lat": 45.48419,
+   "lon": -122.80405,
+   "website": "http://www.BeavertonLibrary.org/"
   },
   "Beaverton Farmers Market": {
    "lat": 45.48443,
@@ -5612,6 +7059,11 @@
    "lat": 45.53722,
    "lon": -122.66124,
    "website": "http://beneficialstatebank.com"
+  },
+  "Beulahland": {
+   "lat": 45.52391,
+   "lon": -122.63714,
+   "website": "http://beulahlandpdx.com/"
   },
   "Bijou Cafe": {
    "lat": 45.52166,
@@ -5642,6 +7094,11 @@
    "lat": 45.51306,
    "lon": -122.57918,
    "website": "http://boohanmarket.com.composesite.com/"
+  },
+  "Books with Pictures": {
+   "lat": 45.50498,
+   "lon": -122.6517,
+   "website": "https://bookswithpictures.com/"
   },
   "Breakside Brewery": {
    "lat": 45.4192,
@@ -5691,6 +7148,11 @@
    "lon": -122.68436,
    "website": "https://canoe.design/"
   },
+  "Canteen": {
+   "lat": 45.42822,
+   "lon": -122.76427,
+   "website": "https://www.canteen.com/"
+  },
   "Cargo": {
    "lat": 45.51596,
    "lon": -122.66512,
@@ -5725,6 +7187,11 @@
    "lat": 45.58751,
    "lon": -122.75877
   },
+  "Cedar Hills Crossing": {
+   "lat": 45.49611,
+   "lon": -122.81196,
+   "website": "http://www.cedarhillscrossing.com/"
+  },
   "Century": {
    "lat": 45.54659,
    "lon": -122.66779,
@@ -5734,6 +7201,11 @@
    "lat": 45.47386,
    "lon": -122.64986,
    "website": "http://chachachapdx.com/"
+  },
+  "Cha! Cha! Cha! Taqueria": {
+   "lat": 45.54851,
+   "lon": -122.61433,
+   "website": "https://www.chachachapdx.com"
   },
   "Cheerful Tortoise": {
    "lat": 45.50988,
@@ -5779,6 +7251,11 @@
    "lat": 45.49867,
    "lon": -122.70804
   },
+  "Crema Coffee + Bakery": {
+   "lat": 45.52349,
+   "lon": -122.66202,
+   "website": "https://www.cremabakery.com/home"
+  },
   "Crossroads Music": {
    "lat": 45.48292,
    "lon": -122.57978,
@@ -5793,6 +7270,10 @@
    "lat": 45.52285,
    "lon": -122.6848,
    "website": "http://www.mcmenamins.com/"
+  },
+  "Crystal Springs Rhododendron Garden": {
+   "lat": 45.47992,
+   "lon": -122.63553
   },
   "Cup & Saucer Cafe": {
    "lat": 45.58295,
@@ -5837,6 +7318,11 @@
    "lat": 45.52449,
    "lon": -122.68191,
    "website": "https://www.deschutesbrewery.com/pubs/portland/"
+  },
+  "Dots Cafe": {
+   "lat": 45.50347,
+   "lon": -122.63998,
+   "website": "http://dotscafeportland.com/"
   },
   "Doug Fir Lounge": {
    "lat": 45.52253,
@@ -5896,6 +7382,11 @@
    "lat": 45.54002,
    "lon": -122.6684
   },
+  "F.H. Steinbart Co.": {
+   "lat": 45.52107,
+   "lon": -122.65342,
+   "website": "http://www.fhsteinbart.com"
+  },
   "Fifty Licks": {
    "lat": 45.53459,
    "lon": -122.69479,
@@ -5933,6 +7424,16 @@
    "lat": 45.5243,
    "lon": -122.68001,
    "website": "https://www.fullerscoffeeshop.com/"
+  },
+  "Garden Fever": {
+   "lat": 45.54791,
+   "lon": -122.6412,
+   "website": "http://www.gardenfever.com/"
+  },
+  "Gartner's Country Meat Market": {
+   "lat": 45.56256,
+   "lon": -122.58576,
+   "website": "http://www.gartnersmeats.com"
   },
   "Giant Drive-In": {
    "lat": 45.41091,
@@ -6037,6 +7538,10 @@
    "lon": -122.63078,
    "website": "http://www.houseofvintagenw.com/portland"
   },
+  "Hoyt Arboretum": {
+   "lat": 45.51627,
+   "lon": -122.71523
+  },
   "Huber's Cafe": {
    "lat": 45.51981,
    "lon": -122.67392,
@@ -6132,6 +7637,11 @@
    "lon": -122.66289,
    "website": "http://www.knotsprings.com/"
   },
+  "Kure Juice Bar": {
+   "lat": 45.41851,
+   "lon": -122.66423,
+   "website": "https://kurejuicebar.com"
+  },
   "La Bonita": {
    "lat": 45.56269,
    "lon": -122.69495,
@@ -6214,6 +7724,10 @@
    "lon": -122.65784,
    "website": "http://www.lepigeon.com/"
   },
+  "Leach Botanical Garden": {
+   "lat": 45.47526,
+   "lon": -122.53569
+  },
   "Level Beer": {
    "lat": 45.46777,
    "lon": -122.71375,
@@ -6233,6 +7747,11 @@
    "lat": 45.52232,
    "lon": -122.68122,
    "website": "http://pdx.livingroomtheaters.com/"
+  },
+  "Lloyd Center": {
+   "lat": 45.53259,
+   "lon": -122.65354,
+   "website": "http://www.lloydcenter.com/"
   },
   "Logsdon Farmhouse Ales": {
    "lat": 45.50521,
@@ -6257,6 +7776,16 @@
    "lon": -122.6757,
    "website": "http://lovelysfiftyfifty.wordpress.com/"
   },
+  "Luce": {
+   "lat": 45.52274,
+   "lon": -122.64359,
+   "website": "http://www.luceportland.com"
+  },
+  "Lucky Labrador Brew Pub": {
+   "lat": 45.51239,
+   "lon": -122.65638,
+   "website": "http://www.Luckylab.com/"
+  },
   "Machus": {
    "lat": 45.52103,
    "lon": -122.68292,
@@ -6271,6 +7800,11 @@
    "lat": 45.39463,
    "lon": -122.75034,
    "website": "http://www.sushilandusa.com"
+  },
+  "Market of Choice": {
+   "lat": 45.36678,
+   "lon": -122.61199,
+   "website": "https://marketofchoice.com/locations-west-linn/"
   },
   "Marquam Nature Park": {
    "lat": 45.49479,
@@ -6296,6 +7830,11 @@
    "lon": -122.40836,
    "website": "http://www.mcmenamins.com/"
   },
+  "Meat Cheese Bread": {
+   "lat": 45.51923,
+   "lon": -122.6514,
+   "website": "http://www.meatcheesebread.com"
+  },
   "Meier & Frank Building": {
    "lat": 45.52198,
    "lon": -122.67653,
@@ -6309,6 +7848,11 @@
    "lat": 45.491,
    "lon": -122.80685,
    "website": "http://miosushi.com/"
+  },
+  "Mirisata": {
+   "lat": 45.51636,
+   "lon": -122.641,
+   "website": "http://www.Mirisata.com/"
   },
   "Mississippi Avenue": {
    "lat": 45.55143,
@@ -6343,6 +7887,10 @@
    "lat": 45.51641,
    "lon": -122.61724,
    "website": "http://moviemadness.org/"
+  },
+  "Mt. Tabor Park": {
+   "lat": 45.51126,
+   "lon": -122.59583
   },
   "Muchas Gracias": {
    "lat": 45.63788,
@@ -6599,6 +8147,11 @@
    "lon": -122.66435,
    "website": "https://www.pdxnm.com"
   },
+  "Portland Nursery": {
+   "lat": 45.51887,
+   "lon": -122.61097,
+   "website": "http://www.portlandnursery.com/"
+  },
   "Portland Outdoor Store": {
    "lat": 45.52074,
    "lon": -122.67396,
@@ -6607,6 +8160,11 @@
   "Portland Saturday Market": {
    "lat": 45.52266,
    "lon": -122.66978
+  },
+  "Portland State University Bookstore": {
+   "lat": 45.51169,
+   "lon": -122.68161,
+   "website": "https://pdx.bncollege.com/"
   },
   "Portland Union Station": {
    "lat": 45.52876,
@@ -6640,6 +8198,11 @@
    "lon": -122.67575,
    "website": "http://www.prostportland.com/"
   },
+  "Providence Park": {
+   "lat": 45.52152,
+   "lon": -122.69181,
+   "website": "http://providenceparkpdx.com/"
+  },
   "Providore Fine Foods": {
    "lat": 45.52727,
    "lon": -122.64172,
@@ -6659,6 +8222,16 @@
    "lat": 45.53729,
    "lon": -122.87815,
    "website": "https://www.rei.com/stores/hillsboro?y_source=1_MTQ1MzQxOS01NTktbG9jYXRpb24ud2Vic2l0ZQ%3D%3D"
+  },
+  "Rain or Shine Coffee House": {
+   "lat": 45.50551,
+   "lon": -122.60178,
+   "website": "https://www.rainorshinecoffee.com/"
+  },
+  "Reading Frenzy": {
+   "lat": 45.54916,
+   "lon": -122.67524,
+   "website": "https://www.readingfrenzy.com"
   },
   "Red Light Clothing Exchange": {
    "lat": 45.51193,
@@ -6709,6 +8282,11 @@
    "lon": -122.67538,
    "website": "http://www.8csoft.com/1850"
   },
+  "Rose City Book Pub": {
+   "lat": 45.54835,
+   "lon": -122.65215,
+   "website": "http://rosecitybookpub.com/"
+  },
   "Roseland Theater": {
    "lat": 45.52322,
    "lon": -122.67631,
@@ -6753,6 +8331,16 @@
    "lon": -122.65096,
    "website": "http://www.sandyhut.com/"
   },
+  "Santa Fe Taqueria": {
+   "lat": 45.529,
+   "lon": -122.69866,
+   "website": "http://www.santafetaqueria.com/"
+  },
+  "Santeria": {
+   "lat": 45.52252,
+   "lon": -122.67798,
+   "website": "https://pdxsanteria.com"
+  },
   "Saraveza": {
    "lat": 45.56255,
    "lon": -122.67719,
@@ -6762,6 +8350,10 @@
    "lat": 45.51747,
    "lon": -122.6564,
    "website": "http://www.sassysbar.com/"
+  },
+  "Sauvie Island": {
+   "lat": 45.4553,
+   "lon": -122.70435
   },
   "Scotch Lodge": {
    "lat": 45.52134,
@@ -6805,9 +8397,28 @@
    "lon": -122.6524,
    "website": "https://southeastgrind.com"
   },
+  "Southwest Community Center": {
+   "lat": 45.4757,
+   "lon": -122.72246,
+   "website": "https://www.portland.gov/parks/southwest-community-center"
+  },
+  "Spirit of 77": {
+   "lat": 45.52675,
+   "lon": -122.66151,
+   "website": "http://www.spiritof77bar.com"
+  },
+  "Springwater Corridor": {
+   "lat": 45.49409,
+   "lon": -122.44332
+  },
   "Springwater Corridor Trail": {
    "lat": 45.46493,
    "lon": -122.66141
+  },
+  "St. Jack": {
+   "lat": 45.53423,
+   "lon": -122.69871,
+   "website": "http://www.stjackpdx.com"
   },
   "St. Johns": {
    "lat": 45.64071,
@@ -6833,6 +8444,11 @@
    "lon": -122.67344,
    "website": "http://stumptowncoffee.com"
   },
+  "Sunshine Noodles": {
+   "lat": 45.54841,
+   "lon": -122.6753,
+   "website": "http://sunshinenoodles.com"
+  },
   "Sushi Ichiban": {
    "lat": 45.52349,
    "lon": -122.67735,
@@ -6842,6 +8458,11 @@
    "lat": 45.56053,
    "lon": -122.67489,
    "website": "http://www.sweedeedee.com"
+  },
+  "Tabor Bread": {
+   "lat": 45.51217,
+   "lon": -122.61059,
+   "website": "http://www.taborbread.com/"
   },
   "Tails & Trotters": {
    "lat": 45.52695,
@@ -6873,6 +8494,11 @@
    "lon": -122.67245,
    "website": "http://www.thecircuitgym.com/"
   },
+  "The Duck Store": {
+   "lat": 45.43424,
+   "lon": -122.5724,
+   "website": "https://www.uoduckstore.com/"
+  },
   "The Grotto (National Sanctuary of Our Sorrowful Mother)": {
    "lat": 45.38737,
    "lon": -122.59235
@@ -6901,6 +8527,11 @@
    "lon": -122.63086,
    "website": "http://www.mountainshop.net/"
   },
+  "The Old Church Concert Hall": {
+   "lat": 45.51513,
+   "lon": -122.68562,
+   "website": "https://www.theoldchurch.org"
+  },
   "The Sandy Hut": {
    "lat": 45.52377,
    "lon": -122.65096,
@@ -6925,6 +8556,11 @@
    "lat": 45.52234,
    "lon": -122.57874,
    "website": "http://www.oregon.gov/oda/fsd"
+  },
+  "Tin Shed Garden Cafe": {
+   "lat": 45.55901,
+   "lon": -122.65088,
+   "website": "http://www.tinshedgardencafe.com/"
   },
   "Tom McCall Waterfront Park": {
    "lat": 45.52057,
@@ -6953,6 +8589,11 @@
    "lat": 45.52274,
    "lon": -122.64049,
    "website": "http://www.tuskpdx.com/"
+  },
+  "Two Stroke Coffee Co.": {
+   "lat": 45.59016,
+   "lon": -122.7542,
+   "website": "http://bop.wweek.com/drink/best-coffee"
   },
   "US Outdoor Store": {
    "lat": 45.52741,
@@ -7073,6 +8714,11 @@
    "lat": 45.40722,
    "lon": -122.72421,
    "website": "https://www.zupans.com/stores/lake-oswego/"
+  },
+  "\u00bfPor Qu\u00e9 No?": {
+   "lat": 45.51212,
+   "lon": -122.61434,
+   "website": "http://www.porquenotacos.com/"
   }
  },
  "tokyo": {
@@ -7169,6 +8815,10 @@
    "lon": 139.70816,
    "website": "http://berberjin.blog104.fc2.com/"
   },
+  "Bettako": {
+   "lat": 35.73267,
+   "lon": 139.7133
+  },
   "Bic Camera": {
    "lat": 35.67707,
    "lon": 139.73679,
@@ -7188,6 +8838,11 @@
    "lat": 35.66875,
    "lon": 139.70583,
    "website": "https://billsjapan.com/jp/%e8%a1%a8%e5%8f%82%e9%81%93"
+  },
+  "Bistro Rojiura": {
+   "lat": 35.66244,
+   "lon": 139.69737,
+   "website": "http://bistrorojiura.jimdo.com/"
   },
   "Body & Soul": {
    "lat": 35.66002,
@@ -7269,6 +8924,16 @@
    "lon": 139.69334,
    "website": "http://www.ichibanya.co.jp/"
   },
+  "Comic Zin": {
+   "lat": 35.68998,
+   "lon": 139.69711,
+   "website": "https://www.comiczin.jp/shop"
+  },
+  "Crisp Salad Works": {
+   "lat": 35.65526,
+   "lon": 139.73738,
+   "website": "https://crisp.co.jp/"
+  },
   "Crocodile": {
    "lat": 35.66441,
    "lon": 139.70248,
@@ -7301,6 +8966,11 @@
    "lat": 35.72824,
    "lon": 139.77156,
    "website": "http://www.doutor.co.jp/shopsearch/detail/01010447.html"
+  },
+  "Elio Locanda Italiana": {
+   "lat": 35.68344,
+   "lon": 139.74066,
+   "website": "http://www.elio.co.jp/"
   },
   "Excelsior Caff\u00e9": {
    "lat": 35.64678,
@@ -7412,6 +9082,11 @@
    "lon": 139.70091,
    "website": "http://www.ichiran.co.jp/"
   },
+  "Irregular Rhythm Asylum": {
+   "lat": 35.69024,
+   "lon": 139.71291,
+   "website": "http://ira.tokyo/"
+  },
   "Ito-Yokado": {
    "lat": 35.68607,
    "lon": 139.73457,
@@ -7508,6 +9183,10 @@
    "lon": 139.8042,
    "website": "http://www.koffee-mameya.com"
   },
+  "Koishikawa Botanical Garden": {
+   "lat": 35.71745,
+   "lon": 139.74643
+  },
   "Komeda's Coffee": {
    "lat": 35.56532,
    "lon": 139.65286,
@@ -7535,6 +9214,11 @@
    "lat": 35.7429,
    "lon": 139.74654
   },
+  "L'Effervescence": {
+   "lat": 35.66027,
+   "lon": 139.71942,
+   "website": "http://www.leffervescence.jp/"
+  },
   "La Bettola da Ochiai": {
    "lat": 35.72925,
    "lon": 139.71167,
@@ -7549,6 +9233,11 @@
    "lat": 35.71252,
    "lon": 139.63274,
    "website": "https://www.e-map.ne.jp/p/lawson/dtl/274803/?&his=al1,al2,al3,al4,nm"
+  },
+  "Le Bourguignon": {
+   "lat": 35.65833,
+   "lon": 139.72736,
+   "website": "http://le-bourguignon.jp/"
   },
   "Le Mange-Tout": {
    "lat": 35.69804,
@@ -7614,6 +9303,10 @@
    "website": "http://www.mita-sneakers.co.jp/"
   },
   "Mount Takao": {
+   "lat": 35.67287,
+   "lon": 139.76852
+  },
+  "Mount Takao (\u9ad8\u5c3e\u5c71)": {
    "lat": 35.67287,
    "lon": 139.76852
   },
@@ -7692,6 +9385,11 @@
    "lon": 139.69803,
    "website": "http://www.onibuscoffee.com/"
   },
+  "Ootoya": {
+   "lat": 35.73018,
+   "lon": 139.71361,
+   "website": "https://www.ootoya.com/store/detail/000001.html"
+  },
   "Organ": {
    "lat": 35.70029,
    "lon": 139.599,
@@ -7712,6 +9410,10 @@
    "lon": 139.69933,
    "website": "http://risotteria-gaku.net"
   },
+  "Passo a Passo": {
+   "lat": 35.67464,
+   "lon": 139.79633
+  },
   "Pizzeria e Trattoria da Isa": {
    "lat": 35.64808,
    "lon": 139.69543,
@@ -7721,6 +9423,10 @@
    "lat": 35.62895,
    "lon": 139.74081,
    "website": "http://www.queens.jp/shops/tokyo/13_shinagawa.html"
+  },
+  "Recofan Shibuya": {
+   "lat": 35.66151,
+   "lon": 139.69756
   },
   "Rinshi-no-mori Park": {
    "lat": 35.62527,
@@ -7737,6 +9443,11 @@
   "Royal Host": {
    "lat": 35.6333,
    "lon": 139.64999
+  },
+  "SOLSO PARK (\u5357\u9752\u5c71)": {
+   "lat": 35.66877,
+   "lon": 139.72476,
+   "website": "https://solsopark.thebase.in/"
   },
   "Saizeriya": {
    "lat": 35.77193,
@@ -7774,6 +9485,11 @@
    "lat": 35.64287,
    "lon": 139.69907,
    "website": "https://theseirinkan.com"
+  },
+  "Seiyu": {
+   "lat": 35.79927,
+   "lon": 139.60294,
+   "website": "https://www.seiyu.co.jp/shop/%e8%a5%bf%e5%8f%8b%e6%9c%9d%e9%9c%9e%e6%a0%b9%e5%b2%b8%e5%ba%97/"
   },
   "Shelter": {
    "lat": 35.64925,
@@ -7859,6 +9575,10 @@
    "lat": 35.55862,
    "lon": 139.68907
   },
+  "Tamagawa Riverside (\u591a\u6469\u5ddd\u6cb3\u5ddd\u6577)": {
+   "lat": 35.55862,
+   "lon": 139.68907
+  },
   "Tempura Kondo": {
    "lat": 35.67121,
    "lon": 139.76312,
@@ -7933,6 +9653,11 @@
    "lat": 35.65688,
    "lon": 139.79562
   },
+  "Trueberry": {
+   "lat": 35.65082,
+   "lon": 139.72174,
+   "website": "http://www.trueberry.jp/"
+  },
   "Tsukemen Tetsu": {
    "lat": 35.56881,
    "lon": 139.55339,
@@ -7991,6 +9716,11 @@
    "lon": 139.70227,
    "website": "http://waltz-store.co.jp"
   },
+  "Waseda University Central Library": {
+   "lat": 35.71071,
+   "lon": 139.71817,
+   "website": "http://www.wul.waseda.ac.jp/clib/index.html"
+  },
   "Womb": {
    "lat": 35.65842,
    "lon": 139.69493,
@@ -8013,6 +9743,10 @@
   "Yoyogi Park": {
    "lat": 35.68322,
    "lon": 139.70078
+  },
+  "Yushima Tenjin": {
+   "lat": 35.70444,
+   "lon": 139.77138
   },
   "Zenpukuji Park": {
    "lat": 35.7148,
@@ -8046,6 +9780,10 @@
    "lat": 35.66207,
    "lon": 139.74326,
    "website": "https://www.teamlab.art/e/borderless-azabudai/"
+  },
+  "\u30e9\u30c9\u30ea\u30aa (Ladrio)": {
+   "lat": 35.69565,
+   "lon": 139.75978
   },
   "\u8089\u306e\u30cf\u30ca\u30de\u30b5 (Hanamasa)": {
    "lat": 35.7032,

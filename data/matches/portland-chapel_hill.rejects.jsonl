@@ -1,0 +1,127 @@
+{"source": "Aladdin Theater", "candidate": "Memorial Hall", "target_city": "chapel_hill", "confidence": 0.6, "rank": 1, "reason": "not_found"}
+{"source": "Alberta Arts District", "candidate": "Downtown Carrboro (Main Street & East Weaver Street)", "target_city": "chapel_hill", "confidence": 0.88, "rank": 1, "reason": "not_found"}
+{"source": "Alberta Arts District", "candidate": "Ninth Street, Durham", "target_city": "chapel_hill", "confidence": 0.4, "rank": 3, "reason": "not_found"}
+{"source": "Apizza Scholls", "candidate": "Pizzeria Toro", "target_city": "chapel_hill", "confidence": 0.72, "rank": 2, "reason": "not_found"}
+{"source": "Arlene Schnitzer Concert Hall", "candidate": "Memorial Hall", "target_city": "chapel_hill", "confidence": 0.82, "rank": 1, "reason": "not_found"}
+{"source": "Arlene Schnitzer Concert Hall", "candidate": "Carolina Theatre of Durham", "target_city": "chapel_hill", "confidence": 0.71, "rank": 2, "reason": "not_found"}
+{"source": "Arlene Schnitzer Concert Hall", "candidate": "DPAC (Durham Performing Arts Center)", "target_city": "chapel_hill", "confidence": 0.5, "rank": 3, "reason": "not_found"}
+{"source": "Blue Star Donuts", "candidate": "Monuts", "target_city": "chapel_hill", "confidence": 0.72, "rank": 1, "reason": "not_found"}
+{"source": "Blue Star Donuts", "candidate": "Rise Biscuits & Donuts", "target_city": "chapel_hill", "confidence": 0.6, "rank": 2, "reason": "not_found"}
+{"source": "Breakside Brewery", "candidate": "Fullsteam Brewery", "target_city": "chapel_hill", "confidence": 0.65, "rank": 2, "reason": "not_found"}
+{"source": "Breakside Brewery", "candidate": "Ponysaurus Brewing Co.", "target_city": "chapel_hill", "confidence": 0.55, "rank": 3, "reason": "not_found"}
+{"source": "Buffalo Exchange", "candidate": "Rumors", "target_city": "chapel_hill", "confidence": 0.82, "rank": 1, "reason": "not_found"}
+{"source": "Buffalo Exchange", "candidate": "PTA Thrift Shop", "target_city": "chapel_hill", "confidence": 0.66, "rank": 2, "reason": "not_found"}
+{"source": "Buffalo Exchange", "candidate": "Time After Time", "target_city": "chapel_hill", "confidence": 0.42, "rank": 3, "reason": "not_found"}
+{"source": "Cascade Brewing Barrel House", "candidate": "Haw River Farmhouse Ales", "target_city": "chapel_hill", "confidence": 0.6, "rank": 1, "reason": "not_found"}
+{"source": "Cascade Brewing Barrel House", "candidate": "Fullsteam Brewery", "target_city": "chapel_hill", "confidence": 0.42, "rank": 3, "reason": "not_found"}
+{"source": "Century Bar", "candidate": "Linda's Bar and Grill", "target_city": "chapel_hill", "confidence": 0.62, "rank": 2, "reason": "not_found"}
+{"source": "Cinema 21", "candidate": "Carolina Theatre of Durham", "target_city": "chapel_hill", "confidence": 0.72, "rank": 2, "reason": "not_found"}
+{"source": "Cinema 21", "candidate": "Rialto Theatre", "target_city": "chapel_hill", "confidence": 0.6, "rank": 3, "reason": "not_found"}
+{"source": "Crystal Ballroom", "candidate": "Haw River Ballroom", "target_city": "chapel_hill", "confidence": 0.66, "rank": 2, "reason": "not_found"}
+{"source": "Crystal Ballroom", "candidate": "Memorial Hall", "target_city": "chapel_hill", "confidence": 0.4, "rank": 3, "reason": "not_found"}
+{"source": "Deschutes Brewery Portland Public House", "candidate": "Top of the Hill", "target_city": "chapel_hill", "confidence": 0.71, "rank": 2, "reason": "not_found"}
+{"source": "Division Street", "candidate": "East Main Street, Carrboro", "target_city": "chapel_hill", "confidence": 0.82, "rank": 1, "reason": "not_found"}
+{"source": "Division Street", "candidate": "West Franklin Street", "target_city": "chapel_hill", "confidence": 0.74, "rank": 2, "reason": "not_found"}
+{"source": "Dunthorpe", "candidate": "Gimghoul", "target_city": "chapel_hill", "confidence": 0.72, "rank": 1, "reason": "not_found"}
+{"source": "Dunthorpe", "candidate": "Hope Valley (Durham)", "target_city": "chapel_hill", "confidence": 0.62, "rank": 2, "reason": "not_found"}
+{"source": "Dunthorpe", "candidate": "Governors Club", "target_city": "chapel_hill", "confidence": 0.38, "rank": 3, "reason": "not_found"}
+{"source": "Great Notion Brewing", "candidate": "Trophy Brewing & Pizza", "target_city": "chapel_hill", "confidence": 0.55, "rank": 2, "reason": "not_found"}
+{"source": "Great Notion Brewing", "candidate": "Ponysaurus Brewing Co.", "target_city": "chapel_hill", "confidence": 0.48, "rank": 3, "reason": "not_found"}
+{"source": "Hair of the Dog Brewing", "candidate": "Haw River Farmhouse Ales", "target_city": "chapel_hill", "confidence": 0.63, "rank": 1, "reason": "not_found"}
+{"source": "Hair of the Dog Brewing", "candidate": "Fullsteam Brewery", "target_city": "chapel_hill", "confidence": 0.58, "rank": 2, "reason": "not_found"}
+{"source": "Hawthorne Boulevard", "candidate": "East Main Street & Weaver Street, Carrboro", "target_city": "chapel_hill", "confidence": 0.82, "rank": 1, "reason": "not_found"}
+{"source": "Hawthorne Boulevard", "candidate": "Ninth Street, Durham", "target_city": "chapel_hill", "confidence": 0.45, "rank": 3, "reason": "not_found"}
+{"source": "Heart Coffee Roasters", "candidate": "Counter Culture Coffee", "target_city": "chapel_hill", "confidence": 0.6, "rank": 2, "reason": "not_found"}
+{"source": "Higgins Restaurant", "candidate": "Il Palio", "target_city": "chapel_hill", "confidence": 0.55, "rank": 3, "reason": "not_found"}
+{"source": "Hollywood Theatre", "candidate": "Carolina Theatre of Durham", "target_city": "chapel_hill", "confidence": 0.72, "rank": 2, "reason": "not_found"}
+{"source": "Horse Brass Pub", "candidate": "Tyler's Restaurant & Taproom (Carrboro)", "target_city": "chapel_hill", "confidence": 0.7, "rank": 1, "reason": "not_found"}
+{"source": "Horse Brass Pub", "candidate": "Linda's Bar and Grill", "target_city": "chapel_hill", "confidence": 0.62, "rank": 2, "reason": "not_found"}
+{"source": "House of Vintage", "candidate": "Rumors", "target_city": "chapel_hill", "confidence": 0.72, "rank": 1, "reason": "not_found"}
+{"source": "House of Vintage", "candidate": "PTA Thrift Shop", "target_city": "chapel_hill", "confidence": 0.65, "rank": 2, "reason": "not_found"}
+{"source": "House of Vintage", "candidate": "Everyday Magic", "target_city": "chapel_hill", "confidence": 0.5, "rank": 3, "reason": "not_found"}
+{"source": "Huber's Cafe", "candidate": "Il Palio", "target_city": "chapel_hill", "confidence": 0.52, "rank": 2, "reason": "not_found"}
+{"source": "Huber's Cafe", "candidate": "Angus Barn", "target_city": "chapel_hill", "confidence": 0.44, "rank": 3, "reason": "not_found"}
+{"source": "International Rose Test Garden", "candidate": "Sarah P. Duke Gardens", "target_city": "chapel_hill", "confidence": 0.58, "rank": 3, "reason": "not_found"}
+{"source": "Irvington", "candidate": "Gimghoul", "target_city": "chapel_hill", "confidence": 0.78, "rank": 1, "reason": "not_found"}
+{"source": "Irvington", "candidate": "Coker Hills", "target_city": "chapel_hill", "confidence": 0.5, "rank": 3, "reason": "not_found"}
+{"source": "Jake's Famous Crawfish", "candidate": "Il Palio", "target_city": "chapel_hill", "confidence": 0.7, "rank": 1, "reason": "not_found"}
+{"source": "Jake's Famous Crawfish", "candidate": "Carolina Crossroads at the Carolina Inn", "target_city": "chapel_hill", "confidence": 0.65, "rank": 2, "reason": "not_found"}
+{"source": "Kann", "candidate": "Gocciolina", "target_city": "chapel_hill", "confidence": 0.45, "rank": 3, "reason": "not_found"}
+{"source": "Kelly's Olympian", "candidate": "Linda's Bar and Grill", "target_city": "chapel_hill", "confidence": 0.72, "rank": 1, "reason": "not_found"}
+{"source": "Ken's Artisan Pizza", "candidate": "Pizzeria Toro (Durham)", "target_city": "chapel_hill", "confidence": 0.78, "rank": 2, "reason": "not_found"}
+{"source": "Ken's Artisan Pizza", "candidate": "Pizzeria Faulisi (Cary)", "target_city": "chapel_hill", "confidence": 0.6, "rank": 3, "reason": "not_found"}
+{"source": "Langbaan", "candidate": "Il Palio", "target_city": "chapel_hill", "confidence": 0.55, "rank": 2, "reason": "not_found"}
+{"source": "Langbaan", "candidate": "M Sushi (Durham)", "target_city": "chapel_hill", "confidence": 0.45, "rank": 3, "reason": "not_found"}
+{"source": "Lardo", "candidate": "Bread & Butter", "target_city": "chapel_hill", "confidence": 0.68, "rank": 2, "reason": "not_found"}
+{"source": "Lardo", "candidate": "Merritt's Store & Grill", "target_city": "chapel_hill", "confidence": 0.55, "rank": 3, "reason": "not_found"}
+{"source": "Laurelhurst", "candidate": "Gimghoul", "target_city": "chapel_hill", "confidence": 0.78, "rank": 1, "reason": "not_found"}
+{"source": "Laurelhurst", "candidate": "Lake Forest / Chapel Hill Country Club", "target_city": "chapel_hill", "confidence": 0.55, "rank": 3, "reason": "not_found"}
+{"source": "Le Pigeon", "candidate": "Gocciolina", "target_city": "chapel_hill", "confidence": 0.62, "rank": 2, "reason": "not_found"}
+{"source": "Le Pigeon", "candidate": "Il Palio", "target_city": "chapel_hill", "confidence": 0.4, "rank": 3, "reason": "not_found"}
+{"source": "Matt's BBQ", "candidate": "Picnic", "target_city": "chapel_hill", "confidence": 0.72, "rank": 1, "reason": "not_found"}
+{"source": "Matt's BBQ", "candidate": "Hillsborough BBQ Company", "target_city": "chapel_hill", "confidence": 0.66, "rank": 2, "reason": "not_found"}
+{"source": "Matt's BBQ", "candidate": "Allen & Son Bar-B-Que", "target_city": "chapel_hill", "confidence": 0.45, "rank": 3, "reason": "not_found"}
+{"source": "Mill Ends Park", "candidate": "Gimghoul Castle", "target_city": "chapel_hill", "confidence": 0.72, "rank": 1, "reason": "not_found"}
+{"source": "Mill Ends Park", "candidate": "Davie Poplar", "target_city": "chapel_hill", "confidence": 0.63, "rank": 2, "reason": "not_found"}
+{"source": "Mississippi Avenue", "candidate": "Main Street, Carrboro", "target_city": "chapel_hill", "confidence": 0.79, "rank": 1, "reason": "not_found"}
+{"source": "Mississippi Avenue", "candidate": "West Franklin Street / Rosemary Street", "target_city": "chapel_hill", "confidence": 0.62, "rank": 2, "reason": "not_found"}
+{"source": "Mississippi Avenue", "candidate": "Northside", "target_city": "chapel_hill", "confidence": 0.35, "rank": 3, "reason": "not_found"}
+{"source": "Multnomah Whiskey Library", "candidate": "Alley Twenty Six", "target_city": "chapel_hill", "confidence": 0.45, "rank": 3, "reason": "not_found"}
+{"source": "Next Adventure", "candidate": "Frog Hollow Outdoors", "target_city": "chapel_hill", "confidence": 0.5, "rank": 3, "reason": "not_found"}
+{"source": "Nob Hill", "candidate": "East Main Street, Carrboro", "target_city": "chapel_hill", "confidence": 0.72, "rank": 1, "reason": "not_found"}
+{"source": "Nob Hill", "candidate": "West Franklin Street", "target_city": "chapel_hill", "confidence": 0.65, "rank": 2, "reason": "not_found"}
+{"source": "Nong's Khao Man Gai", "candidate": "Merritt's Store & Grill", "target_city": "chapel_hill", "confidence": 0.76, "rank": 1, "reason": "not_found"}
+{"source": "Nordstrom", "candidate": "Belk at The Streets at Southpoint", "target_city": "chapel_hill", "confidence": 0.42, "rank": 3, "reason": "not_found"}
+{"source": "Old Town Chinatown", "candidate": "Rosemary Street", "target_city": "chapel_hill", "confidence": 0.74, "rank": 2, "reason": "not_found"}
+{"source": "Old Town Chinatown", "candidate": "East Main Street, Carrboro", "target_city": "chapel_hill", "confidence": 0.45, "rank": 3, "reason": "not_found"}
+{"source": "OnPoint Community Credit Union", "candidate": "Self-Help Credit Union", "target_city": "chapel_hill", "confidence": 0.74, "rank": 2, "reason": "not_found"}
+{"source": "OnPoint Community Credit Union", "candidate": "Coastal Credit Union", "target_city": "chapel_hill", "confidence": 0.62, "rank": 3, "reason": "not_found"}
+{"source": "Oregon Historical Society", "candidate": "North Carolina Museum of History (Raleigh)", "target_city": "chapel_hill", "confidence": 0.62, "rank": 2, "reason": "not_found"}
+{"source": "Oregon Museum of Science and Industry", "candidate": "Museum of Life and Science (Durham)", "target_city": "chapel_hill", "confidence": 0.82, "rank": 1, "reason": "not_found"}
+{"source": "Oregon Museum of Science and Industry", "candidate": "North Carolina Museum of Natural Sciences (Raleigh)", "target_city": "chapel_hill", "confidence": 0.61, "rank": 3, "reason": "not_found"}
+{"source": "Otto's Sausage Kitchen", "candidate": "Cliff's Meat Market", "target_city": "chapel_hill", "confidence": 0.72, "rank": 1, "reason": "not_found"}
+{"source": "Otto's Sausage Kitchen", "candidate": "Merritt's Store & Grill", "target_city": "chapel_hill", "confidence": 0.66, "rank": 2, "reason": "not_found"}
+{"source": "Pearl District", "candidate": "Downtown Carrboro (Weaver Street / Carr Mill Mall)", "target_city": "chapel_hill", "confidence": 0.78, "rank": 1, "reason": "not_found"}
+{"source": "Pittock Mansion", "candidate": "Gimghoul Castle", "target_city": "chapel_hill", "confidence": 0.62, "rank": 1, "reason": "not_found"}
+{"source": "Pittock Mansion", "candidate": "Ayr Mount", "target_city": "chapel_hill", "confidence": 0.55, "rank": 2, "reason": "not_found"}
+{"source": "Plaid Pantry", "candidate": "Short Stop", "target_city": "chapel_hill", "confidence": 0.56, "rank": 1, "reason": "not_found"}
+{"source": "Plaid Pantry", "candidate": "Time-Out", "target_city": "chapel_hill", "confidence": 0.42, "rank": 2, "reason": "not_found"}
+{"source": "Podnah's Pit Barbecue", "candidate": "Hillsborough BBQ Company", "target_city": "chapel_hill", "confidence": 0.58, "rank": 2, "reason": "not_found"}
+{"source": "Podnah's Pit Barbecue", "candidate": "Allen & Son Bar-B-Que", "target_city": "chapel_hill", "confidence": 0.4, "rank": 3, "reason": "not_found"}
+{"source": "Pok Pok", "candidate": "Bida Manda", "target_city": "chapel_hill", "confidence": 0.45, "rank": 3, "reason": "not_found"}
+{"source": "Portland Art Museum", "candidate": "North Carolina Museum of Art", "target_city": "chapel_hill", "confidence": 0.78, "rank": 2, "reason": "not_found"}
+{"source": "Portland Art Museum", "candidate": "Nasher Museum of Art at Duke", "target_city": "chapel_hill", "confidence": 0.62, "rank": 3, "reason": "not_found"}
+{"source": "Portland Center Stage", "candidate": "Memorial Hall", "target_city": "chapel_hill", "confidence": 0.66, "rank": 2, "reason": "not_found"}
+{"source": "Portland Farmers Market at PSU", "candidate": "Durham Farmers' Market", "target_city": "chapel_hill", "confidence": 0.72, "rank": 2, "reason": "not_found"}
+{"source": "Portland Japanese Garden", "candidate": "Sarah P. Duke Gardens", "target_city": "chapel_hill", "confidence": 0.71, "rank": 1, "reason": "not_found"}
+{"source": "Portland Oregon Sign", "candidate": "Gimghoul Castle", "target_city": "chapel_hill", "confidence": 0.71, "rank": 2, "reason": "not_found"}
+{"source": "Powell's City of Books", "candidate": "The Regulator Bookshop", "target_city": "chapel_hill", "confidence": 0.6, "rank": 3, "reason": "not_found"}
+{"source": "Providore Fine Foods", "candidate": "Cliff's Meat Market", "target_city": "chapel_hill", "confidence": 0.6, "rank": 2, "reason": "not_found"}
+{"source": "P\u00e9p\u00e9 le Moko", "candidate": "Back Bar at Lantern", "target_city": "chapel_hill", "confidence": 0.82, "rank": 2, "reason": "not_found"}
+{"source": "P\u00e9p\u00e9 le Moko", "candidate": "Kingfisher (Durham)", "target_city": "chapel_hill", "confidence": 0.65, "rank": 3, "reason": "not_found"}
+{"source": "REI", "candidate": "REI Durham (Brier Creek)", "target_city": "chapel_hill", "confidence": 0.45, "rank": 3, "reason": "not_found"}
+{"source": "Revolution Hall", "candidate": "Haw River Ballroom", "target_city": "chapel_hill", "confidence": 0.74, "rank": 2, "reason": "not_found"}
+{"source": "Revolution Hall", "candidate": "Memorial Hall", "target_city": "chapel_hill", "confidence": 0.45, "rank": 3, "reason": "not_found"}
+{"source": "Salt & Straw", "candidate": "The Parlour", "target_city": "chapel_hill", "confidence": 0.82, "rank": 1, "reason": "not_found"}
+{"source": "Sassy's", "candidate": "Linda's Bar and Grill", "target_city": "chapel_hill", "confidence": 0.55, "rank": 2, "reason": "not_found"}
+{"source": "Sellwood Riverfront Park", "candidate": "Eno River State Park (Fews Ford)", "target_city": "chapel_hill", "confidence": 0.72, "rank": 1, "reason": "not_found"}
+{"source": "Sellwood Riverfront Park", "candidate": "Jordan Lake \u2014 Ebenezer Church Recreation Area", "target_city": "chapel_hill", "confidence": 0.68, "rank": 2, "reason": "not_found"}
+{"source": "Sellwood-Moreland", "candidate": "Carrboro (downtown / Weaver Street residential core)", "target_city": "chapel_hill", "confidence": 0.62, "rank": 1, "reason": "not_found"}
+{"source": "Sellwood-Moreland", "candidate": "Historic Hillsborough", "target_city": "chapel_hill", "confidence": 0.38, "rank": 3, "reason": "not_found"}
+{"source": "St. Johns", "candidate": "Carrboro", "target_city": "chapel_hill", "confidence": 0.83, "rank": 1, "reason": "not_found"}
+{"source": "St. Johns", "candidate": "Hillsborough", "target_city": "chapel_hill", "confidence": 0.66, "rank": 2, "reason": "not_found"}
+{"source": "St. Johns", "candidate": "Northside", "target_city": "chapel_hill", "confidence": 0.55, "rank": 3, "reason": "not_found"}
+{"source": "Stumptown Coffee Roasters", "candidate": "Counter Culture Coffee", "target_city": "chapel_hill", "confidence": 0.7, "rank": 2, "reason": "not_found"}
+{"source": "Teardrop Lounge", "candidate": "Lantern's back bar", "target_city": "chapel_hill", "confidence": 0.82, "rank": 2, "reason": "not_found"}
+{"source": "Teardrop Lounge", "candidate": "Kingfisher (Durham)", "target_city": "chapel_hill", "confidence": 0.74, "rank": 3, "reason": "not_found"}
+{"source": "Tom McCall Waterfront Park", "candidate": "Carrboro Town Commons", "target_city": "chapel_hill", "confidence": 0.6, "rank": 2, "reason": "not_found"}
+{"source": "Umpqua Bank", "candidate": "Self-Help Credit Union", "target_city": "chapel_hill", "confidence": 0.68, "rank": 2, "reason": "not_found"}
+{"source": "Uwajimaya", "candidate": "Grand Asia Market (Cary)", "target_city": "chapel_hill", "confidence": 0.78, "rank": 2, "reason": "not_found"}
+{"source": "Uwajimaya", "candidate": "Compare Foods (Carrboro)", "target_city": "chapel_hill", "confidence": 0.55, "rank": 3, "reason": "not_found"}
+{"source": "Voodoo Doughnut", "candidate": "Time-Out", "target_city": "chapel_hill", "confidence": 0.82, "rank": 1, "reason": "not_found"}
+{"source": "Widmer Brothers Brewing", "candidate": "Top of the Hill", "target_city": "chapel_hill", "confidence": 0.75, "rank": 2, "reason": "not_found"}
+{"source": "WinCo Foods", "candidate": "Aldi (NC-54 / Durham-Chapel Hill Blvd)", "target_city": "chapel_hill", "confidence": 0.7, "rank": 1, "reason": "not_found"}
+{"source": "WinCo Foods", "candidate": "Compare Foods (Carrboro)", "target_city": "chapel_hill", "confidence": 0.62, "rank": 2, "reason": "not_found"}
+{"source": "Winks Hardware", "candidate": "Stone Brothers & Byrd (Durham)", "target_city": "chapel_hill", "confidence": 0.52, "rank": 3, "reason": "not_found"}
+{"source": "Wonder Ballroom", "candidate": "Haw River Ballroom", "target_city": "chapel_hill", "confidence": 0.72, "rank": 2, "reason": "not_found"}
+{"source": "Zupan's Markets", "candidate": "The Root Cellar", "target_city": "chapel_hill", "confidence": 0.34, "rank": 3, "reason": "not_found"}

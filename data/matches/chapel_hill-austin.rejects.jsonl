@@ -1,0 +1,58 @@
+{"source": "Bandido's Mexican Cafe", "candidate": "Chuy's (Barton Springs original)", "target_city": "austin", "confidence": 0.68, "rank": 2, "reason": "not_found"}
+{"source": "Battle Park", "candidate": "Pease Park & the Shoal Creek Greenbelt", "target_city": "austin", "confidence": 0.72, "rank": 1, "reason": "not_found"}
+{"source": "Battle Park", "candidate": "Mayfield Park & Nature Preserve", "target_city": "austin", "confidence": 0.48, "rank": 3, "reason": "not_found"}
+{"source": "Bolin Creek Trail", "candidate": "Walnut Creek Trail", "target_city": "austin", "confidence": 0.6, "rank": 3, "reason": "not_found"}
+{"source": "Buns", "candidate": "P. Terry's", "target_city": "austin", "confidence": 0.48, "rank": 3, "reason": "not_found"}
+{"source": "Caffe Driade", "candidate": "Cosmic Coffee + Beer Garden", "target_city": "austin", "confidence": 0.58, "rank": 3, "reason": "not_found"}
+{"source": "Carolina Brewery", "candidate": "Draught House Pub & Brewery", "target_city": "austin", "confidence": 0.66, "rank": 2, "reason": "not_found"}
+{"source": "Carrboro", "candidate": "Manor Road / Cherrywood", "target_city": "austin", "confidence": 0.42, "rank": 3, "reason": "not_found"}
+{"source": "Cat's Cradle", "candidate": "Mohawk", "target_city": "austin", "confidence": 0.78, "rank": 1, "reason": "not_found"}
+{"source": "Chapel Hill Comics", "candidate": "Tribe Comics & Games", "target_city": "austin", "confidence": 0.72, "rank": 2, "reason": "not_found"}
+{"source": "Chapel Hill Comics", "candidate": "Farewell Books / Guzu Gallery", "target_city": "austin", "confidence": 0.45, "rank": 3, "reason": "not_found"}
+{"source": "Chapel Hill Public Library", "candidate": "Twin Oaks Branch Library", "target_city": "austin", "confidence": 0.52, "rank": 3, "reason": "not_found"}
+{"source": "Coker Arboretum", "candidate": "UT Turtle Pond", "target_city": "austin", "confidence": 0.62, "rank": 1, "reason": "not_found"}
+{"source": "Coker Arboretum", "candidate": "Taniguchi Japanese Garden at Zilker Botanical Garden", "target_city": "austin", "confidence": 0.42, "rank": 3, "reason": "not_found"}
+{"source": "Forest Theatre", "candidate": "Laguna Gloria (The Contemporary Austin)", "target_city": "austin", "confidence": 0.5, "rank": 2, "reason": "not_found"}
+{"source": "Forest Theatre", "candidate": "UT Turtle Pond & the Battle Oaks", "target_city": "austin", "confidence": 0.38, "rank": 3, "reason": "not_found"}
+{"source": "Franklin Street", "candidate": "The Drag (Guadalupe Street)", "target_city": "austin", "confidence": 0.85, "rank": 1, "reason": "not_found"}
+{"source": "Franklin Street", "candidate": "Dirty Sixth Street", "target_city": "austin", "confidence": 0.62, "rank": 2, "reason": "not_found"}
+{"source": "Franklin Street", "candidate": "West Campus (Rio Grande & 24th Street)", "target_city": "austin", "confidence": 0.42, "rank": 3, "reason": "not_found"}
+{"source": "Gimghoul", "candidate": "Aldridge Place / North University", "target_city": "austin", "confidence": 0.63, "rank": 1, "reason": "not_found"}
+{"source": "Gimghoul", "candidate": "Hyde Park", "target_city": "austin", "confidence": 0.6, "rank": 2, "reason": "not_found"}
+{"source": "Gimghoul", "candidate": "Old Enfield", "target_city": "austin", "confidence": 0.45, "rank": 3, "reason": "not_found"}
+{"source": "Gimghoul Castle", "candidate": "Pemberton Castle (Old Enfield)", "target_city": "austin", "confidence": 0.55, "rank": 2, "reason": "not_found"}
+{"source": "Glasshalfull", "candidate": "June's All Day", "target_city": "austin", "confidence": 0.62, "rank": 1, "reason": "not_found"}
+{"source": "Glen Lennox", "candidate": "Hyde Park", "target_city": "austin", "confidence": 0.44, "rank": 3, "reason": "not_found"}
+{"source": "Gocciolina", "candidate": "Vespaio", "target_city": "austin", "confidence": 0.74, "rank": 2, "reason": "not_found"}
+{"source": "Gocciolina", "candidate": "Intero", "target_city": "austin", "confidence": 0.66, "rank": 3, "reason": "not_found"}
+{"source": "Il Palio", "candidate": "Vespaio", "target_city": "austin", "confidence": 0.72, "rank": 2, "reason": "not_found"}
+{"source": "Il Palio", "candidate": "Trio at Four Seasons", "target_city": "austin", "confidence": 0.55, "rank": 3, "reason": "not_found"}
+{"source": "Internationalist Books", "candidate": "Resistencia Books", "target_city": "austin", "confidence": 0.78, "rank": 2, "reason": "not_found"}
+{"source": "Johnny's Gone Fishing", "candidate": "Cosmic Coffee + Beer Garden", "target_city": "austin", "confidence": 0.75, "rank": 2, "reason": "not_found"}
+{"source": "Jordan Lake", "candidate": "Lake Georgetown", "target_city": "austin", "confidence": 0.72, "rank": 2, "reason": "not_found"}
+{"source": "Jordan Lake", "candidate": "Inks Lake State Park", "target_city": "austin", "confidence": 0.55, "rank": 3, "reason": "not_found"}
+{"source": "Jujube", "candidate": "Kome", "target_city": "austin", "confidence": 0.44, "rank": 3, "reason": "not_found"}
+{"source": "Kipos Greek Taverna", "candidate": "Aba", "target_city": "austin", "confidence": 0.48, "rank": 3, "reason": "not_found"}
+{"source": "Lantern", "candidate": "Uchi", "target_city": "austin", "confidence": 0.82, "rank": 1, "reason": "not_found"}
+{"source": "Li Ming's Global Mart", "candidate": "Asia Market (Chinatown Center complex)", "target_city": "austin", "confidence": 0.68, "rank": 2, "reason": "not_found"}
+{"source": "Local 506", "candidate": "Mohawk", "target_city": "austin", "confidence": 0.72, "rank": 1, "reason": "not_found"}
+{"source": "Mediterranean Deli", "candidate": "Cabo Bob's", "target_city": "austin", "confidence": 0.6, "rank": 2, "reason": "not_found"}
+{"source": "Memorial Hall", "candidate": "Hogg Memorial Auditorium", "target_city": "austin", "confidence": 0.5, "rank": 3, "reason": "not_found"}
+{"source": "Merritt's Store & Grill", "candidate": "Fricano's Deli", "target_city": "austin", "confidence": 0.66, "rank": 2, "reason": "not_found"}
+{"source": "Northside", "candidate": "Blackland", "target_city": "austin", "confidence": 0.66, "rank": 2, "reason": "not_found"}
+{"source": "O2 Fitness Chapel Hill", "candidate": "Pure Austin Fitness", "target_city": "austin", "confidence": 0.78, "rank": 1, "reason": "not_found"}
+{"source": "PlayMakers Repertory Company", "candidate": "ZACH Theatre", "target_city": "austin", "confidence": 0.78, "rank": 1, "reason": "not_found"}
+{"source": "Rams Head Recreation Center", "candidate": "Gregory Gymnasium", "target_city": "austin", "confidence": 0.93, "rank": 1, "reason": "not_found"}
+{"source": "Rosemary Street", "candidate": "East 11th Street", "target_city": "austin", "confidence": 0.78, "rank": 1, "reason": "not_found"}
+{"source": "Rosemary Street", "candidate": "Red River Street", "target_city": "austin", "confidence": 0.45, "rank": 3, "reason": "not_found"}
+{"source": "Southern Village", "candidate": "Hyde Park", "target_city": "austin", "confidence": 0.7, "rank": 2, "reason": "not_found"}
+{"source": "Steel String Brewery", "candidate": "Lazarus Brewing Co.", "target_city": "austin", "confidence": 0.55, "rank": 3, "reason": "not_found"}
+{"source": "The Old Well", "candidate": "Hi, How Are You mural", "target_city": "austin", "confidence": 0.45, "rank": 3, "reason": "not_found"}
+{"source": "The Purple Bowl", "candidate": "Cabo Bob's", "target_city": "austin", "confidence": 0.6, "rank": 2, "reason": "not_found"}
+{"source": "Varsity Theatre", "candidate": "Alamo Drafthouse Ritz", "target_city": "austin", "confidence": 0.58, "rank": 2, "reason": "not_found"}
+{"source": "Vimala's Curryblossom Cafe", "candidate": "Nubian Queen Lola's Cajun Kitchen", "target_city": "austin", "confidence": 0.55, "rank": 2, "reason": "not_found"}
+{"source": "Wegmans Chapel Hill", "candidate": "H-E-B (Mueller / Lake Austin Blvd flagship)", "target_city": "austin", "confidence": 0.82, "rank": 2, "reason": "not_found"}
+{"source": "Wilson Library", "candidate": "LBJ Presidential Library", "target_city": "austin", "confidence": 0.52, "rank": 3, "reason": "not_found"}
+{"source": "Woollen Gym", "candidate": "Gregory Gymnasium", "target_city": "austin", "confidence": 0.93, "rank": 1, "reason": "not_found"}
+{"source": "Woollen Gym", "candidate": "Recreational Sports Center (UT RecSports)", "target_city": "austin", "confidence": 0.72, "rank": 2, "reason": "not_found"}
+{"source": "Ye Olde Waffle Shoppe", "candidate": "Cisco's Restaurant Bakery & Bar", "target_city": "austin", "confidence": 0.78, "rank": 1, "reason": "not_found"}

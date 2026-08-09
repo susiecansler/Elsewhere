@@ -1,0 +1,64 @@
+{"source": "Ackland Art Museum", "candidate": "Jordan Schnitzer Museum of Art at PSU", "target_city": "portland", "confidence": 0.62, "rank": 2, "reason": "not_found"}
+{"source": "Acme Food & Beverage", "candidate": "Higgins Restaurant", "target_city": "portland", "confidence": 0.82, "rank": 1, "reason": "not_found"}
+{"source": "Acme Food & Beverage", "candidate": "Tasty n Daughters", "target_city": "portland", "confidence": 0.45, "rank": 3, "reason": "not_found"}
+{"source": "Breadmen's", "candidate": "Overlook Restaurant", "target_city": "portland", "confidence": 0.72, "rank": 1, "reason": "not_found"}
+{"source": "Caffe Driade", "candidate": "Palio Dessert & Espresso House", "target_city": "portland", "confidence": 0.62, "rank": 1, "reason": "not_found"}
+{"source": "Caffe Driade", "candidate": "Tea Chai T\u00e9 (Sellwood)", "target_city": "portland", "confidence": 0.38, "rank": 3, "reason": "not_found"}
+{"source": "Chapel Hill Community Center", "candidate": "Mt. Scott Community Center", "target_city": "portland", "confidence": 0.78, "rank": 1, "reason": "not_found"}
+{"source": "Chapel Hill Community Center", "candidate": "Matt Dishman Community Center", "target_city": "portland", "confidence": 0.72, "rank": 2, "reason": "not_found"}
+{"source": "Cliff's Meat Market", "candidate": "Otto's Sausage Kitchen", "target_city": "portland", "confidence": 0.74, "rank": 2, "reason": "not_found"}
+{"source": "Davis Library", "candidate": "Branford Price Millar Library (Portland State University)", "target_city": "portland", "confidence": 0.72, "rank": 1, "reason": "not_found"}
+{"source": "Dean E. Smith Center", "candidate": "Moda Center", "target_city": "portland", "confidence": 0.78, "rank": 1, "reason": "not_found"}
+{"source": "Elmo's Diner", "candidate": "Zell's Caf\u00e9", "target_city": "portland", "confidence": 0.55, "rank": 2, "reason": "not_found"}
+{"source": "Forest Theatre", "candidate": "Witch's Castle (Stone House, Macleay Park)", "target_city": "portland", "confidence": 0.68, "rank": 1, "reason": "not_found"}
+{"source": "Forest Theatre", "candidate": "Mount Tabor Park amphitheater", "target_city": "portland", "confidence": 0.64, "rank": 2, "reason": "not_found"}
+{"source": "Franklin Street", "candidate": "SW Broadway through the Park Blocks (PSU)", "target_city": "portland", "confidence": 0.38, "rank": 3, "reason": "not_found"}
+{"source": "Gimghoul", "candidate": "Eastmoreland", "target_city": "portland", "confidence": 0.76, "rank": 1, "reason": "not_found"}
+{"source": "Gimghoul", "candidate": "Laurelhurst", "target_city": "portland", "confidence": 0.66, "rank": 2, "reason": "not_found"}
+{"source": "Gimghoul", "candidate": "Dunthorpe", "target_city": "portland", "confidence": 0.42, "rank": 3, "reason": "not_found"}
+{"source": "Gimghoul Castle", "candidate": "Witch's Castle (Stone House, Lower Macleay Trail)", "target_city": "portland", "confidence": 0.93, "rank": 1, "reason": "not_found"}
+{"source": "Gimghoul Castle", "candidate": "Shanghai Tunnels", "target_city": "portland", "confidence": 0.52, "rank": 2, "reason": "not_found"}
+{"source": "Glasshalfull", "candidate": "Les Caves", "target_city": "portland", "confidence": 0.63, "rank": 1, "reason": "not_found"}
+{"source": "Glasshalfull", "candidate": "Bar Norman", "target_city": "portland", "confidence": 0.47, "rank": 3, "reason": "not_found"}
+{"source": "Glen Lennox", "candidate": "Goose Hollow", "target_city": "portland", "confidence": 0.5, "rank": 2, "reason": "not_found"}
+{"source": "Glen Lennox", "candidate": "Cully", "target_city": "portland", "confidence": 0.38, "rank": 3, "reason": "not_found"}
+{"source": "Hawkers Asian Street Food", "candidate": "Eem", "target_city": "portland", "confidence": 0.66, "rank": 2, "reason": "not_found"}
+{"source": "He's Not Here", "candidate": "Claudia's Sports Pub", "target_city": "portland", "confidence": 0.55, "rank": 2, "reason": "not_found"}
+{"source": "Il Palio", "candidate": "Higgins Restaurant", "target_city": "portland", "confidence": 0.78, "rank": 1, "reason": "not_found"}
+{"source": "Il Palio", "candidate": "Nel Centro", "target_city": "portland", "confidence": 0.7, "rank": 2, "reason": "not_found"}
+{"source": "Internationalist Books", "candidate": "Laughing Horse Books", "target_city": "portland", "confidence": 0.78, "rank": 1, "reason": "not_found"}
+{"source": "Internationalist Books", "candidate": "In Other Words", "target_city": "portland", "confidence": 0.6, "rank": 3, "reason": "not_found"}
+{"source": "Jujube", "candidate": "Han Oak", "target_city": "portland", "confidence": 0.78, "rank": 1, "reason": "not_found"}
+{"source": "Kenan Memorial Stadium", "candidate": "Moda Center", "target_city": "portland", "confidence": 0.72, "rank": 2, "reason": "not_found"}
+{"source": "Kenan Memorial Stadium", "candidate": "Autzen Stadium", "target_city": "portland", "confidence": 0.44, "rank": 3, "reason": "not_found"}
+{"source": "Lantern", "candidate": "Higgins Restaurant", "target_city": "portland", "confidence": 0.62, "rank": 1, "reason": "not_found"}
+{"source": "Li Ming's Global Mart", "candidate": "Fubonn Supermarket", "target_city": "portland", "confidence": 0.88, "rank": 1, "reason": "not_found"}
+{"source": "Li Ming's Global Mart", "candidate": "Uwajimaya", "target_city": "portland", "confidence": 0.8, "rank": 2, "reason": "not_found"}
+{"source": "Lucha Tigre", "candidate": "Teote", "target_city": "portland", "confidence": 0.62, "rank": 1, "reason": "not_found"}
+{"source": "Meadowmont", "candidate": "Orenco Station", "target_city": "portland", "confidence": 0.82, "rank": 1, "reason": "not_found"}
+{"source": "Meadowmont", "candidate": "South Waterfront", "target_city": "portland", "confidence": 0.72, "rank": 2, "reason": "not_found"}
+{"source": "Meadowmont", "candidate": "Villebois", "target_city": "portland", "confidence": 0.55, "rank": 3, "reason": "not_found"}
+{"source": "Mediterranean Deli", "candidate": "Ya Hala", "target_city": "portland", "confidence": 0.74, "rank": 2, "reason": "not_found"}
+{"source": "Mediterranean Deli", "candidate": "Hoda's Middle Eastern Cuisine", "target_city": "portland", "confidence": 0.6, "rank": 3, "reason": "not_found"}
+{"source": "Memorial Hall", "candidate": "Lincoln Performance Hall (PSU)", "target_city": "portland", "confidence": 0.58, "rank": 2, "reason": "not_found"}
+{"source": "Merritt's Store & Grill", "candidate": "Otto's Sausage Kitchen", "target_city": "portland", "confidence": 0.64, "rank": 1, "reason": "not_found"}
+{"source": "Might as Well Bar & Grill", "candidate": "Claudia's Sports Pub & Grill", "target_city": "portland", "confidence": 0.63, "rank": 2, "reason": "not_found"}
+{"source": "Morehead Planetarium", "candidate": "Oregon Museum of Science and Industry", "target_city": "portland", "confidence": 0.88, "rank": 1, "reason": "not_found"}
+{"source": "Neal's Deli", "candidate": "Otto's Sausage Kitchen", "target_city": "portland", "confidence": 0.7, "rank": 2, "reason": "not_found"}
+{"source": "Nightlight", "candidate": "Valentines", "target_city": "portland", "confidence": 0.78, "rank": 1, "reason": "not_found"}
+{"source": "Rams Head Recreation Center", "candidate": "Matt Dishman Community Center", "target_city": "portland", "confidence": 0.5, "rank": 3, "reason": "not_found"}
+{"source": "Rosemary Street", "candidate": "Northeast Alberta Street", "target_city": "portland", "confidence": 0.6, "rank": 2, "reason": "not_found"}
+{"source": "Rosemary Street", "candidate": "SW Ankeny Street / Old Town", "target_city": "portland", "confidence": 0.5, "rank": 3, "reason": "not_found"}
+{"source": "Silverspot Cinema", "candidate": "Bagdad Theater", "target_city": "portland", "confidence": 0.55, "rank": 3, "reason": "not_found"}
+{"source": "Southern Village", "candidate": "Orenco Station", "target_city": "portland", "confidence": 0.74, "rank": 1, "reason": "not_found"}
+{"source": "Southern Village", "candidate": "Villebois", "target_city": "portland", "confidence": 0.63, "rank": 2, "reason": "not_found"}
+{"source": "Southern Village", "candidate": "Fairview Village", "target_city": "portland", "confidence": 0.55, "rank": 3, "reason": "not_found"}
+{"source": "The Old Well", "candidate": "Benson Bubblers", "target_city": "portland", "confidence": 0.58, "rank": 1, "reason": "not_found"}
+{"source": "The Root Cellar", "candidate": "Broder", "target_city": "portland", "confidence": 0.68, "rank": 2, "reason": "not_found"}
+{"source": "The Root Cellar", "candidate": "Screen Door", "target_city": "portland", "confidence": 0.52, "rank": 3, "reason": "not_found"}
+{"source": "Top of the Hill", "candidate": "Rogue Ales Public House", "target_city": "portland", "confidence": 0.52, "rank": 3, "reason": "not_found"}
+{"source": "Weaver Street Market", "candidate": "Alberta Co-op Grocery", "target_city": "portland", "confidence": 0.55, "rank": 3, "reason": "not_found"}
+{"source": "Wilson Library", "candidate": "Hauser Library, Reed College", "target_city": "portland", "confidence": 0.45, "rank": 3, "reason": "not_found"}
+{"source": "Woollen Gym", "candidate": "PSU Campus Rec Center (Academic & Student Recreation Center)", "target_city": "portland", "confidence": 0.72, "rank": 1, "reason": "not_found"}
+{"source": "Woollen Gym", "candidate": "Matt Dishman Community Center", "target_city": "portland", "confidence": 0.6, "rank": 2, "reason": "not_found"}
+{"source": "Woollen Gym", "candidate": "Beauchamp Recreation & Wellness Center (University of Portland)", "target_city": "portland", "confidence": 0.45, "rank": 3, "reason": "not_found"}

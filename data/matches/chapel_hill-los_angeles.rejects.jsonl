@@ -1,0 +1,65 @@
+{"source": "Bandido's Mexican Cafe", "candidate": "El Coyote", "target_city": "los_angeles", "confidence": 0.68, "rank": 2, "reason": "not_found"}
+{"source": "Battle Park", "candidate": "Mildred E. Mathias Botanical Garden (UCLA)", "target_city": "los_angeles", "confidence": 0.66, "rank": 2, "reason": "not_found"}
+{"source": "Bolin Creek Trail", "candidate": "LA River Path, Elysian Valley (Frogtown)", "target_city": "los_angeles", "confidence": 0.7, "rank": 2, "reason": "not_found"}
+{"source": "Bolin Creek Trail", "candidate": "Fern Dell Trail, Griffith Park", "target_city": "los_angeles", "confidence": 0.55, "rank": 3, "reason": "not_found"}
+{"source": "Breadmen's", "candidate": "John O'Groats", "target_city": "los_angeles", "confidence": 0.66, "rank": 1, "reason": "not_found"}
+{"source": "Chapel Hill Farmers Market", "candidate": "Claremont Farmers & Artisans Market", "target_city": "los_angeles", "confidence": 0.72, "rank": 1, "reason": "not_found"}
+{"source": "Chapel Hill Public Library", "candidate": "Pasadena Central Library", "target_city": "los_angeles", "confidence": 0.68, "rank": 2, "reason": "not_found"}
+{"source": "Cliff's Meat Market", "candidate": "Huntington Meats & Provisions", "target_city": "los_angeles", "confidence": 0.62, "rank": 1, "reason": "not_found"}
+{"source": "Coker Arboretum", "candidate": "Mildred E. Mathias Botanical Garden (UCLA)", "target_city": "los_angeles", "confidence": 0.82, "rank": 1, "reason": "not_found"}
+{"source": "Davis Library", "candidate": "Powell Library (UCLA)", "target_city": "los_angeles", "confidence": 0.7, "rank": 2, "reason": "not_found"}
+{"source": "Elmo's Diner", "candidate": "John O'Groats", "target_city": "los_angeles", "confidence": 0.66, "rank": 2, "reason": "not_found"}
+{"source": "Forest Theatre", "candidate": "The Ford (John Anson Ford Amphitheatre)", "target_city": "los_angeles", "confidence": 0.7, "rank": 2, "reason": "not_found"}
+{"source": "Gimghoul", "candidate": "Little Holmby", "target_city": "los_angeles", "confidence": 0.61, "rank": 1, "reason": "not_found"}
+{"source": "Gimghoul", "candidate": "San Marino", "target_city": "los_angeles", "confidence": 0.55, "rank": 2, "reason": "not_found"}
+{"source": "Gimghoul Castle", "candidate": "Murphy Ranch (Rustic Canyon)", "target_city": "los_angeles", "confidence": 0.74, "rank": 1, "reason": "not_found"}
+{"source": "Gimghoul Castle", "candidate": "Sowden House", "target_city": "los_angeles", "confidence": 0.5, "rank": 3, "reason": "not_found"}
+{"source": "Glasshalfull", "candidate": "Bar Covell", "target_city": "los_angeles", "confidence": 0.55, "rank": 3, "reason": "not_found"}
+{"source": "Glen Lennox", "candidate": "Park La Brea", "target_city": "los_angeles", "confidence": 0.62, "rank": 1, "reason": "not_found"}
+{"source": "He's Not Here", "candidate": "901 Bar & Grill", "target_city": "los_angeles", "confidence": 0.72, "rank": 1, "reason": "not_found"}
+{"source": "He's Not Here", "candidate": "Maloney's on Campus", "target_city": "los_angeles", "confidence": 0.66, "rank": 2, "reason": "not_found"}
+{"source": "Il Palio", "candidate": "Culina, Four Seasons Beverly Hills", "target_city": "los_angeles", "confidence": 0.55, "rank": 3, "reason": "not_found"}
+{"source": "Internationalist Books", "candidate": "Libros Schmibros", "target_city": "los_angeles", "confidence": 0.48, "rank": 3, "reason": "not_found"}
+{"source": "Jordan Lake", "candidate": "Frank G. Bonelli Regional Park (Puddingstone Reservoir)", "target_city": "los_angeles", "confidence": 0.45, "rank": 3, "reason": "not_found"}
+{"source": "Jujube", "candidate": "Kato", "target_city": "los_angeles", "confidence": 0.58, "rank": 2, "reason": "not_found"}
+{"source": "Kipos Greek Taverna", "candidate": "Papa Cristo's", "target_city": "los_angeles", "confidence": 0.42, "rank": 3, "reason": "not_found"}
+{"source": "Lantern", "candidate": "Kato", "target_city": "los_angeles", "confidence": 0.5, "rank": 3, "reason": "not_found"}
+{"source": "Li Ming's Global Mart", "candidate": "Hawaii Supermarket (San Gabriel)", "target_city": "los_angeles", "confidence": 0.71, "rank": 2, "reason": "not_found"}
+{"source": "Linda's Bar and Grill", "candidate": "The 901 Bar & Grill", "target_city": "los_angeles", "confidence": 0.78, "rank": 1, "reason": "not_found"}
+{"source": "Linda's Bar and Grill", "candidate": "Maloney's on Campus", "target_city": "los_angeles", "confidence": 0.72, "rank": 2, "reason": "not_found"}
+{"source": "Meadowmont", "candidate": "Valencia (Santa Clarita)", "target_city": "los_angeles", "confidence": 0.62, "rank": 2, "reason": "not_found"}
+{"source": "Memorial Hall", "candidate": "Royce Hall (CAP UCLA)", "target_city": "los_angeles", "confidence": 0.93, "rank": 1, "reason": "not_found"}
+{"source": "Merritt's Store & Grill", "candidate": "Langer's Delicatessen", "target_city": "los_angeles", "confidence": 0.71, "rank": 2, "reason": "not_found"}
+{"source": "Might as Well Bar & Grill", "candidate": "901 Bar & Grill", "target_city": "los_angeles", "confidence": 0.6, "rank": 1, "reason": "not_found"}
+{"source": "Might as Well Bar & Grill", "candidate": "Maloney's on Campus", "target_city": "los_angeles", "confidence": 0.55, "rank": 2, "reason": "not_found"}
+{"source": "Nice Price Books", "candidate": "Counterpoint Records & Books", "target_city": "los_angeles", "confidence": 0.86, "rank": 1, "reason": "not_found"}
+{"source": "North Carolina Botanical Garden", "candidate": "UCLA Mildred E. Mathias Botanical Garden", "target_city": "los_angeles", "confidence": 0.55, "rank": 3, "reason": "not_found"}
+{"source": "Northside", "candidate": "West Adams", "target_city": "los_angeles", "confidence": 0.62, "rank": 1, "reason": "not_found"}
+{"source": "Northside", "candidate": "Adams-Normandie", "target_city": "los_angeles", "confidence": 0.5, "rank": 3, "reason": "not_found"}
+{"source": "Open Eye Cafe", "candidate": "Kindness & Mischief Coffee", "target_city": "los_angeles", "confidence": 0.45, "rank": 3, "reason": "not_found"}
+{"source": "PTA Thrift Shop", "candidate": "NCJW Council Thrift Shop (Fairfax)", "target_city": "los_angeles", "confidence": 0.66, "rank": 2, "reason": "not_found"}
+{"source": "Rams Head Recreation Center", "candidate": "Lyon Center", "target_city": "los_angeles", "confidence": 0.82, "rank": 2, "reason": "not_found"}
+{"source": "Rams Head Recreation Center", "candidate": "Bruin Fitness Center (BFIT)", "target_city": "los_angeles", "confidence": 0.63, "rank": 3, "reason": "not_found"}
+{"source": "Rosemary Street", "candidate": "York Boulevard, Highland Park", "target_city": "los_angeles", "confidence": 0.62, "rank": 1, "reason": "not_found"}
+{"source": "Rosemary Street", "candidate": "West Adams (Adams Blvd between Crenshaw and La Brea)", "target_city": "los_angeles", "confidence": 0.55, "rank": 2, "reason": "not_found"}
+{"source": "Silverspot Cinema", "candidate": "Alamo Drafthouse DTLA", "target_city": "los_angeles", "confidence": 0.6, "rank": 1, "reason": "not_found"}
+{"source": "Southern Season", "candidate": "Eataly LA", "target_city": "los_angeles", "confidence": 0.45, "rank": 3, "reason": "not_found"}
+{"source": "Southern Village", "candidate": "South Pasadena", "target_city": "los_angeles", "confidence": 0.74, "rank": 2, "reason": "not_found"}
+{"source": "Southern Village", "candidate": "Valencia (Santa Clarita)", "target_city": "los_angeles", "confidence": 0.55, "rank": 3, "reason": "not_found"}
+{"source": "Sup Dogs", "candidate": "The 901 Bar & Grill", "target_city": "los_angeles", "confidence": 0.66, "rank": 1, "reason": "not_found"}
+{"source": "Sutton's Drug Store", "candidate": "Diddy Riese", "target_city": "los_angeles", "confidence": 0.45, "rank": 3, "reason": "not_found"}
+{"source": "Tandem", "candidate": "Kato", "target_city": "los_angeles", "confidence": 0.62, "rank": 1, "reason": "not_found"}
+{"source": "The Crunkleton", "candidate": "Employees Only West Hollywood", "target_city": "los_angeles", "confidence": 0.63, "rank": 2, "reason": "not_found"}
+{"source": "The Old Well", "candidate": "UCLA Inverted Fountain", "target_city": "los_angeles", "confidence": 0.6, "rank": 1, "reason": "not_found"}
+{"source": "The Old Well", "candidate": "Angels Flight", "target_city": "los_angeles", "confidence": 0.55, "rank": 2, "reason": "not_found"}
+{"source": "Trader Joe's", "candidate": "Jons Marketplace", "target_city": "los_angeles", "confidence": 0.4, "rank": 3, "reason": "not_found"}
+{"source": "UNC Student Stores", "candidate": "UCLA Store (Ackerman Union)", "target_city": "los_angeles", "confidence": 0.86, "rank": 1, "reason": "not_found"}
+{"source": "UNC Student Stores", "candidate": "USC Bookstore at USC Village", "target_city": "los_angeles", "confidence": 0.7, "rank": 2, "reason": "not_found"}
+{"source": "Varsity Theatre", "candidate": "Nuart Theatre", "target_city": "los_angeles", "confidence": 0.72, "rank": 1, "reason": "not_found"}
+{"source": "Venable Rotisserie Bistro", "candidate": "Cafe Stella", "target_city": "los_angeles", "confidence": 0.55, "rank": 2, "reason": "not_found"}
+{"source": "Venable Rotisserie Bistro", "candidate": "R\u00e9publique", "target_city": "los_angeles", "confidence": 0.48, "rank": 3, "reason": "not_found"}
+{"source": "Wilson Library", "candidate": "Powell Library (UCLA)", "target_city": "los_angeles", "confidence": 0.74, "rank": 1, "reason": "not_found"}
+{"source": "Wilson Library", "candidate": "The Huntington Library", "target_city": "los_angeles", "confidence": 0.71, "rank": 2, "reason": "not_found"}
+{"source": "Woollen Gym", "candidate": "Lyon Center", "target_city": "los_angeles", "confidence": 0.8, "rank": 2, "reason": "not_found"}
+{"source": "Ye Olde Waffle Shoppe", "candidate": "John O'Groats", "target_city": "los_angeles", "confidence": 0.72, "rank": 1, "reason": "not_found"}
+{"source": "Ye Olde Waffle Shoppe", "candidate": "Pann's", "target_city": "los_angeles", "confidence": 0.55, "rank": 3, "reason": "not_found"}

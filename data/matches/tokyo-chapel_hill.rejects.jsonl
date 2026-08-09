@@ -1,0 +1,120 @@
+{"source": "2nd Street", "candidate": "PTA Thrift Shop", "target_city": "chapel_hill", "confidence": 0.68, "rank": 1, "reason": "not_found"}
+{"source": "2nd Street", "candidate": "Rumors", "target_city": "chapel_hill", "confidence": 0.6, "rank": 2, "reason": "not_found"}
+{"source": "Afuri", "candidate": "Dashi", "target_city": "chapel_hill", "confidence": 0.54, "rank": 2, "reason": "not_found"}
+{"source": "Andy's Shin Hinomoto", "candidate": "Linda's Bar and Grill", "target_city": "chapel_hill", "confidence": 0.72, "rank": 1, "reason": "not_found"}
+{"source": "Baird Beer Taproom Harajuku", "candidate": "Fullsteam Brewery", "target_city": "chapel_hill", "confidence": 0.58, "rank": 3, "reason": "not_found"}
+{"source": "Bar Benfiddich", "candidate": "Back Bar at Lantern", "target_city": "chapel_hill", "confidence": 0.63, "rank": 2, "reason": "not_found"}
+{"source": "Bar Benfiddich", "candidate": "Kingfisher (Durham)", "target_city": "chapel_hill", "confidence": 0.55, "rank": 3, "reason": "not_found"}
+{"source": "Bar High Five", "candidate": "Lantern's back bar", "target_city": "chapel_hill", "confidence": 0.72, "rank": 2, "reason": "not_found"}
+{"source": "Bar High Five", "candidate": "Kingfisher (Durham)", "target_city": "chapel_hill", "confidence": 0.6, "rank": 3, "reason": "not_found"}
+{"source": "Beams Harajuku", "candidate": "Rumors", "target_city": "chapel_hill", "confidence": 0.45, "rank": 3, "reason": "not_found"}
+{"source": "Blue Note Tokyo", "candidate": "Memorial Hall (Carolina Performing Arts)", "target_city": "chapel_hill", "confidence": 0.55, "rank": 1, "reason": "not_found"}
+{"source": "Budokan", "candidate": "Memorial Hall", "target_city": "chapel_hill", "confidence": 0.62, "rank": 2, "reason": "not_found"}
+{"source": "Butagumi", "candidate": "Cliff's Meat Market", "target_city": "chapel_hill", "confidence": 0.35, "rank": 3, "reason": "not_found"}
+{"source": "CoCo Ichibanya", "candidate": "Mediterranean Deli", "target_city": "chapel_hill", "confidence": 0.55, "rank": 2, "reason": "not_found"}
+{"source": "Contact Tokyo", "candidate": "The Pinhook (Durham)", "target_city": "chapel_hill", "confidence": 0.5, "rank": 2, "reason": "not_found"}
+{"source": "Daikanyama", "candidate": "Carrboro (Weaver Street / Main Street)", "target_city": "chapel_hill", "confidence": 0.72, "rank": 1, "reason": "not_found"}
+{"source": "Daikanyama", "candidate": "East Franklin / Gimghoul", "target_city": "chapel_hill", "confidence": 0.4, "rank": 3, "reason": "not_found"}
+{"source": "Den", "candidate": "Gocciolina", "target_city": "chapel_hill", "confidence": 0.6, "rank": 2, "reason": "not_found"}
+{"source": "Den", "candidate": "Il Palio", "target_city": "chapel_hill", "confidence": 0.44, "rank": 3, "reason": "not_found"}
+{"source": "Denenchofu", "candidate": "Gimghoul", "target_city": "chapel_hill", "confidence": 0.74, "rank": 1, "reason": "not_found"}
+{"source": "Denenchofu", "candidate": "Governors Club", "target_city": "chapel_hill", "confidence": 0.45, "rank": 3, "reason": "not_found"}
+{"source": "Don Quijote", "candidate": "PTA Thrift Shop", "target_city": "chapel_hill", "confidence": 0.55, "rank": 2, "reason": "not_found"}
+{"source": "Don Quijote", "candidate": "Roses (Carrboro Plaza)", "target_city": "chapel_hill", "confidence": 0.38, "rank": 3, "reason": "not_found"}
+{"source": "FamilyMart", "candidate": "Time-Out", "target_city": "chapel_hill", "confidence": 0.5, "rank": 2, "reason": "not_found"}
+{"source": "Florilege", "candidate": "Il Palio", "target_city": "chapel_hill", "confidence": 0.34, "rank": 2, "reason": "not_found"}
+{"source": "Ginza", "candidate": "East Franklin Street (the Siena / Julian's / Crunkleton stretch)", "target_city": "chapel_hill", "confidence": 0.58, "rank": 1, "reason": "not_found"}
+{"source": "Ginza", "candidate": "Fearrington Village", "target_city": "chapel_hill", "confidence": 0.45, "rank": 2, "reason": "not_found"}
+{"source": "Gold's Gym Harajuku", "candidate": "Woollen Gym", "target_city": "chapel_hill", "confidence": 0.58, "rank": 2, "reason": "not_found"}
+{"source": "Golden Gai", "candidate": "Rosemary Street", "target_city": "chapel_hill", "confidence": 0.48, "rank": 1, "reason": "not_found"}
+{"source": "Gonpachi Nishiazabu", "candidate": "Top of the Hill", "target_city": "chapel_hill", "confidence": 0.72, "rank": 1, "reason": "not_found"}
+{"source": "Hanamasa", "candidate": "Cliff's Meat Market", "target_city": "chapel_hill", "confidence": 0.72, "rank": 1, "reason": "not_found"}
+{"source": "Hanamasa", "candidate": "Restaurant Depot (Durham)", "target_city": "chapel_hill", "confidence": 0.5, "rank": 3, "reason": "not_found"}
+{"source": "Harajuku", "candidate": "Carrboro Main Street", "target_city": "chapel_hill", "confidence": 0.55, "rank": 2, "reason": "not_found"}
+{"source": "Harajuku", "candidate": "PTA Thrift Shop", "target_city": "chapel_hill", "confidence": 0.28, "rank": 3, "reason": "not_found"}
+{"source": "Harajuku Gyozaro", "candidate": "Time-Out", "target_city": "chapel_hill", "confidence": 0.72, "rank": 1, "reason": "not_found"}
+{"source": "Harajuku Gyozaro", "candidate": "Merritt's Store & Grill", "target_city": "chapel_hill", "confidence": 0.68, "rank": 2, "reason": "not_found"}
+{"source": "Ichiran", "candidate": "Merritt's Store & Grill", "target_city": "chapel_hill", "confidence": 0.6, "rank": 2, "reason": "not_found"}
+{"source": "Image Forum", "candidate": "Ackland Film Forum", "target_city": "chapel_hill", "confidence": 0.72, "rank": 1, "reason": "not_found"}
+{"source": "Isetan Shinjuku", "candidate": "Nordstrom at The Streets at Southpoint", "target_city": "chapel_hill", "confidence": 0.3, "rank": 3, "reason": "not_found"}
+{"source": "Itoya Ginza", "candidate": "Parker and Otis", "target_city": "chapel_hill", "confidence": 0.44, "rank": 2, "reason": "not_found"}
+{"source": "Kabukiza", "candidate": "Memorial Hall", "target_city": "chapel_hill", "confidence": 0.52, "rank": 2, "reason": "not_found"}
+{"source": "Kagari", "candidate": "Merritt's Store & Grill", "target_city": "chapel_hill", "confidence": 0.72, "rank": 2, "reason": "not_found"}
+{"source": "Kagurazaka", "candidate": "West Franklin Street (the Lantern\u2013Crunkleton\u2013Kipos stretch)", "target_city": "chapel_hill", "confidence": 0.56, "rank": 1, "reason": "not_found"}
+{"source": "Kagurazaka", "candidate": "Downtown Carrboro (Main Street / Weaver Street)", "target_city": "chapel_hill", "confidence": 0.49, "rank": 2, "reason": "not_found"}
+{"source": "Kagurazaka", "candidate": "Gimghoul", "target_city": "chapel_hill", "confidence": 0.34, "rank": 3, "reason": "not_found"}
+{"source": "Kaldi Coffee Farm", "candidate": "The Root Cellar", "target_city": "chapel_hill", "confidence": 0.4, "rank": 3, "reason": "not_found"}
+{"source": "Kappabashi Street", "candidate": "Fifth Season Gardening", "target_city": "chapel_hill", "confidence": 0.55, "rank": 2, "reason": "not_found"}
+{"source": "Kichijoji", "candidate": "Carrboro", "target_city": "chapel_hill", "confidence": 0.83, "rank": 1, "reason": "not_found"}
+{"source": "Kinokuniya Shinjuku", "candidate": "Bull's Head Bookshop", "target_city": "chapel_hill", "confidence": 0.6, "rank": 2, "reason": "not_found"}
+{"source": "Kiyosumi Shirakawa", "candidate": "Carrboro (downtown, around Carr Mill Mall)", "target_city": "chapel_hill", "confidence": 0.78, "rank": 1, "reason": "not_found"}
+{"source": "Kiyosumi Shirakawa", "candidate": "Golden Belt District, Durham", "target_city": "chapel_hill", "confidence": 0.62, "rank": 2, "reason": "not_found"}
+{"source": "Kiyosumi Shirakawa", "candidate": "Downtown Hillsborough (Nash Street / Riverwalk mills)", "target_city": "chapel_hill", "confidence": 0.44, "rank": 3, "reason": "not_found"}
+{"source": "Koenji", "candidate": "Carrboro", "target_city": "chapel_hill", "confidence": 0.88, "rank": 1, "reason": "not_found"}
+{"source": "Koenji", "candidate": "Rosemary Street", "target_city": "chapel_hill", "confidence": 0.6, "rank": 2, "reason": "not_found"}
+{"source": "Koenji", "candidate": "Ninth Street, Durham", "target_city": "chapel_hill", "confidence": 0.42, "rank": 3, "reason": "not_found"}
+{"source": "Kosugiyu", "candidate": "Homestead Aquatic Center", "target_city": "chapel_hill", "confidence": 0.5, "rank": 2, "reason": "not_found"}
+{"source": "Lawson", "candidate": "Time-Out", "target_city": "chapel_hill", "confidence": 0.4, "rank": 3, "reason": "not_found"}
+{"source": "Liquidroom", "candidate": "Haw River Ballroom", "target_city": "chapel_hill", "confidence": 0.55, "rank": 3, "reason": "not_found"}
+{"source": "Menya Musashi", "candidate": "Merritt's Store & Grill", "target_city": "chapel_hill", "confidence": 0.76, "rank": 1, "reason": "not_found"}
+{"source": "Mikkeller Tokyo", "candidate": "Beer Study", "target_city": "chapel_hill", "confidence": 0.72, "rank": 1, "reason": "not_found"}
+{"source": "Mitsukoshi Nihombashi", "candidate": "Belk (University Place / Southpoint)", "target_city": "chapel_hill", "confidence": 0.55, "rank": 2, "reason": "not_found"}
+{"source": "Mori Art Museum", "candidate": "Nasher Museum of Art at Duke", "target_city": "chapel_hill", "confidence": 0.74, "rank": 1, "reason": "not_found"}
+{"source": "Mori Art Museum", "candidate": "CAM Raleigh", "target_city": "chapel_hill", "confidence": 0.42, "rank": 3, "reason": "not_found"}
+{"source": "Mount Takao", "candidate": "Eno River State Park", "target_city": "chapel_hill", "confidence": 0.72, "rank": 1, "reason": "not_found"}
+{"source": "Mount Takao", "candidate": "Occoneechee Mountain State Natural Area", "target_city": "chapel_hill", "confidence": 0.63, "rank": 2, "reason": "not_found"}
+{"source": "Mount Takao", "candidate": "Pilot Mountain State Park", "target_city": "chapel_hill", "confidence": 0.5, "rank": 3, "reason": "not_found"}
+{"source": "Muji Yurakucho", "candidate": "Fifth Season Gardening", "target_city": "chapel_hill", "confidence": 0.3, "rank": 3, "reason": "not_found"}
+{"source": "Nakameguro", "candidate": "Carrboro (Main Street & Weaver Street)", "target_city": "chapel_hill", "confidence": 0.85, "rank": 1, "reason": "not_found"}
+{"source": "Nakameguro", "candidate": "West Franklin Street", "target_city": "chapel_hill", "confidence": 0.65, "rank": 2, "reason": "not_found"}
+{"source": "Nakiryu", "candidate": "Merritt's Store & Grill", "target_city": "chapel_hill", "confidence": 0.78, "rank": 1, "reason": "not_found"}
+{"source": "Narisawa", "candidate": "Herons at The Umstead", "target_city": "chapel_hill", "confidence": 0.6, "rank": 2, "reason": "not_found"}
+{"source": "Narisawa", "candidate": "Il Palio", "target_city": "chapel_hill", "confidence": 0.42, "rank": 3, "reason": "not_found"}
+{"source": "National Film Archive of Japan", "candidate": "Carolina Theatre of Durham", "target_city": "chapel_hill", "confidence": 0.55, "rank": 2, "reason": "not_found"}
+{"source": "Natural Lawson", "candidate": "The Root Cellar Cafe & Market", "target_city": "chapel_hill", "confidence": 0.6, "rank": 2, "reason": "not_found"}
+{"source": "New National Theatre Tokyo", "candidate": "Memorial Hall (Carolina Performing Arts)", "target_city": "chapel_hill", "confidence": 0.62, "rank": 1, "reason": "not_found"}
+{"source": "New National Theatre Tokyo", "candidate": "Durham Performing Arts Center", "target_city": "chapel_hill", "confidence": 0.34, "rank": 3, "reason": "not_found"}
+{"source": "Nishiki Ichiba Tokyo", "candidate": "Cliff's Meat Market", "target_city": "chapel_hill", "confidence": 0.5, "rank": 3, "reason": "not_found"}
+{"source": "Nonbei Yokocho", "candidate": "Linda's Bar and Grill", "target_city": "chapel_hill", "confidence": 0.44, "rank": 3, "reason": "not_found"}
+{"source": "Oedo Onsen Monogatari", "candidate": "Jordan Lake (Ebenezer Church Recreation Area)", "target_city": "chapel_hill", "confidence": 0.36, "rank": 2, "reason": "not_found"}
+{"source": "Oedo Onsen Monogatari", "candidate": "The Umstead Hotel & Spa (Cary)", "target_city": "chapel_hill", "confidence": 0.3, "rank": 3, "reason": "not_found"}
+{"source": "Omoide Yokocho", "candidate": "Linda's Bar and Grill", "target_city": "chapel_hill", "confidence": 0.52, "rank": 2, "reason": "not_found"}
+{"source": "Omoide Yokocho", "candidate": "Time-Out", "target_city": "chapel_hill", "confidence": 0.42, "rank": 3, "reason": "not_found"}
+{"source": "Ozeki", "candidate": "Cliff's Meat Market", "target_city": "chapel_hill", "confidence": 0.42, "rank": 3, "reason": "not_found"}
+{"source": "Popeye Ryogoku", "candidate": "Beer Study", "target_city": "chapel_hill", "confidence": 0.78, "rank": 1, "reason": "not_found"}
+{"source": "Seijo Ishii", "candidate": "The Root Cellar", "target_city": "chapel_hill", "confidence": 0.34, "rank": 3, "reason": "not_found"}
+{"source": "Sensoji", "candidate": "Gimghoul Castle", "target_city": "chapel_hill", "confidence": 0.42, "rank": 3, "reason": "not_found"}
+{"source": "Shibuya", "candidate": "Rosemary Street", "target_city": "chapel_hill", "confidence": 0.66, "rank": 2, "reason": "not_found"}
+{"source": "Shibuya", "candidate": "Carrboro (Main Street)", "target_city": "chapel_hill", "confidence": 0.42, "rank": 3, "reason": "not_found"}
+{"source": "Shibuya Scramble Crossing", "candidate": "The Pit (UNC campus)", "target_city": "chapel_hill", "confidence": 0.55, "rank": 3, "reason": "not_found"}
+{"source": "Shimokitazawa", "candidate": "Carrboro (Main Street / Weaver Street)", "target_city": "chapel_hill", "confidence": 0.92, "rank": 1, "reason": "not_found"}
+{"source": "Shimokitazawa", "candidate": "West Rosemary Street", "target_city": "chapel_hill", "confidence": 0.74, "rank": 2, "reason": "not_found"}
+{"source": "Shinjuku Gyoen", "candidate": "Sarah P. Duke Gardens", "target_city": "chapel_hill", "confidence": 0.78, "rank": 1, "reason": "not_found"}
+{"source": "Sukiya", "candidate": "Time-Out", "target_city": "chapel_hill", "confidence": 0.78, "rank": 1, "reason": "not_found"}
+{"source": "Sushi Dai", "candidate": "Merritt's Store & Grill", "target_city": "chapel_hill", "confidence": 0.72, "rank": 1, "reason": "not_found"}
+{"source": "Sushi Dai", "candidate": "Allen & Son Bar-B-Que", "target_city": "chapel_hill", "confidence": 0.4, "rank": 3, "reason": "not_found"}
+{"source": "Sushi Saito", "candidate": "M Sushi", "target_city": "chapel_hill", "confidence": 0.55, "rank": 1, "reason": "not_found"}
+{"source": "Sushi Saito", "candidate": "Ajisai Japanese Fine Dining", "target_city": "chapel_hill", "confidence": 0.3, "rank": 3, "reason": "not_found"}
+{"source": "Tamagawa Riverside", "candidate": "Jordan Lake", "target_city": "chapel_hill", "confidence": 0.66, "rank": 2, "reason": "not_found"}
+{"source": "Tempura Kondo", "candidate": "Gocciolina", "target_city": "chapel_hill", "confidence": 0.38, "rank": 3, "reason": "not_found"}
+{"source": "Tokyo National Museum", "candidate": "North Carolina Museum of Art (Raleigh)", "target_city": "chapel_hill", "confidence": 0.66, "rank": 2, "reason": "not_found"}
+{"source": "Tokyo Station", "candidate": "The Pit (UNC Student Union / Student Stores plaza)", "target_city": "chapel_hill", "confidence": 0.55, "rank": 1, "reason": "not_found"}
+{"source": "Tokyu Hands", "candidate": "Fifth Season Gardening Co.", "target_city": "chapel_hill", "confidence": 0.58, "rank": 1, "reason": "not_found"}
+{"source": "Tonkatsu Maisen", "candidate": "Merritt's Store & Grill", "target_city": "chapel_hill", "confidence": 0.72, "rank": 1, "reason": "not_found"}
+{"source": "Torikizoku", "candidate": "Linda's Bar and Grill", "target_city": "chapel_hill", "confidence": 0.72, "rank": 1, "reason": "not_found"}
+{"source": "Tsukemen Tetsu", "candidate": "Merritt's Store & Grill", "target_city": "chapel_hill", "confidence": 0.68, "rank": 1, "reason": "not_found"}
+{"source": "Tsukiji Outer Market", "candidate": "Cliff's Meat Market", "target_city": "chapel_hill", "confidence": 0.6, "rank": 2, "reason": "not_found"}
+{"source": "Tsuta", "candidate": "Merritt's Store & Grill", "target_city": "chapel_hill", "confidence": 0.55, "rank": 2, "reason": "not_found"}
+{"source": "Uobei", "candidate": "Sushi Blues Cafe", "target_city": "chapel_hill", "confidence": 0.45, "rank": 2, "reason": "not_found"}
+{"source": "Waseda Shochiku", "candidate": "Ackland Film Forum", "target_city": "chapel_hill", "confidence": 0.62, "rank": 2, "reason": "not_found"}
+{"source": "Waseda Shochiku", "candidate": "Carolina Theatre of Durham", "target_city": "chapel_hill", "confidence": 0.48, "rank": 3, "reason": "not_found"}
+{"source": "Womb", "candidate": "The Pinhook", "target_city": "chapel_hill", "confidence": 0.5, "rank": 2, "reason": "not_found"}
+{"source": "Yanaka", "candidate": "Carrboro (downtown, around Weaver Street Market)", "target_city": "chapel_hill", "confidence": 0.72, "rank": 1, "reason": "not_found"}
+{"source": "Yanaka", "candidate": "Northside", "target_city": "chapel_hill", "confidence": 0.55, "rank": 2, "reason": "not_found"}
+{"source": "Yanaka", "candidate": "Gimghoul and Battle Park / Old Chapel Hill Cemetery", "target_city": "chapel_hill", "confidence": 0.42, "rank": 3, "reason": "not_found"}
+{"source": "Yodobashi Akiba", "candidate": "Fifth Season Gardening", "target_city": "chapel_hill", "confidence": 0.35, "rank": 2, "reason": "not_found"}
+{"source": "Yona Yona Beer Works", "candidate": "Ponysaurus Brewing (Durham)", "target_city": "chapel_hill", "confidence": 0.55, "rank": 3, "reason": "not_found"}
+{"source": "Yoshinoya", "candidate": "Time-Out", "target_city": "chapel_hill", "confidence": 0.78, "rank": 1, "reason": "not_found"}
+{"source": "Yoshinoya", "candidate": "Merritt's Store & Grill", "target_city": "chapel_hill", "confidence": 0.42, "rank": 3, "reason": "not_found"}
+{"source": "Yoyogi Park", "candidate": "Carrboro Town Commons / Weaver Street Market lawn", "target_city": "chapel_hill", "confidence": 0.78, "rank": 1, "reason": "not_found"}
+{"source": "teamLab Borderless", "candidate": "Nasher Museum of Art at Duke", "target_city": "chapel_hill", "confidence": 0.5, "rank": 2, "reason": "not_found"}
