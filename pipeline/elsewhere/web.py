@@ -196,6 +196,8 @@ PAGE = """<!doctype html>
   /* Hard offset instead of a blur. A solid shadow reads as printed matter
      rather than as a floating cloud, and it gives a press state something
      physical to do. */
+  --bar: #073B4C; --bar-ink: #F2FAFC; --bar-line: rgba(242,250,252,.28);
+  --bar-dim: rgba(242,250,252,.55); --bar-field: rgba(242,250,252,.12);
   --hard: 5px 5px 0 var(--ink);
   --hard-sm: 3px 3px 0 var(--ink);
 }
@@ -208,6 +210,8 @@ PAGE = """<!doctype html>
   --gold: #FFD166; --emerald: #06D6A0;
   --accent: #06D6A0; --accent-deep: #06D6A0; --accent-soft: #0E5A6E;
   --on-accent: #073B4C; --chip: #0E5A6E;
+  --bar: #04222C; --bar-ink: #EFFAFC; --bar-line: rgba(239,250,252,.22);
+  --bar-dim: rgba(239,250,252,.5); --bar-field: rgba(239,250,252,.1);
   --wash-a: #0C5163; --wash-b: #0A4553;
   /* --hard resolves to --ink, which is near-white here; a white slab behind
      every hovered card is a strobe. Dark gets a deeper shade of its own
@@ -234,14 +238,26 @@ body {
 /* The header reads as its own surface. Translucent paper over paper left it
    ambiguous whether the bar was chrome or content — the hairline and the
    lifted panel colour settle that. */
+/* A solid bar, dark in both themes. Chrome that matches the page reads as
+   part of the page; chrome that doesn't reads as a frame around it, and a
+   frame is what tells you this is a product rather than a document. */
 header {
-  position: sticky; top: 0; z-index: 40; padding: 8px 26px;
-  background: color-mix(in srgb, var(--panel) 88%, var(--accent) 4%);
-  backdrop-filter: saturate(1.4) blur(14px);
-  -webkit-backdrop-filter: saturate(1.4) blur(14px);
-  box-shadow: 0 1px 0 var(--hair), 0 6px 20px -18px rgba(7,59,76,.5);
+  position: sticky; top: 0; z-index: 40; padding: 0 22px;
+  background: var(--bar); color: var(--bar-ink);
 }
-.bar { display: flex; gap: 14px; align-items: center; width: 100%; }
+.bar { display: flex; gap: 12px; align-items: center; width: 100%; min-height: 62px; }
+.bar .chip {
+  background: transparent; color: var(--bar-ink); box-shadow: inset 0 0 0 1.5px var(--bar-line);
+}
+.bar .chip:hover {
+  background: var(--bar-ink); color: var(--bar); box-shadow: none; transform: none;
+}
+.bar .chip:active { transform: translateY(1px); }
+#pairbtn { background: var(--pink); color: #fff; box-shadow: none; }
+#pairbtn:hover { background: #fff; color: var(--pink-deep); }
+.bar #controls .field input { background: var(--bar-field); color: var(--bar-ink); box-shadow: none; }
+.bar #controls .field input::placeholder { color: var(--bar-dim); }
+.bar #controls .field input:focus { box-shadow: 0 0 0 2px var(--gold); }
 #barslot { display: flex; gap: 10px; align-items: center; flex: 1; min-width: 0; }
 /* A search field stretched across a 1500px header reads as a text area, not
    a search box. */
@@ -339,10 +355,11 @@ button {
 /* The brand is the way home, so it should look like the biggest thing in the
    bar rather than a label sharing its baseline with the controls. */
 button.brand {
-  background: none; margin: 0; padding: 0 18px 0 0;
-  font-family: var(--display); font-size: 25px; font-weight: 600;
-  letter-spacing: -0.02em; color: var(--ink); line-height: 1.15; align-self: center;
+  background: none; margin: 0; padding: 0 20px 0 0;
+  font-family: var(--display); font-size: 26px; font-weight: 600;
+  letter-spacing: -0.02em; color: var(--bar-ink); line-height: 1; align-self: center;
 }
+button.brand:hover { color: var(--gold); }
 button.brand:hover { color: var(--dim); }
 
 /* ─── The index ───────────────────────────────────────────────────────────
@@ -478,33 +495,56 @@ main { max-width: 860px; margin: 0 auto; padding: 20px 24px 140px; }
 .crumb[hidden] { display: none; }
 .crumb span { font: 500 12px/1.5 var(--mono); letter-spacing: .12em;
   text-transform: uppercase; color: var(--dim); }
+/* Not boxes. A numbered index: a rule across the top, the source place and
+   its number in a narrow left column, the answer in a wide right one. Boxes
+   stacked in a scroll all look like the same weight of thing; a spread with
+   a hierarchy tells you what to read first. */
+main { counter-reset: card; }
 .card {
-  background: var(--panel); border-radius: 18px; padding: 34px 38px 30px;
-  margin-bottom: 26px; box-shadow: var(--shadow);
-  transition: box-shadow .2s, transform .2s var(--spring);
+  background: none; border-radius: 0; padding: 34px 0 44px;
+  margin: 0; box-shadow: inset 0 2px 0 var(--ink);
+  display: grid; grid-template-columns: 190px minmax(0, 1fr); gap: 0 44px;
+  transition: none;
 }
-.card:hover { box-shadow: var(--hard); transform: translate(-2px, -2px); }
-.head {
-  display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap;
-  padding-bottom: 20px; margin-bottom: 22px;
-  box-shadow: inset 0 -2px 0 var(--ink);
+.card:hover { box-shadow: inset 0 2px 0 var(--ink); transform: none; }
+.card > .head { grid-column: 1; align-self: start; position: sticky; top: 84px; }
+.card > .city { grid-column: 2; }
+.head { display: flex; flex-direction: column; gap: 8px; padding: 0; margin: 0; box-shadow: none; }
+.head::before {
+  content: counter(card, decimal-leading-zero); counter-increment: card;
+  font: 500 12px/1 var(--mono); color: var(--pink-deep); letter-spacing: .1em;
 }
-.head h2 { font: 500 12px/1 var(--mono); margin: 0; color: var(--ink);
-  letter-spacing: .14em; text-transform: uppercase; }
-.arrow { font: 500 12px/1 var(--mono); color: var(--faint); letter-spacing: .1em; text-transform: uppercase; }
+.head h2 {
+  font-family: var(--display); font-size: 23px; font-weight: 600;
+  letter-spacing: -0.015em; margin: 0; color: var(--ink); line-height: 1.15;
+}
+.arrow { font: 500 11px/1 var(--mono); color: var(--faint); letter-spacing: .14em; text-transform: uppercase; }
+/* The roles are the argument. Stating them in the margin turns the answer
+   from an assertion into a claim with reasons attached. */
+.roles { display: flex; flex-direction: column; align-items: flex-start; gap: 5px; margin-top: 14px; }
+.role {
+  font: 500 10.5px/1.4 var(--mono); letter-spacing: .08em; text-transform: uppercase;
+  color: var(--dim); padding: 5px 9px; border-radius: 5px;
+  box-shadow: inset 0 0 0 1px var(--hair);
+}
 /* One block per city inside a place's card. A hairline between them, so the
    card still reads as one place rather than several. */
 .city { padding-top: 30px; margin-top: 30px; box-shadow: inset 0 1px 0 var(--hair); }
-.city:first-of-type { padding-top: 6px; margin-top: 6px; box-shadow: none; }
+.city:first-of-type { padding-top: 0; margin-top: 0; box-shadow: none; }
 .cityname {
   font: 500 11px/1 var(--mono); letter-spacing: .16em; text-transform: uppercase;
   color: var(--accent); margin-bottom: 12px; display: inline-block;
   padding: 6px 10px; border-radius: 6px; background: var(--chip);
 }
 .answer {
-  font-family: var(--display); font-size: clamp(30px, 3.6vw, 46px);
-  font-weight: 600; letter-spacing: -0.02em; line-height: 1.04;
-  margin: 4px 0 16px; text-wrap: balance;
+  font-family: var(--display); font-size: clamp(32px, 4vw, 52px);
+  font-weight: 600; letter-spacing: -0.02em; line-height: 1.02;
+  margin: 2px 0 20px; text-wrap: balance;
+}
+/* A highlighter swipe sitting behind the last third of the line. Cheap,
+   graphic, and it marks the answer as the thing you came for. */
+.answer span {
+  background: linear-gradient(transparent 64%, var(--gold) 64%, var(--gold) 94%, transparent 94%);
 }
 /* ─── The map on a card ───────────────────────────────────────────────────
    Raster tiles as plain <img>s, positioned by arithmetic. No map library and
@@ -589,37 +629,73 @@ summary:hover { color: var(--dim); }
 .more { text-align: center; color: var(--faint); font: 500 12px/1.6 var(--mono);
   letter-spacing: .08em; padding: 12px 20px 48px; }
 
-/* ─── Step one: the two cities ─────────────────────────────────────────── */
+/* ─── Step one: the two cities ─────────────────────────────────────────
+   A full-bleed field of pollen yellow. The first screen is the one that has
+   to say what kind of thing this is, and a pale page says "form". Colour is
+   fixed rather than themed: it's the cover, and a cover doesn't change with
+   the reading light. */
 .setup {
   min-height: 100vh; display: flex; flex-direction: column; justify-content: center;
-  text-align: center; padding: 40px 24px 60px;
+  padding: 56px 6vw 60px; background: #FFD166; color: #07323F;
+  position: relative; overflow: hidden;
 }
 .setup[hidden] { display: none; }
-.setup .inner { width: 100%; max-width: min(1180px, 92vw); margin: 0 auto; }
+.setup .inner { width: 100%; max-width: 1100px; margin: 0 auto; text-align: left; }
+/* Two flat discs, no blur, sitting behind the type. Shape, not decoration. */
+.setup::before, .setup::after {
+  content: ""; position: absolute; border-radius: 50%; pointer-events: none;
+}
+.setup::before { width: 46vw; height: 46vw; right: -14vw; top: -16vw; background: #06D6A0; opacity: .5; }
+.setup::after { width: 26vw; height: 26vw; left: -9vw; bottom: -11vw; background: #EF476F; opacity: .35; }
+.setup .inner > * { position: relative; z-index: 1; }
+
+.setup .pitch { color: #07323F; margin: 0 0 26px; }
+.setup .pitch em {
+  background: none; -webkit-background-clip: initial; background-clip: initial;
+  color: #07323F; font-family: var(--display); font-style: italic; font-weight: 600;
+}
+.setup #heroplace { font-family: var(--display); font-style: italic; color: #B3184A; }
+.setup .sub {
+  font-size: 18px; color: #0E4557; opacity: .85; max-width: 44ch; margin: 0 0 44px;
+  line-height: 1.6;
+}
+.setup .sub em { color: #B3184A; font-style: normal; -webkit-text-fill-color: currentColor; }
+
 .pair {
-  display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;
-  margin: 40px 0 36px;
+  counter-reset: leg; display: flex; gap: 0; flex-wrap: wrap;
+  margin: 0 0 40px; align-items: stretch;
 }
-.leg { display: flex; flex-direction: column; gap: 10px; align-items: flex-start; text-align: left; }
+/* Two panels butted together with a single rule between them, like a form
+   printed on the page rather than floated above it. */
+.leg {
+  display: flex; flex-direction: column; gap: 12px; align-items: flex-start;
+  padding: 24px 34px 26px; background: rgba(255,255,255,.55);
+}
+.leg:first-child { border-radius: 20px 0 0 20px; }
+.leg:last-child { border-radius: 0 20px 20px 0; box-shadow: inset 2px 0 0 rgba(7,50,63,.18); }
 .legt {
-  font: 500 11px/1 var(--mono); letter-spacing: .16em; text-transform: uppercase;
-  color: var(--dim); display: flex; align-items: center; gap: 9px;
+  font: 500 11px/1 var(--mono); letter-spacing: .18em; text-transform: uppercase;
+  color: #0E4557; display: flex; align-items: center; gap: 10px;
 }
-/* Numbered because it's two steps in a sequence, and saying so costs one
-   character each. */
 .legt::before {
   content: counter(leg, decimal-leading-zero); counter-increment: leg;
-  color: var(--pink-deep); font-size: 12px;
+  font-size: 12px; color: #fff; background: #07323F;
+  width: 22px; height: 22px; border-radius: 50%; display: grid; place-items: center;
 }
-.pair { counter-reset: leg; }
-.leg .citybtn { font-size: 20px; padding: 18px 26px; }
+.leg .citybtn {
+  font-family: var(--display); font-size: 30px; font-weight: 600; letter-spacing: -0.02em;
+  padding: 4px 0; background: none; box-shadow: none; color: #07323F;
+}
+.leg .citybtn:hover { box-shadow: none; color: #B3184A; transform: none; }
+.leg .citybtn .caret { color: #B3184A; }
+
 .next {
-  font: 500 14px/1 var(--mono); letter-spacing: .16em; text-transform: uppercase;
-  padding: 21px 52px; background: var(--pink-deep); color: var(--on-pink);
-  box-shadow: var(--hard-sm);
+  font: 500 13px/1 var(--mono); letter-spacing: .2em; text-transform: uppercase;
+  padding: 22px 54px; background: #07323F; color: #FFD166;
+  box-shadow: 5px 5px 0 rgba(7,50,63,.28);
 }
-.next:hover { transform: translate(-2px, -2px); box-shadow: var(--hard); }
-.next:active { transform: translate(3px, 3px); box-shadow: none; }
+.next:hover { transform: translate(-2px,-2px); box-shadow: 8px 8px 0 rgba(7,50,63,.28); }
+.next:active { transform: translate(4px,4px); box-shadow: none; }
 
 /* Step two asks one thing. */
 .ask {
@@ -668,7 +744,8 @@ summary:hover { color: var(--dim); }
   .from { display: none; }        /* "I know" is implied by the city control */
   main { padding: 8px 16px 70px; }
   .crumb { padding: 16px 18px 2px; }
-  .card { padding: 24px 22px; border-radius: 20px; }
+  .card { grid-template-columns: 1fr; gap: 18px; padding: 24px 0 34px; }
+  .card > .head { position: static; }
   .answer { font-size: 27px; }
   .pitch { margin-bottom: 24px; }
   .sub { font-size: 16px; margin-bottom: 32px; }
@@ -1219,7 +1296,7 @@ function render() {
       const rest = c.candidates.slice(1);
       return `<div class="city">
         <div class="cityname">in ${esc(title(t))}</div>
-        <div class="answer">${esc(top.name)}</div>
+        <div class="answer"><span>${esc(top.name)}</span></div>
         <div class="why big">${esc(top.reasoning)}</div>
         ${acts(top, t, m.name)}
         ${rest.length ? `<details><summary>${rest.length} other option${
@@ -1229,9 +1306,12 @@ function render() {
       </div>`;
     }).join("");
 
+    const roles = (m.roles || []).slice(0, 3).map(r =>
+      `<span class="role">${esc(r.replace(/_/g, " "))}</span>`).join("");
     return `<div class="card">
       <div class="head"><h2>${esc(m.name)}</h2>
-        <span class="arrow">${esc(title(S.source))}</span></div>
+        <span class="arrow">${esc(title(S.source))}</span>
+        ${roles ? `<div class="roles">${roles}</div>` : ""}</div>
       ${blocks}
     </div>`;
   }).join("") + (total > rows.length
@@ -1251,7 +1331,7 @@ function renderSaved() {
           <span class="arrow">${r.from ? "your answer for" : "saved"}</span></div>
         <div class="city">
           <div class="cityname">in ${esc(title(r.city))}</div>
-          <div class="answer">${esc(r.name)}</div>
+          <div class="answer"><span>${esc(r.name)}</span></div>
           ${acts(r, r.city, r.from)}
         </div>
       </div>`).join("")
