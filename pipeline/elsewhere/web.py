@@ -185,6 +185,19 @@ PAGE = """<!doctype html>
   --shadow: 0 1px 2px rgba(7,59,76,.05), 0 12px 32px -16px rgba(7,59,76,.22);
   --lift:   0 2px 6px rgba(7,59,76,.08), 0 22px 50px -20px rgba(7,59,76,.32);
   --spring: cubic-bezier(.34, 1.4, .5, 1);
+  /* Three voices, and each one has a job. A serif carries the place names,
+     because the answer is the editorial moment on the page. A grotesque
+     carries everything you read in bulk. A monospace carries the labels,
+     counts and metadata — it reads as machine-made, which is honest about
+     what this is, and it keeps small text legible at tracking this wide. */
+  --display: ui-serif, "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  --sans: ui-sans-serif, -apple-system, "Segoe UI", Inter, Roboto, sans-serif;
+  --mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+  /* Hard offset instead of a blur. A solid shadow reads as printed matter
+     rather than as a floating cloud, and it gives a press state something
+     physical to do. */
+  --hard: 5px 5px 0 var(--ink);
+  --hard-sm: 3px 3px 0 var(--ink);
 }
 /* Opt-in only. Dark-teal ground, emerald accent — the same product at night. */
 :root[data-theme="dark"] {
@@ -196,6 +209,10 @@ PAGE = """<!doctype html>
   --accent: #06D6A0; --accent-deep: #06D6A0; --accent-soft: #0E5A6E;
   --on-accent: #073B4C; --chip: #0E5A6E;
   --wash-a: #0C5163; --wash-b: #0A4553;
+  /* --hard resolves to --ink, which is near-white here; a white slab behind
+     every hovered card is a strobe. Dark gets a deeper shade of its own
+     ground instead, so the offset still reads as a printed edge. */
+  --hard: 5px 5px 0 #03202A; --hard-sm: 3px 3px 0 #03202A;
   --shadow: 0 1px 2px rgba(0,0,0,.35), 0 12px 32px -16px rgba(0,0,0,.6);
   --lift:   0 2px 6px rgba(0,0,0,.4), 0 22px 50px -20px rgba(0,0,0,.7);
 }
@@ -206,7 +223,7 @@ body {
     radial-gradient(900px 340px at 18% -140px, var(--wash-a), transparent 68%),
     radial-gradient(760px 300px at 82% -120px, var(--wash-b), transparent 66%);
   background-repeat: no-repeat;
-  font: 16px/1.62 ui-sans-serif, -apple-system, "Segoe UI", Inter, Roboto, sans-serif;
+  font: 16.5px/1.68 var(--sans);
   -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
 }
 
@@ -301,7 +318,8 @@ select.native { position: absolute; opacity: 0; pointer-events: none; width: 1px
   border-radius: 12px; background: none; color: var(--ink);
   font-size: 15px; font-weight: 600;
 }
-.suggest button .cat { color: var(--faint); font-weight: 500; font-size: 13px; margin-left: 8px; }
+.suggest button .cat { font: 500 11px/1 var(--mono); letter-spacing: .12em;
+  text-transform: uppercase; color: var(--faint); margin-left: 10px; }
 .suggest button:hover, .suggest button.on { background: var(--chip); }
 .suggest button.on { background: var(--pink-deep); color: var(--on-pink); }
 .suggest button.on .cat { color: var(--on-pink); opacity: .8; }
@@ -311,15 +329,19 @@ button {
   font: inherit; border: 0; border-radius: 999px; cursor: pointer;
   transition: transform .22s var(--spring), box-shadow .2s, color .2s, background .2s;
 }
-.chip { font-size: 13.5px; padding: 8px 14px; background: var(--panel); color: var(--dim); box-shadow: var(--shadow); }
-.chip:hover { color: var(--dim); transform: translateY(-2px); }
-.chip:active { transform: translateY(0) scale(.97); }
+.chip {
+  font: 500 11.5px/1 var(--mono); letter-spacing: .1em; text-transform: uppercase;
+  padding: 10px 14px; background: var(--panel); color: var(--dim); box-shadow: var(--shadow);
+}
+.chip:hover { color: var(--ink); box-shadow: var(--hard-sm); transform: translate(-1px, -1px); }
+/* Press moves *into* the shadow, so the button behaves like a physical key. */
+.chip:active { box-shadow: none; transform: translate(2px, 2px); }
 /* The brand is the way home, so it should look like the biggest thing in the
    bar rather than a label sharing its baseline with the controls. */
 button.brand {
-  background: none; margin: 0; padding: 0 16px 0 0;
-  font-size: 23px; font-weight: 800; letter-spacing: -0.035em;
-  color: var(--ink); line-height: 1.15; align-self: center;
+  background: none; margin: 0; padding: 0 18px 0 0;
+  font-family: var(--display); font-size: 25px; font-weight: 600;
+  letter-spacing: -0.02em; color: var(--ink); line-height: 1.15; align-self: center;
 }
 button.brand:hover { color: var(--dim); }
 
@@ -388,9 +410,9 @@ button.brand:hover { color: var(--dim); }
 }
 .peek.in { opacity: 1; transform: none; }
 .peekrow { font-size: 17px; color: var(--dim); }
-.peekcity { color: var(--faint); font-size: 12px; text-transform: uppercase;
-  letter-spacing: .07em; font-weight: 700; margin-right: 7px; }
-.peekrow b { color: var(--ink); font-weight: 700; }
+.peekcity { font: 500 11px/1 var(--mono); color: var(--faint);
+  text-transform: uppercase; letter-spacing: .14em; margin-right: 9px; }
+.peekrow b { font-family: var(--display); font-weight: 600; font-size: 19px; color: var(--ink); }
 .tryfoot {
   position: fixed; left: 0; right: 0; bottom: 0; z-index: 30;
   padding: 14px 24px 20px; text-align: center;
@@ -398,7 +420,10 @@ button.brand:hover { color: var(--dim); }
     color-mix(in srgb, var(--paper) 0%, transparent),
     color-mix(in srgb, var(--paper) 92%, transparent) 38%, var(--paper));
 }
-.tryfoot .q { font-size: 15px; font-weight: 650; color: var(--dim); margin: 0 0 10px; }
+.tryfoot .q {
+  font: 500 11px/1 var(--mono); letter-spacing: .18em; text-transform: uppercase;
+  color: var(--faint); margin: 0 0 14px;
+}
 
 /* ─── Try rail ────────────────────────────────────────────────────────────
    The examples scroll on their own. Four static chips read as the whole
@@ -431,46 +456,55 @@ button.brand:hover { color: var(--dim); }
 .browse { padding: 56px 24px 40px; text-align: center; }
 .browse[hidden] { display: none; }
 .browseh {
-  font-size: 27px; font-weight: 800; letter-spacing: -0.03em;
-  margin: 0 0 28px; color: var(--ink);
+  font-family: var(--display); font-size: clamp(26px, 3.4vw, 40px);
+  font-weight: 600; letter-spacing: -0.02em; margin: 0 0 34px; color: var(--ink);
 }
 .cats { max-width: 900px; margin: 0 auto; }
 .cats { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
 .cats button {
-  font-size: 16px; font-weight: 650; padding: 14px 24px;
-  background: var(--panel); color: var(--dim); box-shadow: var(--shadow);
+  font-size: 17px; font-weight: 650; padding: 16px 26px;
+  background: var(--panel); color: var(--ink); box-shadow: var(--shadow);
 }
-.cats button:hover { color: var(--dim); transform: translateY(-2px); box-shadow: var(--lift); }
-.cats button .n { color: var(--faint); font-weight: 500; margin-left: 6px; font-size: 13px; }
+.cats button:hover { transform: translate(-2px, -3px); box-shadow: var(--hard); }
+.cats button:active { transform: translate(2px, 2px); box-shadow: none; }
+.cats button .n { font: 500 12px/1 var(--mono); color: var(--faint); margin-left: 9px; }
 
 /* ─── Results ─────────────────────────────────────────────────────────── */
-main { max-width: 820px; margin: 0 auto; padding: 10px 24px 100px; }
+main { max-width: 860px; margin: 0 auto; padding: 20px 24px 140px; }
 .crumb {
   max-width: 820px; margin: 0 auto; padding: 22px 24px 4px;
   display: flex; align-items: baseline; gap: 12px;
 }
 .crumb[hidden] { display: none; }
-.crumb span { font-size: 15px; font-weight: 650; color: var(--dim); }
+.crumb span { font: 500 12px/1.5 var(--mono); letter-spacing: .12em;
+  text-transform: uppercase; color: var(--dim); }
 .card {
-  background: var(--panel); border-radius: 24px; padding: 30px 34px;
-  margin-bottom: 18px; box-shadow: var(--shadow);
-  transition: box-shadow .28s, transform .28s var(--spring);
+  background: var(--panel); border-radius: 18px; padding: 34px 38px 30px;
+  margin-bottom: 26px; box-shadow: var(--shadow);
+  transition: box-shadow .2s, transform .2s var(--spring);
 }
-.card:hover { box-shadow: var(--lift); transform: translateY(-3px); }
-.head { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; }
-.head h2 { font-size: 14.5px; margin: 0; font-weight: 650; color: var(--dim); letter-spacing: -0.01em; }
-.arrow { color: var(--faint); font-size: 13.5px; font-style: italic; }
+.card:hover { box-shadow: var(--hard); transform: translate(-2px, -2px); }
+.head {
+  display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap;
+  padding-bottom: 20px; margin-bottom: 22px;
+  box-shadow: inset 0 -2px 0 var(--ink);
+}
+.head h2 { font: 500 12px/1 var(--mono); margin: 0; color: var(--ink);
+  letter-spacing: .14em; text-transform: uppercase; }
+.arrow { font: 500 12px/1 var(--mono); color: var(--faint); letter-spacing: .1em; text-transform: uppercase; }
 /* One block per city inside a place's card. A hairline between them, so the
    card still reads as one place rather than several. */
-.city { padding-top: 20px; margin-top: 20px; box-shadow: inset 0 1px 0 var(--hair); }
+.city { padding-top: 30px; margin-top: 30px; box-shadow: inset 0 1px 0 var(--hair); }
 .city:first-of-type { padding-top: 6px; margin-top: 6px; box-shadow: none; }
 .cityname {
-  font-size: 11.5px; font-weight: 700; letter-spacing: .07em; text-transform: uppercase;
-  color: var(--accent); margin-bottom: 2px;
+  font: 500 11px/1 var(--mono); letter-spacing: .16em; text-transform: uppercase;
+  color: var(--accent); margin-bottom: 12px; display: inline-block;
+  padding: 6px 10px; border-radius: 6px; background: var(--chip);
 }
 .answer {
-  font-size: 34px; font-weight: 800; letter-spacing: -0.045em;
-  line-height: 1.08; margin: 7px 0 12px;
+  font-family: var(--display); font-size: clamp(30px, 3.6vw, 46px);
+  font-weight: 600; letter-spacing: -0.02em; line-height: 1.04;
+  margin: 4px 0 16px; text-wrap: balance;
 }
 /* ─── The map on a card ───────────────────────────────────────────────────
    Raster tiles as plain <img>s, positioned by arithmetic. No map library and
@@ -491,6 +525,13 @@ main { max-width: 820px; margin: 0 auto; padding: 10px 24px 100px; }
   margin: -8px 0 0 -8px; border-radius: 999px;
   background: var(--pink); box-shadow: 0 0 0 3px #fff, 0 3px 10px rgba(7,59,76,.45);
 }
+/* A slow pulse, only on hover — the card is asking to be clicked, not
+   flashing at you while you read. */
+.map:hover .pin { animation: ping 1.4s ease-out infinite; }
+@keyframes ping {
+  0% { box-shadow: 0 0 0 3px #fff, 0 0 0 0 color-mix(in srgb, var(--pink) 60%, transparent); }
+  100% { box-shadow: 0 0 0 3px #fff, 0 0 0 18px transparent; }
+}
 .map .osm {
   position: absolute; right: 0; bottom: 0; font-size: 9.5px; line-height: 1.6;
   padding: 1px 6px; background: color-mix(in srgb, var(--panel) 82%, transparent);
@@ -501,7 +542,8 @@ main { max-width: 820px; margin: 0 auto; padding: 10px 24px 100px; }
 /* Actions under an answer: where to go, and whether you're keeping it. */
 .acts { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; margin-top: 16px; }
 .acts a, .acts .save {
-  font: inherit; font-size: 13px; font-weight: 650; padding: 8px 14px;
+  font: 500 11.5px/1 var(--mono); letter-spacing: .1em; text-transform: uppercase;
+  padding: 11px 16px;
   border-radius: 999px; background: var(--chip); color: var(--accent-deep);
   text-decoration: none; display: inline-flex; align-items: center; gap: 6px;
   transition: background .2s, color .2s, transform .22s var(--spring);
@@ -517,13 +559,14 @@ main { max-width: 820px; margin: 0 auto; padding: 10px 24px 100px; }
 .savecount { font-size: 12px; color: var(--faint); font-weight: 600; margin-left: 4px; }
 #savedbtn[hidden] { display: none; }
 
-.why { color: var(--dim); font-size: 14.5px; margin-top: 4px; max-width: 62ch; }
-.why.big { font-size: 15.5px; color: var(--ink); opacity: .74; max-width: 62ch; }
-.cname { font-weight: 700; font-size: 17px; letter-spacing: -0.02em; }
+.why { color: var(--dim); font-size: 15px; line-height: 1.7; margin-top: 6px; max-width: 60ch; }
+.why.big { font-size: 17px; line-height: 1.68; color: var(--ink); opacity: .8; max-width: 58ch; }
+.cname { font-family: var(--display); font-weight: 600; font-size: 21px; letter-spacing: -0.015em; }
 .alt { padding: 14px 0 0 18px; box-shadow: inset 2px 0 0 var(--hair); margin-top: 14px; }
 details { margin-top: 18px; }
 summary {
-  cursor: pointer; font-size: 13.5px; color: var(--faint); font-weight: 650;
+  cursor: pointer; font: 500 11.5px/1 var(--mono); letter-spacing: .1em;
+  text-transform: uppercase; color: var(--faint);
   list-style: none; display: inline-flex; align-items: center; gap: 7px;
   transition: color .2s;
 }
@@ -543,7 +586,8 @@ summary:hover { color: var(--dim); }
 }
 .link:hover { color: var(--dim); }
 .empty { text-align: center; color: var(--faint); padding: 90px 20px; font-size: 17px; }
-.more { text-align: center; color: var(--faint); font-size: 14px; padding: 8px 20px 40px; }
+.more { text-align: center; color: var(--faint); font: 500 12px/1.6 var(--mono);
+  letter-spacing: .08em; padding: 12px 20px 48px; }
 
 /* ─── Step one: the two cities ─────────────────────────────────────────── */
 .setup {
@@ -557,20 +601,31 @@ summary:hover { color: var(--dim); }
   margin: 40px 0 36px;
 }
 .leg { display: flex; flex-direction: column; gap: 10px; align-items: flex-start; text-align: left; }
-.legt { font-size: 14px; font-weight: 650; color: var(--dim); letter-spacing: -0.01em; }
+.legt {
+  font: 500 11px/1 var(--mono); letter-spacing: .16em; text-transform: uppercase;
+  color: var(--dim); display: flex; align-items: center; gap: 9px;
+}
+/* Numbered because it's two steps in a sequence, and saying so costs one
+   character each. */
+.legt::before {
+  content: counter(leg, decimal-leading-zero); counter-increment: leg;
+  color: var(--pink-deep); font-size: 12px;
+}
+.pair { counter-reset: leg; }
 .leg .citybtn { font-size: 20px; padding: 18px 26px; }
 .next {
-  font-size: 18px; font-weight: 700; letter-spacing: -0.01em;
-  padding: 17px 46px; background: var(--pink-deep); color: var(--on-pink);
-  box-shadow: var(--shadow);
+  font: 500 14px/1 var(--mono); letter-spacing: .16em; text-transform: uppercase;
+  padding: 21px 52px; background: var(--pink-deep); color: var(--on-pink);
+  box-shadow: var(--hard-sm);
 }
-.next:hover { transform: translateY(-2px); box-shadow: var(--lift); }
-.next:active { transform: translateY(0) scale(.98); }
+.next:hover { transform: translate(-2px, -2px); box-shadow: var(--hard); }
+.next:active { transform: translate(3px, 3px); box-shadow: none; }
 
 /* Step two asks one thing. */
 .ask {
-  font-size: clamp(28px, 4.4vw, 52px); font-weight: 800; letter-spacing: -0.04em;
-  line-height: 1.1; margin: 0 0 34px;
+  font-family: var(--display); font-weight: 600;
+  font-size: clamp(30px, 4.6vw, 58px); letter-spacing: -0.025em;
+  line-height: 1.05; margin: 0 0 40px; text-wrap: balance;
 }
 .ask em {
   font-style: normal;
@@ -584,7 +639,7 @@ summary:hover { color: var(--dim); }
 .pick { padding: 76px 24px 40px; text-align: center; }
 .pick[hidden] { display: none; }
 .pick .wrap { max-width: 700px; margin: 0 auto; }
-.pick .brand { font-size: 15px; font-weight: 800; letter-spacing: -0.02em; color: var(--dim); margin-bottom: 26px; }
+.pick .pick .brand { font-family: var(--display); font-size: 17px; color: var(--dim); margin-bottom: 26px; }
 .sub { font-size: 17px; color: var(--dim); max-width: 30em; margin: 0 auto 44px; line-height: 1.55; }
 .pick .q { font-size: 15px; font-weight: 650; color: var(--dim); margin: 0 0 16px; }
 .cities { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
