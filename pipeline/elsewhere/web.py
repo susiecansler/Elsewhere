@@ -51,6 +51,19 @@ FAVICON = """<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
 </svg>
 """
 
+#: The mark without its tile, inlined rather than served, so it inherits
+#: `currentColor` and can be dropped into a sentence, a button, or an empty
+#: state without three colour variants. `{cls}` lets each use size itself.
+LOOP = (
+    '<svg class="{cls}" viewBox="4 2 58 54" fill="none" stroke="currentColor" '
+    'stroke-width="5.2" stroke-linecap="round" stroke-linejoin="round" '
+    'aria-hidden="true">'
+    '<path d="M12 51C22 51 25.5 45 23.5 39.5C22 35.2 17 35.8 17.6 40.6'
+    'C18.4 46 25.5 45.6 31.5 41.4C38 36.9 42.5 30.5 46.2 24.6"/>'
+    '<path d="M34.8 22.6L47.6 20.8L48.4 33.8"/>'
+    "</svg>"
+)
+
 
 def load_corpus(source: str, target: str) -> list:
     """Prefer the verified corpus; fall back to raw."""
@@ -132,6 +145,7 @@ def create_app(source: str = "austin", target: str = "chicago") -> FastAPI:
                         {
                             "name": c.name,
                             "reasoning": c.reasoning,
+                            "confidence": c.confidence,
                             "links": links.for_place(link_index, c.name, tgt),
                         }
                         for c in m.candidates
@@ -147,7 +161,7 @@ def create_app(source: str = "austin", target: str = "chicago") -> FastAPI:
 
     @app.get("/", response_class=HTMLResponse)
     def index() -> str:
-        return PAGE
+        return page_html()
 
     @app.get("/api/cities")
     def api_cities() -> JSONResponse:
@@ -179,6 +193,16 @@ def create_app(source: str = "austin", target: str = "chicago") -> FastAPI:
         )
 
     return app
+
+
+def page_html() -> str:
+    """The page with the mark substituted into every slot that wants it."""
+    return (
+        PAGE.replace("__LOOP_INLINE__", LOOP.format(cls="loop"))
+        .replace("__LOOP_NEXT__", LOOP.format(cls="loop-go"))
+        .replace("__LOOP_EMPTY__", LOOP.format(cls="loop-empty"))
+        .replace("__LOOP_SPIN__", LOOP.format(cls="loop-spin"))
+    )
 
 
 PAGE = """<!doctype html>
@@ -564,6 +588,49 @@ main { max-width: 1180px; margin: 0 auto; padding: 28px 40px 140px; }
 }
 .city:hover { box-shadow: var(--lift); transform: translateY(-2px); }
 .city:first-of-type { margin-top: 0; }
+/* The translation, read top to bottom on a phone and left to right on a
+   desk: what you know, the loop, what it becomes. */
+.tr {
+  display: grid; grid-template-columns: 1fr auto 1fr; gap: 18px;
+  align-items: center; margin-bottom: 18px;
+}
+.side { min-width: 0; }
+.side:last-child { text-align: right; }
+.pname {
+  font-size: 15px; font-weight: 600; color: var(--dim); letter-spacing: -0.01em;
+  line-height: 1.25;
+}
+.pcity {
+  font-size: 12.5px; color: var(--faint); margin-top: 3px;
+  text-transform: uppercase; letter-spacing: .08em; font-weight: 600;
+}
+.arrowcol { display: flex; flex-direction: column; align-items: center; gap: 5px; }
+.loop-empty { width: 34px; height: 34px; color: var(--accent); }
+.elsew {
+  font-size: 11.5px; color: var(--faint); white-space: nowrap;
+  letter-spacing: .04em;
+}
+.tr .answer { margin: 0; }
+
+/* Said in words, because the number underneath is self-rated. */
+.strength {
+  display: inline-block; font-size: 12.5px; font-weight: 600;
+  padding: 5px 12px; border-radius: 999px; margin-bottom: 10px;
+  background: var(--accent-soft); color: var(--accent-deep);
+}
+.strength.mid { background: var(--sunk); color: var(--dim); }
+.strength.lo { background: var(--sunk); color: var(--faint); }
+.roleline {
+  font-size: 13.5px; color: var(--dim); margin-bottom: 12px;
+}
+
+@media (max-width: 700px) {
+  .tr { grid-template-columns: 1fr; gap: 10px; text-align: left; }
+  .side:last-child { text-align: left; }
+  .arrowcol { flex-direction: row; align-self: flex-start; gap: 9px; }
+  .loop-empty { width: 26px; height: 26px; }
+}
+
 .cityname {
   font-size: 13px; font-weight: 600; color: var(--accent);
   margin-bottom: 6px; display: block; letter-spacing: 0; text-transform: none;
@@ -653,7 +720,18 @@ summary:hover { color: var(--dim); }
   padding: 0; transition: color .2s;
 }
 .link:hover { color: var(--dim); }
-.empty { text-align: center; color: var(--faint); padding: 90px 20px; font-size: 17px; }
+.nudge {
+  position: fixed; left: 50%; bottom: 30px; transform: translate(-50%, 14px);
+  background: var(--ink); color: var(--paper); padding: 13px 22px;
+  border-radius: 999px; font-size: 15px; font-weight: 600; z-index: 80;
+  opacity: 0; transition: opacity .3s, transform .3s var(--spring);
+  box-shadow: var(--lift);
+}
+.nudge.in { opacity: 1; transform: translate(-50%, 0); }
+
+.empty { text-align: center; color: var(--dim); padding: 80px 20px; font-size: 17px; }
+.empty p { margin: 18px 0 0; }
+.loop-spin { width: 54px; height: 54px; color: var(--hair-2); }
 .more { text-align: center; color: var(--dim); font-size: 14px; padding: 16px 20px 48px; }
 
 /* ─── Step one: the two cities ─────────────────────────────────────────
@@ -691,57 +769,39 @@ summary:hover { color: var(--dim); }
 }
 .setup .sub em { color: var(--ink); font-style: normal; font-weight: 600; }
 
-/* The pair, as one control: two segments, a divider, and the verb at the
-   end. Same shape as the search pill on the next screen, so moving from one
-   to the other feels like the same object asking a second question. */
-.pair {
-  counter-reset: leg; display: flex; align-items: center; gap: 0;
-  background: var(--panel); border-radius: 999px; padding: 6px 6px 6px 10px;
-  box-shadow: 0 1px 2px rgba(0,0,0,.08), 0 8px 28px rgba(0,0,0,.10);
-  max-width: 720px; margin: 0 auto 24px; text-align: left;
+/* One sentence, not two form fields. The cities are words in it that happen
+   to open a menu, and the loop between them is the verb: this, translated
+   into that. Nothing here is boxed, because a box would make it a form
+   again. */
+.madlib {
+  display: flex; align-items: center; justify-content: center; flex-wrap: wrap;
+  gap: 6px 14px; margin: 0 auto 34px; max-width: 900px;
+  font-size: clamp(22px, 3vw, 34px); font-weight: 600; letter-spacing: -0.02em;
+  color: var(--dim);
 }
-.pair:hover { box-shadow: 0 2px 4px rgba(0,0,0,.10), 0 14px 40px rgba(0,0,0,.14); }
-.leg {
-  display: flex; flex-direction: column; gap: 2px; align-items: flex-start;
-  padding: 12px 22px; flex: 1; min-width: 0; border-radius: 999px;
+.madlib .lead { color: var(--dim); }
+.madlib .citypick { display: inline-flex; }
+.madlib .citybtn {
+  font-size: inherit; font-weight: 800; letter-spacing: -0.03em;
+  color: var(--ink); background: none; box-shadow: none;
+  padding: 2px 4px; gap: 8px; border-radius: 8px;
+  /* Underlined the way a fillable blank is, in the accent so it reads as
+     the changeable part of the sentence. */
+  box-shadow: inset 0 -3px 0 var(--accent);
 }
-.leg:hover { background: var(--sunk); }
-.leg + .leg { box-shadow: inset 1px 0 0 var(--hair); }
-.legt {
-  font: 600 12px/1 var(--sans); letter-spacing: 0; text-transform: none;
-  color: var(--ink); display: flex; align-items: center; gap: 7px;
-}
-.legt::before {
-  content: counter(leg, decimal-leading-zero); counter-increment: leg;
-  font: 600 10px/1 var(--mono); color: var(--accent);
-}
-.leg .citybtn {
-  font-size: 15px; font-weight: 400; letter-spacing: 0; padding: 2px 0;
-  background: none; box-shadow: none; color: var(--dim);
-}
-.leg .citybtn:hover { box-shadow: none; color: var(--ink); transform: none; background: none; }
-.leg .citybtn .caret { color: var(--faint); }
+.madlib .citybtn:hover { color: var(--accent); box-shadow: inset 0 -3px 0 var(--accent); transform: none; }
+.madlib .citybtn .caret { font-size: .42em; color: var(--accent); }
+.loop { width: 1.5em; height: 1.5em; color: var(--accent); flex: none; }
 
-/* Round, coral, and at the end of the pill — the one thing on the screen
-   that does something. */
+/* The verb, again — the same mark, filled in and clickable. */
 .next {
-  font-size: 16px; font-weight: 600; letter-spacing: 0; text-transform: none;
-  padding: 16px 26px; background: var(--accent); color: var(--on-accent);
-  box-shadow: none; border-radius: 999px; white-space: nowrap;
+  width: 62px; height: 62px; padding: 0; border-radius: 999px;
+  background: var(--accent); color: var(--on-accent);
+  display: grid; place-items: center; box-shadow: none; flex: none;
 }
-.next:hover { background: var(--accent-deep); transform: none; box-shadow: none; }
-.next:active { transform: scale(.97); box-shadow: none; }
-
-/* Step two asks one thing. */
-.ask {
-  font-weight: 800; font-size: clamp(30px, 4.2vw, 52px); letter-spacing: -0.035em;
-  line-height: 1.06; margin: 0 0 36px; text-wrap: balance; color: var(--ink);
-}
-/* Flat, not a gradient. A colour ramp across four letters reads as an
-   effect applied to the word rather than as the word being the point. */
-.ask em { font-style: normal; color: var(--accent); }
-/* The pair you chose, always visible and always one click from changing. */
-#pairbtn { font-weight: 650; }
+.next:hover { background: var(--accent-deep); transform: scale(1.05); box-shadow: none; }
+.next:active { transform: scale(.96); }
+.loop-go { width: 32px; height: 32px; }
 
 /* ─── First visit: choose a city ──────────────────────────────────────── */
 .pick { padding: 76px 24px 40px; text-align: center; }
@@ -834,24 +894,26 @@ summary:hover { color: var(--dim); }
     <p class="sub">Tell us the city you know and the one you\'re headed to.
     We\'ll find the counterparts.</p>
 
-    <div class="pair">
-      <label class="leg">
-        <span class="legt">I know</span>
-        <div class="citypick">
-          <select id="srcsel" class="native" title="Which city you know" tabindex="-1"></select>
-          <button class="citybtn" id="citybtn" aria-haspopup="listbox" aria-expanded="false"></button>
-          <div class="citymenu" id="citymenu" role="listbox" hidden></div>
-        </div>
-      </label>
-      <label class="leg">
-        <span class="legt">I\'m traveling to</span>
-        <div class="citypick">
-          <select id="dstsel" class="native" title="Which city you\'re going to" tabindex="-1"></select>
-          <button class="citybtn" id="dstbtn" aria-haspopup="listbox" aria-expanded="false"></button>
-          <div class="citymenu" id="dstmenu" role="listbox" hidden></div>
-        </div>
-      </label>
-      <button class="next" id="nextbtn">Next</button>
+    <!-- A div, not a p: each city menu is a div, and a div inside a
+         paragraph implicitly closes it — the parser was throwing away
+         everything after the first city. -->
+    <div class="madlib">
+      <span class="lead">I know</span>
+      <span class="citypick">
+        <select id="srcsel" class="native" title="Which city you know" tabindex="-1"></select>
+        <button class="citybtn" id="citybtn" aria-haspopup="listbox" aria-expanded="false"></button>
+        <div class="citymenu" id="citymenu" role="listbox" hidden></div>
+      </span>
+      <!-- The loop belongs between the two cities. It is the sentence's verb:
+           not "go northeast" but "translate this into that". -->
+      __LOOP_INLINE__
+      <span class="lead">show me</span>
+      <span class="citypick">
+        <select id="dstsel" class="native" title="Which city you\'re going to" tabindex="-1"></select>
+        <button class="citybtn" id="dstbtn" aria-haspopup="listbox" aria-expanded="false"></button>
+        <div class="citymenu" id="dstmenu" role="listbox" hidden></div>
+      </span>
+      <button class="next" id="nextbtn" aria-label="Show me">__LOOP_NEXT__</button>
     </div>
   </div>
 </section>
@@ -1155,8 +1217,23 @@ function toggleSave(city, name, from, links) {
   else saved.set(k, { city, name, from, links, at: Date.now() });
   localStorage.setItem(SAVED_KEY, JSON.stringify([...saved]));
   renderSavedBtn();
+  maybeNudge();
 }
 const isSaved = (city, name) => saved.has(savedKey(city, name));
+
+/* A quiet acknowledgement at three, and then never again. Enough to suggest
+   the saves are adding up to something without pretending there's a profile
+   behind them yet. */
+function maybeNudge() {
+  if (saved.size !== 3 || localStorage.getItem("elsewhere.nudged")) return;
+  localStorage.setItem("elsewhere.nudged", "1");
+  const el = document.createElement("div");
+  el.className = "nudge";
+  el.textContent = "We're getting your vibe.";
+  document.body.appendChild(el);
+  requestAnimationFrame(() => el.classList.add("in"));
+  setTimeout(() => { el.classList.remove("in"); setTimeout(() => el.remove(), 400); }, 3200);
+}
 
 function renderSavedBtn() {
   const b = document.getElementById("savedbtn");
@@ -1302,6 +1379,26 @@ async function shareAnswer(b) {
   }
 }
 
+/* How sure the model was, said in words.
+
+   The corpus carries a 0-1 confidence per candidate, and it is tempting to
+   print it as "92% match". It isn't one. It's the model's own rating of its
+   own answer, not a measured agreement rate — the eval harness refuses to
+   publish a percentage until there are thirty independent human judgments,
+   and printing a precise-looking number here would undo exactly that
+   discipline one card at a time. Buckets say the same thing without
+   claiming arithmetic nobody did. */
+function strength(c) {
+  const v = typeof c.confidence === "number" ? c.confidence : null;
+  if (v === null) return "";
+  const [label, cls] = v >= 0.85 ? ["Dead on", "hi"]
+    : v >= 0.7 ? ["Strong match", "hi"]
+    : v >= 0.5 ? ["Close enough", "mid"]
+    : ["Loose match", "lo"];
+  return `<div class="strength ${cls}" title="Model confidence ${
+    Math.round(v * 100)}% — self-rated, not measured">${label}</div>`;
+}
+
 /* Links out, plus the save control. `rel=noopener` matters even for links we
    built ourselves — a website comes from upstream data, not from us. */
 function acts(place, city, from) {
@@ -1405,9 +1502,25 @@ function render() {
       const c = m.cities[t];
       const top = c.candidates[0];
       const rest = c.candidates.slice(1);
+      const roles = (m.roles || []).slice(0, 3)
+        .map(r => esc(r.replace(/_/g, " "))).join(" · ");
       return `<div class="city">
-        <div class="cityname">in ${esc(title(t))}</div>
-        <div class="answer"><span>${esc(top.name)}</span></div>
+        <div class="tr">
+          <div class="side">
+            <div class="pname">${esc(m.name)}</div>
+            <div class="pcity">${esc(title(S.source))}</div>
+          </div>
+          <div class="arrowcol">
+            __LOOP_EMPTY__
+            <span class="elsew">elsewhere in ${esc(title(t))}</span>
+          </div>
+          <div class="side">
+            <div class="answer"><span>${esc(top.name)}</span></div>
+            <div class="pcity">${esc(title(t))}</div>
+          </div>
+        </div>
+        ${strength(top)}
+        ${roles ? `<div class="roleline">${roles}</div>` : ""}
         <div class="why big">${esc(top.reasoning)}</div>
         ${acts(top, t, m.name)}
         ${rest.length ? `<details><summary>${rest.length} other option${
@@ -1417,14 +1530,7 @@ function render() {
       </div>`;
     }).join("");
 
-    const roles = (m.roles || []).slice(0, 3).map(r =>
-      `<span class="role">${esc(r.replace(/_/g, " "))}</span>`).join("");
-    return `<div class="card">
-      <div class="head"><h2>${esc(m.name)}</h2>
-        <span class="arrow">${esc(title(S.source))}</span>
-        ${roles ? `<div class="roles">${roles}</div>` : ""}</div>
-      ${blocks}
-    </div>`;
+    return `<div class="card">${blocks}</div>`;
   }).join("") + (total > rows.length
     ? `<p class="more">${total - rows.length} more match \u201c${esc(q || cat)}\u201d — keep typing to narrow it down.</p>`
     : "");
