@@ -406,10 +406,16 @@ button {
    bar rather than a label sharing its baseline with the controls. */
 button.brand {
   background: none; margin: 0; padding: 0 20px 0 0;
+  display: inline-flex; align-items: center; gap: 9px;
   font-size: 23px; font-weight: 800; letter-spacing: -0.035em;
   color: var(--accent); line-height: 1; align-self: center;
 }
 button.brand:hover { color: var(--accent-deep); }
+/* The tile's cream ground is invisible on white and muddy on the dark
+   theme, so the mark wears the same rounding as the rest of the chrome and
+   picks up a faint edge to sit on. */
+button.brand img { border-radius: 8px; box-shadow: inset 0 0 0 1px var(--hair); }
+:root[data-theme="dark"] button.brand img { opacity: .95; }
 button.brand:hover { color: var(--dim); }
 
 /* ─── The index ───────────────────────────────────────────────────────────
@@ -668,6 +674,10 @@ summary:hover { color: var(--dim); }
 .setup::after { width: 26vw; height: 26vw; left: -10vw; bottom: -10vw; background: var(--turquoise); opacity: .07; }
 .setup .inner > * { position: relative; z-index: 1; }
 
+.mark {
+  display: block; margin: 0 auto 26px; border-radius: 16px;
+  box-shadow: 0 2px 6px rgba(0,0,0,.06);
+}
 .setup .pitch {
   font-size: clamp(34px, 4.6vw, 56px); font-weight: 800; letter-spacing: -0.035em;
   line-height: 1.08; margin: 0 0 20px; color: var(--ink);
@@ -819,6 +829,7 @@ summary:hover { color: var(--dim); }
      question. The city pickers live here and nowhere else. -->
 <section id="setup" class="setup" hidden>
   <div class="inner">
+    <img class="mark" src="/favicon.svg" alt="" width="64" height="64">
     <h1 class="pitch"><span class="l1" id="line1">Every city has<span class="hl2"> <span id="heroart">an</span> <span id="heroplace">H-E-B</span>,</span></span><em>It\'s just elsewhere.</em></h1>
     <p class="sub">Tell us the city you know and the one you\'re headed to.
     We\'ll find the counterparts.</p>
@@ -847,7 +858,8 @@ summary:hover { color: var(--dim); }
 
 <div id="app" hidden>
   <header id="bar"><div class="bar">
-    <button class="brand" id="homebtn" title="Start over">Elsewhere</button>
+    <button class="brand" id="homebtn" title="Start over">
+      <img src="/favicon.svg" alt="" width="30" height="30">Elsewhere</button>
     <!-- #controls lives here on results pages and in the hero on step two;
          the same element either way. -->
     <div id="barslot"></div>
