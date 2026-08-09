@@ -1,63 +1,67 @@
-{"source": "Akihabara Electric Town", "candidate": "Dragon's Lair Comics & Games", "target_city": "austin", "confidence": 0.35, "rank": 3, "reason": "not_found"}
-{"source": "Beams Harajuku", "candidate": "Stag Provisions", "target_city": "austin", "confidence": 0.64, "rank": 1, "reason": "not_found"}
-{"source": "Butagumi", "candidate": "Micklethwait Craft Meats", "target_city": "austin", "confidence": 0.45, "rank": 3, "reason": "not_found"}
-{"source": "Chatei Hatou", "candidate": "Spider House Cafe", "target_city": "austin", "confidence": 0.55, "rank": 2, "reason": "not_found"}
-{"source": "Chocozap", "candidate": "EoS Fitness", "target_city": "austin", "confidence": 0.72, "rank": 2, "reason": "not_found"}
-{"source": "Chocozap", "candidate": "YMCA of Austin", "target_city": "austin", "confidence": 0.45, "rank": 3, "reason": "not_found"}
-{"source": "Daikanyama", "candidate": "Travis Heights", "target_city": "austin", "confidence": 0.5, "rank": 3, "reason": "not_found"}
-{"source": "Den", "candidate": "Uchi", "target_city": "austin", "confidence": 0.5, "rank": 3, "reason": "not_found"}
-{"source": "Denenchofu", "candidate": "Tarrytown", "target_city": "austin", "confidence": 0.88, "rank": 1, "reason": "not_found"}
-{"source": "Denenchofu", "candidate": "Old Enfield / Pemberton Heights", "target_city": "austin", "confidence": 0.8, "rank": 2, "reason": "not_found"}
-{"source": "Ebisu Yokocho", "candidate": "East Sixth Street (Whisler's / Nickel City / Veracruz truck stretch)", "target_city": "austin", "confidence": 0.7, "rank": 2, "reason": "not_found"}
+{"source": "Akihabara Electric Town", "candidate": "The Drag (Guadalupe St. at UT)", "target_city": "austin", "confidence": 0.42, "rank": 2, "reason": "not_found"}
+{"source": "Bic Camera", "candidate": "Fry's Electronics (North Austin, now closed)", "target_city": "austin", "confidence": 0.45, "rank": 2, "reason": "not_found"}
+{"source": "Chatei Hatou", "candidate": "Sa-T\u00e9n Coffee & Eats", "target_city": "austin", "confidence": 0.38, "rank": 3, "reason": "not_found"}
+{"source": "CoCo Ichibanya", "candidate": "P. Terry's", "target_city": "austin", "confidence": 0.44, "rank": 3, "reason": "not_found"}
+{"source": "Daikanyama", "candidate": "Travis Heights / South Congress edge", "target_city": "austin", "confidence": 0.6, "rank": 2, "reason": "not_found"}
+{"source": "Daikanyama", "candidate": "Hyde Park", "target_city": "austin", "confidence": 0.45, "rank": 3, "reason": "not_found"}
+{"source": "Den", "candidate": "Uchi", "target_city": "austin", "confidence": 0.6, "rank": 2, "reason": "not_found"}
+{"source": "Denenchofu", "candidate": "Tarrytown", "target_city": "austin", "confidence": 0.85, "rank": 1, "reason": "not_found"}
+{"source": "Denenchofu", "candidate": "Pemberton Heights / Old Enfield", "target_city": "austin", "confidence": 0.72, "rank": 2, "reason": "not_found"}
+{"source": "Ebisu Yokocho", "candidate": "East Sixth Street (the Nickel City\u2013Whisler's stretch)", "target_city": "austin", "confidence": 0.6, "rank": 2, "reason": "not_found"}
 {"source": "Ebisu Yokocho", "candidate": "Fareground", "target_city": "austin", "confidence": 0.42, "rank": 3, "reason": "not_found"}
-{"source": "Florilege", "candidate": "Uchi", "target_city": "austin", "confidence": 0.55, "rank": 3, "reason": "not_found"}
-{"source": "Ginza", "candidate": "Second Street District", "target_city": "austin", "confidence": 0.35, "rank": 3, "reason": "not_found"}
-{"source": "Golden Gai", "candidate": "East Sixth Street (east of I-35)", "target_city": "austin", "confidence": 0.66, "rank": 2, "reason": "not_found"}
-{"source": "Golden Gai", "candidate": "Sixth Street (Dirty Sixth)", "target_city": "austin", "confidence": 0.34, "rank": 3, "reason": "not_found"}
-{"source": "Harajuku", "candidate": "The Drag (Guadalupe Street)", "target_city": "austin", "confidence": 0.4, "rank": 3, "reason": "not_found"}
+{"source": "Ginza", "candidate": "Second Street District", "target_city": "austin", "confidence": 0.42, "rank": 3, "reason": "not_found"}
+{"source": "Gold's Gym Harajuku", "candidate": "Onnit Gym", "target_city": "austin", "confidence": 0.45, "rank": 3, "reason": "not_found"}
+{"source": "Golden Gai", "candidate": "East Sixth Street (Whisler's / Nickel City / Lazarus stretch)", "target_city": "austin", "confidence": 0.55, "rank": 2, "reason": "not_found"}
+{"source": "Golden Gai", "candidate": "Sixth Street (Dirty Sixth)", "target_city": "austin", "confidence": 0.33, "rank": 3, "reason": "not_found"}
+{"source": "Harajuku", "candidate": "The Drag (Guadalupe Street at UT)", "target_city": "austin", "confidence": 0.42, "rank": 3, "reason": "not_found"}
 {"source": "Harajuku Gyozaro", "candidate": "Cabo Bob's", "target_city": "austin", "confidence": 0.5, "rank": 3, "reason": "not_found"}
-{"source": "Isetan Shinjuku Depachika", "candidate": "Fareground", "target_city": "austin", "confidence": 0.41, "rank": 3, "reason": "not_found"}
-{"source": "Kagari", "candidate": "Micklethwait Craft Meats", "target_city": "austin", "confidence": 0.5, "rank": 3, "reason": "not_found"}
-{"source": "Kagurazaka", "candidate": "Hyde Park", "target_city": "austin", "confidence": 0.6, "rank": 2, "reason": "not_found"}
-{"source": "Kichijoji", "candidate": "Zilker / Barton Hills (South Lamar)", "target_city": "austin", "confidence": 0.72, "rank": 1, "reason": "not_found"}
-{"source": "Kichijoji", "candidate": "Hyde Park", "target_city": "austin", "confidence": 0.63, "rank": 2, "reason": "not_found"}
-{"source": "Kichijoji", "candidate": "Travis Heights / South Congress", "target_city": "austin", "confidence": 0.45, "rank": 3, "reason": "not_found"}
-{"source": "Kissa Tricolore", "candidate": "1886 Caf\u00e9 & Bakery at the Driskill", "target_city": "austin", "confidence": 0.53, "rank": 1, "reason": "not_found"}
-{"source": "Kiyosumi Shirakawa", "candidate": "East Cesar Chavez / Holly", "target_city": "austin", "confidence": 0.72, "rank": 1, "reason": "not_found"}
-{"source": "Koenji", "candidate": "East Cesar Chavez", "target_city": "austin", "confidence": 0.45, "rank": 3, "reason": "not_found"}
-{"source": "Life Supermarket", "candidate": "H-E-B (a standard neighborhood store, not Central Market)", "target_city": "austin", "confidence": 0.62, "rank": 2, "reason": "not_found"}
-{"source": "Liquidroom", "candidate": "Mohawk", "target_city": "austin", "confidence": 0.82, "rank": 1, "reason": "not_found"}
-{"source": "Mount Takao", "candidate": "Mount Bonnell", "target_city": "austin", "confidence": 0.6, "rank": 2, "reason": "not_found"}
-{"source": "Nakameguro", "candidate": "East Cesar Chavez / Holly", "target_city": "austin", "confidence": 0.55, "rank": 2, "reason": "not_found"}
-{"source": "Narisawa", "candidate": "Uchi", "target_city": "austin", "confidence": 0.48, "rank": 3, "reason": "not_found"}
-{"source": "Natural Lawson", "candidate": "Thom's Market", "target_city": "austin", "confidence": 0.72, "rank": 2, "reason": "not_found"}
-{"source": "New National Theatre Tokyo", "candidate": "ZACH Theatre", "target_city": "austin", "confidence": 0.45, "rank": 3, "reason": "not_found"}
-{"source": "Nishiki Ichiba Tokyo", "candidate": "Fareground", "target_city": "austin", "confidence": 0.32, "rank": 3, "reason": "not_found"}
-{"source": "Oedo Onsen Monogatari", "candidate": "Schlitterbahn New Braunfels", "target_city": "austin", "confidence": 0.42, "rank": 2, "reason": "not_found"}
-{"source": "Oedo Onsen Monogatari", "candidate": "Milk + Honey Spa", "target_city": "austin", "confidence": 0.25, "rank": 3, "reason": "not_found"}
-{"source": "Omoide Yokocho", "candidate": "East Sixth Street (Whisler's / Nickel City stretch)", "target_city": "austin", "confidence": 0.62, "rank": 2, "reason": "not_found"}
-{"source": "Omoide Yokocho", "candidate": "Sixth Street", "target_city": "austin", "confidence": 0.44, "rank": 3, "reason": "not_found"}
-{"source": "Popeye Ryogoku", "candidate": "Draught House Pub & Brewery", "target_city": "austin", "confidence": 0.79, "rank": 1, "reason": "not_found"}
-{"source": "Saizeriya", "candidate": "Cabo Bob's", "target_city": "austin", "confidence": 0.4, "rank": 3, "reason": "not_found"}
-{"source": "Sensoji", "candidate": "Mount Bonnell", "target_city": "austin", "confidence": 0.34, "rank": 3, "reason": "not_found"}
-{"source": "Shelter Shimokitazawa", "candidate": "Mohawk", "target_city": "austin", "confidence": 0.66, "rank": 2, "reason": "not_found"}
-{"source": "Shibuya", "candidate": "Sixth Street", "target_city": "austin", "confidence": 0.62, "rank": 1, "reason": "not_found"}
-{"source": "Shibuya", "candidate": "The Drag (Guadalupe Street)", "target_city": "austin", "confidence": 0.55, "rank": 2, "reason": "not_found"}
-{"source": "Shibuya Scramble Crossing", "candidate": "Sixth Street", "target_city": "austin", "confidence": 0.45, "rank": 3, "reason": "not_found"}
-{"source": "Shinjuku Gyoen", "candidate": "Laguna Gloria (The Contemporary Austin)", "target_city": "austin", "confidence": 0.7, "rank": 2, "reason": "not_found"}
-{"source": "Sukiya", "candidate": "P. Terry's", "target_city": "austin", "confidence": 0.65, "rank": 2, "reason": "not_found"}
-{"source": "Sushi Dai", "candidate": "Uchi", "target_city": "austin", "confidence": 0.48, "rank": 3, "reason": "not_found"}
-{"source": "Tamagawa Riverside", "candidate": "Roy G. Guerrero Colorado River Metro Park", "target_city": "austin", "confidence": 0.74, "rank": 2, "reason": "not_found"}
-{"source": "Tempura Kondo", "candidate": "Uchi", "target_city": "austin", "confidence": 0.6, "rank": 2, "reason": "not_found"}
-{"source": "Thermae-yu", "candidate": "Milk + Honey", "target_city": "austin", "confidence": 0.28, "rank": 3, "reason": "not_found"}
-{"source": "Todoroki Valley", "candidate": "Mayfield Park & Nature Preserve", "target_city": "austin", "confidence": 0.66, "rank": 2, "reason": "not_found"}
-{"source": "Tokyo National Museum", "candidate": "LBJ Presidential Library", "target_city": "austin", "confidence": 0.33, "rank": 3, "reason": "not_found"}
-{"source": "Tsukiji Outer Market", "candidate": "Whole Foods Flagship on North Lamar", "target_city": "austin", "confidence": 0.33, "rank": 3, "reason": "not_found"}
-{"source": "Tsutenkaku Tokyo Skytree", "candidate": "Mount Bonnell", "target_city": "austin", "confidence": 0.45, "rank": 2, "reason": "not_found"}
-{"source": "Uobei", "candidate": "Cabo Bob's", "target_city": "austin", "confidence": 0.54, "rank": 2, "reason": "not_found"}
-{"source": "Waseda Shochiku", "candidate": "Alamo Drafthouse Ritz (Weird Wednesday / Terror Tuesday)", "target_city": "austin", "confidence": 0.55, "rank": 3, "reason": "not_found"}
-{"source": "Yanaka", "candidate": "Hyde Park", "target_city": "austin", "confidence": 0.72, "rank": 1, "reason": "not_found"}
-{"source": "Yanaka", "candidate": "Travis Heights", "target_city": "austin", "confidence": 0.45, "rank": 3, "reason": "not_found"}
-{"source": "Yoshinoya", "candidate": "P. Terry's", "target_city": "austin", "confidence": 0.66, "rank": 2, "reason": "not_found"}
-{"source": "Yoyogi Park", "candidate": "Pease Park", "target_city": "austin", "confidence": 0.55, "rank": 3, "reason": "not_found"}
-{"source": "teamLab Borderless", "candidate": "Meow Wolf: The Real Unreal (Grapevine)", "target_city": "austin", "confidence": 0.45, "rank": 3, "reason": "not_found"}
+{"source": "Image Forum", "candidate": "Alamo Drafthouse Ritz", "target_city": "austin", "confidence": 0.6, "rank": 2, "reason": "not_found"}
+{"source": "Inokashira Park", "candidate": "Pease Park", "target_city": "austin", "confidence": 0.55, "rank": 3, "reason": "not_found"}
+{"source": "Isetan Shinjuku Depachika", "candidate": "Fareground", "target_city": "austin", "confidence": 0.4, "rank": 3, "reason": "not_found"}
+{"source": "Kagurazaka", "candidate": "Hyde Park", "target_city": "austin", "confidence": 0.62, "rank": 2, "reason": "not_found"}
+{"source": "Kagurazaka", "candidate": "Travis Heights", "target_city": "austin", "confidence": 0.45, "rank": 3, "reason": "not_found"}
+{"source": "Kappabashi Street", "candidate": "Breed & Co. Hardware", "target_city": "austin", "confidence": 0.42, "rank": 3, "reason": "not_found"}
+{"source": "Kichijoji", "candidate": "Zilker / Barton Hills", "target_city": "austin", "confidence": 0.6, "rank": 1, "reason": "not_found"}
+{"source": "Kichijoji", "candidate": "Hyde Park", "target_city": "austin", "confidence": 0.5, "rank": 2, "reason": "not_found"}
+{"source": "Kichijoji", "candidate": "Travis Heights / South Congress", "target_city": "austin", "confidence": 0.42, "rank": 3, "reason": "not_found"}
+{"source": "Kiyosumi Shirakawa", "candidate": "East Cesar Chavez / East Austin", "target_city": "austin", "confidence": 0.74, "rank": 1, "reason": "not_found"}
+{"source": "Konami Sports Club", "candidate": "Lifetime Fitness", "target_city": "austin", "confidence": 0.62, "rank": 1, "reason": "not_found"}
+{"source": "Konami Sports Club", "candidate": "Pure Austin Fitness", "target_city": "austin", "confidence": 0.44, "rank": 3, "reason": "not_found"}
+{"source": "Life Supermarket", "candidate": "H-E-B (an ordinary neighborhood store, not Mueller or Lake Austin)", "target_city": "austin", "confidence": 0.6, "rank": 2, "reason": "not_found"}
+{"source": "Liquidroom", "candidate": "Mohawk", "target_city": "austin", "confidence": 0.72, "rank": 1, "reason": "not_found"}
+{"source": "Meiji Jingu", "candidate": "Mount Bonnell", "target_city": "austin", "confidence": 0.44, "rank": 2, "reason": "not_found"}
+{"source": "Mount Takao", "candidate": "Mount Bonnell", "target_city": "austin", "confidence": 0.62, "rank": 2, "reason": "not_found"}
+{"source": "Nakameguro", "candidate": "East Cesar Chavez / Holly", "target_city": "austin", "confidence": 0.65, "rank": 2, "reason": "not_found"}
+{"source": "Natural Lawson", "candidate": "Thom's Market", "target_city": "austin", "confidence": 0.66, "rank": 2, "reason": "not_found"}
+{"source": "Nishiki Ichiba Tokyo", "candidate": "Fareground", "target_city": "austin", "confidence": 0.3, "rank": 3, "reason": "not_found"}
+{"source": "Nonbei Yokocho", "candidate": "Sixth Street", "target_city": "austin", "confidence": 0.4, "rank": 3, "reason": "not_found"}
+{"source": "Oedo Onsen Monogatari", "candidate": "Milk + Honey Spa", "target_city": "austin", "confidence": 0.3, "rank": 3, "reason": "not_found"}
+{"source": "Omoide Yokocho", "candidate": "Sixth Street", "target_city": "austin", "confidence": 0.48, "rank": 2, "reason": "not_found"}
+{"source": "Popeye Ryogoku", "candidate": "Draught House Pub & Brewery", "target_city": "austin", "confidence": 0.82, "rank": 1, "reason": "not_found"}
+{"source": "Saizeriya", "candidate": "Cabo Bob's", "target_city": "austin", "confidence": 0.5, "rank": 3, "reason": "not_found"}
+{"source": "Sensoji", "candidate": "Mount Bonnell", "target_city": "austin", "confidence": 0.45, "rank": 3, "reason": "not_found"}
+{"source": "Shelter Shimokitazawa", "candidate": "Mohawk", "target_city": "austin", "confidence": 0.7, "rank": 1, "reason": "not_found"}
+{"source": "Shibuya", "candidate": "Sixth Street (Dirty Sixth + the downtown blocks around it)", "target_city": "austin", "confidence": 0.62, "rank": 1, "reason": "not_found"}
+{"source": "Shibuya", "candidate": "The Drag (Guadalupe Street at UT)", "target_city": "austin", "confidence": 0.42, "rank": 3, "reason": "not_found"}
+{"source": "Shibuya Scramble Crossing", "candidate": "Sixth Street", "target_city": "austin", "confidence": 0.6, "rank": 2, "reason": "not_found"}
+{"source": "Shinjuku Gyoen", "candidate": "Laguna Gloria (The Contemporary Austin)", "target_city": "austin", "confidence": 0.63, "rank": 2, "reason": "not_found"}
+{"source": "Shinjuku Gyoen", "candidate": "Mayfield Park & Nature Preserve", "target_city": "austin", "confidence": 0.52, "rank": 3, "reason": "not_found"}
+{"source": "Shinjuku Station", "candidate": "Sixth Street", "target_city": "austin", "confidence": 0.3, "rank": 3, "reason": "not_found"}
+{"source": "Sukiya", "candidate": "P. Terry's", "target_city": "austin", "confidence": 0.54, "rank": 3, "reason": "not_found"}
+{"source": "Sushi Dai", "candidate": "Uchi", "target_city": "austin", "confidence": 0.6, "rank": 3, "reason": "not_found"}
+{"source": "Sushi Saito", "candidate": "Kyoten Sushiko", "target_city": "austin", "confidence": 0.82, "rank": 1, "reason": "not_found"}
+{"source": "Sushi Saito", "candidate": "Uchi", "target_city": "austin", "confidence": 0.55, "rank": 3, "reason": "not_found"}
+{"source": "Tempura Kondo", "candidate": "Uchi", "target_city": "austin", "confidence": 0.55, "rank": 2, "reason": "not_found"}
+{"source": "Thermae-yu", "candidate": "Milk + Honey", "target_city": "austin", "confidence": 0.34, "rank": 3, "reason": "not_found"}
+{"source": "Todoroki Valley", "candidate": "Mayfield Park & Preserve", "target_city": "austin", "confidence": 0.58, "rank": 3, "reason": "not_found"}
+{"source": "Tokyo National Museum", "candidate": "LBJ Presidential Library", "target_city": "austin", "confidence": 0.42, "rank": 3, "reason": "not_found"}
+{"source": "Tokyo Tower", "candidate": "Mount Bonnell", "target_city": "austin", "confidence": 0.55, "rank": 2, "reason": "not_found"}
+{"source": "Tsutaya Daikanyama", "candidate": "First Light Book Shop", "target_city": "austin", "confidence": 0.66, "rank": 2, "reason": "not_found"}
+{"source": "Tsutenkaku Tokyo Skytree", "candidate": "Mount Bonnell", "target_city": "austin", "confidence": 0.55, "rank": 2, "reason": "not_found"}
+{"source": "Uobei", "candidate": "H-E-B sushi counter", "target_city": "austin", "confidence": 0.34, "rank": 3, "reason": "not_found"}
+{"source": "Yanaka", "candidate": "Hyde Park", "target_city": "austin", "confidence": 0.82, "rank": 1, "reason": "not_found"}
+{"source": "Yanaka", "candidate": "Travis Heights", "target_city": "austin", "confidence": 0.6, "rank": 3, "reason": "not_found"}
+{"source": "Yona Yona Beer Works", "candidate": "Real Ale Brewing", "target_city": "austin", "confidence": 0.55, "rank": 3, "reason": "not_found"}
+{"source": "Yoshinoya", "candidate": "P. Terry's", "target_city": "austin", "confidence": 0.78, "rank": 1, "reason": "not_found"}
+{"source": "Yoyogi Park", "candidate": "Pease Park", "target_city": "austin", "confidence": 0.72, "rank": 2, "reason": "not_found"}
+{"source": "teamLab Borderless", "candidate": "Ellsworth Kelly's \"Austin\" at the Blanton Museum of Art", "target_city": "austin", "confidence": 0.55, "rank": 2, "reason": "not_found"}

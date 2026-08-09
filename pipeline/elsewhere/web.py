@@ -171,12 +171,17 @@ PAGE = """<!doctype html>
   --faint:  #9B9B9B;
   --hair:   #E4E4E4;
   --hair-2: #DDDDDD;
-  --accent: #E0355A;          /* the one hot colour */
-  --accent-deep: #C22B4C;
-  --accent-soft: #FFF1F4;
+  /* The one accent, and it has to survive both jobs: white text sitting on
+     it (buttons) and it sitting on white (links, the brand). #0A8276 clears
+     AA in both directions at 4.7:1 — the bright turquoises people reach for
+     first are around 2:1 on white, which is a decoration, not a colour you
+     can put a word in. */
+  --accent: #0A8276;
+  --accent-deep: #056B63;     /* hover: further down the same hue */
+  --accent-soft: #E7F5F2;
   --on-accent: #FFFFFF;
-  --pink: #E0355A; --pink-deep: #C22B4C; --on-pink: #FFFFFF;
-  --turquoise: #067A6F;
+  --pink: #0A8276; --pink-deep: #056B63; --on-pink: #FFFFFF;
+  --turquoise: #0A8276;
   --gold: #FFC53D;
   --emerald: #16A97F;
   --chip: #F2F2F2;
@@ -196,10 +201,12 @@ PAGE = """<!doctype html>
   color-scheme: dark;
   --paper: #121212; --sunk: #1D1D1D; --panel: #1A1A1A; --ink: #F4F4F4;
   --dim: #ADADAD; --faint: #7E7E7E; --hair: #2E2E2E; --hair-2: #383838;
-  --accent: #FF5A78; --accent-deep: #FF7A92; --accent-soft: #2A1A1E;
-  --on-accent: #1A1A1A;
-  --pink: #FF5A78; --pink-deep: #FF7A92; --on-pink: #17171A;
-  --turquoise: #37C9B8; --gold: #FFC53D; --emerald: #35C89B;
+  /* Brighter cut for the dark ground: 10:1 there, where the light-mode
+     turquoise would sit at 4:1 and read as muddy. */
+  --accent: #2FD4C0; --accent-deep: #4ADFCB; --accent-soft: #10302D;
+  --on-accent: #10201E;
+  --pink: #2FD4C0; --pink-deep: #4ADFCB; --on-pink: #10201E;
+  --turquoise: #2FD4C0; --gold: #FFC53D; --emerald: #35C89B;
   --chip: #242424;
   --bar: #121212; --bar-ink: #F4F4F4; --bar-line: #303030;
   --bar-dim: #9A9A9A; --bar-field: #1D1D1D;
@@ -207,6 +214,11 @@ PAGE = """<!doctype html>
   --lift:   0 2px 4px rgba(0,0,0,.55), 0 10px 28px rgba(0,0,0,.6);
 }
 * { box-sizing: border-box; }
+/* Nothing had a visible focus ring, so the whole app was unusable by
+   keyboard. :focus-visible keeps it off for mouse users. */
+:focus-visible {
+  outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px;
+}
 body {
   margin: 0; color: var(--ink); background: var(--paper);
   font: 16px/1.6 var(--sans); letter-spacing: -0.003em;
@@ -324,9 +336,10 @@ select.native { position: absolute; opacity: 0; pointer-events: none; width: 1px
 /* Typing a place name exactly is a memory test nobody signed up for —
    "Torchys", "torchy's" and "Alamo" should all get you there. */
 .suggest {
-  position: absolute; top: calc(100% + 8px); left: 0; right: 0; z-index: 60;
-  padding: 7px; border-radius: 18px; background: var(--panel);
-  box-shadow: var(--lift); max-height: 320px; overflow-y: auto;
+  position: absolute; top: calc(100% + 10px); left: 0; right: 0; z-index: 60;
+  padding: 8px; border-radius: 18px; background: var(--panel);
+  box-shadow: var(--lift), inset 0 0 0 1px var(--hair);
+  max-height: 340px; overflow-y: auto; text-align: left;
 }
 .suggest[hidden] { display: none; }
 .suggest button {
@@ -335,9 +348,9 @@ select.native { position: absolute; opacity: 0; pointer-events: none; width: 1px
   font-size: 15px; font-weight: 600;
 }
 .suggest button .cat { font-size: 13px; font-weight: 400; color: var(--faint); margin-left: 10px; }
-.suggest button:hover, .suggest button.on { background: var(--chip); }
-.suggest button.on { background: var(--pink-deep); color: var(--on-pink); }
-.suggest button.on .cat { color: var(--on-pink); opacity: .8; }
+.suggest button:hover { background: var(--sunk); }
+.suggest button.on { background: var(--accent); color: var(--on-accent); }
+.suggest button.on .cat { color: var(--on-accent); opacity: .85; }
 .field .clear:hover { background: var(--pink-deep); color: var(--on-pink); }
 
 button {
@@ -438,27 +451,32 @@ button.brand:hover { color: var(--dim); }
 .eg:nth-child(3n+3) { background: color-mix(in srgb, var(--accent) 15%, var(--panel)); color: var(--accent-deep); }
 .eg:hover { background: var(--pink-deep); color: var(--on-pink); transform: translateY(-2px); }
 
-.browse { padding: 56px 24px 40px; text-align: center; }
+.browse { padding: 56px 40px 60px; text-align: left; max-width: 1180px; margin: 0 auto; }
 .browse[hidden] { display: none; }
 .browseh {
   font-size: clamp(24px, 3vw, 34px); font-weight: 800; letter-spacing: -0.03em;
-  margin: 0 0 34px; color: var(--ink);
+  margin: 0 0 28px; color: var(--ink);
 }
 .cats { max-width: 900px; margin: 0 auto; }
-.cats { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
-.cats button {
-  font-size: 17px; font-weight: 650; padding: 16px 26px;
-  background: var(--panel); color: var(--ink); box-shadow: var(--shadow);
+.cats {
+  display: grid; gap: 12px; max-width: none; margin: 0;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
 }
-.cats button:hover { transform: translate(-2px, -3px); box-shadow: var(--hard); }
-.cats button:active { transform: translate(2px, 2px); box-shadow: none; }
-.cats button .n { font-size: 14px; font-weight: 400; color: var(--faint); margin-left: 8px; }
+.cats button {
+  font-size: 17px; font-weight: 600; padding: 22px 22px; text-align: left;
+  background: var(--panel); color: var(--ink); border-radius: 16px;
+  box-shadow: inset 0 0 0 1px var(--hair);
+  display: flex; flex-direction: column; align-items: flex-start; gap: 4px;
+}
+.cats button:hover { box-shadow: var(--lift); transform: translateY(-2px); }
+.cats button:active { transform: none; }
+.cats button .n { font-size: 14px; font-weight: 400; color: var(--dim); margin: 0; }
 
 /* ─── Results ─────────────────────────────────────────────────────────── */
 main { max-width: 860px; margin: 0 auto; padding: 20px 24px 140px; }
 .crumb {
-  max-width: 820px; margin: 0 auto; padding: 22px 24px 4px;
-  display: flex; align-items: baseline; gap: 12px;
+  max-width: 1180px; margin: 0 auto; padding: 26px 40px 0;
+  display: flex; align-items: baseline; gap: 14px;
 }
 .crumb[hidden] { display: none; }
 .crumb span { font-size: 15px; font-weight: 600; color: var(--ink); }
@@ -850,7 +868,10 @@ const LIST_CAP = 25;
 let home = localStorage.getItem("elsewhere.home") || "";
 let savedDest = localStorage.getItem("elsewhere.dest") || "";
 
-const title = s => s.charAt(0).toUpperCase() + s.slice(1);
+/* Slugs are the storage format, not the display one: "los_angeles" has to
+   reach the page as "Los Angeles". */
+const title = s => String(s).split(/[_-]/)
+  .map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(" ");
 const esc = s => String(s).replace(/[&<>"]/g, c =>
   ({ "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;" }[c]));
 
@@ -1058,7 +1079,8 @@ function renderCats() {
   document.getElementById("cats").innerHTML = GROUPS
     .filter(([key]) => counts[key])
     .map(([key, label]) =>
-      `<button data-cat="${key}">${label}<span class="n">${counts[key]}</span></button>`)
+      `<button data-cat="${key}">${label}<span class="n">${counts[key]} place${
+         counts[key] === 1 ? "" : "s"}</span></button>`)
     .join("");
 }
 

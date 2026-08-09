@@ -1,0 +1,58 @@
+{"source": "Angels Flight", "candidate": "The Loop 'L' (riding the Brown Line around the Loop)", "target_city": "chicago", "confidence": 0.62, "rank": 1, "reason": "not_found"}
+{"source": "Bar Bandini", "candidate": "Bar Bianchi", "target_city": "chicago", "confidence": 0.6, "rank": 3, "reason": "not_found"}
+{"source": "Bestia", "candidate": "Monteverde", "target_city": "chicago", "confidence": 0.72, "rank": 2, "reason": "not_found"}
+{"source": "Boyle Heights", "candidate": "La Villita (Little Village)", "target_city": "chicago", "confidence": 0.8, "rank": 2, "reason": "not_found"}
+{"source": "Bronson Canyon", "candidate": "Palmisano Park (Stearns Quarry)", "target_city": "chicago", "confidence": 0.7, "rank": 1, "reason": "not_found"}
+{"source": "Bronson Canyon", "candidate": "Lower Wacker Drive", "target_city": "chicago", "confidence": 0.4, "rank": 3, "reason": "not_found"}
+{"source": "Cafe Tropical", "candidate": "Caf\u00e9 con Leche", "target_city": "chicago", "confidence": 0.7, "rank": 2, "reason": "not_found"}
+{"source": "Cafe Tropical", "candidate": "Kopi Cafe", "target_city": "chicago", "confidence": 0.62, "rank": 3, "reason": "not_found"}
+{"source": "Cinespia", "candidate": "Movies in the Parks", "target_city": "chicago", "confidence": 0.45, "rank": 3, "reason": "not_found"}
+{"source": "Downtown LA", "candidate": "Motor Row / South Loop", "target_city": "chicago", "confidence": 0.45, "rank": 3, "reason": "not_found"}
+{"source": "El Matador State Beach", "candidate": "Montrose Point / the Magic Hedge", "target_city": "chicago", "confidence": 0.56, "rank": 2, "reason": "not_found"}
+{"source": "El Matador State Beach", "candidate": "Morgan Shoal / 49th Street Beach rocks", "target_city": "chicago", "confidence": 0.48, "rank": 3, "reason": "not_found"}
+{"source": "Elysian Park", "candidate": "Palmisano Park", "target_city": "chicago", "confidence": 0.7, "rank": 2, "reason": "not_found"}
+{"source": "Equinox West Hollywood", "candidate": "East Bank Club", "target_city": "chicago", "confidence": 0.82, "rank": 1, "reason": "not_found"}
+{"source": "Equinox West Hollywood", "candidate": "FFC East Lakeview", "target_city": "chicago", "confidence": 0.72, "rank": 2, "reason": "not_found"}
+{"source": "Frolic Room", "candidate": "Marie's Riptide Lounge", "target_city": "chicago", "confidence": 0.66, "rank": 3, "reason": "not_found"}
+{"source": "Gjusta", "candidate": "Middle Brow Bungalow", "target_city": "chicago", "confidence": 0.55, "rank": 2, "reason": "not_found"}
+{"source": "Gold's Gym Venice", "candidate": "Fortitude Strength Club", "target_city": "chicago", "confidence": 0.55, "rank": 2, "reason": "not_found"}
+{"source": "Grand Casino Bakery", "candidate": "Lutz Caf\u00e9 & Pastry Shop", "target_city": "chicago", "confidence": 0.62, "rank": 1, "reason": "not_found"}
+{"source": "Guelaguetza", "candidate": "Cant\u00f3n Regio", "target_city": "chicago", "confidence": 0.55, "rank": 3, "reason": "not_found"}
+{"source": "HMS Bounty", "candidate": "Marie's Riptide Lounge", "target_city": "chicago", "confidence": 0.68, "rank": 2, "reason": "not_found"}
+{"source": "Hancock Park", "candidate": "Kenwood", "target_city": "chicago", "confidence": 0.78, "rank": 1, "reason": "not_found"}
+{"source": "Hancock Park", "candidate": "Beverly / Morgan Park", "target_city": "chicago", "confidence": 0.55, "rank": 3, "reason": "not_found"}
+{"source": "Highland Park", "candidate": "Avondale", "target_city": "chicago", "confidence": 0.55, "rank": 3, "reason": "not_found"}
+{"source": "Hollywood Bowl", "candidate": "Ravinia Festival", "target_city": "chicago", "confidence": 0.93, "rank": 1, "reason": "not_found"}
+{"source": "Hollywood Sign", "candidate": "Willis Tower Skydeck", "target_city": "chicago", "confidence": 0.62, "rank": 2, "reason": "not_found"}
+{"source": "Jitlada", "candidate": "Sticky Rice", "target_city": "chicago", "confidence": 0.74, "rank": 2, "reason": "not_found"}
+{"source": "Koreatown", "candidate": "Argyle Street / Uptown", "target_city": "chicago", "confidence": 0.6, "rank": 1, "reason": "not_found"}
+{"source": "Koreatown", "candidate": "Albany Park / Lawrence Avenue ('Seoul Drive')", "target_city": "chicago", "confidence": 0.55, "rank": 2, "reason": "not_found"}
+{"source": "Leimert Park", "candidate": "Bronzeville", "target_city": "chicago", "confidence": 0.86, "rank": 1, "reason": "not_found"}
+{"source": "Melrose Trading Post", "candidate": "Randolph Street Market", "target_city": "chicago", "confidence": 0.78, "rank": 1, "reason": "not_found"}
+{"source": "Melrose Trading Post", "candidate": "Vintage Garage Chicago", "target_city": "chicago", "confidence": 0.72, "rank": 2, "reason": "not_found"}
+{"source": "Museum of Jurassic Technology", "candidate": "Busy Beaver Button Museum", "target_city": "chicago", "confidence": 0.55, "rank": 3, "reason": "not_found"}
+{"source": "New Beverly Cinema", "candidate": "Doc Films", "target_city": "chicago", "confidence": 0.72, "rank": 2, "reason": "not_found"}
+{"source": "Olvera Street", "candidate": "26th Street in Little Village", "target_city": "chicago", "confidence": 0.7, "rank": 2, "reason": "not_found"}
+{"source": "Park's BBQ", "candidate": "Cho Sun Ok", "target_city": "chicago", "confidence": 0.36, "rank": 3, "reason": "not_found"}
+{"source": "Pasadena", "candidate": "Evanston", "target_city": "chicago", "confidence": 0.82, "rank": 1, "reason": "not_found"}
+{"source": "Pasadena", "candidate": "Downtown Naperville", "target_city": "chicago", "confidence": 0.55, "rank": 3, "reason": "not_found"}
+{"source": "Permanent Records Roadhouse", "candidate": "Bric-a-Brac Records", "target_city": "chicago", "confidence": 0.71, "rank": 1, "reason": "not_found"}
+{"source": "Rose Bowl Flea Market", "candidate": "Randolph Street Market", "target_city": "chicago", "confidence": 0.72, "rank": 1, "reason": "not_found"}
+{"source": "Runyon Canyon", "candidate": "The 606 (Bloomingdale Trail)", "target_city": "chicago", "confidence": 0.65, "rank": 2, "reason": "not_found"}
+{"source": "Runyon Canyon", "candidate": "Palmisano Park", "target_city": "chicago", "confidence": 0.42, "rank": 3, "reason": "not_found"}
+{"source": "San Gabriel Valley", "candidate": "Devon Avenue (West Ridge)", "target_city": "chicago", "confidence": 0.62, "rank": 1, "reason": "not_found"}
+{"source": "San Gabriel Valley", "candidate": "Golf Road corridor \u2014 Niles, Morton Grove, Mount Prospect, Glenview", "target_city": "chicago", "confidence": 0.57, "rank": 2, "reason": "not_found"}
+{"source": "Santa Monica", "candidate": "Evanston", "target_city": "chicago", "confidence": 0.66, "rank": 2, "reason": "not_found"}
+{"source": "Skylight Books", "candidate": "Women & Children First", "target_city": "chicago", "confidence": 0.78, "rank": 1, "reason": "not_found"}
+{"source": "Skylight Books", "candidate": "Seminary Co-op Bookstore", "target_city": "chicago", "confidence": 0.5, "rank": 3, "reason": "not_found"}
+{"source": "Super King Markets", "candidate": "Andy's Fruit Ranch", "target_city": "chicago", "confidence": 0.66, "rank": 3, "reason": "not_found"}
+{"source": "The Greek Theatre", "candidate": "Ravinia Festival", "target_city": "chicago", "confidence": 0.72, "rank": 1, "reason": "not_found"}
+{"source": "The Music Center", "candidate": "Symphony Center (Orchestra Hall)", "target_city": "chicago", "confidence": 0.68, "rank": 2, "reason": "not_found"}
+{"source": "Tiki-Ti", "candidate": "Hala Kahiki", "target_city": "chicago", "confidence": 0.72, "rank": 1, "reason": "not_found"}
+{"source": "Vidiots", "candidate": "Doc Films", "target_city": "chicago", "confidence": 0.5, "rank": 3, "reason": "not_found"}
+{"source": "Vroman's Bookstore", "candidate": "Women & Children First", "target_city": "chicago", "confidence": 0.6, "rank": 3, "reason": "not_found"}
+{"source": "Walt Disney Concert Hall", "candidate": "Symphony Center", "target_city": "chicago", "confidence": 0.83, "rank": 1, "reason": "not_found"}
+{"source": "Watts Towers", "candidate": "Milton Mizenberg Jr.'s Oakland Sculpture Garden", "target_city": "chicago", "confidence": 0.55, "rank": 1, "reason": "not_found"}
+{"source": "Watts Towers", "candidate": "Dr. Charles Smith's African American Heritage Museum & Black Veterans Archive (Aurora)", "target_city": "chicago", "confidence": 0.38, "rank": 3, "reason": "not_found"}
+{"source": "Wi Spa", "candidate": "Aire Ancient Baths", "target_city": "chicago", "confidence": 0.4, "rank": 3, "reason": "not_found"}
+{"source": "n/naka", "candidate": "Ky\u014dten", "target_city": "chicago", "confidence": 0.68, "rank": 2, "reason": "not_found"}

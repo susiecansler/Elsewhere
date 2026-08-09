@@ -1,0 +1,61 @@
+{"source": "Arts District", "candidate": "Lower Albina / North Russell", "target_city": "portland", "confidence": 0.4, "rank": 3, "reason": "not_found"}
+{"source": "Bar Bandini", "candidate": "Bar Norman", "target_city": "portland", "confidence": 0.84, "rank": 1, "reason": "not_found"}
+{"source": "Bar Bandini", "candidate": "Les Caves", "target_city": "portland", "confidence": 0.78, "rank": 2, "reason": "not_found"}
+{"source": "Bar Nine", "candidate": "Push x Pull", "target_city": "portland", "confidence": 0.6, "rank": 3, "reason": "not_found"}
+{"source": "Barry's Bootcamp West Hollywood", "candidate": "Sweat PDX", "target_city": "portland", "confidence": 0.6, "rank": 3, "reason": "not_found"}
+{"source": "Boyle Heights", "candidate": "Cully", "target_city": "portland", "confidence": 0.58, "rank": 1, "reason": "not_found"}
+{"source": "Boyle Heights", "candidate": "Jade District (82nd Avenue, Montavilla to Lents)", "target_city": "portland", "confidence": 0.52, "rank": 2, "reason": "not_found"}
+{"source": "Bronson Canyon", "candidate": "Witch's Castle (Lower Macleay Trail, Forest Park)", "target_city": "portland", "confidence": 0.82, "rank": 1, "reason": "not_found"}
+{"source": "Bronson Canyon", "candidate": "Mount Tabor Park cinder cone", "target_city": "portland", "confidence": 0.44, "rank": 3, "reason": "not_found"}
+{"source": "Cafe Tropical", "candidate": "Palio Dessert & Espresso House", "target_city": "portland", "confidence": 0.65, "rank": 2, "reason": "not_found"}
+{"source": "Cafe Tropical", "candidate": "Common Grounds Coffee House", "target_city": "portland", "confidence": 0.55, "rank": 3, "reason": "not_found"}
+{"source": "Cinespia", "candidate": "Top Down: Rooftop Cinema", "target_city": "portland", "confidence": 0.78, "rank": 1, "reason": "not_found"}
+{"source": "Cinespia", "candidate": "Movies in the Park", "target_city": "portland", "confidence": 0.5, "rank": 3, "reason": "not_found"}
+{"source": "Downtown LA", "candidate": "Old Town Chinatown", "target_city": "portland", "confidence": 0.45, "rank": 3, "reason": "not_found"}
+{"source": "Echo Park Lake", "candidate": "Mount Tabor Park", "target_city": "portland", "confidence": 0.66, "rank": 2, "reason": "not_found"}
+{"source": "Egyptian Theatre", "candidate": "Bagdad Theater", "target_city": "portland", "confidence": 0.55, "rank": 3, "reason": "not_found"}
+{"source": "El Matador State Beach", "candidate": "Hug Point State Recreation Site", "target_city": "portland", "confidence": 0.78, "rank": 1, "reason": "not_found"}
+{"source": "El Matador State Beach", "candidate": "Short Sand Beach (Oswald West State Park)", "target_city": "portland", "confidence": 0.72, "rank": 2, "reason": "not_found"}
+{"source": "El Matador State Beach", "candidate": "Ecola State Park (Indian Beach)", "target_city": "portland", "confidence": 0.58, "rank": 3, "reason": "not_found"}
+{"source": "Elysian Park", "candidate": "Mount Tabor Park", "target_city": "portland", "confidence": 0.83, "rank": 1, "reason": "not_found"}
+{"source": "Go Get Em Tiger", "candidate": "Proud Mary Coffee", "target_city": "portland", "confidence": 0.78, "rank": 1, "reason": "not_found"}
+{"source": "Grand Central Market Sarita's Pupuseria", "candidate": "Otto's Sausage Kitchen", "target_city": "portland", "confidence": 0.37, "rank": 3, "reason": "not_found"}
+{"source": "Griffith Observatory", "candidate": "Mount Tabor Park", "target_city": "portland", "confidence": 0.72, "rank": 2, "reason": "not_found"}
+{"source": "Griffith Observatory", "candidate": "Oregon Museum of Science and Industry", "target_city": "portland", "confidence": 0.5, "rank": 3, "reason": "not_found"}
+{"source": "Griffith Park", "candidate": "Mount Tabor Park", "target_city": "portland", "confidence": 0.6, "rank": 3, "reason": "not_found"}
+{"source": "Guelaguetza", "candidate": "Republica", "target_city": "portland", "confidence": 0.38, "rank": 3, "reason": "not_found"}
+{"source": "Hancock Park", "candidate": "Eastmoreland", "target_city": "portland", "confidence": 0.72, "rank": 2, "reason": "not_found"}
+{"source": "Hancock Park", "candidate": "Dunthorpe", "target_city": "portland", "confidence": 0.6, "rank": 3, "reason": "not_found"}
+{"source": "Kenneth Hahn State Recreation Area", "candidate": "Mount Tabor Park", "target_city": "portland", "confidence": 0.72, "rank": 1, "reason": "not_found"}
+{"source": "Koreatown", "candidate": "Jade District (SE 82nd Avenue)", "target_city": "portland", "confidence": 0.58, "rank": 1, "reason": "not_found"}
+{"source": "Koreatown", "candidate": "Old Town Chinatown", "target_city": "portland", "confidence": 0.28, "rank": 3, "reason": "not_found"}
+{"source": "LA Fitness", "candidate": "ClubSport Oregon", "target_city": "portland", "confidence": 0.5, "rank": 3, "reason": "not_found"}
+{"source": "Leimert Park", "candidate": "NE Martin Luther King Jr. Blvd / King neighborhood (Dawson Park, Billy Webb Elks Lodge)", "target_city": "portland", "confidence": 0.55, "rank": 2, "reason": "not_found"}
+{"source": "Leo's Tacos Truck", "candidate": "Taquer\u00eda Los Pu\u00f1ales", "target_city": "portland", "confidence": 0.66, "rank": 2, "reason": "not_found"}
+{"source": "Los Feliz", "candidate": "Laurelhurst", "target_city": "portland", "confidence": 0.6, "rank": 1, "reason": "not_found"}
+{"source": "Los Feliz", "candidate": "Nob Hill", "target_city": "portland", "confidence": 0.55, "rank": 2, "reason": "not_found"}
+{"source": "Museum of Jurassic Technology", "candidate": "Freakybuttrue Peculiarium", "target_city": "portland", "confidence": 0.42, "rank": 3, "reason": "not_found"}
+{"source": "Olvera Street", "candidate": "Old Town Chinatown", "target_city": "portland", "confidence": 0.62, "rank": 2, "reason": "not_found"}
+{"source": "Park's BBQ", "candidate": "Han Oak", "target_city": "portland", "confidence": 0.58, "rank": 1, "reason": "not_found"}
+{"source": "Park's BBQ", "candidate": "Nakwon", "target_city": "portland", "confidence": 0.5, "rank": 2, "reason": "not_found"}
+{"source": "Pasadena", "candidate": "Nob Hill (NW 23rd & 21st)", "target_city": "portland", "confidence": 0.78, "rank": 1, "reason": "not_found"}
+{"source": "Philippe the Original", "candidate": "Otto's Sausage Kitchen", "target_city": "portland", "confidence": 0.5, "rank": 3, "reason": "not_found"}
+{"source": "Pink's Hot Dogs", "candidate": "Otto's Sausage Kitchen", "target_city": "portland", "confidence": 0.55, "rank": 3, "reason": "not_found"}
+{"source": "Porto's Bakery", "candidate": "Pip's Original Doughnuts & Chai", "target_city": "portland", "confidence": 0.55, "rank": 1, "reason": "not_found"}
+{"source": "Providence", "candidate": "Castagna", "target_city": "portland", "confidence": 0.78, "rank": 1, "reason": "not_found"}
+{"source": "Rose Bowl Flea Market", "candidate": "America's Largest Antique & Collectible Show (Portland Expo Center)", "target_city": "portland", "confidence": 0.66, "rank": 1, "reason": "not_found"}
+{"source": "Runyon Canyon", "candidate": "Mount Tabor Park", "target_city": "portland", "confidence": 0.82, "rank": 1, "reason": "not_found"}
+{"source": "Runyon Canyon", "candidate": "Lower Macleay Trail to Pittock Mansion", "target_city": "portland", "confidence": 0.71, "rank": 2, "reason": "not_found"}
+{"source": "San Gabriel Valley", "candidate": "Jade District (SE 82nd Avenue)", "target_city": "portland", "confidence": 0.82, "rank": 1, "reason": "not_found"}
+{"source": "Santa Monica", "candidate": "Nob Hill", "target_city": "portland", "confidence": 0.72, "rank": 1, "reason": "not_found"}
+{"source": "Silver Lake", "candidate": "Clinton\u2013Division", "target_city": "portland", "confidence": 0.58, "rank": 3, "reason": "not_found"}
+{"source": "Super King Markets", "candidate": "Fubonn Supermarket", "target_city": "portland", "confidence": 0.78, "rank": 1, "reason": "not_found"}
+{"source": "The Broad", "candidate": "PICA (Portland Institute for Contemporary Art)", "target_city": "portland", "confidence": 0.35, "rank": 3, "reason": "not_found"}
+{"source": "The Last Bookstore", "candidate": "Cameron's Books & Magazines", "target_city": "portland", "confidence": 0.45, "rank": 3, "reason": "not_found"}
+{"source": "Vallarta Supermarkets", "candidate": "Fubonn Supermarket", "target_city": "portland", "confidence": 0.42, "rank": 3, "reason": "not_found"}
+{"source": "Venice Beach Boardwalk", "candidate": "Alberta Street on Last Thursday", "target_city": "portland", "confidence": 0.45, "rank": 3, "reason": "not_found"}
+{"source": "Watts Towers", "candidate": "The Witch's Castle (Stone House, Forest Park)", "target_city": "portland", "confidence": 0.62, "rank": 1, "reason": "not_found"}
+{"source": "Watts Towers", "candidate": "Zoobomb Pyle (People's Bike Library of Portland)", "target_city": "portland", "confidence": 0.45, "rank": 3, "reason": "not_found"}
+{"source": "Wi Spa", "candidate": "L\u00f6yly", "target_city": "portland", "confidence": 0.63, "rank": 2, "reason": "not_found"}
+{"source": "Yuca's", "candidate": "Otto's Sausage Kitchen", "target_city": "portland", "confidence": 0.62, "rank": 2, "reason": "not_found"}
+{"source": "Zankou Chicken", "candidate": "Ya Hala", "target_city": "portland", "confidence": 0.6, "rank": 2, "reason": "not_found"}

@@ -1,62 +1,57 @@
-{"source": "Akihabara Electric Town", "candidate": "Clark & Belmont in Lakeview", "target_city": "chicago", "confidence": 0.5, "rank": 2, "reason": "not_found"}
-{"source": "Ameyoko", "candidate": "26th Street, Little Village", "target_city": "chicago", "confidence": 0.72, "rank": 1, "reason": "not_found"}
-{"source": "Ameyoko", "candidate": "Devon Avenue (West Rogers Park)", "target_city": "chicago", "confidence": 0.55, "rank": 3, "reason": "not_found"}
-{"source": "Andy's Shin Hinomoto", "candidate": "The Berghoff", "target_city": "chicago", "confidence": 0.66, "rank": 2, "reason": "not_found"}
-{"source": "Blue Note Tokyo", "candidate": "Andy's Jazz Club", "target_city": "chicago", "confidence": 0.55, "rank": 3, "reason": "not_found"}
-{"source": "Chatei Hatou", "candidate": "Lutz Caf\u00e9 & Pastry Shop", "target_city": "chicago", "confidence": 0.6, "rank": 2, "reason": "not_found"}
-{"source": "Contact Tokyo", "candidate": "Primary Nightclub", "target_city": "chicago", "confidence": 0.78, "rank": 2, "reason": "not_found"}
-{"source": "Daikanyama", "candidate": "Armitage Avenue (Lincoln Park)", "target_city": "chicago", "confidence": 0.66, "rank": 1, "reason": "not_found"}
-{"source": "Daikanyama", "candidate": "Damen Avenue, Bucktown", "target_city": "chicago", "confidence": 0.6, "rank": 2, "reason": "not_found"}
-{"source": "Denenchofu", "candidate": "Kenilworth", "target_city": "chicago", "confidence": 0.82, "rank": 1, "reason": "not_found"}
-{"source": "Denenchofu", "candidate": "Lake Forest", "target_city": "chicago", "confidence": 0.76, "rank": 2, "reason": "not_found"}
-{"source": "Denenchofu", "candidate": "Riverside", "target_city": "chicago", "confidence": 0.58, "rank": 3, "reason": "not_found"}
-{"source": "Ebisu Yokocho", "candidate": "Division Street (Damen to Ashland)", "target_city": "chicago", "confidence": 0.35, "rank": 3, "reason": "not_found"}
-{"source": "Florilege", "candidate": "Ever", "target_city": "chicago", "confidence": 0.6, "rank": 3, "reason": "not_found"}
+{"source": "Ameyoko", "candidate": "Argyle Street (Uptown)", "target_city": "chicago", "confidence": 0.6, "rank": 1, "reason": "not_found"}
+{"source": "Blue Bottle Kiyosumi", "candidate": "Osmium Coffee Bar (Dark Matter)", "target_city": "chicago", "confidence": 0.5, "rank": 3, "reason": "not_found"}
+{"source": "Chatei Hatou", "candidate": "Third Coast Cafe", "target_city": "chicago", "confidence": 0.62, "rank": 2, "reason": "not_found"}
+{"source": "Chatei Hatou", "candidate": "Kopi Cafe", "target_city": "chicago", "confidence": 0.45, "rank": 3, "reason": "not_found"}
+{"source": "Contact Tokyo", "candidate": "Primary Nightclub", "target_city": "chicago", "confidence": 0.62, "rank": 3, "reason": "not_found"}
+{"source": "Daikanyama", "candidate": "Armitage Avenue (Lincoln Park)", "target_city": "chicago", "confidence": 0.78, "rank": 1, "reason": "not_found"}
+{"source": "Daikanyama", "candidate": "Damen Avenue, Bucktown (north of North Ave)", "target_city": "chicago", "confidence": 0.7, "rank": 2, "reason": "not_found"}
+{"source": "Denenchofu", "candidate": "Kenilworth", "target_city": "chicago", "confidence": 0.78, "rank": 1, "reason": "not_found"}
+{"source": "Denenchofu", "candidate": "Lake Forest", "target_city": "chicago", "confidence": 0.72, "rank": 2, "reason": "not_found"}
+{"source": "Denenchofu", "candidate": "Riverside", "target_city": "chicago", "confidence": 0.55, "rank": 3, "reason": "not_found"}
+{"source": "Fuglen Tokyo", "candidate": "Cafe Integral", "target_city": "chicago", "confidence": 0.62, "rank": 2, "reason": "not_found"}
 {"source": "Ghibli Museum", "candidate": "Frank Lloyd Wright Home and Studio", "target_city": "chicago", "confidence": 0.72, "rank": 1, "reason": "not_found"}
-{"source": "Glitch Coffee", "candidate": "Cafe Integral", "target_city": "chicago", "confidence": 0.66, "rank": 2, "reason": "not_found"}
-{"source": "Gold's Gym Harajuku", "candidate": "FFC (Fitness Formula Clubs) \u2014 Union Station / Old Town", "target_city": "chicago", "confidence": 0.68, "rank": 1, "reason": "not_found"}
-{"source": "Gold's Gym Harajuku", "candidate": "East Bank Club", "target_city": "chicago", "confidence": 0.4, "rank": 3, "reason": "not_found"}
-{"source": "Golden Gai", "candidate": "Marie's Riptide Lounge", "target_city": "chicago", "confidence": 0.5, "rank": 2, "reason": "not_found"}
-{"source": "Harajuku", "candidate": "Clark & Belmont / the Belmont Avenue strip (Belmont Army, Ragstock, Kokorokoko)", "target_city": "chicago", "confidence": 0.78, "rank": 1, "reason": "not_found"}
-{"source": "Isetan Shinjuku", "candidate": "Macy's on State Street (the old Marshall Field's)", "target_city": "chicago", "confidence": 0.62, "rank": 1, "reason": "not_found"}
-{"source": "Isetan Shinjuku Depachika", "candidate": "Macy's on State Street (Marshall Field's food halls)", "target_city": "chicago", "confidence": 0.6, "rank": 2, "reason": "not_found"}
-{"source": "Itoya Ginza", "candidate": "Greer", "target_city": "chicago", "confidence": 0.45, "rank": 3, "reason": "not_found"}
-{"source": "Jimbocho Book Town", "candidate": "Seminary Co-op & 57th Street Books (Hyde Park book row)", "target_city": "chicago", "confidence": 0.78, "rank": 1, "reason": "not_found"}
-{"source": "Kagurazaka", "candidate": "Armitage & Halsted (Lincoln Park)", "target_city": "chicago", "confidence": 0.6, "rank": 2, "reason": "not_found"}
-{"source": "Kaldi Coffee Farm", "candidate": "Gene's Sausage Shop", "target_city": "chicago", "confidence": 0.56, "rank": 2, "reason": "not_found"}
-{"source": "Kinokuniya Shinjuku", "candidate": "Seminary Co-op Bookstore", "target_city": "chicago", "confidence": 0.62, "rank": 1, "reason": "not_found"}
-{"source": "Kissa Tricolore", "candidate": "Lutz Caf\u00e9 & Pastry Shop", "target_city": "chicago", "confidence": 0.72, "rank": 1, "reason": "not_found"}
-{"source": "Kiyosumi Shirakawa", "candidate": "Ravenswood / Ravenswood Industrial Corridor", "target_city": "chicago", "confidence": 0.5, "rank": 3, "reason": "not_found"}
-{"source": "Koenji", "candidate": "Avondale", "target_city": "chicago", "confidence": 0.62, "rank": 2, "reason": "not_found"}
-{"source": "Komeda's Coffee", "candidate": "Lutz Caf\u00e9 & Pastry Shop", "target_city": "chicago", "confidence": 0.6, "rank": 2, "reason": "not_found"}
+{"source": "Ginza", "candidate": "Oak Street & the Gold Coast", "target_city": "chicago", "confidence": 0.66, "rank": 2, "reason": "not_found"}
+{"source": "Golden Gai", "candidate": "Marie's Riptide Lounge", "target_city": "chicago", "confidence": 0.45, "rank": 3, "reason": "not_found"}
+{"source": "Gonpachi Nishiazabu", "candidate": "The Berghoff", "target_city": "chicago", "confidence": 0.42, "rank": 3, "reason": "not_found"}
+{"source": "Harajuku", "candidate": "18th Street, Pilsen", "target_city": "chicago", "confidence": 0.45, "rank": 3, "reason": "not_found"}
+{"source": "Isetan Shinjuku", "candidate": "Macy's on State Street (Marshall Field's)", "target_city": "chicago", "confidence": 0.6, "rank": 1, "reason": "not_found"}
+{"source": "Isetan Shinjuku Depachika", "candidate": "Macy's on State Street", "target_city": "chicago", "confidence": 0.55, "rank": 2, "reason": "not_found"}
+{"source": "Itoya Ginza", "candidate": "Greer Chicago", "target_city": "chicago", "confidence": 0.55, "rank": 2, "reason": "not_found"}
+{"source": "Jimbocho Book Town", "candidate": "Hyde Park's 57th Street book corridor (Seminary Co-op, 57th Street Books, Powell's Books Chicago)", "target_city": "chicago", "confidence": 0.72, "rank": 1, "reason": "not_found"}
+{"source": "Kaldi Coffee Farm", "candidate": "Gene's Sausage Shop", "target_city": "chicago", "confidence": 0.55, "rank": 2, "reason": "not_found"}
+{"source": "Kappabashi Street", "candidate": "Fulton Market's remaining wholesale purveyors (Peoria Packing, Isaacson & Stein Fish)", "target_city": "chicago", "confidence": 0.38, "rank": 3, "reason": "not_found"}
+{"source": "Kinokuniya Shinjuku", "candidate": "Seminary Co-op Bookstore", "target_city": "chicago", "confidence": 0.6, "rank": 1, "reason": "not_found"}
+{"source": "Kissa Tricolore", "candidate": "Lutz Caf\u00e9 und Konditorei", "target_city": "chicago", "confidence": 0.74, "rank": 2, "reason": "not_found"}
+{"source": "Koenji", "candidate": "Avondale", "target_city": "chicago", "confidence": 0.68, "rank": 2, "reason": "not_found"}
+{"source": "Komeda's Coffee", "candidate": "Valois Cafeteria", "target_city": "chicago", "confidence": 0.55, "rank": 2, "reason": "not_found"}
 {"source": "Konami Sports Club", "candidate": "FFC (Fitness Formula Clubs)", "target_city": "chicago", "confidence": 0.78, "rank": 1, "reason": "not_found"}
-{"source": "Kosugiyu", "candidate": "Division Street Russian Bath", "target_city": "chicago", "confidence": 0.62, "rank": 1, "reason": "not_found"}
-{"source": "Mikkeller Tokyo", "candidate": "Off Color Mousetrap", "target_city": "chicago", "confidence": 0.66, "rank": 2, "reason": "not_found"}
-{"source": "Mitsukoshi Nihombashi", "candidate": "Macy's on State Street (Marshall Field's)", "target_city": "chicago", "confidence": 0.92, "rank": 1, "reason": "not_found"}
-{"source": "Muji Yurakucho", "candidate": "Greer Chicago", "target_city": "chicago", "confidence": 0.45, "rank": 3, "reason": "not_found"}
-{"source": "Nakameguro", "candidate": "West Town / Ukrainian Village (Chicago Ave & Damen)", "target_city": "chicago", "confidence": 0.68, "rank": 2, "reason": "not_found"}
-{"source": "National Film Archive of Japan", "candidate": "Northwest Chicago Film Society", "target_city": "chicago", "confidence": 0.7, "rank": 2, "reason": "not_found"}
-{"source": "National Film Archive of Japan", "candidate": "Doc Films", "target_city": "chicago", "confidence": 0.6, "rank": 3, "reason": "not_found"}
+{"source": "Konami Sports Club", "candidate": "East Bank Club", "target_city": "chicago", "confidence": 0.42, "rank": 3, "reason": "not_found"}
+{"source": "Kosugiyu", "candidate": "Division Street Russian Bath (Red Square Spa)", "target_city": "chicago", "confidence": 0.54, "rank": 1, "reason": "not_found"}
+{"source": "Mikkeller Tokyo", "candidate": "Half Acre Balmoral Taproom", "target_city": "chicago", "confidence": 0.66, "rank": 2, "reason": "not_found"}
+{"source": "Mikkeller Tokyo", "candidate": "Off Color Mousetrap", "target_city": "chicago", "confidence": 0.55, "rank": 3, "reason": "not_found"}
+{"source": "National Film Archive of Japan", "candidate": "Doc Films", "target_city": "chicago", "confidence": 0.58, "rank": 3, "reason": "not_found"}
 {"source": "Nezu Museum", "candidate": "Garden of the Phoenix (Osaka Garden), Jackson Park", "target_city": "chicago", "confidence": 0.45, "rank": 3, "reason": "not_found"}
-{"source": "Nonbei Yokocho", "candidate": "Marie's Riptide Lounge", "target_city": "chicago", "confidence": 0.58, "rank": 1, "reason": "not_found"}
-{"source": "Oedo Onsen Monogatari", "candidate": "Red Square Spa (Wicker Park)", "target_city": "chicago", "confidence": 0.45, "rank": 3, "reason": "not_found"}
-{"source": "Saizeriya", "candidate": "Valois Cafeteria", "target_city": "chicago", "confidence": 0.66, "rank": 2, "reason": "not_found"}
-{"source": "Seijo Ishii", "candidate": "Gene's Sausage Shop", "target_city": "chicago", "confidence": 0.42, "rank": 3, "reason": "not_found"}
-{"source": "Shibuya", "candidate": "Division Street / River North bar corridor", "target_city": "chicago", "confidence": 0.55, "rank": 2, "reason": "not_found"}
-{"source": "Shibuya Scramble Crossing", "candidate": "Wabash & Adams L tracks", "target_city": "chicago", "confidence": 0.71, "rank": 2, "reason": "not_found"}
-{"source": "Shibuya Scramble Crossing", "candidate": "DuSable (Michigan Avenue) Bridge", "target_city": "chicago", "confidence": 0.55, "rank": 3, "reason": "not_found"}
-{"source": "Shinjuku Station", "candidate": "Union Station", "target_city": "chicago", "confidence": 0.72, "rank": 1, "reason": "not_found"}
-{"source": "Sushi Dai", "candidate": "Ky\u014dten", "target_city": "chicago", "confidence": 0.42, "rank": 3, "reason": "not_found"}
-{"source": "Sushi Saito", "candidate": "Ky\u014dten", "target_city": "chicago", "confidence": 0.8, "rank": 1, "reason": "not_found"}
-{"source": "Sushi Saito", "candidate": "Kikk\u014d", "target_city": "chicago", "confidence": 0.52, "rank": 3, "reason": "not_found"}
-{"source": "Tamagawa Riverside", "candidate": "Montrose Point / Montrose Beach", "target_city": "chicago", "confidence": 0.74, "rank": 2, "reason": "not_found"}
-{"source": "Tempura Kondo", "candidate": "Ky\u014dten", "target_city": "chicago", "confidence": 0.78, "rank": 1, "reason": "not_found"}
-{"source": "Tempura Kondo", "candidate": "Katsu", "target_city": "chicago", "confidence": 0.72, "rank": 2, "reason": "not_found"}
-{"source": "Tokyo Tower", "candidate": "Willis Tower Skydeck", "target_city": "chicago", "confidence": 0.78, "rank": 1, "reason": "not_found"}
-{"source": "Tokyo Tower", "candidate": "360 Chicago (John Hancock Center)", "target_city": "chicago", "confidence": 0.62, "rank": 2, "reason": "not_found"}
-{"source": "Tsutaya Daikanyama", "candidate": "Seminary Co-op Bookstore", "target_city": "chicago", "confidence": 0.68, "rank": 1, "reason": "not_found"}
+{"source": "Nonbei Yokocho", "candidate": "Marie's Riptide Lounge", "target_city": "chicago", "confidence": 0.45, "rank": 3, "reason": "not_found"}
+{"source": "Oedo Onsen Monogatari", "candidate": "Red Square Spa (Division Street Russian Baths)", "target_city": "chicago", "confidence": 0.5, "rank": 3, "reason": "not_found"}
+{"source": "Ozeki", "candidate": "Gene's Sausage Shop", "target_city": "chicago", "confidence": 0.5, "rank": 3, "reason": "not_found"}
+{"source": "Saizeriya", "candidate": "Valois Cafeteria", "target_city": "chicago", "confidence": 0.48, "rank": 3, "reason": "not_found"}
+{"source": "Seijo Ishii", "candidate": "Gene's Sausage Shop", "target_city": "chicago", "confidence": 0.45, "rank": 3, "reason": "not_found"}
+{"source": "Shibuya Scramble Crossing", "candidate": "The Loop 'L' tracks at Adams & Wabash", "target_city": "chicago", "confidence": 0.66, "rank": 2, "reason": "not_found"}
+{"source": "Shinjuku Gyoen", "candidate": "Garden of the Phoenix (Osaka Garden), Jackson Park", "target_city": "chicago", "confidence": 0.72, "rank": 1, "reason": "not_found"}
+{"source": "Shinjuku Station", "candidate": "Union Station", "target_city": "chicago", "confidence": 0.62, "rank": 1, "reason": "not_found"}
+{"source": "Sushi Saito", "candidate": "Ky\u014dten", "target_city": "chicago", "confidence": 0.78, "rank": 1, "reason": "not_found"}
+{"source": "Tamagawa Riverside", "candidate": "Montrose Point / Montrose Beach", "target_city": "chicago", "confidence": 0.5, "rank": 3, "reason": "not_found"}
+{"source": "Tempura Kondo", "candidate": "Katsu", "target_city": "chicago", "confidence": 0.55, "rank": 2, "reason": "not_found"}
+{"source": "Tempura Kondo", "candidate": "Kyoten", "target_city": "chicago", "confidence": 0.44, "rank": 3, "reason": "not_found"}
+{"source": "Thermae-yu", "candidate": "Red Square Spa (Wicker Park)", "target_city": "chicago", "confidence": 0.72, "rank": 2, "reason": "not_found"}
+{"source": "Tokyo Station", "candidate": "Union Station", "target_city": "chicago", "confidence": 0.82, "rank": 1, "reason": "not_found"}
+{"source": "Tokyo Tower", "candidate": "360 CHICAGO Observation Deck (John Hancock Center)", "target_city": "chicago", "confidence": 0.78, "rank": 1, "reason": "not_found"}
+{"source": "Tokyo Tower", "candidate": "Willis Tower Skydeck", "target_city": "chicago", "confidence": 0.7, "rank": 2, "reason": "not_found"}
+{"source": "Tsutaya Daikanyama", "candidate": "Seminary Co-op Bookstore", "target_city": "chicago", "confidence": 0.52, "rank": 2, "reason": "not_found"}
+{"source": "Tsutaya Daikanyama", "candidate": "Semicolon Bookstore", "target_city": "chicago", "confidence": 0.4, "rank": 3, "reason": "not_found"}
 {"source": "Tsutenkaku Tokyo Skytree", "candidate": "Willis Tower Skydeck", "target_city": "chicago", "confidence": 0.88, "rank": 1, "reason": "not_found"}
-{"source": "Tsutenkaku Tokyo Skytree", "candidate": "360 Chicago (Hancock Observatory)", "target_city": "chicago", "confidence": 0.72, "rank": 2, "reason": "not_found"}
-{"source": "Uniqlo Ginza", "candidate": "Macy's on State Street (Marshall Field's)", "target_city": "chicago", "confidence": 0.66, "rank": 1, "reason": "not_found"}
+{"source": "Tsutenkaku Tokyo Skytree", "candidate": "360 Chicago (John Hancock Observatory)", "target_city": "chicago", "confidence": 0.8, "rank": 2, "reason": "not_found"}
+{"source": "Uniqlo Ginza", "candidate": "Macy's on State Street", "target_city": "chicago", "confidence": 0.55, "rank": 1, "reason": "not_found"}
 {"source": "Waseda Shochiku", "candidate": "Doc Films (University of Chicago)", "target_city": "chicago", "confidence": 0.82, "rank": 1, "reason": "not_found"}
-{"source": "teamLab Borderless", "candidate": "Art on THE MART", "target_city": "chicago", "confidence": 0.42, "rank": 3, "reason": "not_found"}
+{"source": "Womb", "candidate": "Primary Nightclub", "target_city": "chicago", "confidence": 0.58, "rank": 3, "reason": "not_found"}
+{"source": "teamLab Borderless", "candidate": "Art on THE MART", "target_city": "chicago", "confidence": 0.4, "rank": 3, "reason": "not_found"}

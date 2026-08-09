@@ -1,138 +1,156 @@
-{"source": "5 Rabanitos", "candidate": "Nakiryu", "target_city": "tokyo", "confidence": 0.6, "rank": 1, "reason": "not_found"}
-{"source": "5 Rabanitos", "candidate": "Bepocah", "target_city": "tokyo", "confidence": 0.5, "rank": 2, "reason": "not_found"}
-{"source": "Al's Beef", "candidate": "Higashi-Ikebukuro Taishoken", "target_city": "tokyo", "confidence": 0.6, "rank": 2, "reason": "not_found"}
-{"source": "Al's Beef", "candidate": "Kanda Matsuya", "target_city": "tokyo", "confidence": 0.45, "rank": 3, "reason": "not_found"}
-{"source": "Alcala's Western Wear", "candidate": "Hinoya (Ameyoko / Okachimachi)", "target_city": "tokyo", "confidence": 0.72, "rank": 1, "reason": "not_found"}
-{"source": "Aldi", "candidate": "Gyomu Super (\u696d\u52d9\u30b9\u30fc\u30d1\u30fc)", "target_city": "tokyo", "confidence": 0.82, "rank": 2, "reason": "not_found"}
-{"source": "Art Institute of Chicago", "candidate": "Tokyo National Museum", "target_city": "tokyo", "confidence": 0.82, "rank": 1, "reason": "not_found"}
-{"source": "Art Institute of Chicago", "candidate": "Kokuritsu Seiyo Bijutsukan (National Museum of Western Art)", "target_city": "tokyo", "confidence": 0.74, "rank": 2, "reason": "not_found"}
+{"source": "Al's Beef", "candidate": "Fuji Soba", "target_city": "tokyo", "confidence": 0.62, "rank": 2, "reason": "not_found"}
+{"source": "Alcala's Western Wear", "candidate": "Hinoya Ameyoko", "target_city": "tokyo", "confidence": 0.72, "rank": 1, "reason": "not_found"}
+{"source": "Alcala's Western Wear", "candidate": "Funny Harajuku", "target_city": "tokyo", "confidence": 0.55, "rank": 3, "reason": "not_found"}
+{"source": "Aldi", "candidate": "Gyomu Super (\u696d\u52d9\u30b9\u30fc\u30d1\u30fc)", "target_city": "tokyo", "confidence": 0.78, "rank": 2, "reason": "not_found"}
+{"source": "Alinea", "candidate": "Floril\u00e8ge", "target_city": "tokyo", "confidence": 0.62, "rank": 3, "reason": "not_found"}
+{"source": "Andersonville", "candidate": "Nishi-Ogikubo", "target_city": "tokyo", "confidence": 0.7, "rank": 2, "reason": "not_found"}
+{"source": "Art Institute of Chicago", "candidate": "Tokyo National Museum", "target_city": "tokyo", "confidence": 0.86, "rank": 1, "reason": "not_found"}
+{"source": "Art Institute of Chicago", "candidate": "The National Museum of Western Art", "target_city": "tokyo", "confidence": 0.78, "rank": 2, "reason": "not_found"}
 {"source": "Art Institute of Chicago", "candidate": "Mori Art Museum", "target_city": "tokyo", "confidence": 0.55, "rank": 3, "reason": "not_found"}
-{"source": "Au Cheval", "candidate": "Blacows", "target_city": "tokyo", "confidence": 0.7, "rank": 1, "reason": "not_found"}
-{"source": "Big Shoulders Coffee", "candidate": "Glitch Coffee & Roasters", "target_city": "tokyo", "confidence": 0.71, "rank": 2, "reason": "not_found"}
-{"source": "Big Star", "candidate": "Ebisu Yokocho", "target_city": "tokyo", "confidence": 0.6, "rank": 1, "reason": "not_found"}
-{"source": "Birrieria Zaragoza", "candidate": "Komagata Dozeu", "target_city": "tokyo", "confidence": 0.48, "rank": 3, "reason": "not_found"}
-{"source": "Buffalo Exchange", "candidate": "Kinji Used Clothing Harajuku", "target_city": "tokyo", "confidence": 0.68, "rank": 3, "reason": "not_found"}
+{"source": "Au Cheval", "candidate": "Blacows", "target_city": "tokyo", "confidence": 0.66, "rank": 2, "reason": "not_found"}
+{"source": "Big Shoulders Coffee", "candidate": "Glitch Coffee & Roasters Jimbocho", "target_city": "tokyo", "confidence": 0.72, "rank": 2, "reason": "not_found"}
+{"source": "Big Star", "candidate": "Ebisu Yokocho", "target_city": "tokyo", "confidence": 0.78, "rank": 1, "reason": "not_found"}
+{"source": "Birrieria Zaragoza", "candidate": "Nakiryu", "target_city": "tokyo", "confidence": 0.78, "rank": 1, "reason": "not_found"}
+{"source": "Buffalo Exchange", "candidate": "Kinji Used Clothing Harajuku", "target_city": "tokyo", "confidence": 0.8, "rank": 2, "reason": "not_found"}
 {"source": "Byline Bank", "candidate": "\u304d\u3089\u307c\u3057\u9280\u884c (Kiraboshi Bank)", "target_city": "tokyo", "confidence": 0.78, "rank": 1, "reason": "not_found"}
 {"source": "Byline Bank", "candidate": "\u57ce\u5357\u4fe1\u7528\u91d1\u5eab (Johnan Shinkin Bank)", "target_city": "tokyo", "confidence": 0.7, "rank": 2, "reason": "not_found"}
-{"source": "Byline Bank", "candidate": "\u897f\u6b66\u4fe1\u7528\u91d1\u5eab (Seibu Shinkin Bank)", "target_city": "tokyo", "confidence": 0.58, "rank": 3, "reason": "not_found"}
-{"source": "Carnitas Uruapan", "candidate": "Meat Shop Satou (Kichijoji)", "target_city": "tokyo", "confidence": 0.68, "rank": 1, "reason": "not_found"}
-{"source": "Carnitas Uruapan", "candidate": "Tonkatsu Maisen Aoyama Honten", "target_city": "tokyo", "confidence": 0.6, "rank": 2, "reason": "not_found"}
+{"source": "Byline Bank", "candidate": "\u897f\u6b66\u4fe1\u7528\u91d1\u5eab (Seibu Shinkin Bank)", "target_city": "tokyo", "confidence": 0.6, "rank": 3, "reason": "not_found"}
+{"source": "Carnitas Uruapan", "candidate": "Tonkatsu Maisen Aoyama", "target_city": "tokyo", "confidence": 0.53, "rank": 2, "reason": "not_found"}
 {"source": "Chicago Cultural Center", "candidate": "Tokyo International Forum", "target_city": "tokyo", "confidence": 0.72, "rank": 1, "reason": "not_found"}
-{"source": "Chicago Cultural Center", "candidate": "Tokyo Bunka Kaikan", "target_city": "tokyo", "confidence": 0.63, "rank": 2, "reason": "not_found"}
-{"source": "Chicago Cultural Center", "candidate": "Tokyo Metropolitan Theatre (Ikebukuro)", "target_city": "tokyo", "confidence": 0.45, "rank": 3, "reason": "not_found"}
-{"source": "Cindy's Rooftop", "candidate": "The Roof Shibuya (Shibuya Sky area)", "target_city": "tokyo", "confidence": 0.5, "rank": 3, "reason": "not_found"}
-{"source": "Clark-Devon Hardware", "candidate": "Kappabashi Street", "target_city": "tokyo", "confidence": 0.63, "rank": 2, "reason": "not_found"}
-{"source": "Clark-Devon Hardware", "candidate": "Cainz Home / Joyful Honda (suburban DIY)", "target_city": "tokyo", "confidence": 0.4, "rank": 3, "reason": "not_found"}
-{"source": "Cloud Gate", "candidate": "Hachiko Statue, Shibuya", "target_city": "tokyo", "confidence": 0.82, "rank": 1, "reason": "not_found"}
-{"source": "Cloud Gate", "candidate": "Unicorn Gundam Statue, Odaiba", "target_city": "tokyo", "confidence": 0.55, "rank": 3, "reason": "not_found"}
-{"source": "Dark Matter Coffee", "candidate": "Glitch Coffee & Roasters", "target_city": "tokyo", "confidence": 0.6, "rank": 2, "reason": "not_found"}
-{"source": "Delilah's", "candidate": "Trouble Peach", "target_city": "tokyo", "confidence": 0.66, "rank": 1, "reason": "not_found"}
-{"source": "Dill Pickle Food Co-op", "candidate": "Seikatsu Club Seikyo (Seikatsu Club consumer co-op)", "target_city": "tokyo", "confidence": 0.6, "rank": 2, "reason": "not_found"}
-{"source": "East Bank Club", "candidate": "Ark Hills Sports Club", "target_city": "tokyo", "confidence": 0.7, "rank": 2, "reason": "not_found"}
+{"source": "Chicago Cultural Center", "candidate": "Tokyo Bunka Kaikan", "target_city": "tokyo", "confidence": 0.5, "rank": 3, "reason": "not_found"}
+{"source": "Chicago History Museum", "candidate": "Edo-Tokyo Museum (\u6c5f\u6238\u6771\u4eac\u535a\u7269\u9928)", "target_city": "tokyo", "confidence": 0.88, "rank": 1, "reason": "not_found"}
+{"source": "Chicago History Museum", "candidate": "Edo-Tokyo Open Air Architectural Museum (\u6c5f\u6238\u6771\u4eac\u305f\u3066\u3082\u306e\u5712)", "target_city": "tokyo", "confidence": 0.74, "rank": 2, "reason": "not_found"}
+{"source": "Clark-Devon Hardware", "candidate": "Kappabashi Street", "target_city": "tokyo", "confidence": 0.62, "rank": 2, "reason": "not_found"}
+{"source": "Cloud Gate", "candidate": "Hachiko Statue, Shibuya", "target_city": "tokyo", "confidence": 0.78, "rank": 1, "reason": "not_found"}
+{"source": "Cloud Gate", "candidate": "Asahi Beer Hall 'Flamme d'Or' (the Golden Poo), Asakusa", "target_city": "tokyo", "confidence": 0.55, "rank": 3, "reason": "not_found"}
+{"source": "Delilah's", "candidate": "Trouble Peach", "target_city": "tokyo", "confidence": 0.72, "rank": 1, "reason": "not_found"}
+{"source": "Delilah's", "candidate": "Bar Zoetrope", "target_city": "tokyo", "confidence": 0.62, "rank": 2, "reason": "not_found"}
+{"source": "Delilah's", "candidate": "Death Match in Hell", "target_city": "tokyo", "confidence": 0.55, "rank": 3, "reason": "not_found"}
+{"source": "Dill Pickle Food Co-op", "candidate": "Seikatsu Club Seikyo (Tokyo depots)", "target_city": "tokyo", "confidence": 0.63, "rank": 2, "reason": "not_found"}
+{"source": "Dill Pickle Food Co-op", "candidate": "GAIA Ochanomizu", "target_city": "tokyo", "confidence": 0.55, "rank": 3, "reason": "not_found"}
+{"source": "Eataly Chicago", "candidate": "Seijo Ishii", "target_city": "tokyo", "confidence": 0.5, "rank": 3, "reason": "not_found"}
 {"source": "Empty Bottle", "candidate": "UFO Club", "target_city": "tokyo", "confidence": 0.74, "rank": 2, "reason": "not_found"}
-{"source": "Field Museum", "candidate": "National Museum of Nature and Science (Kokuritsu Kagaku Hakubutsukan), Ueno", "target_city": "tokyo", "confidence": 0.88, "rank": 1, "reason": "not_found"}
-{"source": "Field Museum", "candidate": "Tokyo National Museum", "target_city": "tokyo", "confidence": 0.8, "rank": 2, "reason": "not_found"}
-{"source": "Field Museum", "candidate": "Miraikan (National Museum of Emerging Science and Innovation), Odaiba", "target_city": "tokyo", "confidence": 0.5, "rank": 3, "reason": "not_found"}
-{"source": "Gene & Jude's", "candidate": "Hope-ken (Nakano)", "target_city": "tokyo", "confidence": 0.67, "rank": 2, "reason": "not_found"}
-{"source": "Gene & Jude's", "candidate": "Kanda Matsuya", "target_city": "tokyo", "confidence": 0.5, "rank": 3, "reason": "not_found"}
-{"source": "Gene Siskel Film Center", "candidate": "Theatre Image Forum", "target_city": "tokyo", "confidence": 0.78, "rank": 1, "reason": "not_found"}
-{"source": "Gene's Sausage Shop", "candidate": "Nissin World Delicatessen", "target_city": "tokyo", "confidence": 0.82, "rank": 1, "reason": "not_found"}
-{"source": "Gene's Sausage Shop", "candidate": "Meidi-ya Hiroo", "target_city": "tokyo", "confidence": 0.55, "rank": 3, "reason": "not_found"}
+{"source": "Field Museum", "candidate": "National Museum of Nature and Science (Ueno)", "target_city": "tokyo", "confidence": 0.93, "rank": 1, "reason": "not_found"}
+{"source": "Field Museum", "candidate": "Tokyo National Museum", "target_city": "tokyo", "confidence": 0.78, "rank": 2, "reason": "not_found"}
+{"source": "Field Museum", "candidate": "Miraikan (National Museum of Emerging Science and Innovation)", "target_city": "tokyo", "confidence": 0.5, "rank": 3, "reason": "not_found"}
+{"source": "Fulton Market", "candidate": "Nihonbashi Kabutocho", "target_city": "tokyo", "confidence": 0.61, "rank": 2, "reason": "not_found"}
+{"source": "Fulton Market", "candidate": "Tennozu Isle", "target_city": "tokyo", "confidence": 0.45, "rank": 3, "reason": "not_found"}
+{"source": "Gene & Jude's", "candidate": "Menya Musashi", "target_city": "tokyo", "confidence": 0.55, "rank": 3, "reason": "not_found"}
+{"source": "Gene Siskel Film Center", "candidate": "Theatre Image Forum", "target_city": "tokyo", "confidence": 0.74, "rank": 2, "reason": "not_found"}
+{"source": "Gene Siskel Film Center", "candidate": "Eurospace", "target_city": "tokyo", "confidence": 0.63, "rank": 3, "reason": "not_found"}
+{"source": "Gene's Sausage Shop", "candidate": "Nissin World Delicatessen", "target_city": "tokyo", "confidence": 0.7, "rank": 1, "reason": "not_found"}
+{"source": "Gene's Sausage Shop", "candidate": "Metzgerei Kusuda", "target_city": "tokyo", "confidence": 0.6, "rank": 2, "reason": "not_found"}
+{"source": "Gene's Sausage Shop", "candidate": "National Azabu", "target_city": "tokyo", "confidence": 0.5, "rank": 3, "reason": "not_found"}
 {"source": "Goose Island", "candidate": "Baird Beer Taproom Harajuku", "target_city": "tokyo", "confidence": 0.66, "rank": 2, "reason": "not_found"}
-{"source": "Grant Park", "candidate": "Kokyo Gaien / Imperial Palace Outer Gardens", "target_city": "tokyo", "confidence": 0.6, "rank": 3, "reason": "not_found"}
-{"source": "Green City Market", "candidate": "Farmer's Market @ UNU (\u9752\u5c71\u30d5\u30a1\u30fc\u30de\u30fc\u30ba\u30de\u30fc\u30b1\u30c3\u30c8)", "target_city": "tokyo", "confidence": 0.89, "rank": 1, "reason": "not_found"}
-{"source": "Green City Market", "candidate": "Earth Day Market (Yoyogi Park)", "target_city": "tokyo", "confidence": 0.72, "rank": 2, "reason": "not_found"}
-{"source": "Green City Market", "candidate": "Hills March\u00e9, Roppongi Hills", "target_city": "tokyo", "confidence": 0.55, "rank": 3, "reason": "not_found"}
-{"source": "Green Street Smoked Meats", "candidate": "Ebisu Yokocho", "target_city": "tokyo", "confidence": 0.45, "rank": 3, "reason": "not_found"}
-{"source": "H Mart", "candidate": "\u97d3\u56fd\u5e83\u5834 (Kankoku Hiroba, Shin-Okubo)", "target_city": "tokyo", "confidence": 0.82, "rank": 1, "reason": "not_found"}
+{"source": "Green City Market", "candidate": "Farmer's Market @ UNU (Aoyama)", "target_city": "tokyo", "confidence": 0.86, "rank": 1, "reason": "not_found"}
+{"source": "Green City Market", "candidate": "Earth Day Market (Yoyogi Park)", "target_city": "tokyo", "confidence": 0.7, "rank": 2, "reason": "not_found"}
+{"source": "H Mart", "candidate": "\u97d3\u56fd\u5e83\u5834 (Kankoku Hiroba), Shin-Okubo", "target_city": "tokyo", "confidence": 0.82, "rank": 1, "reason": "not_found"}
 {"source": "H Mart", "candidate": "\u30a2\u30e1\u6a2a\u30bb\u30f3\u30bf\u30fc\u30d3\u30eb\u5730\u4e0b\u98df\u54c1\u8857 (Ameyoko Center Building basement)", "target_city": "tokyo", "confidence": 0.7, "rank": 2, "reason": "not_found"}
-{"source": "H Mart", "candidate": "\u967d\u5149\u57ce (Y\u014dk\u014dj\u014d, Ikebukuro Chinatown)", "target_city": "tokyo", "confidence": 0.6, "rank": 3, "reason": "not_found"}
-{"source": "Half Acre Beer Company", "candidate": "Baird Beer Taproom Harajuku", "target_city": "tokyo", "confidence": 0.72, "rank": 1, "reason": "not_found"}
-{"source": "Half Acre Beer Company", "candidate": "Coedo Brewery (Coedo Beer)", "target_city": "tokyo", "confidence": 0.5, "rank": 3, "reason": "not_found"}
-{"source": "Harold Washington Library Center", "candidate": "Tokyo Metropolitan Central Library", "target_city": "tokyo", "confidence": 0.62, "rank": 1, "reason": "not_found"}
-{"source": "Harold Washington Library Center", "candidate": "Musashino Place", "target_city": "tokyo", "confidence": 0.35, "rank": 3, "reason": "not_found"}
-{"source": "Hyde Park", "candidate": "Hongo (Bunkyo-ku)", "target_city": "tokyo", "confidence": 0.78, "rank": 1, "reason": "not_found"}
-{"source": "Hyde Park", "candidate": "Kunitachi", "target_city": "tokyo", "confidence": 0.7, "rank": 2, "reason": "not_found"}
-{"source": "Hyde Park", "candidate": "Takadanobaba / Waseda", "target_city": "tokyo", "confidence": 0.55, "rank": 3, "reason": "not_found"}
-{"source": "Intelligentsia Coffee", "candidate": "Glitch Coffee & Roasters Jimbocho", "target_city": "tokyo", "confidence": 0.72, "rank": 2, "reason": "not_found"}
-{"source": "Intelligentsia Coffee", "candidate": "Maruyama Coffee", "target_city": "tokyo", "confidence": 0.55, "rank": 3, "reason": "not_found"}
-{"source": "Johnnie's Beef", "candidate": "Nakiryu", "target_city": "tokyo", "confidence": 0.66, "rank": 2, "reason": "not_found"}
-{"source": "Johnnie's Beef", "candidate": "Menya Musashi", "target_city": "tokyo", "confidence": 0.55, "rank": 3, "reason": "not_found"}
-{"source": "Joong Boo Market", "candidate": "Kankoku Hiroba (\u97d3\u56fd\u5e83\u5834), Shin-Okubo", "target_city": "tokyo", "confidence": 0.85, "rank": 1, "reason": "not_found"}
-{"source": "Joong Boo Market", "candidate": "Ameyoko Center Building basement", "target_city": "tokyo", "confidence": 0.7, "rank": 2, "reason": "not_found"}
-{"source": "Joong Boo Market", "candidate": "Yokocho Chinatown groceries, Ikebukuro North Exit (Y\u014dk\u014dj\u014d / \u967d\u5149\u57ce)", "target_city": "tokyo", "confidence": 0.6, "rank": 3, "reason": "not_found"}
-{"source": "Kasama", "candidate": "Sazenka", "target_city": "tokyo", "confidence": 0.6, "rank": 2, "reason": "not_found"}
-{"source": "Kopi Cafe", "candidate": "Mori no Tosho-shitsu (Shibuya)", "target_city": "tokyo", "confidence": 0.6, "rank": 2, "reason": "not_found"}
-{"source": "Lake Forest", "candidate": "Denenchofu", "target_city": "tokyo", "confidence": 0.88, "rank": 1, "reason": "not_found"}
-{"source": "Lakefront Trail", "candidate": "\u7687\u5c45\u30e9\u30f3\u30cb\u30f3\u30b0\u30b3\u30fc\u30b9 (Imperial Palace Run / Kokyo Gaien loop)", "target_city": "tokyo", "confidence": 0.78, "rank": 1, "reason": "not_found"}
-{"source": "Lincoln Park", "candidate": "Inokashira Park", "target_city": "tokyo", "confidence": 0.58, "rank": 3, "reason": "not_found"}
-{"source": "Lincoln Square", "candidate": "Nishiogikubo", "target_city": "tokyo", "confidence": 0.55, "rank": 3, "reason": "not_found"}
-{"source": "Logan Square", "candidate": "Koenji", "target_city": "tokyo", "confidence": 0.6, "rank": 3, "reason": "not_found"}
-{"source": "Lou Malnati's", "candidate": "Tonkatsu Maisen Aoyama Honten", "target_city": "tokyo", "confidence": 0.6, "rank": 1, "reason": "not_found"}
-{"source": "Lou Malnati's", "candidate": "Monja Kondo, Tsukishima Monja Street", "target_city": "tokyo", "confidence": 0.55, "rank": 2, "reason": "not_found"}
-{"source": "Lou Mitchell's", "candidate": "Kissa Tricolore (\u55ab\u8336\u30c8\u30ea\u30b3\u30ed\u30fc\u30eb\u9280\u5ea7\u672c\u5e97)", "target_city": "tokyo", "confidence": 0.72, "rank": 1, "reason": "not_found"}
-{"source": "Lou Mitchell's", "candidate": "Kayaba Coffee (\u30ab\u30e4\u30d0\u73c8\u7432)", "target_city": "tokyo", "confidence": 0.68, "rank": 2, "reason": "not_found"}
-{"source": "Macy's on State Street", "candidate": "Takashimaya Nihombashi", "target_city": "tokyo", "confidence": 0.72, "rank": 2, "reason": "not_found"}
-{"source": "Manny's Cafeteria & Delicatessen", "candidate": "Taimeiken", "target_city": "tokyo", "confidence": 0.74, "rank": 1, "reason": "not_found"}
-{"source": "Manny's Cafeteria & Delicatessen", "candidate": "Yoshikami", "target_city": "tokyo", "confidence": 0.68, "rank": 2, "reason": "not_found"}
-{"source": "Manny's Cafeteria & Delicatessen", "candidate": "Kanda Matsuya", "target_city": "tokyo", "confidence": 0.55, "rank": 3, "reason": "not_found"}
-{"source": "Map Room", "candidate": "Popeye Ryogoku", "target_city": "tokyo", "confidence": 0.78, "rank": 1, "reason": "not_found"}
-{"source": "Map Room", "candidate": "Watering Hole (Yoyogi)", "target_city": "tokyo", "confidence": 0.7, "rank": 2, "reason": "not_found"}
-{"source": "Maplewood Brewery", "candidate": "Y.Y.G. Brewery & Beer Kitchen", "target_city": "tokyo", "confidence": 0.6, "rank": 2, "reason": "not_found"}
-{"source": "Maplewood Brewery", "candidate": "Devilcraft Kanda", "target_city": "tokyo", "confidence": 0.52, "rank": 3, "reason": "not_found"}
-{"source": "Margie's Candies", "candidate": "Mihashi (Ueno)", "target_city": "tokyo", "confidence": 0.72, "rank": 1, "reason": "not_found"}
+{"source": "H Mart", "candidate": "\u53cb\u8abc\u5546\u5e97 (Youyi Shoten), Ikebukuro", "target_city": "tokyo", "confidence": 0.58, "rank": 3, "reason": "not_found"}
+{"source": "Half Acre Beer Company", "candidate": "Baird Beer Taproom Harajuku", "target_city": "tokyo", "confidence": 0.58, "rank": 2, "reason": "not_found"}
+{"source": "Harold Washington Library Center", "candidate": "Tokyo Metropolitan Central Library (\u6771\u4eac\u90fd\u7acb\u4e2d\u592e\u56f3\u66f8\u9928)", "target_city": "tokyo", "confidence": 0.68, "rank": 2, "reason": "not_found"}
+{"source": "Hyde Park", "candidate": "Hongo", "target_city": "tokyo", "confidence": 0.72, "rank": 1, "reason": "not_found"}
+{"source": "Hyde Park", "candidate": "Kunitachi", "target_city": "tokyo", "confidence": 0.68, "rank": 2, "reason": "not_found"}
+{"source": "Intelligentsia Coffee", "candidate": "Glitch Coffee & Roasters", "target_city": "tokyo", "confidence": 0.72, "rank": 2, "reason": "not_found"}
+{"source": "Jewel-Osco", "candidate": "Summit Store (\u30b5\u30df\u30c3\u30c8)", "target_city": "tokyo", "confidence": 0.7, "rank": 3, "reason": "not_found"}
+{"source": "Johnnie's Beef", "candidate": "Chuka Soba Inoue (Tsukiji)", "target_city": "tokyo", "confidence": 0.78, "rank": 1, "reason": "not_found"}
+{"source": "Johnnie's Beef", "candidate": "Menya Musashi Shinjuku", "target_city": "tokyo", "confidence": 0.55, "rank": 3, "reason": "not_found"}
+{"source": "Joong Boo Market", "candidate": "Kankoku Hiroba (\u97d3\u56fd\u5e83\u5834), Shin-Okubo", "target_city": "tokyo", "confidence": 0.82, "rank": 1, "reason": "not_found"}
+{"source": "Joong Boo Market", "candidate": "Ameyoko Center Building basement market", "target_city": "tokyo", "confidence": 0.7, "rank": 2, "reason": "not_found"}
+{"source": "Joong Boo Market", "candidate": "Ambika Store, Nishi-Kasai", "target_city": "tokyo", "confidence": 0.58, "rank": 3, "reason": "not_found"}
+{"source": "Kasama", "candidate": "Sazenka", "target_city": "tokyo", "confidence": 0.62, "rank": 2, "reason": "not_found"}
+{"source": "Kopi Cafe", "candidate": "Nui. HOSTEL & BAR LOUNGE", "target_city": "tokyo", "confidence": 0.58, "rank": 1, "reason": "not_found"}
+{"source": "Kopi Cafe", "candidate": "Kissa Renoir", "target_city": "tokyo", "confidence": 0.45, "rank": 3, "reason": "not_found"}
+{"source": "Lake Forest", "candidate": "Denenchofu", "target_city": "tokyo", "confidence": 0.92, "rank": 1, "reason": "not_found"}
+{"source": "Lake Forest", "candidate": "Shoto", "target_city": "tokyo", "confidence": 0.66, "rank": 3, "reason": "not_found"}
+{"source": "Lakefront Trail", "candidate": "\u7687\u5c45\u30e9\u30f3\u30cb\u30f3\u30b0\u30b3\u30fc\u30b9 (Imperial Palace Running Course, Kokyo Gaien)", "target_city": "tokyo", "confidence": 0.78, "rank": 1, "reason": "not_found"}
+{"source": "Lincoln Hall", "candidate": "WWW Shibuya", "target_city": "tokyo", "confidence": 0.7, "rank": 3, "reason": "not_found"}
+{"source": "Lincoln Park", "candidate": "Inokashira Park", "target_city": "tokyo", "confidence": 0.66, "rank": 3, "reason": "not_found"}
+{"source": "Logan Square", "candidate": "Koenji", "target_city": "tokyo", "confidence": 0.55, "rank": 3, "reason": "not_found"}
+{"source": "Lou Malnati's", "candidate": "Monja Kondo (Tsukishima Monja Street)", "target_city": "tokyo", "confidence": 0.68, "rank": 1, "reason": "not_found"}
+{"source": "Lou Malnati's", "candidate": "Tonkatsu Maisen Aoyama", "target_city": "tokyo", "confidence": 0.63, "rank": 2, "reason": "not_found"}
+{"source": "Lou Malnati's", "candidate": "Kanda Yabu Soba", "target_city": "tokyo", "confidence": 0.5, "rank": 3, "reason": "not_found"}
+{"source": "Lou Mitchell's", "candidate": "Kissa Tricolore (\u55ab\u8336\u30c8\u30ea\u30b3\u30ed\u30fc\u30eb \u672c\u5e97)", "target_city": "tokyo", "confidence": 0.72, "rank": 1, "reason": "not_found"}
+{"source": "Macy's on State Street", "candidate": "Takashimaya Nihombashi", "target_city": "tokyo", "confidence": 0.79, "rank": 2, "reason": "not_found"}
+{"source": "Manny's Cafeteria & Delicatessen", "candidate": "Kanda Matsuya", "target_city": "tokyo", "confidence": 0.72, "rank": 1, "reason": "not_found"}
+{"source": "Manny's Cafeteria & Delicatessen", "candidate": "Yoshikami", "target_city": "tokyo", "confidence": 0.65, "rank": 2, "reason": "not_found"}
+{"source": "Map Room", "candidate": "Popeye Ryogoku", "target_city": "tokyo", "confidence": 0.86, "rank": 1, "reason": "not_found"}
+{"source": "Map Room", "candidate": "The Watering Hole (Yoyogi)", "target_city": "tokyo", "confidence": 0.78, "rank": 2, "reason": "not_found"}
+{"source": "Map Room", "candidate": "Baird Beer Taproom Harajuku", "target_city": "tokyo", "confidence": 0.6, "rank": 3, "reason": "not_found"}
+{"source": "Maplewood Brewery", "candidate": "Ushitora Brewery (\u725b\u864e) Shimokitazawa", "target_city": "tokyo", "confidence": 0.72, "rank": 1, "reason": "not_found"}
+{"source": "Maplewood Brewery", "candidate": "Y.Y.G. Brewery & Beer Kitchen", "target_city": "tokyo", "confidence": 0.65, "rank": 2, "reason": "not_found"}
+{"source": "Margie's Candies", "candidate": "Fruits Parlor Goto (Asakusa)", "target_city": "tokyo", "confidence": 0.66, "rank": 2, "reason": "not_found"}
 {"source": "Mariano's", "candidate": "Seijo Ishii", "target_city": "tokyo", "confidence": 0.78, "rank": 1, "reason": "not_found"}
-{"source": "Marie's Riptide Lounge", "candidate": "Nonbei Yokocho (Shibuya)", "target_city": "tokyo", "confidence": 0.66, "rank": 2, "reason": "not_found"}
-{"source": "Metropolis Coffee", "candidate": "Glitch Coffee & Roasters Jimbocho", "target_city": "tokyo", "confidence": 0.72, "rank": 2, "reason": "not_found"}
-{"source": "Montrose Beach", "candidate": "Zushi Beach / Yuigahama", "target_city": "tokyo", "confidence": 0.62, "rank": 2, "reason": "not_found"}
+{"source": "Marie's Riptide Lounge", "candidate": "Nonbei Yokocho", "target_city": "tokyo", "confidence": 0.47, "rank": 3, "reason": "not_found"}
+{"source": "Metropolis Coffee", "candidate": "Glitch Coffee & Roasters Jimbocho", "target_city": "tokyo", "confidence": 0.66, "rank": 2, "reason": "not_found"}
+{"source": "Metropolis Coffee", "candidate": "Nozy Coffee Sangenjaya", "target_city": "tokyo", "confidence": 0.55, "rank": 3, "reason": "not_found"}
+{"source": "Monteverde", "candidate": "Fal\u00f2", "target_city": "tokyo", "confidence": 0.66, "rank": 2, "reason": "not_found"}
+{"source": "Montrose Beach", "candidate": "Yuigahama Beach, Kamakura", "target_city": "tokyo", "confidence": 0.5, "rank": 3, "reason": "not_found"}
+{"source": "Mr. Beef", "candidate": "Kitsuneya", "target_city": "tokyo", "confidence": 0.68, "rank": 1, "reason": "not_found"}
 {"source": "Museum of Contemporary Art Chicago", "candidate": "Mori Art Museum", "target_city": "tokyo", "confidence": 0.82, "rank": 1, "reason": "not_found"}
 {"source": "Museum of Contemporary Art Chicago", "candidate": "Museum of Contemporary Art Tokyo (MOT)", "target_city": "tokyo", "confidence": 0.78, "rank": 2, "reason": "not_found"}
-{"source": "Museum of Science and Industry", "candidate": "\u56fd\u7acb\u79d1\u5b66\u535a\u7269\u9928 (National Museum of Nature and Science, Ueno)", "target_city": "tokyo", "confidence": 0.82, "rank": 1, "reason": "not_found"}
-{"source": "Museum of Science and Industry", "candidate": "\u65e5\u672c\u79d1\u5b66\u672a\u6765\u9928 Miraikan", "target_city": "tokyo", "confidence": 0.75, "rank": 2, "reason": "not_found"}
-{"source": "Museum of Science and Industry", "candidate": "\u9244\u9053\u535a\u7269\u9928 (The Railway Museum, Omiya)", "target_city": "tokyo", "confidence": 0.55, "rank": 3, "reason": "not_found"}
-{"source": "Music Box Theatre", "candidate": "Shin-Bungeiza", "target_city": "tokyo", "confidence": 0.74, "rank": 1, "reason": "not_found"}
-{"source": "Music Box Theatre", "candidate": "Meguro Cinema", "target_city": "tokyo", "confidence": 0.7, "rank": 2, "reason": "not_found"}
-{"source": "Myopic Books", "candidate": "B&B (Shimokitazawa)", "target_city": "tokyo", "confidence": 0.58, "rank": 2, "reason": "not_found"}
-{"source": "North Avenue Beach", "candidate": "Yuigahama / Zushi Beach (Kamakura)", "target_city": "tokyo", "confidence": 0.58, "rank": 3, "reason": "not_found"}
-{"source": "Off Color Brewing", "candidate": "Hitachino Nest Brewing Lab (Kanda Manseibashi)", "target_city": "tokyo", "confidence": 0.72, "rank": 1, "reason": "not_found"}
-{"source": "Off Color Brewing", "candidate": "Ushitora Nishiogikubo", "target_city": "tokyo", "confidence": 0.52, "rank": 3, "reason": "not_found"}
-{"source": "Old Town Ale House", "candidate": "La Jet\u00e9e", "target_city": "tokyo", "confidence": 0.65, "rank": 2, "reason": "not_found"}
-{"source": "Old Town Ale House", "candidate": "Nonbei Yokocho", "target_city": "tokyo", "confidence": 0.5, "rank": 3, "reason": "not_found"}
+{"source": "Museum of Science and Industry", "candidate": "Miraikan (National Museum of Emerging Science and Innovation)", "target_city": "tokyo", "confidence": 0.72, "rank": 1, "reason": "not_found"}
+{"source": "Museum of Science and Industry", "candidate": "Science Museum (Kagaku Gijutsukan), Kitanomaru Park", "target_city": "tokyo", "confidence": 0.66, "rank": 2, "reason": "not_found"}
+{"source": "Museum of Science and Industry", "candidate": "National Museum of Nature and Science, Ueno", "target_city": "tokyo", "confidence": 0.55, "rank": 3, "reason": "not_found"}
+{"source": "Music Box Theatre", "candidate": "Shin-Bungeiza", "target_city": "tokyo", "confidence": 0.82, "rank": 1, "reason": "not_found"}
+{"source": "Myopic Books", "candidate": "SPBS (Shibuya Publishing & Booksellers)", "target_city": "tokyo", "confidence": 0.55, "rank": 3, "reason": "not_found"}
+{"source": "North Avenue Beach", "candidate": "Yuigahama / Zushi Beach (Kamakura)", "target_city": "tokyo", "confidence": 0.55, "rank": 2, "reason": "not_found"}
+{"source": "Off Color Brewing", "candidate": "Hitachino Nest (Kiuchi Brewery Tokyo taproom)", "target_city": "tokyo", "confidence": 0.68, "rank": 1, "reason": "not_found"}
+{"source": "Off Color Brewing", "candidate": "Ushitora Brewery Shimokitazawa", "target_city": "tokyo", "confidence": 0.62, "rank": 2, "reason": "not_found"}
+{"source": "Off Color Brewing", "candidate": "Far Yeast Brewing (Off Trail series)", "target_city": "tokyo", "confidence": 0.55, "rank": 3, "reason": "not_found"}
+{"source": "Old Town Ale House", "candidate": "La Jet\u00e9e (Golden Gai)", "target_city": "tokyo", "confidence": 0.68, "rank": 1, "reason": "not_found"}
+{"source": "Old Town Ale House", "candidate": "Dachibin (Koenji)", "target_city": "tokyo", "confidence": 0.62, "rank": 2, "reason": "not_found"}
 {"source": "Oriole", "candidate": "Floril\u00e8ge", "target_city": "tokyo", "confidence": 0.82, "rank": 1, "reason": "not_found"}
-{"source": "Pequod's Pizza", "candidate": "Savoy Azabu-Juban", "target_city": "tokyo", "confidence": 0.72, "rank": 2, "reason": "not_found"}
-{"source": "Pete's Fresh Market", "candidate": "Akidai (\u30a2\u30ad\u30c0\u30a4)", "target_city": "tokyo", "confidence": 0.68, "rank": 2, "reason": "not_found"}
-{"source": "Pilsen", "candidate": "Koenji", "target_city": "tokyo", "confidence": 0.65, "rank": 2, "reason": "not_found"}
-{"source": "Portillo's", "candidate": "Meimon Fuji Soba", "target_city": "tokyo", "confidence": 0.6, "rank": 1, "reason": "not_found"}
-{"source": "Portillo's", "candidate": "Mos Burger", "target_city": "tokyo", "confidence": 0.55, "rank": 2, "reason": "not_found"}
-{"source": "Portillo's", "candidate": "Tenya", "target_city": "tokyo", "confidence": 0.45, "rank": 3, "reason": "not_found"}
-{"source": "Promontory Point", "candidate": "Kosugiyu", "target_city": "tokyo", "confidence": 0.34, "rank": 3, "reason": "not_found"}
-{"source": "Rainbo Club", "candidate": "Trouble Peach", "target_city": "tokyo", "confidence": 0.62, "rank": 1, "reason": "not_found"}
-{"source": "Revolution Brewing", "candidate": "Baird Beer Taproom Harajuku", "target_city": "tokyo", "confidence": 0.58, "rank": 2, "reason": "not_found"}
-{"source": "Simon's Tavern", "candidate": "Kamiya Bar (\u795e\u8c37\u30d0\u30fc)", "target_city": "tokyo", "confidence": 0.72, "rank": 1, "reason": "not_found"}
-{"source": "Simon's Tavern", "candidate": "Iseya (\u3044\u305b\u3084) Kichijoji", "target_city": "tokyo", "confidence": 0.68, "rank": 2, "reason": "not_found"}
-{"source": "Skylark", "candidate": "Trouble Peach (Koenji)", "target_city": "tokyo", "confidence": 0.55, "rank": 2, "reason": "not_found"}
-{"source": "Small Cheval", "candidate": "Blacows", "target_city": "tokyo", "confidence": 0.65, "rank": 2, "reason": "not_found"}
-{"source": "Smoque BBQ", "candidate": "Nakiryu", "target_city": "tokyo", "confidence": 0.72, "rank": 1, "reason": "not_found"}
-{"source": "Smoque BBQ", "candidate": "Torishiki", "target_city": "tokyo", "confidence": 0.6, "rank": 2, "reason": "not_found"}
-{"source": "Steppenwolf Theatre", "candidate": "Honda Theater (\u672c\u591a\u5287\u5834, Shimokitazawa)", "target_city": "tokyo", "confidence": 0.68, "rank": 1, "reason": "not_found"}
-{"source": "Steppenwolf Theatre", "candidate": "Komaba Agora Theatre / Seinendan", "target_city": "tokyo", "confidence": 0.61, "rank": 2, "reason": "not_found"}
-{"source": "Superdawg Drive-In", "candidate": "Yoshikami (Asakusa)", "target_city": "tokyo", "confidence": 0.6, "rank": 1, "reason": "not_found"}
-{"source": "Superdawg Drive-In", "candidate": "Kamiya Bar (Asakusa)", "target_city": "tokyo", "confidence": 0.55, "rank": 2, "reason": "not_found"}
-{"source": "Symphony Center", "candidate": "Suntory Hall", "target_city": "tokyo", "confidence": 0.8, "rank": 1, "reason": "not_found"}
-{"source": "Symphony Center", "candidate": "NHK Hall", "target_city": "tokyo", "confidence": 0.72, "rank": 2, "reason": "not_found"}
+{"source": "Oriole", "candidate": "S\u00e9zanne", "target_city": "tokyo", "confidence": 0.62, "rank": 3, "reason": "not_found"}
+{"source": "Pequod's Pizza", "candidate": "Ramen Jiro Mita Honten", "target_city": "tokyo", "confidence": 0.72, "rank": 1, "reason": "not_found"}
+{"source": "Pete's Fresh Market", "candidate": "Akidai (\u30a2\u30ad\u30c0\u30a4)", "target_city": "tokyo", "confidence": 0.63, "rank": 2, "reason": "not_found"}
+{"source": "Pete's Fresh Market", "candidate": "Akafudado (\u8d64\u672d\u5802)", "target_city": "tokyo", "confidence": 0.48, "rank": 3, "reason": "not_found"}
+{"source": "Pilsen", "candidate": "Koenji", "target_city": "tokyo", "confidence": 0.55, "rank": 3, "reason": "not_found"}
+{"source": "Pizzeria Bebu", "candidate": "Savoy Azabu-Juban", "target_city": "tokyo", "confidence": 0.72, "rank": 2, "reason": "not_found"}
+{"source": "Portillo's", "candidate": "Fuji Soba", "target_city": "tokyo", "confidence": 0.6, "rank": 1, "reason": "not_found"}
+{"source": "Portillo's", "candidate": "Tenya", "target_city": "tokyo", "confidence": 0.55, "rank": 2, "reason": "not_found"}
+{"source": "Promontory Point", "candidate": "Todoroki Valley (Todoroki Keikoku)", "target_city": "tokyo", "confidence": 0.55, "rank": 2, "reason": "not_found"}
+{"source": "Promontory Point", "candidate": "Kosugiyu", "target_city": "tokyo", "confidence": 0.38, "rank": 3, "reason": "not_found"}
+{"source": "Rainbo Club", "candidate": "Trouble Peach (Shimokitazawa)", "target_city": "tokyo", "confidence": 0.68, "rank": 1, "reason": "not_found"}
+{"source": "Rainbo Club", "candidate": "Grandfather's (Koenji)", "target_city": "tokyo", "confidence": 0.62, "rank": 2, "reason": "not_found"}
+{"source": "Revolution Brewing", "candidate": "Baird Beer Taproom Harajuku", "target_city": "tokyo", "confidence": 0.71, "rank": 2, "reason": "not_found"}
+{"source": "Schubas Tavern", "candidate": "Shindaita Fever", "target_city": "tokyo", "confidence": 0.71, "rank": 3, "reason": "not_found"}
+{"source": "Seminary Co-op Bookstore", "candidate": "Tokyodo Shoten Jimbocho", "target_city": "tokyo", "confidence": 0.7, "rank": 1, "reason": "not_found"}
+{"source": "Simon's Tavern", "candidate": "Kamiya Bar (\u795e\u8c37\u30d0\u30fc)", "target_city": "tokyo", "confidence": 0.78, "rank": 1, "reason": "not_found"}
+{"source": "Simon's Tavern", "candidate": "Kagiya (\u9375\u5c4b), Nezu", "target_city": "tokyo", "confidence": 0.72, "rank": 2, "reason": "not_found"}
+{"source": "Simon's Tavern", "candidate": "Donjaca (\u5451\u8005\u5bb6), Shinjuku Sanchome", "target_city": "tokyo", "confidence": 0.62, "rank": 3, "reason": "not_found"}
+{"source": "Skylark", "candidate": "Dachibin (\u3060\u3061\u3073\u3093, Koenji)", "target_city": "tokyo", "confidence": 0.62, "rank": 1, "reason": "not_found"}
+{"source": "Skylark", "candidate": "Trouble Peach (Shimokitazawa)", "target_city": "tokyo", "confidence": 0.57, "rank": 2, "reason": "not_found"}
+{"source": "Small Cheval", "candidate": "Blacows", "target_city": "tokyo", "confidence": 0.74, "rank": 1, "reason": "not_found"}
+{"source": "Smoque BBQ", "candidate": "Tonkatsu Maisen Aoyama Honten", "target_city": "tokyo", "confidence": 0.62, "rank": 1, "reason": "not_found"}
+{"source": "Smoque BBQ", "candidate": "Nakiryu", "target_city": "tokyo", "confidence": 0.55, "rank": 2, "reason": "not_found"}
+{"source": "Spacca Napoli", "candidate": "Savoy Tomato & Cheese", "target_city": "tokyo", "confidence": 0.65, "rank": 3, "reason": "not_found"}
+{"source": "Steppenwolf Theatre", "candidate": "Honda Gekijo (Shimokitazawa)", "target_city": "tokyo", "confidence": 0.55, "rank": 2, "reason": "not_found"}
+{"source": "Steppenwolf Theatre", "candidate": "Tokyo Metropolitan Theatre (Tokyo Geijutsu Gekijo)", "target_city": "tokyo", "confidence": 0.42, "rank": 3, "reason": "not_found"}
+{"source": "Studio Three", "candidate": "FEELCYCLE", "target_city": "tokyo", "confidence": 0.83, "rank": 1, "reason": "not_found"}
+{"source": "Superdawg Drive-In", "candidate": "Rengatei", "target_city": "tokyo", "confidence": 0.55, "rank": 2, "reason": "not_found"}
+{"source": "Superdawg Drive-In", "candidate": "Kamiya Bar", "target_city": "tokyo", "confidence": 0.44, "rank": 3, "reason": "not_found"}
+{"source": "Symphony Center", "candidate": "Suntory Hall", "target_city": "tokyo", "confidence": 0.82, "rank": 1, "reason": "not_found"}
+{"source": "Symphony Center", "candidate": "NHK Hall", "target_city": "tokyo", "confidence": 0.76, "rank": 2, "reason": "not_found"}
 {"source": "Symphony Center", "candidate": "Tokyo Bunka Kaikan", "target_city": "tokyo", "confidence": 0.6, "rank": 3, "reason": "not_found"}
-{"source": "The 606", "candidate": "Imperial Palace Outer Moat running course (Kokyo Ranningu Course)", "target_city": "tokyo", "confidence": 0.6, "rank": 1, "reason": "not_found"}
-{"source": "The Berghoff", "candidate": "Beer Hall Lion Ginza Nanachome", "target_city": "tokyo", "confidence": 0.72, "rank": 1, "reason": "not_found"}
-{"source": "The Berghoff", "candidate": "Taimeiken", "target_city": "tokyo", "confidence": 0.66, "rank": 2, "reason": "not_found"}
-{"source": "The Berghoff", "candidate": "Rengatei", "target_city": "tokyo", "confidence": 0.6, "rank": 3, "reason": "not_found"}
-{"source": "The Second City", "candidate": "Honda Gekijo", "target_city": "tokyo", "confidence": 0.5, "rank": 3, "reason": "not_found"}
-{"source": "The Wieners Circle", "candidate": "Fuji Soba (\u5bcc\u58eb\u305d\u3070), Kabukicho branch", "target_city": "tokyo", "confidence": 0.62, "rank": 1, "reason": "not_found"}
-{"source": "Unabridged Bookstore", "candidate": "Loneliness Books", "target_city": "tokyo", "confidence": 0.55, "rank": 3, "reason": "not_found"}
-{"source": "Uncle Dan's", "candidate": "ICI Ishii Sports Kanda Honten (\u77f3\u4e95\u30b9\u30dd\u30fc\u30c4 \u795e\u7530\u672c\u5e97)", "target_city": "tokyo", "confidence": 0.78, "rank": 1, "reason": "not_found"}
-{"source": "Uncle Dan's", "candidate": "Kojitsu Sanso Shinjuku (\u597d\u65e5\u5c71\u8358 \u65b0\u5bbf\u5e97)", "target_city": "tokyo", "confidence": 0.72, "rank": 2, "reason": "not_found"}
-{"source": "Uncle Dan's", "candidate": "A&F Country Kanda", "target_city": "tokyo", "confidence": 0.6, "rank": 3, "reason": "not_found"}
-{"source": "Valois Cafeteria", "candidate": "Sabouru (\u3055\u307c\u3046\u308b)", "target_city": "tokyo", "confidence": 0.4, "rank": 3, "reason": "not_found"}
-{"source": "Wicker Park", "candidate": "Koenji", "target_city": "tokyo", "confidence": 0.66, "rank": 3, "reason": "not_found"}
-{"source": "Wrigleyville", "candidate": "Suidobashi / Korakuen (Tokyo Dome area)", "target_city": "tokyo", "confidence": 0.78, "rank": 1, "reason": "not_found"}
-{"source": "Wrigleyville", "candidate": "Ryogoku", "target_city": "tokyo", "confidence": 0.62, "rank": 2, "reason": "not_found"}
-{"source": "Wrigleyville", "candidate": "Jingu Gaien / Gaienmae", "target_city": "tokyo", "confidence": 0.45, "rank": 3, "reason": "not_found"}
+{"source": "Taqueria Chingon", "candidate": "Tsuta", "target_city": "tokyo", "confidence": 0.72, "rank": 2, "reason": "not_found"}
+{"source": "Thalia Hall", "candidate": "WWW / WWW X", "target_city": "tokyo", "confidence": 0.72, "rank": 2, "reason": "not_found"}
+{"source": "The 606", "candidate": "Shimokita Senrogai (\u4e0b\u5317\u7dda\u8def\u8857)", "target_city": "tokyo", "confidence": 0.62, "rank": 1, "reason": "not_found"}
+{"source": "The Berghoff", "candidate": "Beer Hall Lion Ginza 7-chome", "target_city": "tokyo", "confidence": 0.66, "rank": 1, "reason": "not_found"}
+{"source": "The Berghoff", "candidate": "Taimeiken", "target_city": "tokyo", "confidence": 0.62, "rank": 2, "reason": "not_found"}
+{"source": "The Berghoff", "candidate": "Rengatei", "target_city": "tokyo", "confidence": 0.55, "rank": 3, "reason": "not_found"}
+{"source": "The Hideout", "candidate": "UFO Club", "target_city": "tokyo", "confidence": 0.58, "rank": 2, "reason": "not_found"}
+{"source": "The Second City", "candidate": "Suehirotei", "target_city": "tokyo", "confidence": 0.55, "rank": 3, "reason": "not_found"}
+{"source": "The Wieners Circle", "candidate": "Ramen Jiro Mita Honten", "target_city": "tokyo", "confidence": 0.72, "rank": 1, "reason": "not_found"}
+{"source": "The Wieners Circle", "candidate": "Sugoi Niboshi Ramen Nagi (Golden Gai)", "target_city": "tokyo", "confidence": 0.66, "rank": 2, "reason": "not_found"}
+{"source": "Unabridged Bookstore", "candidate": "Title (Ogikubo)", "target_city": "tokyo", "confidence": 0.6, "rank": 1, "reason": "not_found"}
+{"source": "Unabridged Bookstore", "candidate": "B&B (Shimokitazawa)", "target_city": "tokyo", "confidence": 0.56, "rank": 2, "reason": "not_found"}
+{"source": "Unabridged Bookstore", "candidate": "Tacoche (Nakano Broadway)", "target_city": "tokyo", "confidence": 0.47, "rank": 3, "reason": "not_found"}
+{"source": "Uncle Dan's", "candidate": "Ishii Sports Kanda (\u77f3\u4e95\u30b9\u30dd\u30fc\u30c4 \u767b\u5c71\u672c\u5e97)", "target_city": "tokyo", "confidence": 0.82, "rank": 1, "reason": "not_found"}
+{"source": "Uncle Dan's", "candidate": "Kojitsu Sanso (\u597d\u65e5\u5c71\u8358) Kanda Ogawamachi", "target_city": "tokyo", "confidence": 0.74, "rank": 2, "reason": "not_found"}
+{"source": "Valois Cafeteria", "candidate": "Todai Chuo Shokudo (University of Tokyo Central Cafeteria, Hongo)", "target_city": "tokyo", "confidence": 0.5, "rank": 1, "reason": "not_found"}
+{"source": "Valois Cafeteria", "candidate": "Kayaba Coffee (Yanaka)", "target_city": "tokyo", "confidence": 0.45, "rank": 2, "reason": "not_found"}
+{"source": "Valois Cafeteria", "candidate": "Kitsuneya (Tsukiji Outer Market)", "target_city": "tokyo", "confidence": 0.38, "rank": 3, "reason": "not_found"}
+{"source": "Wicker Park", "candidate": "Koenji", "target_city": "tokyo", "confidence": 0.7, "rank": 3, "reason": "not_found"}
+{"source": "Wrigleyville", "candidate": "Suidobashi (Tokyo Dome area)", "target_city": "tokyo", "confidence": 0.78, "rank": 1, "reason": "not_found"}
+{"source": "Wrigleyville", "candidate": "Jingu Gaien / Gaienmae", "target_city": "tokyo", "confidence": 0.62, "rank": 2, "reason": "not_found"}

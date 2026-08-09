@@ -1,0 +1,51 @@
+{"source": "Al's Beef", "candidate": "Langer's Delicatessen", "target_city": "los_angeles", "confidence": 0.72, "rank": 3, "reason": "not_found"}
+{"source": "Andersonville", "candidate": "Atwater Village (Glendale Blvd)", "target_city": "los_angeles", "confidence": 0.66, "rank": 2, "reason": "not_found"}
+{"source": "Andersonville", "candidate": "York Boulevard, Highland Park", "target_city": "los_angeles", "confidence": 0.55, "rank": 3, "reason": "not_found"}
+{"source": "Art Institute of Chicago", "candidate": "LACMA", "target_city": "los_angeles", "confidence": 0.85, "rank": 1, "reason": "not_found"}
+{"source": "Big Star", "candidate": "Petty Cash Taqueria", "target_city": "los_angeles", "confidence": 0.7, "rank": 2, "reason": "not_found"}
+{"source": "Buddy Guy's Legends", "candidate": "The World Stage", "target_city": "los_angeles", "confidence": 0.47, "rank": 3, "reason": "not_found"}
+{"source": "Chicago History Museum", "candidate": "Autry Museum of the American West", "target_city": "los_angeles", "confidence": 0.6, "rank": 1, "reason": "not_found"}
+{"source": "Cindy's Rooftop", "candidate": "Upstairs at the Ace Hotel", "target_city": "los_angeles", "confidence": 0.68, "rank": 2, "reason": "not_found"}
+{"source": "Cindy's Rooftop", "candidate": "Broken Shaker at the Freehand LA", "target_city": "los_angeles", "confidence": 0.58, "rank": 3, "reason": "not_found"}
+{"source": "Cloud Gate", "candidate": "Urban Light at LACMA", "target_city": "los_angeles", "confidence": 0.9, "rank": 1, "reason": "not_found"}
+{"source": "Cloud Gate", "candidate": "Watts Towers", "target_city": "los_angeles", "confidence": 0.62, "rank": 2, "reason": "not_found"}
+{"source": "Dill Pickle Food Co-op", "candidate": "Cookbook", "target_city": "los_angeles", "confidence": 0.72, "rank": 2, "reason": "not_found"}
+{"source": "Dill Pickle Food Co-op", "candidate": "Lassens Natural Foods", "target_city": "los_angeles", "confidence": 0.55, "rank": 3, "reason": "not_found"}
+{"source": "Division Street", "candidate": "Cahuenga Corridor (Hollywood)", "target_city": "los_angeles", "confidence": 0.82, "rank": 1, "reason": "not_found"}
+{"source": "Fulton Market", "candidate": "Arts District", "target_city": "los_angeles", "confidence": 0.9, "rank": 1, "reason": "not_found"}
+{"source": "Gene Siskel Film Center", "candidate": "Billy Wilder Theater (UCLA Film & Television Archive)", "target_city": "los_angeles", "confidence": 0.68, "rank": 2, "reason": "not_found"}
+{"source": "Gene's Sausage Shop", "candidate": "Claro's Italian Markets", "target_city": "los_angeles", "confidence": 0.7, "rank": 2, "reason": "not_found"}
+{"source": "Green Street Smoked Meats", "candidate": "Bludso's Bar & Que", "target_city": "los_angeles", "confidence": 0.82, "rank": 1, "reason": "not_found"}
+{"source": "H Mart", "candidate": "Hannam Chain", "target_city": "los_angeles", "confidence": 0.74, "rank": 2, "reason": "not_found"}
+{"source": "Harold Washington Library Center", "candidate": "Pasadena Central Library", "target_city": "los_angeles", "confidence": 0.6, "rank": 2, "reason": "not_found"}
+{"source": "Hyde Park", "candidate": "Pasadena", "target_city": "los_angeles", "confidence": 0.58, "rank": 1, "reason": "not_found"}
+{"source": "Joong Boo Market", "candidate": "Hannam Chain", "target_city": "los_angeles", "confidence": 0.78, "rank": 1, "reason": "not_found"}
+{"source": "Kasama", "candidate": "Kato", "target_city": "los_angeles", "confidence": 0.82, "rank": 1, "reason": "not_found"}
+{"source": "Lake Forest", "candidate": "San Marino", "target_city": "los_angeles", "confidence": 0.84, "rank": 1, "reason": "not_found"}
+{"source": "Lincoln Square", "candidate": "Atwater Village (Glendale Blvd)", "target_city": "los_angeles", "confidence": 0.71, "rank": 2, "reason": "not_found"}
+{"source": "Logan Square", "candidate": "Frogtown / Atwater Village", "target_city": "los_angeles", "confidence": 0.55, "rank": 3, "reason": "not_found"}
+{"source": "Lou Malnati's", "candidate": "Langer's Delicatessen", "target_city": "los_angeles", "confidence": 0.65, "rank": 2, "reason": "not_found"}
+{"source": "Lou Mitchell's", "candidate": "Pann's", "target_city": "los_angeles", "confidence": 0.64, "rank": 3, "reason": "not_found"}
+{"source": "Macy's on State Street", "candidate": "Bullocks Wilshire", "target_city": "los_angeles", "confidence": 0.5, "rank": 2, "reason": "not_found"}
+{"source": "Manny's Cafeteria & Delicatessen", "candidate": "Langer's Delicatessen", "target_city": "los_angeles", "confidence": 0.74, "rank": 2, "reason": "not_found"}
+{"source": "Marie's Riptide Lounge", "candidate": "The Roost", "target_city": "los_angeles", "confidence": 0.68, "rank": 2, "reason": "not_found"}
+{"source": "Metro", "candidate": "The Echoplex", "target_city": "los_angeles", "confidence": 0.74, "rank": 2, "reason": "not_found"}
+{"source": "Mr. Beef", "candidate": "Langer's Delicatessen", "target_city": "los_angeles", "confidence": 0.78, "rank": 2, "reason": "not_found"}
+{"source": "Mr. Beef", "candidate": "Cole's French Dip", "target_city": "los_angeles", "confidence": 0.6, "rank": 3, "reason": "not_found"}
+{"source": "Museum of Contemporary Art Chicago", "candidate": "MOCA Grand Avenue", "target_city": "los_angeles", "confidence": 0.83, "rank": 1, "reason": "not_found"}
+{"source": "Music Box Theatre", "candidate": "Egyptian Theatre", "target_city": "los_angeles", "confidence": 0.6, "rank": 3, "reason": "not_found"}
+{"source": "Myopic Books", "candidate": "Counterpoint Records & Books", "target_city": "los_angeles", "confidence": 0.75, "rank": 2, "reason": "not_found"}
+{"source": "Pilsen", "candidate": "Arts District", "target_city": "los_angeles", "confidence": 0.45, "rank": 3, "reason": "not_found"}
+{"source": "Portillo's", "candidate": "Porto's Bakery", "target_city": "los_angeles", "confidence": 0.68, "rank": 2, "reason": "not_found"}
+{"source": "Promontory Point", "candidate": "Point Fermin Park & Cabrillo Beach, San Pedro", "target_city": "los_angeles", "confidence": 0.62, "rank": 1, "reason": "not_found"}
+{"source": "Rainbo Club", "candidate": "The Roost", "target_city": "los_angeles", "confidence": 0.6, "rank": 3, "reason": "not_found"}
+{"source": "Schubas Tavern", "candidate": "Hotel Caf\u00e9", "target_city": "los_angeles", "confidence": 0.7, "rank": 2, "reason": "not_found"}
+{"source": "Simon's Tavern", "candidate": "The Roost", "target_city": "los_angeles", "confidence": 0.62, "rank": 3, "reason": "not_found"}
+{"source": "Skylark", "candidate": "Little Joy", "target_city": "los_angeles", "confidence": 0.7, "rank": 2, "reason": "not_found"}
+{"source": "Smoque BBQ", "candidate": "Ray's BBQ", "target_city": "los_angeles", "confidence": 0.6, "rank": 3, "reason": "not_found"}
+{"source": "Spacca Napoli", "candidate": "Milo & Olive", "target_city": "los_angeles", "confidence": 0.5, "rank": 3, "reason": "not_found"}
+{"source": "Studio Three", "candidate": "Forma Pilates", "target_city": "los_angeles", "confidence": 0.66, "rank": 2, "reason": "not_found"}
+{"source": "The Second City", "candidate": "The Groundlings Theatre", "target_city": "los_angeles", "confidence": 0.88, "rank": 1, "reason": "not_found"}
+{"source": "The Second City", "candidate": "UCB Sunset", "target_city": "los_angeles", "confidence": 0.62, "rank": 3, "reason": "not_found"}
+{"source": "Uncle Dan's", "candidate": "Adventure 16", "target_city": "los_angeles", "confidence": 0.55, "rank": 2, "reason": "not_found"}
+{"source": "Valois Cafeteria", "candidate": "Pann's", "target_city": "los_angeles", "confidence": 0.63, "rank": 3, "reason": "not_found"}

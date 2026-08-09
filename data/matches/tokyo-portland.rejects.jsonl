@@ -1,58 +1,63 @@
-{"source": "Akihabara Electric Town", "candidate": "Kinokuniya at Uwajimaya, Beaverton", "target_city": "portland", "confidence": 0.48, "rank": 2, "reason": "not_found"}
-{"source": "Chocozap", "candidate": "Courthouse Club Fitness", "target_city": "portland", "confidence": 0.3, "rank": 3, "reason": "not_found"}
+{"source": "Afuri", "candidate": "Yuzu (Beaverton)", "target_city": "portland", "confidence": 0.64, "rank": 2, "reason": "not_found"}
+{"source": "Akihabara Electric Town", "candidate": "Uwajimaya (with Kinokuniya inside)", "target_city": "portland", "confidence": 0.6, "rank": 1, "reason": "not_found"}
+{"source": "Baird Beer Taproom Harajuku", "candidate": "Hair of the Dog Brewing", "target_city": "portland", "confidence": 0.63, "rank": 2, "reason": "not_found"}
+{"source": "Bic Camera", "candidate": "Blue Moon Camera and Machine", "target_city": "portland", "confidence": 0.33, "rank": 3, "reason": "not_found"}
+{"source": "Chatei Hatou", "candidate": "Behind the Museum Caf\u00e9", "target_city": "portland", "confidence": 0.7, "rank": 2, "reason": "not_found"}
+{"source": "Daikanyama", "candidate": "Nob Hill (NW 23rd & 21st)", "target_city": "portland", "confidence": 0.72, "rank": 1, "reason": "not_found"}
 {"source": "Denenchofu", "candidate": "Dunthorpe", "target_city": "portland", "confidence": 0.82, "rank": 1, "reason": "not_found"}
-{"source": "Denenchofu", "candidate": "Eastmoreland", "target_city": "portland", "confidence": 0.76, "rank": 2, "reason": "not_found"}
+{"source": "Denenchofu", "candidate": "Eastmoreland", "target_city": "portland", "confidence": 0.74, "rank": 2, "reason": "not_found"}
 {"source": "Denenchofu", "candidate": "Laurelhurst", "target_city": "portland", "confidence": 0.6, "rank": 3, "reason": "not_found"}
-{"source": "Don Quijote", "candidate": "Next Adventure", "target_city": "portland", "confidence": 0.4, "rank": 3, "reason": "not_found"}
-{"source": "Ebisu Yokocho", "candidate": "Prost! Marketplace on Mississippi", "target_city": "portland", "confidence": 0.72, "rank": 1, "reason": "not_found"}
-{"source": "Ebisu Yokocho", "candidate": "Cartopia (SE 12th & Hawthorne)", "target_city": "portland", "confidence": 0.64, "rank": 2, "reason": "not_found"}
-{"source": "FamilyMart", "candidate": "Uwajimaya", "target_city": "portland", "confidence": 0.32, "rank": 3, "reason": "not_found"}
-{"source": "Ghibli Museum", "candidate": "Enchanted Forest", "target_city": "portland", "confidence": 0.5, "rank": 2, "reason": "not_found"}
-{"source": "Ginza", "candidate": "Nob Hill (NW 23rd Avenue)", "target_city": "portland", "confidence": 0.55, "rank": 2, "reason": "not_found"}
-{"source": "Ginza", "candidate": "Downtown around Pioneer Place and Nordstrom", "target_city": "portland", "confidence": 0.4, "rank": 3, "reason": "not_found"}
-{"source": "Golden Gai", "candidate": "Old Town Chinatown (the Ankeny Alley / 3rd & Couch bar warren)", "target_city": "portland", "confidence": 0.45, "rank": 1, "reason": "not_found"}
-{"source": "Ichiran", "candidate": "Afuri", "target_city": "portland", "confidence": 0.45, "rank": 3, "reason": "not_found"}
-{"source": "Image Forum", "candidate": "PAM CUT / Whitsell Auditorium (Northwest Film Center)", "target_city": "portland", "confidence": 0.86, "rank": 1, "reason": "not_found"}
-{"source": "Inokashira Park", "candidate": "Mount Tabor Park", "target_city": "portland", "confidence": 0.58, "rank": 2, "reason": "not_found"}
-{"source": "Itoya Ginza", "candidate": "Oblation Papers & Press", "target_city": "portland", "confidence": 0.82, "rank": 1, "reason": "not_found"}
-{"source": "Itoya Ginza", "candidate": "Muse Art + Design", "target_city": "portland", "confidence": 0.66, "rank": 2, "reason": "not_found"}
+{"source": "Don Quijote", "candidate": "Andy and Bax Surplus", "target_city": "portland", "confidence": 0.45, "rank": 3, "reason": "not_found"}
+{"source": "Ebisu Yokocho", "candidate": "Cartopia", "target_city": "portland", "confidence": 0.72, "rank": 1, "reason": "not_found"}
+{"source": "Ebisu Yokocho", "candidate": "Prost! Marketplace on Mississippi", "target_city": "portland", "confidence": 0.66, "rank": 2, "reason": "not_found"}
+{"source": "FamilyMart", "candidate": "Uwajimaya", "target_city": "portland", "confidence": 0.4, "rank": 3, "reason": "not_found"}
+{"source": "Ginza", "candidate": "NW 23rd Avenue (Nob Hill)", "target_city": "portland", "confidence": 0.58, "rank": 2, "reason": "not_found"}
+{"source": "Ginza", "candidate": "SW Broadway and Pioneer Place (Nordstrom / downtown retail core)", "target_city": "portland", "confidence": 0.45, "rank": 3, "reason": "not_found"}
+{"source": "Glitch Coffee", "candidate": "Proud Mary Coffee", "target_city": "portland", "confidence": 0.55, "rank": 3, "reason": "not_found"}
+{"source": "Golden Gai", "candidate": "Old Town Chinatown (Ankeny Alley)", "target_city": "portland", "confidence": 0.55, "rank": 1, "reason": "not_found"}
+{"source": "Golden Gai", "candidate": "Cartopia (SE 12th & Hawthorne cart pod)", "target_city": "portland", "confidence": 0.32, "rank": 3, "reason": "not_found"}
+{"source": "Hanamasa", "candidate": "CHEF'STORE (the old Cash & Carry on SE Grand)", "target_city": "portland", "confidence": 0.83, "rank": 1, "reason": "not_found"}
+{"source": "Harajuku", "candidate": "Nob Hill (NW 23rd Avenue)", "target_city": "portland", "confidence": 0.45, "rank": 3, "reason": "not_found"}
+{"source": "Image Forum", "candidate": "PAM CUT / Whitsell Auditorium (Northwest Film Center)", "target_city": "portland", "confidence": 0.82, "rank": 1, "reason": "not_found"}
+{"source": "Inokashira Park", "candidate": "Mount Tabor Park", "target_city": "portland", "confidence": 0.62, "rank": 2, "reason": "not_found"}
+{"source": "Isetan Shinjuku Depachika", "candidate": "Uwajimaya", "target_city": "portland", "confidence": 0.65, "rank": 2, "reason": "not_found"}
+{"source": "Itoya Ginza", "candidate": "Oblation Papers & Press", "target_city": "portland", "confidence": 0.86, "rank": 1, "reason": "not_found"}
 {"source": "Jimbocho Book Town", "candidate": "Cameron's Books and Magazines", "target_city": "portland", "confidence": 0.6, "rank": 2, "reason": "not_found"}
-{"source": "Kagurazaka", "candidate": "Nob Hill (Alphabet District, NW 21st & 23rd)", "target_city": "portland", "confidence": 0.72, "rank": 1, "reason": "not_found"}
-{"source": "Kappabashi Street", "candidate": "Mirador Community Store", "target_city": "portland", "confidence": 0.62, "rank": 1, "reason": "not_found"}
-{"source": "Kappabashi Street", "candidate": "Winks Hardware", "target_city": "portland", "confidence": 0.55, "rank": 2, "reason": "not_found"}
-{"source": "Kinokuniya Shinjuku", "candidate": "Kinokuniya Beaverton (Uwajimaya Plaza)", "target_city": "portland", "confidence": 0.3, "rank": 3, "reason": "not_found"}
-{"source": "Kissa Tricolore", "candidate": "Palio Dessert & Espresso House", "target_city": "portland", "confidence": 0.7, "rank": 2, "reason": "not_found"}
-{"source": "Konami Sports Club", "candidate": "ClubSport Oregon", "target_city": "portland", "confidence": 0.63, "rank": 2, "reason": "not_found"}
-{"source": "Kosugiyu", "candidate": "L\u00f6yly", "target_city": "portland", "confidence": 0.63, "rank": 2, "reason": "not_found"}
-{"source": "Lawson", "candidate": "Cartopia (SE 12th & Hawthorne food carts)", "target_city": "portland", "confidence": 0.35, "rank": 3, "reason": "not_found"}
-{"source": "Loft Shibuya", "candidate": "Oblation Papers & Press", "target_city": "portland", "confidence": 0.62, "rank": 1, "reason": "not_found"}
-{"source": "Mikkeller Tokyo", "candidate": "Hair of the Dog Brewing", "target_city": "portland", "confidence": 0.65, "rank": 2, "reason": "not_found"}
+{"source": "Kagurazaka", "candidate": "Nob Hill", "target_city": "portland", "confidence": 0.7, "rank": 1, "reason": "not_found"}
+{"source": "Kagurazaka", "candidate": "NE 28th Avenue", "target_city": "portland", "confidence": 0.62, "rank": 2, "reason": "not_found"}
+{"source": "Kappabashi Street", "candidate": "Boxer Northwest Co.", "target_city": "portland", "confidence": 0.74, "rank": 1, "reason": "not_found"}
+{"source": "Kappabashi Street", "candidate": "Mirador Community Store", "target_city": "portland", "confidence": 0.66, "rank": 2, "reason": "not_found"}
+{"source": "Kappabashi Street", "candidate": "Winks Hardware", "target_city": "portland", "confidence": 0.55, "rank": 3, "reason": "not_found"}
+{"source": "Kissa Tricolore", "candidate": "Palio Dessert & Espresso House", "target_city": "portland", "confidence": 0.5, "rank": 3, "reason": "not_found"}
+{"source": "Kosugiyu", "candidate": "L\u00f6yly", "target_city": "portland", "confidence": 0.6, "rank": 2, "reason": "not_found"}
+{"source": "Lawson", "candidate": "Uwajimaya", "target_city": "portland", "confidence": 0.38, "rank": 3, "reason": "not_found"}
+{"source": "Loft Shibuya", "candidate": "Oblation Papers & Press", "target_city": "portland", "confidence": 0.45, "rank": 3, "reason": "not_found"}
 {"source": "Mori Art Museum", "candidate": "PICA (Portland Institute for Contemporary Art)", "target_city": "portland", "confidence": 0.6, "rank": 2, "reason": "not_found"}
-{"source": "Mount Takao", "candidate": "Mount Tabor Park", "target_city": "portland", "confidence": 0.62, "rank": 2, "reason": "not_found"}
-{"source": "Mount Takao", "candidate": "Angel's Rest", "target_city": "portland", "confidence": 0.55, "rank": 3, "reason": "not_found"}
-{"source": "Nakameguro", "candidate": "Nob Hill", "target_city": "portland", "confidence": 0.45, "rank": 3, "reason": "not_found"}
-{"source": "Narisawa", "candidate": "Okta", "target_city": "portland", "confidence": 0.42, "rank": 3, "reason": "not_found"}
-{"source": "National Film Archive of Japan", "candidate": "PAM CUT / Northwest Film Center at the Whitsell Auditorium", "target_city": "portland", "confidence": 0.7, "rank": 1, "reason": "not_found"}
-{"source": "Nishiki Ichiba Tokyo", "candidate": "Uwajimaya", "target_city": "portland", "confidence": 0.44, "rank": 3, "reason": "not_found"}
-{"source": "Nonbei Yokocho", "candidate": "Ankeny Alley (SW Ankeny between 2nd and 3rd)", "target_city": "portland", "confidence": 0.62, "rank": 1, "reason": "not_found"}
-{"source": "Nonbei Yokocho", "candidate": "Cartopia (SE Hawthorne & 12th)", "target_city": "portland", "confidence": 0.5, "rank": 2, "reason": "not_found"}
-{"source": "Nonbei Yokocho", "candidate": "Valentine's", "target_city": "portland", "confidence": 0.45, "rank": 3, "reason": "not_found"}
-{"source": "Oedo Onsen Monogatari", "candidate": "Breitenbush Hot Springs", "target_city": "portland", "confidence": 0.32, "rank": 3, "reason": "not_found"}
-{"source": "Omoide Yokocho", "candidate": "Cartopia", "target_city": "portland", "confidence": 0.7, "rank": 1, "reason": "not_found"}
-{"source": "Omoide Yokocho", "candidate": "Ankeny Alley", "target_city": "portland", "confidence": 0.62, "rank": 2, "reason": "not_found"}
-{"source": "Omoide Yokocho", "candidate": "Prost! and the Mississippi Marketplace pod", "target_city": "portland", "confidence": 0.45, "rank": 3, "reason": "not_found"}
-{"source": "Onibus Coffee", "candidate": "Proud Mary", "target_city": "portland", "confidence": 0.55, "rank": 3, "reason": "not_found"}
-{"source": "Shibuya", "candidate": "Pioneer Courthouse Square & the downtown retail core", "target_city": "portland", "confidence": 0.55, "rank": 1, "reason": "not_found"}
-{"source": "Shibuya", "candidate": "Old Town Chinatown", "target_city": "portland", "confidence": 0.35, "rank": 3, "reason": "not_found"}
-{"source": "Shibuya Scramble Crossing", "candidate": "Pioneer Courthouse Square", "target_city": "portland", "confidence": 0.72, "rank": 1, "reason": "not_found"}
-{"source": "Shinjuku Station", "candidate": "Pioneer Courthouse Square", "target_city": "portland", "confidence": 0.58, "rank": 1, "reason": "not_found"}
-{"source": "Shinjuku Station", "candidate": "Union Station", "target_city": "portland", "confidence": 0.24, "rank": 3, "reason": "not_found"}
-{"source": "Sushi Saito", "candidate": "Sushi Ichikawa", "target_city": "portland", "confidence": 0.76, "rank": 1, "reason": "not_found"}
-{"source": "Todoroki Valley", "candidate": "Elk Rock Garden of the Bishop's Close", "target_city": "portland", "confidence": 0.55, "rank": 3, "reason": "not_found"}
-{"source": "Tokyo Station", "candidate": "Pioneer Courthouse Square", "target_city": "portland", "confidence": 0.55, "rank": 2, "reason": "not_found"}
-{"source": "Tokyu Hands", "candidate": "Winks Hardware", "target_city": "portland", "confidence": 0.53, "rank": 2, "reason": "not_found"}
-{"source": "Uobei", "candidate": "Sushi Land (Marinepolis)", "target_city": "portland", "confidence": 0.66, "rank": 1, "reason": "not_found"}
-{"source": "Yodobashi Akiba", "candidate": "Next Adventure", "target_city": "portland", "confidence": 0.55, "rank": 2, "reason": "not_found"}
-{"source": "Yodobashi Akiba", "candidate": "Blue Moon Camera and Machine", "target_city": "portland", "confidence": 0.44, "rank": 3, "reason": "not_found"}
-{"source": "Yoyogi Park", "candidate": "Mount Tabor Park", "target_city": "portland", "confidence": 0.6, "rank": 1, "reason": "not_found"}
-{"source": "teamLab Borderless", "candidate": "Oregon Museum of Science and Industry (OMSI)", "target_city": "portland", "confidence": 0.4, "rank": 3, "reason": "not_found"}
+{"source": "Mount Takao", "candidate": "Angel's Rest", "target_city": "portland", "confidence": 0.72, "rank": 1, "reason": "not_found"}
+{"source": "Mount Takao", "candidate": "Mount Tabor Park", "target_city": "portland", "confidence": 0.45, "rank": 3, "reason": "not_found"}
+{"source": "Narisawa", "candidate": "Castagna", "target_city": "portland", "confidence": 0.55, "rank": 2, "reason": "not_found"}
+{"source": "National Film Archive of Japan", "candidate": "PAM CUT // Whitsell Auditorium (Northwest Film Center)", "target_city": "portland", "confidence": 0.82, "rank": 1, "reason": "not_found"}
+{"source": "Nonbei Yokocho", "candidate": "Ankeny Alley (SW Ankeny St between 2nd and 3rd, incl. Valentine's and Kask)", "target_city": "portland", "confidence": 0.55, "rank": 1, "reason": "not_found"}
+{"source": "Nonbei Yokocho", "candidate": "Cartopia (SE 12th & Hawthorne food cart pod)", "target_city": "portland", "confidence": 0.33, "rank": 3, "reason": "not_found"}
+{"source": "Omoide Yokocho", "candidate": "Cartopia (SE 12th & Hawthorne food cart pod)", "target_city": "portland", "confidence": 0.6, "rank": 1, "reason": "not_found"}
+{"source": "Omoide Yokocho", "candidate": "Prost! Marketplace on Mississippi", "target_city": "portland", "confidence": 0.53, "rank": 2, "reason": "not_found"}
+{"source": "Omoide Yokocho", "candidate": "Ankeny Alley / SW 3rd Ave, Old Town", "target_city": "portland", "confidence": 0.38, "rank": 3, "reason": "not_found"}
+{"source": "Saizeriya", "candidate": "McMenamins (Barley Mill, Kennedy School, Bagdad, etc.)", "target_city": "portland", "confidence": 0.58, "rank": 1, "reason": "not_found"}
+{"source": "Shibuya", "candidate": "Pioneer Courthouse Square", "target_city": "portland", "confidence": 0.52, "rank": 2, "reason": "not_found"}
+{"source": "Shibuya", "candidate": "Old Town Chinatown", "target_city": "portland", "confidence": 0.4, "rank": 3, "reason": "not_found"}
+{"source": "Shibuya Scramble Crossing", "candidate": "Pioneer Courthouse Square", "target_city": "portland", "confidence": 0.6, "rank": 1, "reason": "not_found"}
+{"source": "Shinjuku Station", "candidate": "Pioneer Courthouse Square", "target_city": "portland", "confidence": 0.62, "rank": 1, "reason": "not_found"}
+{"source": "Sushi Saito", "candidate": "Sushi Ichikawa", "target_city": "portland", "confidence": 0.68, "rank": 1, "reason": "not_found"}
+{"source": "Tamagawa Riverside", "candidate": "Marine Drive Trail and Broughton Beach on the Columbia", "target_city": "portland", "confidence": 0.65, "rank": 2, "reason": "not_found"}
+{"source": "Thermae-yu", "candidate": "L\u00f6yly", "target_city": "portland", "confidence": 0.5, "rank": 3, "reason": "not_found"}
+{"source": "Tokyo Metropolitan Library", "candidate": "PSU Millar Library", "target_city": "portland", "confidence": 0.62, "rank": 2, "reason": "not_found"}
+{"source": "Tokyo Station", "candidate": "Pioneer Courthouse Square", "target_city": "portland", "confidence": 0.56, "rank": 1, "reason": "not_found"}
+{"source": "Tokyo Station", "candidate": "Union Station", "target_city": "portland", "confidence": 0.34, "rank": 3, "reason": "not_found"}
+{"source": "Tokyu Hands", "candidate": "Winks Hardware", "target_city": "portland", "confidence": 0.4, "rank": 3, "reason": "not_found"}
+{"source": "Tonkatsu Maisen", "candidate": "Otto's Sausage Kitchen", "target_city": "portland", "confidence": 0.52, "rank": 3, "reason": "not_found"}
+{"source": "Torikizoku", "candidate": "McMenamins (Barley Mill / Bagdad Pub)", "target_city": "portland", "confidence": 0.61, "rank": 1, "reason": "not_found"}
+{"source": "Yanaka", "candidate": "Multnomah Village", "target_city": "portland", "confidence": 0.62, "rank": 2, "reason": "not_found"}
+{"source": "Yodobashi Akiba", "candidate": "Pro Photo Supply", "target_city": "portland", "confidence": 0.5, "rank": 2, "reason": "not_found"}
+{"source": "Yoyogi Park", "candidate": "Mount Tabor Park", "target_city": "portland", "confidence": 0.68, "rank": 2, "reason": "not_found"}
+{"source": "teamLab Borderless", "candidate": "Oregon Museum of Science and Industry", "target_city": "portland", "confidence": 0.5, "rank": 2, "reason": "not_found"}
+{"source": "teamLab Borderless", "candidate": "Freakybuttrue Peculiarium", "target_city": "portland", "confidence": 0.32, "rank": 3, "reason": "not_found"}

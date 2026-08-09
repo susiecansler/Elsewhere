@@ -24,7 +24,7 @@ from pydantic import BaseModel, ConfigDict, Field
 
 from elsewhere import places, seeds, taxonomy
 from elsewhere.models import Candidate, Match, Place, PriceTier, Reach
-from elsewhere.taxonomy import REPO_ROOT
+from elsewhere.taxonomy import REPO_ROOT, city_label
 
 MATCHES_DIR = REPO_ROOT / "data" / "matches"
 
@@ -121,8 +121,8 @@ def build_system_prompt(target_city: str) -> str:
     return (
         f"{INSTRUCTIONS}\n"
         f"\n# Role vocabulary\n\n{taxonomy.as_prompt_block()}\n"
-        f"\n# Known {target_city.title()} places\n\n"
-        f"These are well-known {target_city.title()} institutions, offered as "
+        f"\n# Known {city_label(target_city)} places\n\n"
+        f"These are well-known {city_label(target_city)} institutions, offered as "
         f"grounding. You are NOT restricted to this list — name a better "
         f"answer if one exists.\n\n" + "\n".join(f"- {n}" for n in names) + "\n"
     )
@@ -132,9 +132,9 @@ def build_user_prompt(place: Place, target_city: str) -> str:
     aliases = f" (also called: {', '.join(place.aliases)})" if place.aliases else ""
     return (
         f"Source place: {place.name}{aliases}\n"
-        f"Source city: {place.city.title()}\n"
+        f"Source city: {city_label(place.city)}\n"
         f"Category: {place.category}\n\n"
-        f"What is the {target_city.title()} equivalent?"
+        f"What is the {city_label(target_city)} equivalent?"
     )
 
 

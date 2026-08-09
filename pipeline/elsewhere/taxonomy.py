@@ -86,3 +86,14 @@ def as_prompt_block(path: Path | None = None) -> str:
         if role.exemplars:
             lines.append(f"  e.g. {'; '.join(role.exemplars)}")
     return "\n".join(lines)
+
+
+def city_label(slug: str) -> str:
+    """Slug to the name a person would write.
+
+    `str.title()` leaves the underscore in place — "los_angeles" becomes
+    "Los_Angeles" — which reached the generation prompts before anyone
+    noticed. Cheap to get right, and it appears in every prompt and every
+    CLI line.
+    """
+    return " ".join(part.capitalize() for part in slug.replace("-", "_").split("_"))

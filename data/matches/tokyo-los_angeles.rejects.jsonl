@@ -1,0 +1,60 @@
+{"source": "7-Eleven Japan", "candidate": "Tokyo Central (Marukai)", "target_city": "los_angeles", "confidence": 0.35, "rank": 3, "reason": "not_found"}
+{"source": "Afuri", "candidate": "Tsujita LA Artisan Noodle", "target_city": "los_angeles", "confidence": 0.55, "rank": 3, "reason": "not_found"}
+{"source": "Akihabara Electric Town", "candidate": "Little Tokyo (Weller Court / Little Tokyo Galleria block, Anime Jungle)", "target_city": "los_angeles", "confidence": 0.72, "rank": 1, "reason": "not_found"}
+{"source": "Akihabara Electric Town", "candidate": "Frank & Son Collectible Show (City of Industry)", "target_city": "los_angeles", "confidence": 0.45, "rank": 3, "reason": "not_found"}
+{"source": "Bar High Five", "candidate": "Death & Co Los Angeles", "target_city": "los_angeles", "confidence": 0.5, "rank": 3, "reason": "not_found"}
+{"source": "Beams Harajuku", "candidate": "Union Los Angeles", "target_city": "los_angeles", "confidence": 0.76, "rank": 1, "reason": "not_found"}
+{"source": "Bic Camera", "candidate": "Micro Center Tustin", "target_city": "los_angeles", "confidence": 0.45, "rank": 2, "reason": "not_found"}
+{"source": "Blue Note Tokyo", "candidate": "Sam First", "target_city": "los_angeles", "confidence": 0.55, "rank": 2, "reason": "not_found"}
+{"source": "Butagumi", "candidate": "Kagura", "target_city": "los_angeles", "confidence": 0.82, "rank": 1, "reason": "not_found"}
+{"source": "Chatei Hatou", "candidate": "Cafe Demitasse Little Tokyo", "target_city": "los_angeles", "confidence": 0.38, "rank": 3, "reason": "not_found"}
+{"source": "Den", "candidate": "Kato", "target_city": "los_angeles", "confidence": 0.78, "rank": 2, "reason": "not_found"}
+{"source": "Denenchofu", "candidate": "San Marino", "target_city": "los_angeles", "confidence": 0.78, "rank": 2, "reason": "not_found"}
+{"source": "Denenchofu", "candidate": "Palos Verdes Estates", "target_city": "los_angeles", "confidence": 0.6, "rank": 3, "reason": "not_found"}
+{"source": "Don Quijote", "candidate": "Tokyo Central", "target_city": "los_angeles", "confidence": 0.55, "rank": 2, "reason": "not_found"}
+{"source": "Ebisu Yokocho", "candidate": "Chapman Plaza (Koreatown)", "target_city": "los_angeles", "confidence": 0.68, "rank": 1, "reason": "not_found"}
+{"source": "Ebisu Yokocho", "candidate": "Sawtelle Japantown", "target_city": "los_angeles", "confidence": 0.62, "rank": 2, "reason": "not_found"}
+{"source": "Florilege", "candidate": "Kato", "target_city": "los_angeles", "confidence": 0.82, "rank": 1, "reason": "not_found"}
+{"source": "Harajuku", "candidate": "Fairfax Avenue (the strip between Melrose and Beverly)", "target_city": "los_angeles", "confidence": 0.78, "rank": 1, "reason": "not_found"}
+{"source": "Image Forum", "candidate": "REDCAT", "target_city": "los_angeles", "confidence": 0.78, "rank": 1, "reason": "not_found"}
+{"source": "Inokashira Park", "candidate": "Lake Balboa (Anthony C. Beilenson Park)", "target_city": "los_angeles", "confidence": 0.55, "rank": 3, "reason": "not_found"}
+{"source": "Isetan Shinjuku Depachika", "candidate": "Eataly LA (Westfield Century City)", "target_city": "los_angeles", "confidence": 0.55, "rank": 2, "reason": "not_found"}
+{"source": "Itoya Ginza", "candidate": "Maido Little Tokyo", "target_city": "los_angeles", "confidence": 0.68, "rank": 1, "reason": "not_found"}
+{"source": "Itoya Ginza", "candidate": "McManus & Morgan", "target_city": "los_angeles", "confidence": 0.6, "rank": 2, "reason": "not_found"}
+{"source": "Kagari", "candidate": "Tsujita LA Artisan Noodle", "target_city": "los_angeles", "confidence": 0.82, "rank": 1, "reason": "not_found"}
+{"source": "Kichijoji", "candidate": "Pasadena (South Lake / Old Town)", "target_city": "los_angeles", "confidence": 0.55, "rank": 3, "reason": "not_found"}
+{"source": "Kiyosumi Shirakawa", "candidate": "Arts District (Downtown LA)", "target_city": "los_angeles", "confidence": 0.78, "rank": 1, "reason": "not_found"}
+{"source": "Kiyosumi Shirakawa", "candidate": "Frogtown (Elysian Valley)", "target_city": "los_angeles", "confidence": 0.66, "rank": 2, "reason": "not_found"}
+{"source": "Life Supermarket", "candidate": "Stater Bros", "target_city": "los_angeles", "confidence": 0.45, "rank": 3, "reason": "not_found"}
+{"source": "Loft Shibuya", "candidate": "Kinokuniya Little Tokyo", "target_city": "los_angeles", "confidence": 0.45, "rank": 3, "reason": "not_found"}
+{"source": "Meiji Jingu", "candidate": "La Plaza Church (Nuestra Se\u00f1ora la Reina de los \u00c1ngeles) at Olvera Street", "target_city": "los_angeles", "confidence": 0.42, "rank": 3, "reason": "not_found"}
+{"source": "Menya Musashi", "candidate": "Tsujita LA Artisan Noodle", "target_city": "los_angeles", "confidence": 0.72, "rank": 2, "reason": "not_found"}
+{"source": "Mount Takao", "candidate": "Mount Baldy (Mt. San Antonio) and the Baldy Notch lift", "target_city": "los_angeles", "confidence": 0.66, "rank": 2, "reason": "not_found"}
+{"source": "Muji Yurakucho", "candidate": "IKEA Burbank", "target_city": "los_angeles", "confidence": 0.35, "rank": 3, "reason": "not_found"}
+{"source": "Nakiryu", "candidate": "Tsujita LA Artisan Noodle", "target_city": "los_angeles", "confidence": 0.72, "rank": 1, "reason": "not_found"}
+{"source": "National Film Archive of Japan", "candidate": "UCLA Film & Television Archive at the Billy Wilder Theater", "target_city": "los_angeles", "confidence": 0.85, "rank": 1, "reason": "not_found"}
+{"source": "Natural Lawson", "candidate": "Lassens Natural Foods", "target_city": "los_angeles", "confidence": 0.58, "rank": 2, "reason": "not_found"}
+{"source": "Nezu Museum", "candidate": "The Huntington", "target_city": "los_angeles", "confidence": 0.72, "rank": 2, "reason": "not_found"}
+{"source": "Oedo Onsen Monogatari", "candidate": "Aroma Spa & Sports", "target_city": "los_angeles", "confidence": 0.6, "rank": 3, "reason": "not_found"}
+{"source": "Saizeriya", "candidate": "Palermo Ristorante", "target_city": "los_angeles", "confidence": 0.55, "rank": 2, "reason": "not_found"}
+{"source": "Sensoji", "candidate": "Mission San Gabriel Arc\u00e1ngel", "target_city": "los_angeles", "confidence": 0.7, "rank": 2, "reason": "not_found"}
+{"source": "Sensoji", "candidate": "Our Lady Queen of Angels (La Placita)", "target_city": "los_angeles", "confidence": 0.55, "rank": 3, "reason": "not_found"}
+{"source": "Shibuya", "candidate": "Koreatown", "target_city": "los_angeles", "confidence": 0.48, "rank": 3, "reason": "not_found"}
+{"source": "Shinjuku Gyoen", "candidate": "The Huntington", "target_city": "los_angeles", "confidence": 0.78, "rank": 1, "reason": "not_found"}
+{"source": "Shinjuku Station", "candidate": "LAX / Tom Bradley Terminal", "target_city": "los_angeles", "confidence": 0.3, "rank": 3, "reason": "not_found"}
+{"source": "Tamagawa Riverside", "candidate": "Sepulveda Basin Recreation Area", "target_city": "los_angeles", "confidence": 0.6, "rank": 3, "reason": "not_found"}
+{"source": "Tempura Kondo", "candidate": "Q Sushi", "target_city": "los_angeles", "confidence": 0.6, "rank": 3, "reason": "not_found"}
+{"source": "Todoroki Valley", "candidate": "Fern Dell, Griffith Park", "target_city": "los_angeles", "confidence": 0.78, "rank": 1, "reason": "not_found"}
+{"source": "Tokyo Metropolitan Library", "candidate": "Pasadena Central Library", "target_city": "los_angeles", "confidence": 0.55, "rank": 3, "reason": "not_found"}
+{"source": "Tokyo National Museum", "candidate": "LACMA", "target_city": "los_angeles", "confidence": 0.76, "rank": 1, "reason": "not_found"}
+{"source": "Tokyo National Museum", "candidate": "The Huntington", "target_city": "los_angeles", "confidence": 0.55, "rank": 3, "reason": "not_found"}
+{"source": "Tokyo Tower", "candidate": "Angels Flight", "target_city": "los_angeles", "confidence": 0.44, "rank": 3, "reason": "not_found"}
+{"source": "Tonkatsu Maisen", "candidate": "Langer's Delicatessen", "target_city": "los_angeles", "confidence": 0.78, "rank": 1, "reason": "not_found"}
+{"source": "Tsukemen Tetsu", "candidate": "Tsujita LA Artisan Noodle", "target_city": "los_angeles", "confidence": 0.88, "rank": 1, "reason": "not_found"}
+{"source": "Tsuta", "candidate": "Tsujita Annex", "target_city": "los_angeles", "confidence": 0.6, "rank": 2, "reason": "not_found"}
+{"source": "Tsutaya Daikanyama", "candidate": "ARTBOOK @ Hauser & Wirth", "target_city": "los_angeles", "confidence": 0.64, "rank": 2, "reason": "not_found"}
+{"source": "Tsutenkaku Tokyo Skytree", "candidate": "OUE Skyspace / US Bank Tower observation deck", "target_city": "los_angeles", "confidence": 0.32, "rank": 3, "reason": "not_found"}
+{"source": "Village Vanguard", "candidate": "Wacko / Soap Plant (La Luz de Jesus)", "target_city": "los_angeles", "confidence": 0.82, "rank": 1, "reason": "not_found"}
+{"source": "Yanaka", "candidate": "South Pasadena (Mission Street & the bungalow blocks)", "target_city": "los_angeles", "confidence": 0.72, "rank": 1, "reason": "not_found"}
+{"source": "Yanaka", "candidate": "Little Tokyo (Higashi Honganji, Fugetsu-Do, Nishi Hongwanji, Evergreen Cemetery nearby)", "target_city": "los_angeles", "confidence": 0.52, "rank": 3, "reason": "not_found"}
+{"source": "Yodobashi Akiba", "candidate": "Micro Center Tustin", "target_city": "los_angeles", "confidence": 0.6, "rank": 1, "reason": "not_found"}

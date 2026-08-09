@@ -8,7 +8,7 @@ from rich.console import Console
 from rich.table import Table
 
 from elsewhere import links, places, seeds, taxonomy
-from elsewhere.taxonomy import REPO_ROOT
+from elsewhere.taxonomy import REPO_ROOT, city_label
 
 # Load .env from the repo root and from pipeline/, without overriding anything
 # already exported — an explicit `ANTHROPIC_API_KEY=... elsewhere ...` should
@@ -480,7 +480,8 @@ def ask_cmd(
         raise typer.Exit(1)
 
     console.print(
-        f"\n[bold]{hit.place.name}[/bold] ({source.title()}) → [bold]{target.title()}[/bold]"
+        f"\n[bold]{hit.place.name}[/bold] ({city_label(source)}) → "
+        f"[bold]{city_label(target)}[/bold]"
     )
     console.print(f"[dim]roles: {', '.join(match.role_tags)}[/dim]\n")
     for i, cand in enumerate(match.candidates, 1):
@@ -592,7 +593,7 @@ def review_cmd(
     added = 0
     for i, match in enumerate(todo, 1):
         console.print(f"\n[dim]─── {i}/{len(todo)} ───[/dim]")
-        console.print(f"[bold]{match.source.name}[/bold] → {target.title()}")
+        console.print(f"[bold]{match.source.name}[/bold] → {city_label(target)}")
         console.print(f"[dim]roles: {', '.join(match.role_tags)}[/dim]")
         for n, cand in enumerate(match.candidates, 1):
             flag = "" if cand.verified is not False else " [yellow](unverified)[/yellow]"

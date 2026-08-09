@@ -1,0 +1,71 @@
+{"source": "Angel City Brewery", "candidate": "Lazarus Brewing Co.", "target_city": "austin", "confidence": 0.55, "rank": 3, "reason": "not_found"}
+{"source": "Angels Flight", "candidate": "Zilker Zephyr (now the Zilker Eagle)", "target_city": "austin", "confidence": 0.62, "rank": 1, "reason": "not_found"}
+{"source": "Boyle Heights", "candidate": "East Cesar Chavez", "target_city": "austin", "confidence": 0.82, "rank": 1, "reason": "not_found"}
+{"source": "Boyle Heights", "candidate": "Montopolis", "target_city": "austin", "confidence": 0.68, "rank": 2, "reason": "not_found"}
+{"source": "Boyle Heights", "candidate": "Dove Springs", "target_city": "austin", "confidence": 0.5, "rank": 3, "reason": "not_found"}
+{"source": "Bronson Canyon", "candidate": "Mount Bonnell", "target_city": "austin", "confidence": 0.45, "rank": 3, "reason": "not_found"}
+{"source": "Central Library", "candidate": "LBJ Presidential Library", "target_city": "austin", "confidence": 0.4, "rank": 3, "reason": "not_found"}
+{"source": "Cinespia", "candidate": "Alamo Drafthouse Rolling Roadshow", "target_city": "austin", "confidence": 0.62, "rank": 1, "reason": "not_found"}
+{"source": "Cinespia", "candidate": "Sound & Cinema at Republic Square", "target_city": "austin", "confidence": 0.5, "rank": 3, "reason": "not_found"}
+{"source": "Downtown LA", "candidate": "Downtown Austin (Warehouse District / Second Street)", "target_city": "austin", "confidence": 0.7, "rank": 2, "reason": "not_found"}
+{"source": "Echo Park", "candidate": "East Cesar Chavez / East Austin", "target_city": "austin", "confidence": 0.88, "rank": 1, "reason": "not_found"}
+{"source": "Egyptian Theatre", "candidate": "Alamo Drafthouse Ritz", "target_city": "austin", "confidence": 0.55, "rank": 3, "reason": "not_found"}
+{"source": "El Matador State Beach", "candidate": "Mount Bonnell", "target_city": "austin", "confidence": 0.78, "rank": 1, "reason": "not_found"}
+{"source": "El Matador State Beach", "candidate": "Hamilton Pool Preserve", "target_city": "austin", "confidence": 0.7, "rank": 2, "reason": "not_found"}
+{"source": "Elysian Park", "candidate": "Mount Bonnell", "target_city": "austin", "confidence": 0.62, "rank": 2, "reason": "not_found"}
+{"source": "Elysian Park", "candidate": "Pease Park", "target_city": "austin", "confidence": 0.45, "rank": 3, "reason": "not_found"}
+{"source": "Equinox West Hollywood", "candidate": "Onnit Gym", "target_city": "austin", "confidence": 0.52, "rank": 3, "reason": "not_found"}
+{"source": "Gold's Gym Venice", "candidate": "Onnit Gym", "target_city": "austin", "confidence": 0.5, "rank": 3, "reason": "not_found"}
+{"source": "Grand Casino Bakery", "candidate": "Buenos Aires Caf\u00e9", "target_city": "austin", "confidence": 0.85, "rank": 1, "reason": "not_found"}
+{"source": "Grand Central Market", "candidate": "Fareground", "target_city": "austin", "confidence": 0.58, "rank": 1, "reason": "not_found"}
+{"source": "Griffith Observatory", "candidate": "Mount Bonnell", "target_city": "austin", "confidence": 0.82, "rank": 1, "reason": "not_found"}
+{"source": "Griffith Park", "candidate": "Mount Bonnell", "target_city": "austin", "confidence": 0.42, "rank": 3, "reason": "not_found"}
+{"source": "Hancock Park", "candidate": "Tarrytown", "target_city": "austin", "confidence": 0.83, "rank": 1, "reason": "not_found"}
+{"source": "Hancock Park", "candidate": "Old Enfield", "target_city": "austin", "confidence": 0.78, "rank": 2, "reason": "not_found"}
+{"source": "Hancock Park", "candidate": "Pemberton Heights", "target_city": "austin", "confidence": 0.62, "rank": 3, "reason": "not_found"}
+{"source": "Highland Park", "candidate": "East Cesar Chavez", "target_city": "austin", "confidence": 0.79, "rank": 1, "reason": "not_found"}
+{"source": "Highland Park", "candidate": "Manor Road", "target_city": "austin", "confidence": 0.45, "rank": 3, "reason": "not_found"}
+{"source": "Hollywood Bowl", "candidate": "ACL Live at the Moody Theater", "target_city": "austin", "confidence": 0.45, "rank": 3, "reason": "not_found"}
+{"source": "Hollywood Sign", "candidate": "Mount Bonnell", "target_city": "austin", "confidence": 0.38, "rank": 3, "reason": "not_found"}
+{"source": "In-N-Out Burger", "candidate": "P. Terry's", "target_city": "austin", "confidence": 0.82, "rank": 1, "reason": "not_found"}
+{"source": "Koreatown", "candidate": "East Riverside", "target_city": "austin", "confidence": 0.42, "rank": 2, "reason": "not_found"}
+{"source": "LA Fitness", "candidate": "YMCA of Austin (Townlake / North Austin branches)", "target_city": "austin", "confidence": 0.72, "rank": 2, "reason": "not_found"}
+{"source": "LA Fitness", "candidate": "Lifetime Fitness (Austin)", "target_city": "austin", "confidence": 0.45, "rank": 3, "reason": "not_found"}
+{"source": "Langer's Delicatessen", "candidate": "Sam's Bar-B-Que", "target_city": "austin", "confidence": 0.55, "rank": 2, "reason": "not_found"}
+{"source": "Leimert Park", "candidate": "East 11th Street (Six Square / Austin's Black Cultural District)", "target_city": "austin", "confidence": 0.62, "rank": 1, "reason": "not_found"}
+{"source": "Leimert Park", "candidate": "Chestnut / Rosewood", "target_city": "austin", "confidence": 0.55, "rank": 2, "reason": "not_found"}
+{"source": "Los Feliz", "candidate": "Travis Heights", "target_city": "austin", "confidence": 0.72, "rank": 1, "reason": "not_found"}
+{"source": "Los Feliz", "candidate": "Hyde Park", "target_city": "austin", "confidence": 0.63, "rank": 2, "reason": "not_found"}
+{"source": "Museum of Jurassic Technology", "candidate": "Museum of Natural & Artificial Ephemerata", "target_city": "austin", "confidence": 0.72, "rank": 1, "reason": "not_found"}
+{"source": "New Beverly Cinema", "candidate": "Alamo Drafthouse Ritz", "target_city": "austin", "confidence": 0.8, "rank": 2, "reason": "not_found"}
+{"source": "Olvera Street", "candidate": "Sixth Street", "target_city": "austin", "confidence": 0.52, "rank": 2, "reason": "not_found"}
+{"source": "Park's BBQ", "candidate": "Uchi", "target_city": "austin", "confidence": 0.45, "rank": 3, "reason": "not_found"}
+{"source": "Pasadena", "candidate": "Georgetown (Downtown Square)", "target_city": "austin", "confidence": 0.6, "rank": 1, "reason": "not_found"}
+{"source": "Pasadena", "candidate": "Hyde Park", "target_city": "austin", "confidence": 0.5, "rank": 2, "reason": "not_found"}
+{"source": "Providence", "candidate": "Uchi", "target_city": "austin", "confidence": 0.83, "rank": 1, "reason": "not_found"}
+{"source": "Ralphs", "candidate": "Albertsons", "target_city": "austin", "confidence": 0.7, "rank": 2, "reason": "not_found"}
+{"source": "Rose Bowl Flea Market", "candidate": "Round Top Antiques Fair", "target_city": "austin", "confidence": 0.66, "rank": 1, "reason": "not_found"}
+{"source": "Runyon Canyon", "candidate": "Mount Bonnell", "target_city": "austin", "confidence": 0.6, "rank": 2, "reason": "not_found"}
+{"source": "San Gabriel Valley", "candidate": "East Riverside / Montopolis", "target_city": "austin", "confidence": 0.33, "rank": 3, "reason": "not_found"}
+{"source": "Santa Monica", "candidate": "Zilker / Barton Hills", "target_city": "austin", "confidence": 0.62, "rank": 1, "reason": "not_found"}
+{"source": "Silver Lake", "candidate": "Travis Heights", "target_city": "austin", "confidence": 0.66, "rank": 2, "reason": "not_found"}
+{"source": "Skylight Books", "candidate": "First Light Book Shop", "target_city": "austin", "confidence": 0.72, "rank": 2, "reason": "not_found"}
+{"source": "Teragram Ballroom", "candidate": "Mohawk", "target_city": "austin", "confidence": 0.82, "rank": 1, "reason": "not_found"}
+{"source": "The Broad", "candidate": "Laguna Gloria", "target_city": "austin", "confidence": 0.42, "rank": 3, "reason": "not_found"}
+{"source": "The Echo", "candidate": "Mohawk", "target_city": "austin", "confidence": 0.82, "rank": 1, "reason": "not_found"}
+{"source": "The Getty Center", "candidate": "Laguna Gloria (The Contemporary Austin)", "target_city": "austin", "confidence": 0.55, "rank": 2, "reason": "not_found"}
+{"source": "The Getty Center", "candidate": "LBJ Presidential Library", "target_city": "austin", "confidence": 0.33, "rank": 3, "reason": "not_found"}
+{"source": "The Greek Theatre", "candidate": "ACL Live at the Moody Theater", "target_city": "austin", "confidence": 0.55, "rank": 3, "reason": "not_found"}
+{"source": "The Troubadour", "candidate": "Antone's", "target_city": "austin", "confidence": 0.8, "rank": 2, "reason": "not_found"}
+{"source": "The Wiltern", "candidate": "ACL Live at the Moody Theater", "target_city": "austin", "confidence": 0.72, "rank": 1, "reason": "not_found"}
+{"source": "Thunderbolt", "candidate": "Drink.Well", "target_city": "austin", "confidence": 0.66, "rank": 2, "reason": "not_found"}
+{"source": "Undefeated", "candidate": "STAG Provisions", "target_city": "austin", "confidence": 0.55, "rank": 3, "reason": "not_found"}
+{"source": "Vallarta Supermarkets", "candidate": "El Rancho Supermercado", "target_city": "austin", "confidence": 0.55, "rank": 3, "reason": "not_found"}
+{"source": "Venice Beach Boardwalk", "candidate": "Sixth Street", "target_city": "austin", "confidence": 0.68, "rank": 2, "reason": "not_found"}
+{"source": "Vidiots", "candidate": "Alamo Drafthouse Ritz", "target_city": "austin", "confidence": 0.6, "rank": 3, "reason": "not_found"}
+{"source": "Vista Theatre", "candidate": "Alamo Drafthouse Ritz", "target_city": "austin", "confidence": 0.63, "rank": 3, "reason": "not_found"}
+{"source": "Vons", "candidate": "Albertsons", "target_city": "austin", "confidence": 0.82, "rank": 2, "reason": "not_found"}
+{"source": "Walt Disney Concert Hall", "candidate": "ACL Live at the Moody Theater", "target_city": "austin", "confidence": 0.45, "rank": 3, "reason": "not_found"}
+{"source": "Watts Towers", "candidate": "Jeremiah the Innocent frog mural (Hi, How Are You)", "target_city": "austin", "confidence": 0.44, "rank": 3, "reason": "not_found"}
+{"source": "Wi Spa", "candidate": "milk + honey", "target_city": "austin", "confidence": 0.25, "rank": 3, "reason": "not_found"}
+{"source": "n/naka", "candidate": "Sushi | Bar Austin", "target_city": "austin", "confidence": 0.74, "rank": 2, "reason": "not_found"}
