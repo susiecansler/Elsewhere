@@ -166,6 +166,10 @@ PAGE = """<!doctype html>
   --dim:    #4A6C78;
   --faint:  #8CA7B1;
   --hair:   #E0EEF2;
+  /* Turquoise, one flat colour, cut deep enough to stay legible on paper:
+     the bright emerald reads at 1.8:1 here, which is decoration rather than
+     text. */
+  --turquoise: #0A8276;
   --pink:   #EF476F;   /* bubblegum-pink — display only, see --pink-deep */
   /* #EF476F is 3.6:1 on white, which fails for anything at body size. This
      is the same hue darkened until small white text on it clears AA, and it
@@ -206,6 +210,7 @@ PAGE = """<!doctype html>
   color-scheme: dark;
   --paper: #073B4C; --panel: #0C4C61; --ink: #EFFAFC; --dim: #A7C5CF;
   --faint: #6F93A1; --hair: #145A70;
+  --turquoise: #19D3BE;   /* brighter cut, for the dark ground */
   --pink: #FF6B8B; --pink-deep: #FF8FA6; --on-pink: #073B4C;
   --gold: #FFD166; --emerald: #06D6A0;
   --accent: #06D6A0; --accent-deep: #06D6A0; --accent-soft: #0E5A6E;
@@ -366,10 +371,51 @@ button.brand:hover { color: var(--dim); }
    Naming a place is the whole product, so on the index it owns the screen:
    the controls sit in the middle of the viewport at full size and the
    header carries nothing but the brand and the theme toggle. */
+/* Step two wears the same field as step one. Yellow while you're choosing,
+   paper while you're reading — two surfaces with a reason, instead of a
+   colour that appears on one screen and vanishes on the next.
+
+   The field goes away once results are on screen (.typing), because a page
+   of reasoning wants a reading surface, not a poster. */
 .stage {
   min-height: calc(100vh - 62px);
   display: flex; flex-direction: column; justify-content: center;
   text-align: center; padding: 24px 24px 150px; gap: 4px;
+  background: #FFD166; color: #07323F; position: relative; overflow: hidden;
+}
+.stage::before, .stage::after {
+  content: ""; position: absolute; border-radius: 50%; pointer-events: none;
+}
+.stage::before { width: 40vw; height: 40vw; right: -13vw; top: -15vw; background: #06D6A0; opacity: .45; }
+.stage::after { width: 22vw; height: 22vw; left: -8vw; bottom: 4vw; background: #EF476F; opacity: .3; }
+.stage .inner, .stage .tryfoot { position: relative; z-index: 1; }
+.stage .ask { color: #07323F; }
+.stage .ask em { color: #0A6E63; }
+.stage #controls .field input {
+  background: #FFFDF7; color: #07323F; box-shadow: 4px 4px 0 rgba(7,50,63,.22);
+}
+.stage #controls .field input::placeholder { color: #6B7F86; }
+.stage #controls .field input:focus { box-shadow: 4px 4px 0 rgba(7,50,63,.4); }
+.stage .peekcity { color: #0E4557; }
+.stage .peekrow, .stage .peekrow b { color: #07323F; }
+/* The rail sits on the field too, so it needs its own footing. */
+.stage .tryfoot { background: none; }
+.stage .tryfoot .q { color: #0E4557; }
+.stage .eg { background: rgba(255,255,255,.62); color: #07323F; }
+.stage .eg:nth-child(3n+2) { background: rgba(255,255,255,.42); color: #07323F; }
+.stage .eg:nth-child(3n+3) { background: rgba(7,50,63,.1); color: #07323F; }
+.stage .eg:hover { background: #07323F; color: #FFD166; }
+
+/* Once there are results, drop the poster and become a page. */
+.stage.typing {
+  background: none; color: inherit; min-height: 0; overflow: visible;
+  padding-bottom: 30px;
+}
+.stage.typing::before, .stage.typing::after { display: none; }
+.stage.typing .ask { color: var(--ink); }
+.stage.typing .ask em { color: var(--turquoise); }
+.stage.typing #controls .field input {
+  background: var(--panel); color: var(--ink); box-shadow: var(--shadow);
 }
 .stage[hidden] { display: none; }
 /* Typing state: nothing above the box is allowed to change size, so the box
@@ -384,11 +430,9 @@ button.brand:hover { color: var(--dim); }
   font-size: 46px; line-height: 1.06; letter-spacing: -0.045em; font-weight: 800;
   margin: 0 0 30px;
 }
-.pitch em, .sub em {
-  font-style: normal;
-  background: linear-gradient(100deg, var(--accent), var(--pink));
-  -webkit-background-clip: text; background-clip: text; color: transparent;
-}
+/* Same reasoning as .ask em — one flat colour. The setup screen overrides
+   both of these anyway; this is the fallback. */
+.pitch em, .sub em { font-style: normal; color: var(--turquoise); }
 /* In the hero the controls are the hero: big type, generous target. */
 .stage #controls { justify-content: center; flex: 0 1 auto; }
 .stage #controls .citybtn { font-size: 20px; padding: 20px 26px; }
@@ -703,11 +747,9 @@ summary:hover { color: var(--dim); }
   font-size: clamp(30px, 4.6vw, 58px); letter-spacing: -0.025em;
   line-height: 1.05; margin: 0 0 40px; text-wrap: balance;
 }
-.ask em {
-  font-style: normal;
-  background: linear-gradient(100deg, var(--accent), var(--pink));
-  -webkit-background-clip: text; background-clip: text; color: transparent;
-}
+/* Flat, not a gradient. A colour ramp across four letters reads as an
+   effect applied to the word rather than as the word being the point. */
+.ask em { font-style: normal; color: var(--turquoise); }
 /* The pair you chose, always visible and always one click from changing. */
 #pairbtn { font-weight: 650; }
 

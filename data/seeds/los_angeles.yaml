@@ -1,0 +1,389 @@
+# Los Angeles seed corpus — named institutions locals would miss.
+#
+# Curated by hand, same rules as the other cities: these are the *queries* —
+# the places someone leaving LA would want an equivalent for, and the ones a
+# visitor would be told to go to by a local rather than by a guidebook.
+#
+# Two LA-specific judgement calls:
+#
+# 1. The county is enormous and its institutions are neighbourhood-bound. A
+#    list of only Westside or only Eastside places would answer for a city
+#    nobody lives in, so this spans the basin — Santa Monica to Pasadena,
+#    the Valley to South LA.
+#
+# 2. Chains are included where the chain *is* the institution, which is the
+#    same rule that puts H-E-B in the Austin list. In-N-Out is not a burger
+#    chain here in the way it is elsewhere.
+
+city: los_angeles
+places:
+  # ─── Grocery & food retail ──────────────────────────────────────────
+  - name: Erewhon
+    category: grocery
+    aliases: [erewhon market, erehwon]
+  - name: Vons
+    category: grocery
+    aliases: [vons market]
+  - name: Ralphs
+    category: grocery
+    aliases: [ralphs grocery]
+  - name: Smart & Final
+    category: grocery
+    aliases: [smart and final, "smart n final"]
+  - name: Super King Markets
+    category: grocery
+    aliases: [super king, superking]
+  - name: Vallarta Supermarkets
+    category: grocery
+    aliases: [vallarta]
+  - name: H Mart Koreatown
+    category: grocery
+    aliases: [h mart, hmart ktown]
+  - name: Grand Central Market
+    category: farmers
+    aliases: [gcm, grand central market dtla]
+  - name: Santa Monica Farmers Market
+    category: farmers
+    aliases: [smfm, wednesday market, santa monica farmers market]
+  - name: Hollywood Farmers Market
+    category: farmers
+    aliases: [hollywood market]
+  - name: Bristol Farms
+    category: grocery
+    aliases: [bristol]
+  - name: Cookbook
+    category: grocery
+    aliases: [cookbook market, cookbook la]
+
+  # ─── Restaurants ────────────────────────────────────────────────────
+  - name: In-N-Out Burger
+    category: restaurant
+    aliases: [in n out, innout, "in-n-out", double double]
+  - name: Langer's Delicatessen
+    category: restaurant
+    aliases: [langers, "langer's", "#19", pastrami]
+  - name: Philippe the Original
+    category: restaurant
+    aliases: [philippes, french dip, "philippe's"]
+  - name: Guelaguetza
+    category: restaurant
+    aliases: [guela, oaxacan, mole]
+  - name: Sqirl
+    category: restaurant
+    aliases: [squirl, sqirl la]
+  - name: Republique
+    category: restaurant
+    aliases: ["république", republique la]
+  - name: Bestia
+    category: restaurant
+    aliases: [bestia dtla]
+  - name: Providence
+    category: restaurant_fine
+    aliases: [providence la]
+  - name: n/naka
+    category: restaurant_fine
+    aliases: [nnaka, "n naka"]
+  - name: Mariscos Jalisco
+    category: restaurant
+    aliases: [mariscos jalisco truck, shrimp taco]
+  - name: Leo's Tacos Truck
+    category: restaurant
+    aliases: [leos tacos, "leo's tacos", al pastor truck]
+  - name: Howlin' Ray's
+    category: restaurant
+    aliases: [howlin rays, "howlin' rays", hot chicken]
+  - name: Grand Central Market Sarita's Pupuseria
+    category: restaurant
+    aliases: [saritas, pupusas]
+  - name: Yuca's
+    category: restaurant
+    aliases: [yucas, yuca's hut]
+  - name: Din Tai Fung Arcadia
+    category: restaurant
+    aliases: [din tai fung, dtf]
+  - name: Jitlada
+    category: restaurant
+    aliases: [jitlada thai]
+  - name: Park's BBQ
+    category: restaurant
+    aliases: [parks bbq, "park's barbeque", korean bbq]
+  - name: Zankou Chicken
+    category: restaurant
+    aliases: [zankou, garlic sauce]
+  - name: Pink's Hot Dogs
+    category: restaurant
+    aliases: [pinks, "pink's"]
+  - name: Canter's Deli
+    category: restaurant
+    aliases: [canters, "canter's", kibitz room]
+  - name: Grand Casino Bakery
+    category: dessert
+    aliases: [grand casino, alfajores]
+  - name: Salt & Straw Larchmont
+    category: dessert
+    aliases: [salt and straw la]
+  - name: Fosselman's Ice Cream
+    category: dessert
+    aliases: [fosselmans, "fosselman's"]
+  - name: Porto's Bakery
+    category: dessert
+    aliases: [portos, "porto's", potato ball, cheese roll]
+
+  # ─── Bars & nightlife ───────────────────────────────────────────────
+  - name: The Prince
+    category: bar
+    aliases: [prince koreatown, the prince ktown]
+  - name: Tiki-Ti
+    category: bar
+    aliases: [tiki ti, tikiti]
+  - name: Frolic Room
+    category: bar
+    aliases: [frolic]
+  - name: HMS Bounty
+    category: bar
+    aliases: [hms bounty ktown, the bounty]
+  - name: Bar Bandini
+    category: bar
+    aliases: [bandini]
+  - name: Thunderbolt
+    category: bar
+    aliases: [thunderbolt echo park]
+  - name: Highland Park Brewery
+    category: brewery
+    aliases: [hpb, highland park brewing]
+  - name: Angel City Brewery
+    category: brewery
+    aliases: [angel city]
+  - name: Golden Road Brewing
+    category: brewery
+    aliases: [golden road]
+  - name: The Roger Room
+    category: bar
+    aliases: [roger room]
+  - name: Employees Only West Hollywood
+    category: bar
+    aliases: [employees only la]
+
+  # ─── Music & venues ─────────────────────────────────────────────────
+  - name: The Troubadour
+    category: music
+    aliases: [troubadour, troub]
+  - name: The Echo
+    category: music
+    aliases: [echo, echoplex, the echoplex]
+  - name: Hollywood Bowl
+    category: music
+    aliases: [the bowl, hollywood bowl la]
+  - name: Walt Disney Concert Hall
+    category: music
+    aliases: [disney hall, disney concert hall]
+  - name: The Greek Theatre
+    category: music
+    aliases: [greek theatre, the greek]
+  - name: Zebulon
+    category: music
+    aliases: [zebulon cafe]
+  - name: The Wiltern
+    category: music
+    aliases: [wiltern]
+  - name: Teragram Ballroom
+    category: music
+    aliases: [teragram]
+
+  # ─── Coffee ─────────────────────────────────────────────────────────
+  - name: Gjusta
+    category: coffee
+    aliases: [gjusta venice]
+  - name: Go Get Em Tiger
+    category: coffee
+    aliases: [gget, "go get 'em tiger"]
+  - name: Bar Nine
+    category: coffee
+    aliases: [bar 9]
+  - name: Dinosaur Coffee
+    category: coffee
+    aliases: [dinosaur]
+  - name: Cafe Tropical
+    category: coffee
+    aliases: [tropical, café tropical]
+  - name: Philz Coffee
+    category: coffee
+    aliases: [philz, mint mojito]
+  - name: The Coffee Bean & Tea Leaf
+    category: coffee
+    aliases: [coffee bean, cbtl]
+
+  # ─── Books, records, shops ──────────────────────────────────────────
+  - name: The Last Bookstore
+    category: retail_books
+    aliases: [last bookstore, tlb]
+  - name: Skylight Books
+    category: retail_books
+    aliases: [skylight]
+  - name: Vroman's Bookstore
+    category: retail_books
+    aliases: [vromans, "vroman's"]
+  - name: Amoeba Music
+    category: retail_music
+    aliases: [amoeba, amoeba hollywood]
+  - name: Permanent Records Roadhouse
+    category: retail_music
+    aliases: [permanent records]
+  - name: Rose Bowl Flea Market
+    category: retail
+    aliases: [rose bowl flea, the flea]
+  - name: Melrose Trading Post
+    category: retail
+    aliases: [melrose flea, fairfax flea]
+  - name: Wasteland
+    category: retail
+    aliases: [wasteland melrose]
+  - name: Undefeated
+    category: retail
+    aliases: [undftd]
+  - name: Santee Alley
+    category: retail
+    aliases: [the alley, fashion district alley]
+  - name: Olvera Street
+    category: retail
+    aliases: [olvera, la placita olvera]
+
+  # ─── Fitness & everyday ─────────────────────────────────────────────
+  - name: Runyon Canyon
+    category: outdoor
+    aliases: [runyon]
+  - name: Equinox West Hollywood
+    category: gym
+    aliases: [equinox weho, equinox la]
+  - name: Gold's Gym Venice
+    category: gym
+    aliases: [golds gym venice, "gold's venice", the mecca]
+  - name: LA Fitness
+    category: gym
+    aliases: [la fitness club]
+  - name: Barry's Bootcamp West Hollywood
+    category: gym
+    aliases: [barrys, "barry's"]
+  - name: Wi Spa
+    category: gym
+    aliases: [wi spa ktown, korean spa]
+
+  # ─── Parks, outdoors, landmarks ─────────────────────────────────────
+  - name: Griffith Park
+    category: park
+    aliases: [griffith]
+  - name: Griffith Observatory
+    category: landmark
+    aliases: [observatory, griffith observatory la]
+  - name: Echo Park Lake
+    category: park
+    aliases: [echo park lake swan boats]
+  - name: Elysian Park
+    category: park
+    aliases: [elysian]
+  - name: Venice Beach Boardwalk
+    category: outdoor
+    aliases: [venice boardwalk, the boardwalk]
+  - name: El Matador State Beach
+    category: outdoor
+    aliases: [el matador, matador beach]
+  - name: Angels Flight
+    category: landmark
+    aliases: [angels flight railway]
+  - name: The Broad
+    category: museum
+    aliases: [broad museum, the broad dtla]
+  - name: Watts Towers
+    category: landmark
+    aliases: [watts towers of simon rodia]
+  - name: Hollywood Sign
+    category: landmark
+    aliases: [the sign]
+  - name: Bronson Canyon
+    category: outdoor
+    aliases: [bronson caves, batcave]
+  - name: Kenneth Hahn State Recreation Area
+    category: park
+    aliases: [kenneth hahn, baldwin hills park]
+
+  # ─── Culture ────────────────────────────────────────────────────────
+  - name: LACMA
+    category: museum
+    aliases: [los angeles county museum of art, urban light]
+  - name: The Getty Center
+    category: museum
+    aliases: [getty, getty center]
+  - name: The Huntington
+    category: museum
+    aliases: [huntington library, huntington gardens]
+  - name: Museum of Jurassic Technology
+    category: museum
+    aliases: [mjt, jurassic technology]
+  - name: Hammer Museum
+    category: museum
+    aliases: [hammer]
+  - name: New Beverly Cinema
+    category: cinema
+    aliases: [new bev, the new beverly]
+  - name: Vidiots
+    category: cinema
+    aliases: [vidiots eagle rock]
+  - name: Cinespia
+    category: cinema
+    aliases: [hollywood forever cemetery screenings, cinespia screenings]
+  - name: Vista Theatre
+    category: cinema
+    aliases: [the vista]
+  - name: Egyptian Theatre
+    category: cinema
+    aliases: [the egyptian]
+  - name: Central Library
+    category: library
+    aliases: [la central library, richard riordan central library]
+  - name: The Music Center
+    category: theater
+    aliases: [dorothy chandler pavilion, ahmanson]
+
+  # ─── Neighborhoods & districts ──────────────────────────────────────
+  - name: Silver Lake
+    category: neighborhood
+    aliases: [silverlake]
+  - name: Highland Park
+    category: neighborhood
+    aliases: [hlp, york blvd]
+  - name: Koreatown
+    category: neighborhood
+    aliases: [ktown, k-town]
+  - name: Venice
+    category: neighborhood
+    aliases: [venice beach, abbot kinney]
+  - name: Boyle Heights
+    category: neighborhood
+    aliases: [boyle hts]
+  - name: Los Feliz
+    category: neighborhood
+    aliases: [losfeliz]
+  - name: Echo Park
+    category: neighborhood
+    aliases: [echo pk]
+  - name: Downtown LA
+    category: neighborhood
+    aliases: [dtla, downtown los angeles]
+  - name: Pasadena
+    category: neighborhood
+    aliases: [old town pasadena]
+  - name: Santa Monica
+    category: neighborhood
+    aliases: [smo]
+  - name: Leimert Park
+    category: neighborhood
+    aliases: [leimert]
+  - name: San Gabriel Valley
+    category: neighborhood
+    aliases: [sgv, the valley sgv]
+  - name: Hancock Park
+    category: neighborhood
+    aliases: [hancock pk]
+  - name: Arts District
+    category: neighborhood
+    aliases: [dtla arts district]

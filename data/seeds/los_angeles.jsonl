@@ -1,0 +1,117 @@
+{"name":"Erewhon","city":"los_angeles","category":"grocery","aliases":["erewhon market","erehwon"],"fsq_place_id":"47da6acb-e7ca-4174-abf5-ad07fecf57d0","notes":null}
+{"name":"Vons","city":"los_angeles","category":"grocery","aliases":["vons market"],"fsq_place_id":"0d56a3c8-932e-42db-8940-9773b98c1b2f","notes":null}
+{"name":"Ralphs","city":"los_angeles","category":"grocery","aliases":["ralphs grocery"],"fsq_place_id":"7d5f97e5-8380-43be-a98d-0549abb6e536","notes":null}
+{"name":"Smart & Final","city":"los_angeles","category":"grocery","aliases":["smart and final","smart n final"],"fsq_place_id":"21d8564e-e1a6-4290-9e80-865020f2c476","notes":null}
+{"name":"Super King Markets","city":"los_angeles","category":"grocery","aliases":["super king","superking"],"fsq_place_id":"b6a11191-59bc-4427-8688-264112906e96","notes":null}
+{"name":"Vallarta Supermarkets","city":"los_angeles","category":"grocery","aliases":["vallarta"],"fsq_place_id":"487eff0f-2b7d-43f1-b860-d16a90e85e3c","notes":null}
+{"name":"H Mart Koreatown","city":"los_angeles","category":"grocery","aliases":["h mart","hmart ktown"],"fsq_place_id":null,"notes":null}
+{"name":"Grand Central Market","city":"los_angeles","category":"farmers","aliases":["gcm","grand central market dtla"],"fsq_place_id":"6ab55322-c981-4937-b9df-a190f1793d82","notes":null}
+{"name":"Santa Monica Farmers Market","city":"los_angeles","category":"farmers","aliases":["smfm","wednesday market","santa monica farmers market"],"fsq_place_id":"16455534-eba4-437f-ae8e-af61335a068a","notes":null}
+{"name":"Hollywood Farmers Market","city":"los_angeles","category":"farmers","aliases":["hollywood market"],"fsq_place_id":"42d20bbd-5393-4774-808a-e71c9906a94f","notes":null}
+{"name":"Bristol Farms","city":"los_angeles","category":"grocery","aliases":["bristol"],"fsq_place_id":"b3958ee8-a593-4a15-b724-3ffe5460f092","notes":null}
+{"name":"Cookbook","city":"los_angeles","category":"grocery","aliases":["cookbook market","cookbook la"],"fsq_place_id":"bf3a8385-2735-4c23-b998-7ee41a169e05","notes":null}
+{"name":"In-N-Out Burger","city":"los_angeles","category":"restaurant","aliases":["in n out","innout","in-n-out","double double"],"fsq_place_id":"583ca590-0015-432a-a214-d8be0c3ec02e","notes":null}
+{"name":"Langer's Delicatessen","city":"los_angeles","category":"restaurant","aliases":["langers","langer's","#19","pastrami"],"fsq_place_id":null,"notes":null}
+{"name":"Philippe the Original","city":"los_angeles","category":"restaurant","aliases":["philippes","french dip","philippe's"],"fsq_place_id":"cb2da762-274b-4ab5-9f19-1587f24c074c","notes":null}
+{"name":"Guelaguetza","city":"los_angeles","category":"restaurant","aliases":["guela","oaxacan","mole"],"fsq_place_id":"10a7824d-cafa-40f8-ba8f-ab14a4595768","notes":null}
+{"name":"Sqirl","city":"los_angeles","category":"restaurant","aliases":["squirl","sqirl la"],"fsq_place_id":"9f80a6e9-3639-4703-bc19-ac08b7ebb878","notes":null}
+{"name":"Republique","city":"los_angeles","category":"restaurant","aliases":["république","republique la"],"fsq_place_id":null,"notes":null}
+{"name":"Bestia","city":"los_angeles","category":"restaurant","aliases":["bestia dtla"],"fsq_place_id":"31290d8c-d6f0-46e0-817e-59f4a26cffc6","notes":null}
+{"name":"Providence","city":"los_angeles","category":"restaurant_fine","aliases":["providence la"],"fsq_place_id":"b25bfea6-6ec0-4571-8555-7cea8cd58c43","notes":null}
+{"name":"n/naka","city":"los_angeles","category":"restaurant_fine","aliases":["nnaka","n naka"],"fsq_place_id":"504e2d39-b20c-4745-b915-3e5d9e426b95","notes":null}
+{"name":"Mariscos Jalisco","city":"los_angeles","category":"restaurant","aliases":["mariscos jalisco truck","shrimp taco"],"fsq_place_id":"e69c53a7-cb3a-4ae7-a4af-3d984aca0415","notes":null}
+{"name":"Leo's Tacos Truck","city":"los_angeles","category":"restaurant","aliases":["leos tacos","leo's tacos","al pastor truck"],"fsq_place_id":"d500493a-4d63-44f3-b801-3ddcd9c2841d","notes":null}
+{"name":"Howlin' Ray's","city":"los_angeles","category":"restaurant","aliases":["howlin rays","howlin' rays","hot chicken"],"fsq_place_id":"40f25582-4e43-4de4-83a6-d7d98690f326","notes":null}
+{"name":"Grand Central Market Sarita's Pupuseria","city":"los_angeles","category":"restaurant","aliases":["saritas","pupusas"],"fsq_place_id":"6ab55322-c981-4937-b9df-a190f1793d82","notes":null}
+{"name":"Yuca's","city":"los_angeles","category":"restaurant","aliases":["yucas","yuca's hut"],"fsq_place_id":"66da3e3b-aeac-41da-b24d-fd017b405580","notes":null}
+{"name":"Din Tai Fung Arcadia","city":"los_angeles","category":"restaurant","aliases":["din tai fung","dtf"],"fsq_place_id":"665cdbab-18a3-4d7a-9781-5ca88b95177c","notes":null}
+{"name":"Jitlada","city":"los_angeles","category":"restaurant","aliases":["jitlada thai"],"fsq_place_id":null,"notes":null}
+{"name":"Park's BBQ","city":"los_angeles","category":"restaurant","aliases":["parks bbq","park's barbeque","korean bbq"],"fsq_place_id":"58718883-3035-499b-a980-308ff34ea968","notes":null}
+{"name":"Zankou Chicken","city":"los_angeles","category":"restaurant","aliases":["zankou","garlic sauce"],"fsq_place_id":"0ce50a9f-28da-431c-986a-4ec32ea6acf4","notes":null}
+{"name":"Pink's Hot Dogs","city":"los_angeles","category":"restaurant","aliases":["pinks","pink's"],"fsq_place_id":"ec2ea0a4-bb5b-4c06-aa52-26e07307b4d6","notes":null}
+{"name":"Canter's Deli","city":"los_angeles","category":"restaurant","aliases":["canters","canter's","kibitz room"],"fsq_place_id":"a2390a52-1d97-43c6-be91-36c7d9d025e1","notes":null}
+{"name":"Grand Casino Bakery","city":"los_angeles","category":"dessert","aliases":["grand casino","alfajores"],"fsq_place_id":null,"notes":null}
+{"name":"Salt & Straw Larchmont","city":"los_angeles","category":"dessert","aliases":["salt and straw la"],"fsq_place_id":"c59e6dc8-db2d-401f-aac0-2fd987eb6ce7","notes":null}
+{"name":"Fosselman's Ice Cream","city":"los_angeles","category":"dessert","aliases":["fosselmans","fosselman's"],"fsq_place_id":"f4e30caa-d49d-48ca-a3c1-cdfee132eb3d","notes":null}
+{"name":"Porto's Bakery","city":"los_angeles","category":"dessert","aliases":["portos","porto's","potato ball","cheese roll"],"fsq_place_id":null,"notes":null}
+{"name":"The Prince","city":"los_angeles","category":"bar","aliases":["prince koreatown","the prince ktown"],"fsq_place_id":"289623c6-7de6-461f-aca7-a1120a552a08","notes":null}
+{"name":"Tiki-Ti","city":"los_angeles","category":"bar","aliases":["tiki ti","tikiti"],"fsq_place_id":"9d73ba3a-5119-4abf-b47f-0efce268b315","notes":null}
+{"name":"Frolic Room","city":"los_angeles","category":"bar","aliases":["frolic"],"fsq_place_id":"29f40f5a-a10e-4d77-963f-623c0964d90a","notes":null}
+{"name":"HMS Bounty","city":"los_angeles","category":"bar","aliases":["hms bounty ktown","the bounty"],"fsq_place_id":"5c743242-c92b-466a-8807-65924ddc6475","notes":null}
+{"name":"Bar Bandini","city":"los_angeles","category":"bar","aliases":["bandini"],"fsq_place_id":"b863db7c-3dad-4638-a323-9c4928fbae1b","notes":null}
+{"name":"Thunderbolt","city":"los_angeles","category":"bar","aliases":["thunderbolt echo park"],"fsq_place_id":"b3fa797e-1832-4ef0-95b2-faccd1900f43","notes":null}
+{"name":"Highland Park Brewery","city":"los_angeles","category":"brewery","aliases":["hpb","highland park brewing"],"fsq_place_id":"6054f8d1-3d1a-4b00-b84e-19e28828ec71","notes":null}
+{"name":"Angel City Brewery","city":"los_angeles","category":"brewery","aliases":["angel city"],"fsq_place_id":"e2d22bdd-39bd-4c1c-b04b-e1b2a9dc6d2e","notes":null}
+{"name":"Golden Road Brewing","city":"los_angeles","category":"brewery","aliases":["golden road"],"fsq_place_id":"8abef627-0815-4afe-b6d5-a51c92a8e9cc","notes":null}
+{"name":"The Roger Room","city":"los_angeles","category":"bar","aliases":["roger room"],"fsq_place_id":"d9f08bcb-e2c4-429b-98d3-2c2c3f38751d","notes":null}
+{"name":"Employees Only West Hollywood","city":"los_angeles","category":"bar","aliases":["employees only la"],"fsq_place_id":null,"notes":null}
+{"name":"The Troubadour","city":"los_angeles","category":"music","aliases":["troubadour","troub"],"fsq_place_id":"2a77d7d4-d0ca-4182-98e4-b1b2087a5a6a","notes":null}
+{"name":"The Echo","city":"los_angeles","category":"music","aliases":["echo","echoplex","the echoplex"],"fsq_place_id":"22e19b17-a0d7-4a6b-a2f5-a4eadfce879c","notes":null}
+{"name":"Hollywood Bowl","city":"los_angeles","category":"music","aliases":["the bowl","hollywood bowl la"],"fsq_place_id":"a9ddc0e7-3d27-4f61-bb6e-2bf8ba25853c","notes":null}
+{"name":"Walt Disney Concert Hall","city":"los_angeles","category":"music","aliases":["disney hall","disney concert hall"],"fsq_place_id":"8a12818c-60bd-4486-b3fc-be37aefb2d08","notes":null}
+{"name":"The Greek Theatre","city":"los_angeles","category":"music","aliases":["greek theatre","the greek"],"fsq_place_id":"a2a6c9d5-34b0-4be5-bd06-652a4246205c","notes":null}
+{"name":"Zebulon","city":"los_angeles","category":"music","aliases":["zebulon cafe"],"fsq_place_id":"a8e5ed08-11e3-40e2-ac92-5b03ced9b746","notes":null}
+{"name":"The Wiltern","city":"los_angeles","category":"music","aliases":["wiltern"],"fsq_place_id":"29bc0f4b-d1e1-4328-988e-8417ac45ed15","notes":null}
+{"name":"Teragram Ballroom","city":"los_angeles","category":"music","aliases":["teragram"],"fsq_place_id":"1f4310a0-a6a4-48c5-acaf-d3bc3e9764da","notes":null}
+{"name":"Gjusta","city":"los_angeles","category":"coffee","aliases":["gjusta venice"],"fsq_place_id":"b8a336f7-1cce-40e3-bd5e-a02fc3b47132","notes":null}
+{"name":"Go Get Em Tiger","city":"los_angeles","category":"coffee","aliases":["gget","go get 'em tiger"],"fsq_place_id":"11d5e315-8356-4d2c-bfa7-2efa2260e014","notes":null}
+{"name":"Bar Nine","city":"los_angeles","category":"coffee","aliases":["bar 9"],"fsq_place_id":"6ace81c1-b6d5-465b-a888-675ef157f686","notes":null}
+{"name":"Dinosaur Coffee","city":"los_angeles","category":"coffee","aliases":["dinosaur"],"fsq_place_id":"e08d0ef2-3277-4b62-ad07-1421d9b5cbdc","notes":null}
+{"name":"Cafe Tropical","city":"los_angeles","category":"coffee","aliases":["tropical","café tropical"],"fsq_place_id":"945c0ac4-f3e4-4654-8401-e55fded9934f","notes":null}
+{"name":"Philz Coffee","city":"los_angeles","category":"coffee","aliases":["philz","mint mojito"],"fsq_place_id":"aa88fb31-5cc1-4d93-9ace-3c819d3fbd4b","notes":null}
+{"name":"The Coffee Bean & Tea Leaf","city":"los_angeles","category":"coffee","aliases":["coffee bean","cbtl"],"fsq_place_id":"d7d2061a-d0bf-4b22-91a2-4f99c56cb519","notes":null}
+{"name":"The Last Bookstore","city":"los_angeles","category":"retail_books","aliases":["last bookstore","tlb"],"fsq_place_id":"1fc00a43-d7c2-472e-a613-179df6ef62dc","notes":null}
+{"name":"Skylight Books","city":"los_angeles","category":"retail_books","aliases":["skylight"],"fsq_place_id":"2dbb1760-1cdb-4805-9bbf-a054621c30f7","notes":null}
+{"name":"Vroman's Bookstore","city":"los_angeles","category":"retail_books","aliases":["vromans","vroman's"],"fsq_place_id":"1369aa5c-da9f-41c8-9c96-5cfe6625d289","notes":null}
+{"name":"Amoeba Music","city":"los_angeles","category":"retail_music","aliases":["amoeba","amoeba hollywood"],"fsq_place_id":"6fc2f467-367f-4fa9-aa94-19ee2b2bdea4","notes":null}
+{"name":"Permanent Records Roadhouse","city":"los_angeles","category":"retail_music","aliases":["permanent records"],"fsq_place_id":"59382157-109a-4b7e-984b-b41d566f1404","notes":null}
+{"name":"Rose Bowl Flea Market","city":"los_angeles","category":"retail","aliases":["rose bowl flea","the flea"],"fsq_place_id":"4b0981c8-b0f2-4250-98b8-5fae02bffc42","notes":null}
+{"name":"Melrose Trading Post","city":"los_angeles","category":"retail","aliases":["melrose flea","fairfax flea"],"fsq_place_id":"893032a7-aa4d-4827-a14a-e1d4450b1aeb","notes":null}
+{"name":"Wasteland","city":"los_angeles","category":"retail","aliases":["wasteland melrose"],"fsq_place_id":"418f3d06-ede9-4798-a359-6467865a32c0","notes":null}
+{"name":"Undefeated","city":"los_angeles","category":"retail","aliases":["undftd"],"fsq_place_id":"4d68b445-fd62-4d4f-a011-0c45f9c51091","notes":null}
+{"name":"Santee Alley","city":"los_angeles","category":"retail","aliases":["the alley","fashion district alley"],"fsq_place_id":"f74410b0-9bfb-402e-89b9-793e2912f38c","notes":null}
+{"name":"Olvera Street","city":"los_angeles","category":"retail","aliases":["olvera","la placita olvera"],"fsq_place_id":"5a1d1fa6-70b1-408a-b843-00d590286b04","notes":null}
+{"name":"Runyon Canyon","city":"los_angeles","category":"outdoor","aliases":["runyon"],"fsq_place_id":"d00dcd48-edb9-46ee-80e5-29d998d8dafa","notes":null}
+{"name":"Equinox West Hollywood","city":"los_angeles","category":"gym","aliases":["equinox weho","equinox la"],"fsq_place_id":"19be1644-4d4e-4b6e-977a-073488d549b5","notes":null}
+{"name":"Gold's Gym Venice","city":"los_angeles","category":"gym","aliases":["golds gym venice","gold's venice","the mecca"],"fsq_place_id":"768d666c-83a7-4dc5-b79b-0335953b561f","notes":null}
+{"name":"LA Fitness","city":"los_angeles","category":"gym","aliases":["la fitness club"],"fsq_place_id":"bcea2d60-bb4b-483d-a896-3d3830804c8d","notes":null}
+{"name":"Barry's Bootcamp West Hollywood","city":"los_angeles","category":"gym","aliases":["barrys","barry's"],"fsq_place_id":"d1f864a3-a204-4772-9f97-c4e8129fe616","notes":null}
+{"name":"Wi Spa","city":"los_angeles","category":"gym","aliases":["wi spa ktown","korean spa"],"fsq_place_id":"032d308f-d71d-412a-8850-32aa32a41a82","notes":null}
+{"name":"Griffith Park","city":"los_angeles","category":"park","aliases":["griffith"],"fsq_place_id":"dc6d9fdf-a0bb-4586-a856-774833fdcdc9","notes":null}
+{"name":"Griffith Observatory","city":"los_angeles","category":"landmark","aliases":["observatory","griffith observatory la"],"fsq_place_id":"bf06b83c-9d72-469d-a948-e1df01437bda","notes":null}
+{"name":"Echo Park Lake","city":"los_angeles","category":"park","aliases":["echo park lake swan boats"],"fsq_place_id":"26adf0d2-f25a-48b4-aced-541e30f619e5","notes":null}
+{"name":"Elysian Park","city":"los_angeles","category":"park","aliases":["elysian"],"fsq_place_id":"b1b39d95-9aff-4dfb-a2fa-1b2acd08cd58","notes":null}
+{"name":"Venice Beach Boardwalk","city":"los_angeles","category":"outdoor","aliases":["venice boardwalk","the boardwalk"],"fsq_place_id":"bf7c998c-8df4-4766-8c07-c1ce7e85b4c7","notes":null}
+{"name":"El Matador State Beach","city":"los_angeles","category":"outdoor","aliases":["el matador","matador beach"],"fsq_place_id":"d467d0d9-246a-41b4-92f7-394554afcad4","notes":null}
+{"name":"Angels Flight","city":"los_angeles","category":"landmark","aliases":["angels flight railway"],"fsq_place_id":"9e82269d-60a7-4c00-82cd-9901caccca4c","notes":null}
+{"name":"The Broad","city":"los_angeles","category":"museum","aliases":["broad museum","the broad dtla"],"fsq_place_id":"2b77bd7b-807b-497e-a681-c7d0f949a5e9","notes":null}
+{"name":"Watts Towers","city":"los_angeles","category":"landmark","aliases":["watts towers of simon rodia"],"fsq_place_id":null,"notes":null}
+{"name":"Hollywood Sign","city":"los_angeles","category":"landmark","aliases":["the sign"],"fsq_place_id":"f973cde4-af57-4d8c-bb65-cd567903b7bc","notes":null}
+{"name":"Bronson Canyon","city":"los_angeles","category":"outdoor","aliases":["bronson caves","batcave"],"fsq_place_id":"77dd1404-728b-456a-9e7a-fd908211548e","notes":null}
+{"name":"Kenneth Hahn State Recreation Area","city":"los_angeles","category":"park","aliases":["kenneth hahn","baldwin hills park"],"fsq_place_id":"889a5ba1-4706-4fce-b455-4f26039bd8f2","notes":null}
+{"name":"LACMA","city":"los_angeles","category":"museum","aliases":["los angeles county museum of art","urban light"],"fsq_place_id":"9cf1e8a4-efbe-43c3-b7f1-e7751d729215","notes":null}
+{"name":"The Getty Center","city":"los_angeles","category":"museum","aliases":["getty","getty center"],"fsq_place_id":"91b2cb0a-82ec-4edc-aba0-8ee15f34d064","notes":null}
+{"name":"The Huntington","city":"los_angeles","category":"museum","aliases":["huntington library","huntington gardens"],"fsq_place_id":null,"notes":null}
+{"name":"Museum of Jurassic Technology","city":"los_angeles","category":"museum","aliases":["mjt","jurassic technology"],"fsq_place_id":"9c27cb43-ae9f-4c1f-bf9a-d2f71713053f","notes":null}
+{"name":"Hammer Museum","city":"los_angeles","category":"museum","aliases":["hammer"],"fsq_place_id":"9b81a31d-5830-4f31-980c-34594d20676b","notes":null}
+{"name":"New Beverly Cinema","city":"los_angeles","category":"cinema","aliases":["new bev","the new beverly"],"fsq_place_id":"49a93d76-56b7-4759-af06-369f92be3f52","notes":null}
+{"name":"Vidiots","city":"los_angeles","category":"cinema","aliases":["vidiots eagle rock"],"fsq_place_id":"e23ebc16-b347-45de-889c-4e6bbcb693a1","notes":null}
+{"name":"Cinespia","city":"los_angeles","category":"cinema","aliases":["hollywood forever cemetery screenings","cinespia screenings"],"fsq_place_id":"7f544a56-f206-40ba-813c-537eb44cf107","notes":null}
+{"name":"Vista Theatre","city":"los_angeles","category":"cinema","aliases":["the vista"],"fsq_place_id":"73793f7a-7eca-4339-8d44-6f5b20591961","notes":null}
+{"name":"Egyptian Theatre","city":"los_angeles","category":"cinema","aliases":["the egyptian"],"fsq_place_id":null,"notes":null}
+{"name":"Central Library","city":"los_angeles","category":"library","aliases":["la central library","richard riordan central library"],"fsq_place_id":"e67ead73-49df-4efd-a65a-ca9889d47ae8","notes":null}
+{"name":"The Music Center","city":"los_angeles","category":"theater","aliases":["dorothy chandler pavilion","ahmanson"],"fsq_place_id":"91b58b45-f80a-4720-abfa-c1a2ae7e034a","notes":null}
+{"name":"Silver Lake","city":"los_angeles","category":"neighborhood","aliases":["silverlake"],"fsq_place_id":"f4f0cb6c-3b3b-46e1-93a5-d647b1e0678a","notes":null}
+{"name":"Highland Park","city":"los_angeles","category":"neighborhood","aliases":["hlp","york blvd"],"fsq_place_id":"05fd1b98-3817-46e5-baf2-b5fcbab9a936","notes":null}
+{"name":"Koreatown","city":"los_angeles","category":"neighborhood","aliases":["ktown","k-town"],"fsq_place_id":"ae767044-bde0-46cb-8b0a-325e159815d2","notes":null}
+{"name":"Venice","city":"los_angeles","category":"neighborhood","aliases":["venice beach","abbot kinney"],"fsq_place_id":"31081b2b-f155-459a-927e-5d25a6357c13","notes":null}
+{"name":"Boyle Heights","city":"los_angeles","category":"neighborhood","aliases":["boyle hts"],"fsq_place_id":"e42baf7c-1090-4652-9287-f48deb7e12fa","notes":null}
+{"name":"Los Feliz","city":"los_angeles","category":"neighborhood","aliases":["losfeliz"],"fsq_place_id":"4eb677e5-66c0-4673-ac24-0f0659db972e","notes":null}
+{"name":"Echo Park","city":"los_angeles","category":"neighborhood","aliases":["echo pk"],"fsq_place_id":"0527a15a-1d13-42b7-975c-beff653cb624","notes":null}
+{"name":"Downtown LA","city":"los_angeles","category":"neighborhood","aliases":["dtla","downtown los angeles"],"fsq_place_id":"83a43303-68fa-48ba-a725-b502b1ff3fb5","notes":null}
+{"name":"Pasadena","city":"los_angeles","category":"neighborhood","aliases":["old town pasadena"],"fsq_place_id":"fba79577-97f5-493b-a2be-e0cf85c8e9d5","notes":null}
+{"name":"Santa Monica","city":"los_angeles","category":"neighborhood","aliases":["smo"],"fsq_place_id":"dd36c8d1-692a-4e2c-91df-56815c374901","notes":null}
+{"name":"Leimert Park","city":"los_angeles","category":"neighborhood","aliases":["leimert"],"fsq_place_id":"5f984597-35ab-4c74-a15b-e8276d264784","notes":null}
+{"name":"San Gabriel Valley","city":"los_angeles","category":"neighborhood","aliases":["sgv","the valley sgv"],"fsq_place_id":null,"notes":null}
+{"name":"Hancock Park","city":"los_angeles","category":"neighborhood","aliases":["hancock pk"],"fsq_place_id":"b8d8776e-429a-423a-bc34-245f8a276a5c","notes":null}
+{"name":"Arts District","city":"los_angeles","category":"neighborhood","aliases":["dtla arts district"],"fsq_place_id":"dbcc28dd-7ed2-4cc8-aa11-32cfe02f83c3","notes":null}

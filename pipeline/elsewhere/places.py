@@ -47,6 +47,10 @@ CITY_BBOXES: dict[str, BBox] = {
     # Wide enough to take in Beaverton and Lake Oswego — a few Portland
     # institutions people name are across the county line.
     "portland": BBox(west=-122.90, south=45.35, east=-122.40, north=45.65),
+    # Santa Monica to Pasadena, the Valley down to the South Bay edge. LA's
+    # institutions are neighbourhood-bound and a tighter box would answer for
+    # a city nobody lives in.
+    "los_angeles": BBox(west=-118.70, south=33.72, east=-118.12, north=34.32),
     # The 23 special wards plus Kichijoji and Shimokitazawa, which locals name
     # as often as anywhere inside them.
     "tokyo": BBox(west=139.55, south=35.53, east=139.90, north=35.82),

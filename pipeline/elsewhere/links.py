@@ -35,6 +35,7 @@ CITY_QUERY = {
     "austin": "Austin, TX",
     "chicago": "Chicago, IL",
     "portland": "Portland, OR",
+    "los_angeles": "Los Angeles, CA",
     "tokyo": "Tokyo, Japan",
     "mexico_city": "Mexico City, Mexico",
 }
