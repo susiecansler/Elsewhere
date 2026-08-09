@@ -333,6 +333,13 @@ button.brand:hover { color: var(--dim); }
   text-align: center; padding: 24px 24px 150px; gap: 4px;
 }
 .stage[hidden] { display: none; }
+/* Typing state: nothing above the box is allowed to change size, so the box
+   itself does not move by a single pixel while someone is mid-word. Only the
+   demo's answer line disappears, and it sits below. Results render under the
+   stage and are reached by scrolling — or instantly, by committing the query
+   with Enter, which is when the layout is allowed to rearrange. */
+.stage.typing .peek { visibility: hidden; }
+.tryfoot[hidden] { display: none; }
 .stage .inner { width: 100%; max-width: min(1180px, 92vw); margin: 0 auto; }
 .pitch {
   font-size: 46px; line-height: 1.06; letter-spacing: -0.045em; font-weight: 800;
@@ -699,7 +706,7 @@ summary:hover { color: var(--dim); }
     <!-- Pinned to the bottom of the viewport rather than trailing the hero:
          it's an ambient sample of what's in here, not the next step in the
          sentence. -->
-    <div class="tryfoot">
+    <div class="tryfoot" id="tryfoot">
       <p class="q" id="promptq"></p>
       <div class="rail"><div class="track" id="examples"></div></div>
     </div>
@@ -720,6 +727,10 @@ summary:hover { color: var(--dim); }
 
 <script>
 let S = null, q = "", cat = "", dest = "";
+//: True once the visitor has settled on a query — Enter, or a suggestion
+//: picked — as opposed to still typing one. Only a commit is allowed to
+//: rearrange the page.
+let committed = false;
 //: How many cards to build at once. Past this it's a scroll nobody finishes,
 //: and each card's map is six more elements to lay out.
 const LIST_CAP = 25;
@@ -897,7 +908,7 @@ function moveSuggest(step) {
 }
 
 function pickSuggest(name) {
-  q = name; cat = "";
+  q = name; cat = ""; committed = true;
   document.getElementById("q").value = name;
   closeSuggest();
   syncURL(); render();
@@ -1079,14 +1090,18 @@ function render() {
       `What are you looking for in ${title(dest)}?`;
     renderCats();
   }
-  // The search box is the index; on results pages it retreats to the header.
-  //
-  // Re-parenting a subtree drops focus from anything inside it, silently and
-  // without firing blur. Since this move happens on the *first* character
-  // typed, the caret vanished mid-word and every keystroke after it went
-  // nowhere — the search box appeared to stop accepting input. Carry the
-  // focus and the caret across the move.
-  const slot = document.getElementById(idle ? "heroslot" : "barslot");
+  /* Where the search box lives.
+
+     It used to jump into the header on the first character typed, which
+     reorganised the page mid-word: the box you were typing into teleported
+     to the top and results filled the space it left. Re-parenting also drops
+     focus silently, so the caret went with it.
+
+     Now it only moves on a *deliberate* commit — picking a suggestion,
+     pressing Enter, or opening browse. While you're still typing it stays
+     exactly where you started, and the results grow underneath it. */
+  const inHero = !committed && !browsing && cat !== "__saved";
+  const slot = document.getElementById(inHero ? "heroslot" : "barslot");
   const controls = document.getElementById("controls");
   if (controls.parentElement !== slot) {
     const box = document.getElementById("q");
@@ -1099,7 +1114,14 @@ function render() {
       try { box.setSelectionRange(at, to); } catch { /* type=search on old Safari */ }
     }
   }
-  document.getElementById("prompt").hidden = !idle;
+
+  // Typing shrinks the hero rather than replacing it: the heading stays, the
+  // stage stops filling the viewport, and results appear below.
+  const stage = document.getElementById("prompt");
+  stage.classList.toggle("typing", !idle && inHero);
+  document.getElementById("tryfoot").hidden = !idle;
+
+  stage.hidden = !idle && !inHero;
   document.getElementById("crumb").hidden = idle || browsing || !!q;
   document.getElementById("clearq").hidden = !q;
   if (idle || browsing) { document.getElementById("list").innerHTML = ""; return; }
@@ -1508,6 +1530,7 @@ async function boot() {
   drawSrc();
   await fillDestinations();
 
+  committed = !!(u.q || u.cat);
   if (u.city && u.dest) {
     showSetup(false);
     load().then(() => { document.getElementById("q").value = q; render(); });
@@ -1535,7 +1558,7 @@ function startAsking() {
   localStorage.setItem("elsewhere.home", home);
   localStorage.setItem("elsewhere.dest", dest);
   savedDest = dest;
-  q = ""; cat = "";
+  q = ""; cat = ""; committed = false;
   document.getElementById("q").value = "";
   showSetup(false);
   syncURL();
@@ -1551,7 +1574,7 @@ document.getElementById("pairbtn").addEventListener("click", () => showSetup(tru
 document.getElementById("examples").addEventListener("click", e => {
   const b = e.target.closest(".eg");
   if (!b) return;
-  q = b.dataset.name; cat = "";
+  q = b.dataset.name; cat = ""; committed = true;
   stopDemo();
   document.getElementById("q").value = q;
   syncURL(); render();
@@ -1571,6 +1594,7 @@ let renderTimer = null;
 document.getElementById("q").addEventListener("input", e => {
   q = e.target.value.trim();
   if (q) cat = "";
+  committed = false;          // still choosing; don't rearrange the page
   syncURL(true);   // replace, so typing doesn't fill the back stack
   renderSuggest();
   clearTimeout(renderTimer);
@@ -1585,7 +1609,7 @@ document.getElementById("q").addEventListener("keydown", e => {
   else if (e.key === "Enter") {
     const on = document.querySelector("#suggest button.on");
     if (on) { e.preventDefault(); pickSuggest(on.dataset.name); }
-    else closeSuggest();
+    else { closeSuggest(); committed = true; render(); }
   }
 });
 
@@ -1658,7 +1682,7 @@ const drawDst = cityMenu("dstsel", "dstbtn", "dstmenu", city => {
 document.getElementById("cats").addEventListener("click", e => {
   const b = e.target.closest("button[data-cat]");
   if (!b) return;
-  cat = b.dataset.cat; q = "";
+  cat = b.dataset.cat; q = ""; committed = true;
   document.getElementById("q").value = "";
   syncURL(); render();
   document.getElementById("crumb").scrollIntoView({ behavior: "smooth", block: "start" });
@@ -1684,21 +1708,21 @@ function linksFor(btn) {
 }
 
 document.getElementById("browsebtn").addEventListener("click", () => {
-  cat = "__browse"; q = "";
+  cat = "__browse"; q = ""; committed = true;
   document.getElementById("q").value = "";
   stopDemo(); syncURL(); render();
   scrollTo({ top: 0, behavior: "smooth" });
 });
 
 document.getElementById("savedbtn").addEventListener("click", () => {
-  cat = "__saved"; q = "";
+  cat = "__saved"; q = ""; committed = true;
   document.getElementById("q").value = "";
   syncURL(); render();
   scrollTo({ top: 0, behavior: "smooth" });
 });
 
 function clearView() {
-  q = ""; cat = "";
+  q = ""; cat = ""; committed = false;
   closeSuggest();
   document.getElementById("q").value = "";
   syncURL(); render();
