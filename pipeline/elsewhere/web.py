@@ -559,75 +559,108 @@ PAGE = """<!doctype html>
 <meta name="theme-color" content="#FFFFFF">
 <meta name="description" content="Name a place you love and find its counterpart in another city — matched by the role it plays in local life, not by category.">
 <style>
-/* One surface, everywhere. The yellow field broke the app in half — a
-   poster for two screens and a document for the rest — so the whole thing is
-   now a single warm white, and continuity comes for free. Colour arrives as
-   accent and as the soft discs behind the hero, not as a ground that
-   switches.
-
-   Structure is carried by hairlines and radius rather than by blocks of
-   colour: a white page, 1px rules, generous rounding, one hot accent. */
+/* ─── Design system ───────────────────────────────────────────────────────
+   Audited before it was written. The stylesheet had ten border radii,
+   twenty-eight font sizes, six weights, five transition durations and
+   fifty-eight distinct padding values — colour was the only part with a
+   system, which is exactly why the page read as assembled rather than
+   designed.
+   
+   Everything below is a scale. The rules that follow may only use these
+   tokens; any new value should become one or resolve to one.
+   
+   The character comes from restraint plus one hot colour: warm mint-white
+   ground, near-black ink with a green cast, a single blue-teal accent, and
+   pale mint as the only tint. No gradients, no glass, no second accent. */
 :root {
   color-scheme: light;
-  --paper:  #FFFFFF;
-  --sunk:   #F7F7F7;   /* the only other surface: inset wells, hovers */
+
+  /* Ground. Mint-tinted rather than pure white — a page that is #FFF from
+     edge to edge reads as software. Cards are white so they lift off it
+     without needing a shadow to prove it. */
+  --paper:  #F7FAF8;
   --panel:  #FFFFFF;
-  --ink:    #1C1C1C;
-  --dim:    #6A6A6A;
-  --faint:  #9B9B9B;
-  --hair:   #E4E4E4;
-  --hair-2: #DDDDDD;
-  /* The one accent, and it has to survive both jobs: white text sitting on
-     it (buttons) and it sitting on white (links, the brand). #33788F clears
-     AA in both directions at 4.7:1 — the bright turquoises people reach for
-     first are around 2:1 on white, which is a decoration, not a colour you
-     can put a word in. */
-  --accent: #3985A6;
-  /* #3985A6 is 4.13:1 on white — right for display type and the mark, a
-     shade under AA for 13px labels and for white text sitting on it. This is
-     the same hue taken down until both of those clear (4.97:1), and it is
-     what fills buttons and sets small links. */
-  --accent-deep: #33788F;
-  --accent-soft: #E8F2F7;
-  --on-accent: #FFFFFF;
-  --pink: #3985A6; --pink-deep: #33788F; --on-pink: #FFFFFF;
-  --turquoise: #3985A6;
-  --gold: #FFC53D;
-  --emerald: #16A97F;
-  --chip: #F2F2F2;
-  --bar: #FFFFFF; --bar-ink: #1C1C1C; --bar-line: #DDDDDD;
-  --bar-dim: #7A7A7A; --bar-field: #FFFFFF;
-  /* Soft, wide, and low — the shadow of something resting on the page, not
-     floating above it. */
-  --shadow: 0 1px 2px rgba(0,0,0,.05), 0 4px 12px rgba(0,0,0,.06);
-  --lift:   0 2px 4px rgba(0,0,0,.07), 0 10px 28px rgba(0,0,0,.12);
-  --hard:   var(--lift); --hard-sm: var(--shadow);
-  --display: var(--sans);
+  --sunk:   #EFF4F1;
+
+  /* Ink, with the same green cast as the ground so nothing looks pasted on. */
+  --ink:    #16201F;   /* 15.9:1 on ground */
+  --dim:    #5A6A67;   /* 5.4:1  — body and secondary text */
+  --faint:  #93A29E;   /* 2.5:1  — non-essential only: placeholders, credits */
+  --hair:   #E2EAE6;
+  --hair-2: #D3DEDA;
+
+  /* One accent. --accent is the brand blue-teal; --accent-deep is the same
+     hue taken down until small white text on it and it on the ground both
+     clear AA (5.5:1 and 5.8:1). Fills and small links use deep. */
+  --accent:      #3985A6;
+  --accent-deep: #2E6C86;
+  --accent-soft: #E8F1F5;
+  --on-accent:   #FFFFFF;
+
+  /* Pale mint, the only tint. Chips, wells, quiet fills. */
+  --mint:      #E6F3EC;
+  --mint-deep: #CFE6DA;
+
+  /* Type: six sizes on a 1.25 ratio, three weights. Editorial comes from the
+     jump between display and metadata, not from more styles. */
+  --t-xs: 12px; --t-sm: 14px; --t-md: 16px; --t-lg: 20px; --t-xl: 28px;
+  --t-display: clamp(32px, 4.6vw, 52px);
+  --w-body: 400; --w-label: 500; --w-display: 700;
+
+  /* Space: 4px base. Every padding, margin and gap resolves to one of six. */
+  --s1: 4px; --s2: 8px; --s3: 12px; --s4: 20px; --s5: 32px; --s6: 56px;
+
+  /* Radius: three. Controls, surfaces, pills. Nothing in between. */
+  --r-sm: 8px; --r-md: 20px; --r-pill: 999px;
+
+  /* Elevation: a hairline at rest, one soft shadow on lift. Nothing floats
+     by default. */
+  --e-hair: inset 0 0 0 1px var(--hair);
+  --e-soft: 0 2px 8px rgba(22,32,31,.06), 0 12px 28px -12px rgba(22,32,31,.14);
+  --e-lift: 0 4px 12px rgba(22,32,31,.08), 0 20px 44px -16px rgba(22,32,31,.20);
+
+  /* Motion: fast for state, slow for entrance, one curve. */
+  --t-fast: 150ms; --t-slow: 300ms;
+  --ease: cubic-bezier(.2, .7, .3, 1);
+
+  /* Type families. */
   --sans: ui-sans-serif, -apple-system, "Segoe UI", Inter, Roboto, "Helvetica Neue", sans-serif;
   --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
-  --spring: cubic-bezier(.2, .8, .3, 1);
+  --display: var(--sans);
+
+  /* ── Aliases ──────────────────────────────────────────────────────────
+     Names the rest of the sheet already uses, pointed at the scale above so
+     one definition governs. New rules should use the tokens, not these. */
+  --shadow: var(--e-soft);
+  --lift: var(--e-lift);
+  --hard: var(--e-lift); --hard-sm: var(--e-soft);
+  --spring: var(--ease);
+  --chip: var(--mint);
+  --pink: var(--accent); --pink-deep: var(--accent-deep); --on-pink: var(--on-accent);
+  --turquoise: var(--accent);
+  --gold: #E9C46A; --emerald: var(--accent);
+  --bar: var(--panel); --bar-ink: var(--ink); --bar-line: var(--hair-2);
+  --bar-dim: var(--dim); --bar-field: var(--panel);
 }
+
 :root[data-theme="dark"] {
   color-scheme: dark;
-  --paper: #121212; --sunk: #1D1D1D; --panel: #1A1A1A; --ink: #F4F4F4;
-  --dim: #ADADAD; --faint: #7E7E7E; --hair: #2E2E2E; --hair-2: #383838;
-  /* Brighter cut for the dark ground: 10:1 there, where the light-mode
-     turquoise would sit at 4:1 and read as muddy. */
-  --accent: #6BB6D4; --accent-deep: #7FC2DC; --accent-soft: #16303B;
+  --paper: #101413; --panel: #171D1C; --sunk: #1E2624;
+  --ink: #EDF3F0; --dim: #A9B6B2; --faint: #75837F;
+  --hair: #26302E; --hair-2: #33403D;
+  --accent: #6BB6D4; --accent-deep: #8CC9E0; --accent-soft: #17272F;
   --on-accent: #10201E;
-  --pink: #6BB6D4; --pink-deep: #7FC2DC; --on-pink: #10201E;
-  --turquoise: #6BB6D4; --gold: #FFC53D; --emerald: #35C89B;
-  --chip: #242424;
-  --bar: #121212; --bar-ink: #F4F4F4; --bar-line: #303030;
-  --bar-dim: #9A9A9A; --bar-field: #1D1D1D;
-  --shadow: 0 1px 2px rgba(0,0,0,.5), 0 4px 12px rgba(0,0,0,.45);
-  --lift:   0 2px 4px rgba(0,0,0,.55), 0 10px 28px rgba(0,0,0,.6);
+  --mint: #1B2A24; --mint-deep: #24382F;
+  --e-hair: inset 0 0 0 1px var(--hair);
+  --e-soft: 0 2px 8px rgba(0,0,0,.5), 0 12px 28px -12px rgba(0,0,0,.6);
+  --e-lift: 0 4px 12px rgba(0,0,0,.55), 0 20px 44px -16px rgba(0,0,0,.7);
+  --gold: #E9C46A;
 }
 * { box-sizing: border-box; }
 /* Nothing had a visible focus ring, so the whole app was unusable by
    keyboard. :focus-visible keeps it off for mouse users. */
 :focus-visible {
-  outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px;
+  outline: 2px solid var(--accent); outline-offset: 3px; border-radius: var(--r-sm);
 }
 body {
   margin: 0; color: var(--ink); background: var(--paper);
@@ -657,7 +690,7 @@ header {
 .bar .chip {
   background: transparent; color: var(--ink); box-shadow: none;
   font: 600 14px/1 var(--sans); letter-spacing: 0; text-transform: none;
-  padding: 12px 14px; border-radius: 999px;
+  padding: 12px 14px; border-radius: var(--r-pill);
 }
 .bar .chip:hover { background: var(--sunk); transform: none; }
 .bar .chip:active { transform: none; }
@@ -674,7 +707,7 @@ header {
 #barslot .field { max-width: 560px; }
 #browsebtn { margin-left: auto; }
 #savedbtn { margin-left: 0; }
-#theme { padding: 9px 12px; font-size: 15px; line-height: 1; }
+#theme { padding: 9px 12px; font-size: var(--t-md); line-height: 1; }
 
 /* ─── Controls (city + search) ────────────────────────────────────────────
    One instance, moved between the hero and the header rather than
@@ -686,7 +719,7 @@ header {
    sit near each other. */
 #controls { display: flex; align-items: center; flex: 1; min-width: 0; }
 .stage #controls, .setup #controls {
-  background: var(--panel); border-radius: 999px; padding: 6px 6px 6px 8px;
+  background: var(--panel); border-radius: var(--r-pill); padding: 6px 6px 6px 8px;
   box-shadow: 0 1px 2px rgba(0,0,0,.08), 0 8px 28px rgba(0,0,0,.10);
   max-width: 780px; margin: 0 auto; width: 100%;
 }
@@ -694,9 +727,9 @@ header {
   box-shadow: 0 2px 4px rgba(0,0,0,.10), 0 14px 40px rgba(0,0,0,.14);
 }
 input[type=search], input[type=text], select {
-  font: inherit; font-size: 15px; padding: 9px 16px; border: 0;
-  border-radius: 999px; background: var(--panel); color: var(--ink);
-  box-shadow: var(--shadow); transition: box-shadow .2s, transform .2s var(--spring);
+  font: inherit; font-size: var(--t-md); padding: 9px 16px; border: 0;
+  border-radius: var(--r-pill); background: var(--panel); color: var(--ink);
+  box-shadow: var(--shadow); transition: box-shadow var(--t-fast), transform var(--t-fast) var(--ease);
 }
 input[type=search] { min-width: 0; }
 input:focus, select:focus { outline: none; box-shadow: var(--lift), 0 0 0 2.5px var(--accent-soft); }
@@ -715,88 +748,88 @@ select.native { position: absolute; opacity: 0; pointer-events: none; width: 1px
 .citypick { position: relative; }
 .citybtn {
   display: inline-flex; align-items: center; gap: 9px;
-  font-size: 15px; font-weight: 700; letter-spacing: -0.01em;
+  font-size: var(--t-md); font-weight: var(--w-display); letter-spacing: -0.01em;
   padding: 9px 16px; background: var(--panel); color: var(--ink);
   box-shadow: var(--shadow);
 }
 .citybtn:hover { box-shadow: var(--lift); }
-.citybtn .caret { font-size: 10px; color: var(--faint); transition: transform .25s var(--spring); }
+.citybtn .caret { font-size: var(--t-xs); color: var(--faint); transition: transform var(--t-fast) var(--ease); }
 .citybtn[aria-expanded=true] .caret { transform: rotate(180deg); }
 /* The menu outranks everything around it. It sits inside the sentence, which
    has a button immediately after it and another below, and a dropdown that
    loses to either is worse than no dropdown. */
 .citymenu {
   position: absolute; top: calc(100% + 8px); left: 0; z-index: 200;
-  min-width: 100%; padding: 7px; border-radius: 18px;
+  min-width: 100%; padding: 7px; border-radius: var(--r-md);
   background: var(--panel); box-shadow: var(--lift);
   display: flex; flex-direction: column; gap: 2px;
   transform-origin: top center;
-  animation: menuin .18s var(--spring);
+  animation: menuin .18s var(--ease);
 }
 .citymenu[hidden] { display: none; }
 /* Flipped when the viewport has no room underneath — see openCityMenu. */
 .citymenu.up { top: auto; bottom: calc(100% + 8px); transform-origin: bottom center; }
 @keyframes menuin { from { opacity: 0; transform: translateY(-6px) scale(.97); } }
 .citymenu button {
-  text-align: left; white-space: nowrap; padding: 10px 16px; border-radius: 12px;
-  font-size: 15px; font-weight: 650; background: none; color: var(--ink);
+  text-align: left; white-space: nowrap; padding: 10px 16px; border-radius: var(--r-sm);
+  font-size: var(--t-md); font-weight: var(--w-label); background: none; color: var(--ink);
 }
 .citymenu button:hover { background: var(--chip); }
 .citymenu button[aria-selected=true] { background: var(--pink-deep); color: var(--on-pink); }
-.from, .to { font-size: 14px; color: var(--dim); font-weight: 600; white-space: nowrap; }
+.from, .to { font-size: var(--t-sm); color: var(--dim); font-weight: var(--w-label); white-space: nowrap; }
 .to { color: var(--dim); }
 .field { position: relative; display: flex; flex: 1; min-width: 0; }
 .field input[type=search] { width: 100%; padding-right: 42px; }
 .field .clear {
   position: absolute; right: 7px; top: 50%; transform: translateY(-50%);
   width: 28px; height: 28px; background: var(--chip); color: var(--accent-deep);
-  font-size: 17px; line-height: 1; display: grid; place-items: center;
+  font-size: var(--t-md); line-height: 1; display: grid; place-items: center;
 }
 .field .clear[hidden] { display: none; }
 /* Typing a place name exactly is a memory test nobody signed up for —
    "Torchys", "torchy's" and "Alamo" should all get you there. */
 .suggest {
   position: absolute; top: calc(100% + 10px); left: 0; right: 0; z-index: 60;
-  padding: 8px; border-radius: 18px; background: var(--panel);
+  padding: 8px; border-radius: var(--r-md); background: var(--panel);
   box-shadow: var(--lift), inset 0 0 0 1px var(--hair);
   max-height: 340px; overflow-y: auto; text-align: left;
 }
 .suggest[hidden] { display: none; }
 .suggest button {
   display: block; width: 100%; text-align: left; padding: 10px 14px;
-  border-radius: 12px; background: none; color: var(--ink);
-  font-size: 15px; font-weight: 600;
+  border-radius: var(--r-sm); background: none; color: var(--ink);
+  font-size: var(--t-md); font-weight: var(--w-label);
 }
-.suggest button .cat { font-size: 13px; font-weight: 400; color: var(--faint); margin-left: 10px; }
+.suggest button .cat { font-size: var(--t-sm); font-weight: var(--w-body); color: var(--faint); margin-left: 10px; }
 .suggest button:hover { background: var(--sunk); }
 .suggest button.on { background: var(--accent); color: var(--on-accent); }
 .suggest button.on .cat { color: var(--on-accent); opacity: .85; }
 .field .clear:hover { background: var(--pink-deep); color: var(--on-pink); }
 
 button {
-  font: inherit; border: 0; border-radius: 999px; cursor: pointer;
-  transition: transform .22s var(--spring), box-shadow .2s, color .2s, background .2s;
+  font: inherit; border: 0; border-radius: var(--r-pill); cursor: pointer;
+  transition: transform var(--t-fast) var(--ease), box-shadow var(--t-fast), color var(--t-fast), background var(--t-fast);
 }
 .chip {
-  font-size: 14px; font-weight: 600; padding: 11px 16px;
+  font-size: var(--t-sm); font-weight: var(--w-label); padding: 11px 16px;
   background: var(--panel); color: var(--ink); box-shadow: inset 0 0 0 1px var(--hair-2);
 }
-.chip:hover { color: var(--ink); box-shadow: var(--hard-sm); transform: translate(-1px, -1px); }
+.chip:hover { color: var(--ink); background: var(--sunk); }
 /* Press moves *into* the shadow, so the button behaves like a physical key. */
-.chip:active { box-shadow: none; transform: translate(2px, 2px); }
+.chip:active { background: var(--mint); }
 /* The brand is the way home, so it should look like the biggest thing in the
    bar rather than a label sharing its baseline with the controls. */
 button.brand {
   background: none; margin: 0; padding: 0 20px 0 0;
   display: inline-flex; align-items: center; gap: 9px;
-  font-size: 23px; font-weight: 800; letter-spacing: -0.035em;
+  font-size: var(--t-xl); font-weight: var(--w-display); letter-spacing: -0.035em;
   color: var(--accent); line-height: 1; align-self: center;
 }
 button.brand:hover { color: var(--accent-deep); }
 /* The tile's cream ground is invisible on white and muddy on the dark
    theme, so the mark wears the same rounding as the rest of the chrome and
    picks up a faint edge to sit on. */
-button.brand img { border-radius: 8px; box-shadow: inset 0 0 0 1px var(--hair); }
+button.brand img { border-radius: var(--r-sm); box-shadow: inset 0 0 0 1px var(--hair); }
 :root[data-theme="dark"] button.brand img { opacity: .95; }
 button.brand:hover { color: var(--dim); }
 
@@ -820,16 +853,16 @@ button.brand:hover { color: var(--dim); }
 .stage #controls { justify-content: center; flex: 0 1 auto; }
 .stage #controls .field { flex: 1 1 auto; max-width: none; }
 .stage #controls input[type=search] {
-  font-size: 17px; padding: 18px 22px; background: none; box-shadow: none;
+  font-size: var(--t-md); padding: 18px 22px; background: none; box-shadow: none;
 }
 .stage #controls input[type=search]:focus { box-shadow: none; }
-.stage .q { font-size: 15px; font-weight: 500; color: var(--dim); margin: 40px 0 0; }
+.stage .q { font-size: var(--t-md); font-weight: var(--w-label); color: var(--dim); margin: 40px 0 0; }
 
 /* The search itself gets the round button, matching Next on step one. */
 .field .go {
-  width: 48px; height: 48px; flex: 0 0 48px; border-radius: 999px;
+  width: 48px; height: 48px; flex: 0 0 48px; border-radius: var(--r-pill);
   background: var(--accent); color: #fff; display: grid; place-items: center;
-  font-size: 18px; margin-left: 4px;
+  font-size: var(--t-lg); margin-left: 4px;
 }
 .field .go:hover { background: var(--accent-deep); }
 
@@ -840,10 +873,10 @@ button.brand:hover { color: var(--dim); }
 .stage.typing .decor { display: none; }
 .stage.typing .ask { font-size: clamp(20px, 2.4vw, 28px); margin-bottom: 20px; }
 
-.tryfoot .q { font-size: 14px; font-weight: 500; color: var(--dim); margin: 0 0 14px; }
-.peekcity { font-size: 14px; color: var(--faint); margin-right: 8px; }
-.peekrow { font-size: 16px; color: var(--dim); }
-.peekrow b { font-weight: 600; font-size: 17px; color: var(--ink); }
+.tryfoot .q { font-size: var(--t-sm); font-weight: var(--w-label); color: var(--dim); margin: 0 0 14px; }
+.peekcity { font-size: var(--t-sm); color: var(--faint); margin-right: 8px; }
+.peekrow { font-size: var(--t-md); color: var(--dim); }
+.peekrow b { font-weight: var(--w-label); font-size: var(--t-md); color: var(--ink); }
 
 /* ─── Try rail ────────────────────────────────────────────────────────────
    The examples scroll on their own. Four static chips read as the whole
@@ -860,11 +893,11 @@ button.brand:hover { color: var(--dim); }
    motion and none of them is ever the one being offered. */
 .track {
   display: flex; gap: 9px; width: max-content;
-  transition: transform .75s cubic-bezier(.4, 0, .2, 1);
+  transition: transform var(--t-slow) cubic-bezier(.4, 0, .2, 1);
 }
 .rail.hold .track { transition: none; }   /* the seamless wrap, unanimated */
 .eg {
-  font-size: 14px; font-weight: 600; padding: 9px 16px; white-space: nowrap;
+  font-size: var(--t-sm); font-weight: var(--w-label); padding: 9px 16px; white-space: nowrap;
   background: var(--chip); color: var(--accent-deep);
 }
 /* Alternating between the two brand colours at low strength, rather than
@@ -876,7 +909,7 @@ button.brand:hover { color: var(--dim); }
 .browse { padding: 56px 40px 60px; text-align: left; max-width: 1180px; margin: 0 auto; }
 .browse[hidden] { display: none; }
 .browseh {
-  font-size: clamp(24px, 3vw, 34px); font-weight: 800; letter-spacing: -0.03em;
+  font-size: clamp(24px, 3vw, 34px); font-weight: var(--w-display); letter-spacing: -0.03em;
   margin: 0 0 28px; color: var(--ink);
 }
 .cats { max-width: 900px; margin: 0 auto; }
@@ -886,19 +919,19 @@ button.brand:hover { color: var(--dim); }
 }
 .cicon {
   width: 34px; height: 34px; color: var(--accent); margin-bottom: 12px;
-  transition: transform .25s var(--spring);
+  transition: transform var(--t-fast) var(--ease);
 }
 .cats button:hover .cicon { transform: translateY(-2px) rotate(-3deg); }
 .clabel { display: block; }
 .cats button {
-  font-size: 17px; font-weight: 600; padding: 20px 22px 22px; text-align: left;
-  background: var(--panel); color: var(--ink); border-radius: 16px;
+  font-size: var(--t-md); font-weight: var(--w-label); padding: 20px 22px 22px; text-align: left;
+  background: var(--panel); color: var(--ink); border-radius: var(--r-md);
   box-shadow: inset 0 0 0 1px var(--hair);
   display: flex; flex-direction: column; align-items: flex-start; gap: 4px;
 }
-.cats button:hover { box-shadow: var(--lift); transform: translateY(-2px); }
+.cats button:hover { box-shadow: var(--e-lift); }
 .cats button:active { transform: none; }
-.cats button .n { font-size: 14px; font-weight: 400; color: var(--dim); margin: 0; }
+.cats button .n { font-size: var(--t-sm); font-weight: var(--w-body); color: var(--dim); margin: 0; }
 
 /* ─── Results ─────────────────────────────────────────────────────────── */
 main { max-width: 860px; margin: 0 auto; padding: 20px 24px 140px; }
@@ -907,46 +940,49 @@ main { max-width: 860px; margin: 0 auto; padding: 20px 24px 140px; }
   display: flex; align-items: baseline; gap: 14px;
 }
 .crumb[hidden] { display: none; }
-.crumb span { font-size: 15px; font-weight: 600; color: var(--ink); }
+.crumb span { font-size: var(--t-md); font-weight: var(--w-label); color: var(--ink); }
 /* Listings, not a newspaper index. Each answer is a card: the map reads as
    the photo, the name as the title, the roles as the amenity line. Cards say
    "these are comparable things, pick one", which is exactly the job. */
 main { max-width: 1180px; margin: 0 auto; padding: 28px 40px 140px; }
 .card {
-  background: var(--panel); border-radius: 16px; padding: 0; margin: 0 0 8px;
+  background: var(--panel); border-radius: var(--r-md); padding: 0; margin: 0 0 8px;
   box-shadow: none; display: block;
   transition: none;
 }
 .card:hover { box-shadow: none; transform: none; }
+/* One hover rule for the whole site: colour and elevation may change,
+   geometry may not. Half the hovers used to nudge the element, which is what
+   made the page feel fidgety under the cursor. */
 .card > .head {
   display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap;
   padding: 26px 4px 14px; margin: 0; box-shadow: none;
 }
 .head h2 {
-  font-size: 15px; font-weight: 600; letter-spacing: -0.01em;
+  font-size: var(--t-md); font-weight: var(--w-label); letter-spacing: -0.01em;
   margin: 0; color: var(--dim); line-height: 1.2;
 }
-.arrow { font-size: 15px; color: var(--faint); }
+.arrow { font-size: var(--t-md); color: var(--faint); }
 .roles { display: flex; flex-wrap: wrap; gap: 6px; width: 100%; margin-top: 4px; }
 .role {
-  font-size: 12px; font-weight: 500; color: var(--dim);
-  padding: 5px 10px; border-radius: 999px; background: var(--sunk);
+  font-size: var(--t-xs); font-weight: var(--w-label); color: var(--dim);
+  padding: 5px 10px; border-radius: var(--r-pill); background: var(--sunk);
 }
 /* The roles are the argument. Stating them in the margin turns the answer
    from an assertion into a claim with reasons attached. */
 .roles { display: flex; flex-direction: column; align-items: flex-start; gap: 5px; margin-top: 14px; }
 .role {
-  font-size: 12.5px; font-weight: 500; color: var(--dim);
-  padding: 5px 11px; border-radius: 999px; background: var(--sunk);
+  font-size: var(--t-xs); font-weight: var(--w-label); color: var(--dim);
+  padding: 5px 11px; border-radius: var(--r-pill); background: var(--sunk);
 }
 /* One block per city inside a place's card. A hairline between them, so the
    card still reads as one place rather than several. */
 .city {
-  padding: 22px 22px 20px; margin: 0 0 22px; border-radius: 16px;
+  padding: 22px 22px 20px; margin: 0 0 22px; border-radius: var(--r-md);
   box-shadow: inset 0 0 0 1px var(--hair);
-  transition: box-shadow .2s, transform .2s var(--spring);
+  transition: box-shadow var(--t-fast), transform var(--t-fast) var(--ease);
 }
-.city:hover { box-shadow: var(--lift); transform: translateY(-2px); }
+.city:hover { box-shadow: var(--e-lift); }
 .city:first-of-type { margin-top: 0; }
 /* The translation, read top to bottom on a phone and left to right on a
    desk: what you know, the loop, what it becomes. */
@@ -957,31 +993,31 @@ main { max-width: 1180px; margin: 0 auto; padding: 28px 40px 140px; }
 .side { min-width: 0; }
 .side:last-child { text-align: right; }
 .pname {
-  font-size: 15px; font-weight: 600; color: var(--dim); letter-spacing: -0.01em;
+  font-size: var(--t-md); font-weight: var(--w-label); color: var(--dim); letter-spacing: -0.01em;
   line-height: 1.25;
 }
 .pcity {
-  font-size: 12.5px; color: var(--faint); margin-top: 3px;
-  text-transform: uppercase; letter-spacing: .08em; font-weight: 600;
+  font-size: var(--t-xs); color: var(--faint); margin-top: 3px;
+  text-transform: uppercase; letter-spacing: .08em; font-weight: var(--w-label);
 }
 .arrowcol { display: flex; flex-direction: column; align-items: center; gap: 5px; }
 .loop-empty { width: 34px; height: 34px; color: var(--accent); }
 .elsew {
-  font-size: 11.5px; color: var(--faint); white-space: nowrap;
+  font-size: var(--t-xs); color: var(--faint); white-space: nowrap;
   letter-spacing: .04em;
 }
 .tr .answer { margin: 0; }
 
 /* Said in words, because the number underneath is self-rated. */
 .strength {
-  display: inline-block; font-size: 12.5px; font-weight: 600;
-  padding: 5px 12px; border-radius: 999px; margin-bottom: 10px;
+  display: inline-block; font-size: var(--t-xs); font-weight: var(--w-label);
+  padding: 5px 12px; border-radius: var(--r-pill); margin-bottom: 10px;
   background: var(--accent-soft); color: var(--accent-deep);
 }
 .strength.mid { background: var(--sunk); color: var(--dim); }
 .strength.lo { background: var(--sunk); color: var(--faint); }
 .roleline {
-  font-size: 13.5px; color: var(--dim); margin-bottom: 12px;
+  font-size: var(--t-sm); color: var(--dim); margin-bottom: 12px;
 }
 
 @media (max-width: 700px) {
@@ -992,11 +1028,11 @@ main { max-width: 1180px; margin: 0 auto; padding: 28px 40px 140px; }
 }
 
 .cityname {
-  font-size: 13px; font-weight: 600; color: var(--accent);
+  font-size: var(--t-sm); font-weight: var(--w-label); color: var(--accent);
   margin-bottom: 6px; display: block; letter-spacing: 0; text-transform: none;
 }
 .answer {
-  font-size: clamp(24px, 2.6vw, 32px); font-weight: 700; letter-spacing: -0.03em;
+  font-size: clamp(24px, 2.6vw, 32px); font-weight: var(--w-display); letter-spacing: -0.03em;
   line-height: 1.15; margin: 0 0 12px; text-wrap: balance; color: var(--ink);
 }
 .answer span { background: none; }
@@ -1007,7 +1043,7 @@ main { max-width: 1180px; margin: 0 auto; padding: 28px 40px 140px; }
    `loading=lazy` means a card scrolled past never fetches anything. */
 .map {
   position: relative; height: 168px; width: 100%; margin: 4px 0 18px;
-  border-radius: 16px; overflow: hidden; background: var(--chip);
+  border-radius: var(--r-md); overflow: hidden; background: var(--chip);
   display: block; text-decoration: none;
 }
 .map img {
@@ -1016,7 +1052,7 @@ main { max-width: 1180px; margin: 0 auto; padding: 28px 40px 140px; }
 }
 .map .pin {
   position: absolute; left: 50%; top: 50%; width: 16px; height: 16px;
-  margin: -8px 0 0 -8px; border-radius: 999px;
+  margin: -8px 0 0 -8px; border-radius: var(--r-pill);
   background: var(--pink); box-shadow: 0 0 0 3px #fff, 0 3px 10px rgba(7,59,76,.45);
 }
 /* A slow pulse, only on hover — the card is asking to be clicked, not
@@ -1027,22 +1063,22 @@ main { max-width: 1180px; margin: 0 auto; padding: 28px 40px 140px; }
   100% { box-shadow: 0 0 0 3px #fff, 0 0 0 18px transparent; }
 }
 .map .osm {
-  position: absolute; right: 0; bottom: 0; font-size: 9.5px; line-height: 1.6;
+  position: absolute; right: 0; bottom: 0; font-size: var(--t-xs); line-height: 1.6;
   padding: 1px 6px; background: color-mix(in srgb, var(--panel) 82%, transparent);
-  color: var(--faint); border-radius: 6px 0 0 0;
+  color: var(--faint); border-radius: var(--r-sm) 0 0 0;
 }
 .map:hover { box-shadow: var(--lift); }
 
 /* Actions under an answer: where to go, and whether you're keeping it. */
 .acts { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; margin-top: 16px; }
 .acts a, .acts .save, .acts .share {
-  font-size: 14px; font-weight: 600; padding: 11px 16px;
-  border-radius: 999px; background: var(--chip); color: var(--accent-deep);
+  font-size: var(--t-sm); font-weight: var(--w-label); padding: 11px 16px;
+  border-radius: var(--r-pill); background: var(--chip); color: var(--accent-deep);
   text-decoration: none; display: inline-flex; align-items: center; gap: 6px;
-  transition: background .2s, color .2s, transform .22s var(--spring);
+  transition: background var(--t-fast), color var(--t-fast), transform var(--t-fast) var(--ease);
 }
 .acts a:hover, .acts .save:hover, .acts .share:hover {
-  background: var(--pink-deep); color: var(--on-pink); transform: translateY(-2px);
+  background: var(--accent-deep); color: var(--on-accent);
 }
 /* A save is yours, not the site's — pink marks it as the one thing on the
    page you put there. */
@@ -1050,34 +1086,34 @@ main { max-width: 1180px; margin: 0 auto; padding: 28px 40px 140px; }
 .acts .share.done { background: var(--accent); color: var(--on-accent); }
 .acts .save[aria-pressed=true] { background: var(--pink-deep); color: var(--on-pink); }
 .acts .save[aria-pressed=true]:hover { background: var(--pink-deep); }
-.acts .out { font-size: 11px; opacity: .6; }
-.savecount { font-size: 12px; color: var(--faint); font-weight: 600; margin-left: 4px; }
+.acts .out { font-size: var(--t-xs); opacity: .6; }
+.savecount { font-size: var(--t-xs); color: var(--faint); font-weight: var(--w-label); margin-left: 4px; }
 #savedbtn[hidden] { display: none; }
 
-.why { color: var(--dim); font-size: 15px; line-height: 1.7; margin-top: 6px; max-width: 60ch; }
-.why.big { font-size: 15px; line-height: 1.6; color: var(--dim); opacity: 1; max-width: 68ch; }
-.cname { font-weight: 600; font-size: 17px; letter-spacing: -0.01em; }
+.why { color: var(--dim); font-size: var(--t-md); line-height: 1.7; margin-top: 6px; max-width: 60ch; }
+.why.big { font-size: var(--t-md); line-height: 1.6; color: var(--dim); opacity: 1; max-width: 68ch; }
+.cname { font-weight: var(--w-label); font-size: var(--t-md); letter-spacing: -0.01em; }
 .alt { padding: 14px 0 0 18px; box-shadow: inset 2px 0 0 var(--hair); margin-top: 14px; }
 details { margin-top: 18px; }
 summary {
-  cursor: pointer; font-size: 14px; font-weight: 600; color: var(--ink);
+  cursor: pointer; font-size: var(--t-sm); font-weight: var(--w-label); color: var(--ink);
   text-decoration: underline; text-underline-offset: 3px;
   list-style: none; display: inline-flex; align-items: center; gap: 7px;
-  transition: color .2s;
+  transition: color var(--t-fast);
 }
 summary::-webkit-details-marker { display: none; }
 summary::before {
   content: "+"; display: grid; place-items: center;
-  width: 20px; height: 20px; border-radius: 999px;
-  background: var(--chip); color: var(--accent-deep); font-size: 14px; line-height: 1;
-  transition: transform .25s var(--spring);
+  width: 20px; height: 20px; border-radius: var(--r-pill);
+  background: var(--chip); color: var(--accent-deep); font-size: var(--t-sm); line-height: 1;
+  transition: transform var(--t-fast) var(--ease);
 }
 details[open] summary::before { content: "\2013"; transform: rotate(180deg); }
 summary:hover { color: var(--dim); }
 .link {
-  font: inherit; font-size: 13px; background: none; color: var(--faint);
+  font: inherit; font-size: var(--t-sm); background: none; color: var(--faint);
   cursor: pointer; text-decoration: underline; text-underline-offset: 3px;
-  padding: 0; transition: color .2s;
+  padding: 0; transition: color var(--t-fast);
 }
 .link:hover { color: var(--dim); }
 /* ─── Sign-in sheet ───────────────────────────────────────────────────── */
@@ -1087,49 +1123,49 @@ summary:hover { color: var(--dim); }
 }
 .sheet[hidden] { display: none; }
 .sheetbox {
-  background: var(--panel); border-radius: 20px; padding: 34px 32px 28px;
+  background: var(--panel); border-radius: var(--r-md); padding: 34px 32px 28px;
   max-width: 440px; width: 100%; box-shadow: var(--lift); position: relative;
 }
-.sheetbox h2 { font-size: 24px; font-weight: 800; letter-spacing: -0.03em; margin: 0 0 10px; }
-.sheetbox p { color: var(--dim); font-size: 15px; margin: 0 0 20px; }
+.sheetbox h2 { font-size: var(--t-xl); font-weight: var(--w-display); letter-spacing: -0.03em; margin: 0 0 10px; }
+.sheetbox p { color: var(--dim); font-size: var(--t-md); margin: 0 0 20px; }
 .sheetx {
   position: absolute; top: 14px; right: 14px; width: 34px; height: 34px;
-  background: none; color: var(--dim); font-size: 22px; line-height: 1;
+  background: none; color: var(--dim); font-size: var(--t-xl); line-height: 1;
   display: grid; place-items: center;
 }
 .sheetx:hover { background: var(--sunk); }
 .sheetbox input {
-  width: 100%; font-size: 16px; padding: 15px 18px; border-radius: 12px;
+  width: 100%; font-size: var(--t-md); padding: 15px 18px; border-radius: var(--r-sm);
   background: var(--panel); box-shadow: inset 0 0 0 1px var(--hair-2);
 }
-.next.wide { width: 100%; height: auto; border-radius: 12px; padding: 15px; font-size: 16px; font-weight: 600; }
-.sheetnote { font-size: 14px; margin: 14px 0 0 !important; min-height: 20px; }
+.next.wide { width: 100%; height: auto; border-radius: var(--r-sm); padding: 15px; font-size: var(--t-md); font-weight: var(--w-label); }
+.sheetnote { font-size: var(--t-sm); margin: 14px 0 0 !important; min-height: 20px; }
 
 /* ─── Verification, on the card ───────────────────────────────────────── */
 .verify { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-top: 14px; }
 .verify[hidden] { display: none; }
 .vbtn {
-  font-size: 13.5px; font-weight: 600; padding: 9px 14px; border-radius: 999px;
+  font-size: var(--t-sm); font-weight: var(--w-label); padding: 9px 14px; border-radius: var(--r-pill);
   background: none; color: var(--dim); box-shadow: inset 0 0 0 1px var(--hair-2);
 }
 .vbtn:hover { color: var(--ink); box-shadow: inset 0 0 0 1px var(--ink); }
 .vbtn[aria-pressed=true] { background: var(--accent); color: var(--on-accent); box-shadow: none; }
 .vbtn.no[aria-pressed=true] { background: var(--dim); color: var(--paper); }
-.tally { font-size: 13px; color: var(--faint); }
+.tally { font-size: var(--t-sm); color: var(--faint); }
 
 .nudge {
   position: fixed; left: 50%; bottom: 30px; transform: translate(-50%, 14px);
   background: var(--ink); color: var(--paper); padding: 13px 22px;
-  border-radius: 999px; font-size: 15px; font-weight: 600; z-index: 80;
-  opacity: 0; transition: opacity .3s, transform .3s var(--spring);
+  border-radius: var(--r-pill); font-size: var(--t-md); font-weight: var(--w-label); z-index: 80;
+  opacity: 0; transition: opacity var(--t-slow), transform var(--t-slow) var(--ease);
   box-shadow: var(--lift);
 }
 .nudge.in { opacity: 1; transform: translate(-50%, 0); }
 
-.empty { text-align: center; color: var(--dim); padding: 80px 20px; font-size: 17px; }
+.empty { text-align: center; color: var(--dim); padding: 80px 20px; font-size: var(--t-md); }
 .empty p { margin: 18px 0 0; }
 .loop-spin { width: 54px; height: 54px; color: var(--hair-2); }
-.more { text-align: center; color: var(--dim); font-size: 14px; padding: 16px 20px 48px; }
+.more { text-align: center; color: var(--dim); font-size: var(--t-sm); padding: 16px 20px 48px; }
 
 /* ─── Nav ─────────────────────────────────────────────────────────────── */
 .topnav {
@@ -1140,11 +1176,11 @@ summary:hover { color: var(--dim); }
 }
 .navrow {
   display: flex; gap: 8px; justify-content: center; flex-wrap: wrap;
-  box-shadow: inset 0 0 0 1.5px var(--ink); border-radius: 999px;
+  box-shadow: inset 0 0 0 1.5px var(--ink); border-radius: var(--r-pill);
   padding: 5px; width: max-content; margin: 0 auto; background: var(--paper);
 }
 .navpill {
-  font-size: 14.5px; font-weight: 500; padding: 7px 18px; border-radius: 999px;
+  font-size: var(--t-sm); font-weight: var(--w-label); padding: 7px 18px; border-radius: var(--r-pill);
   background: none; color: var(--ink);
   box-shadow: inset 0 0 0 1.5px var(--ink);
   text-decoration: underline; text-underline-offset: 3px;
@@ -1152,41 +1188,41 @@ summary:hover { color: var(--dim); }
 }
 .navpill:hover { background: var(--sunk); }
 /* The page you're on is the one that isn't a link any more. */
-.navpill[aria-current=page] { text-decoration: none; background: var(--paper); font-weight: 600; }
+.navpill[aria-current=page] { text-decoration: none; background: var(--paper); font-weight: var(--w-label); }
 .navpill:not([aria-current=page]):hover { text-decoration-thickness: 2px; }
 
 @media (max-width: 560px) {
   .navrow { gap: 5px; padding: 4px; }
-  .navpill { font-size: 13px; padding: 6px 12px; }
+  .navpill { font-size: var(--t-sm); padding: 6px 12px; }
 }
 
 /* ─── Simple pages ────────────────────────────────────────────────────── */
 .page { max-width: 720px; margin: 0 auto; padding: 60px 24px 120px; }
 .page[hidden] { display: none; }
-.page h1 { font-size: clamp(30px, 4vw, 44px); font-weight: 800; letter-spacing: -0.035em; margin: 0 0 14px; }
-.page .lede { font-size: 18px; color: var(--dim); margin: 0 0 36px; line-height: 1.55; }
-.page h2 { font-size: 19px; font-weight: 700; margin: 34px 0 12px; }
-.page label { display: block; font-size: 14px; font-weight: 600; margin: 0 0 6px; }
+.page h1 { font-size: clamp(30px, 4vw, 44px); font-weight: var(--w-display); letter-spacing: -0.035em; margin: 0 0 14px; }
+.page .lede { font-size: var(--t-lg); color: var(--dim); margin: 0 0 36px; line-height: 1.55; }
+.page h2 { font-size: var(--t-lg); font-weight: var(--w-display); margin: 34px 0 12px; }
+.page label { display: block; font-size: var(--t-sm); font-weight: var(--w-label); margin: 0 0 6px; }
 .page input, .page textarea, .page select {
-  width: 100%; font: inherit; font-size: 16px; padding: 13px 16px; border-radius: 12px;
+  width: 100%; font: inherit; font-size: var(--t-md); padding: 13px 16px; border-radius: var(--r-sm);
   background: var(--panel); color: var(--ink); box-shadow: inset 0 0 0 1px var(--hair-2);
   margin-bottom: 16px;
 }
 .page textarea { min-height: 120px; resize: vertical; }
 .page .btn {
-  font-size: 16px; font-weight: 600; padding: 14px 26px; border-radius: 999px;
+  font-size: var(--t-md); font-weight: var(--w-label); padding: 14px 26px; border-radius: var(--r-pill);
   background: var(--accent-deep); color: var(--on-accent);
 }
 .page .btn:hover { filter: brightness(1.08); }
-.page .quiet { color: var(--dim); font-size: 15px; }
+.page .quiet { color: var(--dim); font-size: var(--t-md); }
 .savedgrid { display: grid; gap: 10px; }
 .savedrow {
   display: flex; align-items: baseline; gap: 10px; padding: 14px 16px;
-  border-radius: 14px; box-shadow: inset 0 0 0 1px var(--hair);
+  border-radius: var(--r-md); box-shadow: inset 0 0 0 1px var(--hair);
 }
-.savedrow b { font-size: 16px; }
-.savedrow span { color: var(--faint); font-size: 13.5px; }
-.savedrow a { margin-left: auto; color: var(--accent-deep); font-size: 14px; font-weight: 600; }
+.savedrow b { font-size: var(--t-md); }
+.savedrow span { color: var(--faint); font-size: var(--t-sm); }
+.savedrow a { margin-left: auto; color: var(--accent-deep); font-size: var(--t-sm); font-weight: var(--w-label); }
 
 /* ─── Step one: the two cities ─────────────────────────────────────────
    White, like everything else. The discs stay — they were the good part of
@@ -1225,7 +1261,7 @@ summary:hover { color: var(--dim); }
 .setup .inner > .madlib { z-index: 5; }
 
 .setup .pitch {
-  font-size: clamp(34px, 4.6vw, 56px); font-weight: 800; letter-spacing: -0.035em;
+  font-size: clamp(34px, 4.6vw, 56px); font-weight: var(--w-display); letter-spacing: -0.035em;
   line-height: 1.08; margin: 0 0 20px; color: var(--ink);
 }
 /* Second line of the slogan — it needs its own line, or the comma runs
@@ -1233,9 +1269,9 @@ summary:hover { color: var(--dim); }
 .setup .pitch em { font-style: normal; color: var(--accent); display: block; }
 .setup #heroplace { color: var(--accent); }
 .setup .sub {
-  font-size: 19px; color: var(--dim); max-width: 46ch; margin: 0 auto 44px; line-height: 1.55;
+  font-size: var(--t-lg); color: var(--dim); max-width: 46ch; margin: 0 auto 44px; line-height: 1.55;
 }
-.setup .sub em { color: var(--ink); font-style: normal; font-weight: 600; }
+.setup .sub em { color: var(--ink); font-style: normal; font-weight: var(--w-label); }
 
 /* One sentence, not two form fields. The cities are words in it that happen
    to open a menu, and the loop between them is the verb: this, translated
@@ -1244,15 +1280,15 @@ summary:hover { color: var(--dim); }
 .madlib {
   display: flex; align-items: center; justify-content: center; flex-wrap: wrap;
   gap: 6px 14px; margin: 0 auto 34px; max-width: 900px;
-  font-size: clamp(22px, 3vw, 34px); font-weight: 600; letter-spacing: -0.02em;
+  font-size: clamp(22px, 3vw, 34px); font-weight: var(--w-label); letter-spacing: -0.02em;
   color: var(--dim);
 }
 .madlib .lead { color: var(--dim); }
 .madlib .citypick { display: inline-flex; }
 .madlib .citybtn {
-  font-size: inherit; font-weight: 800; letter-spacing: -0.03em;
+  font-size: inherit; font-weight: var(--w-display); letter-spacing: -0.03em;
   color: var(--ink); background: none; box-shadow: none;
-  padding: 2px 4px; gap: 8px; border-radius: 8px;
+  padding: 2px 4px; gap: 8px; border-radius: var(--r-sm);
   /* Underlined the way a fillable blank is, in the accent so it reads as
      the changeable part of the sentence. */
   box-shadow: inset 0 -3px 0 var(--accent);
@@ -1264,17 +1300,17 @@ summary:hover { color: var(--dim); }
    most common second thought someone has here — "wait, I want it the other
    way" — and it deserves the logo rather than a pair of arrows. */
 .swap {
-  background: none; padding: 6px; border-radius: 999px; display: grid;
+  background: none; padding: 6px; border-radius: var(--r-pill); display: grid;
   place-items: center; color: var(--accent);
 }
 .swap:hover { background: var(--accent-soft); }
-.swap.spin .loop { animation: flip .5s var(--spring); }
+.swap.spin .loop { animation: flip .5s var(--ease); }
 @keyframes flip { from { transform: rotate(0) scale(1); } 50% { transform: rotate(180deg) scale(.8); } to { transform: rotate(360deg) scale(1); } }
 
 /* Offered, never taken. The prompt only fires if this is pressed. */
 .locate {
   display: block; margin: 22px auto 0; background: none; color: var(--dim);
-  font-size: 14px; font-weight: 600; padding: 8px 14px; border-radius: 999px;
+  font-size: var(--t-sm); font-weight: var(--w-label); padding: 8px 14px; border-radius: var(--r-pill);
   box-shadow: inset 0 0 0 1px var(--hair-2);
 }
 .locate:hover { color: var(--ink); box-shadow: inset 0 0 0 1px var(--ink); }
@@ -1282,29 +1318,29 @@ summary:hover { color: var(--dim); }
 
 /* The verb, again — the same mark, filled in and clickable. */
 .next {
-  width: 62px; height: 62px; padding: 0; border-radius: 999px;
+  width: 62px; height: 62px; padding: 0; border-radius: var(--r-pill);
   background: var(--accent); color: var(--on-accent);
   display: grid; place-items: center; box-shadow: none; flex: none;
 }
-.next:hover { background: var(--accent-deep); transform: scale(1.05); box-shadow: none; }
-.next:active { transform: scale(.96); }
+.next:hover { background: var(--accent-deep); }
+.next:active { opacity: .85; }
 .go-arrow { width: 26px; height: 26px; }
 
 /* ─── First visit: choose a city ──────────────────────────────────────── */
 .pick { padding: 76px 24px 40px; text-align: center; }
 .pick[hidden] { display: none; }
 .pick .wrap { max-width: 700px; margin: 0 auto; }
-.pick .pick .brand { font-family: var(--display); font-size: 17px; color: var(--dim); margin-bottom: 26px; }
-.sub { font-size: 17px; color: var(--dim); max-width: 30em; margin: 0 auto 44px; line-height: 1.55; }
-.pick .q { font-size: 15px; font-weight: 650; color: var(--dim); margin: 0 0 16px; }
+.pick .pick .brand { font-family: var(--display); font-size: var(--t-md); color: var(--dim); margin-bottom: 26px; }
+.sub { font-size: var(--t-md); color: var(--dim); max-width: 30em; margin: 0 auto 44px; line-height: 1.55; }
+.pick .q { font-size: var(--t-md); font-weight: var(--w-label); color: var(--dim); margin: 0 0 16px; }
 .cities { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
 .cities button {
-  font-size: 19px; font-weight: 700; letter-spacing: -0.02em;
-  padding: 20px 34px; border-radius: 20px;
+  font-size: var(--t-lg); font-weight: var(--w-display); letter-spacing: -0.02em;
+  padding: 20px 34px; border-radius: var(--r-md);
   background: var(--panel); color: var(--ink); box-shadow: var(--shadow);
 }
-.cities button:hover { transform: translateY(-3px); box-shadow: var(--lift); color: var(--dim); }
-.cities button:active { transform: translateY(0) scale(.97); }
+.cities button:hover { box-shadow: var(--e-lift); color: var(--accent-deep); }
+.cities button:active { background: var(--sunk); }
 
 #app[hidden] { display: none; }
 
@@ -1318,14 +1354,14 @@ summary:hover { color: var(--dim); }
 }
 @media (max-width: 640px) {
   header { padding: 8px 14px; }
-  button.brand { font-size: 19px; padding-right: 8px; }
+  button.brand { font-size: var(--t-lg); padding-right: 8px; }
   .bar { gap: 10px; }
   .from { display: none; }        /* "I know" is implied by the city control */
   main { padding: 8px 16px 70px; }
   .crumb { padding: 16px 18px 2px; }
   .card { grid-template-columns: 1fr; gap: 18px; padding: 24px 0 34px; }
   .card > .head { position: static; }
-  .answer { font-size: 27px; }
+  .answer { font-size: var(--t-xl); }
   /* Three lines on a phone. Left to wrap on its own, "an H-E-B," lands
      alone on line two as a stranded fragment; breaking deliberately puts the
      place name at the head of its own line where it reads as the subject. */
@@ -1333,20 +1369,20 @@ summary:hover { color: var(--dim); }
      Stack it: each question gets a full-width row, the divider becomes a
      rule between them, and the verb spans the bottom. */
   .pair {
-    flex-direction: column; align-items: stretch; border-radius: 24px;
+    flex-direction: column; align-items: stretch; border-radius: var(--r-md);
     padding: 8px; gap: 2px; max-width: 420px;
   }
-  .leg { padding: 14px 18px; border-radius: 18px; }
+  .leg { padding: 14px 18px; border-radius: var(--r-md); }
   .leg + .leg { box-shadow: inset 0 1px 0 var(--hair); }
-  .leg .citybtn { font-size: 17px; }
+  .leg .citybtn { font-size: var(--t-md); }
   .next { width: 54px; height: 54px; padding: 0; }
   .setup { padding: 28px 20px 48px; }
-  .setup .sub { font-size: 16px; margin-bottom: 30px; }
+  .setup .sub { font-size: var(--t-md); margin-bottom: 30px; }
   .setup .pitch .hl2 { display: block; }
   .setup .pitch .l1 { white-space: normal; }
   .pitch { margin-bottom: 24px; font-size: clamp(28px, 8.4vw, 40px); }
-  .sub { font-size: 16px; margin-bottom: 32px; }
-  .cities button { font-size: 17px; padding: 16px 24px; flex: 1 1 40%; }
+  .sub { font-size: var(--t-md); margin-bottom: 32px; }
+  .cities button { font-size: var(--t-md); padding: 16px 24px; flex: 1 1 40%; }
   .stage { padding: 16px 18px 140px; min-height: calc(100vh - 54px); }
   .setup { padding: 28px 18px 40px; }
   .pair { gap: 14px; margin: 28px 0 26px; }
