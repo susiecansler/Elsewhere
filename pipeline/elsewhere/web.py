@@ -764,10 +764,16 @@ header {
 }
 .bar .chip:hover { background: var(--sunk); transform: none; }
 .bar .chip:active { transform: none; }
+/* The city pair outranks the other header controls — it is the state
+   everything else on the page is relative to — so it wears the accent while
+   Browse and Saved stay plain text. A slightly heavier outline and the
+   accent colour do that without adding a filled button to the bar. */
 #pairbtn {
-  box-shadow: inset 0 0 0 1px var(--hair-2); padding: 11px 16px;
+  box-shadow: inset 0 0 0 1.5px var(--accent); padding: 11px 16px;
+  color: var(--accent-deep);
 }
-#pairbtn:hover { box-shadow: inset 0 0 0 1px var(--ink); background: var(--paper); }
+#pairbtn:hover { box-shadow: inset 0 0 0 1.5px var(--accent-deep); background: var(--accent-soft); }
+#pairbtn:active { background: var(--mint); }
 .bar #controls .field input { background: var(--bar-field); color: var(--bar-ink); box-shadow: none; }
 .bar #controls .field input::placeholder { color: var(--bar-dim); }
 .bar #controls .field input:focus { box-shadow: 0 0 0 2px var(--gold); }
