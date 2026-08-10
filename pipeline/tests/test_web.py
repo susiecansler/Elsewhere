@@ -7,6 +7,7 @@ separation as much as they pin the lookup behaviour.
 from __future__ import annotations
 
 import os
+import re
 import shutil
 import subprocess
 import tempfile
@@ -212,3 +213,29 @@ def test_area_places_get_no_website():
         for name, category in cats.items():
             if category.split("_")[0] in links.AREA_CATEGORIES:
                 assert not index.get(city, {}).get(name, {}).get("website"), (city, name)
+
+
+def test_page_css_braces_balance():
+    """An unclosed brace silently truncates the rest of the stylesheet.
+
+    A stray `.cityname {.cityname {` left one block open, and every rule
+    after it — including all the decorative-illustration sizing — simply
+    stopped existing. The page still returned 200 and every other test
+    passed; the only symptom was a full-size, full-opacity fish. Cheap to
+    check, and it fails loudly.
+    """
+    css = web.PAGE[web.PAGE.index("<style>") + 7 : web.PAGE.index("</style>")]
+    without_comments = re.sub(r"/\*.*?\*/", "", css, flags=re.S)
+    opens = without_comments.count("{")
+    closes = without_comments.count("}")
+    assert opens == closes, f"unbalanced CSS braces: {opens} open, {closes} closed"
+
+
+def test_page_css_has_no_doubled_selectors():
+    """`.foo {.foo {` is the shape the truncation bug took.
+
+    Same line only — `@media (...) { .rule {` spans lines and is correct.
+    """
+    css = web.PAGE[web.PAGE.index("<style>") + 7 : web.PAGE.index("</style>")]
+    bad = re.findall(r"\{[^\n{}]*[.#][\w-]+\s*\{", css)
+    assert not bad, f"a selector opens inside another on one line: {bad[:3]}"

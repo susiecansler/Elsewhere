@@ -1130,7 +1130,7 @@ main { max-width: 1180px; margin: 0 auto; padding: 28px 40px 140px; }
   .reveal > * { animation: none; }
 }
 
-.cityname {.cityname {
+.cityname {
   font-size: var(--t-sm); font-weight: var(--w-label); color: var(--accent);
   margin-bottom: 6px; display: block; letter-spacing: 0; text-transform: none;
 }
