@@ -1299,6 +1299,106 @@ summary:hover { color: var(--dim); }
   .navpill { font-size: var(--t-sm); padding: 6px 12px; }
 }
 
+/* ─── Your Elsewhere ──────────────────────────────────────────────────────
+   A collection, not an account screen. The heading is the only large thing;
+   everything else earns its size. Sections are separated by rhythm and one
+   hairline rather than by wrapping each in a box — the page should not be a
+   stack of rounded rectangles. */
+.acct { max-width: 660px; }
+.accth {
+  display: flex; align-items: center; gap: var(--s3);
+  font-size: clamp(32px, 4.4vw, 46px); letter-spacing: -0.04em; margin: 0 0 var(--s3);
+}
+.acctmark { display: inline-flex; }
+.acctmark .loop-empty { width: 30px; height: 30px; color: var(--accent); }
+/* The one place the mark moves, and only on a page you arrive at rarely. */
+@media (prefers-reduced-motion: no-preference) {
+  .acctmark .loop-empty { animation: nudge 4s var(--ease) infinite; }
+  @keyframes nudge {
+    0%, 82%, 100% { transform: rotate(0); }
+    88% { transform: rotate(-12deg) scale(1.06); }
+    94% { transform: rotate(6deg); }
+  }
+}
+/* Quieter than the old lede: it is a reassurance, not an instruction. */
+.acctnote {
+  font-size: var(--t-sm); color: var(--faint); max-width: 46ch;
+  margin: 0 0 var(--s6); line-height: 1.6;
+}
+.acctsec { margin: 0 0 var(--s6); }
+.acctsec + .acctsec { padding-top: var(--s6); box-shadow: inset 0 1px 0 var(--hair); }
+.sech {
+  font-size: var(--t-xs); font-weight: var(--w-label); letter-spacing: .12em;
+  text-transform: uppercase; color: var(--faint); margin: 0 0 var(--s4);
+}
+.sech .count { color: var(--hair-2); margin-left: var(--s1); }
+
+/* A saved pair, as a small editorial object. Hairline top rule instead of a
+   box on every side, so a list of them reads as a collection rather than as
+   a dashboard. */
+.savedgrid { display: grid; gap: 0; }
+.pair-card {
+  padding: var(--s4) var(--s3);
+  box-shadow: inset 0 1px 0 var(--hair);
+  transition: background var(--t-fast) var(--ease);
+}
+.pair-card:first-child { box-shadow: none; }
+.pair-card:hover { background: var(--mint); }
+.pc-line { display: flex; align-items: baseline; gap: var(--s2); flex-wrap: wrap; }
+.pc-name { font-size: var(--t-lg); font-weight: var(--w-label); color: var(--dim); letter-spacing: -0.01em; }
+.pc-city { font-size: var(--t-xs); color: var(--faint); text-transform: uppercase; letter-spacing: .08em; }
+.pc-tag {
+  font-size: var(--t-xs); color: var(--accent-deep); background: var(--mint);
+  padding: 3px var(--s2); border-radius: var(--r-pill); margin-left: auto;
+}
+.pc-mid {
+  display: flex; align-items: center; gap: var(--s2);
+  margin: var(--s2) 0; color: var(--accent);
+  font-size: var(--t-xs); letter-spacing: .08em; text-transform: uppercase;
+}
+.pc-mid .loop-empty { width: 22px; height: 22px; transform: rotate(58deg); }
+.pc-hero { font-size: var(--t-xl); font-weight: var(--w-display); letter-spacing: -0.03em;
+  color: var(--ink); line-height: 1.1; }
+.pc-acts { display: flex; gap: var(--s3); margin-top: var(--s3); }
+.pc-acts a, .pc-acts button {
+  font-size: var(--t-sm); font-weight: var(--w-label); color: var(--dim);
+  background: none; padding: var(--s2) 0; text-decoration: underline;
+  text-underline-offset: 3px; min-height: 40px;
+}
+.pc-acts a:hover, .pc-acts button:hover { color: var(--accent-deep); }
+/* Removing one collapses rather than vanishing, so the list keeps its place. */
+.pair-card.going {
+  opacity: 0; transform: translateX(-8px);
+  max-height: 0; padding-block: 0; overflow: hidden;
+  transition: opacity var(--t-fast), transform var(--t-fast),
+              max-height var(--t-slow) var(--ease), padding-block var(--t-slow);
+}
+
+/* Taste. Chips arrive in sequence, which is most of the charm. */
+.tastechips { display: flex; flex-wrap: wrap; gap: var(--s2); }
+.tastechips li {
+  list-style: none; font-size: var(--t-sm); color: var(--accent-deep);
+  background: var(--mint); padding: var(--s2) var(--s3); border-radius: var(--r-pill);
+  animation: rise var(--t-slow) var(--ease) both;
+}
+.tasteempty .big { font-size: var(--t-lg); font-weight: var(--w-label); color: var(--ink); margin: 0 0 var(--s2); }
+.tasteempty .small { font-size: var(--t-sm); color: var(--faint); margin: 0 0 var(--s3); }
+.tastecount { font-size: var(--t-xs); color: var(--accent-deep); letter-spacing: .06em; }
+
+.onward {
+  display: inline-block; font-size: var(--t-md); font-weight: var(--w-label);
+  color: var(--accent-deep); text-decoration: none; padding: var(--s2) 0;
+  border-bottom: 1.5px solid var(--accent-soft); transition: border-color var(--t-fast);
+}
+.onward:hover { border-bottom-color: var(--accent); }
+
+@media (max-width: 520px) {
+  .acct { padding-left: var(--s4); padding-right: var(--s4); }
+  .pc-tag { margin-left: 0; }
+  .pc-hero { font-size: var(--t-lg); }
+  .pc-acts { gap: var(--s4); }
+}
+
 /* ─── Simple pages ────────────────────────────────────────────────────── */
 .page { max-width: 720px; margin: 0 auto; padding: 60px 24px 120px; }
 .page[hidden] { display: none; }
@@ -1614,14 +1714,22 @@ summary:hover { color: var(--dim); }
 <!-- Account. Saves already work without an account, so this shows them
      whether or not anyone is signed in, and is honest that syncing is the
      part still waiting on a backend. -->
-<section class="page" id="page-account" hidden>
-  <h1>Your account</h1>
-  <p class="lede" id="acctlede"></p>
+<section class="page acct" id="page-account" hidden>
+  <h1 class="accth">Your Elsewhere <span class="acctmark">__LOOP_EMPTY__</span></h1>
+  <p class="acctnote" id="acctlede"></p>
   <div id="acctauth"></div>
-  <h2>Saved places</h2>
-  <div class="savedgrid" id="acctsaved"></div>
-  <h2>What you seem to like</h2>
-  <p class="quiet" id="accttaste"></p>
+
+  <section class="acctsec">
+    <h2 class="sech">Saved places <span class="count" id="acctcount"></span></h2>
+    <div class="savedgrid" id="acctsaved"></div>
+  </section>
+
+  <section class="acctsec taste">
+    <h2 class="sech">Your taste, according to Elsewhere</h2>
+    <div id="accttaste"></div>
+  </section>
+
+  <a class="onward" id="acctonward" href="#">Find another elsewhere &rarr;</a>
 </section>
 
 <!-- Suggestions. The corpus is hand-curated, so the most useful thing anyone
@@ -2094,10 +2202,24 @@ function loadSaved() {
 }
 let saved = loadSaved();
 
+/* `fromCity` and `cat` are new. A save used to record the counterpart, its
+   city, and the name of the place you knew — but not which city that place
+   was in, and not its category. Both were then looked up from whichever
+   corpus happened to be loaded, so switching cities silently emptied the
+   taste profile and the card could not say where you were coming from.
+   Recording them at save time fixes both. Older saves simply lack the
+   fields and degrade to what they always showed. */
 function toggleSave(city, name, from, links) {
   const k = savedKey(city, name);
   if (saved.has(k)) saved.delete(k);
-  else saved.set(k, { city, name, from, links, at: Date.now() });
+  else {
+    const m = S && S.matches.find(x => x.name === from);
+    saved.set(k, {
+      city, name, from, links, at: Date.now(),
+      fromCity: S ? S.source : "",
+      cat: m ? groupOf(m) : "",
+    });
+  }
   localStorage.setItem(SAVED_KEY, JSON.stringify([...saved]));
   renderSavedBtn();
   maybeNudge();
@@ -2881,36 +3003,104 @@ function showPage(name, push = true) {
   scrollTo({ top: 0 });
 }
 
+/* Observations, not analytics. Each phrase is tied to a category the saves
+   actually fall into — nothing is inferred beyond "you keep saving these",
+   which is the only claim the data supports. The wording is the part that
+   makes it feel like someone noticed rather than something scored you. */
+const TASTE = {
+  Food: "restaurants with a point of view",
+  Drinks: "bars that have been there a while",
+  Coffee: "good coffee, obviously",
+  Groceries: "excellent grocery stores, weirdly",
+  Shops: "independent everything",
+  Outdoors: "somewhere to walk it off",
+  Culture: "places with a little history",
+  Neighborhoods: "neighbourhood wandering",
+  Fitness: "earning it first",
+};
+
+function tasteChips(rows) {
+  const counts = {};
+  for (const r of rows) {
+    // Prefer the category recorded at save time; fall back to the loaded
+    // corpus for saves made before that was stored.
+    const cat = r.cat || (S && (S.matches.find(x => x.name === r.from) || {}) && groupOf(
+      S.matches.find(x => x.name === r.from) || { category: "" }));
+    if (cat && TASTE[cat]) counts[cat] = (counts[cat] || 0) + 1;
+  }
+  const picked = Object.entries(counts).sort((a, b) => b[1] - a[1]).slice(0, 5);
+  // Only said when the saves are actually spread around.
+  if (picked.length >= 3 && rows.length >= 5) picked.push(["_range", 0]);
+  return picked.map(([k]) => k === "_range" ? "hard to pin down" : TASTE[k]);
+}
+
 function renderAccount() {
   const rows = [...saved.values()].sort((a, b) => b.at - a.at);
-  document.getElementById("acctlede").textContent = ACCOUNTS
-    ? (me ? `Signed in as ${me.email}.` : "Saves live on this device. Sign in to keep them and to verify matches.")
-    : "Saves live on this device — no account needed, and nothing leaves your browser.";
+
+  document.getElementById("acctlede").textContent = ACCOUNTS && me
+    ? `Signed in as ${me.email}. Your saves follow you.`
+    : "Your saves live right here on this device. No account, no inbox clutter, no funny business.";
 
   const auth = document.getElementById("acctauth");
   auth.innerHTML = !ACCOUNTS ? ""
     : me ? `<button class="btn" id="signoutbtn">Sign out</button>`
          : `<button class="btn" id="signinopen">Sign in with email</button>`;
 
-  document.getElementById("acctsaved").innerHTML = rows.length
-    ? rows.map(r => `<div class="savedrow"><b>${esc(r.name)}</b>
-        <span>${esc(title(r.city))}${r.from ? ` \u00b7 your ${esc(r.from)}` : ""}</span>
-        ${r.links && r.links.map ? `<a href="${esc(r.links.map)}" target="_blank" rel="noopener noreferrer">Map</a>` : ""}
-      </div>`).join("")
-    : `<p class="quiet">Nothing saved yet. Star an answer and it turns up here.</p>`;
+  document.getElementById("acctcount").textContent = rows.length ? rows.length : "";
 
-  // A read of the saves rather than a profile: the categories they fall into,
-  // said plainly, with no claim to know more than that.
-  const groups = {};
-  for (const r of rows) {
-    const m = S && S.matches.find(x => x.name === r.from);
-    if (m) groups[groupOf(m)] = (groups[groupOf(m)] || 0) + 1;
+  document.getElementById("acctsaved").innerHTML = rows.length
+    ? rows.map(r => `<article class="pair-card" data-city="${esc(r.city)}" data-name="${esc(r.name)}">
+        <div class="pc-line">
+          <span class="pc-name">${esc(r.from || "Somewhere you liked")}</span>
+          ${r.fromCity ? `<span class="pc-city">${esc(title(r.fromCity))}</span>` : ""}
+          ${r.cat ? `<span class="pc-tag">${esc(r.cat.toLowerCase())}</span>` : ""}
+        </div>
+        <div class="pc-mid">__LOOP_EMPTY__ elsewhere</div>
+        <div class="pc-line">
+          <span class="pc-hero">${esc(r.name)}</span>
+          <span class="pc-city">${esc(title(r.city))}</span>
+        </div>
+        <div class="pc-acts">
+          ${r.links && r.links.map
+            ? `<a href="${esc(r.links.map)}" target="_blank" rel="noopener noreferrer">Map</a>` : ""}
+          <button class="pc-remove" type="button">Remove</button>
+        </div>
+      </article>`).join("")
+    : `<p class="quiet">Nothing saved yet. Star a counterpart and it turns up here.</p>`;
+
+  const taste = document.getElementById("accttaste");
+  const chips = tasteChips(rows);
+  if (rows.length < 3 || !chips.length) {
+    const left = Math.max(0, 3 - rows.length);
+    taste.innerHTML = `<div class="tasteempty">
+      <p class="big">We have theories. We need more evidence.</p>
+      <p class="small">Save a few more places and we'll start figuring out your type.</p>
+      <p class="tastecount">${rows.length} of 3 saves before we start making assumptions</p>
+    </div>`;
+    if (!left) taste.querySelector(".tastecount").textContent = "Almost — one more should do it";
+  } else {
+    taste.innerHTML = `<ul class="tastechips">${chips.map((c, i) =>
+      `<li style="animation-delay:${i * 70}ms">${esc(c)}</li>`).join("")}</ul>`;
   }
-  const top = Object.entries(groups).sort((a, b) => b[1] - a[1]).slice(0, 4).map(([k]) => k.toLowerCase());
-  document.getElementById("accttaste").textContent = rows.length < 3
-    ? "Save a few more and there'll be something to say here."
-    : `Mostly ${top.join(" \u00b7 ")}.`;
 }
+
+/* Removing collapses the card first, so the list settles instead of jumping. */
+document.getElementById("page-account").addEventListener("click", e => {
+  const rm = e.target.closest(".pc-remove");
+  if (!rm) return;
+  const card = rm.closest(".pair-card");
+  const done = () => { toggleSave(card.dataset.city, card.dataset.name); renderAccount(); };
+  if (matchMedia("(prefers-reduced-motion: reduce)").matches) { done(); return; }
+  card.style.maxHeight = card.offsetHeight + "px";
+  requestAnimationFrame(() => card.classList.add("going"));
+  setTimeout(done, 320);
+});
+
+document.getElementById("acctonward").addEventListener("click", e => {
+  e.preventDefault();
+  showPage("home");
+});
+
 
 document.querySelector(".topnav").addEventListener("click", e => {
   const b = e.target.closest(".navpill");
