@@ -231,6 +231,14 @@ def create_app(source: str = "austin", target: str = "chicago") -> FastAPI:
 #: Every path is computed rather than hand-placed, which is what buys the
 #: detail.
 #:
+#: Stroke-only, and that is the point rather than a style preference. These
+#: are drawn at 16% opacity, where a 1.5px stroke disappears but a solid fill
+#: still reads — so a drawing that mixes the two collapses into its blobs and
+#: stops looking like anything. Every line fades together now. For the same
+#: reason the head is cleared by clipping the pattern short rather than by
+#: painting over it: a paper-coloured shape inside a translucent group does
+#: not mask, it just composites at 16%.
+#:
 #: Tail spread is 1.15x the body half-height. It was 1.9x, which is a fan
 #: larger than the fish and ran the top one off the canvas — the drawing was
 #: literally being sliced, which is what "broken" looked like. The generator
@@ -262,179 +270,207 @@ FISH = """<svg class="decor decor-fish" viewBox="0 0 380 320" fill="none"
   aria-hidden="true">
   <g>
     <defs><clipPath id="fa"><path d="M26.0 74.0 C69.1 40.7 147.5 40.7 222.0 74.0 C147.5 107.3 69.1 107.3 26.0 74.0Z"/></clipPath></defs>
-    <g clip-path="url(#fa)">
-    <path d="M49.5 12.0 A28.7 28.7 0 0 1 49.5 69.3" fill="currentColor" stroke-width="1.28"/>
-    <path d="M49.5 37.8 A28.7 28.7 0 0 1 49.5 95.1" fill="none" stroke-width="1.28"/>
-    <path d="M49.5 63.6 A28.7 28.7 0 0 1 49.5 120.9" fill="none" stroke-width="1.28"/>
-    <path d="M49.5 89.4 A28.7 28.7 0 0 1 49.5 146.7" fill="none" stroke-width="1.28"/>
-    <path d="M67.3 24.9 A28.7 28.7 0 0 1 67.3 82.2" fill="none" stroke-width="1.28"/>
-    <path d="M67.3 50.7 A28.7 28.7 0 0 1 67.3 108.0" fill="none" stroke-width="1.28"/>
-    <path d="M67.3 76.5 A28.7 28.7 0 0 1 67.3 133.8" fill="none" stroke-width="1.28"/>
-    <path d="M67.3 102.3 A28.7 28.7 0 0 1 67.3 159.6" fill="currentColor" stroke-width="1.28"/>
-    <path d="M85.1 12.0 A28.7 28.7 0 0 1 85.1 69.3" fill="none" stroke-width="1.28"/>
-    <path d="M85.1 37.8 A28.7 28.7 0 0 1 85.1 95.1" fill="currentColor" stroke-width="1.28"/>
-    <path d="M85.1 63.6 A28.7 28.7 0 0 1 85.1 120.9" fill="none" stroke-width="1.28"/>
-    <path d="M85.1 89.4 A28.7 28.7 0 0 1 85.1 146.7" fill="none" stroke-width="1.28"/>
-    <path d="M102.8 24.9 A28.7 28.7 0 0 1 102.8 82.2" fill="none" stroke-width="1.28"/>
-    <path d="M102.8 50.7 A28.7 28.7 0 0 1 102.8 108.0" fill="none" stroke-width="1.28"/>
-    <path d="M102.8 76.5 A28.7 28.7 0 0 1 102.8 133.8" fill="none" stroke-width="1.28"/>
-    <path d="M102.8 102.3 A28.7 28.7 0 0 1 102.8 159.6" fill="none" stroke-width="1.28"/>
-    <path d="M120.6 12.0 A28.7 28.7 0 0 1 120.6 69.3" fill="none" stroke-width="1.28"/>
-    <path d="M120.6 37.8 A28.7 28.7 0 0 1 120.6 95.1" fill="none" stroke-width="1.28"/>
-    <path d="M120.6 63.6 A28.7 28.7 0 0 1 120.6 120.9" fill="currentColor" stroke-width="1.28"/>
-    <path d="M120.6 89.4 A28.7 28.7 0 0 1 120.6 146.7" fill="none" stroke-width="1.28"/>
-    <path d="M138.4 24.9 A28.7 28.7 0 0 1 138.4 82.2" fill="currentColor" stroke-width="1.28"/>
-    <path d="M138.4 50.7 A28.7 28.7 0 0 1 138.4 108.0" fill="none" stroke-width="1.28"/>
-    <path d="M138.4 76.5 A28.7 28.7 0 0 1 138.4 133.8" fill="none" stroke-width="1.28"/>
-    <path d="M138.4 102.3 A28.7 28.7 0 0 1 138.4 159.6" fill="none" stroke-width="1.28"/>
-    <path d="M156.1 12.0 A28.7 28.7 0 0 1 156.1 69.3" fill="none" stroke-width="1.28"/>
-    <path d="M156.1 37.8 A28.7 28.7 0 0 1 156.1 95.1" fill="none" stroke-width="1.28"/>
-    <path d="M156.1 63.6 A28.7 28.7 0 0 1 156.1 120.9" fill="none" stroke-width="1.28"/>
-    <path d="M156.1 89.4 A28.7 28.7 0 0 1 156.1 146.7" fill="currentColor" stroke-width="1.28"/>
-    <path d="M173.9 24.9 A28.7 28.7 0 0 1 173.9 82.2" fill="none" stroke-width="1.28"/>
-    <path d="M173.9 50.7 A28.7 28.7 0 0 1 173.9 108.0" fill="currentColor" stroke-width="1.28"/>
-    <path d="M173.9 76.5 A28.7 28.7 0 0 1 173.9 133.8" fill="none" stroke-width="1.28"/>
-    <path d="M173.9 102.3 A28.7 28.7 0 0 1 173.9 159.6" fill="none" stroke-width="1.28"/>
-    <path d="M191.6 12.0 A28.7 28.7 0 0 1 191.6 69.3" fill="none" stroke-width="1.28"/>
-    <path d="M191.6 37.8 A28.7 28.7 0 0 1 191.6 95.1" fill="none" stroke-width="1.28"/>
-    <path d="M191.6 63.6 A28.7 28.7 0 0 1 191.6 120.9" fill="none" stroke-width="1.28"/>
-    <path d="M191.6 89.4 A28.7 28.7 0 0 1 191.6 146.7" fill="none" stroke-width="1.28"/>
-    <path d="M209.4 24.9 A28.7 28.7 0 0 1 209.4 82.2" fill="none" stroke-width="1.28"/>
-    <path d="M209.4 50.7 A28.7 28.7 0 0 1 209.4 108.0" fill="none" stroke-width="1.28"/>
-    <path d="M209.4 76.5 A28.7 28.7 0 0 1 209.4 133.8" fill="currentColor" stroke-width="1.28"/>
-    <path d="M209.4 102.3 A28.7 28.7 0 0 1 209.4 159.6" fill="none" stroke-width="1.28"/>
-    <path d="M227.2 12.0 A28.7 28.7 0 0 1 227.2 69.3" fill="currentColor" stroke-width="1.28"/>
-    <path d="M227.2 37.8 A28.7 28.7 0 0 1 227.2 95.1" fill="none" stroke-width="1.28"/>
-    <path d="M227.2 63.6 A28.7 28.7 0 0 1 227.2 120.9" fill="none" stroke-width="1.28"/>
-    <path d="M227.2 89.4 A28.7 28.7 0 0 1 227.2 146.7" fill="none" stroke-width="1.28"/>
-    <path d="M244.9 24.9 A28.7 28.7 0 0 1 244.9 82.2" fill="none" stroke-width="1.28"/>
-    <path d="M244.9 50.7 A28.7 28.7 0 0 1 244.9 108.0" fill="none" stroke-width="1.28"/>
-    <path d="M244.9 76.5 A28.7 28.7 0 0 1 244.9 133.8" fill="none" stroke-width="1.28"/>
-    <path d="M244.9 102.3 A28.7 28.7 0 0 1 244.9 159.6" fill="currentColor" stroke-width="1.28"/>
-    </g>
-    <path d="M65.2 45.3 L77.0 74.0 L65.2 102.7" fill="var(--paper)" stroke="none" clip-path="url(#fa)"/>
-    <path d="M65.2 45.3 L77.0 74.0 L65.2 102.7" fill="none" stroke-width="1.60"/>
-    <path d="M26.0 74.0 C69.1 40.7 147.5 40.7 222.0 74.0 C147.5 107.3 69.1 107.3 26.0 74.0Z" fill="none" stroke-width="1.84"/>
-    <circle cx="49.5" cy="71.3" r="11.3" fill="var(--paper)" stroke-width="1.60"/>
+    <defs><clipPath id="fap"><rect x="77.0" y="27.4" width="196.0" height="93.3"/></clipPath></defs>
+    <g clip-path="url(#fa)"><g clip-path="url(#fap)">
+    <path d="M49.5 12.0 A28.7 28.7 0 0 1 49.5 69.3" fill="none" stroke-width="1.92"/>
+    <path d="M49.5 37.8 A28.7 28.7 0 0 1 49.5 95.1" fill="none" stroke-width="1.92"/>
+    <path d="M49.5 63.6 A28.7 28.7 0 0 1 49.5 120.9" fill="none" stroke-width="1.92"/>
+    <path d="M49.5 89.4 A28.7 28.7 0 0 1 49.5 146.7" fill="none" stroke-width="1.92"/>
+    <path d="M67.3 24.9 A28.7 28.7 0 0 1 67.3 82.2" fill="none" stroke-width="1.92"/>
+    <path d="M67.3 50.7 A28.7 28.7 0 0 1 67.3 108.0" fill="none" stroke-width="1.92"/>
+    <path d="M67.3 76.5 A28.7 28.7 0 0 1 67.3 133.8" fill="none" stroke-width="1.92"/>
+    <path d="M67.3 102.3 A28.7 28.7 0 0 1 67.3 159.6" fill="none" stroke-width="1.92"/>
+    <path d="M85.1 12.0 A28.7 28.7 0 0 1 85.1 69.3" fill="none" stroke-width="1.92"/>
+    <path d="M85.1 37.8 A28.7 28.7 0 0 1 85.1 95.1" fill="none" stroke-width="1.92"/>
+    <path d="M85.1 63.6 A28.7 28.7 0 0 1 85.1 120.9" fill="none" stroke-width="1.92"/>
+    <path d="M85.1 89.4 A28.7 28.7 0 0 1 85.1 146.7" fill="none" stroke-width="1.92"/>
+    <path d="M102.8 24.9 A28.7 28.7 0 0 1 102.8 82.2" fill="none" stroke-width="1.92"/>
+    <path d="M102.8 50.7 A28.7 28.7 0 0 1 102.8 108.0" fill="none" stroke-width="1.92"/>
+    <path d="M102.8 76.5 A28.7 28.7 0 0 1 102.8 133.8" fill="none" stroke-width="1.92"/>
+    <path d="M102.8 102.3 A28.7 28.7 0 0 1 102.8 159.6" fill="none" stroke-width="1.92"/>
+    <path d="M120.6 12.0 A28.7 28.7 0 0 1 120.6 69.3" fill="none" stroke-width="1.92"/>
+    <path d="M120.6 37.8 A28.7 28.7 0 0 1 120.6 95.1" fill="none" stroke-width="1.92"/>
+    <path d="M120.6 63.6 A28.7 28.7 0 0 1 120.6 120.9" fill="none" stroke-width="1.92"/>
+    <path d="M120.6 89.4 A28.7 28.7 0 0 1 120.6 146.7" fill="none" stroke-width="1.92"/>
+    <path d="M138.4 24.9 A28.7 28.7 0 0 1 138.4 82.2" fill="none" stroke-width="1.92"/>
+    <path d="M138.4 50.7 A28.7 28.7 0 0 1 138.4 108.0" fill="none" stroke-width="1.92"/>
+    <path d="M138.4 76.5 A28.7 28.7 0 0 1 138.4 133.8" fill="none" stroke-width="1.92"/>
+    <path d="M138.4 102.3 A28.7 28.7 0 0 1 138.4 159.6" fill="none" stroke-width="1.92"/>
+    <path d="M156.1 12.0 A28.7 28.7 0 0 1 156.1 69.3" fill="none" stroke-width="1.92"/>
+    <path d="M156.1 37.8 A28.7 28.7 0 0 1 156.1 95.1" fill="none" stroke-width="1.92"/>
+    <path d="M156.1 63.6 A28.7 28.7 0 0 1 156.1 120.9" fill="none" stroke-width="1.92"/>
+    <path d="M156.1 89.4 A28.7 28.7 0 0 1 156.1 146.7" fill="none" stroke-width="1.92"/>
+    <path d="M173.9 24.9 A28.7 28.7 0 0 1 173.9 82.2" fill="none" stroke-width="1.92"/>
+    <path d="M173.9 50.7 A28.7 28.7 0 0 1 173.9 108.0" fill="none" stroke-width="1.92"/>
+    <path d="M173.9 76.5 A28.7 28.7 0 0 1 173.9 133.8" fill="none" stroke-width="1.92"/>
+    <path d="M173.9 102.3 A28.7 28.7 0 0 1 173.9 159.6" fill="none" stroke-width="1.92"/>
+    <path d="M191.6 12.0 A28.7 28.7 0 0 1 191.6 69.3" fill="none" stroke-width="1.92"/>
+    <path d="M191.6 37.8 A28.7 28.7 0 0 1 191.6 95.1" fill="none" stroke-width="1.92"/>
+    <path d="M191.6 63.6 A28.7 28.7 0 0 1 191.6 120.9" fill="none" stroke-width="1.92"/>
+    <path d="M191.6 89.4 A28.7 28.7 0 0 1 191.6 146.7" fill="none" stroke-width="1.92"/>
+    <path d="M209.4 24.9 A28.7 28.7 0 0 1 209.4 82.2" fill="none" stroke-width="1.92"/>
+    <path d="M209.4 50.7 A28.7 28.7 0 0 1 209.4 108.0" fill="none" stroke-width="1.92"/>
+    <path d="M209.4 76.5 A28.7 28.7 0 0 1 209.4 133.8" fill="none" stroke-width="1.92"/>
+    <path d="M209.4 102.3 A28.7 28.7 0 0 1 209.4 159.6" fill="none" stroke-width="1.92"/>
+    <path d="M227.2 12.0 A28.7 28.7 0 0 1 227.2 69.3" fill="none" stroke-width="1.92"/>
+    <path d="M227.2 37.8 A28.7 28.7 0 0 1 227.2 95.1" fill="none" stroke-width="1.92"/>
+    <path d="M227.2 63.6 A28.7 28.7 0 0 1 227.2 120.9" fill="none" stroke-width="1.92"/>
+    <path d="M227.2 89.4 A28.7 28.7 0 0 1 227.2 146.7" fill="none" stroke-width="1.92"/>
+    <path d="M244.9 24.9 A28.7 28.7 0 0 1 244.9 82.2" fill="none" stroke-width="1.92"/>
+    <path d="M244.9 50.7 A28.7 28.7 0 0 1 244.9 108.0" fill="none" stroke-width="1.92"/>
+    <path d="M244.9 76.5 A28.7 28.7 0 0 1 244.9 133.8" fill="none" stroke-width="1.92"/>
+    <path d="M244.9 102.3 A28.7 28.7 0 0 1 244.9 159.6" fill="none" stroke-width="1.92"/>
+    </g></g>
+    <path d="M65.2 45.3 L77.0 74.0 L65.2 102.7" fill="none" stroke-width="2.40"/>
+    <path d="M26.0 74.0 C69.1 40.7 147.5 40.7 222.0 74.0 C147.5 107.3 69.1 107.3 26.0 74.0Z" fill="none" stroke-width="2.76"/>
+    <circle cx="49.5" cy="71.3" r="11.3" fill="none" stroke-width="2.40"/>
     <circle cx="49.5" cy="71.3" r="4.8" fill="currentColor" stroke="none"/>
-    <path d="M35.8 57.3 q5.9 -11.3 14.7 -4.0" stroke-width="1.44" fill="none"/>
-    <path d="M222.0 74.0 C241.6 57.3 253.4 42.3 261.2 35.7 C249.4 50.7 249.4 97.3 261.2 112.3 C253.4 105.7 241.6 90.7 222.0 74.0Z" fill="currentColor" stroke="none"/>
+    <path d="M35.8 57.3 q5.9 -11.3 14.7 -4.0" stroke-width="2.16" fill="none"/>
+    <defs><clipPath id="fat"><path d="M222.0 74.0 C241.6 57.3 253.4 42.3 261.2 35.7 C249.4 50.7 249.4 97.3 261.2 112.3 C253.4 105.7 241.6 90.7 222.0 74.0Z"/></clipPath></defs>
+    <g clip-path="url(#fat)">
+    <path d="M222.0 7.4 L265.1 19.0" stroke-width="1.68"/>
+    <path d="M222.0 20.7 L265.1 32.3" stroke-width="1.68"/>
+    <path d="M222.0 34.0 L265.1 45.7" stroke-width="1.68"/>
+    <path d="M222.0 47.3 L265.1 59.0" stroke-width="1.68"/>
+    <path d="M222.0 60.7 L265.1 72.3" stroke-width="1.68"/>
+    <path d="M222.0 74.0 L265.1 85.7" stroke-width="1.68"/>
+    <path d="M222.0 87.3 L265.1 99.0" stroke-width="1.68"/>
+    <path d="M222.0 100.7 L265.1 112.3" stroke-width="1.68"/>
+    <path d="M222.0 114.0 L265.1 125.6" stroke-width="1.68"/>
+    <path d="M222.0 127.3 L265.1 139.0" stroke-width="1.68"/>
+    <path d="M222.0 140.6 L265.1 152.3" stroke-width="1.68"/>
+    </g>
+    <path d="M222.0 74.0 C241.6 57.3 253.4 42.3 261.2 35.7 C249.4 50.7 249.4 97.3 261.2 112.3 C253.4 105.7 241.6 90.7 222.0 74.0Z" fill="none" stroke-width="2.52"/>
   </g>
   <g>
     <defs><clipPath id="fb"><path d="M104.0 168.0 C141.0 139.4 208.2 139.4 272.0 168.0 C208.2 196.6 141.0 196.6 104.0 168.0Z"/></clipPath></defs>
-    <g clip-path="url(#fb)">
-    <circle cx="129.2" cy="147.4" r="4.7" stroke-width="1.12"/>
-    <circle cx="144.9" cy="147.4" r="4.7" stroke-width="1.12"/>
-    <circle cx="160.6" cy="147.4" r="4.7" stroke-width="1.12"/>
-    <circle cx="176.2" cy="147.4" r="4.7" stroke-width="1.12"/>
-    <circle cx="136.8" cy="155.7" r="5.3" stroke-width="1.12"/>
-    <circle cx="152.4" cy="155.7" r="5.3" stroke-width="1.12"/>
-    <circle cx="168.1" cy="155.7" r="5.3" stroke-width="1.12"/>
-    <circle cx="183.8" cy="155.7" r="5.3" stroke-width="1.12"/>
-    <circle cx="129.2" cy="163.9" r="6.0" stroke-width="1.12"/>
-    <circle cx="144.9" cy="163.9" r="6.0" stroke-width="1.12"/>
-    <circle cx="160.6" cy="163.9" r="6.0" stroke-width="1.12"/>
-    <circle cx="176.2" cy="163.9" r="6.0" stroke-width="1.12"/>
-    <circle cx="136.8" cy="172.1" r="6.0" stroke-width="1.12"/>
-    <circle cx="152.4" cy="172.1" r="6.0" stroke-width="1.12"/>
-    <circle cx="168.1" cy="172.1" r="6.0" stroke-width="1.12"/>
-    <circle cx="183.8" cy="172.1" r="6.0" stroke-width="1.12"/>
-    <circle cx="129.2" cy="180.3" r="5.3" stroke-width="1.12"/>
-    <circle cx="144.9" cy="180.3" r="5.3" stroke-width="1.12"/>
-    <circle cx="160.6" cy="180.3" r="5.3" stroke-width="1.12"/>
-    <circle cx="176.2" cy="180.3" r="5.3" stroke-width="1.12"/>
-    <circle cx="136.8" cy="188.6" r="4.7" stroke-width="1.12"/>
-    <circle cx="152.4" cy="188.6" r="4.7" stroke-width="1.12"/>
-    <circle cx="168.1" cy="188.6" r="4.7" stroke-width="1.12"/>
-    <circle cx="183.8" cy="188.6" r="4.7" stroke-width="1.12"/>
-    <path d="M184.6 139.4 L275.4 139.4" stroke-width="0.99"/>
-    <path d="M184.6 143.5 L275.4 143.5" stroke-width="0.99"/>
-    <path d="M184.6 147.6 L275.4 147.6" stroke-width="0.99"/>
-    <path d="M184.6 151.7 L275.4 151.7" stroke-width="0.99"/>
-    <path d="M184.6 155.8 L275.4 155.8" stroke-width="0.99"/>
-    <path d="M184.6 159.8 L275.4 159.8" stroke-width="0.99"/>
-    <path d="M184.6 163.9 L275.4 163.9" stroke-width="0.99"/>
-    <path d="M184.6 168.0 L275.4 168.0" stroke-width="0.99"/>
-    <path d="M184.6 172.1 L275.4 172.1" stroke-width="0.99"/>
-    <path d="M184.6 176.2 L275.4 176.2" stroke-width="0.99"/>
-    <path d="M184.6 180.2 L275.4 180.2" stroke-width="0.99"/>
-    <path d="M184.6 184.3 L275.4 184.3" stroke-width="0.99"/>
-    <path d="M184.6 188.4 L275.4 188.4" stroke-width="0.99"/>
-    <path d="M184.6 192.5 L275.4 192.5" stroke-width="0.99"/>
-    <path d="M184.6 196.6 L275.4 196.6" stroke-width="0.99"/>
-    <path d="M181.3 139.4 C172.9 156.6 189.7 179.4 181.3 196.6" stroke-width="1.60"/>
-    </g>
-    <path d="M137.6 143.4 L147.7 168.0 L137.6 192.6" fill="var(--paper)" stroke="none" clip-path="url(#fb)"/>
-    <path d="M137.6 143.4 L147.7 168.0 L137.6 192.6" fill="none" stroke-width="1.60"/>
-    <path d="M104.0 168.0 C141.0 139.4 208.2 139.4 272.0 168.0 C208.2 196.6 141.0 196.6 104.0 168.0Z" fill="none" stroke-width="1.84"/>
-    <circle cx="124.2" cy="165.7" r="9.7" fill="var(--paper)" stroke-width="1.60"/>
+    <defs><clipPath id="fbp"><rect x="147.7" y="128.0" width="168.0" height="80.0"/></clipPath></defs>
+    <g clip-path="url(#fb)"><g clip-path="url(#fbp)">
+    <circle cx="129.2" cy="147.4" r="4.7" stroke-width="1.68"/>
+    <circle cx="144.9" cy="147.4" r="4.7" stroke-width="1.68"/>
+    <circle cx="160.6" cy="147.4" r="4.7" stroke-width="1.68"/>
+    <circle cx="176.2" cy="147.4" r="4.7" stroke-width="1.68"/>
+    <circle cx="136.8" cy="155.7" r="5.3" stroke-width="1.68"/>
+    <circle cx="152.4" cy="155.7" r="5.3" stroke-width="1.68"/>
+    <circle cx="168.1" cy="155.7" r="5.3" stroke-width="1.68"/>
+    <circle cx="183.8" cy="155.7" r="5.3" stroke-width="1.68"/>
+    <circle cx="129.2" cy="163.9" r="6.0" stroke-width="1.68"/>
+    <circle cx="144.9" cy="163.9" r="6.0" stroke-width="1.68"/>
+    <circle cx="160.6" cy="163.9" r="6.0" stroke-width="1.68"/>
+    <circle cx="176.2" cy="163.9" r="6.0" stroke-width="1.68"/>
+    <circle cx="136.8" cy="172.1" r="6.0" stroke-width="1.68"/>
+    <circle cx="152.4" cy="172.1" r="6.0" stroke-width="1.68"/>
+    <circle cx="168.1" cy="172.1" r="6.0" stroke-width="1.68"/>
+    <circle cx="183.8" cy="172.1" r="6.0" stroke-width="1.68"/>
+    <circle cx="129.2" cy="180.3" r="5.3" stroke-width="1.68"/>
+    <circle cx="144.9" cy="180.3" r="5.3" stroke-width="1.68"/>
+    <circle cx="160.6" cy="180.3" r="5.3" stroke-width="1.68"/>
+    <circle cx="176.2" cy="180.3" r="5.3" stroke-width="1.68"/>
+    <circle cx="136.8" cy="188.6" r="4.7" stroke-width="1.68"/>
+    <circle cx="152.4" cy="188.6" r="4.7" stroke-width="1.68"/>
+    <circle cx="168.1" cy="188.6" r="4.7" stroke-width="1.68"/>
+    <circle cx="183.8" cy="188.6" r="4.7" stroke-width="1.68"/>
+    <path d="M184.6 139.4 L275.4 139.4" stroke-width="1.49"/>
+    <path d="M184.6 143.5 L275.4 143.5" stroke-width="1.49"/>
+    <path d="M184.6 147.6 L275.4 147.6" stroke-width="1.49"/>
+    <path d="M184.6 151.7 L275.4 151.7" stroke-width="1.49"/>
+    <path d="M184.6 155.8 L275.4 155.8" stroke-width="1.49"/>
+    <path d="M184.6 159.8 L275.4 159.8" stroke-width="1.49"/>
+    <path d="M184.6 163.9 L275.4 163.9" stroke-width="1.49"/>
+    <path d="M184.6 168.0 L275.4 168.0" stroke-width="1.49"/>
+    <path d="M184.6 172.1 L275.4 172.1" stroke-width="1.49"/>
+    <path d="M184.6 176.2 L275.4 176.2" stroke-width="1.49"/>
+    <path d="M184.6 180.2 L275.4 180.2" stroke-width="1.49"/>
+    <path d="M184.6 184.3 L275.4 184.3" stroke-width="1.49"/>
+    <path d="M184.6 188.4 L275.4 188.4" stroke-width="1.49"/>
+    <path d="M184.6 192.5 L275.4 192.5" stroke-width="1.49"/>
+    <path d="M184.6 196.6 L275.4 196.6" stroke-width="1.49"/>
+    <path d="M181.3 139.4 C172.9 156.6 189.7 179.4 181.3 196.6" stroke-width="2.40"/>
+    </g></g>
+    <path d="M137.6 143.4 L147.7 168.0 L137.6 192.6" fill="none" stroke-width="2.40"/>
+    <path d="M104.0 168.0 C141.0 139.4 208.2 139.4 272.0 168.0 C208.2 196.6 141.0 196.6 104.0 168.0Z" fill="none" stroke-width="2.76"/>
+    <circle cx="124.2" cy="165.7" r="9.7" fill="none" stroke-width="2.40"/>
     <circle cx="124.2" cy="165.7" r="4.1" fill="currentColor" stroke="none"/>
-    <path d="M112.4 153.7 q5.0 -9.7 12.6 -3.4" stroke-width="1.44" fill="none"/>
+    <path d="M112.4 153.7 q5.0 -9.7 12.6 -3.4" stroke-width="2.16" fill="none"/>
     <defs><clipPath id="fbt"><path d="M272.0 168.0 C288.8 153.7 298.9 140.9 305.6 135.2 C295.5 148.0 295.5 188.0 305.6 200.8 C298.9 195.1 288.8 182.3 272.0 168.0Z"/></clipPath></defs>
     <g clip-path="url(#fbt)">
-    <path d="M272.0 110.9 L309.0 120.9" stroke-width="1.12"/>
-    <path d="M272.0 122.3 L309.0 132.3" stroke-width="1.12"/>
-    <path d="M272.0 133.7 L309.0 143.7" stroke-width="1.12"/>
-    <path d="M272.0 145.2 L309.0 155.1" stroke-width="1.12"/>
-    <path d="M272.0 156.6 L309.0 166.6" stroke-width="1.12"/>
-    <path d="M272.0 168.0 L309.0 178.0" stroke-width="1.12"/>
-    <path d="M272.0 179.4 L309.0 189.4" stroke-width="1.12"/>
-    <path d="M272.0 190.8 L309.0 200.8" stroke-width="1.12"/>
-    <path d="M272.0 202.3 L309.0 212.3" stroke-width="1.12"/>
-    <path d="M272.0 213.7 L309.0 223.7" stroke-width="1.12"/>
-    <path d="M272.0 225.1 L309.0 235.1" stroke-width="1.12"/>
+    <path d="M272.0 110.9 L309.0 120.9" stroke-width="1.68"/>
+    <path d="M272.0 122.3 L309.0 132.3" stroke-width="1.68"/>
+    <path d="M272.0 133.7 L309.0 143.7" stroke-width="1.68"/>
+    <path d="M272.0 145.2 L309.0 155.1" stroke-width="1.68"/>
+    <path d="M272.0 156.6 L309.0 166.6" stroke-width="1.68"/>
+    <path d="M272.0 168.0 L309.0 178.0" stroke-width="1.68"/>
+    <path d="M272.0 179.4 L309.0 189.4" stroke-width="1.68"/>
+    <path d="M272.0 190.8 L309.0 200.8" stroke-width="1.68"/>
+    <path d="M272.0 202.3 L309.0 212.3" stroke-width="1.68"/>
+    <path d="M272.0 213.7 L309.0 223.7" stroke-width="1.68"/>
+    <path d="M272.0 225.1 L309.0 235.1" stroke-width="1.68"/>
     </g>
-    <path d="M272.0 168.0 C288.8 153.7 298.9 140.9 305.6 135.2 C295.5 148.0 295.5 188.0 305.6 200.8 C298.9 195.1 288.8 182.3 272.0 168.0Z" fill="none" stroke-width="1.68"/>
+    <path d="M272.0 168.0 C288.8 153.7 298.9 140.9 305.6 135.2 C295.5 148.0 295.5 188.0 305.6 200.8 C298.9 195.1 288.8 182.3 272.0 168.0Z" fill="none" stroke-width="2.52"/>
   </g>
   <g>
     <defs><clipPath id="fc"><path d="M44.0 254.0 C74.8 230.2 130.8 230.2 184.0 254.0 C130.8 277.8 74.8 277.8 44.0 254.0Z"/></clipPath></defs>
-    <g clip-path="url(#fc)">
-    <path d="M20.2 225.4 L77.3 282.6" stroke-width="1.20"/>
-    <path d="M20.2 282.6 L77.3 225.4" stroke-width="1.20"/>
-    <path d="M31.1 225.4 L88.3 282.6" stroke-width="1.20"/>
-    <path d="M31.1 282.6 L88.3 225.4" stroke-width="1.20"/>
-    <path d="M42.1 225.4 L99.2 282.6" stroke-width="1.20"/>
-    <path d="M42.1 282.6 L99.2 225.4" stroke-width="1.20"/>
-    <path d="M53.0 225.4 L110.2 282.6" stroke-width="1.20"/>
-    <path d="M53.0 282.6 L110.2 225.4" stroke-width="1.20"/>
-    <path d="M64.0 225.4 L121.1 282.6" stroke-width="1.20"/>
-    <path d="M64.0 282.6 L121.1 225.4" stroke-width="1.20"/>
-    <path d="M74.9 225.4 L132.1 282.6" stroke-width="1.20"/>
-    <path d="M74.9 282.6 L132.1 225.4" stroke-width="1.20"/>
-    <path d="M85.9 225.4 L143.0 282.6" stroke-width="1.20"/>
-    <path d="M85.9 282.6 L143.0 225.4" stroke-width="1.20"/>
-    <path d="M96.8 225.4 L154.0 282.6" stroke-width="1.20"/>
-    <path d="M96.8 282.6 L154.0 225.4" stroke-width="1.20"/>
-    <path d="M107.8 225.4 L164.9 282.6" stroke-width="1.20"/>
-    <path d="M107.8 282.6 L164.9 225.4" stroke-width="1.20"/>
-    <path d="M118.7 225.4 L175.9 282.6" stroke-width="1.20"/>
-    <path d="M118.7 282.6 L175.9 225.4" stroke-width="1.20"/>
-    <path d="M129.7 225.4 L186.8 282.6" stroke-width="1.20"/>
-    <path d="M129.7 282.6 L186.8 225.4" stroke-width="1.20"/>
-    <path d="M140.6 225.4 L197.7 282.6" stroke-width="1.20"/>
-    <path d="M140.6 282.6 L197.7 225.4" stroke-width="1.20"/>
-    <path d="M151.6 225.4 L208.7 282.6" stroke-width="1.20"/>
-    <path d="M151.6 282.6 L208.7 225.4" stroke-width="1.20"/>
-    <path d="M162.5 225.4 L219.6 282.6" stroke-width="1.20"/>
-    <path d="M162.5 282.6 L219.6 225.4" stroke-width="1.20"/>
-    <path d="M173.5 225.4 L230.6 282.6" stroke-width="1.20"/>
-    <path d="M173.5 282.6 L230.6 225.4" stroke-width="1.20"/>
-    <path d="M184.4 225.4 L241.5 282.6" stroke-width="1.20"/>
-    <path d="M184.4 282.6 L241.5 225.4" stroke-width="1.20"/>
-    <path d="M195.4 225.4 L252.5 282.6" stroke-width="1.20"/>
-    <path d="M195.4 282.6 L252.5 225.4" stroke-width="1.20"/>
-    <path d="M206.3 225.4 L263.4 282.6" stroke-width="1.20"/>
-    <path d="M206.3 282.6 L263.4 225.4" stroke-width="1.20"/>
-    <path d="M217.3 225.4 L274.4 282.6" stroke-width="1.20"/>
-    <path d="M217.3 282.6 L274.4 225.4" stroke-width="1.20"/>
-    </g>
-    <path d="M72.0 233.5 L80.4 254.0 L72.0 274.5" fill="var(--paper)" stroke="none" clip-path="url(#fc)"/>
-    <path d="M72.0 233.5 L80.4 254.0 L72.0 274.5" fill="none" stroke-width="1.60"/>
-    <path d="M44.0 254.0 C74.8 230.2 130.8 230.2 184.0 254.0 C130.8 277.8 74.8 277.8 44.0 254.0Z" fill="none" stroke-width="1.84"/>
-    <circle cx="60.8" cy="252.1" r="8.1" fill="var(--paper)" stroke-width="1.60"/>
+    <defs><clipPath id="fcp"><rect x="80.4" y="220.7" width="140.0" height="66.6"/></clipPath></defs>
+    <g clip-path="url(#fc)"><g clip-path="url(#fcp)">
+    <path d="M20.2 225.4 L77.3 282.6" stroke-width="1.80"/>
+    <path d="M20.2 282.6 L77.3 225.4" stroke-width="1.80"/>
+    <path d="M31.1 225.4 L88.3 282.6" stroke-width="1.80"/>
+    <path d="M31.1 282.6 L88.3 225.4" stroke-width="1.80"/>
+    <path d="M42.1 225.4 L99.2 282.6" stroke-width="1.80"/>
+    <path d="M42.1 282.6 L99.2 225.4" stroke-width="1.80"/>
+    <path d="M53.0 225.4 L110.2 282.6" stroke-width="1.80"/>
+    <path d="M53.0 282.6 L110.2 225.4" stroke-width="1.80"/>
+    <path d="M64.0 225.4 L121.1 282.6" stroke-width="1.80"/>
+    <path d="M64.0 282.6 L121.1 225.4" stroke-width="1.80"/>
+    <path d="M74.9 225.4 L132.1 282.6" stroke-width="1.80"/>
+    <path d="M74.9 282.6 L132.1 225.4" stroke-width="1.80"/>
+    <path d="M85.9 225.4 L143.0 282.6" stroke-width="1.80"/>
+    <path d="M85.9 282.6 L143.0 225.4" stroke-width="1.80"/>
+    <path d="M96.8 225.4 L154.0 282.6" stroke-width="1.80"/>
+    <path d="M96.8 282.6 L154.0 225.4" stroke-width="1.80"/>
+    <path d="M107.8 225.4 L164.9 282.6" stroke-width="1.80"/>
+    <path d="M107.8 282.6 L164.9 225.4" stroke-width="1.80"/>
+    <path d="M118.7 225.4 L175.9 282.6" stroke-width="1.80"/>
+    <path d="M118.7 282.6 L175.9 225.4" stroke-width="1.80"/>
+    <path d="M129.7 225.4 L186.8 282.6" stroke-width="1.80"/>
+    <path d="M129.7 282.6 L186.8 225.4" stroke-width="1.80"/>
+    <path d="M140.6 225.4 L197.7 282.6" stroke-width="1.80"/>
+    <path d="M140.6 282.6 L197.7 225.4" stroke-width="1.80"/>
+    <path d="M151.6 225.4 L208.7 282.6" stroke-width="1.80"/>
+    <path d="M151.6 282.6 L208.7 225.4" stroke-width="1.80"/>
+    <path d="M162.5 225.4 L219.6 282.6" stroke-width="1.80"/>
+    <path d="M162.5 282.6 L219.6 225.4" stroke-width="1.80"/>
+    <path d="M173.5 225.4 L230.6 282.6" stroke-width="1.80"/>
+    <path d="M173.5 282.6 L230.6 225.4" stroke-width="1.80"/>
+    <path d="M184.4 225.4 L241.5 282.6" stroke-width="1.80"/>
+    <path d="M184.4 282.6 L241.5 225.4" stroke-width="1.80"/>
+    <path d="M195.4 225.4 L252.5 282.6" stroke-width="1.80"/>
+    <path d="M195.4 282.6 L252.5 225.4" stroke-width="1.80"/>
+    <path d="M206.3 225.4 L263.4 282.6" stroke-width="1.80"/>
+    <path d="M206.3 282.6 L263.4 225.4" stroke-width="1.80"/>
+    <path d="M217.3 225.4 L274.4 282.6" stroke-width="1.80"/>
+    <path d="M217.3 282.6 L274.4 225.4" stroke-width="1.80"/>
+    </g></g>
+    <path d="M72.0 233.5 L80.4 254.0 L72.0 274.5" fill="none" stroke-width="2.40"/>
+    <path d="M44.0 254.0 C74.8 230.2 130.8 230.2 184.0 254.0 C130.8 277.8 74.8 277.8 44.0 254.0Z" fill="none" stroke-width="2.76"/>
+    <circle cx="60.8" cy="252.1" r="8.1" fill="none" stroke-width="2.40"/>
     <circle cx="60.8" cy="252.1" r="3.4" fill="currentColor" stroke="none"/>
-    <path d="M51.0 242.1 q4.2 -8.1 10.5 -2.9" stroke-width="1.44" fill="none"/>
-    <path d="M184.0 254.0 C198.0 242.1 206.4 231.4 212.0 226.6 C203.6 237.3 203.6 270.7 212.0 281.4 C206.4 276.6 198.0 265.9 184.0 254.0Z" fill="currentColor" stroke="none"/>
+    <path d="M51.0 242.1 q4.2 -8.1 10.5 -2.9" stroke-width="2.16" fill="none"/>
+    <defs><clipPath id="fct"><path d="M184.0 254.0 C198.0 242.1 206.4 231.4 212.0 226.6 C203.6 237.3 203.6 270.7 212.0 281.4 C206.4 276.6 198.0 265.9 184.0 254.0Z"/></clipPath></defs>
+    <g clip-path="url(#fct)">
+    <path d="M184.0 206.4 L214.8 214.7" stroke-width="1.68"/>
+    <path d="M184.0 215.9 L214.8 224.3" stroke-width="1.68"/>
+    <path d="M184.0 225.4 L214.8 233.8" stroke-width="1.68"/>
+    <path d="M184.0 235.0 L214.8 243.3" stroke-width="1.68"/>
+    <path d="M184.0 244.5 L214.8 252.8" stroke-width="1.68"/>
+    <path d="M184.0 254.0 L214.8 262.3" stroke-width="1.68"/>
+    <path d="M184.0 263.5 L214.8 271.8" stroke-width="1.68"/>
+    <path d="M184.0 273.0 L214.8 281.4" stroke-width="1.68"/>
+    <path d="M184.0 282.6 L214.8 290.9" stroke-width="1.68"/>
+    <path d="M184.0 292.1 L214.8 300.4" stroke-width="1.68"/>
+    <path d="M184.0 301.6 L214.8 309.9" stroke-width="1.68"/>
+    </g>
+    <path d="M184.0 254.0 C198.0 242.1 206.4 231.4 212.0 226.6 C203.6 237.3 203.6 270.7 212.0 281.4 C206.4 276.6 198.0 265.9 184.0 254.0Z" fill="none" stroke-width="2.52"/>
   </g>
 </svg>
 """
@@ -1244,9 +1280,9 @@ summary:hover { color: var(--dim); }
    shapes — and so they hold up in dark mode without a second palette. */
 .decor {
   position: absolute; pointer-events: none; color: var(--ink);
-  opacity: .09; z-index: 0;
+  opacity: .16; z-index: 0;
 }
-:root[data-theme="dark"] .decor { opacity: .14; }
+:root[data-theme="dark"] .decor { opacity: .2; }
 /* Sat inside the frame, not hanging off it. Negative offsets on a container
    that clips its overflow cut whole fish in half at the viewport edge, which
    read as broken artwork rather than as a crop. */
