@@ -562,6 +562,9 @@ BALLOONS = """<svg class="decor decor-balloons" viewBox="0 0 280 340" fill="none
 """
 
 
+DECOR = FISH + BALLOONS
+
+
 def supabase_config() -> dict[str, str]:
     """Credentials for the accounts backend, or empty if it isn't set up.
 
@@ -578,6 +581,30 @@ def supabase_config() -> dict[str, str]:
     return {"url": url, "key": key} if url and key else {}
 
 
+def _decor(prefix: str) -> str:
+    """One copy of the corner illustrations, with its ids namespaced.
+
+    The page renders the illustrations twice — once on the city picker, once
+    on the search screen — and both copies carried the same clipPath ids
+    (`fa`, `fb`, `fc`...). Ids must be unique in a document: `url(#fa)`
+    resolves to whichever element comes first, so the *visible* copy on the
+    search screen was being clipped by definitions living inside the hidden
+    picker. With that subtree display:none the clip resolves to nothing, the
+    pattern grids render unclipped, and what you get is a mass of scallops
+    and stripes across the corner instead of three fish.
+
+    Namespacing per copy fixes it at the source. Nothing about the artwork,
+    its size, or its position changes.
+    """
+    out = DECOR
+    for name in ("fa", "fb", "fc"):
+        for suffix in ("", "p", "t"):
+            old = name + suffix
+            out = out.replace(f'id="{old}"', f'id="{prefix}{old}"')
+            out = out.replace(f"url(#{old})", f"url(#{prefix}{old})")
+    return out
+
+
 def page_html() -> str:
     """The page with the mark substituted into every slot that wants it."""
     return (
@@ -586,7 +613,9 @@ def page_html() -> str:
         .replace("__LOOP_EMPTY__", LOOP.format(cls="loop-empty"))
         .replace("__LOOP_SPIN__", LOOP.format(cls="loop-spin"))
         .replace("__SUPABASE__", json.dumps(supabase_config()))
-        .replace("__DECOR__", FISH + BALLOONS)
+        # Once per screen, each with its own id namespace.
+        .replace("__DECOR__", _decor("s-"), 1)
+        .replace("__DECOR__", _decor("q-"), 1)
     )
 
 
