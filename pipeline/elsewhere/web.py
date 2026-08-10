@@ -203,12 +203,15 @@ def create_app(source: str = "austin", target: str = "chicago") -> FastAPI:
 
     @app.get("/favicon.svg", include_in_schema=False)
     def favicon() -> Response:
-        # A year is safe: the file only changes when the brand does, and the
-        # path would change with it.
+        # A week, not a year. This cached for a year on the reasoning that a
+        # brand mark rarely changes — then the accent colour changed and every
+        # returning visitor kept the old teal icon with no way to be told
+        # otherwise. The ?v= on the link busts it now, and a shorter max-age
+        # means the next change costs a week at worst.
         return Response(
             FAVICON,
             media_type="image/svg+xml",
-            headers={"Cache-Control": "public, max-age=31536000"},
+            headers={"Cache-Control": "public, max-age=604800"},
         )
 
     @app.get("/healthz")
@@ -552,7 +555,7 @@ PAGE = """<!doctype html>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Elsewhere — every city has an H-E-B</title>
-<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg?v=2">
 <meta name="theme-color" content="#FFFFFF">
 <meta name="description" content="Name a place you love and find its counterpart in another city — matched by the role it plays in local life, not by category.">
 <style>
@@ -575,7 +578,7 @@ PAGE = """<!doctype html>
   --hair:   #E4E4E4;
   --hair-2: #DDDDDD;
   /* The one accent, and it has to survive both jobs: white text sitting on
-     it (buttons) and it sitting on white (links, the brand). #0A8276 clears
+     it (buttons) and it sitting on white (links, the brand). #33788F clears
      AA in both directions at 4.7:1 — the bright turquoises people reach for
      first are around 2:1 on white, which is a decoration, not a colour you
      can put a word in. */
@@ -1418,7 +1421,7 @@ summary:hover { color: var(--dim); }
 <div id="app" hidden>
   <header id="bar"><div class="bar">
     <button class="brand" id="homebtn" title="Start over">
-      <img src="/favicon.svg" alt="" width="30" height="30">Elsewhere</button>
+      <img src="/favicon.svg?v=2" alt="" width="30" height="30">Elsewhere</button>
     <!-- #controls lives here on results pages and in the hero on step two;
          the same element either way. -->
     <div id="barslot"></div>
