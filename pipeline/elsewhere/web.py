@@ -579,12 +579,16 @@ PAGE = """<!doctype html>
      AA in both directions at 4.7:1 — the bright turquoises people reach for
      first are around 2:1 on white, which is a decoration, not a colour you
      can put a word in. */
-  --accent: #0A8276;
-  --accent-deep: #056B63;     /* hover: further down the same hue */
-  --accent-soft: #E7F5F2;
+  --accent: #3985A6;
+  /* #3985A6 is 4.13:1 on white — right for display type and the mark, a
+     shade under AA for 13px labels and for white text sitting on it. This is
+     the same hue taken down until both of those clear (4.97:1), and it is
+     what fills buttons and sets small links. */
+  --accent-deep: #33788F;
+  --accent-soft: #E8F2F7;
   --on-accent: #FFFFFF;
-  --pink: #0A8276; --pink-deep: #056B63; --on-pink: #FFFFFF;
-  --turquoise: #0A8276;
+  --pink: #3985A6; --pink-deep: #33788F; --on-pink: #FFFFFF;
+  --turquoise: #3985A6;
   --gold: #FFC53D;
   --emerald: #16A97F;
   --chip: #F2F2F2;
@@ -606,10 +610,10 @@ PAGE = """<!doctype html>
   --dim: #ADADAD; --faint: #7E7E7E; --hair: #2E2E2E; --hair-2: #383838;
   /* Brighter cut for the dark ground: 10:1 there, where the light-mode
      turquoise would sit at 4:1 and read as muddy. */
-  --accent: #2FD4C0; --accent-deep: #4ADFCB; --accent-soft: #10302D;
+  --accent: #6BB6D4; --accent-deep: #7FC2DC; --accent-soft: #16303B;
   --on-accent: #10201E;
-  --pink: #2FD4C0; --pink-deep: #4ADFCB; --on-pink: #10201E;
-  --turquoise: #2FD4C0; --gold: #FFC53D; --emerald: #35C89B;
+  --pink: #6BB6D4; --pink-deep: #7FC2DC; --on-pink: #10201E;
+  --turquoise: #6BB6D4; --gold: #FFC53D; --emerald: #35C89B;
   --chip: #242424;
   --bar: #121212; --bar-ink: #F4F4F4; --bar-line: #303030;
   --bar-dim: #9A9A9A; --bar-field: #1D1D1D;
@@ -1118,6 +1122,63 @@ summary:hover { color: var(--dim); }
 .loop-spin { width: 54px; height: 54px; color: var(--hair-2); }
 .more { text-align: center; color: var(--dim); font-size: 14px; padding: 16px 20px 48px; }
 
+/* ─── Nav ─────────────────────────────────────────────────────────────── */
+.topnav {
+  position: sticky; top: 0; z-index: 300; padding: 14px 20px 10px;
+  background: color-mix(in srgb, var(--paper) 88%, transparent);
+  backdrop-filter: saturate(1.3) blur(10px);
+  -webkit-backdrop-filter: saturate(1.3) blur(10px);
+}
+.navrow {
+  display: flex; gap: 8px; justify-content: center; flex-wrap: wrap;
+  box-shadow: inset 0 0 0 1.5px var(--ink); border-radius: 999px;
+  padding: 5px; width: max-content; margin: 0 auto; background: var(--paper);
+}
+.navpill {
+  font-size: 14.5px; font-weight: 500; padding: 7px 18px; border-radius: 999px;
+  background: none; color: var(--ink);
+  box-shadow: inset 0 0 0 1.5px var(--ink);
+  text-decoration: underline; text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+}
+.navpill:hover { background: var(--sunk); }
+/* The page you're on is the one that isn't a link any more. */
+.navpill[aria-current=page] { text-decoration: none; background: var(--paper); font-weight: 600; }
+.navpill:not([aria-current=page]):hover { text-decoration-thickness: 2px; }
+
+@media (max-width: 560px) {
+  .navrow { gap: 5px; padding: 4px; }
+  .navpill { font-size: 13px; padding: 6px 12px; }
+}
+
+/* ─── Simple pages ────────────────────────────────────────────────────── */
+.page { max-width: 720px; margin: 0 auto; padding: 60px 24px 120px; }
+.page[hidden] { display: none; }
+.page h1 { font-size: clamp(30px, 4vw, 44px); font-weight: 800; letter-spacing: -0.035em; margin: 0 0 14px; }
+.page .lede { font-size: 18px; color: var(--dim); margin: 0 0 36px; line-height: 1.55; }
+.page h2 { font-size: 19px; font-weight: 700; margin: 34px 0 12px; }
+.page label { display: block; font-size: 14px; font-weight: 600; margin: 0 0 6px; }
+.page input, .page textarea, .page select {
+  width: 100%; font: inherit; font-size: 16px; padding: 13px 16px; border-radius: 12px;
+  background: var(--panel); color: var(--ink); box-shadow: inset 0 0 0 1px var(--hair-2);
+  margin-bottom: 16px;
+}
+.page textarea { min-height: 120px; resize: vertical; }
+.page .btn {
+  font-size: 16px; font-weight: 600; padding: 14px 26px; border-radius: 999px;
+  background: var(--accent-deep); color: var(--on-accent);
+}
+.page .btn:hover { filter: brightness(1.08); }
+.page .quiet { color: var(--dim); font-size: 15px; }
+.savedgrid { display: grid; gap: 10px; }
+.savedrow {
+  display: flex; align-items: baseline; gap: 10px; padding: 14px 16px;
+  border-radius: 14px; box-shadow: inset 0 0 0 1px var(--hair);
+}
+.savedrow b { font-size: 16px; }
+.savedrow span { color: var(--faint); font-size: 13.5px; }
+.savedrow a { margin-left: auto; color: var(--accent-deep); font-size: 14px; font-weight: 600; }
+
 /* ─── Step one: the two cities ─────────────────────────────────────────
    White, like everything else. The discs stay — they were the good part of
    the yellow — but at low opacity and behind everything, so they read as
@@ -1297,6 +1358,17 @@ summary:hover { color: var(--dim); }
 <!-- First visit: pick a city before anything else. A dropdown defaulted to
      Austin meant a Chicago visitor saw Austin places and had to notice a
      control they had no reason to look at. -->
+<!-- Outlined pills, in a row, on both screens — step one had no header at
+     all until now. Deliberately unstyled-looking: an outline and an
+     underline, no fill, so it reads as a set of links rather than a toolbar. -->
+<nav class="topnav">
+  <div class="navrow">
+    <button class="navpill" data-page="home">home</button>
+    <button class="navpill" data-page="account">account</button>
+    <button class="navpill" data-page="suggestions">suggestions</button>
+  </div>
+</nav>
+
 <!-- Step one: where you're coming from and where you're going. On one
      screen with the search box, this was three simultaneous decisions and
      no indication which to make first. Split out, each screen asks one
@@ -1386,6 +1458,39 @@ summary:hover { color: var(--dim); }
 
   <main id="list"></main>
 </div>
+
+
+<!-- Account. Saves already work without an account, so this shows them
+     whether or not anyone is signed in, and is honest that syncing is the
+     part still waiting on a backend. -->
+<section class="page" id="page-account" hidden>
+  <h1>Your account</h1>
+  <p class="lede" id="acctlede"></p>
+  <div id="acctauth"></div>
+  <h2>Saved places</h2>
+  <div class="savedgrid" id="acctsaved"></div>
+  <h2>What you seem to like</h2>
+  <p class="quiet" id="accttaste"></p>
+</section>
+
+<!-- Suggestions. The corpus is hand-curated, so the most useful thing anyone
+     can send is a place we missed or a city worth adding. -->
+<section class="page" id="page-suggestions" hidden>
+  <h1>Suggestions</h1>
+  <p class="lede">Every place in here was chosen by hand, which means the gaps
+    were chosen by hand too. Tell us what\'s missing — a place a local would
+    name, or a city worth adding.</p>
+  <form id="sugform">
+    <label for="sugcity">City</label>
+    <input id="sugcity" placeholder="Austin, or somewhere we don\'t cover yet" required>
+    <label for="sugplace">Place</label>
+    <input id="sugplace" placeholder="What should be in here?" required>
+    <label for="sugwhy">Why it matters</label>
+    <textarea id="sugwhy" placeholder="What role does it play that nothing else does? This is the part that makes a good match possible."></textarea>
+    <button class="btn" type="submit">Send it</button>
+    <p class="quiet" id="sugnote" style="margin-top:14px"></p>
+  </form>
+</section>
 
 <!-- Sign-in. A single field and no password: nothing to store, nothing to
      leak, nothing to reset. Hidden entirely when the accounts backend
@@ -1833,6 +1938,7 @@ function renderSavedBtn() {
    Torchy's". */
 function syncURL(replace) {
   const p = new URLSearchParams();
+  if (page !== "home") p.set("page", page);
   if (home) p.set("city", home);
   if (dest) p.set("to", dest);
   if (q) p.set("q", q);
@@ -1846,6 +1952,7 @@ function syncURL(replace) {
 function readURL() {
   const p = new URLSearchParams(location.search);
   return {
+    page: p.get("page") || "home",
     city: p.get("city") || "",
     dest: p.get("to") || "",
     q: p.get("q") || "",
@@ -1855,6 +1962,7 @@ function readURL() {
 
 addEventListener("popstate", () => {
   const u = readURL();
+  if (u.page !== page) showPage(u.page, false);
   q = u.q; cat = u.cat;
   document.getElementById("q").value = q;
   if (u.city && u.city !== home) { home = u.city; dest = u.dest; load(); }
@@ -2537,11 +2645,110 @@ async function locateMe(btn) {
   }
 }
 
+/* ── Pages ─────────────────────────────────────────────────────────────
+   Three of them, switched by URL so each is linkable and the back button
+   works. "home" is the whole existing app; the other two are static enough
+   to render on demand. */
+const PAGES = ["home", "account", "suggestions"];
+let page = "home";
+
+function showPage(name, push = true) {
+  page = PAGES.includes(name) ? name : "home";
+  document.getElementById("page-account").hidden = page !== "account";
+  document.getElementById("page-suggestions").hidden = page !== "suggestions";
+  const homeOn = page === "home";
+  document.getElementById("setup").hidden = !homeOn || !onSetup;
+  document.getElementById("app").hidden = !homeOn || onSetup;
+  document.querySelectorAll(".navpill").forEach(b =>
+    b.toggleAttribute("aria-current", b.dataset.page === page));
+  document.querySelectorAll(".navpill").forEach(b => {
+    if (b.dataset.page === page) b.setAttribute("aria-current", "page");
+    else b.removeAttribute("aria-current");
+  });
+  if (page === "account") renderAccount();
+  if (push) syncURL();
+  if (!homeOn) stopDemo();
+  scrollTo({ top: 0 });
+}
+
+function renderAccount() {
+  const rows = [...saved.values()].sort((a, b) => b.at - a.at);
+  document.getElementById("acctlede").textContent = ACCOUNTS
+    ? (me ? `Signed in as ${me.email}.` : "Saves live on this device. Sign in to keep them and to verify matches.")
+    : "Saves live on this device — no account needed, and nothing leaves your browser.";
+
+  const auth = document.getElementById("acctauth");
+  auth.innerHTML = !ACCOUNTS ? ""
+    : me ? `<button class="btn" id="signoutbtn">Sign out</button>`
+         : `<button class="btn" id="signinopen">Sign in with email</button>`;
+
+  document.getElementById("acctsaved").innerHTML = rows.length
+    ? rows.map(r => `<div class="savedrow"><b>${esc(r.name)}</b>
+        <span>${esc(title(r.city))}${r.from ? ` \u00b7 your ${esc(r.from)}` : ""}</span>
+        ${r.links && r.links.map ? `<a href="${esc(r.links.map)}" target="_blank" rel="noopener noreferrer">Map</a>` : ""}
+      </div>`).join("")
+    : `<p class="quiet">Nothing saved yet. Star an answer and it turns up here.</p>`;
+
+  // A read of the saves rather than a profile: the categories they fall into,
+  // said plainly, with no claim to know more than that.
+  const groups = {};
+  for (const r of rows) {
+    const m = S && S.matches.find(x => x.name === r.from);
+    if (m) groups[groupOf(m)] = (groups[groupOf(m)] || 0) + 1;
+  }
+  const top = Object.entries(groups).sort((a, b) => b[1] - a[1]).slice(0, 4).map(([k]) => k.toLowerCase());
+  document.getElementById("accttaste").textContent = rows.length < 3
+    ? "Save a few more and there'll be something to say here."
+    : `Mostly ${top.join(" \u00b7 ")}.`;
+}
+
+document.querySelector(".topnav").addEventListener("click", e => {
+  const b = e.target.closest(".navpill");
+  if (b) showPage(b.dataset.page);
+});
+
+document.getElementById("page-account").addEventListener("click", async e => {
+  if (e.target.id === "signinopen") openSignin();
+  if (e.target.id === "signoutbtn") { (await client()).auth.signOut(); }
+});
+
+document.getElementById("sugform").addEventListener("submit", async e => {
+  e.preventDefault();
+  const note = document.getElementById("sugnote");
+  const body = {
+    city: document.getElementById("sugcity").value.trim(),
+    place: document.getElementById("sugplace").value.trim(),
+    why: document.getElementById("sugwhy").value.trim(),
+  };
+  if (ACCOUNTS) {
+    const c = await client();
+    const { error } = await c.from("suggestions").insert(body);
+    note.textContent = error ? `Couldn't send that: ${error.message}` : "Sent — thank you.";
+    if (!error) e.target.reset();
+    return;
+  }
+  // No backend yet, so hand it back rather than pretending it was sent.
+  const text = `Elsewhere suggestion\nCity: ${body.city}\nPlace: ${body.place}\nWhy: ${body.why}`;
+  try {
+    await navigator.clipboard.writeText(text);
+    note.textContent = "Copied to your clipboard — send it over and it'll get added.";
+  } catch {
+    note.textContent = text;
+  }
+});
+
 /* Two screens, one question each. `showSetup` is the only thing that decides
    which is on. */
+let onSetup = true;
+
 function showSetup(on) {
-  document.getElementById("setup").hidden = !on;
-  document.getElementById("app").hidden = on;
+  onSetup = on;
+  // Only touch visibility when home is the page being shown; otherwise
+  // showPage owns it and would be fighting us.
+  if (page === "home") {
+    document.getElementById("setup").hidden = !on;
+    document.getElementById("app").hidden = on;
+  }
   if (on) stopDemo();
 }
 
@@ -2549,6 +2756,7 @@ async function boot() {
   // A shared link carries its whole state and skips the picker — someone who
   // was sent a result should land on it, not on a form.
   const u = readURL();
+  page = PAGES.includes(u.page) ? u.page : "home";
   if (u.city) home = u.city;
   if (u.dest) dest = u.dest;
   q = u.q; cat = u.cat;
@@ -2571,6 +2779,7 @@ async function boot() {
   } else {
     showSetup(true);
   }
+  showPage(page, false);
 }
 
 /* The destinations a city can actually answer for. Asked of the API rather
