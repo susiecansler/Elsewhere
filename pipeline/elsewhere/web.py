@@ -1585,14 +1585,41 @@ summary:hover { color: var(--dim); }
   .leg + .leg { box-shadow: inset 0 1px 0 var(--hair); }
   .leg .citybtn { font-size: var(--t-md); }
   .next { width: 54px; height: 54px; padding: 0; }
-  .setup { padding: 28px 20px 48px; }
-  .setup .sub { font-size: var(--t-md); margin-bottom: 30px; }
+  /* Phones: start at the top, do not centre.
+     `justify-content: center` inside a 100vh section is right on a desktop,
+     where the composition has room to breathe. On a phone the content is
+     barely shorter than the viewport, so centring buys nothing and pushes
+     the headline into the middle of the screen with a dead band above it —
+     which is what the top of the page looked like. */
+  .setup {
+    /* Still fills the screen, but packs to the top. Dropping the height
+       entirely moved the bottom-anchored balloons up into the controls;
+       keeping it puts the empty space back at the bottom, which is where
+       a margin drawing belongs. dvh so mobile browser chrome doesn't
+       leave a gap under the fold. */
+    min-height: 100dvh; justify-content: flex-start;
+    padding: var(--s4) var(--s4) var(--s6);
+  }
+  .setup .pitch { margin-bottom: var(--s3); }
+  .setup .sub { font-size: var(--t-md); margin-bottom: var(--s5); }
+  .locate { margin-top: var(--s4); }
+
+  /* The fish go. They live in the top-right corner, which on a phone is the
+     same corner as the headline — there is no position for them that is both
+     visible and out of the way, so rather than shrink them into a smudge
+     they sit this size out. The balloons stay: bottom-left is genuinely
+     empty space on a phone, and they are small enough to read as a margin
+     drawing rather than as content. */
+  .decor-fish { display: none; }
+  .decor-balloons { width: 30vw; max-width: 150px; bottom: 8px; left: 8px; opacity: .12; }
   .setup .pitch .hl2 { display: block; }
   .setup .pitch .l1 { white-space: normal; }
   .pitch { margin-bottom: 24px; font-size: clamp(28px, 8.4vw, 40px); }
   .sub { font-size: var(--t-md); margin-bottom: 32px; }
   .cities button { font-size: var(--t-md); padding: 16px 24px; flex: 1 1 40%; }
-  .stage { padding: 16px 18px 140px; min-height: calc(100vh - 54px); }
+  .stage {
+    padding: var(--s4) 18px 140px; min-height: 100dvh; justify-content: flex-start;
+  }
   .setup { padding: 28px 18px 40px; }
   .pair { gap: 14px; margin: 28px 0 26px; }
   .leg { width: 100%; }
