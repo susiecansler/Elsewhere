@@ -3110,7 +3110,15 @@ document.getElementById("acctonward").addEventListener("click", e => {
 
 document.querySelector(".topnav").addEventListener("click", e => {
   const b = e.target.closest(".navpill");
-  if (b) showPage(b.dataset.page);
+  if (!b) return;
+  showPage(b.dataset.page);
+  /* "home" has to mean start over, not just "the home page is now visible".
+     Clicking it from a results screen used to do nothing at all — you were
+     already on the home page, so switching to it changed no state and the
+     results stayed exactly where they were. It now clears the query the way
+     the wordmark always has, so the two agree and the URL drops back to the
+     city pair. The pair itself survives: it is the session, not the search. */
+  if (b.dataset.page === "home") clearView();
 });
 
 document.getElementById("page-account").addEventListener("click", async e => {
