@@ -1,0 +1,95 @@
+{"name":"FairPrice","city":"singapore","category":"grocery","aliases":["ntuc","ntuc fairprice","fair price"],"fsq_place_id":"4a2a657f-a95b-4d0c-aedc-8b7fe406d4c5","notes":null}
+{"name":"Cold Storage","city":"singapore","category":"grocery","aliases":["cold storage singapore"],"fsq_place_id":"ffa74afc-4b5c-44bf-8c07-76bbec5675ee","notes":null}
+{"name":"Sheng Siong","city":"singapore","category":"grocery","aliases":["sheng siong supermarket"],"fsq_place_id":"56b9a472-1f10-4b5b-9fd5-cb9d57c90812","notes":null}
+{"name":"Mustafa Centre","city":"singapore","category":"grocery","aliases":["mustafa","mustafa 24 hours"],"fsq_place_id":"edcb9531-1f52-4633-9145-8b9a3c89bd52","notes":null}
+{"name":"Don Don Donki","city":"singapore","category":"grocery","aliases":["donki","don quijote singapore"],"fsq_place_id":"eb91cedf-0e3f-4fde-90ea-a3ecca521f7c","notes":null}
+{"name":"Tekka Centre","city":"singapore","category":"farmers","aliases":["tekka market","little india market"],"fsq_place_id":"85d3a03c-de97-4212-a49e-6a2de765fd50","notes":null}
+{"name":"Chinatown Complex Market","city":"singapore","category":"farmers","aliases":["chinatown complex","chinatown wet market"],"fsq_place_id":"fca684cd-2bb7-49cc-a1cb-cb9eee4f3bba","notes":null}
+{"name":"Tiong Bahru Market","city":"singapore","category":"farmers","aliases":["tiong bahru wet market","tiong bahru hawker"],"fsq_place_id":"feb07dba-8b03-4175-97a4-d7828dc916cc","notes":null}
+{"name":"Geylang Serai Market","city":"singapore","category":"farmers","aliases":["geylang serai","pasar geylang"],"fsq_place_id":"ae5cffc4-c84e-4875-995c-8b6357fc4e1e","notes":null}
+{"name":"The neighbourhood kopitiam","city":"singapore","category":"coffee","aliases":["kopitiam","coffeeshop","kopi o","void deck coffeeshop"],"fsq_place_id":"7f4c2a3c-a822-4aa3-b142-0d25732c6268","notes":null}
+{"name":"Ya Kun Kaya Toast","city":"singapore","category":"coffee","aliases":["ya kun","kaya toast"],"fsq_place_id":"5332de48-93ff-4c7f-ad4a-77d2d3452e50","notes":null}
+{"name":"Killiney Kopitiam","city":"singapore","category":"coffee","aliases":["killiney","killiney road"],"fsq_place_id":"1e65357c-8f61-42a6-a360-390523b9a37c","notes":null}
+{"name":"Toast Box","city":"singapore","category":"coffee","aliases":["toastbox"],"fsq_place_id":"64bd2f15-a730-45e0-a444-5b27c7ead984","notes":null}
+{"name":"Maxwell Food Centre","city":"singapore","category":"restaurant","aliases":["maxwell hawker","maxwell market"],"fsq_place_id":"44d269ca-dc6d-4b4c-bc50-9c0e4c491b28","notes":null}
+{"name":"Old Airport Road Food Centre","city":"singapore","category":"restaurant","aliases":["old airport road","oarfc"],"fsq_place_id":"7c2a2057-03a5-4e82-99e9-64393f28c6cb","notes":null}
+{"name":"Lau Pa Sat","city":"singapore","category":"restaurant","aliases":["lau pa sat satay street","telok ayer market"],"fsq_place_id":"679d3118-9b80-4c2b-bb6f-bbc28da232be","notes":null}
+{"name":"Newton Food Centre","city":"singapore","category":"restaurant","aliases":["newton circus","newton hawker"],"fsq_place_id":"6e334cde-c051-4a49-86d9-551315382c66","notes":null}
+{"name":"Amoy Street Food Centre","city":"singapore","category":"restaurant","aliases":["amoy street hawker"],"fsq_place_id":"22400ab1-05e5-4112-be45-eb8b455d9789","notes":null}
+{"name":"Tian Tian Hainanese Chicken Rice","city":"singapore","category":"restaurant","aliases":["tian tian","chicken rice maxwell"],"fsq_place_id":"f9eb5d9f-8f34-467d-a7d2-f2bb04234a64","notes":null}
+{"name":"Hill Street Tai Hwa Pork Noodle","city":"singapore","category":"restaurant","aliases":["tai hwa","bak chor mee"],"fsq_place_id":"57bcd5e3-6e20-4ed1-9126-43555f1eb5f4","notes":null}
+{"name":"328 Katong Laksa","city":"singapore","category":"restaurant","aliases":["328 laksa","katong laksa"],"fsq_place_id":"98257684-2e8d-49c8-a291-7532e1525126","notes":null}
+{"name":"Jumbo Seafood","city":"singapore","category":"restaurant","aliases":["jumbo","chilli crab"],"fsq_place_id":"786f45b0-254b-47ec-aa4b-492cd0014c40","notes":null}
+{"name":"Song Fa Bak Kut Teh","city":"singapore","category":"restaurant","aliases":["song fa","bak kut teh"],"fsq_place_id":"3efc6415-249b-425e-aa46-b20054883387","notes":null}
+{"name":"Zam Zam Restaurant","city":"singapore","category":"restaurant","aliases":["zam zam","murtabak arab street"],"fsq_place_id":null,"notes":null}
+{"name":"Komala Vilas","city":"singapore","category":"restaurant","aliases":["komala vilas little india"],"fsq_place_id":"ef4b0cd0-5a7d-4261-92dd-212d3876c4a5","notes":null}
+{"name":"Burnt Ends","city":"singapore","category":"restaurant_fine","aliases":["burnt ends singapore"],"fsq_place_id":"ef92f3a5-f7e2-41de-8041-dc1f7be38e0e","notes":null}
+{"name":"Odette","city":"singapore","category":"restaurant_fine","aliases":["odette national gallery"],"fsq_place_id":"a2ada91c-6034-442c-833b-fa37656dbb4a","notes":null}
+{"name":"Candlenut","city":"singapore","category":"restaurant_fine","aliases":["candlenut peranakan"],"fsq_place_id":"656fe64a-17e3-409f-a69a-c71cc2d9e075","notes":null}
+{"name":"Beauty in the Pot","city":"singapore","category":"restaurant","aliases":["beauty in the pot hotpot"],"fsq_place_id":"116129fb-fc4f-42cb-b33c-42b0f06bb538","notes":null}
+{"name":"Ah Chew Desserts","city":"singapore","category":"dessert","aliases":["ah chew"],"fsq_place_id":"4b88572f-93e0-487c-a939-908fb01eb18e","notes":null}
+{"name":"Mei Heong Yuen Dessert","city":"singapore","category":"dessert","aliases":["mei heong yuen","snow ice"],"fsq_place_id":"418fb847-3fe4-447b-9435-a45354ab2448","notes":null}
+{"name":"Birds of Paradise Gelato","city":"singapore","category":"dessert","aliases":["birds of paradise"],"fsq_place_id":null,"notes":null}
+{"name":"Atlas Bar","city":"singapore","category":"bar","aliases":["atlas","atlas parkview"],"fsq_place_id":"64df9b89-cab2-45d4-a747-0f0f60bd2294","notes":null}
+{"name":"Jigger & Pony","city":"singapore","category":"bar","aliases":["jigger and pony"],"fsq_place_id":"10e3c298-4c7b-4d7e-8729-2fc4e92ac8e6","notes":null}
+{"name":"Native","city":"singapore","category":"bar","aliases":["native amoy street"],"fsq_place_id":"5f1a5829-4cc9-4b2d-b3d2-755068b89c8c","notes":null}
+{"name":"Manhattan Bar","city":"singapore","category":"bar","aliases":["manhattan regent"],"fsq_place_id":"203b23dd-26f6-4e87-b970-7e3af663bd03","notes":null}
+{"name":"Employees Only Singapore","city":"singapore","category":"bar","aliases":["employees only sg"],"fsq_place_id":"f3f7ef36-3682-4a7f-9cc6-501983088d3c","notes":null}
+{"name":"Smith Street Taps","city":"singapore","category":"bar","aliases":["smith street taps","chinatown craft beer"],"fsq_place_id":"60f697a3-c864-4505-a86c-a88ebdfb662e","notes":null}
+{"name":"Level33","city":"singapore","category":"brewery","aliases":["level 33","level33 mbfc"],"fsq_place_id":null,"notes":null}
+{"name":"RedDot BrewHouse","city":"singapore","category":"brewery","aliases":["red dot brewhouse"],"fsq_place_id":"5fd02198-36a8-4df7-ad4d-6c5d2b5eedfa","notes":null}
+{"name":"Zouk","city":"singapore","category":"music_club","aliases":["zouk singapore"],"fsq_place_id":null,"notes":null}
+{"name":"Esplanade","city":"singapore","category":"music","aliases":["esplanade theatres on the bay","the durian"],"fsq_place_id":"ebc9b4dd-9765-4f41-998e-8b5e1e1aa320","notes":null}
+{"name":"Victoria Concert Hall","city":"singapore","category":"music","aliases":["victoria theatre","vch"],"fsq_place_id":"afe2b71c-43e0-4b2f-8ae4-f8ca15023697","notes":null}
+{"name":"The Projector","city":"singapore","category":"cinema","aliases":["projector","the projector golden mile"],"fsq_place_id":"a31a7037-f5a9-40f1-839c-ee8d05b688bb","notes":null}
+{"name":"Timbre X","city":"singapore","category":"music","aliases":["timbre","timbre x"],"fsq_place_id":"aadde9d1-1187-4cca-8d2f-3d80f3432991","notes":null}
+{"name":"Singapore Indoor Stadium","city":"singapore","category":"music","aliases":["indoor stadium"],"fsq_place_id":"de10b968-69c6-4f2d-8e5d-5e542ffd136d","notes":null}
+{"name":"Kinokuniya Singapore","city":"singapore","category":"retail_books","aliases":["kino","books kinokuniya ngee ann"],"fsq_place_id":"78b61539-fe66-4352-9780-4c5d4d51a39d","notes":null}
+{"name":"BooksActually","city":"singapore","category":"retail_books","aliases":["books actually","tiong bahru bookstore"],"fsq_place_id":"f4173574-be4f-435f-8194-581384ff261e","notes":null}
+{"name":"Basheer Graphic Books","city":"singapore","category":"retail_books","aliases":["basheer"],"fsq_place_id":"c4597c89-1fcc-4718-8d12-bb0eb9e0479b","notes":null}
+{"name":"Choo Yilin","city":"singapore","category":"retail","aliases":["choo yilin jewellery"],"fsq_place_id":null,"notes":null}
+{"name":"The Analog Vault","city":"singapore","category":"retail_music","aliases":["analog vault"],"fsq_place_id":"7128009a-456a-449e-93a2-beb6c7fe1ca7","notes":null}
+{"name":"Hong Lim Complex","city":"singapore","category":"retail","aliases":["hong lim","hong lim market"],"fsq_place_id":null,"notes":null}
+{"name":"Sim Lim Square","city":"singapore","category":"retail","aliases":["sim lim","simlim"],"fsq_place_id":"cda6fff0-bfd7-4afb-901e-b33e767c96fb","notes":null}
+{"name":"Queensway Shopping Centre","city":"singapore","category":"retail","aliases":["queensway","queensway shopping"],"fsq_place_id":"90f99e31-edf3-43ff-bf38-61559fa45271","notes":null}
+{"name":"ION Orchard","city":"singapore","category":"retail","aliases":["ion","ion orchard mall"],"fsq_place_id":"b411adad-89dc-4eec-9f3c-30c92055a5a4","notes":null}
+{"name":"Takashimaya","city":"singapore","category":"retail","aliases":["taka","ngee ann city"],"fsq_place_id":"8b6ad7a8-1c54-4bd6-9b23-9ac837da06c3","notes":null}
+{"name":"Bugis Street","city":"singapore","category":"retail","aliases":["bugis","bugis street market"],"fsq_place_id":"9538983f-59bf-46fe-9dce-27e12039db35","notes":null}
+{"name":"Haji Lane","city":"singapore","category":"retail","aliases":["haji lane kampong glam"],"fsq_place_id":null,"notes":null}
+{"name":"ActiveSG Gym","city":"singapore","category":"gym","aliases":["activesg","sports hall gym","cc gym"],"fsq_place_id":"3193a7be-c65f-46c3-bae7-95b506d7e28b","notes":null}
+{"name":"Virgin Active Singapore","city":"singapore","category":"gym","aliases":["virgin active"],"fsq_place_id":"b72875cc-3fe3-489e-815d-2fa5b070ec05","notes":null}
+{"name":"Anytime Fitness Singapore","city":"singapore","category":"gym","aliases":["anytime fitness sg"],"fsq_place_id":"cb621744-5941-4139-9205-d9deccfb5e31","notes":null}
+{"name":"Ground Up Climbing","city":"singapore","category":"gym","aliases":["ground up","boulder gym singapore"],"fsq_place_id":"556e0ac6-1ea5-4bbe-92e4-20d7b2f457d9","notes":null}
+{"name":"East Coast Park","city":"singapore","category":"park","aliases":["ecp","east coast"],"fsq_place_id":"d2d7873e-9071-44a1-811b-40f6df269610","notes":null}
+{"name":"Singapore Botanic Gardens","city":"singapore","category":"park","aliases":["botanic gardens","botanics"],"fsq_place_id":"e6cf9d1c-bed0-4e62-82db-acfaa835d5f0","notes":null}
+{"name":"Gardens by the Bay","city":"singapore","category":"park","aliases":["gardens by bay","supertrees"],"fsq_place_id":null,"notes":null}
+{"name":"MacRitchie Reservoir","city":"singapore","category":"outdoor","aliases":["macritchie","treetop walk"],"fsq_place_id":"f283f8a2-2f3a-4284-a574-d49ead6f8570","notes":null}
+{"name":"Southern Ridges","city":"singapore","category":"outdoor","aliases":["henderson waves","southern ridges walk"],"fsq_place_id":"8f9bcbb5-9648-431e-b3b6-ee79aedb38cb","notes":null}
+{"name":"Pulau Ubin","city":"singapore","category":"outdoor","aliases":["ubin"],"fsq_place_id":"4d60849b-dbed-4892-98b5-bf5df9c7bfc8","notes":null}
+{"name":"Sungei Buloh Wetland Reserve","city":"singapore","category":"outdoor","aliases":["sungei buloh"],"fsq_place_id":"09120307-852e-43df-94f1-97712786dd03","notes":null}
+{"name":"Marina Barrage","city":"singapore","category":"outdoor","aliases":["barrage","marina barrage kite"],"fsq_place_id":"39dc24f4-8a77-4839-8e69-48a77d013a3f","notes":null}
+{"name":"Merlion Park","city":"singapore","category":"landmark","aliases":["merlion"],"fsq_place_id":"5407d9b6-3d30-4622-973f-6fdfd3150c90","notes":null}
+{"name":"Marina Bay Sands","city":"singapore","category":"landmark","aliases":["mbs"],"fsq_place_id":"c0a1c5db-c8d3-4768-ad6e-ccf4509c826a","notes":null}
+{"name":"Raffles Hotel","city":"singapore","category":"landmark","aliases":["raffles","long bar"],"fsq_place_id":"7ec861b8-a2e3-47d6-9abc-aef310b2891f","notes":null}
+{"name":"Sri Mariamman Temple","city":"singapore","category":"landmark","aliases":["sri mariamman"],"fsq_place_id":"4f3aa30a-9976-4e06-8b48-618c3775c34f","notes":null}
+{"name":"Changi Airport Jewel","city":"singapore","category":"landmark","aliases":["jewel","jewel changi","rain vortex"],"fsq_place_id":"b7b63540-6d55-4e06-9077-1441a208f89b","notes":null}
+{"name":"National Gallery Singapore","city":"singapore","category":"museum","aliases":["national gallery"],"fsq_place_id":"fc04d56f-fc15-472d-96ba-198fdf08877f","notes":null}
+{"name":"ArtScience Museum","city":"singapore","category":"museum","aliases":["artscience","art science museum"],"fsq_place_id":"b6beb88c-2a2d-4166-87a0-c02bcd96cf55","notes":null}
+{"name":"Asian Civilisations Museum","city":"singapore","category":"museum","aliases":["acm"],"fsq_place_id":null,"notes":null}
+{"name":"Peranakan Museum","city":"singapore","category":"museum","aliases":["peranakan"],"fsq_place_id":"a1b33615-d1e3-4de9-868e-adc1dbbb7604","notes":null}
+{"name":"National Museum of Singapore","city":"singapore","category":"museum","aliases":["national museum"],"fsq_place_id":"aeb2ab22-0f17-4490-8f0c-e1dd7269b62a","notes":null}
+{"name":"Gillman Barracks","city":"singapore","category":"museum","aliases":["gillman","gillman barracks galleries"],"fsq_place_id":"a44a16b8-cce7-4be8-ad5f-be2544852f2e","notes":null}
+{"name":"National Library Singapore","city":"singapore","category":"library","aliases":["national library","nlb bugis"],"fsq_place_id":null,"notes":null}
+{"name":"library@orchard","city":"singapore","category":"library","aliases":["library at orchard","orchard library"],"fsq_place_id":"29f2d380-fb14-4678-9252-f9a251565ee6","notes":null}
+{"name":"Tiong Bahru","city":"singapore","category":"neighborhood","aliases":["tiong bahru estate"],"fsq_place_id":"682de7d6-b942-491e-bec1-34692182cafd","notes":null}
+{"name":"Katong","city":"singapore","category":"neighborhood","aliases":["joo chiat","katong joo chiat"],"fsq_place_id":null,"notes":null}
+{"name":"Kampong Glam","city":"singapore","category":"neighborhood","aliases":["arab street","kampong gelam"],"fsq_place_id":"4fa175f1-47b2-462e-af43-f892cac9d0cc","notes":null}
+{"name":"Little India","city":"singapore","category":"neighborhood","aliases":["serangoon road"],"fsq_place_id":"81bfc52c-ce59-4a98-b5e2-6daae250a075","notes":null}
+{"name":"Chinatown","city":"singapore","category":"neighborhood","aliases":["chinatown singapore","kreta ayer"],"fsq_place_id":"fca684cd-2bb7-49cc-a1cb-cb9eee4f3bba","notes":null}
+{"name":"Toa Payoh","city":"singapore","category":"neighborhood","aliases":["toa payoh central","tph"],"fsq_place_id":"01a3fd97-36b6-4270-b811-3e7e70eb7e64","notes":null}
+{"name":"Ang Mo Kio","city":"singapore","category":"neighborhood","aliases":["amk"],"fsq_place_id":"bee1622e-5202-4fa4-9501-ae319e70e6b2","notes":null}
+{"name":"Holland Village","city":"singapore","category":"neighborhood","aliases":["holland v"],"fsq_place_id":"61d66771-0831-43a7-bda5-09537914c3a0","notes":null}
+{"name":"Dempsey Hill","city":"singapore","category":"neighborhood","aliases":["dempsey"],"fsq_place_id":"6a615f38-2e97-4eae-a190-913429697001","notes":null}
+{"name":"Jurong East","city":"singapore","category":"neighborhood","aliases":["jurong","jem westgate"],"fsq_place_id":"9d3566b2-6bc0-4b89-90b2-c31c299e212a","notes":null}
+{"name":"Orchard Road","city":"singapore","category":"neighborhood","aliases":["orchard"],"fsq_place_id":"fd3199b8-6702-4d82-b571-092088e62186","notes":null}
+{"name":"Bukit Timah","city":"singapore","category":"neighborhood","aliases":["bukit timah road"],"fsq_place_id":"4fd1329d-e2ca-4513-9f45-d2fd4656a3fb","notes":null}

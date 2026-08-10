@@ -1,0 +1,115 @@
+{"name":"Trader Joe's","city":"new_york","category":"grocery","aliases":["trader joes","tj's"],"fsq_place_id":"c8279164-808c-4c48-be6c-4cba2944a5ab","notes":null}
+{"name":"Zabar's","city":"new_york","category":"grocery","aliases":["zabars","zabar's upper west side"],"fsq_place_id":"9b699841-8d00-428a-886a-5c8b35cc4bba","notes":null}
+{"name":"Fairway Market","city":"new_york","category":"grocery","aliases":["fairway"],"fsq_place_id":"d8d91554-5995-4822-b80c-b1c00e636de5","notes":null}
+{"name":"Kalustyan's","city":"new_york","category":"grocery","aliases":["kalustyans","spice store"],"fsq_place_id":"88e2ca4a-1051-4480-88eb-f221e408c59a","notes":null}
+{"name":"Sahadi's","city":"new_york","category":"grocery","aliases":["sahadis","sahadi brooklyn"],"fsq_place_id":"46361220-4f25-4311-81c6-b82595b61c08","notes":null}
+{"name":"H Mart Koreatown","city":"new_york","category":"grocery","aliases":["h mart","hmart"],"fsq_place_id":"0d16c950-c470-405b-ac06-85d89fa25d52","notes":null}
+{"name":"Key Food","city":"new_york","category":"grocery","aliases":["key food supermarket"],"fsq_place_id":"4ba1074f-0daf-48b5-af91-ac596589c1f2","notes":null}
+{"name":"The corner bodega","city":"new_york","category":"convenience","aliases":["bodega","corner store","deli","bodega cat"],"fsq_place_id":"4ea3e4ca-99e2-4f76-b181-bd1a2d7c4fac","notes":null}
+{"name":"Essex Market","city":"new_york","category":"farmers","aliases":["essex street market"],"fsq_place_id":"ac36f46e-d1b7-4666-92f3-405bb733825f","notes":null}
+{"name":"Union Square Greenmarket","city":"new_york","category":"farmers","aliases":["union square farmers market","greenmarket"],"fsq_place_id":"8d462cd0-4d4e-475d-8f7c-36224bd02f3a","notes":null}
+{"name":"Arthur Avenue Retail Market","city":"new_york","category":"farmers","aliases":["arthur avenue","belmont market","real little italy"],"fsq_place_id":"c612f343-9485-4380-8ffb-766005499fd9","notes":null}
+{"name":"Chelsea Market","city":"new_york","category":"farmers","aliases":["chelsea market nyc"],"fsq_place_id":"adbcf699-096f-40f0-baed-912927f9840a","notes":null}
+{"name":"Joe's Pizza","city":"new_york","category":"restaurant_pizza","aliases":["joes pizza","joe's bleecker"],"fsq_place_id":"808155c4-b980-4ce9-922b-ca864db874e7","notes":null}
+{"name":"Di Fara Pizza","city":"new_york","category":"restaurant_pizza","aliases":["difara","di fara midwood"],"fsq_place_id":"5bd6a02c-e0d6-4b9f-b065-c92db1a27ca0","notes":null}
+{"name":"L&B Spumoni Gardens","city":"new_york","category":"restaurant_pizza","aliases":["spumoni gardens","l and b"],"fsq_place_id":"1ee48be6-03c4-4cc4-a631-ea598c1f5f71","notes":null}
+{"name":"Katz's Delicatessen","city":"new_york","category":"restaurant","aliases":["katzs","katz's","pastrami on rye"],"fsq_place_id":"15c08dfa-997f-401a-b721-30305e23b91f","notes":null}
+{"name":"Russ & Daughters","city":"new_york","category":"restaurant","aliases":["russ and daughters","appetizing"],"fsq_place_id":"1f71da2a-180f-40a4-bf99-8ad1407da193","notes":null}
+{"name":"Peter Luger Steak House","city":"new_york","category":"restaurant_fine","aliases":["peter luger","lugers"],"fsq_place_id":"53c273c2-2041-4f51-be01-f49240039170","notes":null}
+{"name":"Gray's Papaya","city":"new_york","category":"restaurant","aliases":["grays papaya","recession special"],"fsq_place_id":"87a8349b-22d3-45d1-9fa4-e57c9fa09b3b","notes":null}
+{"name":"Xi'an Famous Foods","city":"new_york","category":"restaurant","aliases":["xian famous foods","hand pulled noodles"],"fsq_place_id":"478f67b0-2bb5-47f4-8141-2517862e29ef","notes":null}
+{"name":"Los Tacos No. 1","city":"new_york","category":"restaurant","aliases":["los tacos","los tacos no 1"],"fsq_place_id":"a06f5a45-d63c-429f-855c-612119c5a818","notes":null}
+{"name":"The Halal Guys","city":"new_york","category":"restaurant","aliases":["halal guys","53rd and 6th","street meat"],"fsq_place_id":"18f1002f-80c4-4559-80e5-70041b2d17f2","notes":null}
+{"name":"Veselka","city":"new_york","category":"restaurant","aliases":["veselka east village","pierogi"],"fsq_place_id":"e3d5b521-8e68-40c3-9c05-e8e84750446b","notes":null}
+{"name":"Sylvia's","city":"new_york","category":"restaurant","aliases":["sylvias harlem"],"fsq_place_id":null,"notes":null}
+{"name":"Wo Hop","city":"new_york","category":"restaurant","aliases":["wo hop chinatown"],"fsq_place_id":"be9af9cb-51fe-4c68-bf38-5dae480d0aa9","notes":null}
+{"name":"Superiority Burger","city":"new_york","category":"restaurant","aliases":["superiority"],"fsq_place_id":"5c208724-b686-4176-873f-eef47ed5b22f","notes":null}
+{"name":"Lucali","city":"new_york","category":"restaurant_pizza","aliases":["lucali carroll gardens"],"fsq_place_id":"6244dc4c-df57-4c44-8411-fead267a443e","notes":null}
+{"name":"Peter Pan Donut & Pastry Shop","city":"new_york","category":"dessert","aliases":["peter pan donuts","greenpoint donuts"],"fsq_place_id":"b6f959a0-2818-4a0d-be52-74a26bc8625d","notes":null}
+{"name":"Junior's","city":"new_york","category":"dessert","aliases":["juniors cheesecake","junior's brooklyn"],"fsq_place_id":"a29e1683-ac70-4378-abda-2e64c5672516","notes":null}
+{"name":"Ample Hills Creamery","city":"new_york","category":"dessert","aliases":["ample hills"],"fsq_place_id":"2ebf62b8-a5e0-4779-9ed6-410dae14bd2e","notes":null}
+{"name":"Levain Bakery","city":"new_york","category":"dessert","aliases":["levain","levain cookies"],"fsq_place_id":"f2017391-2d1b-4fd6-b7fe-0a034f52aca7","notes":null}
+{"name":"Yonah Schimmel Knish Bakery","city":"new_york","category":"dessert","aliases":["yonah schimmel","knish"],"fsq_place_id":null,"notes":null}
+{"name":"Nom Wah Tea Parlor","city":"new_york","category":"restaurant","aliases":["nom wah","dim sum doyers"],"fsq_place_id":"a255ae2b-bf86-402c-8d9f-615667237a60","notes":null}
+{"name":"Roberta's","city":"new_york","category":"restaurant_pizza","aliases":["robertas bushwick"],"fsq_place_id":"a25f35ce-848e-447b-a783-3b0001e18e30","notes":null}
+{"name":"Prince Street Pizza","city":"new_york","category":"restaurant_pizza","aliases":["prince street","pepperoni square"],"fsq_place_id":"a7e629b3-05ad-4325-a1b2-311a7b1e554b","notes":null}
+{"name":"McSorley's Old Ale House","city":"new_york","category":"bar","aliases":["mcsorleys","mcsorley's"],"fsq_place_id":"595cf57f-87d8-4a5f-9287-fbb7a0445194","notes":null}
+{"name":"Old Town Bar","city":"new_york","category":"bar","aliases":["old town"],"fsq_place_id":"f4e70fec-46e4-4523-884b-571f9467b158","notes":null}
+{"name":"Sunny's Bar","city":"new_york","category":"bar","aliases":["sunnys red hook","sunny's"],"fsq_place_id":"7ba047ea-3a87-427a-840c-17c2204bd479","notes":null}
+{"name":"Please Don't Tell","city":"new_york","category":"bar","aliases":["pdt","phone booth bar"],"fsq_place_id":"1f49a9e7-b8f6-4c69-a4af-69ed072420e0","notes":null}
+{"name":"Attaboy","city":"new_york","category":"bar","aliases":["attaboy lower east side"],"fsq_place_id":"b9300ad2-10eb-4b5c-b8b7-9506057f087e","notes":null}
+{"name":"Julius'","city":"new_york","category":"bar","aliases":["julius bar","julius village"],"fsq_place_id":"8378c082-b24d-4f88-9d36-6b9bfae889eb","notes":null}
+{"name":"The Long Island Bar","city":"new_york","category":"bar","aliases":["long island bar cobble hill"],"fsq_place_id":"88a53107-609a-4297-914b-b95490d8f014","notes":null}
+{"name":"Torst","city":"new_york","category":"brewery","aliases":["tørst","torst greenpoint"],"fsq_place_id":"2c42e183-8511-489e-9a72-32a1290a0dd3","notes":null}
+{"name":"Other Half Brewing","city":"new_york","category":"brewery","aliases":["other half"],"fsq_place_id":"df14ef3a-4002-407b-bfb6-339959ad54a4","notes":null}
+{"name":"Threes Brewing","city":"new_york","category":"brewery","aliases":["threes"],"fsq_place_id":"c7899c28-7231-4371-b9ae-44f1661cb2b3","notes":null}
+{"name":"Clover Club","city":"new_york","category":"bar","aliases":["clover club brooklyn"],"fsq_place_id":"92f61637-f9e6-499b-a6c7-c9b138f01306","notes":null}
+{"name":"Bowery Ballroom","city":"new_york","category":"music","aliases":["bowery"],"fsq_place_id":"f09bf5b4-0b46-4068-b976-29b132df0f1c","notes":null}
+{"name":"Baby's All Right","city":"new_york","category":"music","aliases":["babys all right","baby's"],"fsq_place_id":"df118f9a-fd1f-40db-b87b-acdb859b7fdb","notes":null}
+{"name":"Village Vanguard","city":"new_york","category":"music","aliases":["vanguard","the vanguard"],"fsq_place_id":"162bc5e6-5f8a-4787-8be9-b85deaabef37","notes":null}
+{"name":"Brooklyn Steel","city":"new_york","category":"music","aliases":["bk steel"],"fsq_place_id":"89a5ea62-7a43-4a56-a613-ecab0ab46592","notes":null}
+{"name":"Elsewhere","city":"new_york","category":"music","aliases":["elsewhere brooklyn","elsewhere bushwick"],"fsq_place_id":"b6706036-0af5-4346-8e4b-d7e84a0ca6c5","notes":null}
+{"name":"Nublu","city":"new_york","category":"music","aliases":["nublu avenue c"],"fsq_place_id":"4e1defb9-54ae-41d4-b537-581d6bfc3b41","notes":null}
+{"name":"Carnegie Hall","city":"new_york","category":"music","aliases":["carnegie"],"fsq_place_id":"8f87ee23-8fa7-404e-98de-18fb640f21fb","notes":null}
+{"name":"Barbes","city":"new_york","category":"music","aliases":["barbès","barbes park slope"],"fsq_place_id":"a83b2a8a-bc6f-4afd-a316-f43fefaba20f","notes":null}
+{"name":"The corner deli coffee","city":"new_york","category":"coffee","aliases":["regular coffee","deli coffee","cart coffee","blue and white cup"],"fsq_place_id":"87afd0a9-687a-44a1-bfd7-a572de247b09","notes":null}
+{"name":"Cafe Grumpy","city":"new_york","category":"coffee","aliases":["grumpy","café grumpy"],"fsq_place_id":"9772dfbc-f9e6-414c-9948-0ec60d72136e","notes":null}
+{"name":"Devocion","city":"new_york","category":"coffee","aliases":["devoción","devocion williamsburg"],"fsq_place_id":"4ba68491-4c7a-4d88-83d1-250ed7505710","notes":null}
+{"name":"Sey Coffee","city":"new_york","category":"coffee","aliases":["sey","sey bushwick"],"fsq_place_id":"26748291-f5a7-4365-b297-aeeea60dd879","notes":null}
+{"name":"Caffe Reggio","city":"new_york","category":"coffee","aliases":["reggio","caffè reggio"],"fsq_place_id":"75e70e2e-4d81-4cb4-bbec-c321129c3086","notes":null}
+{"name":"Veniero's","city":"new_york","category":"coffee","aliases":["venieros","veniero pasticceria"],"fsq_place_id":"e6be454a-09f1-4b7f-a39f-d5158fe799b6","notes":null}
+{"name":"Bluestone Lane","city":"new_york","category":"coffee","aliases":["bluestone"],"fsq_place_id":"e6fcc264-e0da-448a-9c43-5635b73da5b2","notes":null}
+{"name":"The Strand","city":"new_york","category":"retail_books","aliases":["strand","strand bookstore","eighteen miles of books"],"fsq_place_id":"5a432844-6868-4c74-8f3c-509d1818d2cb","notes":null}
+{"name":"McNally Jackson","city":"new_york","category":"retail_books","aliases":["mcnally jackson books"],"fsq_place_id":"d184a109-15f7-447a-972b-0c31de582ba8","notes":null}
+{"name":"Books Are Magic","city":"new_york","category":"retail_books","aliases":["books are magic cobble hill"],"fsq_place_id":"f428072d-98d0-4a2a-b4a2-a31a8e582abc","notes":null}
+{"name":"Argosy Book Store","city":"new_york","category":"retail_books","aliases":["argosy"],"fsq_place_id":"25906395-ab96-4c72-b742-b6dd299098d0","notes":null}
+{"name":"Rough Trade NYC","city":"new_york","category":"retail_music","aliases":["rough trade"],"fsq_place_id":"982b9433-e3b3-4e7a-be7f-af3c855916c4","notes":null}
+{"name":"A1 Record Shop","city":"new_york","category":"retail_music","aliases":["a1 records","a-1 records"],"fsq_place_id":null,"notes":null}
+{"name":"Academy Records","city":"new_york","category":"retail_music","aliases":["academy"],"fsq_place_id":"02e1f771-ab1d-45b6-b60b-95e4f64ff174","notes":null}
+{"name":"B&H Photo","city":"new_york","category":"retail","aliases":["b and h","bh photo"],"fsq_place_id":null,"notes":null}
+{"name":"Century 21","city":"new_york","category":"retail","aliases":["century21"],"fsq_place_id":"116ebdae-31e6-41f8-8b49-6e4f5b25fb67","notes":null}
+{"name":"Beacon's Closet","city":"new_york","category":"retail","aliases":["beacons closet"],"fsq_place_id":"af752b55-4cba-47fb-823e-b624be339aa7","notes":null}
+{"name":"Canal Street","city":"new_york","category":"retail","aliases":["canal st","canal street market"],"fsq_place_id":"57eeae58-c4d6-45b1-98aa-829353241f54","notes":null}
+{"name":"ABC Carpet & Home","city":"new_york","category":"retail","aliases":["abc carpet"],"fsq_place_id":"61896b45-e72b-4ed9-9f06-c9109dc89068","notes":null}
+{"name":"Equinox","city":"new_york","category":"gym","aliases":["equinox nyc"],"fsq_place_id":"99434045-89c7-4da9-8b1a-55e7cf65be2c","notes":null}
+{"name":"Crunch Fitness","city":"new_york","category":"gym","aliases":["crunch"],"fsq_place_id":"e949b624-e56a-494e-9541-ccff760fabb9","notes":null}
+{"name":"Chelsea Piers","city":"new_york","category":"gym","aliases":["chelsea piers fitness"],"fsq_place_id":"1ae0fd67-4406-420c-987c-90b315e7f849","notes":null}
+{"name":"Russian & Turkish Baths","city":"new_york","category":"gym","aliases":["russian turkish baths","tenth street baths"],"fsq_place_id":null,"notes":null}
+{"name":"Mercury Lounge YMCA","city":"new_york","category":"gym","aliases":["ymca","mcburney ymca"],"fsq_place_id":"37963706-cfeb-47ee-8a17-6c68cea34821","notes":null}
+{"name":"Central Park","city":"new_york","category":"park","aliases":["the park","central pk"],"fsq_place_id":"67218aac-7176-41bb-b3d1-3d105f5dd872","notes":null}
+{"name":"Prospect Park","city":"new_york","category":"park","aliases":["prospect"],"fsq_place_id":"3413a3fb-5618-4017-91f7-59d8593fa7ef","notes":null}
+{"name":"The High Line","city":"new_york","category":"outdoor","aliases":["high line","highline"],"fsq_place_id":"ff9017fe-c814-4d45-a941-2ad8f2ad16b8","notes":null}
+{"name":"Brooklyn Bridge Park","city":"new_york","category":"park","aliases":["bbp","brooklyn bridge park pier"],"fsq_place_id":"8ccfd32d-3f91-4b54-a852-50e78cd9423f","notes":null}
+{"name":"Rockaway Beach","city":"new_york","category":"outdoor","aliases":["the rockaways","rockaway"],"fsq_place_id":"b3410618-1756-480c-8e80-6a8ce59f2c6b","notes":null}
+{"name":"Fort Tryon Park","city":"new_york","category":"park","aliases":["fort tryon","the cloisters park"],"fsq_place_id":"667ed4a8-c92d-4bcf-aec7-4649bef2bf84","notes":null}
+{"name":"Coney Island","city":"new_york","category":"outdoor","aliases":["coney","coney island boardwalk"],"fsq_place_id":"c8dba2da-4b49-47b5-9f18-5eed285a40fa","notes":null}
+{"name":"Green-Wood Cemetery","city":"new_york","category":"outdoor","aliases":["greenwood cemetery","green wood"],"fsq_place_id":"5abbeb5a-83f4-4564-aa4e-0fe1fa58be5b","notes":null}
+{"name":"Grand Central Terminal","city":"new_york","category":"landmark","aliases":["grand central","grand central station"],"fsq_place_id":"6c12a2a3-54fc-4c7c-a23a-c5d7ac9c5ba1","notes":null}
+{"name":"Washington Square Park","city":"new_york","category":"landmark","aliases":["wsp","washington square"],"fsq_place_id":"9de15643-5d1c-4c2f-b9bb-66e8bc74502e","notes":null}
+{"name":"The Staten Island Ferry","city":"new_york","category":"landmark","aliases":["si ferry","staten island ferry"],"fsq_place_id":"f2ae7dbd-0232-4253-84ee-ec3294cdadce","notes":null}
+{"name":"Brooklyn Bridge","city":"new_york","category":"landmark","aliases":["the bridge"],"fsq_place_id":"417b31fe-8680-424b-ab53-ab3b1973f649","notes":null}
+{"name":"The Metropolitan Museum of Art","city":"new_york","category":"museum","aliases":["the met","met museum"],"fsq_place_id":"f89c8c7e-4bd8-4f8f-951f-e6005441074f","notes":null}
+{"name":"MoMA","city":"new_york","category":"museum","aliases":["museum of modern art","moma nyc"],"fsq_place_id":"384e3078-957b-44fd-b460-0b3fa6bac025","notes":null}
+{"name":"The Frick Collection","city":"new_york","category":"museum","aliases":["the frick"],"fsq_place_id":"e3343700-73fc-4920-bef8-10242d22eecb","notes":null}
+{"name":"American Museum of Natural History","city":"new_york","category":"museum","aliases":["amnh","natural history museum"],"fsq_place_id":"a0db63be-cb3c-4f99-9cdf-62b885c81909","notes":null}
+{"name":"The Cloisters","city":"new_york","category":"museum","aliases":["cloisters"],"fsq_place_id":null,"notes":null}
+{"name":"Film Forum","city":"new_york","category":"cinema","aliases":["film forum nyc"],"fsq_place_id":"feb378b5-d911-415d-a88f-52bb1b33e0c3","notes":null}
+{"name":"Metrograph","city":"new_york","category":"cinema","aliases":["metrograph ludlow"],"fsq_place_id":"692acce3-9e0c-4bfe-87e9-f3fd05064124","notes":null}
+{"name":"Nitehawk Cinema","city":"new_york","category":"cinema","aliases":["nitehawk"],"fsq_place_id":null,"notes":null}
+{"name":"Angelika Film Center","city":"new_york","category":"cinema","aliases":["angelika"],"fsq_place_id":null,"notes":null}
+{"name":"New York Public Library","city":"new_york","category":"library","aliases":["nypl","main branch","stephen a schwarzman building"],"fsq_place_id":"c1f488b0-8ec3-4cef-b984-8d5ab7f668c8","notes":null}
+{"name":"Brooklyn Public Library","city":"new_york","category":"library","aliases":["bpl","central library grand army"],"fsq_place_id":"b499b6cc-e407-4ca8-9dc2-12e115a9701c","notes":null}
+{"name":"The Public Theater","city":"new_york","category":"theater","aliases":["public theater","joes pub"],"fsq_place_id":"e582fb69-4ed2-46c3-a4ba-4bcc55764e71","notes":null}
+{"name":"St. Ann's Warehouse","city":"new_york","category":"theater","aliases":["st anns warehouse"],"fsq_place_id":"8638fae2-bcbc-46d4-af67-66b281276599","notes":null}
+{"name":"Greenpoint","city":"new_york","category":"neighborhood","aliases":["greenpoint brooklyn"],"fsq_place_id":"dbfe3214-10b1-419f-8062-7095ea206368","notes":null}
+{"name":"Bushwick","city":"new_york","category":"neighborhood","aliases":["bushwick brooklyn"],"fsq_place_id":"500bcddd-fa94-4665-b2fe-9b1fda7496dd","notes":null}
+{"name":"The Lower East Side","city":"new_york","category":"neighborhood","aliases":["les","lower east side"],"fsq_place_id":"b9d138f3-f90d-43c4-8572-036e67ab6a52","notes":null}
+{"name":"Astoria","city":"new_york","category":"neighborhood","aliases":["astoria queens"],"fsq_place_id":"134fb409-4848-4ccf-97f8-0baa168a0166","notes":null}
+{"name":"Jackson Heights","city":"new_york","category":"neighborhood","aliases":["jackson heights queens"],"fsq_place_id":"0d4dde1f-d92c-4d92-8287-84c02811ebe3","notes":null}
+{"name":"Harlem","city":"new_york","category":"neighborhood","aliases":["uptown","central harlem"],"fsq_place_id":"5ce7db32-1640-437e-aa1b-ef0e19112c55","notes":null}
+{"name":"Park Slope","city":"new_york","category":"neighborhood","aliases":["slope"],"fsq_place_id":"fbbc44eb-3202-4b49-ac2c-9bfed5b717b1","notes":null}
+{"name":"The West Village","city":"new_york","category":"neighborhood","aliases":["west village","the village"],"fsq_place_id":"2fb2a614-fc31-48e5-be20-a4b211e65d19","notes":null}
+{"name":"Flushing","city":"new_york","category":"neighborhood","aliases":["flushing queens","downtown flushing"],"fsq_place_id":"097f880c-0823-407a-8a0b-548eee4e15df","notes":null}
+{"name":"Red Hook","city":"new_york","category":"neighborhood","aliases":["red hook brooklyn"],"fsq_place_id":"64c97237-9ab1-4c84-83a8-8202407de054","notes":null}
+{"name":"The Upper East Side","city":"new_york","category":"neighborhood","aliases":["ues","upper east side"],"fsq_place_id":"a768ecbd-e31b-4483-bf17-3eea403cc6cf","notes":null}
+{"name":"Sunset Park","city":"new_york","category":"neighborhood","aliases":["sunset park brooklyn"],"fsq_place_id":"079233c1-e761-4d68-8cdb-92a1e8e1dd81","notes":null}

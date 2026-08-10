@@ -47,6 +47,15 @@ CITY_BBOXES: dict[str, BBox] = {
     # Wide enough to take in Beaverton and Lake Oswego — a few Portland
     # institutions people name are across the county line.
     "portland": BBox(west=-122.90, south=45.35, east=-122.40, north=45.65),
+    # The five boroughs. A box around Manhattan alone would answer for a
+    # city nobody lives in — most of the institutions people name are
+    # outer-borough.
+    "new_york": BBox(west=-74.05, south=40.55, east=-73.70, north=40.92),
+    # Denver proper plus the near suburbs people actually drive to, and far
+    # enough west to catch the foothills that define the place.
+    "denver": BBox(west=-105.30, south=39.55, east=-104.80, north=39.90),
+    # The whole island — it is a city-state, so the metro *is* the country.
+    "singapore": BBox(west=103.60, south=1.21, east=104.05, north=1.48),
     # Chapel Hill proper plus Carrboro, which locals treat as one town, and
     # far enough east to catch the Durham edge people actually drive to.
     "chapel_hill": BBox(west=-79.14, south=35.85, east=-78.95, north=36.02),

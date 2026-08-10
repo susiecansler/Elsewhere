@@ -369,3 +369,58 @@
     Enclosed sacred or civic ground inside the dense city that residents use
     as everyday quiet — a shortcut, a lunch spot, a place to stand still.
   exemplars: ["Meiji Jingu (Tokyo)", "Templo de San Fernando (Mexico City)", "Trinity Church yard (New York)"]
+
+# ─── Roles New York and Singapore need ────────────────────────────────────
+#
+# Same reasoning as the Tokyo block above: these name functions the existing
+# vocabulary cannot express, and forcing them into the nearest American shape
+# is the category-matching error the project exists to avoid. A bodega is not
+# a convenience store, and a hawker centre is not a food hall.
+
+- id: corner_store_social
+  definition: >
+    Small shop open at all hours that is also a social fixture — the owner
+    knows the block, the sandwich is made to order, and people stop there
+    without needing anything. Distinct from a chain you use only when
+    everything else is shut.
+  exemplars: ["The corner bodega (New York)", "Sarnie shop (London)", "Corner store (New Orleans)"]
+
+- id: hawker_centre_daily
+  definition: >
+    Roofed collection of independent food stalls where a large share of the
+    population eats routinely, not occasionally — cheap, fast, and judged
+    stall by stall rather than as a venue. Not a food hall and not a market
+    with a food annex.
+  exemplars: ["Maxwell Food Centre (Singapore)", "Mercado de San Juan (Mexico City)", "Reading Terminal Market (Philadelphia)"]
+
+- id: single_dish_stall_famous
+  definition: >
+    One stall inside a larger market or centre, known by name for one dish,
+    with a queue that regulars accept as part of the price.
+  exemplars: ["Tian Tian Hainanese Chicken Rice (Singapore)", "Di Fara Pizza (New York)", "Franklin Barbecue (Austin)"]
+
+- id: slice_shop_default
+  definition: >
+    Counter selling one portion at a time, eaten standing or walking, priced
+    so it functions as a default meal rather than a treat.
+  exemplars: ["Joe's Pizza (New York)", "Torta stand (Mexico City)", "Chip shop (Glasgow)"]
+
+- id: mall_as_civic_space
+  definition: >
+    Air-conditioned or indoor retail that functions as public space — people
+    meet there, eat there, and spend an afternoon without shopping. Usually
+    a response to climate.
+  exemplars: ["ION Orchard (Singapore)", "Galleria (Houston)", "Mall of America (Minneapolis)"]
+
+- id: mountain_access_ritual
+  definition: >
+    The nearby wild place residents treat as part of the ordinary week rather
+    than as a trip — close enough to go after work, and a marker of local
+    identity.
+  exemplars: ["Mount Falcon (Denver)", "Mount Takao (Tokyo)", "Runyon Canyon (Los Angeles)"]
+
+- id: brewery_as_third_place
+  definition: >
+    Taproom that functions as a neighbourhood living room — dogs, strollers,
+    laptops, no table service, and people staying for hours without a meal.
+  exemplars: ["Denver Beer Co (Denver)", "Threes Brewing (New York)", "Zilker Brewing (Austin)"]

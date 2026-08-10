@@ -1,0 +1,383 @@
+# New York seed corpus — named institutions locals would miss.
+#
+# The hardest list in the project so far, for two reasons.
+#
+# 1. A Manhattan-only list would answer for a city nobody lives in. Most of
+#    what New Yorkers actually name is outer-borough — Di Fara, Peter Pan,
+#    Arthur Avenue, the Rockaways — so the boroughs are represented roughly
+#    the way people talk about them, not the way guidebooks rank them.
+#
+# 2. "The New York equivalent" is often a *type* rather than a business: the
+#    bodega, the slice shop, the dollar-slice place, the corner deli. Those
+#    are seeded as the flagship example of the type, because the role is the
+#    unit of matching and the role is what a visitor is really asking about.
+#
+# Deliberately thin on: Times Square, anything a New Yorker would only visit
+# with out-of-town parents, and restaurants famous for being expensive.
+
+city: new_york
+places:
+  # ─── Groceries, bodegas, markets ────────────────────────────────────
+  - name: Trader Joe's
+    category: grocery
+    aliases: [trader joes, "tj's"]
+  - name: Zabar's
+    category: grocery
+    aliases: [zabars, "zabar's upper west side"]
+  - name: Fairway Market
+    category: grocery
+    aliases: [fairway]
+  - name: Kalustyan's
+    category: grocery
+    aliases: [kalustyans, spice store]
+  - name: Sahadi's
+    category: grocery
+    aliases: [sahadis, sahadi brooklyn]
+  - name: H Mart Koreatown
+    category: grocery
+    aliases: [h mart, hmart]
+  - name: Key Food
+    category: grocery
+    aliases: [key food supermarket]
+  - name: The corner bodega
+    category: convenience
+    aliases: [bodega, corner store, deli, bodega cat]
+  - name: Essex Market
+    category: farmers
+    aliases: [essex street market]
+  - name: Union Square Greenmarket
+    category: farmers
+    aliases: [union square farmers market, greenmarket]
+  - name: Arthur Avenue Retail Market
+    category: farmers
+    aliases: [arthur avenue, belmont market, real little italy]
+  - name: Chelsea Market
+    category: farmers
+    aliases: [chelsea market nyc]
+
+  # ─── Restaurants ────────────────────────────────────────────────────
+  - name: Joe's Pizza
+    category: restaurant_pizza
+    aliases: [joes pizza, "joe's bleecker"]
+  - name: Di Fara Pizza
+    category: restaurant_pizza
+    aliases: [difara, di fara midwood]
+  - name: L&B Spumoni Gardens
+    category: restaurant_pizza
+    aliases: [spumoni gardens, l and b]
+  - name: Katz's Delicatessen
+    category: restaurant
+    aliases: [katzs, "katz's", pastrami on rye]
+  - name: Russ & Daughters
+    category: restaurant
+    aliases: [russ and daughters, appetizing]
+  - name: Peter Luger Steak House
+    category: restaurant_fine
+    aliases: [peter luger, lugers]
+  - name: Gray's Papaya
+    category: restaurant
+    aliases: [grays papaya, recession special]
+  - name: Xi'an Famous Foods
+    category: restaurant
+    aliases: [xian famous foods, hand pulled noodles]
+  - name: Los Tacos No. 1
+    category: restaurant
+    aliases: [los tacos, los tacos no 1]
+  - name: The Halal Guys
+    category: restaurant
+    aliases: [halal guys, 53rd and 6th, street meat]
+  - name: Veselka
+    category: restaurant
+    aliases: [veselka east village, pierogi]
+  - name: Sylvia's
+    category: restaurant
+    aliases: [sylvias harlem]
+  - name: Wo Hop
+    category: restaurant
+    aliases: [wo hop chinatown]
+  - name: Superiority Burger
+    category: restaurant
+    aliases: [superiority]
+  - name: Lucali
+    category: restaurant_pizza
+    aliases: [lucali carroll gardens]
+  - name: Peter Pan Donut & Pastry Shop
+    category: dessert
+    aliases: [peter pan donuts, greenpoint donuts]
+  - name: Junior's
+    category: dessert
+    aliases: [juniors cheesecake, "junior's brooklyn"]
+  - name: Ample Hills Creamery
+    category: dessert
+    aliases: [ample hills]
+  - name: Levain Bakery
+    category: dessert
+    aliases: [levain, levain cookies]
+  - name: Yonah Schimmel Knish Bakery
+    category: dessert
+    aliases: [yonah schimmel, knish]
+  - name: Nom Wah Tea Parlor
+    category: restaurant
+    aliases: [nom wah, dim sum doyers]
+  - name: Roberta's
+    category: restaurant_pizza
+    aliases: [robertas bushwick]
+  - name: Prince Street Pizza
+    category: restaurant_pizza
+    aliases: [prince street, pepperoni square]
+
+  # ─── Bars & nightlife ───────────────────────────────────────────────
+  - name: McSorley's Old Ale House
+    category: bar
+    aliases: [mcsorleys, "mcsorley's"]
+  - name: Old Town Bar
+    category: bar
+    aliases: [old town]
+  - name: Sunny's Bar
+    category: bar
+    aliases: [sunnys red hook, "sunny's"]
+  - name: Please Don't Tell
+    category: bar
+    aliases: [pdt, phone booth bar]
+  - name: Attaboy
+    category: bar
+    aliases: [attaboy lower east side]
+  - name: Julius'
+    category: bar
+    aliases: [julius bar, julius village]
+  - name: The Long Island Bar
+    category: bar
+    aliases: [long island bar cobble hill]
+  - name: Torst
+    category: brewery
+    aliases: [tørst, torst greenpoint]
+  - name: Other Half Brewing
+    category: brewery
+    aliases: [other half]
+  - name: Threes Brewing
+    category: brewery
+    aliases: [threes]
+  - name: Clover Club
+    category: bar
+    aliases: [clover club brooklyn]
+
+  # ─── Music & venues ─────────────────────────────────────────────────
+  - name: Bowery Ballroom
+    category: music
+    aliases: [bowery]
+  - name: Baby's All Right
+    category: music
+    aliases: [babys all right, "baby's"]
+  - name: Village Vanguard
+    category: music
+    aliases: [vanguard, the vanguard]
+  - name: Brooklyn Steel
+    category: music
+    aliases: [bk steel]
+  - name: Elsewhere
+    category: music
+    aliases: [elsewhere brooklyn, elsewhere bushwick]
+  - name: Nublu
+    category: music
+    aliases: [nublu avenue c]
+  - name: Carnegie Hall
+    category: music
+    aliases: [carnegie]
+  - name: Barbes
+    category: music
+    aliases: [barbès, barbes park slope]
+
+  # ─── Coffee ─────────────────────────────────────────────────────────
+  - name: The corner deli coffee
+    category: coffee
+    aliases: [regular coffee, deli coffee, cart coffee, blue and white cup]
+  - name: Cafe Grumpy
+    category: coffee
+    aliases: [grumpy, café grumpy]
+  - name: Devocion
+    category: coffee
+    aliases: [devoción, devocion williamsburg]
+  - name: Sey Coffee
+    category: coffee
+    aliases: [sey, sey bushwick]
+  - name: Caffe Reggio
+    category: coffee
+    aliases: [reggio, caffè reggio]
+  - name: Veniero's
+    category: coffee
+    aliases: [venieros, veniero pasticceria]
+  - name: Bluestone Lane
+    category: coffee
+    aliases: [bluestone]
+
+  # ─── Books, records, shops ──────────────────────────────────────────
+  - name: The Strand
+    category: retail_books
+    aliases: [strand, strand bookstore, eighteen miles of books]
+  - name: McNally Jackson
+    category: retail_books
+    aliases: [mcnally jackson books]
+  - name: Books Are Magic
+    category: retail_books
+    aliases: [books are magic cobble hill]
+  - name: Argosy Book Store
+    category: retail_books
+    aliases: [argosy]
+  - name: Rough Trade NYC
+    category: retail_music
+    aliases: [rough trade]
+  - name: A1 Record Shop
+    category: retail_music
+    aliases: [a1 records, a-1 records]
+  - name: Academy Records
+    category: retail_music
+    aliases: [academy]
+  - name: B&H Photo
+    category: retail
+    aliases: [b and h, bh photo]
+  - name: Century 21
+    category: retail
+    aliases: [century21]
+  - name: Beacon's Closet
+    category: retail
+    aliases: [beacons closet]
+  - name: Canal Street
+    category: retail
+    aliases: [canal st, canal street market]
+  - name: ABC Carpet & Home
+    category: retail
+    aliases: [abc carpet]
+
+  # ─── Fitness & everyday ─────────────────────────────────────────────
+  - name: Equinox
+    category: gym
+    aliases: [equinox nyc]
+  - name: Crunch Fitness
+    category: gym
+    aliases: [crunch]
+  - name: Chelsea Piers
+    category: gym
+    aliases: [chelsea piers fitness]
+  - name: Russian & Turkish Baths
+    category: gym
+    aliases: [russian turkish baths, tenth street baths]
+  - name: Mercury Lounge YMCA
+    category: gym
+    aliases: [ymca, mcburney ymca]
+
+  # ─── Parks, outdoors, landmarks ─────────────────────────────────────
+  - name: Central Park
+    category: park
+    aliases: [the park, central pk]
+  - name: Prospect Park
+    category: park
+    aliases: [prospect]
+  - name: The High Line
+    category: outdoor
+    aliases: [high line, highline]
+  - name: Brooklyn Bridge Park
+    category: park
+    aliases: [bbp, brooklyn bridge park pier]
+  - name: Rockaway Beach
+    category: outdoor
+    aliases: [the rockaways, rockaway]
+  - name: Fort Tryon Park
+    category: park
+    aliases: [fort tryon, the cloisters park]
+  - name: Coney Island
+    category: outdoor
+    aliases: [coney, coney island boardwalk]
+  - name: Green-Wood Cemetery
+    category: outdoor
+    aliases: [greenwood cemetery, green wood]
+  - name: Grand Central Terminal
+    category: landmark
+    aliases: [grand central, grand central station]
+  - name: Washington Square Park
+    category: landmark
+    aliases: [wsp, washington square]
+  - name: The Staten Island Ferry
+    category: landmark
+    aliases: [si ferry, staten island ferry]
+  - name: Brooklyn Bridge
+    category: landmark
+    aliases: [the bridge]
+
+  # ─── Culture ────────────────────────────────────────────────────────
+  - name: The Metropolitan Museum of Art
+    category: museum
+    aliases: [the met, met museum]
+  - name: MoMA
+    category: museum
+    aliases: [museum of modern art, moma nyc]
+  - name: The Frick Collection
+    category: museum
+    aliases: [the frick]
+  - name: American Museum of Natural History
+    category: museum
+    aliases: [amnh, natural history museum]
+  - name: The Cloisters
+    category: museum
+    aliases: [cloisters]
+  - name: Film Forum
+    category: cinema
+    aliases: [film forum nyc]
+  - name: Metrograph
+    category: cinema
+    aliases: [metrograph ludlow]
+  - name: Nitehawk Cinema
+    category: cinema
+    aliases: [nitehawk]
+  - name: Angelika Film Center
+    category: cinema
+    aliases: [angelika]
+  - name: New York Public Library
+    category: library
+    aliases: [nypl, main branch, stephen a schwarzman building]
+  - name: Brooklyn Public Library
+    category: library
+    aliases: [bpl, central library grand army]
+  - name: The Public Theater
+    category: theater
+    aliases: [public theater, joes pub]
+  - name: St. Ann's Warehouse
+    category: theater
+    aliases: [st anns warehouse]
+
+  # ─── Neighborhoods & districts ──────────────────────────────────────
+  - name: Greenpoint
+    category: neighborhood
+    aliases: [greenpoint brooklyn]
+  - name: Bushwick
+    category: neighborhood
+    aliases: [bushwick brooklyn]
+  - name: The Lower East Side
+    category: neighborhood
+    aliases: [les, lower east side]
+  - name: Astoria
+    category: neighborhood
+    aliases: [astoria queens]
+  - name: Jackson Heights
+    category: neighborhood
+    aliases: [jackson heights queens]
+  - name: Harlem
+    category: neighborhood
+    aliases: [uptown, central harlem]
+  - name: Park Slope
+    category: neighborhood
+    aliases: [slope]
+  - name: The West Village
+    category: neighborhood
+    aliases: [west village, the village]
+  - name: Flushing
+    category: neighborhood
+    aliases: [flushing queens, downtown flushing]
+  - name: Red Hook
+    category: neighborhood
+    aliases: [red hook brooklyn]
+  - name: The Upper East Side
+    category: neighborhood
+    aliases: [ues, upper east side]
+  - name: Sunset Park
+    category: neighborhood
+    aliases: [sunset park brooklyn]

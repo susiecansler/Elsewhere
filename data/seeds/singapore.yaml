@@ -1,0 +1,323 @@
+# Singapore seed corpus — named institutions locals would miss.
+#
+# Three judgement calls:
+#
+# 1. Hawker centres are the backbone. They are not street food attractions,
+#    they are where a large share of the country eats most days, and the
+#    named stall inside a named centre is how people actually refer to them.
+#    A list that skipped them for restaurants would answer for a Singapore
+#    that only tourists visit.
+#
+# 2. The heartlands are in. Tiong Bahru and Katong get written about; Toa
+#    Payoh, Ang Mo Kio and Jurong are where most Singaporeans live, and the
+#    void deck and the neighbourhood coffeeshop belong on any honest list.
+#
+# 3. Malls are institutions here in a way they are not in the US corpus.
+#    Not because Singapore lacks alternatives, but because air-conditioned
+#    retail is genuinely civic space in the tropics — people meet, eat and
+#    kill an afternoon in them.
+
+city: singapore
+places:
+  # ─── Groceries, markets, kopitiams ──────────────────────────────────
+  - name: FairPrice
+    category: grocery
+    aliases: [ntuc, ntuc fairprice, fair price]
+  - name: Cold Storage
+    category: grocery
+    aliases: [cold storage singapore]
+  - name: Sheng Siong
+    category: grocery
+    aliases: [sheng siong supermarket]
+  - name: Mustafa Centre
+    category: grocery
+    aliases: [mustafa, mustafa 24 hours]
+  - name: Don Don Donki
+    category: grocery
+    aliases: [donki, don quijote singapore]
+  - name: Tekka Centre
+    category: farmers
+    aliases: [tekka market, little india market]
+  - name: Chinatown Complex Market
+    category: farmers
+    aliases: [chinatown complex, chinatown wet market]
+  - name: Tiong Bahru Market
+    category: farmers
+    aliases: [tiong bahru wet market, tiong bahru hawker]
+  - name: Geylang Serai Market
+    category: farmers
+    aliases: [geylang serai, pasar geylang]
+  - name: The neighbourhood kopitiam
+    category: coffee
+    aliases: [kopitiam, coffeeshop, kopi o, void deck coffeeshop]
+  - name: Ya Kun Kaya Toast
+    category: coffee
+    aliases: [ya kun, kaya toast]
+  - name: Killiney Kopitiam
+    category: coffee
+    aliases: [killiney, killiney road]
+  - name: Toast Box
+    category: coffee
+    aliases: [toastbox]
+
+  # ─── Hawker centres & food ──────────────────────────────────────────
+  - name: Maxwell Food Centre
+    category: restaurant
+    aliases: [maxwell hawker, maxwell market]
+  - name: Old Airport Road Food Centre
+    category: restaurant
+    aliases: [old airport road, oarfc]
+  - name: Lau Pa Sat
+    category: restaurant
+    aliases: [lau pa sat satay street, telok ayer market]
+  - name: Newton Food Centre
+    category: restaurant
+    aliases: [newton circus, newton hawker]
+  - name: Amoy Street Food Centre
+    category: restaurant
+    aliases: [amoy street hawker]
+  - name: Tian Tian Hainanese Chicken Rice
+    category: restaurant
+    aliases: [tian tian, chicken rice maxwell]
+  - name: Hill Street Tai Hwa Pork Noodle
+    category: restaurant
+    aliases: [tai hwa, bak chor mee]
+  - name: 328 Katong Laksa
+    category: restaurant
+    aliases: [328 laksa, katong laksa]
+  - name: Jumbo Seafood
+    category: restaurant
+    aliases: [jumbo, chilli crab]
+  - name: Song Fa Bak Kut Teh
+    category: restaurant
+    aliases: [song fa, bak kut teh]
+  - name: Zam Zam Restaurant
+    category: restaurant
+    aliases: [zam zam, murtabak arab street]
+  - name: Komala Vilas
+    category: restaurant
+    aliases: [komala vilas little india]
+  - name: Burnt Ends
+    category: restaurant_fine
+    aliases: [burnt ends singapore]
+  - name: Odette
+    category: restaurant_fine
+    aliases: [odette national gallery]
+  - name: Candlenut
+    category: restaurant_fine
+    aliases: [candlenut peranakan]
+  - name: Beauty in the Pot
+    category: restaurant
+    aliases: [beauty in the pot hotpot]
+  - name: Ah Chew Desserts
+    category: dessert
+    aliases: [ah chew]
+  - name: Mei Heong Yuen Dessert
+    category: dessert
+    aliases: [mei heong yuen, snow ice]
+  - name: Birds of Paradise Gelato
+    category: dessert
+    aliases: [birds of paradise]
+
+  # ─── Bars & nightlife ───────────────────────────────────────────────
+  - name: Atlas Bar
+    category: bar
+    aliases: [atlas, atlas parkview]
+  - name: Jigger & Pony
+    category: bar
+    aliases: [jigger and pony]
+  - name: Native
+    category: bar
+    aliases: [native amoy street]
+  - name: Manhattan Bar
+    category: bar
+    aliases: [manhattan regent]
+  - name: Employees Only Singapore
+    category: bar
+    aliases: [employees only sg]
+  - name: Smith Street Taps
+    category: bar
+    aliases: [smith street taps, chinatown craft beer]
+  - name: Level33
+    category: brewery
+    aliases: [level 33, level33 mbfc]
+  - name: RedDot BrewHouse
+    category: brewery
+    aliases: [red dot brewhouse]
+  - name: Zouk
+    category: music_club
+    aliases: [zouk singapore]
+
+  # ─── Music & venues ─────────────────────────────────────────────────
+  - name: Esplanade
+    category: music
+    aliases: [esplanade theatres on the bay, the durian]
+  - name: Victoria Concert Hall
+    category: music
+    aliases: [victoria theatre, vch]
+  - name: The Projector
+    category: cinema
+    aliases: [projector, the projector golden mile]
+  - name: Timbre X
+    category: music
+    aliases: [timbre, timbre x]
+  - name: Singapore Indoor Stadium
+    category: music
+    aliases: [indoor stadium]
+
+  # ─── Books, records, shops, malls ───────────────────────────────────
+  - name: Kinokuniya Singapore
+    category: retail_books
+    aliases: [kino, books kinokuniya ngee ann]
+  - name: BooksActually
+    category: retail_books
+    aliases: [books actually, tiong bahru bookstore]
+  - name: Basheer Graphic Books
+    category: retail_books
+    aliases: [basheer]
+  - name: Choo Yilin
+    category: retail
+    aliases: [choo yilin jewellery]
+  - name: The Analog Vault
+    category: retail_music
+    aliases: [analog vault]
+  - name: Hong Lim Complex
+    category: retail
+    aliases: [hong lim, hong lim market]
+  - name: Sim Lim Square
+    category: retail
+    aliases: [sim lim, simlim]
+  - name: Queensway Shopping Centre
+    category: retail
+    aliases: [queensway, queensway shopping]
+  - name: ION Orchard
+    category: retail
+    aliases: [ion, ion orchard mall]
+  - name: Takashimaya
+    category: retail
+    aliases: [taka, ngee ann city]
+  - name: Bugis Street
+    category: retail
+    aliases: [bugis, bugis street market]
+  - name: Haji Lane
+    category: retail
+    aliases: [haji lane kampong glam]
+
+  # ─── Fitness & everyday ─────────────────────────────────────────────
+  - name: ActiveSG Gym
+    category: gym
+    aliases: [activesg, sports hall gym, cc gym]
+  - name: Virgin Active Singapore
+    category: gym
+    aliases: [virgin active]
+  - name: Anytime Fitness Singapore
+    category: gym
+    aliases: [anytime fitness sg]
+  - name: Ground Up Climbing
+    category: gym
+    aliases: [ground up, boulder gym singapore]
+
+  # ─── Parks, outdoors, landmarks ─────────────────────────────────────
+  - name: East Coast Park
+    category: park
+    aliases: [ecp, east coast]
+  - name: Singapore Botanic Gardens
+    category: park
+    aliases: [botanic gardens, botanics]
+  - name: Gardens by the Bay
+    category: park
+    aliases: [gardens by bay, supertrees]
+  - name: MacRitchie Reservoir
+    category: outdoor
+    aliases: [macritchie, treetop walk]
+  - name: Southern Ridges
+    category: outdoor
+    aliases: [henderson waves, southern ridges walk]
+  - name: Pulau Ubin
+    category: outdoor
+    aliases: [ubin]
+  - name: Sungei Buloh Wetland Reserve
+    category: outdoor
+    aliases: [sungei buloh]
+  - name: Marina Barrage
+    category: outdoor
+    aliases: [barrage, marina barrage kite]
+  - name: Merlion Park
+    category: landmark
+    aliases: [merlion]
+  - name: Marina Bay Sands
+    category: landmark
+    aliases: [mbs]
+  - name: Raffles Hotel
+    category: landmark
+    aliases: [raffles, long bar]
+  - name: Sri Mariamman Temple
+    category: landmark
+    aliases: [sri mariamman]
+  - name: Changi Airport Jewel
+    category: landmark
+    aliases: [jewel, jewel changi, rain vortex]
+
+  # ─── Culture ────────────────────────────────────────────────────────
+  - name: National Gallery Singapore
+    category: museum
+    aliases: [national gallery]
+  - name: ArtScience Museum
+    category: museum
+    aliases: [artscience, art science museum]
+  - name: Asian Civilisations Museum
+    category: museum
+    aliases: [acm]
+  - name: Peranakan Museum
+    category: museum
+    aliases: [peranakan]
+  - name: National Museum of Singapore
+    category: museum
+    aliases: [national museum]
+  - name: Gillman Barracks
+    category: museum
+    aliases: [gillman, gillman barracks galleries]
+  - name: National Library Singapore
+    category: library
+    aliases: [national library, nlb bugis]
+  - name: library@orchard
+    category: library
+    aliases: [library at orchard, orchard library]
+
+  # ─── Neighbourhoods & districts ─────────────────────────────────────
+  - name: Tiong Bahru
+    category: neighborhood
+    aliases: [tiong bahru estate]
+  - name: Katong
+    category: neighborhood
+    aliases: [joo chiat, katong joo chiat]
+  - name: Kampong Glam
+    category: neighborhood
+    aliases: [arab street, kampong gelam]
+  - name: Little India
+    category: neighborhood
+    aliases: [serangoon road]
+  - name: Chinatown
+    category: neighborhood
+    aliases: [chinatown singapore, kreta ayer]
+  - name: Toa Payoh
+    category: neighborhood
+    aliases: [toa payoh central, tph]
+  - name: Ang Mo Kio
+    category: neighborhood
+    aliases: [amk]
+  - name: Holland Village
+    category: neighborhood
+    aliases: [holland v]
+  - name: Dempsey Hill
+    category: neighborhood
+    aliases: [dempsey]
+  - name: Jurong East
+    category: neighborhood
+    aliases: [jurong, jem westgate]
+  - name: Orchard Road
+    category: neighborhood
+    aliases: [orchard]
+  - name: Bukit Timah
+    category: neighborhood
+    aliases: [bukit timah road]

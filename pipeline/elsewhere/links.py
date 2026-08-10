@@ -37,6 +37,9 @@ CITY_QUERY = {
     "portland": "Portland, OR",
     "los_angeles": "Los Angeles, CA",
     "chapel_hill": "Chapel Hill, NC",
+    "new_york": "New York, NY",
+    "denver": "Denver, CO",
+    "singapore": "Singapore",
     "tokyo": "Tokyo, Japan",
     "mexico_city": "Mexico City, Mexico",
 }

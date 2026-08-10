@@ -1,0 +1,341 @@
+# Denver seed corpus — named institutions locals would miss.
+#
+# Two judgement calls:
+#
+# 1. The mountains are in, but only where Denver treats them as part of
+#    daily life rather than as a holiday. Red Rocks is a Denver institution;
+#    Vail is not. The foothills — Mount Falcon, Lookout, Wash Park on a
+#    Saturday — are how people here actually spend a weekend.
+#
+# 2. Green chile, brewing and the dispensary are not novelty entries. They
+#    are the three things Denver genuinely does differently from every other
+#    American city on this list, and a corpus that skipped them would answer
+#    for Anywhere, Colorado.
+
+city: denver
+places:
+  # ─── Grocery & food retail ──────────────────────────────────────────
+  - name: King Soopers
+    category: grocery
+    aliases: [soopers, kings, king soopers denver]
+  - name: Safeway
+    category: grocery
+    aliases: [safeway denver]
+  - name: Natural Grocers
+    category: grocery
+    aliases: [natural grocers vitamin cottage, vitamin cottage]
+  - name: Marczyk Fine Foods
+    category: grocery
+    aliases: [marczyk, marczyks]
+  - name: Leevers Locavore
+    category: grocery
+    aliases: [leevers, locavore]
+  - name: H Mart Aurora
+    category: grocery
+    aliases: [h mart denver, hmart]
+  - name: Savory Spice Shop
+    category: grocery
+    aliases: [savory spice]
+  - name: Union Station Farmers Market
+    category: farmers
+    aliases: [union station market, denver farmers market]
+  - name: South Pearl Street Farmers Market
+    category: farmers
+    aliases: [south pearl market, pearl street market]
+  - name: Denver Central Market
+    category: farmers
+    aliases: [central market rino]
+  - name: Avanti Food & Beverage
+    category: farmers
+    aliases: [avanti, avanti fb]
+
+  # ─── Restaurants ────────────────────────────────────────────────────
+  - name: Santiago's
+    category: restaurant
+    aliases: [santiagos, green chile, breakfast burrito]
+  - name: Chubby's
+    category: restaurant
+    aliases: [chubbys, chubby burger]
+  - name: El Taco de Mexico
+    category: restaurant
+    aliases: [el taco de mexico santa fe]
+  - name: Casa Bonita
+    category: restaurant
+    aliases: [casa bonita lakewood, cliff divers]
+  - name: Sam's No. 3
+    category: restaurant
+    aliases: [sams no 3, "sam's diner"]
+  - name: Snooze an A.M. Eatery
+    category: restaurant
+    aliases: [snooze, snooze eatery]
+  - name: The Buckhorn Exchange
+    category: restaurant
+    aliases: [buckhorn, buckhorn exchange]
+  - name: Tacos Tequila Whiskey
+    category: restaurant
+    aliases: [ttw, pinche tacos]
+  - name: Work & Class
+    category: restaurant
+    aliases: [work and class]
+  - name: Potager
+    category: restaurant_fine
+    aliases: [potager denver]
+  - name: Frasca Food and Wine
+    category: restaurant_fine
+    aliases: [frasca, frasca boulder]
+  - name: Sushi Den
+    category: restaurant_fine
+    aliases: [sushi den platt park]
+  - name: Biker Jim's Gourmet Dogs
+    category: restaurant
+    aliases: [biker jims, "biker jim's"]
+  - name: Pete's Kitchen
+    category: restaurant
+    aliases: [petes kitchen, "pete's colfax"]
+  - name: Rosenberg's Bagels
+    category: restaurant
+    aliases: [rosenbergs bagels, "rosenberg's"]
+  - name: Little Man Ice Cream
+    category: dessert
+    aliases: [little man, the milk can]
+  - name: Bonnie Brae Ice Cream
+    category: dessert
+    aliases: [bonnie brae]
+  - name: Voodoo Doughnut Denver
+    category: dessert
+    aliases: [voodoo doughnut colfax]
+  - name: Uncle
+    category: restaurant
+    aliases: [uncle ramen, uncle denver]
+
+  # ─── Bars, breweries, dispensaries ──────────────────────────────────
+  - name: Great Divide Brewing
+    category: brewery
+    aliases: [great divide]
+  - name: Wynkoop Brewing Company
+    category: brewery
+    aliases: [wynkoop]
+  - name: Denver Beer Co
+    category: brewery
+    aliases: [denver beer company]
+  - name: Cerebral Brewing
+    category: brewery
+    aliases: [cerebral]
+  - name: TRVE Brewing
+    category: brewery
+    aliases: [trve, true brewing]
+  - name: Ratio Beerworks
+    category: brewery
+    aliases: [ratio]
+  - name: My Brother's Bar
+    category: bar
+    aliases: [my brothers bar, oldest bar in denver]
+  - name: Williams & Graham
+    category: bar
+    aliases: [williams and graham, speakeasy denver]
+  - name: The Cruise Room
+    category: bar
+    aliases: [cruise room, oxford hotel bar]
+  - name: Charlie Brown's Bar & Grill
+    category: bar
+    aliases: [charlie browns, piano bar denver]
+  - name: Linger
+    category: bar
+    aliases: [linger lohi, rooftop denver]
+  - name: Nooch Vegan Market
+    category: retail
+    aliases: [nooch]
+  - name: Native Roots Dispensary
+    category: retail
+    aliases: [native roots, dispensary]
+
+  # ─── Music & venues ─────────────────────────────────────────────────
+  - name: Red Rocks Amphitheatre
+    category: music
+    aliases: [red rocks, the rocks]
+  - name: The Bluebird Theater
+    category: music
+    aliases: [bluebird]
+  - name: Ogden Theatre
+    category: music
+    aliases: [the ogden]
+  - name: The Fillmore Auditorium
+    category: music
+    aliases: [fillmore denver]
+  - name: Larimer Lounge
+    category: music
+    aliases: [larimer]
+  - name: Hi-Dive
+    category: music
+    aliases: [hi dive, hidive south broadway]
+  - name: Mission Ballroom
+    category: music
+    aliases: [mission]
+  - name: Boettcher Concert Hall
+    category: music
+    aliases: [boettcher, denver performing arts complex]
+
+  # ─── Coffee ─────────────────────────────────────────────────────────
+  - name: Little Owl Coffee
+    category: coffee
+    aliases: [little owl]
+  - name: Corvus Coffee Roasters
+    category: coffee
+    aliases: [corvus]
+  - name: Huckleberry Roasters
+    category: coffee
+    aliases: [huckleberry]
+  - name: Pablo's Coffee
+    category: coffee
+    aliases: [pablos, "pablo's on pearl"]
+  - name: Black Eye Coffee
+    category: coffee
+    aliases: [black eye]
+  - name: Steam Espresso Bar
+    category: coffee
+    aliases: [steam espresso]
+
+  # ─── Books, records, shops ──────────────────────────────────────────
+  - name: Tattered Cover Book Store
+    category: retail_books
+    aliases: [tattered cover, the tattered cover]
+  - name: BookBar
+    category: retail_books
+    aliases: [book bar denver]
+  - name: Kilgore Books & Comics
+    category: retail_books
+    aliases: [kilgore]
+  - name: Twist & Shout Records
+    category: retail_music
+    aliases: [twist and shout]
+  - name: Wax Trax Records
+    category: retail_music
+    aliases: [wax trax denver]
+  - name: REI Denver Flagship
+    category: retail
+    aliases: [rei, rei flagship, confluence rei]
+  - name: Wilderness Exchange
+    category: retail
+    aliases: [wilderness exchange unlimited]
+  - name: Buffalo Exchange Denver
+    category: retail
+    aliases: [buffalo exchange]
+  - name: Meininger Art Supply
+    category: retail
+    aliases: [meininger]
+  - name: Rockmount Ranch Wear
+    category: retail
+    aliases: [rockmount, snap shirts]
+
+  # ─── Fitness & everyday ─────────────────────────────────────────────
+  - name: Colorado Athletic Club
+    category: gym
+    aliases: [cac, colorado athletic]
+  - name: Movement Climbing Denver
+    category: gym
+    aliases: [movement gym, movement climbing]
+  - name: VASA Fitness
+    category: gym
+    aliases: [vasa]
+  - name: Washington Park Rec Center
+    category: gym
+    aliases: [wash park rec]
+
+  # ─── Parks, outdoors, landmarks ─────────────────────────────────────
+  - name: Washington Park
+    category: park
+    aliases: [wash park]
+  - name: City Park
+    category: park
+    aliases: [city park denver]
+  - name: Cheesman Park
+    category: park
+    aliases: [cheesman]
+  - name: Confluence Park
+    category: outdoor
+    aliases: [confluence, platte confluence]
+  - name: Cherry Creek Trail
+    category: outdoor
+    aliases: [cherry creek bike path, the creek]
+  - name: Mount Falcon Park
+    category: outdoor
+    aliases: [mount falcon, mt falcon]
+  - name: Lookout Mountain
+    category: outdoor
+    aliases: [lookout mtn, buffalo bill grave]
+  - name: Chautauqua Park
+    category: outdoor
+    aliases: [chautauqua boulder, the flatirons]
+  - name: Union Station
+    category: landmark
+    aliases: [denver union station, the train station]
+  - name: The Big Blue Bear
+    category: landmark
+    aliases: [big blue bear, i see what you mean]
+  - name: Coors Field
+    category: landmark
+    aliases: [coors field rockies]
+  - name: The Denver Milk Market
+    category: landmark
+    aliases: [milk market]
+
+  # ─── Culture ────────────────────────────────────────────────────────
+  - name: Denver Art Museum
+    category: museum
+    aliases: [dam, denver art]
+  - name: Clyfford Still Museum
+    category: museum
+    aliases: [clyfford still]
+  - name: Denver Museum of Nature & Science
+    category: museum
+    aliases: [dmns, nature and science]
+  - name: Museo de las Americas
+    category: museum
+    aliases: [museo, museo de las américas]
+  - name: The Mayan Theater
+    category: cinema
+    aliases: [mayan theatre, the mayan]
+  - name: Sie FilmCenter
+    category: cinema
+    aliases: [sie film center, denver film]
+  - name: Alamo Drafthouse Sloans Lake
+    category: cinema
+    aliases: [alamo denver]
+  - name: Denver Central Library
+    category: library
+    aliases: [central library denver, dpl]
+  - name: Curious Theatre Company
+    category: theater
+    aliases: [curious theatre]
+
+  # ─── Neighborhoods & districts ──────────────────────────────────────
+  - name: RiNo
+    category: neighborhood
+    aliases: [river north, rino art district]
+  - name: LoHi
+    category: neighborhood
+    aliases: [lower highlands, highlands]
+  - name: South Broadway
+    category: neighborhood
+    aliases: [sobo, broadway denver, antique row]
+  - name: Baker
+    category: neighborhood
+    aliases: [baker neighborhood]
+  - name: Five Points
+    category: neighborhood
+    aliases: [five points denver, welton street]
+  - name: Cherry Creek
+    category: neighborhood
+    aliases: [cherry creek north]
+  - name: Capitol Hill
+    category: neighborhood
+    aliases: [cap hill]
+  - name: Park Hill
+    category: neighborhood
+    aliases: [park hill denver]
+  - name: Colfax Avenue
+    category: neighborhood
+    aliases: [colfax, east colfax]
+  - name: Platt Park
+    category: neighborhood
+    aliases: [platt park denver, old south pearl]
