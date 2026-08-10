@@ -1054,50 +1054,83 @@ main { max-width: 1180px; margin: 0 auto; padding: 28px 40px 140px; }
 }
 .city:hover { box-shadow: var(--e-lift); }
 .city:first-of-type { margin-top: 0; }
-/* The translation, read top to bottom on a phone and left to right on a
-   desk: what you know, the loop, what it becomes. */
-.tr {
-  display: grid; grid-template-columns: 1fr auto 1fr; gap: 18px;
-  align-items: center; margin-bottom: 18px;
+/* ─── The reveal ──────────────────────────────────────────────────────────
+   The moment the product exists for, so it is staged rather than listed:
+   what you love, stated quietly; the squiggle; then the counterpart at
+   display size with room around it. Vertical on every screen — the answer
+   should arrive *after* the thing it answers, and side by side gives them
+   equal billing. */
+.reveal {
+  padding: var(--s5) var(--s4) var(--s5);
+  margin: 0 0 var(--s4);
+  box-shadow: none;
+  max-width: 640px;
 }
-.side { min-width: 0; }
-.side:last-child { text-align: right; }
-.pname {
-  font-size: var(--t-md); font-weight: var(--w-label); color: var(--dim); letter-spacing: -0.01em;
-  line-height: 1.25;
-}
-.pcity {
-  font-size: var(--t-xs); color: var(--faint); margin-top: 3px;
-  text-transform: uppercase; letter-spacing: .08em; font-weight: var(--w-label);
-}
-.arrowcol { display: flex; flex-direction: column; align-items: center; gap: 5px; }
-.loop-empty { width: 34px; height: 34px; color: var(--accent); }
-.elsew {
-  font-size: var(--t-xs); color: var(--faint); white-space: nowrap;
-  letter-spacing: .04em;
-}
-.tr .answer { margin: 0; }
+.reveal:hover { box-shadow: none; }
 
-/* Said in words, because the number underneath is self-rated. */
-.strength {
-  display: inline-block; font-size: var(--t-xs); font-weight: var(--w-label);
-  padding: 5px 12px; border-radius: var(--r-pill); margin-bottom: 10px;
-  background: var(--accent-soft); color: var(--accent-deep);
+.eyebrow {
+  display: block; font-size: var(--t-xs); font-weight: var(--w-label);
+  letter-spacing: .1em; text-transform: uppercase; color: var(--faint);
+  margin-bottom: var(--s1);
 }
-.strength.mid { background: var(--sunk); color: var(--dim); }
-.strength.lo { background: var(--sunk); color: var(--faint); }
-.roleline {
-  font-size: var(--t-sm); color: var(--dim); margin-bottom: 12px;
+.known { margin-bottom: var(--s3); }
+.kname {
+  font-size: var(--t-lg); font-weight: var(--w-label);
+  color: var(--dim); letter-spacing: -0.01em; line-height: 1.2;
+}
+.kmeta, .hmeta { font-size: var(--t-sm); color: var(--faint); margin-top: var(--s1); }
+
+/* The squiggle turns the corner: the mark points up-right by default, and
+   here the eye needs to travel down the page. */
+.squiggle { margin: var(--s2) 0 var(--s3); }
+.squiggle .loop-empty {
+  width: 40px; height: 40px; color: var(--accent);
+  transform: rotate(58deg);
 }
 
-@media (max-width: 700px) {
-  .tr { grid-template-columns: 1fr; gap: 10px; text-align: left; }
-  .side:last-child { text-align: left; }
-  .arrowcol { flex-direction: row; align-self: flex-start; gap: 9px; }
-  .loop-empty { width: 26px; height: 26px; }
+.hero { margin-bottom: var(--s4); }
+.hero .answer {
+  font-size: clamp(30px, 3.4vw, 42px); font-weight: var(--w-display);
+  letter-spacing: -0.035em; line-height: 1.06; margin: var(--s1) 0 0;
+  color: var(--ink); text-wrap: balance;
+}
+.hero .hmeta { margin-top: var(--s2); }
+.hero .strength { margin: var(--s3) 0 0; }
+
+/* The explanation is the product. It gets a reading measure and the room
+   to be read, not a caption slot. */
+.reveal .why.big {
+  font-size: var(--t-md); line-height: 1.65; color: var(--dim);
+  max-width: 56ch; margin: 0 0 var(--s4); opacity: 1;
 }
 
-.cityname {
+/* Shared traits, as the corpus knows them. */
+.traits {
+  list-style: none; display: flex; flex-wrap: wrap; gap: var(--s1);
+  padding: 0; margin: 0 0 var(--s4);
+}
+.traits li {
+  font-size: var(--t-xs); color: var(--accent-deep); background: var(--mint);
+  padding: 6px var(--s3); border-radius: var(--r-pill);
+}
+
+/* Entrance: the counterpart arrives a beat after the place you named, which
+   is the difference between a reveal and a page that was already there. */
+@keyframes rise { from { opacity: 0; transform: translateY(10px); } }
+.reveal > * { animation: rise var(--t-slow) var(--ease) both; }
+.reveal > .known    { animation-delay: 0ms; }
+.reveal > .squiggle { animation-delay: 90ms; }
+.reveal > .hero     { animation-delay: 180ms; }
+.reveal > .why      { animation-delay: 280ms; }
+.reveal > .traits   { animation-delay: 340ms; }
+.reveal > .map, .reveal > .acts, .reveal > details, .reveal > .verify {
+  animation-delay: 400ms;
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal > * { animation: none; }
+}
+
+.cityname {.cityname {
   font-size: var(--t-sm); font-weight: var(--w-label); color: var(--accent);
   margin-bottom: 6px; display: block; letter-spacing: 0; text-transform: none;
 }
@@ -2232,6 +2265,15 @@ async function shareAnswer(b) {
   }
 }
 
+/* "restaurant_tacos" is how the corpus stores it; "Tacos" is what a person
+   reads. The head word is dropped when there's a more specific tail, since
+   "Restaurant · Tacos" says the same thing twice. */
+function prettyCat(cat) {
+  const parts = String(cat).split("_");
+  const word = parts.length > 1 ? parts.slice(1).join(" ") : parts[0];
+  return word.charAt(0).toUpperCase() + word.slice(1);
+}
+
 /* How sure the model was, said in words.
 
    The corpus carries a 0-1 confidence per candidate, and it is tempting to
@@ -2357,24 +2399,28 @@ function render() {
       const rest = c.candidates.slice(1);
       const roles = (m.roles || []).slice(0, 3)
         .map(r => esc(r.replace(/_/g, " "))).join(" · ");
-      return `<div class="city">
-        <div class="tr">
-          <div class="side">
-            <div class="pname">${esc(m.name)}</div>
-            <div class="pcity">${esc(title(S.source))}</div>
-          </div>
-          <div class="arrowcol">
-            __LOOP_EMPTY__
-            <span class="elsew">elsewhere in ${esc(title(t))}</span>
-          </div>
-          <div class="side">
-            <div class="answer"><span>${esc(top.name)}</span></div>
-            <div class="pcity">${esc(title(t))}</div>
-          </div>
+      const traits = (m.roles || []).slice(0, 5)
+        .map(r => `<li>${esc(r.replace(/_/g, " "))}</li>`).join("");
+      return `<div class="city reveal">
+        <div class="known">
+          <span class="eyebrow">You love</span>
+          <div class="kname">${esc(m.name)}</div>
+          <div class="kmeta">${esc(title(S.source))}${
+            m.category ? ` \u00b7 ${esc(prettyCat(m.category))}` : ""}</div>
         </div>
-        ${strength(top)}
-        ${roles ? `<div class="roleline">${roles}</div>` : ""}
-        <div class="why big">${esc(top.reasoning)}</div>
+
+        <div class="squiggle">__LOOP_EMPTY__</div>
+
+        <div class="hero">
+          <span class="eyebrow">Its counterpart in ${esc(title(t))}</span>
+          <div class="answer"><span>${esc(top.name)}</span></div>
+          <div class="hmeta">${esc(title(t))}${
+            m.category ? ` \u00b7 ${esc(prettyCat(m.category))}` : ""}</div>
+          ${strength(top)}
+        </div>
+
+        <p class="why big">${esc(top.reasoning)}</p>
+        ${traits ? `<ul class="traits">${traits}</ul>` : ""}
         ${acts(top, t, m.name)}
         ${verifyBlock(top, t, m.name)}
         ${rest.length ? `<details><summary>${rest.length} other option${
