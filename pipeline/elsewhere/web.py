@@ -881,8 +881,14 @@ button.brand:hover { color: var(--dim); }
   display: grid; gap: 12px; max-width: none; margin: 0;
   grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
 }
+.cicon {
+  width: 34px; height: 34px; color: var(--accent); margin-bottom: 12px;
+  transition: transform .25s var(--spring);
+}
+.cats button:hover .cicon { transform: translateY(-2px) rotate(-3deg); }
+.clabel { display: block; }
 .cats button {
-  font-size: 17px; font-weight: 600; padding: 22px 22px; text-align: left;
+  font-size: 17px; font-weight: 600; padding: 20px 22px 22px; text-align: left;
   background: var(--panel); color: var(--ink); border-radius: 16px;
   box-shadow: inset 0 0 0 1px var(--hair);
   display: flex; flex-direction: column; align-items: flex-start; gap: 4px;
@@ -1724,6 +1730,52 @@ const groupOf = m => {
   return hit ? hit[0] : "Other";
 };
 
+/* One drawing per category, in the same hand as the fish: stroke only,
+   currentColor, nothing that needs a second colour or a fill. Each is a
+   single recognisable object rather than a symbol — a pint, an awning, a
+   row of roofs — because at this size an abstraction just reads as a blob. */
+const ICONS = {
+  Food:
+    '<path d="M12 8v10a3 3 0 0 0 3 3v11"/><path d="M9 8v6M15 8v6"/>' +
+    '<path d="M28 8c-3 2-4 6-4 9s1 4 3 4h1v11"/>',
+  Drinks:
+    '<path d="M13 12h14l-1.6 18a2 2 0 0 1-2 1.8h-6.8a2 2 0 0 1-2-1.8Z"/>' +
+    '<path d="M13.4 17.5h13.2"/><path d="M27 15h3.5a2.5 2.5 0 0 1 0 5H26.6"/>' +
+    '<path d="M16 8.5c1.4-1.6 3-1.6 4.4 0M22 8.5c1.2-1.4 2.6-1.4 3.8 0"/>',
+  Coffee:
+    '<path d="M10 15h16v9a7 7 0 0 1-7 7h-2a7 7 0 0 1-7-7Z"/>' +
+    '<path d="M26 17.5h3a3.5 3.5 0 0 1 0 7h-3"/><path d="M8 34h20"/>' +
+    '<path d="M15 7c-1.2 1.8-1.2 3.2 0 5M21 6.5c-1.2 1.8-1.2 3.2 0 5"/>',
+  Groceries:
+    '<path d="M10 14h20l-1.5 18a2 2 0 0 1-2 1.9H13.5a2 2 0 0 1-2-1.9Z"/>' +
+    '<path d="M16 14V9.5a4 4 0 0 1 8 0V14"/>' +
+    '<path d="M20 20c-3.4 1.6-4.6 5-3 8 3.2 1 5.8-1 6-4.5"/><path d="M20 28v-6"/>',
+  Shops:
+    '<path d="M9 17h22v15H9Z"/><path d="M7 17l3-7h20l3 7"/>' +
+    '<path d="M9 17c0 2.4 1.6 4 3.7 4s3.6-1.6 3.6-4M16.3 17c0 2.4 1.6 4 3.7 4s3.7-1.6 3.7-4' +
+    'M23.7 17c0 2.4 1.5 4 3.6 4s3.7-1.6 3.7-4"/>' +
+    '<path d="M17 32v-7h6v7"/>',
+  Outdoors:
+    '<path d="M4 30l9-14 5.5 8"/><path d="M14 30l8.5-13L34 30Z"/>' +
+    '<path d="M4 30h32"/><circle cx="10" cy="10" r="3.4"/>',
+  Culture:
+    '<path d="M8 32h24"/><path d="M10 32V16M16 32V16M24 32V16M30 32V16"/>' +
+    '<path d="M7 16h26"/><path d="M20 5l14 9H6Z"/>',
+  Neighborhoods:
+    '<path d="M4 32h32"/><path d="M6 32V20l7-6 7 6v12"/><path d="M20 32V23l6-5 6 5v9"/>' +
+    '<path d="M11 32v-6h4v6"/><path d="M24 27h4"/>',
+  Fitness:
+    '<path d="M6 20h4M30 20h4"/><path d="M10 14h4v12h-4ZM26 14h4v12h-4Z"/>' +
+    '<path d="M14 20h12"/>',
+};
+
+const iconFor = key =>
+  ICONS[key]
+    ? `<svg class="cicon" viewBox="0 0 40 40" fill="none" stroke="currentColor"
+        stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"
+        aria-hidden="true">${ICONS[key]}</svg>`
+    : "";
+
 function renderCats() {
   const counts = {};
   for (const m of S.matches) {
@@ -1733,8 +1785,8 @@ function renderCats() {
   document.getElementById("cats").innerHTML = GROUPS
     .filter(([key]) => counts[key])
     .map(([key, label]) =>
-      `<button data-cat="${key}">${label}<span class="n">${counts[key]} place${
-         counts[key] === 1 ? "" : "s"}</span></button>`)
+      `<button data-cat="${key}">${iconFor(key)}<span class="clabel">${label}</span>
+         <span class="n">${counts[key]} place${counts[key] === 1 ? "" : "s"}</span></button>`)
     .join("");
 }
 
