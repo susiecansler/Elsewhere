@@ -53,6 +53,16 @@ FAVICON = """<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
 </svg>
 """
 
+#: A plain arrow for the go button. The loop is the brand and it means
+#: "translate this into that" — using it twice in one sentence spends the
+#: idea and leaves the reader deciding which of two identical marks is the
+#: button. Submit is not a translation, it is just forward.
+ARROW = (
+    '<svg class="{cls}" viewBox="0 0 24 24" fill="none" stroke="currentColor" '
+    'stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" '
+    'aria-hidden="true"><path d="M4 12h15"/><path d="M13 6l6 6-6 6"/></svg>'
+)
+
 #: The mark without its tile, inlined rather than served, so it inherits
 #: `currentColor` and can be dropped into a sentence, a button, or an empty
 #: state without three colour variants. `{cls}` lets each use size itself.
@@ -234,7 +244,7 @@ def page_html() -> str:
     """The page with the mark substituted into every slot that wants it."""
     return (
         PAGE.replace("__LOOP_INLINE__", LOOP.format(cls="loop"))
-        .replace("__LOOP_NEXT__", LOOP.format(cls="loop-go"))
+        .replace("__LOOP_NEXT__", ARROW.format(cls="go-arrow"))
         .replace("__LOOP_EMPTY__", LOOP.format(cls="loop-empty"))
         .replace("__LOOP_SPIN__", LOOP.format(cls="loop-spin"))
         .replace("__SUPABASE__", json.dumps(supabase_config()))
@@ -889,7 +899,7 @@ summary:hover { color: var(--dim); }
 }
 .next:hover { background: var(--accent-deep); transform: scale(1.05); box-shadow: none; }
 .next:active { transform: scale(.96); }
-.loop-go { width: 32px; height: 32px; }
+.go-arrow { width: 26px; height: 26px; }
 
 /* ─── First visit: choose a city ──────────────────────────────────────── */
 .pick { padding: 76px 24px 40px; text-align: center; }
