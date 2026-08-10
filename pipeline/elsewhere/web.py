@@ -223,6 +223,74 @@ def create_app(source: str = "austin", target: str = "chicago") -> FastAPI:
 
     return app
 
+#: Faint line drawings in the corners, in place of the two flat discs.
+#:
+#: Drawn as strokes rather than shapes, the way an engraving is — thin,
+#: uneven, more line than fill. They sit at very low opacity behind
+#: everything and never compete with the sentence they frame. Fish shoal
+#: toward the top right, balloons drift up from the bottom left: two ways of
+#: getting somewhere else, which is the only justification a decoration needs
+#: here.
+FISH = """<svg class="decor decor-fish" viewBox="0 0 300 260" fill="none"
+  stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
+  stroke-linejoin="round" aria-hidden="true">
+  <g>
+    <path d="M60 60c22-20 62-20 86 4-24 24-64 24-86 4-6-3-6-5 0-8z"/>
+    <path d="M146 64l26-16-6 16 6 16-26-16z"/>
+    <path d="M96 44c8-12 20-10 26 2"/>
+    <path d="M100 84c8 11 20 9 26-2"/>
+    <path d="M78 50c-6 9-6 19 0 28"/>
+    <circle cx="72" cy="62" r="2.4"/>
+    <path d="M96 54c8 5 8 11 0 16M112 52c9 5 9 13 0 18M128 54c8 5 8 11 0 16"/>
+  </g>
+  <g>
+    <path d="M132 140c18-16 50-16 70 3-20 20-52 20-70 3-5-2-5-4 0-6z"/>
+    <path d="M202 143l21-13-5 13 5 13-21-13z"/>
+    <path d="M162 128c6-10 16-8 21 2"/>
+    <path d="M146 133c-5 7-5 15 0 22"/>
+    <circle cx="141" cy="142" r="2"/>
+    <path d="M162 135c6 4 6 9 0 13M175 134c7 4 7 10 0 14"/>
+  </g>
+  <g>
+    <path d="M40 176c15-13 41-13 57 3-16 16-42 16-57 2-4-2-4-3 0-5z"/>
+    <path d="M97 179l17-11-4 11 4 11-17-11z"/>
+    <path d="M66 166c5-8 13-7 17 2"/>
+    <path d="M52 170c-4 6-4 12 0 18"/>
+    <circle cx="48" cy="178" r="1.7"/>
+  </g>
+  <path d="M214 96c9-3 18-3 27 0M222 108c7-2 14-2 21 0" stroke-width="1.2"/>
+</svg>
+"""
+
+BALLOONS = """<svg class="decor decor-balloons" viewBox="0 0 260 320" fill="none"
+  stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
+  stroke-linejoin="round" aria-hidden="true">
+  <g>
+    <path d="M96 34c30 0 48 24 48 48 0 26-26 50-48 68-22-18-48-42-48-68 0-24 18-48 48-48z"/>
+    <path d="M96 34c-14 32-14 82 0 116M96 34c14 32 14 82 0 116"/>
+    <path d="M62 52c-6 26-2 54 12 82M130 52c6 26 2 54-12 82"/>
+    <path d="M78 150h36M74 164h44" stroke-width="1.2"/>
+    <path d="M80 150l6 20M112 150l-6 20"/>
+    <path d="M84 170h24v18H84z"/>
+    <path d="M84 178h24" stroke-width="1.1"/>
+  </g>
+  <g>
+    <path d="M186 128c21 0 34 17 34 34 0 19-18 35-34 48-16-13-34-29-34-48 0-17 13-34 34-34z"/>
+    <path d="M186 128c-10 23-10 58 0 82M186 128c10 23 10 58 0 82"/>
+    <path d="M162 141c-4 18-1 38 8 58M210 141c4 18 1 38-8 58"/>
+    <path d="M172 212h28" stroke-width="1.2"/>
+    <path d="M175 212l4 14M197 212l-4 14"/>
+    <path d="M178 226h16v13h-16z"/>
+  </g>
+  <g stroke-width="1.2">
+    <path d="M42 236c15 0 24 12 24 24 0 14-13 25-24 34-11-9-24-20-24-34 0-12 9-24 24-24z"/>
+    <path d="M42 236c-7 17-7 41 0 58M42 236c7 17 7 41 0 58"/>
+    <path d="M32 296h20M35 296l3 10M49 296l-3 10"/>
+    <path d="M37 306h11v9H37z"/>
+  </g>
+</svg>
+"""
+
 
 def supabase_config() -> dict[str, str]:
     """Credentials for the accounts backend, or empty if it isn't set up.
@@ -248,6 +316,7 @@ def page_html() -> str:
         .replace("__LOOP_EMPTY__", LOOP.format(cls="loop-empty"))
         .replace("__LOOP_SPIN__", LOOP.format(cls="loop-spin"))
         .replace("__SUPABASE__", json.dumps(supabase_config()))
+        .replace("__DECOR__", FISH + BALLOONS)
     )
 
 
@@ -501,11 +570,7 @@ button.brand:hover { color: var(--dim); }
   text-align: center; padding: 24px 24px 150px; gap: 4px;
   position: relative; overflow: hidden;
 }
-.stage::before, .stage::after {
-  content: ""; position: absolute; border-radius: 50%; pointer-events: none; filter: blur(2px);
-}
-.stage::before { width: 34vw; height: 34vw; right: -12vw; top: -12vw; background: var(--turquoise); opacity: .06; }
-.stage::after { width: 22vw; height: 22vw; left: -8vw; bottom: 6vw; background: var(--accent); opacity: .06; }
+
 .stage .inner, .stage .tryfoot { position: relative; z-index: 1; }
 .stage[hidden] { display: none; }
 .stage .inner { width: 100%; max-width: min(900px, 92vw); margin: 0 auto; }
@@ -529,7 +594,7 @@ button.brand:hover { color: var(--dim); }
   min-height: 0; overflow: visible; padding-bottom: 26px; justify-content: flex-start;
   padding-top: 28px;
 }
-.stage.typing::before, .stage.typing::after { display: none; }
+.stage.typing .decor { display: none; }
 .stage.typing .ask { font-size: clamp(20px, 2.4vw, 28px); margin-bottom: 20px; }
 
 .tryfoot .q { font-size: 14px; font-weight: 500; color: var(--dim); margin: 0 0 14px; }
@@ -827,12 +892,22 @@ summary:hover { color: var(--dim); }
 }
 .setup[hidden] { display: none; }
 .setup .inner { width: 100%; max-width: 860px; margin: 0 auto; }
-.setup::before, .setup::after {
-  content: ""; position: absolute; border-radius: 50%; pointer-events: none;
-  filter: blur(2px);
+/* The corners, drawn. Set in the ink colour at very low opacity rather than
+   in a tint, so they read as pencil on the page instead of as coloured
+   shapes — and so they hold up in dark mode without a second palette. */
+.decor {
+  position: absolute; pointer-events: none; color: var(--ink);
+  opacity: .09; z-index: 0;
 }
-.setup::before { width: 38vw; height: 38vw; right: -12vw; top: -14vw; background: var(--accent); opacity: .07; }
-.setup::after { width: 26vw; height: 26vw; left: -10vw; bottom: -10vw; background: var(--turquoise); opacity: .07; }
+:root[data-theme="dark"] .decor { opacity: .14; }
+.decor-fish { top: -2vw; right: -3vw; width: min(38vw, 460px); height: auto; }
+.decor-balloons { bottom: -3vw; left: -3vw; width: min(26vw, 320px); height: auto; }
+
+@media (max-width: 760px) {
+  /* At phone width they crowd the sentence rather than framing it. */
+  .decor-fish { width: 62vw; top: -6vw; right: -14vw; opacity: .8; }
+  .decor-balloons { width: 44vw; bottom: -4vw; left: -12vw; }
+}
 .setup .inner > * { position: relative; z-index: 1; }
 
 .setup .pitch {
@@ -986,6 +1061,7 @@ summary:hover { color: var(--dim); }
      no indication which to make first. Split out, each screen asks one
      question. The city pickers live here and nowhere else. -->
 <section id="setup" class="setup" hidden>
+  __DECOR__
   <div class="inner">
     <h1 class="pitch"><span class="l1" id="line1">Every city has<span class="hl2"> <span id="heroart">an</span> <span id="heroplace">H-E-B</span>,</span></span><em>It\'s just elsewhere.</em></h1>
     <p class="sub">Tell us the city you know and the one you\'re headed to.
@@ -1042,6 +1118,7 @@ summary:hover { color: var(--dim); }
 
   <!-- Step two: one question, one box. -->
   <section class="stage" id="prompt">
+    __DECOR__
     <div class="inner">
       <h1 class="ask" id="askh"></h1>
       <div id="heroslot"></div>
