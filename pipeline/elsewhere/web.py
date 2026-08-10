@@ -1390,7 +1390,7 @@ summary:hover { color: var(--dim); }
   <div class="inner">
     <h1 class="pitch"><span class="l1" id="line1">Every city has<span class="hl2"> <span id="heroart">an</span> <span id="heroplace">H-E-B</span>,</span></span><em>It\'s just elsewhere.</em></h1>
     <p class="sub">Tell us the city you know and the one you\'re headed to.
-    We\'ll find the counterparts.</p>
+    We\'ll translate your favorite places.</p>
 
     <!-- A div, not a p: each city menu is a div, and a div inside a
          paragraph implicitly closes it — the parser was throwing away
