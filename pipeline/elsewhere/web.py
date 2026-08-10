@@ -32,8 +32,8 @@ from elsewhere import generate, links, places, verify
 #: often than anywhere else, and vector strokes stay crisp there where a
 #: downscaled raster turns to mush. It also costs 700 bytes and no build step.
 FAVICON = """<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect x="1" y="1" width="62" height="62" rx="15" fill="#F2F6E6"/>
-  <g fill="none" stroke="#14A288" stroke-width="5.2"
+  <rect x="1" y="1" width="62" height="62" rx="15" fill="#EDF4F8"/>
+  <g fill="none" stroke="#3985A6" stroke-width="5.2"
      stroke-linecap="round" stroke-linejoin="round">
     <!-- One wandering line: it sets out, doubles back on itself, then
          commits and leaves. That's the product in a single stroke. -->
@@ -43,10 +43,10 @@ FAVICON = """<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
   </g>
   <path d="M50.5 5.5C51.2 9.6 52.8 11.2 56.9 11.9C52.8 12.6 51.2 14.2 50.5 18.3
            C49.8 14.2 48.2 12.6 44.1 11.9C48.2 11.2 49.8 9.6 50.5 5.5Z"
-        fill="#8FD9B6"/>
+        fill="#9CC8DC"/>
   <!-- Kept clear of the corner radius: anything past x=60 up here gets
        clipped by the rounded tile. -->
-  <g stroke="#8FD9B6" stroke-width="3.2" stroke-linecap="round">
+  <g stroke="#9CC8DC" stroke-width="3.2" stroke-linecap="round">
     <path d="M56 17.5L59 14.5"/>
     <path d="M57.5 24.5L60.5 23.5"/>
   </g>
@@ -1203,13 +1203,16 @@ summary:hover { color: var(--dim); }
   opacity: .09; z-index: 0;
 }
 :root[data-theme="dark"] .decor { opacity: .14; }
-.decor-fish { top: -2vw; right: -3vw; width: min(38vw, 460px); height: auto; }
-.decor-balloons { bottom: -3vw; left: -3vw; width: min(26vw, 320px); height: auto; }
+/* Sat inside the frame, not hanging off it. Negative offsets on a container
+   that clips its overflow cut whole fish in half at the viewport edge, which
+   read as broken artwork rather than as a crop. */
+.decor-fish { top: 12px; right: 12px; width: min(30vw, 380px); height: auto; }
+.decor-balloons { bottom: 12px; left: 12px; width: min(21vw, 260px); height: auto; }
 
 @media (max-width: 760px) {
   /* At phone width they crowd the sentence rather than framing it. */
-  .decor-fish { width: 62vw; top: -6vw; right: -14vw; opacity: .8; }
-  .decor-balloons { width: 44vw; bottom: -4vw; left: -12vw; }
+  .decor-fish { width: 52vw; top: 6px; right: 6px; }
+  .decor-balloons { width: 36vw; bottom: 6px; left: 6px; }
 }
 .setup .inner > * { position: relative; z-index: 1; }
 /* The sentence outranks its siblings, because it contains the menus. Every
